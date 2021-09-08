@@ -1,8 +1,14 @@
-import { styled } from "@material-ui/core";
-import { render } from "sass";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-const ButtonRedWine = styled.h1`
-font-size: 1.5em;
-text-align: center;
-color: palevioletred;
-`;
+const ButtonRedWine = () => {
+    const MyButton = styled.h4`
+    padding: 2rem;
+    text-aling: center;
+    `;
+    return (
+    <MyButton>Acerca de</MyButton>)
+}
+
+export default ButtonRedWine
+
