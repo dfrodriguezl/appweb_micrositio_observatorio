@@ -43,7 +43,7 @@ const Center_content = () => <Grid container direction="row" spacing={2}>
 </Grid>
 
 const Bottom_content = () => <Grid>
-Inferiori
+Inferior
 </Grid>
 
 const ContentGrid = () =>
@@ -52,5 +52,5 @@ const ContentGrid = () =>
 <Center_content/>
 <Bottom_content/>
 </div>
-
+//Hola mundo
 export default ContentGrid;
