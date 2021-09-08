@@ -41,6 +41,10 @@ module.exports = {
           extensions:['.js','.jsx']
         }
 
+      },
+      {
+        type: 'asset',
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
       }
     ]
   },
