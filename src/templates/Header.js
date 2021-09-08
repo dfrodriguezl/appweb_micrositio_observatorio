@@ -1,33 +1,38 @@
 import React from 'react';
 import Styled from "styled-components";
+import TextField from '@material-ui/core/TextField';
+import logoDane from "../img/DANE__Geovisor__icon__logoDANE__01.svg";
+import logoGeoportal from "../img/DANE__Geovisor__icon__logoGeoportal.svg";
+
 
 
 const ContenedorLogo = Styled.div`
-    display: flex;
-    background-color: bisque;
+    display: flex;    
+    height: 75px;
+    margin-bottom: 20px;
 
 `;
 
 const Busqueda = Styled.div`
     display: flex;
     justify-content: flex-end;
-    margin-top: -40px;`       
+    margin-top: -60px;`       
 
 ;
 
-const Header = ({titulo}) => {
+const Header = () => {
     return ( 
 
         <header>
             
             <ContenedorLogo>
-            <h1>{titulo}</h1>
-                <img src= "../img/DANE__Geovisor__icon__logoDANE__01.svg" />
-                <img src="../img/DANE__Geovisor__icon__logoGeoportal.svg" />
+            
+                <img src= {logoDane} />
+                <img src= {logoGeoportal} />
                 
             </ContenedorLogo>
             <Busqueda>                
-                <input type= "text" placeholder = "Buscar" />
+                <TextField  id="filled-basic" label="Buscar" variant="filled" type= "text"  />
             </Busqueda>
         </header>
 
