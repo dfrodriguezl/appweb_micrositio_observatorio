@@ -12,6 +12,15 @@ const Text =
   "Es una infraestructura de datos capaz de consolidar aplicando ténicas registrales, la información que proviene de los observatorios inmobiliarios locales y otros actores clave, conforme a estándares establecidos, disponerlos de manera oficiao, agregando valor mediante la consolidación, gestión de sus propios datos y aplicación de nuevos métodos analíticos.";
 
 const useStyle = makeStyles({
+  
+  gridglobal:{
+    margin: "0 10% 0 10%",
+  },
+  
+  margintop:{
+    margin: "4% 0 0 0",
+  },
+
   textStyle: {
     color: "black",
     fontFamily: "roboto",
@@ -114,7 +123,7 @@ const Top_content = () => {
 const Center_content = () => {
     const classes = useStyle();
     return (
-    <Grid container>
+    <Grid container className={classes.margintop}>
       <Grid item container direction="column" xs>
         <Grid
           item
@@ -211,6 +220,7 @@ const Bottom_content = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
+      className={classes.margintop}
     >
       <h1 className={classes.contentrulesh1}>Normatividad</h1>
       <p className={classes.contentrulesp}>
@@ -228,11 +238,14 @@ const Bottom_content = () => {
   );
 }
 
-const ContentGrid = () => (
-  <Grid>
-    <Top_content />
-    <Center_content />
-    <Bottom_content />
-  </Grid>
-);
+const ContentGrid = () =>{
+  const classes = useStyle(); 
+  return(
+    <Grid className={classes.gridglobal}>
+      <Top_content />
+      <Center_content />
+      <Bottom_content />
+    </Grid>
+  );
+} 
 export default ContentGrid;
