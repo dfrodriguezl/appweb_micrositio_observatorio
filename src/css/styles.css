@@ -1,11 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
     background: #ffffff;
     color: black;
-    width: 100vw;
     font-family: 'Roboto', sans-serif;
+    
 }
