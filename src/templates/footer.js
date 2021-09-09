@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import Styled from "styled-components";
 import Grid from '@material-ui/core/Grid';
 import { AiOutlinePhone, AiOutlineClockCircle } from "react-icons/ai";
@@ -55,3 +56,44 @@ const Footer = () =>{
 export default Footer;
 
 
+=======
+
+
+
+const Footer = () =>{
+    return(
+        <div>
+            <span>Departamento Administrativo Nacional de Estadistica DANE</span>
+            <div>
+                <span> call center</span>
+                <p>
+                    Conmutador: (571) 597 833 00 ó (571)5978398
+                    linea gratuita nacional 01 8000 912 002
+                </p>
+            </div>
+            <div>
+                <span> call center</span>
+                <p>
+                    Conmutador: (571) 597 833 00 ó (571)5978398
+                    linea gratuita nacional 01 8000 912 002
+                </p>
+            </div>
+            <div>
+                <span> call center</span>
+                <p>
+                    Conmutador: (571) 597 833 00 ó (571)5978398
+                    linea gratuita nacional 01 8000 912 002
+                </p>
+            </div>
+            <div>
+                <span> call center</span>
+                <p>
+                    Conmutador: (571) 597 833 00 ó (571)5978398
+                    linea gratuita nacional 01 8000 912 002
+                </p>
+            </div>
+        </div>
+    );
+}
+export default Footer;
+>>>>>>> desarrollo
