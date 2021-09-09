@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Button, makeStyles } from '@material-ui/core';
 
-const ButtonRedWine = () => {
-    const MyButtonRedWine = styled.button`
-    padding: 1vh;
-    border-radius: 2vh;
-    background-color: #821a3f;
-    color: white;
-    font-weight: bold;
-    font-family: 'Work sans';
-    font-size: 2vh;
-    text-transform: capitalize;
-    transition:all 0.8s ease-out;
-    cursor: pointer;
-    &:hover{
-        background-color: ${"#db709380"};
+const useStyle = makeStyles({
+boton: {
+    padding: "1vh",
+    borderRadius: "2vh",
+    backgroundColor: "#821a3f",
+    color: "white",
+    fontWeight: "bold",
+    fontFamily: "Work sans",
+    textTransform: "capitalize",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    borderRadius: 3,
+    "&:hover":{
+        backgroundColor: "#3e071a",
+        border:"none",
     }
-    `;
-    return (
-    <MyButtonRedWine>Acerca de</MyButtonRedWine>)
+},
+});
+
+const ButtonRedWine = (props) => {    
+    const classes = useStyle();
+    return (   
+    <Button className={classes.boton} disableElevation href={props.href} target="_blank">{props.Title}</Button>
+    )
 }
 
 export default ButtonRedWine

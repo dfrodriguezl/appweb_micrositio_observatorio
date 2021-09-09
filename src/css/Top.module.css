@@ -9,6 +9,8 @@
     padding: 1em 0 1em 0;
 }
 
+
+
 .imagen_top p {
     color: white;
     font-family: 'roboto';
@@ -24,11 +26,7 @@
     background-repeat: no-repeat;
     background-image: url(../img/city2.jpg);
     background-size: cover;
-    background-position: center center;    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-position: center center;        
 }
 
 root{
@@ -43,30 +41,56 @@ root{
   
 .containerTall{
     min-height: 25vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
   .containerTitle{
     min-height: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .containerImg{
-    width: 100%;
+    width: 100% !important;
     height: 50vh;
     background-repeat: no-repeat;
     background-image: url(../img/figura.svg);
     background-size: 100% 100%;
-    background-position: center center;    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-position: center center;
   }
 
+.contentrules{
+    background-color: white;
+}
+
+.colrButton{
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: #821a3f;
+    color: white;
+    font-weight: bold;
+    font-family: 'Work sans';
+    font-size: 2vh;
+    text-transform: capitalize;
+    transition:all 0.8s ease-out;
+    cursor: pointer;    
+}
+
+.colrButton:hover{
+    background-color: #db709380;
+}
+
+.contentrules h1{
+    color: #821a3f;
+    font-family: 'Work sans';
+    font-weight: bold;
+    font-size: 5vh;
+    text-align: center;   
+    padding: 1em 0 1em 0;
+}
+
+.contentrules p{
+    color: #000000;
+    font-family: 'roboto';
+    font-weight: bold;
+    font-size: 3vh;
+    text-align: center;  
+    padding: 0 10vw 1em 10vw; 
+}

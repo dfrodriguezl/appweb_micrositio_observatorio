@@ -1,0 +1,1 @@
+// estandar de variables de diseño, para fuentes, colores, tamaños

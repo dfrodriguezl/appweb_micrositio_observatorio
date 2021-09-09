@@ -6,6 +6,7 @@ import Header from '../../templates/Header';
 import Footer from '../../templates/footer';
 
 
+
 const App = () => 
 <div>
 <Header/>
@@ -13,6 +14,5 @@ const App = () =>
 <ContentGrid/>
 <Footer/>
 </div>
-//hoola
 
 export default App;
