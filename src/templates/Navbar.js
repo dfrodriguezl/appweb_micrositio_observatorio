@@ -81,7 +81,7 @@ const Navbar = () => {
         <MenuUL>
             <Icnono>
             
-            <MenuIL><AiFillHome/><MenuA href ="#">Inicio </MenuA>
+            <MenuIL><AiFillHome/><MenuA><NavLink to="/">Inicio</NavLink></MenuA>
                 
                   <SubmenuUL className= "clasePrueba">
                       <SubMenuIL>
