@@ -1,50 +1,47 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { Component } from "react";
-import city from "../../img/city2.jpg";
+import city from "../../img/citycolor.svg";
 import figure from "../../img/figura.svg";
-// import styles from "../../css/Top.module.css";
 import ButtonRedWine from "../common/buttonredwine";
+import * as Values from '../../Variables/values';
 
 //Contenido para Center_content
-
-const Title = "¿Qué es el Observatorio Inmobiliario Nacional?";
-const Text =
-  "Es una infraestructura de datos capaz de consolidar aplicando ténicas registrales, la información que proviene de los observatorios inmobiliarios locales y otros actores clave, conforme a estándares establecidos, disponerlos de manera oficiao, agregando valor mediante la consolidación, gestión de sus propios datos y aplicación de nuevos métodos analíticos.";
 
 const useStyle = makeStyles({
   
   gridglobal:{
-    margin: "0 10% 0 10%",
+    padding: "0 10% 0 10%",
   },
   
+  marginbuttom:{
+    margin: "5% 0 0 0",
+    backgroundColor:"#f4f4f4",
+  },
+
   margintop:{
-    margin: "4% 0 0 0",
+    margin: "5% 0 0 0",
   },
 
   textStyle: {
-    color: "black",
-    fontFamily: "roboto",
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
-    fontSize: "3vh",
-    textAlign: "justify",
+    fontSize: "calc(0.5em + 3vh)",
+    textAlign: "center",
     padding: "0 1vw 0em 1vw",
   },
 
   titleStyle:{
-    color: "black",
-    fontFamily: "Work sans",
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: "5vh",
+    fontSize: "calc(1em + 3vh)",
     padding: "0.2em 0 0.5em 0",
   },
 
-  containerTall:{
-    minHeight: "25vh",
-  },
 
   imagen_top:{
-    width: "100%",
-    height: "50vh",
+    width: "100%",    
     backgroundRepeat: "no-repeat",
     backgroundImage:`url(${city})`,
     backgroundSize: "cover",
@@ -52,21 +49,22 @@ const useStyle = makeStyles({
   },
 
   Titleh3:{
-    color: "white",
-    fontFamily: 'Work sans',
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: "5vh",
+    fontSize: "calc(0.5em + 4vh)",
     textAlign: "center",   
-    padding: "1em 0 1em 0",
+    padding: "2em 0 2em 0",
   },
 
   Textp:{
-    color: "white",
-    fontFamily: 'roboto',
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
-    fontSize: "3.5vh",
+    fontSize: "calc(1em + 1.5vh)",
     textAlign: "center",  
-    padding: "0 10vw 1em 10vw", 
+    margin: "1em 14% 2em 14%", 
+    backgroundColor: Values.Colorbottom,
   },
 
   containerImg:{
@@ -83,19 +81,19 @@ const useStyle = makeStyles({
   },
 
   contentrulesh1:{
-    color: "#821a3f",
-    fontFamily: "Work sans",
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: "5vh",
+    fontSize: "calc(1em + 4vh)",
     textAlign: "center", 
     padding: "1em 0 1em 0",
 },
 
 contentrulesp:{
-  color: "#000000",
-  fontFamily: "roboto",
+  color: Values.TextParagraph,
+  fontFamily: Values.SourceRoboto,
   fontWeight: "bold",
-  fontSize: "3vh",
+  fontSize: "calc(1em + 1vh)",
   textAlign: "center",  
   padding: "0 10vw 1em 10vw", 
 },
@@ -113,8 +111,8 @@ const Top_content = () => {
     alignItems="center"
     className={classes.imagen_top}
   >
-    <h3 className={classes.Titleh3}>{Title}</h3>
-    <p className={classes.Textp}>{Text}</p>
+    <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
+    <p className={classes.Textp}>{Values.TextHomeTop}</p>
     <ButtonRedWine Title="Acerca de" />
   </Grid>
   );
@@ -132,7 +130,6 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.containerTall}
         >
           <h1 className={classes.titleStyle}>Seguimiento</h1>
           <p className={classes.textStyle}>Seguimiento proactivo de transacciones y cambios en el tiempo.</p>
@@ -144,7 +141,7 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.containerTall}
+          
         >
           <h1 className={classes.titleStyle}>Comunicación</h1>
           <p className={classes.textStyle}>
@@ -183,7 +180,7 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.containerTall}
+          
         >
           <h1 className={classes.titleStyle}>Integración</h1>
           <p className={classes.textStyle}>
@@ -199,7 +196,7 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.containerTall}
+          
         >
           <h1 className={classes.titleStyle}>LADM</h1>
           <p className={classes.textStyle}>
@@ -220,7 +217,7 @@ const Bottom_content = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      className={classes.margintop}
+      className={classes.marginbuttom}
     >
       <h1 className={classes.contentrulesh1}>Normatividad</h1>
       <p className={classes.contentrulesp}>
@@ -248,4 +245,5 @@ const ContentGrid = () =>{
     </Grid>
   );
 } 
+
 export default ContentGrid;

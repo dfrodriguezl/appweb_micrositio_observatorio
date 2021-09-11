@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
+import { Link, NavLink } from 'react-router-dom';
 import Styled from "styled-components";
 
 const NavBarContenedor = Styled.div`
@@ -92,7 +93,7 @@ const Navbar = () => {
                       </SubMenuIL>
                       
                       <SubMenuIL>
-                        <SubMenuA href ="#">Mapas </SubMenuA> 
+                        <SubMenuA></SubMenuA> 
                       </SubMenuIL>
                       
                       <SubMenuIL>
@@ -109,7 +110,7 @@ const Navbar = () => {
             
             <MenuIL><AiOutlineDown/><MenuA href ="#">Servicios3 </MenuA> </MenuIL> 
 
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Mapas </MenuA> </MenuIL>
+            <MenuIL><AiOutlineDown/><MenuA><NavLink to="/Mapas">Mapas</NavLink></MenuA></MenuIL>
             
             <MenuIL><AiOutlineDown/><MenuA href ="#">Catastro Multiproposito </MenuA> </MenuIL>
            

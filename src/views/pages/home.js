@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import ContentGrid from './contentgrid';
-import Header from '../../templates/Header';
-import Navbar from '../../templates/Navbar';
-import Footer from '../../templates/footer';
+//style
 import styles from '../../css/styles.css';
+import Routes from '../../routes/routes';
+import Header from '../../templates/Header';
+import Footer from '../../templates/footer';
 
-
-
-
-
-const App = () => 
-<div>
-<Header/>
-<Navbar/>
-<ContentGrid/>
-<Footer/>
-</div>
-
+const App = () => {
+    return(
+        <div>
+            <Header/>
+            <Routes/> 
+            <Footer/>
+        </div>
+    );
+}
 export default App;

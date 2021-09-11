@@ -7,7 +7,6 @@ import logoGobernment from "../img/logoGovernment.png";
 
 const ContenedorFooter= Styled.div`
         background-color: #fff;
-        padding: 380px 0 0 5px; 
 `;
 const Imagen = Styled.img`
     max-width:200px;
