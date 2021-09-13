@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 // This is main configuration object.
 // Here you write different options and tell Webpack what to do
 module.exports = {
-
+  devtool: "source-map",
   // Path to your entry point. From this file Webpack will begin his work
   entry: {
     index: './src/index.js',
@@ -16,15 +16,18 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    historyApiFallback: true,
     compress: true,
     port: 9000,
-    hot: true
+    hot: true,
+    
   },
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
+    publicPath: '/'
   },
 
   module: {

@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Button, makeStyles } from '@material-ui/core';
+import * as Values from '../../Variables/values';
 
 const useStyle = makeStyles({
+  
 boton: {
-    padding: "1vh",
+    padding: "0 1em 0 1em",
     borderRadius: "2vh",
-    backgroundColor: "#821a3f",
-    color: "white",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
     fontWeight: "bold",
-    fontFamily: "Work sans",
+    fontFamily: Values.SourceWorksans,
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
-    borderRadius: 3,
+    margin: "3% 0 5% 0",
+    width: "max-content",
+    fontSize: "calc(1em + 1vh)",
+    borderRadius: "2vh",
     "&:hover":{
-        backgroundColor: "#3e071a",
+        backgroundColor: Values.HoverButton,
         border:"none",
     }
 },

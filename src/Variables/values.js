@@ -1,1 +1,25 @@
 // estandar de variables de diseño, para fuentes, colores, tamaños
+import React from 'react';
+
+//Colors Button
+export const Redwinecolor = "#821a3f"
+export const HoverButton = "#3e071a"
+
+//Colors bottom
+export const Colorbottom = "#ffffffb3"
+
+//Colors Text
+export const TextParagraph = "#494949"
+export const TextButton = "white"
+
+//Text
+export const TitleHomeTop = "¿Qué es el Observatorio Inmobiliario Nacional?";
+export const TextHomeTop = "Es una infraestructura de datos capaz de consolidar aplicando ténicas registrales, la información que proviene de los observatorios inmobiliarios locales y otros actores clave, conforme a estándares establecidos, disponerlos de manera oficiao, agregando valor mediante la consolidación, gestión de sus propios datos y aplicación de nuevos métodos analíticos.";
+export const TitleGeovisores = "Geovisores"
+export const TextGeovisor = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris."
+
+//Sources
+export const SourceRoboto = "Roboto"
+export const SourceWorksans = "Work sans"
+
+
