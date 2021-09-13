@@ -15,7 +15,7 @@ const useStyle = makeStyles({
   },
   
   marginbuttom:{
-    margin: "5% 0 0 0",
+    margin: "5% 0 5% 0",
     backgroundColor:"#f4f4f4",
   },
 
@@ -163,7 +163,7 @@ const Center_content = () => {
             container
             direction="column"
             justifyContent="center"
-          alignItems="center"
+            alignItems="center"
             className={classes.containerImg}
           ></Grid>
         </Grid>
