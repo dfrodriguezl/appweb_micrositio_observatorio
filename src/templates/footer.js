@@ -7,18 +7,13 @@ import logoGobernment from "../img/logoGovernment.png";
 
 
 const ContenedorFooter= Styled.div`
-<<<<<<< HEAD
         background-color: #FAFAFA;
-        margin-top:15px;
-        
+        margin-top:15px;        
                 
 `;
 const H3 = Styled.h3`
     text-align: center;
     padding: 15px 0;
-=======
-        background-color: #fff;
->>>>>>> desarrollo
 `;
 const Imagen = Styled.img`
     max-width:200px;

@@ -64,7 +64,6 @@ const SubMenuA = Styled.a`
 `;
 
 const Navbar = () => {
-<<<<<<< HEAD
   
   const handleClick = action => {
     if (!action) return;
@@ -93,7 +92,7 @@ const Navbar = () => {
                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
                 </DropDownContent>
             </DropDownLi>
-            <DropDownLi><MenuA href ="#"><AiOutlineDown/>Mapas </MenuA>
+            <DropDownLi><NavLink to="/Mapas"><MenuA href ="#"><AiOutlineDown/>Mapas </MenuA></NavLink>
                   
                 <DropDownContent>                        
                           {" "}
@@ -130,52 +129,6 @@ const Navbar = () => {
                 </DropDownContent>
             </DropDownLi>               
         </NavBarContenedor>
-=======
-  return (
-    <NavBarContenedor>
-      
-        <MenuUL>
-            <Icnono>
-            
-            <MenuIL><AiFillHome/><MenuA><NavLink to="/">Inicio</NavLink></MenuA>
-                
-                  <SubmenuUL className= "clasePrueba">
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Servicios </SubMenuA>
-                      </SubMenuIL>
-              
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Servicios2 </SubMenuA> 
-                      </SubMenuIL>
-                      
-                      <SubMenuIL>
-                        <SubMenuA></SubMenuA> 
-                      </SubMenuIL>
-                      
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Catastro Multiproposito </SubMenuA> 
-                      </SubMenuIL>
-                    
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Boletines </SubMenuA> 
-                      </SubMenuIL>
-                  </SubmenuUL>                
-
-            
-            </MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Servicios3 </MenuA> </MenuIL> 
-
-            <MenuIL><AiOutlineDown/><MenuA><NavLink to="/Mapas">Mapas</NavLink></MenuA></MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Catastro Multiproposito </MenuA> </MenuIL>
-           
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Boletines </MenuA> </MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Ingresar </MenuA> </MenuIL>
-            </Icnono>
-        </MenuUL>
->>>>>>> desarrollo
         
     
   );
