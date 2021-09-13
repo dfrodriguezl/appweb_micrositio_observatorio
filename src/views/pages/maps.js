@@ -49,10 +49,7 @@ const Topmaps = () => {
         </Grid>
     );
 }
-
-
-
-const mapas = () => {
+const maps = () => {
     const classes = useStyle();
     return (
         <Grid>
@@ -62,4 +59,4 @@ const mapas = () => {
     );
 }
 
-export default mapas
+export default maps
