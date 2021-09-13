@@ -2,10 +2,21 @@ import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, But
 import React, { Component } from 'react';
 import * as Values from '../../Variables/values';
 import triangles from "../../img/triangles.svg";
+import ButtonRedWine from "../common/buttonredwine";
 
 
 const useStyle = makeStyles({
-    
+  
+  centerButton: {
+    justifyContent: "center",
+    padding: "0 0 8% 0 !important",
+  },
+
+  centerText:{
+    textAlign: "center",
+    padding: "14% 0 0 0",
+  },
+
     gridglobal:{
       padding: "5% 10% 1% 10%",
     },
@@ -36,6 +47,8 @@ const useStyle = makeStyles({
 
       root: {
         width: 373,
+        borderRadius: "1em",        
+        boxShadow: "3px 3px 10px #7b7676",
       },
       media: {
         height: 280,
@@ -43,7 +56,8 @@ const useStyle = makeStyles({
       },
       cardglobal:{
         margin: "0% 0% 0% 0%",
-        padding: "0% 0% 5% 0%",
+        padding: "0% 0% 5% 0%",        
+        backgroundColor: "#fafafa",
       },
 });
 
@@ -70,10 +84,10 @@ const Cardsmapas = () => {
                 <CardContent className={classes.cardglobal}>
                   <CardMedia
                     className={classes.media}
-                    image="https://ep01.epimg.net/elpais/imagenes/2019/10/30/album/1572424649_614672_1572453030_noticia_normal.jpg"
+                    image="https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg"
                     title="Contemplative Reptile"
                   />
-                  <CardContent>
+                  <CardContent className={classes.centerText}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Lizard
                     </Typography>
@@ -88,13 +102,8 @@ const Cardsmapas = () => {
                     </Typography>
                   </CardContent>
                 </CardContent>
-                <CardActions>
-                  <Button size="small" color="primary">
-                    Share
-                  </Button>
-                  <Button size="small" color="primary">
-                    Learn More
-                  </Button>
+                <CardActions className={classes.centerButton}>
+                <ButtonRedWine Title="Visitar" />
                 </CardActions>
               </Card>
             </Grid>
