@@ -2,6 +2,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import React, { Component } from 'react';
 import * as Values from '../../Variables/values';
 import triangles from "../../img/triangles.svg";
+import CardsMaps from '../common/Cards';
 
 
 const useStyle = makeStyles({
@@ -39,7 +40,7 @@ const useStyle = makeStyles({
 
 
 
-const Topmapas = () => {
+const Topmaps = () => {
     const classes = useStyle();
     return (
         <Grid container className={classes.imagen_top}>
@@ -49,21 +50,14 @@ const Topmapas = () => {
     );
 }
 
-const Cardsmapas = () => {
-    const classes = useStyle();
-    return (
-        <Grid container className={classes.imagen_top}>
-            <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
-            <p className={classes.Textp}>{Values.TextGeovisor}</p>
-        </Grid>
-    );
-}
+
 
 const mapas = () => {
     const classes = useStyle();
     return (
         <Grid>
-            <Topmapas/>
+            <Topmaps/>
+            <CardsMaps/>
         </Grid>
     );
 }

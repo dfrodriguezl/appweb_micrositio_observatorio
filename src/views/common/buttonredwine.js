@@ -16,6 +16,7 @@ boton: {
     transition:"all 0.8s ease-out",
     cursor: "pointer",
     margin: "3% 0 5% 0",
+    width: "max-content",
     fontSize: "calc(1em + 1vh)",
     borderRadius: "2vh",
     "&:hover":{

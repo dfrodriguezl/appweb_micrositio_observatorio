@@ -11,6 +11,7 @@ const useStyle = makeStyles({
   
   gridglobal:{
     padding: "0 10% 0 10%",
+    
   },
   
   marginbuttom:{
@@ -45,7 +46,7 @@ const useStyle = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundImage:`url(${city})`,
     backgroundSize: "cover",
-    backgroundPosition: "center center",         
+    backgroundPosition: "center center",      
   },
 
   Titleh3:{
@@ -123,11 +124,9 @@ const Center_content = () => {
     return (
     <Grid container className={classes.margintop}>
       <Grid item container direction="column" xs>
-        <Grid
-          item
-          xs
+        <Grid          
           container
-          direction="column"
+          direction="column"          
           justifyContent="center"
           alignItems="center"
         >
@@ -140,8 +139,7 @@ const Center_content = () => {
           container
           direction="column"
           justifyContent="center"
-          alignItems="center"
-          
+          alignItems="center"         
         >
           <h1 className={classes.titleStyle}>Comunicación</h1>
           <p className={classes.textStyle}>
@@ -152,8 +150,6 @@ const Center_content = () => {
       </Grid>
       <Grid item container direction="column" xs>
         <Grid
-          item
-          xs
           container
           direction="column"
           justifyContent="center"
@@ -163,24 +159,21 @@ const Center_content = () => {
           <h1 className={classes.titleStyle}>Ventajas</h1>
         </Grid>
         <Grid item xs>
-          <div
+          <Grid
             container
             direction="column"
             justifyContent="center"
-            alignItems="center"
+          alignItems="center"
             className={classes.containerImg}
-          ></div>
+          ></Grid>
         </Grid>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid
-          item
-          xs
           container
           direction="column"
           justifyContent="center"
           alignItems="center"
-          
         >
           <h1 className={classes.titleStyle}>Integración</h1>
           <p className={classes.textStyle}>
@@ -193,10 +186,9 @@ const Center_content = () => {
           item
           xs
           container
-          direction="column"
+          direction="column"     
           justifyContent="center"
-          alignItems="center"
-          
+          alignItems="center"     
         >
           <h1 className={classes.titleStyle}>LADM</h1>
           <p className={classes.textStyle}>
@@ -213,7 +205,7 @@ const Bottom_content = () => {
   const classes = useStyle();
   return(
     <Grid
-      container = "false"
+      container
       direction="column"
       justifyContent="center"
       alignItems="center"
@@ -238,10 +230,10 @@ const Bottom_content = () => {
 const ContentGrid = () =>{
   const classes = useStyle(); 
   return(
-    <Grid className={classes.gridglobal}>
-      <Top_content />
-      <Center_content />
-      <Bottom_content />
+    <Grid container className={classes.gridglobal}>
+      <Top_content/>
+      <Center_content/>
+      <Bottom_content/>
     </Grid>
   );
 } 

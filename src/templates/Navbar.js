@@ -1,6 +1,12 @@
 import React from 'react';
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
-import { Link, NavLink } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink 
+} from "react-router-dom";
 import Styled from "styled-components";
 
 const NavBarContenedor = Styled.div`
