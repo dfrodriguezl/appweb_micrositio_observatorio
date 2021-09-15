@@ -6,7 +6,8 @@ export const Redwinecolor = "#821a3f"
 export const HoverButton = "#3e071a"
 
 //Colors bottom
-export const Colorbottom = "#ffffffb3"
+export const Colormid = "#ffffffb3"
+export const Colorbottom = "#f4f4f4"
 
 //Colors Text
 export const TextParagraph = "#494949"
@@ -22,4 +23,8 @@ export const TextGeovisor = "Lorem ipsum dolor sit amet, consectetur adipiscing 
 export const SourceRoboto = "Roboto"
 export const SourceWorksans = "Work sans"
 
-
+//Size Text
+export const SizeTitle = "calc(1em + 2.5vh)"
+export const SizeSubtitle = "calc(1em + 2vh)"
+export const SizeText = "calc(1em + 1vh)"
+export const SizeAuxiliary= "calc(1em + 0.5vh)"

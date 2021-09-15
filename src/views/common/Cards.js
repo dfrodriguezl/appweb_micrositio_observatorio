@@ -14,7 +14,7 @@ const useStyle = makeStyles({
 
   centerText:{
     textAlign: "center",
-    padding: "14% 0 0 0",
+    padding: "10% 0 0 0",
   },
 
     gridglobal:{
@@ -22,40 +22,36 @@ const useStyle = makeStyles({
     },
     
     Titleh3:{
-        color: Values.TextButton,
-        fontFamily: Values.SourceWorksans,
-        fontWeight: "bold",
-        fontSize: "calc(0.5em + 2.2vh)",
-        textAlign: "center",   
-        padding: "1em 0 1em 10%",
-      },
+      color: Values.Redwinecolor,
+      fontFamily: Values.SourceWorksans,
+      fontWeight: "bold",
+      fontSize: Values.SizeSubtitle,
+      textAlign: "center",   
+      padding: "0 0 1em 0",
+    },
     
       Textp:{
-        color: Values.TextButton,
+        color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
-        fontWeight: "bold",
-        fontSize: "calc(1em + 1.5vh)",
+        fontSize: Values.SizeAuxiliary,
         textAlign: "start",  
-        margin: "0 10% 1em 10%",
-      },
-
-      paper: {
-        height: "30vw",
-        width: "25vw",
-        backgroundolor: "#0b00ff",
+        margin: "0 10% 0 10%",
       },
 
       root: {
-        width: 373,
+        width: "42vh",
         borderRadius: "1em",        
         boxShadow: "3px 3px 10px #7b7676",
       },
-      media: {
-        height: 280,
 
+      media: {
+      height: "28vh",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center center",
       },
+
       cardglobal:{
-        margin: "0% 0% 0% 0%",
+        //margin: "0% 0% 0% 0%",
         padding: "0% 0% 5% 0%",        
         backgroundColor: "#fafafa",
       },
@@ -88,14 +84,10 @@ const Cardsmapas = () => {
                     title="Contemplative Reptile"
                   />
                   <CardContent className={classes.centerText}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography className={classes.Titleh3}>
                       Lizard
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
+                    <Typography className={classes.Textp}>
                       Lizards are a widespread group of squamate reptiles, with
                       over 6,000 species, ranging across all continents except
                       Antarctica

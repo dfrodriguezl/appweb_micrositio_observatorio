@@ -10,36 +10,34 @@ import * as Values from '../../Variables/values';
 const useStyle = makeStyles({
   
   gridglobal:{
-    padding: "0 10% 0 10%",
+    padding: "0 10vw 0 10vw",
     
   },
   
   marginbuttom:{
     margin: "5% 0 5% 0",
-    backgroundColor:"#f4f4f4",
+    backgroundColor:Values.Colorbottom,
   },
 
   margintop:{
-    margin: "5% 0 0 0",
+    margin: "3% 0 0 0",
   },
 
   textStyle: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontWeight: "bold",
-    fontSize: "calc(0.5em + 3vh)",
+    fontSize: Values.SizeText,
     textAlign: "center",
-    padding: "0 1vw 0em 1vw",
+    padding: "0 1vw 0 1vw",
   },
 
   titleStyle:{
     color: Values.Redwinecolor,
     fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: "calc(1em + 3vh)",
-    padding: "0.2em 0 0.5em 0",
+    fontSize: Values.SizeSubtitle,
+    padding: "0.5em 0 0.5em 0",
   },
-
 
   imagen_top:{
     width: "100%",    
@@ -53,24 +51,23 @@ const useStyle = makeStyles({
     color: Values.Redwinecolor,
     fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: "calc(0.5em + 4vh)",
+    fontSize: Values.SizeTitle,
     textAlign: "center",   
-    padding: "2em 0 2em 0",
+    padding: "2em 0 1em 0",
   },
 
   Textp:{
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontWeight: "bold",
-    fontSize: "calc(1em + 1.5vh)",
+    fontSize: Values.SizeText,
     textAlign: "center",  
     margin: "1em 14% 2em 14%", 
-    backgroundColor: Values.Colorbottom,
+    backgroundColor: Values.Colormid,
   },
 
   containerImg:{
     width: "100% !important",
-    height: "50vh",
+    height: "51vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${figure})`,
     backgroundSize: "100% 100%",
@@ -78,14 +75,13 @@ const useStyle = makeStyles({
   },
 
   containerTitle:{
-    minHeight: "10vh"
+    minHeight: "13vh"
   },
 
   contentrulesh1:{
     color: Values.Redwinecolor,
     fontFamily: Values.SourceWorksans,
-    fontWeight: "bold",
-    fontSize: "calc(1em + 4vh)",
+    fontSize: Values.SizeTitle,
     textAlign: "center", 
     padding: "1em 0 1em 0",
 },
@@ -93,12 +89,10 @@ const useStyle = makeStyles({
 contentrulesp:{
   color: Values.TextParagraph,
   fontFamily: Values.SourceRoboto,
-  fontWeight: "bold",
-  fontSize: "calc(1em + 1vh)",
+  fontSize: Values.SizeText,
   textAlign: "center",  
   padding: "0 10vw 1em 10vw", 
-},
-  
+}, 
 
 });
 
@@ -119,10 +113,28 @@ const Top_content = () => {
   );
   };
 
+const Imgquery = () => {
+  const classes = useStyle();
+  return(
+    <Grid item container direction="column" xs justifyContent="center" alignItems="center">  
+      <div className={classes.containerImg}></div>
+    </Grid>
+  );
+};
+
 const Center_content = () => {
     const classes = useStyle();
     return (
     <Grid container className={classes.margintop}>
+      <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          className={classes.containerTitle}
+        >
+          <h1 className={classes.titleStyle}>Ventajas</h1>
+        </Grid>
       <Grid item container direction="column" xs>
         <Grid          
           container
@@ -148,26 +160,7 @@ const Center_content = () => {
           </p>
         </Grid>
       </Grid>
-      <Grid item container direction="column" xs>
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          className={classes.containerTitle}
-        >
-          <h1 className={classes.titleStyle}>Ventajas</h1>
-        </Grid>
-        <Grid item xs>
-          <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            className={classes.containerImg}
-          ></Grid>
-        </Grid>
-      </Grid>
+      <Imgquery/>
       <Grid item container direction="column" xs>
         <Grid
           container

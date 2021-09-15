@@ -14,19 +14,17 @@ const useStyle = makeStyles({
     Titleh3:{
         color: Values.TextButton,
         fontFamily: Values.SourceWorksans,
-        fontWeight: "bold",
-        fontSize: "calc(0.5em + 2.2vh)",
+        fontSize: Values.SizeSubtitle,
         textAlign: "center",   
-        padding: "1em 0 1em 10%",
+        padding: "1em 0 0.5em 10%",
       },
     
       Textp:{
         color: Values.TextButton,
         fontFamily: Values.SourceRoboto,
-        fontWeight: "bold",
-        fontSize: "calc(1em + 1.5vh)",
+        fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "0 10% 1em 10%",
+        margin: "0 10% 1.5em 10%",
       },
 
       imagen_top:{
@@ -37,8 +35,6 @@ const useStyle = makeStyles({
         backgroundPosition: "center center",         
       },
 });
-
-
 
 const Topmaps = () => {
     const classes = useStyle();
