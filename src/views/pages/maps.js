@@ -1,8 +1,8 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React, { Component } from 'react';
-import * as Values from '../../Variables/values';
-import triangles from "../../img/triangles.svg";
-import CardsMaps from '../common/Cards';
+import * as Values from 'Variables/values';
+import triangles from "img/triangles.svg";
+import CardsMaps from 'common/Cards';
 
 
 const useStyle = makeStyles({

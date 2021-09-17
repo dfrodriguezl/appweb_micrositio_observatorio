@@ -1,8 +1,7 @@
 import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import * as Values from '../../Variables/values';
-import triangles from "../../img/triangles.svg";
-import ButtonRedWine from "../common/buttonredwine";
+import * as Values from 'Variables/values';
+import ButtonRedWine from "common/buttonredwine";
 
 
 const useStyle = makeStyles({

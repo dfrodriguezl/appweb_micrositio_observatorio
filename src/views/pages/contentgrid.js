@@ -1,9 +1,9 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { Component } from "react";
-import city from "../../img/citycolor.svg";
-import figure from "../../img/figura.svg";
-import ButtonRedWine from "../common/buttonredwine";
-import * as Values from '../../Variables/values';
+import city from "img/citycolor.svg";
+import figure from "img/figura.svg";
+import ButtonRedWine from "common/buttonredwine";
+import * as Values from 'Variables/values';
 
 //Contenido para Center_content
 

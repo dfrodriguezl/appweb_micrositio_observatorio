@@ -6,9 +6,10 @@ import {
     Route,
   } from "react-router-dom";
 //
-import ContentGrid from '../views/pages/contentgrid';
-import Navbar from '../templates/Navbar';
-import Maps from '../views/pages/maps';
+import ContentGrid from 'pages/contentgrid';
+import Navbar from 'templates/Navbar';
+import Maps from 'pages/maps';
+import Notfound from 'pages/notfound';
 
 const routes = () => {
     return (
@@ -16,12 +17,9 @@ const routes = () => {
            <div>
            <Navbar/>
             <Switch>
-                <Route exact path="/Mapas">
-                    <Maps/>
-                </Route>
-                <Route path="/">
-                    <ContentGrid/>
-                </Route>
+                <Route exact path="/Mapas" component={Maps}/>
+                <Route exact path="/" component={ContentGrid}/>
+                <Route path="*" component={Notfound}/>
             </Switch>
            </div>
         </Router>

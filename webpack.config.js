@@ -60,7 +60,6 @@ module.exports = {
       chunks: ["index"]
     }),
     
-
     /*
     new BundleAnalyzerPlugin({
       analyzerMode: 'static', //para que lo haga sólo al momento de hacer el build

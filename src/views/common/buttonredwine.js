@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Button, makeStyles } from '@material-ui/core';
-import * as Values from '../../Variables/values';
+import * as Values from 'Variables/values';
 
 const useStyle = makeStyles({
   
