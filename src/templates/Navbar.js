@@ -9,124 +9,128 @@ import {
 } from "react-router-dom";
 import Styled from "styled-components";
 
-const NavBarContenedor = Styled.div`
-    text-align: center; 
+const NavBarContenedor = Styled.ul`    
+    max-width:1300px;
+    display:flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    width: 100%;
+    padding: 5px;
+    list-style: none;
+    
 `;
 
-const Icnono = Styled.div`
-     display: flex;
-     list-style: none; 
-      
-`;
-
-const MenuUL =  Styled.ul`
-       /* display: flex; */
-      display:inline-flex;
-          
+const MenuA = Styled.a`
+    text-decoration: none;
+    margin: 15px;
+    padding: 10px; 
+    color: #000; 
+    &:hover{
+      background-color: #BD0B4E;
+      border-radius: 3px;
+      color: #fff;
+      /* font-weight: bold; */
+    }        
 `;
 
 const MenuIL =  Styled.li`
-    max-width:1300px;
-    margin: 15px;
-    padding: 10px;
-    &:hover{
-      ${SubmenuUL}{
-        display:block;
-      }
-    
-    }
-               
-`;
-const MenuA = Styled.a`
-    text-decoration: none;
-    padding: 5px;
+    float: left;   
+    `;
 
-    &:hover{
-      background-color: #f06292;
-      border-radius: 3px;
-      color: #fff;
-      font-weight: bold;
+const DropDownContent = Styled.div`
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+z-index: 1;
+margin: 10px 0 0 15px;
+`;  
+const DropDownLi = Styled(MenuIL)`
+    display: inline-block;   
+    &:hover ${DropDownContent} {
+      display: block;
     }
-`;
-
-const SubmenuUL = Styled.ul`
-     /* display: none;      */
-`;
-const SubMenuIL =  Styled.li`
-    list-style: none;
-    /* display:none; */
-   
-    &:hover{
-      /* display:block;
-      position: absolute; */
-      /* background-color: #f06292; */
-      /* border-radius: 3px;
-      color: #fff;
-      font-weight: bold; */
-    }   
-`;
+  `;
 const SubMenuA = Styled.a`
-    text-decoration: none;
-    padding: 2px;
-    margin: 3px;
-
-&:hover {
-      /* display:block;
-      position: absolute; */
-      background-color: #f06292;
-      /* border-radius: 3px;
-      color: #fff;
-      font-weight: bold; */
-    } 
+   color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  &:hover {
+    background-color: #f1f1f1;
+  }
 `;
 
 const Navbar = () => {
+  
+  const handleClick = action => {
+    if (!action) return;
+
+    if (this.props.onClick) this.props.onClick(action);
+  };
+  
   return (
-    <NavBarContenedor>
-      
-        <MenuUL>
-            <Icnono>
-            
-            <MenuIL><AiFillHome/><MenuA><NavLink to="/">Inicio</NavLink></MenuA>
-                
-                  <SubmenuUL className= "clasePrueba">
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Servicios </SubMenuA>
-                      </SubMenuIL>
-              
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Servicios2 </SubMenuA> 
-                      </SubMenuIL>
-                      
-                      <SubMenuIL>
-                        <SubMenuA></SubMenuA> 
-                      </SubMenuIL>
-                      
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Catastro Multiproposito </SubMenuA> 
-                      </SubMenuIL>
-                    
-                      <SubMenuIL>
-                        <SubMenuA href ="#">Boletines </SubMenuA> 
-                      </SubMenuIL>
-                  </SubmenuUL>                
-
-            
-            </MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Servicios3 </MenuA> </MenuIL> 
-
-            <MenuIL><AiOutlineDown/><MenuA><NavLink to="/Mapas">Mapas</NavLink></MenuA></MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Catastro Multiproposito </MenuA> </MenuIL>
-           
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Boletines </MenuA> </MenuIL>
-            
-            <MenuIL><AiOutlineDown/><MenuA href ="#">Ingresar </MenuA> </MenuIL>
-            </Icnono>
-        </MenuUL>
+    
+        <NavBarContenedor>
+            <DropDownLi><MenuA href ="#"><AiFillHome/>Inicio </MenuA>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>
+            <DropDownLi><MenuA href ="#"><AiOutlineDown/>Servicios </MenuA>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>
+            <DropDownLi><NavLink to="/Mapas"><MenuA href ="#"><AiOutlineDown/>Mapas </MenuA></NavLink>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>
+            <DropDownLi><MenuA href ="#"><AiOutlineDown/>Catastro Multiproposito </MenuA>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>
+            <DropDownLi><MenuA href ="#"><AiOutlineDown/>Boletines </MenuA>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>
+            <DropDownLi><MenuA href ="#"><AiOutlineDown/>Ingresar </MenuA>
+                  
+                <DropDownContent>                        
+                          {" "}
+                          <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
+                        <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
+                       <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
+                </DropDownContent>
+            </DropDownLi>               
+        </NavBarContenedor>
         
-    </NavBarContenedor>
+    
   );
 };
 
