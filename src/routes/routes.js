@@ -9,6 +9,8 @@ import {
 import ContentGrid from '../views/pages/contentgrid';
 import Navbar from '../templates/Navbar';
 import Maps from '../views/pages/maps';
+import Drawer from '../visores/esmeralda/Drawer';
+
 
 const routes = () => {
     return (
@@ -22,6 +24,10 @@ const routes = () => {
                 <Route path="/">
                     <ContentGrid/>
                 </Route>
+                <Route exact path="/Drawer">
+                    <Drawer/>
+                </Route>
+
             </Switch>
            </div>
         </Router>

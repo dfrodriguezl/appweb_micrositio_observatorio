@@ -57,10 +57,10 @@ const Header = () => {
             <Grid container>
                 <Grid container item xs={6} sm={4}>
                    
-                        <Grid item  sm ={6}>
+                        <Grid item xs={12} sm ={6}>
                             <img className={classes.logo} src= {logoDane} />
                         </Grid>
-                        <Grid item sm ={6}>
+                        <Grid item xs={12} sm ={6}>
                             <img className={classes.logo} src= {logoObservatorio} />        
                         </Grid>
                     
