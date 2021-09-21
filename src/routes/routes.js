@@ -11,6 +11,9 @@ import Navbar from 'templates/Navbar';
 import Maps from 'pages/maps';
 import Notfound from 'pages/notfound';
 
+
+
+
 const routes = () => {
     return (
         <Router>

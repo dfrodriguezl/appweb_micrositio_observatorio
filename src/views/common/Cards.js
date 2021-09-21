@@ -93,8 +93,8 @@ const Cardsmapas = () => {
                     </Typography>
                   </CardContent>
                 </CardContent>
-                <CardActions className={classes.centerButton}>
-                <ButtonRedWine Title="Visitar" />
+                <CardActions className={classes.centerButton}>                
+                  <ButtonReqdWine Title="Visitar" />   
                 </CardActions>
               </Card>
             </Grid>
