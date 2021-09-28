@@ -124,7 +124,7 @@ const Navbar = () => {
             <DropDownLi>
             <UtilidadCentrarTexto>
                   <AiOutlineDown/>
-                  <MenuA href ="#">Servicios </MenuA>
+                  <NavLink to="/Servicios" className = {classes.root} >Servicios</NavLink>
                   
                 <DropDownContent>                        
                               {" "}
@@ -137,8 +137,7 @@ const Navbar = () => {
             <DropDownLi>
                 <UtilidadCentrarTexto>
                     <AiOutlineDown/>
-                    <NavLink to="/Mapas" className = {classes.root} >Mapas</NavLink>
-                        
+                    <NavLink to="/Mapas" className = {classes.root} >Mapas</NavLink>                        
                       <DropDownContent>                        
                                 {" "}
                                 <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>

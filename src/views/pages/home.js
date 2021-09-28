@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 //style
 import styles from '../../css/styles.css';
 import Routes from 'routes/routes';
-import Header from 'templates/Header';
-import Footer from 'templates/footer';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useLocation
+  } from "react-router-dom";
 
 const App = () => {
     return(
-        <div>
-            <Header/>
-            <Routes/> 
-            <Footer/>
-        </div>
+        <Router>
+            <div>
+                <Routes/> 
+            </div>
+        </Router>
+        
     );
 }
 export default App;

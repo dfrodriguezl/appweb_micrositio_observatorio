@@ -11,6 +11,13 @@ const useStyle = makeStyles({
         backgroundRepeat: "no-repeat",
         backgroundImage: "url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif')",       
         backgroundPosition: "center center",
+        
+
+      },
+
+      containermaximg:{
+        flexBasis: "100% !important",
+        maxWidth: "75%",
       },
 
       global:{
@@ -40,7 +47,7 @@ const useStyle = makeStyles({
 const Imgnotfound = () => {
     const classes = useStyle();
     return(
-      <Grid item xs={8}>  
+      <Grid item xs={8} className={classes.containermaximg}>  
         <div className={classes.containerImg}></div>
       </Grid>
     );
