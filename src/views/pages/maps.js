@@ -37,7 +37,7 @@ const useStyle = makeStyles({
 });
 
 const Topmaps = () => {
-    const classes = useStyle();
+    const classes = useStyle();    
     return (
         <Grid container className={classes.imagen_top}>
             <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
@@ -45,8 +45,10 @@ const Topmaps = () => {
         </Grid>
     );
 }
+
+
 const maps = () => {
-    const classes = useStyle();
+    const classes = useStyle(); 
     return (
         <Grid>
             <Topmaps/>

@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { Component } from "react";
-import city from "img/citycolor.svg";
+import city from "img/City_.svg";
 import figure from "img/figura.svg";
 import ButtonRedWine from "common/buttonredwine";
 import * as Values from 'Variables/values';
@@ -9,6 +9,23 @@ import * as Values from 'Variables/values';
 
 const useStyle = makeStyles({
   
+numpadding:{
+  paddingTop: "6%",
+},
+
+  num:{
+    backgroundColor: "#f4f4f4",
+    borderRadius: "50%",
+    textAlign: "center",
+    color: "#4d4d4d",
+    fontFamily: Values.SourceWorksans,
+    fontWeight: "bold",
+    fontSize: Values.SizeSubtitle,
+    width: "5rem",
+    height: "5rem",
+    padding: "2vh 3vh",
+  },
+
   gridglobal:{
     padding: "0 10vw 0 10vw",
     
@@ -65,14 +82,14 @@ const useStyle = makeStyles({
     backgroundColor: Values.Colormid,
   },
 
-  containerImg:{
-    width: "100% !important",
-    height: "51vh",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${figure})`,
-    backgroundSize: "100% 100%",
-    backgroundPosition: "center center",
-  },
+  // containerImg:{
+  //   width: "100% !important",
+  //   height: "51vh",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundImage: `url(${figure})`,
+  //   backgroundSize: "100% 100%",
+  //   backgroundPosition: "center center",
+  // },
 
   containerTitle:{
     minHeight: "13vh"
@@ -113,14 +130,14 @@ const Top_content = () => {
   );
   };
 
-const Imgquery = () => {
-  const classes = useStyle();
-  return(
-    <Grid item container direction="column" xs justifyContent="center" alignItems="center">  
-      <div className={classes.containerImg}></div>
-    </Grid>
-  );
-};
+// const Imgquery = () => {
+//   const classes = useStyle();
+//   return(
+//     <Grid item container direction="column" xs justifyContent="center" alignItems="center">  
+//       <div className={classes.containerImg}></div>
+//     </Grid>
+//   );
+// };
 
 const Center_content = () => {
     const classes = useStyle();
@@ -134,8 +151,17 @@ const Center_content = () => {
           className={classes.containerTitle}
         >
           <h1 className={classes.titleStyle}>Ventajas</h1>
-        </Grid>
+      </Grid>
       <Grid item container direction="column" xs>
+      <Grid          
+          container
+          direction="column"          
+          justifyContent="center"
+          alignItems="center"
+          className={classes.numpadding}
+        >
+          <h1 className={classes.num}>1</h1>
+        </Grid>
         <Grid          
           container
           direction="column"          
@@ -144,6 +170,15 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle}>Seguimiento</h1>
           <p className={classes.textStyle}>Seguimiento proactivo de transacciones y cambios en el tiempo.</p>
+        </Grid>
+        <Grid          
+          container
+          direction="column"          
+          justifyContent="center"
+          alignItems="center"
+          className={classes.numpadding}
+        >
+          <h1 className={classes.num}>3</h1>
         </Grid>
         <Grid
           item
@@ -160,8 +195,17 @@ const Center_content = () => {
           </p>
         </Grid>
       </Grid>
-      <Imgquery/>
+      {/* <Imgquery/> */}
       <Grid item container direction="column" xs>
+      <Grid          
+          container
+          direction="column"          
+          justifyContent="center"
+          alignItems="center"
+          className={classes.numpadding}
+        >
+          <h1 className={classes.num}>2</h1>
+        </Grid>
         <Grid
           container
           direction="column"
@@ -174,6 +218,15 @@ const Center_content = () => {
             relativas a la planificación, el uso, las restricciones y los
             servicios públicos.
           </p>
+        </Grid>
+        <Grid          
+          container
+          direction="column"          
+          justifyContent="center"
+          alignItems="center"
+          className={classes.numpadding}
+        >
+          <h1 className={classes.num}>4</h1>
         </Grid>
         <Grid
           item
