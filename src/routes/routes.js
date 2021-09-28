@@ -9,6 +9,7 @@ import {
 import ContentGrid from 'pages/contentgrid';
 import Navbar from 'templates/Navbar';
 import Maps from 'pages/maps';
+import esmeralda from 'visores/esmeralda/esmeralda';
 import Notfound from 'pages/notfound';
 
 
@@ -22,6 +23,7 @@ const routes = () => {
             <Switch>
                 <Route exact path="/Mapas" component={Maps}/>
                 <Route exact path="/" component={ContentGrid}/>
+                <Route exact path="/Esmeralda" component={esmeralda}/>
                 <Route path="*" component={Notfound}/>
             </Switch>
            </div>
