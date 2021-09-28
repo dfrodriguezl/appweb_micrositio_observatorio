@@ -13,6 +13,7 @@ import {
 import ContentGrid from 'pages/contentgrid';
 import Navbar from 'templates/Navbar';
 import Maps from 'pages/maps';
+import esmeralda from 'visores/esmeralda/esmeralda';
 import Notfound from 'pages/notfound';
 import Header from 'templates/Header';
 import Footer from 'templates/footer';
