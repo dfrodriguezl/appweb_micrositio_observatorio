@@ -75,10 +75,10 @@ const Imgnotfound = () => {
 const Notfound = () => {
     const classes = useStyle();
     return(
-        <Grid container direction="colunm" className={classes.global}>
-            <Mensajenotfound/>
-            <Imgnotfound/>
-        </Grid>
+     <Grid item container className={classes.global}>
+       <Mensajenotfound/>
+       <Imgnotfound/>
+     </Grid>
     );
 };
 

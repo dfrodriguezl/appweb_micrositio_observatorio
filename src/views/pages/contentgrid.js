@@ -268,6 +268,7 @@ const Bottom_content = () => {
       <ButtonRedWine
         Title="DECRETO 148 DE 2020"
         href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+        Values="1"
       />
     </Grid>
   );
