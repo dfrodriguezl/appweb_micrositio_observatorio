@@ -4,7 +4,7 @@ import * as Values from 'Variables/values';
 import triangles from "img/paris.jpg";
 import ButtonRedWine from "common/buttonredwine";
 import {FcShop} from "react-icons/fc";
-
+import infocards from "common/cards.json";
 
 const useStyle = makeStyles({
   
@@ -82,43 +82,46 @@ const Topservice = () => {
 }
 
 const Cardsservice = () => {
-    const classes = useStyle();
+    const classes = useStyle();    
     return (
       <Grid container>
         <Grid
           container
           className={classes.gridglobal}
         >
-          {[0, 1, 2].map((value) => (
-            <Grid
+          {infocards.map(function(infocards) {
+            
+            return(
+              <Grid
               item
               container
               direction="row"
               xs              
               justifyContent="center"
               alignItems="center"
-              key={value}
+              key={infocards.id}
               className={classes.cardglobal}
             >                    
               <Card className={classes.root}>
                 <CardContent className={classes.cardglobal}>
                   <CardMedia
                     className={classes.media}
-                    image="https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg"
-                    title="Contemplative Reptile"
+                    image= {infocards.image_card}
+                    title={infocards.title}
                   />
                   <CardContent className={classes.centerText}>                      
                     <Typography className={classes.Textp}>
-                    <FcShop/> Ofertas de inmobiliarias
+                    <FcShop/>{infocards.title}
                     </Typography>
                   </CardContent>
                 </CardContent>
                 <CardActions className={classes.centerButton}>
-                <ButtonRedWine Title="Visitar" />
+                <ButtonRedWine Title="Visitar" href="#"/>
                 </CardActions>
               </Card>
             </Grid>
-          ))}
+            )
+          })}
         </Grid>
       </Grid>
     );

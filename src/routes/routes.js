@@ -14,6 +14,7 @@ import ContentGrid from 'pages/contentgrid';
 import Navbar from 'templates/Navbar';
 import Maps from 'pages/maps';
 import esmeralda from 'visores/esmeralda/esmeralda';
+import esmeralda2 from 'visores/esmeralda/esmeralda2';
 import Notfound from 'pages/notfound';
 import Header from 'templates/Header';
 import Footer from 'templates/footer';
@@ -24,7 +25,8 @@ const RoutesMaps = () =>{
         
         <div>
         <Switch>
-           <Route exact path="/Visores/Esmeralda" component={esmeralda}/>           
+           <Route exact path="/Visores/Esmeralda" component={esmeralda}/>
+           <Route exact path="/Visores/Esmeralda2" component={esmeralda2}/>
            <Route path="/404" component={Notfound}/>
            <Route path="*">
                     <Redirect to ="/404"/>

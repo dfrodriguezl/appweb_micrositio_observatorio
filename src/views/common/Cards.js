@@ -2,6 +2,8 @@ import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, But
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 import ButtonRedWine from "common/buttonredwine";
+import infomaps from "common/infomaps.json";
+
 
 
 const useStyle = makeStyles({
@@ -58,47 +60,48 @@ const useStyle = makeStyles({
 
 const Cardsmapas = () => {
     const classes = useStyle();
+    console.log(infomaps)
     return (
+      
       <Grid container>
         <Grid
           container
           className={classes.gridglobal}
         >
-          {[0, 1, 2, 3, 4, 5].map((value) => (
-            <Grid
-              item
-              container
-              direction="row"
-              xs              
-              justifyContent="center"
-              alignItems="center"
-              key={value}
-              className={classes.cardglobal}
-            >                    
-              <Card className={classes.root}>
-                <CardContent className={classes.cardglobal}>
-                  <CardMedia
-                    className={classes.media}
-                    image="https://concepto.de/wp-content/uploads/2018/08/Londres-e1533855310803.jpg"
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent className={classes.centerText}>
-                    <Typography className={classes.Titleh3}>
-                      Lizard
-                    </Typography>
-                    <Typography className={classes.Textp}>
-                      Lizards are a widespread group of squamate reptiles, with
-                      over 6,000 species, ranging across all continents except
-                      Antarctica
-                    </Typography>
-                  </CardContent>
+          {infomaps.map(function(infomaps) {     
+                return(
+                  <Grid
+            item
+            container
+            direction="row"
+            xs              
+            justifyContent="center"
+            alignItems="center"
+            key={infomaps.id}
+            className={classes.cardglobal}
+          >                    
+            <Card className={classes.root}>
+              <CardContent className={classes.cardglobal}>
+                <CardMedia
+                  className={classes.media}
+                  image={infomaps.image_card}                 
+                />
+                <CardContent className={classes.centerText}>
+                  <Typography className={classes.Titleh3}>
+                  {infomaps.title}  
+                  </Typography>
+                  <Typography className={classes.Textp}>
+                  {infomaps.description}  
+                  </Typography>
                 </CardContent>
-                <CardActions className={classes.centerButton}>
-                <ButtonRedWine Title="Visitar" />
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
+              </CardContent>
+              <CardActions className={classes.centerButton}>
+              <ButtonRedWine Title="Visitar" href={infomaps.link}/>
+              </CardActions>
+            </Card>
+          </Grid>
+                )  
+          })}
         </Grid>
       </Grid>
     );

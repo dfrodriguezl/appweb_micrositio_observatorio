@@ -1,0 +1,45 @@
+[
+    {
+        "id":1,
+        "title":"Esmeralda",
+        "image_card":"https://image.freepik.com/foto-gratis/casas-coloridas-montanas-bogota_181624-40346.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda"
+    },
+    {
+        "id":2,
+        "title":"Bogota",
+        "image_card":"https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda2"
+    },
+    {
+        "id":3,
+        "title":"SAE",
+        "image_card":"https://images.unsplash.com/photo-1523745663588-1bfa973c9b35?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda"
+    },
+    {
+        "id":4,
+        "title":"San Andres",
+        "image_card":"https://image.freepik.com/foto-gratis/paisaje-palma-tropical-vacaciones-verano_1203-5352.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda2"
+    },
+    {
+        "id":5,
+        "title":"Valores Rurales",
+        "image_card":"https://image.freepik.com/foto-gratis/gran-campo-arroz-manana-tailandia_1150-10754.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda"
+    },
+    {
+        "id":6,
+        "title":"Apartamentos",
+        "image_card":"https://image.freepik.com/foto-gratis/increible-toma-aerea-paisaje-urbano-singapur-muchos-rascacielos_181624-18618.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
+        "link":"/Visores/Esmeralda2"
+    }
+
+]

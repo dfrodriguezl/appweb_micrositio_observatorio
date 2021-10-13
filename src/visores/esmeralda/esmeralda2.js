@@ -1,16 +1,16 @@
 import React from 'react';
 import Drawer from './Drawer';
-import Mapa from './mapa';
+import Map from './map';
 import mapboxgl from 'mapbox-gl';
 
 
-const esmeralda = () => {
+const esmeralda2 = () => {
     return ( 
         <div>
             <Drawer/>
-            <Mapa/>
+            <Map/>
         </div>
      );
 }
  
-export default esmeralda;
+export default esmeralda2;
