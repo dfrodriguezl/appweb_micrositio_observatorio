@@ -11,6 +11,7 @@
             "common":"./src/views/common",
             "pages":"./src/views/pages",
             "test": "./test",
+            "ui": "./src/visores/esmeralda/ui",
             "underscore": "lodash"
           }
         }]

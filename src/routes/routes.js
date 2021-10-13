@@ -24,8 +24,7 @@ const RoutesMaps = () =>{
         
         <div>
         <Switch>
-           <Route exact path="/Visores/Esmeralda"><h1>Esmeralda</h1></Route>
-           <Route exact path="/Visores/Esmeralda2"><h1>Esmeralda2</h1></Route>
+           <Route exact path="/Visores/Esmeralda" component={esmeralda}/>           
            <Route path="/404" component={Notfound}/>
            <Route path="*">
                     <Redirect to ="/404"/>

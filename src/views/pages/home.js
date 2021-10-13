@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //style
 import styles from '../../css/styles.css';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from "ui/theme";
 import Routes from 'routes/routes';
 import {
     BrowserRouter as Router,
@@ -11,11 +13,13 @@ import {
 
 const App = () => {
     return(
-        <Router>
-            <div>
-                <Routes/> 
-            </div>
-        </Router>
+        <ThemeProvider theme={theme}> 
+            <Router>
+                <div>
+                    <Routes/> 
+                </div>
+            </Router>
+        </ThemeProvider> 
         
     );
 }
