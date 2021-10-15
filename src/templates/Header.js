@@ -56,9 +56,10 @@ const Header = () => {
             
             <Grid container>
                 <Grid container item xs={6} sm={4}>
-                   
                         <Grid item xs={12} sm ={6}>
-                            <img className={classes.logo} src= {logoDane} />
+                            <a href= 'https://www.dane.gov.co/' target="_blank" >
+                            <img className={classes.logo} src= {logoDane} alt= 'logo_DANE' />
+                            </a>
                         </Grid>
                         <Grid item xs={12} sm ={6}>
                             <img className={classes.logo} src= {logoObservatorio} />        
@@ -66,7 +67,7 @@ const Header = () => {
                     
                 </Grid>
                 <Grid container item xs={6} sm={8} justifyContent = "flex-end">                
-                
+{/*                 
                     <Box >
                             <InputBase
                             className = {classes.search}
@@ -78,7 +79,7 @@ const Header = () => {
                                            
                             <img className={classes.accesibilidad} src= {aumentarFuente} />
                             <img className={classes.accesibilidad} src= {disminuirFuente} />
-                            <img className={classes.accesibilidad} src= {sonido} />
+                            <img className={classes.accesibilidad} src= {sonido} /> */}
                     
                 </Grid>
             </Grid>

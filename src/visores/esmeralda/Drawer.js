@@ -21,13 +21,13 @@ import Tab from '@material-ui/core/Tab'
 import PropTypes from 'prop-types';
 //-----------Fin cambios
 import logoDane from "../../img/DANE__Geovisor__icon__logoDANE__01.svg";
-import logoObservatorio from "../../img/Logo_Observatorio_inmobiliario_Opcion1.svg";
+// import logoObservatorio from "../../img/Logo_Observatorio_inmobiliario_Opcion1.svg";
+// import logoDane from "../../img/logo-dane.svg";
+import logoObservatorio from "../../img/logo-observatorio.svg";
 //-----------inicio cambios
 import Instructivo from "../../img/subregion-pdet-geovisor-ayuda-geoportal-dane.png";
-import { AiOutlineDownload, AiOutlineFilter, AiOutlineQuestionCircle,
-  AiOutlineSearch,
-  AiFillMail } from "react-icons/ai";
-import { FiLayers } from "react-icons/fi";
+import {  AiOutlineQuestionCircle,
+          AiFillMail } from "react-icons/ai";
 import { FaSearchLocation,
   FaFolderOpen,
   FaCog,
@@ -37,22 +37,18 @@ import { FaSearchLocation,
 // import ModalAyuda from './ui/modalAyuda';
 //-----------Fin cambios
 
-// import { AiOutlineDownload, AiOutlineFilter, AiOutlineQuestionCircle } from "react-icons/ai";
-// import { FiLayers } from "react-icons/fi";
-// import Mapa from './mapa';
 
-const drawerWidth = 350;
+import Formulario from './ui/Formulario';
+
+const drawerWidth = 370;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  //-----------inicio cambios
-     palette:{
+      palette:{
       main: "#A2024D"
   },
-//-----------fin cambios
-
   appBar: {
       color:"white",
         transition: theme.transitions.create(['margin', 'width'], {
@@ -69,18 +65,50 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-//-----------inicio cambios
 logo: {
-    height:'3em'
+    height:'3em',
+    margin: 0,
+    padding:0,
+
 },
 Instructivo:{
     height:'25em'
+},
+contenedorSubMenu:{
+  marginTop:'8px',
+  paddingLeft:1,
+  paddingRight:1,
+  minWidth: '85px', 
+  fontSize: '12px',
+  textTransform: 'none',
+  fontFamily: 'Roboto',
+},
+formControl: {
+  margin: theme.spacing(1),
+  minWidth: '18em',
+  borderRadius:'50%',
+},
+select: {    
+  borderRadius:5,
+  height: 50,
+  fontSize: '10px',
+  borderBotton:'none',
+  backgroundColor: '#fff',
+  border: '1px solid #000',
 },
 container:{
   display: 'initial',
   textAlign: 'center',
   position: 'relative',
   padding: '8px 4px',
+},
+contenedorObservatorio:{
+  marginLeft: '8px',
+},
+nombre:{
+  fontSize: '13px',
+  fontWeight:'bold',
+
 },
 typography:{
   fontSize: '.9em',
@@ -93,8 +121,7 @@ icono:{
   color:'#666',
   padding: '0',
   cursor: 'pointer',
-  // webkitBackfaceVisbility: 'hidden',
-   borderRadius:'100%',
+  borderRadius:'100%',
   webkitTransition:'all 0.3s ease-in-out',
   "&:hover": {
     backgroundColor: '#666',
@@ -120,9 +147,7 @@ contenedorParrafo:{
   },
   logoModal:{
       margin: 'auto',
-      // paddingTop: '2em',
   },
-//-----------fin cambios
   menuButton: {
     marginRight: theme.spacing(2),
     color: "black",
@@ -176,7 +201,6 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-//----------Inicio Cambiios
 const [openModal, setOpenModal] = React.useState(false);
 
   const handleOpen = () => {
@@ -220,12 +244,33 @@ const [openModal, setOpenModal] = React.useState(false);
           'aria-controls': `simple-tabpanel-${index}`,
         };
       }      
-  
+   //State del menu modal
   const [value, setValue] = useState(0);
   const handleChange = (e, value) => {
       setValue(value);
   };
-//------Fin cambios
+  //---fin state modal
+
+
+ //  State del menu drawer
+ const [values, setValues] = useState(2);
+ const handleChanges = (e, value) => {
+     setValues(value);
+ };
+ //---fin state menu drawer
+
+ const [opciones, setOpciones] = React.useState([
+  { id:1, 
+    nombre: 'Cundinamarca', 
+    precio: 50},
+  { id:2, 
+    nombre: 'Antioquia', 
+    precio:30},
+  { id:3, 
+    nombre: 'Valle del Cauca', 
+    precio:40},
+  { id:4, nombre: 'Atlantico', 
+    precio:45},]);
 
   return (
     <div className={classes.root}>
@@ -262,59 +307,44 @@ const [openModal, setOpenModal] = React.useState(false);
         }}
       >
         <div className={classes.drawerHeader}>
-          
-          <Grid item xs={12} sm ={6}>
-            <img className={classes.logo} src= {logoDane} />
+          <img className={classes.logo} src= {logoObservatorio} />
+          <Grid container className={classes.contenedorObservatorio} item xs={12} sm ={6}> 
+              <Typography variant="body1" color="secondary">Observatorio</Typography> 
+              <Typography variant="body1" className={classes.nombre} color="initial">Inmobiliario Nacionál</Typography> 
           </Grid>
-          <Grid item xs={12} sm ={6}>
-             <img className={classes.logo} src= {logoObservatorio} />        
+          <Grid container justifyContent='flex-end' item xs={12} sm ={6}>
+             <a href= 'https://www.dane.gov.co/' target="_blank" >
+               <img className={classes.logo} src= {logoDane} />        
+             </a> 
           </Grid>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <AiOutlineLeft/> : <AiOutlineRight/>}
           </IconButton>
         </div>
-        <Divider />       
-        <Box padding = {2}>
-        <Grid container 
-                    alignContent = "center"
-                    alignItems = "center"
-                    justifyContent ="space-between">
-{/* -----------------Inicio de cambios    */}
-                 <Grid item  
-                color = "error"
-                    sm ={3}
-                    className={classes.container}>
-                        <AiOutlineQuestionCircle 
-                        onClick={handleOpen}
-                        className={classes.icono} fontSize = {25} />
-                        <Typography className={classes.typography} paragraph>
-                            Ayuda
-                        </Typography>
-                </Grid>
-                <Grid item sm ={3}
-                className={classes.container}>
-                        <FaSearchLocation className={classes.icono} fontSize = {25} />
-                        <Typography className={classes.typography} paragraph>
-                            Ubicación
-                        </Typography>
-                </Grid>
-                <Grid item  sm ={3}
-                className={classes.container}>
-                        <FaFolderOpen className={classes.icono} fontSize = {25} />
-                        <Typography className={classes.typography} paragraph>
-                            Temas
-                        </Typography>
-                </Grid>
-                <Grid item sm ={3}
-                className={classes.container}>
-                    <FaCog className={classes.icono} fontSize = {25}/> 
-                    <Typography className={classes.typography} paragraph>
-                            Herramientas
-                    </Typography>    
-                </Grid>
-        </Grid>
-        </Box>
+        <Divider />  
 
+        <Tabs value={values} onChange={handleChanges} >
+                    <Tab className={classes.contenedorSubMenu} onClick={handleOpen} label='Ayuda' icon= {<AiOutlineQuestionCircle 
+                        
+                        className={classes.icono} fontSize = {20} />} {...a11yProps(0)} />
+                    <Tab className={classes.contenedorSubMenu} label='Ubicación' icon= {<FaSearchLocation className={classes.icono} fontSize = {20} />} {...a11yProps(4)} />
+                    <Tab className={classes.contenedorSubMenu} label='Temas' icon= {<FaFolderOpen className={classes.icono} fontSize = {20} />} {...a11yProps(1)} />       
+                    <Tab className={classes.contenedorSubMenu} label='Herramientas' icon= {<FaCog className={classes.icono} fontSize = {20}/>} {...a11yProps(2)} />       
+        </Tabs>       
+        <TabPanel value={values} index={1}>            
+              <Typography variant="body1" color="initial">Realice la selección geográfica que desea ver en el mapa</Typography>
+              <Formulario 
+                  opciones={opciones}
+                  setOpciones={setOpciones}/>
+        </TabPanel>
+        <TabPanel  value={values} index={2}>
+              <Typography align='left'  variant="body1" color="initial">Aqui encuentra los diferentes temas. </Typography>  
+            
+        </TabPanel> 
+        <TabPanel  value={values} index={3}>
+              <Typography align='left'  variant="body1" color="initial">Envíe su consulta por correo electrónico o tramite su petición, queja, reclamo, sugerencia o denuncia en el formulario DANE. </Typography>  
+        </TabPanel> 
+             
  {/* <ModalAyuda/> */}
  <Modal
         aria-labelledby="transition-modal-title"
@@ -355,9 +385,6 @@ const [openModal, setOpenModal] = React.useState(false);
           </div>
         </Fade>
       </Modal>  
-        
-{/* -----------------Fin de cambios    */}
-        <Divider />       
       </Drawer>
       <main
         className={clsx(classes.content, {
@@ -365,7 +392,7 @@ const [openModal, setOpenModal] = React.useState(false);
         })}
       >
         <div className={classes.drawerHeader} />
-        {/* <Mapa/>      */}
+        
       </main>
     </div>
   );

@@ -67,7 +67,9 @@ const Footer = () =>{
                 </Grid>
                 <Grid item xs={6} sm={3}>
                     <Box >
-                        <Imagen src= {logoGobernment} />
+                        <a href="https://id.presidencia.gov.co/deinteres/index.html" target='_blank'>
+                            <Imagen src= {logoGobernment} />
+                        </a>
                     </Box>
                 </Grid>
             </Grid>
