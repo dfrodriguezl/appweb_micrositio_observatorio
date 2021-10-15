@@ -16,11 +16,7 @@ const useStyle = makeStyles({
   centerText:{
     textAlign: "center",
     padding: "10% 0 0 0",
-  },
-
-    gridglobal:{
-      padding: "5% 10% 1% 10%",
-    },
+  },    
     
     Titleh3:{
       color: Values.Redwinecolor,
@@ -40,7 +36,7 @@ const useStyle = makeStyles({
       },
 
       root: {
-        width: "42vh",
+        width: "51vh",
         borderRadius: "1em",        
         boxShadow: "3px 3px 10px #7b7676",
       },
