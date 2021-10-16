@@ -36,7 +36,7 @@ const useStyle = makeStyles({
       },
 
       root: {
-        width: "51vh",
+        width: "50vh",
         borderRadius: "1em",        
         boxShadow: "3px 3px 10px #7b7676",
       },
