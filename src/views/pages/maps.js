@@ -1,8 +1,8 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
-import triangles from "img/triangles.svg";
 import CardsMaps from 'common/Cards';
+import Paper from "img/Paper.svg";
 import ButtonRedWine from "common/buttonredwine";
 
 
@@ -13,36 +13,67 @@ const useStyle = makeStyles({
       },
     
     Titleh3:{
-        color: Values.TextButton,
+        color: Values.Redwinecolor,
         fontFamily: Values.SourceWorksans,
         fontSize: Values.SizeSubtitle,
-        textAlign: "center",   
-        padding: "1em 0 0.5em 10%",
+        padding: "8% 0 0 0",  
       },
     
       Textp:{
-        color: Values.TextButton,
+        color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "0 10% 1.5em 10%",
+        margin: "2% 0 0 0",
       },
 
-      imagen_top:{
-        width: "100%",    
-        backgroundRepeat: "no-repeat",
-        backgroundImage:`url(${triangles})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",         
-      },
+      imagen_top:{    
+        width: "100% !important",
+         height: "60vh",
+         backgroundSize: "77%",
+         backgroundRepeat: "no-repeat",
+         backgroundImage: `url(${Paper})`,
+        margin: "0 0 3% 0",
+        backgroundPosition: "center",
+         
+   },
+ 
+   gridglobal:{
+    padding: "0 10vw 0 10vw",    
+  },
+
+   imagen_top2:{     
+         width: "100%",
+         height: "66vh",
+         backgroundSize: "100%",
+         backgroundRepeat: "no-repeat",
+         backgroundImage: `url(${Paper})`,       
+         backgroundPosition: "center center",
+         flexBasis: "100% !important",
+         maxWidth: "100% !important",
+   },
 });
+
+const ImagenBottom = () => {
+    const classes = useStyle();
+    const matches = useMediaQuery('(min-width:769px)');
+    var estilo = null;
+    {matches ? estilo=classes.imagen_top:estilo=classes.imagen_top2}   
+    return(
+      <Grid item container direction="column" xs={6} className={estilo}></Grid>
+      
+    )
+  } 
 
 const Topmaps = () => {
     const classes = useStyle();    
     return (
-        <Grid container className={classes.imagen_top}>
-            <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
-            <p className={classes.Textp}>{Values.TextGeovisor}</p>
+        <Grid container direccion="row" >
+                <Grid item container direction="column" xs className={classes.containerTitle}>
+                <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+                <p className={classes.Textp}>{Values.TextGeovisor}</p>      
+                </Grid>
+                <ImagenBottom/> 
         </Grid>
     );
 }
@@ -51,7 +82,8 @@ const Topmaps = () => {
 const maps = () => {
     const classes = useStyle(); 
     return (
-        <Grid>
+        <Grid container justifyContent="center"
+        alignItems="center"  className={classes.gridglobal}>
             <Topmaps/>
             <CardsMaps/>
         </Grid>

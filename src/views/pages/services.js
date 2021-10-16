@@ -1,7 +1,7 @@
-import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { Grid, makeStyles, useMediaQuery ,Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
-import triangles from "img/paris.jpg";
+import Delivery from "img/Delivery.svg";
 import ButtonRedWine from "common/buttonredwine";
 import {FcShop} from "react-icons/fc";
 import infocards from "common/cards.json";
@@ -12,16 +12,15 @@ const useStyle = makeStyles({
         padding: "0 10% 0 10%",
       },
 
-    imagen_top: {
-    width: "100%",
-    height: "10vh",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${triangles})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    
-  },
 
+    Textpdes:{
+      color: Values.TextParagraph,
+      fontFamily: Values.SourceRoboto,
+      fontSize: Values.SizeAuxiliary,
+      textAlign: "start",  
+      margin: "0 10% 0 10%",
+     },
+  
   centerButton: {
     justifyContent: "center",
     padding: "0 0 8% 0 !important",
@@ -33,27 +32,34 @@ const useStyle = makeStyles({
   },
 
   gridglobal: {
-    padding: "5% 10% 1% 10%",
+    padding: "0 10% 1% 10%",
   },
 
-  Titleh3: {
+  Titleh3:{
     color: Values.Redwinecolor,
     fontFamily: Values.SourceWorksans,
-    fontWeight: "bold",
     fontSize: Values.SizeSubtitle,
-    textAlign: "center",
-    padding: "0 0 1em 0",
+    padding: "8% 0 0 0",  
   },
 
-  Textp: {
-    color: Values.TextParagraph,
+  Textp:{
+    color: Values.Redwinecolor,
     fontFamily: Values.SourceRoboto,
-    fontSize: Values.SizeAuxiliary,
-    textAlign: "center",
+    fontSize: Values.SizeText,
+    textAlign: "start",  
+    margin: "2% 0 0 0",
+  },
+
+  Textpcard:{
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",  
+    margin: "2% 0 1% 0",
   },
 
   root: {
-    width: "42vh",
+    width: "40vh",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
   },
@@ -68,15 +74,52 @@ const useStyle = makeStyles({
 
   cardglobal: {
     //margin: "0% 0% 0% 0%",
-    padding: "0% 0% 5% 0%",
+    padding: "0% 0% 5% 0%",  
     backgroundColor: "#fafafa",
   },
+
+  imagen_top:{    
+    width: "100% !important",
+     height: "60vh",
+     backgroundSize: "77%",
+     backgroundRepeat: "no-repeat",
+     backgroundImage: `url(${Delivery})`,
+    backgroundPosition: "center",
+     
+},
+
+imagen_top2:{     
+     width: "100%",
+     height: "66vh",
+     backgroundSize: "100%",
+     backgroundRepeat: "no-repeat",
+     backgroundImage: `url(${Delivery})`,       
+     backgroundPosition: "center center",
+     flexBasis: "100% !important",
+     maxWidth: "100% !important",
+},
 });
+
+const ImagenBottom = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:769px)');
+  var estilo = null;
+  {matches ? estilo=classes.imagen_top:estilo=classes.imagen_top2}   
+  return(
+    <Grid item container direction="column" xs={6} className={estilo}></Grid>
+    
+  )
+} 
 
 const Topservice = () => {
     const classes = useStyle();    
     return (
-        <Grid container className={classes.imagen_top}>
+        <Grid container direccion="row" >
+                <Grid item container direction="column" xs className={classes.containerTitle}>
+                <h3 className={classes.Titleh3}>Servicios</h3>
+                <p className={classes.Textp}>{Values.TextGeovisor}</p>      
+                </Grid>
+                <ImagenBottom/> 
         </Grid>
     );
 }
@@ -110,8 +153,11 @@ const Cardsservice = () => {
                     title={infocards.title}
                   />
                   <CardContent className={classes.centerText}>                      
-                    <Typography className={classes.Textp}>
-                    <FcShop/>{infocards.title}
+                    <Typography className={classes.Textpcard}>
+                      {infocards.title}
+                    </Typography>
+                    <Typography className={classes.Textpdes}>
+                      {infocards.description}  
                     </Typography>
                   </CardContent>
                 </CardContent>
@@ -130,10 +176,10 @@ const Cardsservice = () => {
 const ViewService = () => {
     const classes = useStyle(); 
     return (
-        <Grid>
+        <Grid container justifyContent="center"
+        alignItems="center"  className={classes.gridglobal}>
             <Topservice/>
             <Cardsservice/>
-            <Topservice/>
         </Grid>
     );
 }
