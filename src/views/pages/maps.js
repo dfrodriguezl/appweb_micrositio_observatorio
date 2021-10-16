@@ -82,7 +82,7 @@ const Topmaps = () => {
 const maps = () => {
     const classes = useStyle(); 
     return (
-        <Grid justifyContent="center"
+        <Grid container justifyContent="center"
         alignItems="center"  className={classes.gridglobal}>
             <Topmaps/>
             <CardsMaps/>
