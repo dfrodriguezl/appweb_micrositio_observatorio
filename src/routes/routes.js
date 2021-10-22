@@ -19,6 +19,8 @@ import Notfound from 'pages/notfound';
 import Header from 'templates/Header';
 import Footer from 'templates/footer';
 import Service from 'pages/services';
+import statistics from 'pages/statistics/statistics'
+import RegisterEstate from 'pages/estate/registerestate'
 
 const RoutesMaps = () =>{    
     return(
@@ -44,6 +46,8 @@ const Generalroutes = () => {
       <Switch>
         <Route exact path="/Mapas" component={Maps} />
         <Route exact path="/Servicios" component={Service} />
+        <Route exact path="/Servicios/estadisticas" component={statistics}/>
+        <Route exact path="/Servicios/RegistroInmuebles" component={RegisterEstate}/> 
         <Route exact path="/" component={ContentGrid} />
         <Route path="/404" component={Notfound} />
         <Route path="*">

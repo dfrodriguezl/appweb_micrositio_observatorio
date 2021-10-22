@@ -1,33 +1,48 @@
-import React from 'react';
-import {Grid, Box} from '@material-ui/core/';
+import React, { useState, useEffect } from 'react';
+import { Grid, Box } from '@material-ui/core/';
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  NavLink 
+  NavLink
 } from "react-router-dom";
-import { makeStyles, 
+import {
+  makeStyles,
   ThemeProvider,
-   createTheme } from '@material-ui/core/styles';
+  createTheme
+} from '@material-ui/core/styles';
 import Styled from "styled-components";
 
 const useStyle = makeStyles({
-  root:{
+  root: {
     textDecoration: 'none',
     margin: '5px',
-    padding: '5px', 
+    padding: '5px',
     color: 'inherit'
+  },
+  menuActive: {
+    height: 500,
+    width: "100%",
+    position: "relative",
+    backgroundColor: "#F2F2F2",
+    zIndex: 1,
+    marginTop: -1
+  },
+  colorMenuActive: {
+    backgroundColor: "#BD0B4E",
+    color: "#FFFFFF"
+  },
+  sectionTitleMenu: {
+    fontSize: "20px"
   }
-
 });
 
 const NavBarContenedor = Styled.ul`    
-    max-width:1300px;
     display:flex;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 0px 0;
     width: 100%;
     padding: 5px;
     list-style: none;
@@ -41,153 +56,347 @@ const MenuA = Styled.a`
     color: inherit;            
 `;
 
-const MenuIL =  Styled.li`
-    float: left;   
+const MenuIL = Styled.li`
+    float: left;  
+    font-size:23px;
+    color:#969393;
     `;
 
-const DropDownContent = Styled.div`
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-z-index: 1;
-top: 40px;
-left:2px;
-`;  
+
 const DropDownLi = Styled(MenuIL)`
     /* display: inline-block;    */
     position:relative;
     display: flex;
     /* justify-content: center;
-    align-items:center; */
-    &:hover ${DropDownContent} {
-      display: block;
-    },
+    align-items:center; 
     /* &:first-child {
         color:red;
         
         
     } */
   `;
-const SubMenuA = Styled.a`
-   color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
 const UtilidadCentrarTexto = Styled.div`
     position:relative;
     display: flex;
     justify-content: center;
     align-items:center;
-    &:hover{
-      background-color: #BD0B4E;
-      border-radius: 3px;
-      color: #fff;
-      /* font-weight: bold; */
-    } 
 `;
 
-  
 
 const Navbar = () => {
   const classes = useStyle();
-  
+  const [submenuActiveServicios, setMenuServicios] = useState()
+  const [submenuActiveGeovisores, setMenuGeovisores] = useState()
+  const [submenuActiveCatastro, setMenuCatastro] = useState()
+  const [submenuActiveInvestigaciones, setMenuInvestigaciones] = useState()
+  const reptiles = ['alligator', 'snake', 'lizard'];
+  const [position, setMoveMenu] = useState(0)
+  const menuDane = [
+    {
+      title:
+        ["Servicios web Geograficos", "Sociedad", "Otro titulo de Menu","Otro titulo de Menu 03"],
+      subindices:
+        [
+          [
+            {
+              key: "01",
+              name: "menu01"
+            }
+          ],
+          [
+            {
+              key: "11",
+              name: "menu11"
+            }
+          ],
+          [
+            {
+              key: "20",
+              name: "menu20"
+            }
+          ],
+          [
+            {
+              key: "31",
+              name: "menu31"
+            }
+          ]
+        ]
+    },
+    {
+      title:
+        ["GIT investigacion y desarrollo", "Economia", "Otro titulo de Menu","Otro titulo de Menu 03"],
+      subindices:
+        [
+          [
+            {
+              key: "01",
+              name: "menu01"
+            }
+          ],
+          [
+            {
+              key: "11",
+              name: "menu11"
+            }
+          ],
+          [
+            {
+              key: "20",
+              name: "menu20"
+            }
+          ],
+          [
+            {
+              key: "31",
+              name: "menu31"
+            }
+          ]
+        ]
+    },
+    {
+      title:
+        ["Servicios web Geograficos 02", "Sociedad 02", "Otro titulo de Menu 02","Otro titulo de Menu 03"],
+      subindices:
+        [
+          [
+            {
+              key: "01",
+              name: "menu01"
+            }
+          ],
+          [
+            {
+              key: "11",
+              name: "menu11"
+            }
+          ],
+          [
+            {
+              key: "20",
+              name: "menu20"
+            }
+          ],
+          [
+            {
+              key: "31",
+              name: "menu31"
+            }
+          ]
+        ]
+    }
+  ]
   const handleClick = action => {
     if (!action) return;
 
     if (this.props.onClick) this.props.onClick(action);
   };
-  
-  return (
-    
-        <NavBarContenedor>
-            <DropDownLi>
-              <UtilidadCentrarTexto>
-                  <AiFillHome/>
-                  <MenuA href ="#">Inicio </MenuA>
-                      
-                    <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
-               </UtilidadCentrarTexto>
-            </DropDownLi>
 
-            <DropDownLi>
+  function handleStatusFalseAll() {
+    if (submenuActiveServicios) {
+      setMenuServicios(false)
+    }
+    if (submenuActiveGeovisores) {
+      setMenuGeovisores(false)
+    }
+    if (submenuActiveInvestigaciones) {
+      setMenuInvestigaciones(false)
+    }
+    if (submenuActiveCatastro) {
+      setMenuCatastro(false)
+    }
+
+  }
+  function handleStatusChange() {
+    if (!submenuActiveServicios) {
+      setMenuServicios(true)
+      setMoveMenu(0)
+    }
+    if (submenuActiveGeovisores) {
+      setMenuGeovisores(false)
+    }
+    if (submenuActiveInvestigaciones) {
+      setMenuInvestigaciones(false)
+    }
+    if (submenuActiveCatastro) {
+      setMenuCatastro(false)
+    }
+
+  }
+  function setActiveGeovisores() {
+    if (submenuActiveServicios) {
+      setMenuServicios(false)
+    }
+    if (!submenuActiveGeovisores) {
+      setMenuGeovisores(true)
+      setMoveMenu(1)
+    }
+    if (submenuActiveInvestigaciones) {
+      setMenuInvestigaciones(false)
+    }
+    if (submenuActiveCatastro) {
+      setMenuCatastro(false)
+    }
+  }
+
+  function setActiveCatastro() {
+    if (submenuActiveServicios) {
+      setMenuServicios(false)
+    }
+    if (submenuActiveGeovisores) {
+      setMenuGeovisores(false)
+    }
+    if (submenuActiveInvestigaciones) {
+      setMenuInvestigaciones(false)
+    }
+    if (!submenuActiveCatastro) {
+      setMenuCatastro(true)
+      setMoveMenu(2)
+    }
+  }
+
+  function setActiveInvestigaciones() {
+    if (submenuActiveServicios) {
+      setMenuServicios(false)
+    }
+    if (submenuActiveGeovisores) {
+      setMenuGeovisores(false)
+    }
+    if (!submenuActiveInvestigaciones) {
+      setMenuInvestigaciones(true)
+      setMoveMenu(3)
+    }
+    if (submenuActiveCatastro) {
+      setMenuCatastro(false)
+    }
+  }
+
+  useEffect(() => {
+
+  }, []);
+
+  return (
+    <Grid container item xs={12} sm={12} onMouseLeave={handleStatusFalseAll}>
+      <Grid container item xs={1} sm={1}></Grid>
+      <Grid container item xs={8} sm={8}>
+        <NavBarContenedor>
+          <DropDownLi onMouseEnter={handleStatusFalseAll}  >
             <UtilidadCentrarTexto>
-                  <AiOutlineDown/>
-                  <NavLink to="/Servicios" className = {classes.root} >Servicios</NavLink>
-                  
-                <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
+              <AiFillHome />
+              <MenuA href="#" >Inicio </MenuA>
+
+            </UtilidadCentrarTexto>
+          </DropDownLi>
+
+          <DropDownLi onMouseEnter={handleStatusChange} >
+            {
+              submenuActiveServicios ?
+                <UtilidadCentrarTexto className={classes.colorMenuActive} >
+                  <AiOutlineDown />
+                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
-            </DropDownLi>
-            <DropDownLi>
-                <UtilidadCentrarTexto>
-                    <AiOutlineDown/>
-                    <NavLink to="/Mapas" className = {classes.root} >Mapas</NavLink>                        
-                      <DropDownContent>                        
-                                {" "}
-                                <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                              <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                      </DropDownContent>
-                 </UtilidadCentrarTexto>
-            </DropDownLi>
-            <DropDownLi>
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown/>
-                  <MenuA href ="#">Catastro Multiproposito </MenuA>
-                      
-                    <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
+                : <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
-            </DropDownLi>
-            <DropDownLi>
-              <UtilidadCentrarTexto>
-                  <AiOutlineDown/>
-                  <MenuA href ="#">Boletines </MenuA>
-                      
-                    <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
-               </UtilidadCentrarTexto>
-            </DropDownLi>
-            <DropDownLi>
-              <UtilidadCentrarTexto>
-                  <AiOutlineDown/>
-                  <MenuA href ="#">Ingresar </MenuA>
-                      
-                    <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
+            }
+          </DropDownLi>
+          <DropDownLi onMouseEnter={setActiveGeovisores}>
+            {
+              submenuActiveGeovisores ?
+                <UtilidadCentrarTexto className={classes.colorMenuActive}>
+                  <AiOutlineDown />
+                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
                 </UtilidadCentrarTexto>
-            </DropDownLi>               
+                : <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+                </UtilidadCentrarTexto>
+            }
+          </DropDownLi>
+          <DropDownLi onMouseEnter={setActiveCatastro}>
+
+            {
+              submenuActiveCatastro ?
+                <UtilidadCentrarTexto className={classes.colorMenuActive}>
+                  <AiOutlineDown />
+                  <MenuA href="#">Catastro Multiproposito </MenuA>
+                </UtilidadCentrarTexto>
+                : <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <MenuA href="#">Catastro Multiproposito </MenuA>
+                </UtilidadCentrarTexto>
+            }
+          </DropDownLi>
+          <DropDownLi onMouseEnter={setActiveInvestigaciones}>
+            {
+              submenuActiveInvestigaciones ?
+                <UtilidadCentrarTexto className={classes.colorMenuActive}>
+                  <AiOutlineDown />
+                  <MenuA href="#">Investigaciones </MenuA>
+                </UtilidadCentrarTexto>
+                : <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <MenuA href="#">Investigaciones </MenuA>
+                </UtilidadCentrarTexto>
+            }
+          </DropDownLi>
         </NavBarContenedor>
-        
-    
+      </Grid>
+      {
+        submenuActiveServicios || submenuActiveGeovisores
+          || submenuActiveInvestigaciones || submenuActiveCatastro ?
+          <Grid container item xs={12} sm={12}
+            direction="row"
+            container
+            item
+            className={classes.menuActive}
+            justifyContent="center"
+            alignItems="flex-start"
+            spacing={4}
+          >
+
+
+            <Grid container item xs={4} sm={3} direction="column" >
+              <ul>
+                <li>{menuDane[0].title[position]}</li>
+                {
+                  menuDane[0].subindices[position].map(menu => {
+                    return (
+                      <li key={menu.key}>{menu.name}</li>
+                    )
+                  })
+                }
+              </ul>
+            </Grid>
+            <Grid container item xs={4} sm={3} direction="column">
+              <li>{menuDane[1].title[position]}</li>
+              {
+                menuDane[1].subindices[position].map(menu => {
+                  return (
+                    <li key={menu.key}>{menu.name}</li>
+                  )
+                })
+              }
+            </Grid>
+            <Grid container item xs={4} sm={3} direction="column">
+              <li>{menuDane[2].title[position]}</li>
+              {
+                menuDane[2].subindices[position].map(menu => {
+                  return (
+                    <li key={menu.key}>{menu.name}</li>
+                  )
+                })
+              }
+            </Grid>
+          </Grid>
+          : null
+      }
+
+    </Grid>
+
+
+
   );
 };
 

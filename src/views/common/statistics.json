@@ -1,0 +1,28 @@
+[
+    [
+        {
+            "id":1,
+            "title":"Censo de edificaciones (CEED",
+            "description":"Determina el estado actual de la actividad edificadora para establecer su composición, evolución y producción, contribuyendo a la medición y cálculo de los principales agregados macroeconómicos. ",
+            "image_card":"https://cdn.pixabay.com/photo/2021/01/09/15/30/house-5902665_960_720.jpg",
+            "icono":"FcShop",
+            "link":"/Visores/Esmeralda2"
+        },
+        {
+            "id":2,
+            "title":"Estadisticas de Licencias de Construcción (ELIC)",
+            "description":"Tiene como objetivo conocer el potencial de la actividad edificadora del país, cuantificar el total de metros aprobados para construcción, por destino, según tipo de licencias, tipo de solicitud, clase de construcción y estrato socioeconómico. ",
+            "image_card":"https://cdn.pixabay.com/photo/2021/01/09/15/30/house-5902665_960_720.jpg",
+            "icono":"FcShop",
+            "link":"/Visores/Esmeralda2"
+        },
+        {
+            "id":3,
+            "title":"Financiación de Vivienda (FIV)",
+            "description":"Permite conocer el volumen de recursos dirigidos a la construcción y adquisición de vivienda en el país, a través del análisis de monto y número de créditos desembolsados para compra de vivienda y del total de operaciones de créditos",
+            "image_card":"https://cdn.pixabay.com/photo/2021/01/09/15/30/house-5902665_960_720.jpg",
+            "icono":"FcShop",
+            "link":"/Visores/Esmeralda2"
+        }
+    ]
+]
