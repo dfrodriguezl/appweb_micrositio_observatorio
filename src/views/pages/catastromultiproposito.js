@@ -7,7 +7,7 @@ const useStyle = makeStyles({
     imagen_top:{    
         width: "100% !important",
         height: "40vh",
-        backgroundSize: "80%",
+        backgroundSize: "85%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Small})`,       
         backgroundPosition: "center",
@@ -15,7 +15,7 @@ const useStyle = makeStyles({
       },      
       imagen_top2:{     
          width: "100%",
-         height: "47vh",
+         height: "50vh",
          backgroundSize: "100%",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${Small})`,       
@@ -44,7 +44,7 @@ const useStyle = makeStyles({
 
 const Imagen = () => {
     const classes = useStyle();
-    const matches = useMediaQuery('(min-width:660px)');
+    const matches = useMediaQuery('(min-width:769px)');
     var estilo = null;
     {matches ? estilo=classes.imagen_top :estilo=classes.imagen_top2}   
     return(
@@ -57,7 +57,8 @@ const Catastro = () => {
     const classes = useStyle();
     return(
         <Grid container direction="column" className={classes.gridglobal}>
-            <Grid container>
+            <Grid container justifyContent="center"
+        alignItems="center">
                     <h3 className={classes.titleStyle}>Catastro Multipropósito</h3>
             </Grid>
             <Grid container direction="row">

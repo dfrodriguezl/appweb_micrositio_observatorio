@@ -55,6 +55,7 @@ const Imgnotfound = () => {
                 direction="column"
                 container
                 justifyContent="center"
+                alignItems="center"
             >
                 <h1 className={classes.titleStyle}>Página no encontrada</h1>
             </Grid>

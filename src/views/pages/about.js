@@ -102,10 +102,11 @@ const Imagen = () => {
 
 const About = () => {
     const classes = useStyle();
-    return(
+    return(      
         <Grid container direction="column">
             <Grid container direction="row" className={classes.gridglobal}>
-                <Grid container>
+                <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle}>¿Qué es un Observatorio?</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
@@ -119,7 +120,8 @@ const About = () => {
                 <Imagen/> 
             </Grid>
             <Grid container direction="row" className={classes.gridglobal}>
-                <Grid container>
+                <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle2}>Decreto 148 de 2020</h3>
                 </Grid>
                 <ImagenJudge/>   

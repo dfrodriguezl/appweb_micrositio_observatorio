@@ -84,7 +84,7 @@ const useStyle = makeStyles({
         backgroundSize: "80%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Delivery})`,       
-        backgroundPosition: "center",  
+        backgroundPosition: "initial",  
      
 },
 
@@ -119,8 +119,11 @@ const Topservice = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
+          <Grid container justifyContent="center"
+          alignItems="center">
+          <h3 className={classes.Titleh3}>Servicios</h3>
+                </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <h3 className={classes.Titleh3}>Servicios</h3>
                 <p className={classes.Textp}>{Values.TextGeovisor}</p>      
                 </Grid>
                 <ImagenBottom/> 

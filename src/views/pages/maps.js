@@ -29,11 +29,11 @@ const useStyle = makeStyles({
 
       imagen_top:{    
         width: "100% !important",
-        height: "42vh",
+        height: "45vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Paper})`,       
-        backgroundPosition: "center",         
+        backgroundPositionY: "-5vh",         
    },
  
    gridglobal:{
@@ -42,7 +42,7 @@ const useStyle = makeStyles({
 
    imagen_top2:{     
          width: "100%",
-         height: "66vh",
+         height: "50vh",
          backgroundSize: "100%",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${Paper})`,       
@@ -67,8 +67,12 @@ const Topmaps = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
+          <Grid container justifyContent="center"
+          alignItems="center">
+          <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+                </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+                
                 <p className={classes.Textp}>
                   Un geovisor o visor geográfico, corresponde a una herramienta en línea que permite la consulta de información a través de una interfaz geográfica, mediante la cual se puede reunir, gestionar y/o analizar datos. 
                 </p>     
