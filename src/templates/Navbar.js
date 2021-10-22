@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Box } from '@material-ui/core/';
+import { Grid } from '@material-ui/core/';
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   NavLink
 } from "react-router-dom";
 import {
-  makeStyles,
-  ThemeProvider,
-  createTheme
+  makeStyles
 } from '@material-ui/core/styles';
 import Styled from "styled-components";
 
@@ -25,10 +20,10 @@ const useStyle = makeStyles({
   menuActive: {
     height: 500,
     width: "100%",
-    position: "relative",
+    position: "absolute",
     backgroundColor: "#F2F2F2",
     zIndex: 1,
-    marginTop: -1
+    top:160
   },
   colorMenuActive: {
     backgroundColor: "#BD0B4E",

@@ -1,19 +1,11 @@
 import React from 'react';
-import Styled from "styled-components";
-import { Box, Grid } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import InputBase from '@material-ui/core/InputBase';
+import {  Grid } from '@material-ui/core';
 import {
-    makeStyles,
-    ThemeProvider,
-    createTheme
+    makeStyles
 } from '@material-ui/core/styles';
-import { AiOutlineSearch } from "react-icons/ai";
 import logoDane from "../img/logo-dane.svg";
 import logoObservatorio from "../img/logo-observatorio.svg";
-import aumentarFuente from "../img/DANE__Geovisor__icon__fontIncrease.svg";
-import disminuirFuente from "../img/DANE__Geovisor__icon__fontDecrease.svg";
-import sonido from "../img/DANE__Geovisor__icon__listen.svg";
+
 
 
 const useStyle = makeStyles({

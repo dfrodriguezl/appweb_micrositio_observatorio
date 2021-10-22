@@ -1,14 +1,20 @@
 import React from 'react'
-import Styled from "styled-components";
 import {Grid, Box} from '@material-ui/core/';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlinePhone, AiOutlineClockCircle } from "react-icons/ai";
 import logoGobernment from "../img/logoGovernment.png";
 
+import {
+    makeStyles
+  } from '@material-ui/core/styles';
+  import Styled from "styled-components";
+
+
 
 const ContenedorFooter= Styled.div`
         background-color: #FAFAFA;
-        margin-top:15px;        
+        margin-top:15px;
+        margin-bottom:15px;        
                 
 `;
 const H3 = Styled.h3`
@@ -17,57 +23,77 @@ const H3 = Styled.h3`
 `;
 const Imagen = Styled.img`
     max-width:200px;
+    margin-right:30px;
     
 `;
 
+const useStyle = makeStyles({
+    liItem:{
+        color:"black"
+    },
+    ulItem:{
+        listStyle:"none",
+        marginLeft:10
+    }
+    
+});
+
+
+
 const Footer = () =>{
+    const classes = useStyle();
     return(
         <ContenedorFooter>
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
-            <Grid container>
+            <Grid container item justifyContent={'flex-start'}>
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid item xs={6} sm={3}  >                    
-                    <Grid  container >
-                        <Grid item sm={4} ><Box pt={1} pl={8} color="#B91450" fontSize = {35}><AiOutlinePhone/> </Box>
-                        </Grid>
-                        <Grid item sm={8}   >
-                           <Box p={1} color="black" fontSize = {17} fontWeight={700}> CALL CENTER</Box>
-                               <Box color="black" fontSize = {17} fontWeight={700}> Conmutador:</Box> (571) 597 833 00 ó (571)5978398
-                               <Box color="black" fontSize = {17} fontWeight={700}> linea gratuita nacional </Box>01 8000 912 002
+                <Grid container item xs={6} sm={3} direction="row"  >                    
+                   
+                       <Box color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
+                        <ul className={classes.ulItem}>
+                              <li>
+                                  <b>CALL CENTER</b>
+                              </li>
+                              <li><b>Conmutador:</b> (571) 597 833 00 ó (571)5978398 </li>
+                              <li>
+                               <b>linea gratuita nacional</b> 01 8000 912 002
+                               </li> 
+                        </ul>
+                        
+                </Grid>
+                <Grid  container xs={6} sm={3} direction="row" justifyContent="center">
+                         <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
+                         <ul item className={classes.ulItem}>
+                                <li><b>HORARIO DE ATENCIÓN</b></li>
+                                <li><b>Lunes a viernes</b> 8:00 - 17:00</li>
+                         </ul>  
+                </Grid>
+                <Grid container xs={6} sm={4} direction="row" justifyContent="center">
+                     
+                     <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             
-                        </Grid>
-                    </Grid>
+  
+                                 <ul className={classes.ulItem}>
+                                      <li className={classes.liItem}>
+                                          <b>DIRECCIÓN</b>
+                                      </li>
+                                      <li className={classes.liItem}>
+                                      <b>Carrera 59 No. 26-70 Interior I - CAN</b>
+                                      </li>
+                                      <li className={classes.liItem}>
+                                      <b> Código postal:</b> 111321
+                                      </li>
+                                      <li className={classes.liItem}>
+                                      <b>Apartado Aéreo:</b> 80043
+                                      </li>
+                                      <li className={classes.liItem}>
+                                       <b>Bogotá D.C., Colombia - Suramérica</b>
+                                      </li>
+                                 </ul>                
                 </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Grid  container >
-                            <Grid item sm={4} ><Box pt={1} pl={8} color="#B91450" fontSize = {35}><AiOutlineClockCircle/> </Box>
-                            </Grid>
-                            <Grid item sm={8}   >
-                            <Box p={1} color="black" fontSize = {17} fontWeight={700}> HORARIO DE ATENCIÓN</Box>
-                                <Box color="black" fontSize = {17} fontWeight={700}> Lunes a viernes</Box>
-                                8:00 - 17:00
-                                
-                            </Grid>
-                    </Grid>      
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                     <Grid  container >
-                            <Grid item sm={4} ><Box pt={1} pl={8} color="#B91450" fontSize = {35}><HiOutlineLocationMarker/> </Box>
-                            </Grid>
-                            <Grid item sm={8}   >
-                            <Box p={1} color="black" fontSize = {17} fontWeight={700}> DIRECCIÓN</Box>
-                                <Box color="black" fontSize = {17} fontWeight={700}>Carrera 59 No. 26-70 Interior I - CAN</Box>
-                                <Box color="black" fontSize = {17} fontWeight={700}>Código postal:</Box>
-                                111321
-                                <Box color="black" fontSize = {17} fontWeight={700}>Apartado Aéreo:</Box>
-                                80043
-                                <Box color="black" fontSize = {17} fontWeight={700}>Bogotá D.C., Colombia - Suramérica</Box>
-                            </Grid>
-                     </Grid>                    
-                </Grid>
-                <Grid item xs={6} sm={3}>
+                <Grid container xs={1} sm={2} justifyContent={'flex-end'}>
                     <Box >
-                        <Imagen src= {logoGobernment} />
+                        <Imagen src= {logoGobernment}/>
                     </Box>
                 </Grid>
             </Grid>
