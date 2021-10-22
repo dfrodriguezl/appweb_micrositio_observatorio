@@ -8,7 +8,7 @@ import logoGobernment from "../img/logoGovernment.png";
 
 const ContenedorFooter= Styled.div`
         background-color: #FAFAFA;
-        margin-top:15px;        
+        padding-top: 1%;        
                 
 `;
 const H3 = Styled.h3`

@@ -6,19 +6,19 @@ import * as Values from 'Variables/values';
 const useStyle = makeStyles({
   
 boton: {
-    padding: "0 1em 0 1em",
+    padding: "0.3em 1em 0.3em 1em",
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
     color: Values.TextButton,
-    fontWeight: "bold",
     fontFamily: Values.SourceWorksans,
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
-    margin: "3% 0 5% 0",
+    margin: "10% 0 4% 0",
     width: "max-content",
-    fontSize: "calc(1em + 1vh)",
+    fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
+    fontWeight: "bold",
     "&:hover":{
         backgroundColor: Values.HoverButton,
         border:"none",

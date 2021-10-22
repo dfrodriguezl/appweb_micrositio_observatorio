@@ -110,14 +110,7 @@ const Navbar = () => {
             <DropDownLi>
               <UtilidadCentrarTexto>
                   <AiFillHome/>
-                  <MenuA href ="#">Inicio </MenuA>
-                      
-                    <DropDownContent>                        
-                              {" "}
-                              <SubMenuA href ="#" onClick={() => this.handleClick("Link1")}>Link 1 </SubMenuA>
-                            <SubMenuA href ="#"  onClick={() => this.handleClick("Link2")} >Link 2 </SubMenuA>
-                          <SubMenuA href ="#"  onClick={() => this.handleClick("Link3")} >Link 3  </SubMenuA>
-                    </DropDownContent>
+                  <NavLink to="/" className = {classes.root} >Inicio</NavLink>
                </UtilidadCentrarTexto>
             </DropDownLi>
 

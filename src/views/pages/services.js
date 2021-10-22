@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 import Delivery from "img/Delivery.svg";
 import ButtonRedWine from "common/buttonredwine";
-import {FcShop} from "react-icons/fc";
-import infocards from "common/cards.json";
+
+import infocards from "common/cards_.js";
 
 const useStyle = makeStyles({
   
     gridglobal:{
-        padding: "0 10% 0 10%",
+        padding: "0% 10% 0 10%",
       },
 
 
@@ -18,7 +18,7 @@ const useStyle = makeStyles({
       fontFamily: Values.SourceRoboto,
       fontSize: Values.SizeAuxiliary,
       textAlign: "start",  
-      margin: "0 10% 0 10%",
+      margin: "0 6% 0 6%",
      },
   
   centerButton: {
@@ -28,18 +28,14 @@ const useStyle = makeStyles({
 
   centerText: {
     textAlign: "center",
-    padding: "10% 0 0 0",
-  },
-
-  gridglobal: {
-    padding: "0 10% 1% 10%",
+    padding: "5% 0 0 0",
   },
 
   Titleh3:{
     color: Values.Redwinecolor,
-    fontFamily: Values.SourceWorksans,
-    fontSize: Values.SizeSubtitle,
-    padding: "8% 0 0 0",  
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeTitle, 
+    padding: Values.PaddingTitleText,
   },
 
   Textp:{
@@ -47,7 +43,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "start",  
-    margin: "2% 0 0 0",
+    margin: "1em 0 0 0",
   },
 
   Textpcard:{
@@ -68,24 +64,32 @@ const useStyle = makeStyles({
     height: "28vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
-    borderRadius: "0 0 4% 4%",
-    boxShadow: "0px 6px 10px #7b7676",
   },
 
   cardglobal: {
     //margin: "0% 0% 0% 0%",
     padding: "0% 0% 5% 0%",  
-    backgroundColor: "#fafafa",
+    backgroundColor: "white",
+  },
+
+  cardglobal2: {
+    //margin: "0% 0% 0% 0%",
+    padding: "0% 0% 0% 0%",  
+    backgroundColor: "white",
   },
 
   imagen_top:{    
     width: "100% !important",
-     height: "60vh",
-     backgroundSize: "77%",
-     backgroundRepeat: "no-repeat",
-     backgroundImage: `url(${Delivery})`,
-    backgroundPosition: "center",
+        height: "42vh",
+        backgroundSize: "80%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${Delivery})`,       
+        backgroundPosition: "center",  
      
+},
+
+contentcar:{
+  paddingBottom:"0 !important",
 },
 
 imagen_top2:{     
@@ -106,7 +110,7 @@ const ImagenBottom = () => {
   var estilo = null;
   {matches ? estilo=classes.imagen_top:estilo=classes.imagen_top2}   
   return(
-    <Grid item container direction="column" xs={6} className={estilo}></Grid>
+    <Grid item container direction="column" xs={4} className={estilo}></Grid>
     
   )
 } 
@@ -146,13 +150,13 @@ const Cardsservice = () => {
               className={classes.cardglobal}
             >                    
               <Card className={classes.root}>
-                <CardContent className={classes.cardglobal}>
+                <CardContent className={classes.cardglobal2}>
                   <CardMedia
                     className={classes.media}
                     image= {infocards.image_card}
                     title={infocards.title}
                   />
-                  <CardContent className={classes.centerText}>                      
+                  <CardContent className={classes.centerText, classes.contentcar}>                      
                     <Typography className={classes.Textpcard}>
                       {infocards.title}
                     </Typography>
