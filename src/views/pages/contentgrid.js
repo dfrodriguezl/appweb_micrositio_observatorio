@@ -1,43 +1,68 @@
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
-import city from "img/City_.svg";
-import figure from "img/figura.svg";
+import bloques from "img/Building.svg";
+import figure from "img/Career.svg";
+import lawyer from "img/Lawyer.svg";
+import Maintenance from "img/Maintenance.svg";
 import ButtonRedWine from "common/buttonredwine";
 import * as Values from 'Variables/values';
 
-//Contenido para Center_content
-
 const useStyle = makeStyles({
   
+marginbutton:{
+  padding: "2em 0em 0 0em",
+},
+marginbutton1:{
+  padding: "2em 0em 0 6%",
+},
+marginbutton2:{
+  padding: "2em 0em 0 11%",
+},
+
 numpadding:{
   paddingTop: "6%",
 },
 
+numpaddingVentajas:{
+  padding: "5% 0% 0% 0%",
+},
+
   num:{
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "#4c4c4c",
     borderRadius: "50%",
     textAlign: "center",
-    color: "#4d4d4d",
+    color: Values.TextButton,
     fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
     fontSize: Values.SizeSubtitle,
-    width: "5rem",
-    height: "5rem",
-    padding: "2vh 3vh",
+    width: "3.5rem",
+    height: "3.5rem",
+    padding: "1vh 2vh",
+  },
+
+  num1:{
+    backgroundColor: "#821a3f",
+    borderRadius: "50%",   
+    width: "1.3rem",
+    height: "1.3rem",
   },
 
   gridglobal:{
-    padding: "0 10vw 0 10vw",
-    
+    padding: "0 10vw 0 10vw",    
+  },
+
+  gridglobal2:{
+    padding: "0 10vw 3vw 10vw",    
   },
   
   marginbuttom:{
-    margin: "5% 0 5% 0",
-    backgroundColor:Values.Colorbottom,
+    padding: "5% 0 5% 0",
+    backgroundColor:Values.TextButton,
   },
 
   margintop:{
-    margin: "3% 0 0 0",
+    padding: "0 10vw 3vw 10vw",
+    backgroundColor:"#f4f4f4",
   },
 
   textStyle: {
@@ -48,48 +73,99 @@ numpadding:{
     padding: "0 1vw 0 1vw",
   },
 
-  titleStyle:{
-    color: Values.Redwinecolor,
-    fontFamily: Values.SourceWorksans,
-    fontWeight: "bold",
-    fontSize: Values.SizeSubtitle,
-    padding: "0.5em 0 0.5em 0",
+  textStyle1: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",
+    padding: "0 0 0 0.3vw",
   },
 
-  imagen_top:{
-    width: "100%",    
-    backgroundRepeat: "no-repeat",
-    backgroundImage:`url(${city})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",      
+  titleStyle:{
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: Values.SizeTitle,
+    padding: Values.PaddingTitleText,
+  },
+
+  titleStyle2:{
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: Values.SizeSubtitle,
+    padding: "0 0 1em 0",
+  },
+
+  imagen_top:{    
+       width: "100% !important",
+        height: "50vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${bloques})`,       
+        backgroundPosition: "initial",
+        
+  },
+
+  imagen_top2:{     
+        width: "100%",
+        height: "50vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${bloques})`,       
+        backgroundPosition: "initial",
+        flexBasis: "100% !important",
+        maxWidth: "100% !important",
   },
 
   Titleh3:{
     color: Values.Redwinecolor,
-    fontFamily: Values.SourceWorksans,
+    fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
-    fontSize: Values.SizeTitle,
-    textAlign: "center",   
-    padding: "2em 0 1em 0",
+    fontSize: Values.SizeTitle,  
+    padding: Values.PaddingTitleText,
   },
 
   Textp:{
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontSize: Values.SizeText,
-    textAlign: "center",  
-    margin: "1em 14% 2em 14%", 
+    fontSize: Values.SizeText, 
+    margin: "1em 0 0em 0", 
     backgroundColor: Values.Colormid,
   },
 
-  // containerImg:{
-  //   width: "100% !important",
-  //   height: "51vh",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundImage: `url(${figure})`,
-  //   backgroundSize: "100% 100%",
-  //   backgroundPosition: "center center",
-  // },
+   containerImg:{
+     width: "100% !important",
+     height: "51vh",
+     backgroundRepeat: "no-repeat",
+     backgroundImage: `url(${figure})`,
+     backgroundSize: "100% 100%",
+     backgroundPosition: "center center",
+  },
+
+  containerImgNormativa:{
+    width: "100% !important",
+    height: "44vh",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${lawyer})`,
+    backgroundSize: "80%",
+    backgroundPosition: "center center",
+ },
+
+ containerImgNormativa2:{
+  width: "100% !important",
+  height: "51vh",
+  backgroundRepeat: "no-repeat",
+  backgroundImage: `url(${lawyer})`,
+  backgroundSize: "100% 100%",
+  backgroundPosition: "center center",
+  flexBasis: "100% !important",
+  maxWidth: "100% !important",
+},
+
+  containerImg2:{
+    display:"none",
+ },
 
   containerTitle:{
     minHeight: "13vh"
@@ -97,47 +173,106 @@ numpadding:{
 
   contentrulesh1:{
     color: Values.Redwinecolor,
-    fontFamily: Values.SourceWorksans,
+    fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeTitle,
     textAlign: "center", 
-    padding: "1em 0 1em 0",
+    padding: Values.PaddingTitleText,
 },
 
 contentrulesp:{
   color: Values.TextParagraph,
   fontFamily: Values.SourceRoboto,
   fontSize: Values.SizeText,
-  textAlign: "center",  
-  padding: "0 10vw 1em 10vw", 
+  textAlign: "justify",  
+  margin: "1em 0 0em 0", 
 }, 
 
+imagen_uso:{    
+  width: "100% !important",
+   height: "60vh",
+   backgroundSize: "140%",
+   backgroundRepeat: "no-repeat",
+   backgroundImage: `url(${Maintenance})`,       
+   backgroundPositionX: "-73px",
+   backgroundPositionY: "-29px",
+   
+},
+
 });
+
+const Imagen = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:660px)');
+  var estilo = null;
+  {matches ? estilo=classes.imagen_top :estilo=classes.imagen_top2}   
+  return(
+    <Grid item container direction="column" xs={6} className={estilo}>   
+    </Grid>  
+  )
+
+} 
+
+const ImagenNormativa = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:660px)');
+  var estilo = null;
+  {matches ? estilo=classes.containerImgNormativa:estilo=classes.containerImgNormativa2}   
+  return(
+    <Grid item container direction="column" xs={6} className={estilo}>   
+    </Grid>  
+  )
+
+} 
+
+const ImagenCenter = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:769px)');
+  var estilo = null;
+  {matches ? estilo=classes.containerImg:estilo=classes.containerImg2}   
+  return(
+    <Grid item container direction="column" xs className={estilo}></Grid>
+    
+  )
+} 
+
+const ImagenBottom = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:769px)');
+  var estilo = null;
+  {matches ? estilo=classes.imagen_uso:estilo=classes.containerImg2}   
+  return(
+    <Grid item container direction="column" xs={4} className={estilo}></Grid>
+    
+  )
+} 
 
 const Top_content = () => {
   const classes = useStyle();
   return(
     <Grid
     container
-    direction="column"
-    justifyContent="center"
-    alignItems="center"
-    className={classes.imagen_top}
-  >
-    <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
-    <p className={classes.Textp}>{Values.TextHomeTop}</p>
-    <ButtonRedWine Title="Acerca de" />
+    direction="row" className={classes.gridglobal} >
+      <Grid container>
+      <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
+      </Grid>
+    <Grid item container direction="column" xs>    
+    <Grid>
+      <p className={classes.Textp}>        
+        El Observatorio Inmobiliario Nacional es un Sistema de Información, que cuenta con un Componente Geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los Gestores Catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
+      </p>
+      <p className={classes.Textp}>            
+        Este Sistema cumple con los estandares establecidos por el Instituto Geográfico Agustín Codazzi - IGAC, que es la maxima autoridad catastral en la Nación y cuya información esta a disposición del público.
+      </p>
+    </Grid>
+    <Grid container>
+    <ButtonRedWine Title="Acerca de" href="/Acerca"/>
+    </Grid>
+    </Grid>  
+    <Imagen/>
   </Grid>
+  
   );
   };
-
-// const Imgquery = () => {
-//   const classes = useStyle();
-//   return(
-//     <Grid item container direction="column" xs justifyContent="center" alignItems="center">  
-//       <div className={classes.containerImg}></div>
-//     </Grid>
-//   );
-// };
 
 const Center_content = () => {
     const classes = useStyle();
@@ -150,7 +285,7 @@ const Center_content = () => {
           alignItems="center"
           className={classes.containerTitle}
         >
-          <h1 className={classes.titleStyle}>Ventajas</h1>
+          <h1 className={classes.titleStyle}>Ventajas del Observatorio</h1>
       </Grid>
       <Grid item container direction="column" xs>
       <Grid          
@@ -168,36 +303,10 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle}>Seguimiento</h1>
-          <p className={classes.textStyle}>Seguimiento proactivo de transacciones y cambios en el tiempo.</p>
+          <h1 className={classes.titleStyle2}>Seguimiento y Disposición</h1>
+          <p className={classes.textStyle}>Seguimiento y disposición en el tiempo de ofertas, transacciones, costos de construcción, entre otros.</p>
         </Grid>
         <Grid          
-          container
-          direction="column"          
-          justifyContent="center"
-          alignItems="center"
-          className={classes.numpadding}
-        >
-          <h1 className={classes.num}>3</h1>
-        </Grid>
-        <Grid
-          item
-          xs
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"         
-        >
-          <h1 className={classes.titleStyle}>Comunicación</h1>
-          <p className={classes.textStyle}>
-            Comunicación directa y en doble via con los ciudadanos mediante
-            servicios digitales para segurar una actualización permanente.
-          </p>
-        </Grid>
-      </Grid>
-      {/* <Imgquery/> */}
-      <Grid item container direction="column" xs>
-      <Grid          
           container
           direction="column"          
           justifyContent="center"
@@ -210,13 +319,34 @@ const Center_content = () => {
           container
           direction="column"
           justifyContent="center"
+          alignItems="center"         
+        >
+          <h1 className={classes.titleStyle2}>Integración</h1>
+          <p className={classes.textStyle}>
+            Integración con diversos Sistemas de Información de nivel publico y privado.
+          </p>
+        </Grid>
+      </Grid>
+      <ImagenCenter/>
+      <Grid item container direction="column" xs>
+      <Grid          
+          container
+          direction="column"          
+          justifyContent="center"
+          alignItems="center"
+          className={classes.numpadding}
+        >
+          <h1 className={classes.num}>3</h1>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle}>Integración</h1>
+          <h1 className={classes.titleStyle2}>Comunicación</h1>
           <p className={classes.textStyle}>
-            Integración con diversas fuentes de información públicas y privadas
-            relativas a la planificación, el uso, las restricciones y los
-            servicios públicos.
+          Comunicación directa y en doble vía con los ciudadanos mediante la puesta en marcha de servicios digitales para asegurar una actualización permanente de la información predial.
           </p>
         </Grid>
         <Grid          
@@ -236,10 +366,9 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"     
         >
-          <h1 className={classes.titleStyle}>LADM</h1>
+          <h1 className={classes.titleStyle2}>LADM</h1>
           <p className={classes.textStyle}>
-            Basado en información catastral multipropósito compatible con el
-            estandar LADM
+          Basado en el modelo estandar LADM - COL para la interoperailidad de información del Catastro Multipróposito.
           </p>
         </Grid>
       </Grid>
@@ -255,32 +384,158 @@ const Bottom_content = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      className={classes.marginbuttom}
+      className={classes.marginbuttom,classes.gridglobal2}
     >
+    <Grid
+    container
+    direction="row">
+      <Grid container justifyContent="center"
+      alignItems="center">
       <h1 className={classes.contentrulesh1}>Normatividad</h1>
-      <p className={classes.contentrulesp}>
-        Los observatorios inmobiliarios son una práctica ya implementada en
-        Colombia por parte de algunos Catastros que lo han venido impulsando como
-        mecanismo de visibilidad de información, captura de datos de diferentes
-        fuentes e insumo para la generación de nueva información resultante de su
-        análisis.
+      </Grid>
+    <Grid item container direction="column" xs>    
+    <Grid container>
+    <p className={classes.contentrulesp}>
+      Para la disposición de información del mercado inmobiliario, se pone a disposición y funcionamiento el Observatorio Inmobiliario Nacional, que articula e integra diferentes fuentes de información en este campo.
       </p>
-      <ButtonRedWine
-        Title="DECRETO 148 DE 2020"
+      <p className={classes.contentrulesp}>
+      Los observatorios inmobiliarios son una práctica ya implementada en Colombia por parte de algunos Catastros desentralizados, como mecanismos de visibilidad de información e insumo para la generación de conocimiento.
+      </p>
+      <p className={classes.contentrulesp}>
+      El Observatorio Inmobiliario Nacional tiene su fundamento normativo en:
+      </p>
+    </Grid>
+    </Grid>  
+    <ImagenNormativa/>
+  </Grid>
+      <Grid container direction="column" justifyContent="center"
+      alignItems="flex-start">
+      <Grid className={classes.marginbutton}>
+      <ButtonRedWine Title="DECRETO 148 DE 2020"
         href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
-        Values="1"
-      />
+        Values="1"/>
+      </Grid>
+      <Grid className={classes.marginbutton1}>
+      <ButtonRedWine Title="LEY 1955 DE 2019"
+        href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+        Values="1"/>
+      </Grid>
+      <Grid className={classes.marginbutton2}>
+      <ButtonRedWine Title="CONPES 3958 DE 2019"
+        href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+        Values="1"/>
+      </Grid>
+      </Grid>
     </Grid>
   );
+}
+
+const Bottom_content_footer = () =>{
+  const classes = useStyle();
+  return(
+    <Grid container className={classes.margintop}>
+      <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          className={classes.containerTitle}
+        >
+          <h1 className={classes.titleStyle}>Uso del Observatorio Inmobiliario Nacional</h1>
+      </Grid>
+      <Grid item container direction="column" xs>
+      <Grid          
+          container
+          direction="row"          
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.numpaddingVentajas}
+        >
+          <h1 className={classes.num}>1</h1>
+          <p className={classes.textStyle}>Seguimiento dinamica inmobiliaria</p>
+          <Grid item container direction="column" xs>
+            <Grid container
+              direction="row"          
+              justifyContent="flex-start"
+              alignItems="center">
+              <h1 className={classes.num1}></h1>
+              <p className={classes.textStyle1}>Ofertas</p>
+            </Grid>
+            <Grid container
+              direction="row"          
+              justifyContent="flex-start"
+              alignItems="center">
+              <h1 className={classes.num1}></h1>
+              <p className={classes.textStyle1}>Transacciones</p>
+            </Grid>
+            <Grid container
+              direction="row"          
+              justifyContent="flex-start"
+              alignItems="center">
+              <h1 className={classes.num1}></h1>
+              <p className={classes.textStyle1}>Costos de Construcción</p>
+            </Grid>
+            <Grid container
+              direction="row"          
+              justifyContent="flex-start"
+              alignItems="center">
+              <h1 className={classes.num1}></h1>
+              <p className={classes.textStyle1}>Avaluós</p>
+            </Grid>
+            <Grid container
+              direction="row"          
+              justifyContent="flex-start"
+              alignItems="center">
+              <h1 className={classes.num1}></h1>
+              <p className={classes.textStyle1}>Otros</p>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid          
+          container
+          direction="row"          
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.numpaddingVentajas}
+        >
+          <h1 className={classes.num}>2</h1>
+          <p className={classes.textStyle}>Integración información estadística</p>
+        </Grid>
+        <Grid          
+          container
+          direction="row"          
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.numpaddingVentajas}
+        >
+          <h1 className={classes.num}>3</h1>
+          <p className={classes.textStyle}>Publicidad de datos oficiales</p>
+        </Grid>
+        <Grid          
+          container
+          direction="row"          
+          justifyContent="flex-start"
+          alignItems="center"
+          className={classes.numpaddingVentajas}
+        >
+          <h1 className={classes.num}>4</h1>
+          <p className={classes.textStyle}>Fuente de investigaciónes</p>
+        </Grid>
+      </Grid>
+      <ImagenBottom/>
+    </Grid>
+  )
 }
 
 const ContentGrid = () =>{
   const classes = useStyle(); 
   return(
-    <Grid container className={classes.gridglobal}>
+    <Grid container
+    >
       <Top_content/>
       <Center_content/>
       <Bottom_content/>
+      <Bottom_content_footer/>
     </Grid>
   );
 } 

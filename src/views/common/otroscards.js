@@ -2,7 +2,7 @@ import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, But
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 import ButtonRedWine from "common/buttonredwine";
-import infomaps from "common/infomaps.json";
+import cardsotros from "common/cardsotros";
 
 const useStyle = makeStyles({
   
@@ -72,7 +72,7 @@ const Cardsmapas = () => {
           container
           className={classes.gridglobal}
         >
-          {infomaps.map(function(infomaps) {     
+          {cardsotros.map(function(cardsotros) {     
                 return(
                   <Grid
             item
@@ -81,26 +81,23 @@ const Cardsmapas = () => {
             xs              
             justifyContent="center"
             alignItems="center"
-            key={infomaps.id}
+            key={cardsotros.id}
             className={classes.cardglobal}
           >                    
             <Card className={classes.root}>
               <CardContent className={classes.cardglobal2}>
                 <CardMedia
                   className={classes.media}
-                  image={infomaps.image_card}                 
+                  image={cardsotros.image_card}                 
                 />
                 <CardContent className={classes.centerText, classes.contentcar}>
                   <Typography className={classes.Titleh3}>
-                  {infomaps.title}  
-                  </Typography>
-                  <Typography className={classes.Textp}>
-                  {infomaps.description}  
+                  {cardsotros.title}  
                   </Typography>
                 </CardContent>
               </CardContent>
               <CardActions className={classes.centerButton}>
-              <ButtonRedWine Title="Visitar" href={infomaps.link}/>
+              <ButtonRedWine Title="Visitar" href={cardsotros.link}/>
               </CardActions>
             </Card>
           </Grid>

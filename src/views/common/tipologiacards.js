@@ -2,7 +2,7 @@ import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, But
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 import ButtonRedWine from "common/buttonredwine";
-import infomaps from "common/infomaps.json";
+import cardstipologia from "common/cardtipologia";
 
 const useStyle = makeStyles({
   
@@ -63,7 +63,7 @@ const useStyle = makeStyles({
       },
 });
 
-const Cardsmapas = () => {
+const Cardstipologia = () => {
     const classes = useStyle();
     return (
       
@@ -72,7 +72,7 @@ const Cardsmapas = () => {
           container
           className={classes.gridglobal}
         >
-          {infomaps.map(function(infomaps) {     
+          {cardstipologia.map(function(cardstipologia) {     
                 return(
                   <Grid
             item
@@ -81,26 +81,26 @@ const Cardsmapas = () => {
             xs              
             justifyContent="center"
             alignItems="center"
-            key={infomaps.id}
+            key={cardstipologia.id}
             className={classes.cardglobal}
           >                    
             <Card className={classes.root}>
               <CardContent className={classes.cardglobal2}>
                 <CardMedia
                   className={classes.media}
-                  image={infomaps.image_card}                 
+                  image={cardstipologia.image_card}                 
                 />
                 <CardContent className={classes.centerText, classes.contentcar}>
                   <Typography className={classes.Titleh3}>
-                  {infomaps.title}  
+                  {cardstipologia.title}  
                   </Typography>
                   <Typography className={classes.Textp}>
-                  {infomaps.description}  
+                  {cardstipologia.description}  
                   </Typography>
                 </CardContent>
               </CardContent>
               <CardActions className={classes.centerButton}>
-              <ButtonRedWine Title="Visitar" href={infomaps.link}/>
+              <ButtonRedWine Title="Visitar" href={cardstipologia.link}/>
               </CardActions>
             </Card>
           </Grid>
@@ -111,4 +111,4 @@ const Cardsmapas = () => {
     );
 }
 
-export default Cardsmapas
+export default Cardstipologia

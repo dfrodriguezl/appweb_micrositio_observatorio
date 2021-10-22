@@ -1,73 +1,62 @@
 import React, { Component } from 'react';
-import {Grid, makeStyles} from "@material-ui/core";
+import {Grid, makeStyles, useMediaQuery} from "@material-ui/core";
 import * as Values from 'Variables/values';
+import notfound from "img/404.svg";
 
 const useStyle = makeStyles({
     containerImg:{
         width: "100%",
-        height: "55vh",
+        height: "80vh",
         backgroundSize: "100%",
-        margin: "0 0 0 8%",
         backgroundRepeat: "no-repeat",
-        backgroundImage: "url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif')",       
-        backgroundPosition: "center center",
-        
-
+        backgroundImage: `url(${notfound})`,    
+        backgroundPosition: "initial",
       },
 
-      containermaximg:{
-        flexBasis: "100% !important",
-        maxWidth: "75%",
+      containerImg2:{
+        width: "100%",
+        height: "60vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${notfound})`,    
+        backgroundPosition: "center",
       },
 
       global:{
-        padding:"3% 10% 3% 10%",
-      },
-
-      mensaje:{
-        padding: "0 7% 0 0",
-      },
-
-      textStyle: {
-        color: Values.TextParagraph,
-        fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeText,
-        textAlign: "start",
-        padding: "0 0 0 0",
+        padding:"0 10% 0 10%",
       },
       titleStyle:{
         color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
+        fontFamily: Values.SourceRoboto,
         fontWeight: "bold",
         fontSize: Values.SizeSubtitle,
-        padding: "0.5em 0 0.5em 0",
+        padding: Values.PaddingTitleText,
       },
 });
 
+
+
 const Imgnotfound = () => {
-    const classes = useStyle();
-    return(
-      <Grid item xs={8} className={classes.containermaximg}>  
-        <div className={classes.containerImg}></div>
-      </Grid>
-    );
-  };
+     const classes = useStyle();
+     const matches = useMediaQuery('(min-width:1281px)');
+     var estilo = null;
+    {matches ? estilo=classes.containerImg:estilo=classes.containerImg2} 
+     return(
+       <Grid item container direction="column" xs={6} className={estilo}>           
+       </Grid>
+       
+     );
+   };
 
   const Mensajenotfound = () => {
     const classes = useStyle();
     return(
             <Grid
-                item
                 direction="column"
                 container
                 justifyContent="center"
-                xs
-                className={classes.mensaje}
             >
-                <h1 className={classes.titleStyle}>¡Lo sentimos! Página en mantenimiento.</h1>
-                <p className={classes.textStyle}>Apreciado usuario,</p>
-                <br/>
-                <p className={classes.textStyle}>La página que estás buscando se encuentra en mantenimiento temporal o corresponde a un enlace antiguo, te invitamos regresar al inicio y navegue en el menú principal. Gracias por tu comprensión.</p>
+                <h1 className={classes.titleStyle}>Página no encontrada</h1>
             </Grid>
     );
 };
@@ -75,7 +64,8 @@ const Imgnotfound = () => {
 const Notfound = () => {
     const classes = useStyle();
     return(
-     <Grid item container className={classes.global}>
+     <Grid item container className={classes.global} justifyContent="center"
+     alignItems="center">
        <Mensajenotfound/>
        <Imgnotfound/>
      </Grid>

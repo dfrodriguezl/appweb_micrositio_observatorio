@@ -1,10 +1,9 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
-import CardsMaps from 'common/Cards';
-import Paper from "img/Paper.svg";
+import CardsMaps from 'common/otroscards';
+import App from "img/App.svg";
 import ButtonRedWine from "common/buttonredwine";
-
 
 const useStyle = makeStyles({
     
@@ -15,7 +14,7 @@ const useStyle = makeStyles({
     Titleh3:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeSubtitle,
+        fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,  
       },
     
@@ -24,16 +23,17 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "2% 0 0 0",
+        margin: "1em 0 0 0",
       },
 
       imagen_top:{    
         width: "100% !important",
-        height: "42vh",
-        backgroundSize: "100%",
+        height: "57vh",
+        backgroundSize: "70%",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${Paper})`,       
-        backgroundPosition: "center",         
+        backgroundImage: `url(${App})`,       
+        backgroundPositionX: "left", 
+        backgroundPositionY: "25%",    
    },
  
    gridglobal:{
@@ -45,7 +45,7 @@ const useStyle = makeStyles({
          height: "66vh",
          backgroundSize: "100%",
          backgroundRepeat: "no-repeat",
-         backgroundImage: `url(${Paper})`,       
+         backgroundImage: `url(${App})`,       
          backgroundPosition: "center center",
          flexBasis: "100% !important",
          maxWidth: "100% !important",
@@ -63,34 +63,47 @@ const ImagenBottom = () => {
     )
   } 
 
-const Topmaps = () => {
+const Topobservatorio = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+                <h3 className={classes.Titleh3}>Otros Observatorios Inmobiliarios</h3>
                 <p className={classes.Textp}>
-                  Un geovisor o visor geográfico, corresponde a una herramienta en línea que permite la consulta de información a través de una interfaz geográfica, mediante la cual se puede reunir, gestionar y/o analizar datos. 
-                </p>     
+                    Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos mas relevantes son:                    
+                </p> 
                 <p className={classes.Textp}>
-                  La ventaja de los Geovisores radica en el análisis de la ubicación espacial y la visualizacion de información la cual se realiza por capas mediante la utilización de mapas
-                  </p>  
-                </Grid>
+                    1. Calculo de Avalúos
+                    <br/>
+                    2. Registro de Ofertas tanto públicas como privadas
+                    <br/>
+                    3. Seguimiento y análisis a las dinamicas inmobiliarias
+                    <br/>
+                    4. Integración con información estadística
+                    <br/>
+                    5. Publicación de datos oficiales
+                    <br/>
+                    6. Fuente de investigaciones cientifias
+                </p>    
+                <p className={classes.Textp}>
+                    los mismos deben estar articulados con el Observatorio Nacional del Depatamento Nacional de Estadística - DANE.
+                </p> 
+            </Grid>
                 <ImagenBottom/> 
         </Grid>
     );
 }
 
 
-const maps = () => {
+const otrosobservatorios = () => {
     const classes = useStyle(); 
     return (
         <Grid container justifyContent="center"
         alignItems="center"  className={classes.gridglobal}>
-            <Topmaps/>
+            <Topobservatorio/>
             <CardsMaps/>
         </Grid>
     );
 }
 
-export default maps
+export default otrosobservatorios

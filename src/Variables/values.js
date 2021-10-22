@@ -10,8 +10,8 @@ export const Colormid = "#ffffffb3"
 export const Colorbottom = "#f4f4f4"
 
 //Colors Text
-export const TextParagraph = "#494949"
-export const TextButton = "white"
+export const TextParagraph = "#4C4C4C"
+export const TextButton = "#F3F3F3"
 
 //Text
 export const TitleHomeTop = "¿Qué es el Observatorio Inmobiliario Nacional?";
@@ -24,7 +24,9 @@ export const SourceRoboto = "Roboto"
 export const SourceWorksans = "Work sans"
 
 //Size Text
-export const SizeTitle = "calc(1em + 2.5vh)"
-export const SizeSubtitle = "calc(1em + 2vh)"
+export const SizeTitle = "calc(1em + 2vh)"
+export const SizeSubtitle = "calc(1em + 1.5vh)"
 export const SizeText = "calc(1em + 1vh)"
-export const SizeAuxiliary= "calc(1em + 0.5vh)"
+export const SizeAuxiliary= "calc(0.7em + 0.5vh)"
+
+export const PaddingTitleText="1.5em 0 1em 0"
