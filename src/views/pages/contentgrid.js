@@ -8,7 +8,11 @@ import ButtonRedWine from "common/buttonredwine";
 import * as Values from 'Variables/values';
 
 const useStyle = makeStyles({
-  
+
+puntos:{
+  padding: "1.5vw 0 0px 1vh",
+},
+
 marginbutton:{
   padding: "2em 0em 0 0em",
 },
@@ -167,6 +171,10 @@ numpaddingVentajas:{
     display:"none",
  },
 
+ containerImgNone:{
+  backgroundImage:"none",
+},
+
   containerTitle:{
     minHeight: "13vh"
   },
@@ -188,14 +196,20 @@ contentrulesp:{
 }, 
 
 imagen_uso:{    
-  width: "100% !important",
-   height: "60vh",
-   backgroundSize: "140%",
+   backgroundSize: "50%",
    backgroundRepeat: "no-repeat",
    backgroundImage: `url(${Maintenance})`,       
-   backgroundPositionX: "-73px",
-   backgroundPositionY: "-29px",
+   backgroundPositionX: "85%",
+   backgroundPositionY: "5%",
    
+},
+
+imagen_uso2:{
+  backgroundSize: "50%",
+   backgroundRepeat: "no-repeat",
+   backgroundImage: `url(${Maintenance})`,       
+   backgroundPositionX: "85%",
+   backgroundPositionY: "7.6vw !important",
 },
 
 });
@@ -241,8 +255,7 @@ const ImagenBottom = () => {
   var estilo = null;
   {matches ? estilo=classes.imagen_uso:estilo=classes.containerImg2}   
   return(
-    <Grid item container direction="column" xs={4} className={estilo}></Grid>
-    
+    <Grid item container direction="column" xs={4} className={estilo}></Grid>    
   )
 } 
 
@@ -252,7 +265,8 @@ const Top_content = () => {
     <Grid
     container
     direction="row" className={classes.gridglobal} >
-      <Grid container>
+      <Grid container justifyContent="center"
+          alignItems="center">
       <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
       </Grid>
     <Grid item container direction="column" xs>    
@@ -432,6 +446,20 @@ const Bottom_content = () => {
 
 const Bottom_content_footer = () =>{
   const classes = useStyle();
+  const matches = useMediaQuery('(min-width:1281px)');
+  const matches2 = useMediaQuery('(max-width:769px)');
+  var estilo = null;
+  console.log({matches2})
+  if(matches){
+    estilo=classes.imagen_uso
+  }else{
+    if(matches2){
+      estilo=classes.containerImgNone
+    }else{
+      estilo=classes.imagen_uso2
+    }
+    
+  } 
   return(
     <Grid container className={classes.margintop}>
       <Grid
@@ -443,7 +471,7 @@ const Bottom_content_footer = () =>{
         >
           <h1 className={classes.titleStyle}>Uso del Observatorio Inmobiliario Nacional</h1>
       </Grid>
-      <Grid item container direction="column" xs>
+      <Grid item container direction="column" xs className={estilo}>
       <Grid          
           container
           direction="row"          
@@ -453,7 +481,7 @@ const Bottom_content_footer = () =>{
         >
           <h1 className={classes.num}>1</h1>
           <p className={classes.textStyle}>Seguimiento dinamica inmobiliaria</p>
-          <Grid item container direction="column" xs>
+          <Grid item container direction="column" xs className={classes.puntos}>
             <Grid container
               direction="row"          
               justifyContent="flex-start"
@@ -521,8 +549,7 @@ const Bottom_content_footer = () =>{
           <h1 className={classes.num}>4</h1>
           <p className={classes.textStyle}>Fuente de investigaciónes</p>
         </Grid>
-      </Grid>
-      <ImagenBottom/>
+      </Grid>      
     </Grid>
   )
 }

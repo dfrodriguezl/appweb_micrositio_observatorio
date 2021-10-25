@@ -28,7 +28,8 @@ const Comite = () => {
     const classes = useStyle();
     return(
         <Grid container direction="column" className={classes.gridglobal}>
-            <Grid container>
+            <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle}>Comité Técnico Asesor</h3>
             </Grid>
                 <Grid container>
@@ -47,7 +48,8 @@ const Comite = () => {
                     5. Las demas establecidad en el Comité
                     </p>     
                 </Grid>
-                <Grid container>
+                <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle}>Composición del Comité Técnico Asesor</h3>
                 </Grid>
                 <Grid container>

@@ -41,7 +41,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontWeight: "bold",
         fontSize: Values.SizeSubtitle,
-        padding: "0 0 1em 0",
+        padding: "0px 6vw 1em 6vw",
         textAlign: "center",
       },
       textStyle: {
@@ -49,7 +49,22 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "center",
-        padding: "0 1vw 0 1vw",
+        padding: "0 5vw 0 5vw",
+      },
+      titleStyle3:{
+        color: Values.Redwinecolor,
+        fontFamily: Values.SourceRoboto,
+        fontWeight: "bold",
+        fontSize: Values.SizeSubtitle,
+        padding: "0px 15vw 1em 15vw",
+        textAlign: "center",
+      },
+      textStyle2: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "center",
+        padding: "0 25vw 0 25vw",
       },
       numeros:{
         height: "100%",
@@ -64,7 +79,7 @@ const avaluos = () => {
     const classes = useStyle();
     return(
         <Grid container direction="column" className={classes.gridglobal}>
-            <Grid container>
+            <Grid container justifyContent="center" alignItems="center">
                     <h3 className={classes.titleStyle}>Catastro Multipropósito</h3>
             </Grid>
             <Grid container>
@@ -101,8 +116,8 @@ const avaluos = () => {
                         <h1 className={classes.num}>3</h1>
                     </Grid>
                     <Grid container direction="column" justifyContent="center" alignItems="center">
-                        <h1 className={classes.titleStyle2}>Método de Costo de Reposición</h1>
-                        <p className={classes.textStyle}>
+                        <h1 className={classes.titleStyle3}>Método de Costo de Reposición</h1>
+                        <p className={classes.textStyle2}>
                         Consiste en establecer el vlor comercial de una construcción a patir de la depreciación de una estimacion del costo de sus materiales
                         </p>
                     </Grid>

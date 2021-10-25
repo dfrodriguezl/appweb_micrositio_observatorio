@@ -28,12 +28,12 @@ const useStyle = makeStyles({
 
       imagen_top:{    
         width: "100% !important",
-        height: "57vh",
+        height: "42vh",
         backgroundSize: "70%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${App})`,       
         backgroundPositionX: "left", 
-        backgroundPositionY: "25%",    
+        backgroundPositionY: "20%",    
    },
  
    gridglobal:{
@@ -67,8 +67,11 @@ const TopContacto = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
+          <Grid container justifyContent="center"
+          alignItems="center">
+          <h3 className={classes.Titleh3}>Contacto</h3>
+                </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <h3 className={classes.Titleh3}>Contacto</h3>
                 <p className={classes.Textp}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.                   
                 </p> 

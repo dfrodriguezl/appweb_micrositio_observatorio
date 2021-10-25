@@ -67,8 +67,11 @@ const Topobservatorio = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
-                <Grid item container direction="column" xs className={classes.containerTitle}>
-                <h3 className={classes.Titleh3}>Otros Observatorios Inmobiliarios</h3>
+          <Grid container justifyContent="center"
+          alignItems="center">
+          <h3 className={classes.Titleh3}>Otros Observatorios Inmobiliarios</h3>
+                </Grid>
+                <Grid item container direction="column" xs className={classes.containerTitle} >              
                 <p className={classes.Textp}>
                     Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos mas relevantes son:                    
                 </p> 
