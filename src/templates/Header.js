@@ -1,17 +1,11 @@
 import React from 'react';
+import {  Grid } from '@material-ui/core';
+import {
+    makeStyles
+} from '@material-ui/core/styles';
+import logoDane from "../img/logo-dane.svg";
+import logoObservatorio from "../img/logo-observatorio.svg";
 import Styled from "styled-components";
-import { Box, Grid } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import InputBase from '@material-ui/core/InputBase';
-import { makeStyles, 
-        ThemeProvider,
-         createTheme } from '@material-ui/core/styles';
-import { AiOutlineSearch } from "react-icons/ai";
-import logoDane from "../img/DANE__Geovisor__icon__logoDANE__01.svg";
-import logoObservatorio from "../img/Logo_Observatorio_inmobiliario_Opcion1.svg";
-import aumentarFuente from "../img/DANE__Geovisor__icon__fontIncrease.svg";
-import disminuirFuente from "../img/DANE__Geovisor__icon__fontDecrease.svg";
-import sonido from "../img/DANE__Geovisor__icon__listen.svg";
 
 
 const useStyle = makeStyles({
@@ -19,74 +13,63 @@ const useStyle = makeStyles({
         height: '50px'
     },
     logo: {
-        maxWidth: 250,
-        marginRight: '10px'
+        Width: 140,
+        Height: 47,
+        marginTop:20,
+        marginBottom:10,
+        marginRight:5
     },
-    accesibilidad:{
-        width: 22,
-        height:22,
-        marginTop:10,
-        marginRight:5,
-        borderRadius: '50%',
-        border: '1px solid #E6E6E6'     
+    logoObservatorio:{
+        maxWidth:406,
+        maxHeight:81,
+        marginLeft:30
     },
-    search:{
-        marginTop: 10,
-        marginRight:5,
-        border: '1px solid #8A8A8A  ',
-        borderRadius: '15px',
-        boxShadow: '0 2px 6px 0 rgba(0,0,0,0.24)',
-        transition: 'all ease-in-out 0.2s',        
-        '& > svg': {
-            color: "#8A8A8A",
-          },      
-          '&:focus': {
-            outline: '#DADADA auto 0px',
-            border: '0px solid #DADADA'
-        }     
-    }
+    backgroundHeader:{
+        backgroundColor:"#F3F3F3"
+    },
+    titleObservatorio:{
+        fontSize:25,
+        fontWeight:'bold',
+        color:"#821A3F",
+        marginLeft:50,
+        marginTop:10
+      },
+      subtitleObservatorio:{
+        fontSize:25,
+        marginLeft:50
+      }
+    
 });
 
-
+const TextLogo = Styled.div`
+@media (max-width: 1300px) and (min-width: 769px) {
+    font-size:15px !important;
+ }
+`;
 const Header = () => {
     const classes = useStyle();
-    return ( 
+    return (
 
         <header>
-            
-            <Grid container>
-                <Grid container item xs={6} sm={4}>
-                        <Grid item xs={12} sm ={6}>
-                            <a href= 'https://www.dane.gov.co/' target="_blank" >
-                            <img className={classes.logo} src= {logoDane} alt= 'logo_DANE' />
-                            </a>
-                        </Grid>
-                        <Grid item xs={12} sm ={6}>
-                            <img className={classes.logo} src= {logoObservatorio} />        
-                        </Grid>
-                    
+            <Grid container className={classes.backgroundHeader}>
+                <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
+                        <img className={classes.logoObservatorio}  src={logoObservatorio} />
+                    <TextLogo>
+                    <div className={classes.titleObservatorio} >
+                               Observatorio
+                               </div>    
+                               <div className={classes.subtitleObservatorio} >Inmobiliario Nacional</div> 
+                    </TextLogo>
+
+
                 </Grid>
-                <Grid container item xs={6} sm={8} justifyContent = "flex-end">                
-{/*                 
-                    <Box >
-                            <InputBase
-                            className = {classes.search}
-                            color={'secondary'}
-                            placeholder={'Buscar...'}
-                            startAdornment={<AiOutlineSearch />}
-                            />
-                     </Box>       
-                                           
-                            <img className={classes.accesibilidad} src= {aumentarFuente} />
-                            <img className={classes.accesibilidad} src= {disminuirFuente} />
-                            <img className={classes.accesibilidad} src= {sonido} /> */}
-                    
+                <Grid container item xs={4} sm={4} md={6} lg={6} justifyContent="flex-end">
+                        <img className={classes.logo} src={logoDane} />
                 </Grid>
             </Grid>
-            
         </header>
 
-     );
+    );
 }
 
 
