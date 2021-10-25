@@ -47,7 +47,7 @@ const Footer = () =>{
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
             <Grid container  justifyContent={'center'}>
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid container item xs={12} sm={3} direction="row" justifyContent="center" >                    
+                <Grid container item xs={12} sm={3} md={4} lg={3} direction="row" justifyContent="center" >                    
                    
                        <Box color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
                         <ul className={classes.ulItem}>
@@ -61,14 +61,14 @@ const Footer = () =>{
                         </ul>
                         
                 </Grid>
-                <Grid  container xs={12} sm={3} direction="row" justifyContent="center">
+                <Grid  container xs={12} sm={3} md={4} lg={3} direction="row" justifyContent="center">
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
                                 <li><b>HORARIO DE ATENCIÓN</b></li>
                                 <li><b>Lunes a viernes</b> 8:00 - 17:00</li>
                          </ul>  
                 </Grid>
-                <Grid container xs={12} sm={4} direction="row" justifyContent="center">
+                <Grid container xs={12} sm={3} lg={3} md={4} direction="row" justifyContent="center">
                      
                      <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             
@@ -91,7 +91,7 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid container xs={12} sm={2} justifyContent={'center'}>
+                <Grid container xs={12} sm={12} md={1} lg={2}  justifyContent={'center'}>
                     <Box >
                         <Imagen src= {logoGobernment}/>
                     </Box>

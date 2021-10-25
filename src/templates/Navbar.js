@@ -100,6 +100,9 @@ const MenuIL = Styled.li`
     float: left;  
     font-size:23px;
     color:#969393;
+    @media (max-width: 1300px) and (min-width: 769px) {
+       font-size:20px !important;
+    }
     `;
 
 
