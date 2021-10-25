@@ -1,10 +1,9 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
-import CardsMaps from 'common/Cards';
-import Paper from "img/Paper.svg";
+import CardsMaps from 'common/tipologiacards';
+import App from "img/App.svg";
 import ButtonRedWine from "common/buttonredwine";
-
 
 const useStyle = makeStyles({
     
@@ -15,7 +14,7 @@ const useStyle = makeStyles({
     Titleh3:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeSubtitle,
+        fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,  
       },
     
@@ -24,16 +23,17 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "2% 0 0 0",
+        margin: "1em 0 0 0",
       },
 
       imagen_top:{    
         width: "100% !important",
-        height: "45vh",
-        backgroundSize: "100%",
+        height: "42vh",
+        backgroundSize: "70%",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${Paper})`,       
-        backgroundPositionY: "-5vh",         
+        backgroundImage: `url(${App})`,       
+        backgroundPositionX: "left", 
+        backgroundPositionY: "20%",    
    },
  
    gridglobal:{
@@ -42,10 +42,10 @@ const useStyle = makeStyles({
 
    imagen_top2:{     
          width: "100%",
-         height: "50vh",
+         height: "66vh",
          backgroundSize: "100%",
          backgroundRepeat: "no-repeat",
-         backgroundImage: `url(${Paper})`,       
+         backgroundImage: `url(${App})`,       
          backgroundPosition: "center center",
          flexBasis: "100% !important",
          maxWidth: "100% !important",
@@ -63,38 +63,34 @@ const ImagenBottom = () => {
     )
   } 
 
-const Topmaps = () => {
+const TopContacto = () => {
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
           <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+          <h3 className={classes.Titleh3}>Contacto</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                
                 <p className={classes.Textp}>
-                  Un geovisor o visor geográfico, corresponde a una herramienta en línea que permite la consulta de información a través de una interfaz geográfica, mediante la cual se puede reunir, gestionar y/o analizar datos. 
-                </p>     
-                <p className={classes.Textp}>
-                  La ventaja de los Geovisores radica en el análisis de la ubicación espacial y la visualizacion de información la cual se realiza por capas mediante la utilización de mapas
-                  </p>  
-                </Grid>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.                   
+                </p> 
+            </Grid>
                 <ImagenBottom/> 
         </Grid>
     );
 }
 
 
-const maps = () => {
+const Contacto = () => {
     const classes = useStyle(); 
     return (
         <Grid container justifyContent="center"
         alignItems="center"  className={classes.gridglobal}>
-            <Topmaps/>
+            <TopContacto/>
             <CardsMaps/>
         </Grid>
     );
 }
 
-export default maps
+export default Contacto

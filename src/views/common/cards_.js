@@ -1,27 +1,33 @@
-[
+import React, { Component } from 'react';
+import Sale from "img/Sale.svg";
+import Fill from "img/Fill.svg";
+import Segment from "img/Segment.svg";
+import Building_ from "img/Building_.svg";
+import Buildingamico from "img/Buildingamico.svg";
+
+const CardServicios =[
     {
         "id":1,
         "title":"Ofertas de inmobiliarias",
-        "icono":"FcShop",
-        "image_card":"https://cdn.pixabay.com/photo/2021/01/09/15/30/house-5902665_960_720.jpg",
+        "image_card":Sale,
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
         "link":"/Visores/Esmeralda"
     },
     {
         "id":2,
         "title":"Boletines",
-        "icono":"FcShop",
-        "image_card":"https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_960_720.jpg",
+        "image_card":Fill,
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
         "link":"/Visores/Esmeralda2"
     },
     {
         "id":3,
         "title":"Estadisticas",
-        "icono":"FcShop",
-        "image_card":"https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg",
+        "image_card":Segment,
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.",
         "link":""
     }
 
 ]
+
+export default CardServicios

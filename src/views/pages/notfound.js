@@ -6,11 +6,11 @@ import notfound from "img/404.svg";
 const useStyle = makeStyles({
     containerImg:{
         width: "100%",
-        height: "100vh",
+        height: "80vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${notfound})`,    
-        backgroundPosition: "center",
+        backgroundPosition: "initial",
       },
 
       containerImg2:{
@@ -23,14 +23,14 @@ const useStyle = makeStyles({
       },
 
       global:{
-        padding:"3% 10% 3% 10%",
+        padding:"0 10% 0 10%",
       },
       titleStyle:{
         color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
+        fontFamily: Values.SourceRoboto,
         fontWeight: "bold",
         fontSize: Values.SizeSubtitle,
-        padding: "0.5em 0 0.5em 0",
+        padding: Values.PaddingTitleText,
       },
 });
 
@@ -42,7 +42,7 @@ const Imgnotfound = () => {
      var estilo = null;
     {matches ? estilo=classes.containerImg:estilo=classes.containerImg2} 
      return(
-       <Grid item container direction="column" xs={8} className={estilo}>           
+       <Grid item container direction="column" xs={6} className={estilo}>           
        </Grid>
        
      );
@@ -55,6 +55,7 @@ const Imgnotfound = () => {
                 direction="column"
                 container
                 justifyContent="center"
+                alignItems="center"
             >
                 <h1 className={classes.titleStyle}>Página no encontrada</h1>
             </Grid>

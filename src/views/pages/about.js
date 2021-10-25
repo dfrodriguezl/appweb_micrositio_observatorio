@@ -14,17 +14,17 @@ const useStyle = makeStyles({
       },
       titleStyle:{
         color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
+        fontFamily: Values.SourceRoboto,
         fontWeight: "bold",
-        fontSize: Values.SizeSubtitle,
-        padding: "2em 0 0.5em 0",
+        fontSize: Values.SizeTitle,
+        padding: Values.PaddingTitleText,
       },
       titleStyle2:{
         color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
+        fontFamily: Values.SourceRoboto,
         fontWeight: "bold",
-        fontSize: Values.SizeSubtitle,
-        padding: "0 0 1.5em 0",
+        fontSize: Values.SizeTitle,
+        padding: Values.PaddingTitleText,
       },
       gridglobal:{
         padding: "0 10vw 0 10vw",
@@ -35,19 +35,17 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "justify",  
-        padding: "2em 0 1em 0", 
+        margin:"1em 0 0 0",
       }, 
-
       imagen_top:{    
         width: "100% !important",
-         height: "60vh",
-         backgroundSize: "100%",
-         backgroundRepeat: "no-repeat",
-         backgroundImage: `url(${House})`,       
-         backgroundPosition: "center center",
+        height: "40vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${House})`,       
+        backgroundPosition: "center",
          
-      }, 
-      
+      },      
       imagen_top2:{     
          width: "100%",
          height: "47vh",
@@ -58,18 +56,16 @@ const useStyle = makeStyles({
          flexBasis: "100% !important",
          maxWidth: "100% !important",
       },
-
       imagen_Judge:{    
         width: "100% !important",
-         height: "75vh",
-         backgroundSize: "100%",
-         backgroundRepeat: "no-repeat",
-         backgroundImage: `url(${Judge})`,       
-         backgroundPosition: "center center",
+        height: "47vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${Judge})`,       
+        backgroundPosition: "center",
          
          
-      }, 
-      
+      },       
       imagen_Judge2:{     
          width: "100%",
          height: "47vh",
@@ -79,9 +75,7 @@ const useStyle = makeStyles({
          backgroundPosition: "center center",
          flexBasis: "100% !important",
          maxWidth: "100% !important",
-      },
-
-   
+      },   
 })
 
 const Imagen = () => {
@@ -90,7 +84,7 @@ const Imagen = () => {
     var estilo = null;
     {matches ? estilo=classes.imagen_top :estilo=classes.imagen_top2}   
     return(
-      <Grid item container direction="column" xs className={estilo}>   
+      <Grid item container direction="column" xs={4} className={estilo}>   
       </Grid>  
     )  
   } 
@@ -101,30 +95,33 @@ const Imagen = () => {
     var estilo = null;
     {matches ? estilo=classes.imagen_Judge :estilo=classes.imagen_Judge2}   
     return(
-      <Grid item container direction="column" xs={6} className={estilo}>   
+      <Grid item container direction="column" xs={4} className={estilo}>   
       </Grid>  
     )  
   } 
 
 const About = () => {
     const classes = useStyle();
-    return(
+    return(      
         <Grid container direction="column">
             <Grid container direction="row" className={classes.gridglobal}>
-                <Grid container>
+                <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle}>¿Qué es un Observatorio?</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
                 <p className={classes.contentrulesp}>
-                    Existen varios tipos de observatorios, sin embargo, se entiende por observatorio, un instrumento que recopila, analiza e interpreta información relevante de un tema previamente establecido, con el fin de generar conocimiento, para el posterior monitoreo y soporte al proceso de toma de desiones.
-
-                    Todo observatorio debe tener como objetivos la compilacion e integración de información, la elaboración de estadísticas globales y especificas, la formulación de análisis y proyecciones y la alimentación periódica de indicadores.
-                </p>          
+                  Existen varios tipos de observatorios, sin embargo, se entiende por observatorio, un instrumento que recopila, analiza e interpreta información relevante de un tema previamente establecido, con el fin de generar conocimiento, para el posterior monitoreo y soporte al proceso de toma decisiones. 
+                </p>        
+                <p className={classes.contentrulesp}>
+                  Todo observatorio debe tener como objetivos la compilación e integración de información, la elaboración de estadísticas globales y específicas, la formulación de análisis y proyecciones y la alimentación periódica de indicadores. 
+                </p>        
                 </Grid>
                 <Imagen/> 
             </Grid>
             <Grid container direction="row" className={classes.gridglobal}>
-                <Grid container>
+                <Grid container justifyContent="center"
+          alignItems="center">
                     <h3 className={classes.titleStyle2}>Decreto 148 de 2020</h3>
                 </Grid>
                 <ImagenJudge/>   
