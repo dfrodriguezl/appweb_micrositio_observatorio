@@ -45,9 +45,9 @@ const Footer = () =>{
     return(
         <ContenedorFooter>
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
-            <Grid container item justifyContent={'flex-start'}>
+            <Grid container  justifyContent={'center'}>
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid container item xs={6} sm={3} direction="row"  >                    
+                <Grid container item xs={12} sm={3} direction="row" justifyContent="center" >                    
                    
                        <Box color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
                         <ul className={classes.ulItem}>
@@ -61,14 +61,14 @@ const Footer = () =>{
                         </ul>
                         
                 </Grid>
-                <Grid  container xs={6} sm={3} direction="row" justifyContent="center">
+                <Grid  container xs={12} sm={3} direction="row" justifyContent="center">
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
                                 <li><b>HORARIO DE ATENCIÓN</b></li>
                                 <li><b>Lunes a viernes</b> 8:00 - 17:00</li>
                          </ul>  
                 </Grid>
-                <Grid container xs={6} sm={4} direction="row" justifyContent="center">
+                <Grid container xs={12} sm={4} direction="row" justifyContent="center">
                      
                      <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             
@@ -91,7 +91,7 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid container xs={1} sm={2} justifyContent={'flex-end'}>
+                <Grid container xs={12} sm={2} justifyContent={'center'}>
                     <Box >
                         <Imagen src= {logoGobernment}/>
                     </Box>

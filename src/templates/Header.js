@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import logoDane from "../img/logo-dane.svg";
 import logoObservatorio from "../img/logo-observatorio.svg";
-
+import Styled from "styled-components";
 
 
 const useStyle = makeStyles({
@@ -15,7 +15,9 @@ const useStyle = makeStyles({
     logo: {
         Width: 140,
         Height: 47,
-        marginTop:20
+        marginTop:20,
+        marginBottom:10,
+        marginRight:5
     },
     logoObservatorio:{
         maxWidth:406,
@@ -39,33 +41,32 @@ const useStyle = makeStyles({
     
 });
 
-
+const TextLogo = Styled.div`
+@media (max-width: 1300px) and (min-width: 769px) {
+    font-size:15px !important;
+ }
+`;
 const Header = () => {
     const classes = useStyle();
     return (
 
         <header>
-
             <Grid container className={classes.backgroundHeader}>
-                <Grid container item xs={6} sm={6} direction="row">
-                    <Grid item xs={12} sm={1}>
+                <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
                         <img className={classes.logoObservatorio}  src={logoObservatorio} />
-                    </Grid>
-                    <Grid item xs={12} sm={6} direction="column">
-                           <div className={classes.titleObservatorio} >
+                    <TextLogo>
+                    <div className={classes.titleObservatorio} >
                                Observatorio
                                </div>    
-                               <div className={classes.subtitleObservatorio} >Inmobiliario Nacional</div>   
-                     </Grid>
+                               <div className={classes.subtitleObservatorio} >Inmobiliario Nacional</div> 
+                    </TextLogo>
+
 
                 </Grid>
-                <Grid container item xs={6} sm={6} justifyContent="flex-end">
-                    <Grid item xs={12} sm={3}>
+                <Grid container item xs={4} sm={4} md={6} lg={6} justifyContent="flex-end">
                         <img className={classes.logo} src={logoDane} />
-                    </Grid>
                 </Grid>
             </Grid>
-
         </header>
 
     );

@@ -1,44 +1,45 @@
-import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { Grid, makeStyles, useMediaQuery, Paper, CardActions, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
-import triangles from "img/paris.jpg";
+import Delivery from "img/Delivery.svg";
 import ButtonRedWine from "common/buttonredwine";
-import { FcShop } from "react-icons/fc";
-import infocards from "../../common/statistics.json"
-//import imageIndex from "../../../img/estadisticas/"
 import imageItem from "../../../img/DANE_Estadisticas_imagen_principal.svg"
+import CardStatistics  from './cardstatistics';
 
 const useStyle = makeStyles({
-  textLeft: {
-    marginLeft: 40
+  marginTop: {
+    marginTop: 50
+  },
+  imageCard: {
+    maxWidth: 250
+  },
+  gridglobal: {
+    padding: "0% 10% 0 10%",
   },
   descriptionStatistics: {
-    fontSize: 30,
-    color: "#585858"
+    fontSize: 25,
+    color: "black",
+    fontFamily: Values.SourceRoboto,
+    textAlign: "left"
   },
   imageRight: {
-    height: 600
+    maxHeight: 600,
+    top: 100
   },
   TitleStatistics: {
     color: "#821A3F",
     fontSize: 50,
     fontWeight: "bold",
-    marginTop: 20
+    marginTop: 20,
+    fontFamily: Values.SourceRoboto
   },
-  gridglobal: {
-    padding: "0 10% 0 10%",
-  },
-  titleCard:{
-    textAlign:"center"
-  },
-  imagen_top: {
-    width: "100%",
-    height: "10vh",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${triangles})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
 
+  Textpdes: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeAuxiliary,
+    textAlign: "start",
+    margin: "0 6% 0 6%",
   },
 
   centerButton: {
@@ -48,31 +49,35 @@ const useStyle = makeStyles({
 
   centerText: {
     textAlign: "center",
-    padding: "10% 0 0 0",
-  },
-
-  gridglobal: {
-    padding: "5% 10% 1% 10%",
+    padding: "5% 0 0 0",
   },
 
   Titleh3: {
     color: Values.Redwinecolor,
-    fontFamily: Values.SourceWorksans,
-    fontWeight: "bold",
-    fontSize: Values.SizeSubtitle,
-    textAlign: "center",
-    padding: "0 0 1em 0",
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeTitle,
+    padding: Values.PaddingTitleText,
   },
 
   Textp: {
-    color: Values.TextParagraph,
+    color: Values.Redwinecolor,
     fontFamily: Values.SourceRoboto,
-    fontSize: Values.SizeAuxiliary,
+    fontSize: Values.SizeText,
+    textAlign: "start",
+    margin: "1em 0 0 0",
+  },
+
+  Textpcard: {
+    color: "#585858",
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
     textAlign: "center",
+    margin: "2% 0 1% 0",
+
   },
 
   root: {
-    width: "42vh",
+    width: "40vh",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
   },
@@ -81,54 +86,120 @@ const useStyle = makeStyles({
     height: "28vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
-    borderRadius: "0 0 4% 4%",
-    boxShadow: "0px 6px 10px #7b7676",
   },
 
   cardglobal: {
     //margin: "0% 0% 0% 0%",
     padding: "0% 0% 5% 0%",
-    backgroundColor: "#fafafa",
+    backgroundColor: "white",
+  },
+
+  cardglobal2: {
+    //margin: "0% 0% 0% 0%",
+    padding: "0% 0% 0% 0%",
+    backgroundColor: "white",
+  },
+
+  imagen_top: {
+    width: "100% !important",
+    height: "42vh",
+    backgroundSize: "80%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Delivery})`,
+    backgroundPosition: "center",
+
+  },
+
+  contentcar: {
+    paddingBottom: "0 !important",
+  },
+
+  imagen_top2: {
+    width: "100%",
+    height: "66vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Delivery})`,
+    backgroundPosition: "center center",
+    flexBasis: "100% !important",
+    maxWidth: "100% !important",
   },
 });
 
-const Topservice = () => {
+const ImagenBottom = () => {
   const classes = useStyle();
+  const matches = useMediaQuery('(min-width:769px)');
+  var estilo = null;
+  { matches ? estilo = classes.imagen_top : estilo = classes.imagen_top2 }
   return (
-    <Grid container className={classes.imagen_top}>
-    </Grid>
-  );
+    <Grid item container direction="column" xs={4} className={estilo}></Grid>
+
+  )
 }
 
 const Cardsservice = () => {
   const classes = useStyle();
-  console.log(infocards)
   return (
-    <Grid container sm={12} xs={12}>
-      <Grid sm={5}
-        xs={5}
+    <Grid container
+    >
+      <Grid container
+        item
         direction="column"
         justifyContent="center"
-        alignItems="center"
-        className={classes.textLeft}
+        xs={12}
+        md={6}
+        lg={6}
       >
-        <Typography className={classes.TitleStatistics} md={12} >
+        <Typography className={classes.TitleStatistics}  >
           Estadisticas
         </Typography>
         <Typography className={classes.descriptionStatistics}>
           La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generara continuo conocimiento sobre las tendencias y dinamicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.  ---
         </Typography>
       </Grid>
-      <Grid container item xs={6} sm={6} alignItems="flex-end" direction="row" >
-
-        <img src={imageItem} className={classes.imageRight} />
+      <Grid container item xs={12} sm={6} md={6} lg={6} alignItems="center" justifyContent="center"  >
+        <img src={imageItem} />
+      </Grid>
+      <Grid container xs={12} sm={12} md={12} lg={12}>
+        <Typography className={classes.TitleStatistics}  >
+          Construcción
+        </Typography>
       </Grid>
       <Grid
         container
         className={classes.gridglobal}
       >
+         <CardStatistics></CardStatistics>
+      </Grid>
+    </Grid>
+    /*<Grid container>
+      <Grid xs={12} sm={5} md={5}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        className={classes.textLeft}
+      >
+        <Typography className={classes.TitleStatistics}  >
+          Estadisticas
+        </Typography>
+        <Typography className={classes.descriptionStatistics}>
+          La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generara continuo conocimiento sobre las tendencias y dinamicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.  ---
+        </Typography>
+      </Grid>
+      <Grid container item xs={12} sm={6} alignItems="flex-end" direction="row" >
 
-        {infocards[0].map(function (data) {
+        <img src={imageItem}  />
+      </Grid>
+      <Grid sm={12} xs={12} className={classes.marginTop}>
+      <Typography className={classes.TitleStatistics}  >
+          Construcción
+        </Typography>
+      </Grid>
+      <Grid
+        container
+        className={classes.gridglobal}
+      >
+        {infocards[0].map(function (infocards) {
 
           return (
             <Grid
@@ -138,40 +209,85 @@ const Cardsservice = () => {
               xs
               justifyContent="center"
               alignItems="center"
-              key={data.id}
+              key={infocards.id}
               className={classes.cardglobal}
             >
               <Card className={classes.root}>
-                <CardContent>
-                  <Typography className={classes.titleCard}>
-                    {data.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {data.description}
-                  </Typography>
+                <CardContent className={classes.cardglobal2}>
+                  <CardMedia
+                    className={classes.media}
+                    image={infocards.image_card}
+                    title={infocards.title}
+                  />
+                  <CardContent className={classes.centerText, classes.contentcar}>
+                    <Typography className={classes.Textpcard}>
+                      {infocards.title}
+                    </Typography>
+                    <Typography className={classes.Textpdes}>
+                      {infocards.description}
+                    </Typography>
+                  </CardContent>
                 </CardContent>
                 <CardActions className={classes.centerButton}>
-                  <ButtonRedWine Title="Visitar" href="#" />
+                  <ButtonRedWine Title="Visitar" href="Servicios/estadisticas" />
                 </CardActions>
               </Card>
             </Grid>
           )
         })}
       </Grid>
-    </Grid>
+      <Grid
+        container
+        className={classes.gridglobal}
+      >
+        {infocards[1].map(function (infocards) {
+
+          return (
+            <Grid
+              item
+              container
+              direction="row"
+              xs
+              justifyContent="center"
+              alignItems="center"
+              key={infocards.id}
+              className={classes.cardglobal}
+            >
+              <Card className={classes.root}>
+                <CardContent className={classes.cardglobal2}>
+                  <CardMedia
+                    className={classes.media}
+                    image={infocards.image_card}
+                    title={infocards.title}
+                  />
+                  <CardContent className={classes.centerText, classes.contentcar}>
+                    <Typography className={classes.Textpcard}>
+                      {infocards.title}
+                    </Typography>
+                    <Typography className={classes.Textpdes}>
+                      {infocards.description}
+                    </Typography>
+                  </CardContent>
+                </CardContent>
+                <CardActions className={classes.centerButton}>
+                  <ButtonRedWine Title="Visitar" href="Servicios/estadisticas" />
+                </CardActions>
+              </Card>
+            </Grid>
+          )
+        })}
+      </Grid>
+    </Grid>*/
+
   );
 }
-
-
-
 
 const ViewService = () => {
   const classes = useStyle();
   return (
-    <Grid>
-      <Topservice />
+    <Grid container justifyContent="center"
+      alignItems="center" className={classes.gridglobal}>
       <Cardsservice />
-      <Topservice />
     </Grid>
   );
 }

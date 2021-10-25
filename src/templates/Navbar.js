@@ -9,6 +9,10 @@ import {
   makeStyles
 } from '@material-ui/core/styles';
 import Styled from "styled-components";
+import menuDane from "common/menu.js"
+import SideBarComponent from "./Sidebar.js"
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const useStyle = makeStyles({
   root: {
@@ -23,7 +27,7 @@ const useStyle = makeStyles({
     position: "absolute",
     backgroundColor: "#F2F2F2",
     zIndex: 1,
-    top:160
+    top: 160
   },
   colorMenuActive: {
     backgroundColor: "#BD0B4E",
@@ -31,8 +35,43 @@ const useStyle = makeStyles({
   },
   sectionTitleMenu: {
     fontSize: "20px"
+  },
+  liTitle: {
+    listStyle: "none",
+    marginTop: 5,
+    "&:hover": {
+      color: "#821A3F",
+      cursor: "pointer"
+    }
+
+  },
+  liItem: {
+    marginTop: 5,
+    marginLeft: 30,
+    "&:hover": {
+      color: "#821A3F",
+      cursor: "pointer"
+    },
+  },
+  ulItem: {
+
   }
 });
+
+const SideBarContener = Styled.ul`    
+display:flex;
+justify-content: space-between;
+margin: 0px 0;
+width: 100%;
+padding: 5px;
+list-style: none;
+@media (max-width: 768px) {
+  display:block;
+}
+@media (max-width: 4000px) and (min-width: 769px) {
+  display:none;
+}
+`;
 
 const NavBarContenedor = Styled.ul`    
     display:flex;
@@ -41,6 +80,12 @@ const NavBarContenedor = Styled.ul`
     width: 100%;
     padding: 5px;
     list-style: none;
+    @media (max-width: 768px) {
+      display:none;
+    }
+    @media (max-width: 1300px) and (min-width: 769px) {
+       font-size:10px !important;
+    }
     
 `;
 
@@ -70,6 +115,8 @@ const DropDownLi = Styled(MenuIL)`
         
     } */
   `;
+
+
 const UtilidadCentrarTexto = Styled.div`
     position:relative;
     display: flex;
@@ -80,200 +127,101 @@ const UtilidadCentrarTexto = Styled.div`
 
 const Navbar = () => {
   const classes = useStyle();
-  const [submenuActiveServicios, setMenuServicios] = useState()
-  const [submenuActiveGeovisores, setMenuGeovisores] = useState()
-  const [submenuActiveCatastro, setMenuCatastro] = useState()
-  const [submenuActiveInvestigaciones, setMenuInvestigaciones] = useState()
-  const reptiles = ['alligator', 'snake', 'lizard'];
-  const [position, setMoveMenu] = useState(0)
-  const menuDane = [
+  const [menuActive, setMenuActive] = useState(
     {
-      title:
-        ["Servicios web Geograficos", "Sociedad", "Otro titulo de Menu","Otro titulo de Menu 03"],
-      subindices:
-        [
-          [
-            {
-              key: "01",
-              name: "menu01"
-            }
-          ],
-          [
-            {
-              key: "11",
-              name: "menu11"
-            }
-          ],
-          [
-            {
-              key: "20",
-              name: "menu20"
-            }
-          ],
-          [
-            {
-              key: "31",
-              name: "menu31"
-            }
-          ]
-        ]
-    },
-    {
-      title:
-        ["GIT investigacion y desarrollo", "Economia", "Otro titulo de Menu","Otro titulo de Menu 03"],
-      subindices:
-        [
-          [
-            {
-              key: "01",
-              name: "menu01"
-            }
-          ],
-          [
-            {
-              key: "11",
-              name: "menu11"
-            }
-          ],
-          [
-            {
-              key: "20",
-              name: "menu20"
-            }
-          ],
-          [
-            {
-              key: "31",
-              name: "menu31"
-            }
-          ]
-        ]
-    },
-    {
-      title:
-        ["Servicios web Geograficos 02", "Sociedad 02", "Otro titulo de Menu 02","Otro titulo de Menu 03"],
-      subindices:
-        [
-          [
-            {
-              key: "01",
-              name: "menu01"
-            }
-          ],
-          [
-            {
-              key: "11",
-              name: "menu11"
-            }
-          ],
-          [
-            {
-              key: "20",
-              name: "menu20"
-            }
-          ],
-          [
-            {
-              key: "31",
-              name: "menu31"
-            }
-          ]
-        ]
+      ActiveServicios: {
+        id: 0,
+        value: false
+      },
+      ActiveGeovisores: {
+        id: 1,
+        value: false
+      },
+      ActiveCatastro: {
+        id: 2,
+        value: false
+      },
+      ActiveInvestigacion: {
+        id: 3,
+        value: false
+      }
     }
-  ]
-  const handleClick = action => {
-    if (!action) return;
+  )
+  const [position, setMoveMenu] = useState(null)
+  const [sideBarOpen, setSideBarOpen] = useState(false)
+  function handleChangeMenuActive(event) {
 
-    if (this.props.onClick) this.props.onClick(action);
-  };
+    let name = event.name
+    for (const key in menuActive) {
+      menuActive[key].value = false
+    }
+    menuActive[name].value = true
+    setMenuActive({
+      ...menuActive
+    })
+    setMoveMenu(menuActive[name].id)
+  }
 
   function handleStatusFalseAll() {
-    if (submenuActiveServicios) {
-      setMenuServicios(false)
-    }
-    if (submenuActiveGeovisores) {
-      setMenuGeovisores(false)
-    }
-    if (submenuActiveInvestigaciones) {
-      setMenuInvestigaciones(false)
-    }
-    if (submenuActiveCatastro) {
-      setMenuCatastro(false)
+    for (const key in menuActive) {
+      menuActive[key].value = false
     }
 
-  }
-  function handleStatusChange() {
-    if (!submenuActiveServicios) {
-      setMenuServicios(true)
-      setMoveMenu(0)
-    }
-    if (submenuActiveGeovisores) {
-      setMenuGeovisores(false)
-    }
-    if (submenuActiveInvestigaciones) {
-      setMenuInvestigaciones(false)
-    }
-    if (submenuActiveCatastro) {
-      setMenuCatastro(false)
-    }
+    setMenuActive({
+      ...menuActive
+    })
+    setMoveMenu(null)
 
   }
-  function setActiveGeovisores() {
-    if (submenuActiveServicios) {
-      setMenuServicios(false)
-    }
-    if (!submenuActiveGeovisores) {
-      setMenuGeovisores(true)
-      setMoveMenu(1)
-    }
-    if (submenuActiveInvestigaciones) {
-      setMenuInvestigaciones(false)
-    }
-    if (submenuActiveCatastro) {
-      setMenuCatastro(false)
-    }
-  }
-
-  function setActiveCatastro() {
-    if (submenuActiveServicios) {
-      setMenuServicios(false)
-    }
-    if (submenuActiveGeovisores) {
-      setMenuGeovisores(false)
-    }
-    if (submenuActiveInvestigaciones) {
-      setMenuInvestigaciones(false)
-    }
-    if (!submenuActiveCatastro) {
-      setMenuCatastro(true)
-      setMoveMenu(2)
-    }
-  }
-
-  function setActiveInvestigaciones() {
-    if (submenuActiveServicios) {
-      setMenuServicios(false)
-    }
-    if (submenuActiveGeovisores) {
-      setMenuGeovisores(false)
-    }
-    if (!submenuActiveInvestigaciones) {
-      setMenuInvestigaciones(true)
-      setMoveMenu(3)
-    }
-    if (submenuActiveCatastro) {
-      setMenuCatastro(false)
-    }
+  function setOpenSideBar() {
+    setSideBarOpen(!sideBarOpen)
   }
 
   useEffect(() => {
 
   }, []);
 
+  let result = []
+  if (position != null) {
+    menuDane.map((data) => {
+      let subResult = []
+      data.subindices[position].map((menu) => {
+        if (menu.isTitle) {
+          subResult.push(<li key={menu.key} className={classes.liTitle}>{menu.name}</li>)
+        } else {
+
+          subResult.push(<li key={menu.key} className={classes.liItem}>{menu.name}</li>)
+
+        }
+      })
+      result.push(<Grid container item xs={4} sm={3} direction="column" >
+        <ul className={classes.ulItem}>
+          <li className={classes.liTitle}><b>{menuDane[0].title[position]}</b></li>
+          {subResult}
+        </ul>
+      </Grid>)
+    })
+  }
+
+
   return (
     <Grid container item xs={12} sm={12} onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={1} sm={1}></Grid>
       <Grid container item xs={8} sm={8}>
+
+        <SideBarContener>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={setOpenSideBar}
+            sx={{ mr: 5 }}
+          >
+            <MenuIcon />
+          </IconButton>
+
+        </SideBarContener>
         <NavBarContenedor>
           <DropDownLi onMouseEnter={handleStatusFalseAll}  >
             <UtilidadCentrarTexto>
@@ -283,9 +231,13 @@ const Navbar = () => {
             </UtilidadCentrarTexto>
           </DropDownLi>
 
-          <DropDownLi onMouseEnter={handleStatusChange} >
+          <DropDownLi onMouseEnter={() => {
+            handleChangeMenuActive({
+              name: "ActiveServicios"
+            })
+          }} >
             {
-              submenuActiveServicios ?
+              menuActive.ActiveServicios.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive} >
                   <AiOutlineDown />
                   <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
@@ -296,9 +248,13 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
-          <DropDownLi onMouseEnter={setActiveGeovisores}>
+          <DropDownLi onMouseEnter={() => {
+            handleChangeMenuActive({
+              name: "ActiveGeovisores"
+            })
+          }}>
             {
-              submenuActiveGeovisores ?
+              menuActive.ActiveGeovisores.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown />
                   <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
@@ -309,10 +265,14 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
-          <DropDownLi onMouseEnter={setActiveCatastro}>
+          <DropDownLi onMouseEnter={() => {
+            handleChangeMenuActive({
+              name: "ActiveCatastro"
+            })
+          }}>
 
             {
-              submenuActiveCatastro ?
+              menuActive.ActiveCatastro.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown />
                   <MenuA href="#">Catastro Multiproposito </MenuA>
@@ -323,9 +283,13 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
-          <DropDownLi onMouseEnter={setActiveInvestigaciones}>
+          <DropDownLi onMouseEnter={() => {
+            handleChangeMenuActive({
+              name: "ActiveInvestigacion"
+            })
+          }}>
             {
-              submenuActiveInvestigaciones ?
+              menuActive.ActiveInvestigacion.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown />
                   <MenuA href="#">Investigaciones </MenuA>
@@ -339,51 +303,25 @@ const Navbar = () => {
         </NavBarContenedor>
       </Grid>
       {
-        submenuActiveServicios || submenuActiveGeovisores
-          || submenuActiveInvestigaciones || submenuActiveCatastro ?
+        sideBarOpen ?
+          <SideBarComponent></SideBarComponent>
+          : null
+      }
+      {
+        position == 0 || position ?
           <Grid container item xs={12} sm={12}
+            md={12}
+            lg={12}
             direction="row"
             container
             item
             className={classes.menuActive}
             justifyContent="center"
             alignItems="flex-start"
-            spacing={4}
+           
           >
 
-
-            <Grid container item xs={4} sm={3} direction="column" >
-              <ul>
-                <li>{menuDane[0].title[position]}</li>
-                {
-                  menuDane[0].subindices[position].map(menu => {
-                    return (
-                      <li key={menu.key}>{menu.name}</li>
-                    )
-                  })
-                }
-              </ul>
-            </Grid>
-            <Grid container item xs={4} sm={3} direction="column">
-              <li>{menuDane[1].title[position]}</li>
-              {
-                menuDane[1].subindices[position].map(menu => {
-                  return (
-                    <li key={menu.key}>{menu.name}</li>
-                  )
-                })
-              }
-            </Grid>
-            <Grid container item xs={4} sm={3} direction="column">
-              <li>{menuDane[2].title[position]}</li>
-              {
-                menuDane[2].subindices[position].map(menu => {
-                  return (
-                    <li key={menu.key}>{menu.name}</li>
-                  )
-                })
-              }
-            </Grid>
+            {result}
           </Grid>
           : null
       }
