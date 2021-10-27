@@ -161,6 +161,8 @@ contenedorParrafo:{
   },
   drawerPaper: {
     width: drawerWidth,
+    // height: 'calc(100% - 100px)',
+    // top:0
   },
   drawerHeader: {
     display: 'flex',
@@ -191,7 +193,7 @@ contenedorParrafo:{
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
