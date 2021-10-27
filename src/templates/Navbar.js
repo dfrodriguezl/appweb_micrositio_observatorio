@@ -15,6 +15,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ButtonRedWine from "common/buttonredwine";
 import CallMadeSharpIcon from '@mui/icons-material/CallMadeSharp';
+import AccountBalancnceIcon from "@mui/icons-material/AccountBalance"
+import ArchiveIcon from "@mui/icons-material/Archive"
 const useStyle = makeStyles({
   root: {
     textDecoration: 'none',
@@ -81,6 +83,9 @@ const useStyle = makeStyles({
   cardglobalWhithout: {
     //margin: "0% 0% 0% 0%",
     padding: "0% 5% 0% 5%",
+  },
+  aMenu:{
+    color:"black"
   }
 });
 
@@ -229,17 +234,17 @@ const Navbar = () => {
       let subResult = []
       data.subindices[position].map((menu) => {
         if (menu.isTitle) {
-          subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}>{menu.name}</LiItemTitle>)
+          subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}><ArchiveIcon></ArchiveIcon>{menu.name}</LiItemTitle>)
         } else {
 
-          subResult.push(<LiItem key={menu.key} className={classes.liItem}><CallMadeSharpIcon className={classes.iconLi}></CallMadeSharpIcon>{menu.name}</LiItem>)
+          subResult.push(<LiItem key={menu.key} className={classes.liItem}><CallMadeSharpIcon className={classes.iconLi}></CallMadeSharpIcon><a href={menu.link} className={classes.aMenu}>{menu.name}</a></LiItem>)
 
         }
       })
 
       result.push(<Grid container item xs direction="column" justifyContent="center" spacing={1} className={classes.cardglobalWhithout} >
         <ul className={classes.ulItem}>
-          <LiItemTitle className={classes.liTitle}><b>{data.title[position]}</b></LiItemTitle>
+          <LiItemTitle className={classes.liTitle}><AccountBalancnceIcon></AccountBalancnceIcon><b>{data.title[position]}</b></LiItemTitle>
           {subResult}
         </ul>
       </Grid>)
@@ -332,11 +337,11 @@ const Navbar = () => {
               menuActive.ActiveCatastro.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown />
-                  <MenuA href="#">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Catastromultiproposito">Catastro Multiproposito </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <MenuA href="#">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Catastromultiproposito">Catastro Multiproposito </MenuA>
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
@@ -349,11 +354,11 @@ const Navbar = () => {
               menuActive.ActiveInvestigacion.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown />
-                  <MenuA href="#">Investigaciones </MenuA>
+                  <MenuA href="/Metodosavaluos">Investigaciones </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <MenuA href="#">Investigaciones </MenuA>
+                  <MenuA href="/Metodosavaluos">Investigaciones </MenuA>
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>

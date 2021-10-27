@@ -12,14 +12,13 @@ import {
 
 
 const ContenedorFooter= Styled.div`
-        background-color: #FAFAFA;
-        margin-top:15px;
-        margin-bottom:15px;        
+        background-color: #FAFAFA;     
                 
 `;
 const H3 = Styled.h3`
     text-align: center;
     padding: 15px 0;
+    margin-bottom:10px;
 `;
 const Imagen = Styled.img`
     max-width:200px;
@@ -38,6 +37,9 @@ const useStyle = makeStyles({
     },
     textDescription:{
         color:"#4C4C4C !important"
+    },
+    containerItem:{
+        marginBottom:10
     }
     
 });
@@ -51,10 +53,12 @@ const Footer = () =>{
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
             <Grid container  justifyContent={'center'}>
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid container item xs={12} sm={3} md={4} lg={3} direction="row" justifyContent="center" >                    
+                <Grid container item xs={12} sm={12} md={6} lg={4} direction="row" 
+                    className={classes.containerItem}
+                     justifyContent="center" >                    
                    
-                       <Box color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
-                        <ul className={classes.ulItem}>
+                       <Box  item color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
+                        <ul  className={classes.ulItem}>
                               <li>
                                   <b>CALL CENTER</b>
                               </li>
@@ -65,7 +69,9 @@ const Footer = () =>{
                         </ul>
                         
                 </Grid>
-                <Grid  container xs={12} sm={3} md={4} lg={3} direction="row" justifyContent="center">
+                <Grid  container xs={12} sm={12} md={6} lg={3} direction="row" 
+                 className={classes.containerItem}
+                justifyContent="center">
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
                                 <li><b>HORARIO DE ATENCIÓN</b></li>
@@ -73,7 +79,9 @@ const Footer = () =>{
                                 </li>
                          </ul>  
                 </Grid>
-                <Grid container xs={12} sm={3} lg={3} md={4} direction="row" justifyContent="center">
+                <Grid container xs={12} sm={12}  md={6} lg={3} direction="row" 
+                 className={classes.containerItem}
+                justifyContent="center">
                      
                      <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             
@@ -96,7 +104,9 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid container xs={12} sm={12} md={1} lg={2}  justifyContent={'center'}>
+                <Grid container xs={12} sm={12} md={6} lg={2}  
+                 className={classes.containerItem} 
+                justifyContent={'center'}>
                     <Box >
                         <Imagen src= {logoGobernment}/>
                     </Box>
