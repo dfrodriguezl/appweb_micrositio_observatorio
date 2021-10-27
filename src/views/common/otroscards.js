@@ -8,7 +8,7 @@ const useStyle = makeStyles({
   
   centerButton: {
     justifyContent: "center",
-    padding: "0 0 8% 0 !important",
+    padding: "0 0 0 0 !important",
   },
 
   centerText:{
@@ -43,7 +43,7 @@ const useStyle = makeStyles({
       },
 
       media: {
-      height: "28vh",
+      height: "24vh",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center center",
       },
