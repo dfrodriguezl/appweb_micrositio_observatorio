@@ -39,7 +39,10 @@ const useStyle = makeStyles({
       fontFamily: Values.SourceRoboto,
       fontSize: Values.SizeAuxiliary,
       textAlign: "start",
-      margin: "0 6% 0 6%",
+     // margin: "0 6% 0 6%",
+      overflow:"hidden",
+    //  Height:200
+
     },
   
     centerButton: {
@@ -71,16 +74,18 @@ const useStyle = makeStyles({
       color: "#585858",
       fontFamily: Values.SourceRoboto,
       fontSize: Values.SizeText,
-      textAlign: "center",
-      margin: "2% 0 1% 0",
+      textAlign: "center"
+  //    margin: "2% 0 1% 0",
   
     },
   
     root: {
       width: "40vh",
+      height:"75vh",
       borderRadius: "1em",
       boxShadow: "3px 3px 10px #7b7676",
     },
+    
   
     media: {
       height: "28vh",
@@ -112,6 +117,9 @@ const useStyle = makeStyles({
   
     contentcar: {
       paddingBottom: "0 !important",
+      height:260,
+      justifyContent:"center"
+
     },
   
     imagen_top2: {

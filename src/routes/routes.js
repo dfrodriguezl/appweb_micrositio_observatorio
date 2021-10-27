@@ -1,17 +1,22 @@
 import React from 'react';
+
+import { Grid } from '@material-ui/core/';
+
+import {
+  makeStyles
+} from '@material-ui/core/styles';
 //Route
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useLocation,
-    withRouter,
-    Redirect
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+  withRouter,
+  Redirect
+} from "react-router-dom";
 
 //
 import ContentGrid from 'pages/contentgrid';
-import Navbar from 'templates/Navbar';
 import Maps from 'pages/maps';
 import esmeralda from 'visores/esmeralda/esmeralda';
 import esmeralda2 from 'visores/esmeralda/esmeralda2';
@@ -30,65 +35,74 @@ import Tipologia from 'pages/tipologia';
 import Ceed from 'pages/ceed';
 import Contacto from 'pages/contacto';
 
-const RoutesMaps = () =>{    
-    return(
-        
-        <div>
-        <Switch>
-           <Route exact path="/Visores/Esmeralda" component={esmeralda}/>
-           <Route exact path="/Visores/Esmeralda2" component={esmeralda2}/>
-           <Route path="/404" component={Notfound}/>
-           <Route path="*">
-                    <Redirect to ="/404"/>
-           </Route>
-        </Switch>
-        </div>
-    )
-}
+const useStyle = makeStyles({
+  marginTop: {
+   marginTop:200
+  }
+});
 
-const Generalroutes = () => {
+const RoutesMaps = () => {
   return (
+
     <div>
-      <Header/>
-      <Navbar/>
       <Switch>
-        <Route exact path="/Mapas" component={Maps} />
-        <Route exact path="/Acerca" component={About} />
-        <Route exact path="/Servicios" component={Service} />
-        <Route exact path="/Servicios/estadisticas" component={statistics}/>
-        <Route exact path="/Servicios/RegistroInmuebles" component={RegisterEstate}/> 
-        <Route exact path="/Catastromultiproposito" component={Catastro} />
-        <Route exact path="/Otrosobservatorios" component={Otros} />
-        <Route exact path="/Comitetecnico" component={Comite} />
-        <Route exact path="/Metodosavaluos" component={Avaluos} />
-        <Route exact path="/Tipologia" component={Tipologia} />
-        <Route exact path="/Ceed" component={Ceed} />
-        <Route exact path="/Contacto" component={Contacto} />
-        <Route exact path="/" component={ContentGrid} />
+        <Route exact path="/Visores/Esmeralda" component={esmeralda} />
+        <Route exact path="/Visores/Esmeralda2" component={esmeralda2} />
         <Route path="/404" component={Notfound} />
         <Route path="*">
           <Redirect to="/404" />
         </Route>
       </Switch>
-      <Footer/>
+    </div>
+  )
+}
+
+const Generalroutes = () => {
+  const classes = useStyle()
+  return (
+    <div >
+        <Switch >
+          <Route exact path="/Mapas" component={Maps} />
+          <Route exact path="/Acerca" component={About} />
+          <Route exact path="/Servicios" component={Service} />
+          <Route exact path="/Servicios/estadisticas" component={statistics} />
+          <Route exact path="/Servicios/RegistroInmuebles" component={RegisterEstate} />
+          <Route exact path="/Catastromultiproposito" component={Catastro} />
+          <Route exact path="/Otrosobservatorios" component={Otros} />
+          <Route exact path="/Comitetecnico" component={Comite} />
+          <Route exact path="/Metodosavaluos" component={Avaluos} />
+          <Route exact path="/Tipologia" component={Tipologia} />
+          <Route exact path="/Ceed" component={Ceed} />
+          <Route exact path="/Contacto" component={Contacto} />
+          <Route exact path="/" component={ContentGrid} />
+          <Route path="/404" component={Notfound} />
+          <Route path="*">
+            <Redirect to="/404" />
+          </Route>
+        </Switch>
+      <Footer />
     </div>
   );
 };
 
 const Routes = () => {
-    let location = useLocation();
-    return (       
-           <div>
-            <Switch>                                
-                <Route path="/Visores" component={RoutesMaps}/>  
-                <Route path="/" component={Generalroutes}/>
-                <Route path="/404" component={Notfound}/>
-                <Route path="*">
-                    <Redirect to ="/404"/>
-                </Route>
-            </Switch>     
-           </div>       
-    )
+  let location = useLocation();
+  const classes = useStyle()
+  return (
+    <div>
+      <Header />
+      <Grid container className={classes.marginTop}>
+        </Grid>
+      <Switch>
+        <Route path="/Visores" component={RoutesMaps} />
+        <Route path="/" component={Generalroutes} />
+        <Route path="/404" component={Notfound} />
+        <Route path="*">
+          <Redirect to="/404" />
+        </Route>
+      </Switch>
+    </div>
+  )
 }
 
-export default withRouter (Routes)
+export default withRouter(Routes)

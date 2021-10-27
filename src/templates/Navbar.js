@@ -13,7 +13,8 @@ import menuDane from "common/menu.js"
 import SideBarComponent from "./Sidebar.js"
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import ButtonRedWine from "common/buttonredwine";
+import CallMadeSharpIcon from '@mui/icons-material/CallMadeSharp';
 const useStyle = makeStyles({
   root: {
     textDecoration: 'none',
@@ -27,11 +28,11 @@ const useStyle = makeStyles({
     position: "absolute",
     backgroundColor: "#F2F2F2",
     zIndex: 1,
-    top: 160
+    top: 150
   },
   colorMenuActive: {
-    backgroundColor: "#BD0B4E",
-    color: "#FFFFFF"
+    backgroundColor: "#821A3F",
+    color: "#FFFFFF !important"
   },
   sectionTitleMenu: {
     fontSize: "20px"
@@ -42,21 +43,58 @@ const useStyle = makeStyles({
     "&:hover": {
       color: "#821A3F",
       cursor: "pointer"
-    }
+    },
+    fontSize: 20,
+    padding: 2
 
+  },
+  liHover:{
+    "&:hover": {
+      color: "white",
+      cursor: "pointer",
+      backgroundColor:"#821A3F"
+    }
   },
   liItem: {
     marginTop: 5,
     marginLeft: 30,
+    fontSize: 15,
     "&:hover": {
       color: "#821A3F",
       cursor: "pointer"
     },
+    padding: 2
   },
   ulItem: {
-
+    marginTop: 40,
+    listStyle: "none"
+  },
+  iconLi: {
+    color: "blue",
+    marginRight: 10
+  },
+  cardglobal: {
+    //margin: "0% 0% 0% 0%",
+    padding: "0% 5% 0% 5%",
+    backgroundColor: "white",
+  },
+  cardglobalWhithout: {
+    //margin: "0% 0% 0% 0%",
+    padding: "0% 5% 0% 5%",
   }
 });
+
+
+const LiItem = Styled.li`
+@media (max-width: 1300px) and (min-width: 769px) {
+  font-size:15px !important;
+}
+`
+const LiItemTitle = Styled.li`
+@media (max-width: 1300px) and (min-width: 769px) {
+  font-size:15px !important;
+}
+`
 
 const SideBarContener = Styled.ul`    
 display:flex;
@@ -75,17 +113,15 @@ list-style: none;
 
 const NavBarContenedor = Styled.ul`    
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0px 0;
     width: 100%;
     padding: 5px;
     list-style: none;
     @media (max-width: 768px) {
       display:none;
-    }
-    @media (max-width: 1300px) and (min-width: 769px) {
-       font-size:10px !important;
-    }
+    },
+  
     
 `;
 
@@ -98,10 +134,10 @@ const MenuA = Styled.a`
 
 const MenuIL = Styled.li`
     float: left;  
-    font-size:23px;
     color:#969393;
+    width:100%;
     @media (max-width: 1300px) and (min-width: 769px) {
-       font-size:20px !important;
+       font-size:15px !important;
     }
     `;
 
@@ -110,6 +146,8 @@ const DropDownLi = Styled(MenuIL)`
     /* display: inline-block;    */
     position:relative;
     display: flex;
+    font-size:20px;
+    text-align:center;
     /* justify-content: center;
     align-items:center; 
     /* &:first-child {
@@ -127,6 +165,7 @@ const UtilidadCentrarTexto = Styled.div`
     align-items:center;
 `;
 
+const ContainerMenu = Styled.div``
 
 const Navbar = () => {
   const classes = useStyle();
@@ -190,16 +229,17 @@ const Navbar = () => {
       let subResult = []
       data.subindices[position].map((menu) => {
         if (menu.isTitle) {
-          subResult.push(<li key={menu.key} className={classes.liTitle}>{menu.name}</li>)
+          subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}>{menu.name}</LiItemTitle>)
         } else {
 
-          subResult.push(<li key={menu.key} className={classes.liItem}>{menu.name}</li>)
+          subResult.push(<LiItem key={menu.key} className={classes.liItem}><CallMadeSharpIcon className={classes.iconLi}></CallMadeSharpIcon>{menu.name}</LiItem>)
 
         }
       })
-      result.push(<Grid container item xs={4} sm={3} direction="column" >
+
+      result.push(<Grid container item xs direction="column" justifyContent="center" spacing={1} className={classes.cardglobalWhithout} >
         <ul className={classes.ulItem}>
-          <li className={classes.liTitle}><b>{menuDane[0].title[position]}</b></li>
+          <LiItemTitle className={classes.liTitle}><b>{data.title[position]}</b></LiItemTitle>
           {subResult}
         </ul>
       </Grid>)
@@ -208,10 +248,8 @@ const Navbar = () => {
 
 
   return (
-    <Grid container item xs={12} sm={12} onMouseLeave={handleStatusFalseAll}>
-      <Grid container item xs={1} sm={1}></Grid>
-      <Grid container item xs={8} sm={8}>
-
+    <Grid container onMouseLeave={handleStatusFalseAll}>
+      <Grid container item xs={12} sm={12} className={classes.cardglobal}>
         <SideBarContener>
           <IconButton
             size="large"
@@ -226,48 +264,64 @@ const Navbar = () => {
 
         </SideBarContener>
         <NavBarContenedor>
-          <DropDownLi onMouseEnter={handleStatusFalseAll}  >
+          <DropDownLi onMouseEnter={handleStatusFalseAll} className={classes.liHover}  >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <MenuA href="#" >Inicio </MenuA>
+              <MenuA href="/" >Inicio </MenuA>
 
             </UtilidadCentrarTexto>
           </DropDownLi>
+          {
+            menuActive.ActiveServicios.value ?
+              <DropDownLi onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveServicios"
+                })
+              }} className={classes.colorMenuActive}>
+                <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
+                </UtilidadCentrarTexto>
 
-          <DropDownLi onMouseEnter={() => {
-            handleChangeMenuActive({
-              name: "ActiveServicios"
-            })
-          }} >
-            {
-              menuActive.ActiveServicios.value ?
-                <UtilidadCentrarTexto className={classes.colorMenuActive} >
+              </DropDownLi> :
+              <DropDownLi onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveServicios"
+                })
+              }}>
+                <UtilidadCentrarTexto>
                   <AiOutlineDown />
                   <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
-                : <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
-                </UtilidadCentrarTexto>
+
+              </DropDownLi>
+
+          }
+           {
+            menuActive.ActiveGeovisores.value ?
+            <DropDownLi onMouseEnter={() => {
+              handleChangeMenuActive({
+                name: "ActiveGeovisores"
+              })
+            }} className={classes.colorMenuActive}> 
+            <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+              </UtilidadCentrarTexto>
+  
+            </DropDownLi>: <DropDownLi onMouseEnter={() => {
+              handleChangeMenuActive({
+                name: "ActiveGeovisores"
+              })
+            }}> 
+            <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+              </UtilidadCentrarTexto>
+  
+            </DropDownLi>
             }
-          </DropDownLi>
-          <DropDownLi onMouseEnter={() => {
-            handleChangeMenuActive({
-              name: "ActiveGeovisores"
-            })
-          }}>
-            {
-              menuActive.ActiveGeovisores.value ?
-                <UtilidadCentrarTexto className={classes.colorMenuActive}>
-                  <AiOutlineDown />
-                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
-                </UtilidadCentrarTexto>
-                : <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
-                </UtilidadCentrarTexto>
-            }
-          </DropDownLi>
+        
           <DropDownLi onMouseEnter={() => {
             handleChangeMenuActive({
               name: "ActiveCatastro"
@@ -303,6 +357,9 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
+             <li onMouseEnter={handleStatusFalseAll} >
+               <ButtonRedWine Title="Ingresar" href="Servicios/estadisticas" />
+             </li>
         </NavBarContenedor>
       </Grid>
       {
@@ -321,7 +378,7 @@ const Navbar = () => {
             className={classes.menuActive}
             justifyContent="center"
             alignItems="flex-start"
-           
+
           >
 
             {result}
