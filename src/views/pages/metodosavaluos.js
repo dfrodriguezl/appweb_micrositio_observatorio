@@ -80,11 +80,11 @@ const avaluos = () => {
     return(
         <Grid container direction="column" className={classes.gridglobal}>
             <Grid container justifyContent="center" alignItems="center">
-                    <h3 className={classes.titleStyle}>Catastro Multipropósito</h3>
+                    <h3 className={classes.titleStyle}>Métodos para el Cálculo de Avalúos</h3>
             </Grid>
             <Grid container>
                 <p className={classes.contentrulesp}>
-                  Para la determinación de Avalúos Catastrales, se hace necesario el calculo del valor comercial de los inmuebles, los cuales se pueden calcular por los siguientes metodos:--
+                Para la determinación de Avalúos Catastrales, se hace necesario el calculo del valor comercial de los inmuebles, los cuales se pueden calcular por los siguientes metodos:--
                 </p>          
             </Grid>
             <Grid container direction="row" className={classes.numpadding} >
