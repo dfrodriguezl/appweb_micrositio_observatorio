@@ -7,26 +7,26 @@ const menuDane = [
         [
           {
             key: "01",
-            name: "Economia",
+            name: "Servicios",
             link: "#",
             isTitle: true
           },
           {
             key: "02",
-            name: "Índice de Precios",
+            name: "Ofertas de inmobiliarias",
             link: "#",
             isTitle: false
           },
           {
             key: "03",
-            name: "Comercio Exterior 2010",
+            name: "Boletines",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
-            name: "Licencias de Construcción",
-            link: "#",
+            key: "2000",
+            name: "Estadisticas",
+            link: "/Servicios/estadisticas",
             isTitle: false
           },
           {
@@ -145,14 +145,14 @@ const menuDane = [
         [
           {
             key: "22",
-            name: "Economia",
+            name: "Inmuebles",
             link: "#",
             isTitle: true
           },
           {
             key: "23",
-            name: "Índice de Precios",
-            link: "#",
+            name: "Registro Inmuebles",
+            link: "/Servicios/registroinmuebles",
             isTitle: false
           },
           {
@@ -213,13 +213,13 @@ const menuDane = [
         ],
         [
           {
-            key: "31",
+            key: "2001",
             name: "Agropecuario",
             link: "#",
             isTitle: false
           },
           {
-            key: "32",
+            key: "2002",
             name: "Ambientales",
             link: "#",
             isTitle: false
@@ -535,49 +535,49 @@ const menuDane = [
             isTitle: false
           },
           {
-            key: "03",
+            key: "80",
             name: "Licencias de Construcción",
             link: "#",
             isTitle: false
           },
           {
-            key: "04",
+            key: "81",
             name: "Cuentas Nacionales",
             link: "#",
             isTitle: false
           },
           {
-            key: "05",
+            key: "82",
             name: "Sociedad",
             link: "#",
             isTitle: true
           },
           {
-            key: "06",
+            key: "83",
             name: "Demografía y Población",
             link: "#",
             isTitle: false
           },
           {
-            key: "07",
+            key: "84",
             name: "Pobreza y Condiciones de Vida",
             link: "#",
             isTitle: false
           },
           {
-            key: "08",
+            key: "85",
             name: "Territorio",
             link: "#",
             isTitle: true
           },
           {
-            key: "09",
+            key: "86",
             name: "Agropecuario",
             link: "#",
             isTitle: false
           },
           {
-            key: "10",
+            key: "87",
             name: "Ambientales",
             link: "#",
             isTitle: false
@@ -586,67 +586,67 @@ const menuDane = [
         ],
         [
           {
-            key: "01",
+            key: "88",
             name: "Economia",
             link: "#",
             isTitle: true
           },
           {
-            key: "02",
+            key: "89",
             name: "Índice de Precios",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "90",
             name: "Comercio Exterior 2010",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "91",
             name: "Licencias de Construcción",
             link: "#",
             isTitle: false
           },
           {
-            key: "04",
+            key: "92",
             name: "Cuentas Nacionales",
             link: "#",
             isTitle: false
           },
           {
-            key: "05",
+            key: "93",
             name: "Sociedad",
             link: "#",
             isTitle: true
           },
           {
-            key: "06",
+            key: "94",
             name: "Demografía y Población",
             link: "#",
             isTitle: false
           },
           {
-            key: "07",
+            key: "95",
             name: "Pobreza y Condiciones de Vida",
             link: "#",
             isTitle: false
           },
           {
-            key: "08",
+            key: "96",
             name: "Territorio",
             link: "#",
             isTitle: true
           },
           {
-            key: "09",
+            key: "97",
             name: "Agropecuario",
             link: "#",
             isTitle: false
           },
           {
-            key: "10",
+            key: "98",
             name: "Ambientales",
             link: "#",
             isTitle: false
@@ -655,67 +655,67 @@ const menuDane = [
         ],
         [
           {
-            key: "01",
+            key: "99",
             name: "Economia",
             link: "#",
             isTitle: true
           },
           {
-            key: "02",
+            key: "100",
             name: "Índice de Precios",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "101",
             name: "Comercio Exterior 2010",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "102",
             name: "Licencias de Construcción",
             link: "#",
             isTitle: false
           },
           {
-            key: "04",
+            key: "103",
             name: "Cuentas Nacionales",
             link: "#",
             isTitle: false
           },
           {
-            key: "05",
+            key: "104",
             name: "Sociedad",
             link: "#",
             isTitle: true
           },
           {
-            key: "06",
+            key: "105",
             name: "Demografía y Población",
             link: "#",
             isTitle: false
           },
           {
-            key: "07",
+            key: "106",
             name: "Pobreza y Condiciones de Vida",
             link: "#",
             isTitle: false
           },
           {
-            key: "08",
+            key: "107",
             name: "Territorio",
             link: "#",
             isTitle: true
           },
           {
-            key: "09",
+            key: "108",
             name: "Agropecuario",
             link: "#",
             isTitle: false
           },
           {
-            key: "10",
+            key: "109",
             name: "Ambientales",
             link: "#",
             isTitle: false
@@ -724,67 +724,67 @@ const menuDane = [
         ],
         [
           {
-            key: "01",
+            key: "110",
             name: "Economia",
             link: "#",
             isTitle: true
           },
           {
-            key: "02",
+            key: "111",
             name: "Índice de Precios",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "112",
             name: "Comercio Exterior 2010",
             link: "#",
             isTitle: false
           },
           {
-            key: "03",
+            key: "113",
             name: "Licencias de Construcción",
             link: "#",
             isTitle: false
           },
           {
-            key: "04",
+            key: "114",
             name: "Cuentas Nacionales",
             link: "#",
             isTitle: false
           },
           {
-            key: "05",
+            key: "115",
             name: "Sociedad",
             link: "#",
             isTitle: true
           },
           {
-            key: "06",
+            key: "116",
             name: "Demografía y Población",
             link: "#",
             isTitle: false
           },
           {
-            key: "07",
+            key: "117",
             name: "Pobreza y Condiciones de Vida",
             link: "#",
             isTitle: false
           },
           {
-            key: "08",
+            key: "118",
             name: "Territorio",
             link: "#",
             isTitle: true
           },
           {
-            key: "09",
+            key: "119",
             name: "Agropecuario",
             link: "#",
             isTitle: false
           },
           {
-            key: "10",
+            key: "120",
             name: "Ambientales",
             link: "#",
             isTitle: false

@@ -18,7 +18,7 @@ const useStyle = makeStyles({
   },
   descriptionStatistics: {
     fontSize: 25,
-    color: "black",
+    color: "#4C4C4C",
     fontFamily: Values.SourceRoboto,
     textAlign: "left"
   },
@@ -31,6 +31,14 @@ const useStyle = makeStyles({
     fontSize: 50,
     fontWeight: "bold",
     marginTop: 20,
+    fontFamily: Values.SourceRoboto
+  },
+  SubTitleStatistics: {
+    color: "#821A3F",
+    fontSize: 40,
+    fontWeight: "bold",
+    marginTop: 10,
+    marginBottom:20,
     fontFamily: Values.SourceRoboto
   },
 
@@ -164,7 +172,7 @@ const Cardsservice = () => {
         <img src={imageItem} />
       </Grid>
       <Grid container xs={12} sm={12} md={12} lg={12}>
-        <Typography className={classes.TitleStatistics}  >
+        <Typography className={classes.SubTitleStatistics}  >
           Construcción
         </Typography>
       </Grid>
