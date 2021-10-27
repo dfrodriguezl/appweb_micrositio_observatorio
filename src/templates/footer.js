@@ -29,11 +29,15 @@ const Imagen = Styled.img`
 
 const useStyle = makeStyles({
     liItem:{
-        color:"black"
+        color:"black",
+        display:"flex"
     },
     ulItem:{
         listStyle:"none",
         marginLeft:10
+    },
+    textDescription:{
+        color:"#4C4C4C !important"
     }
     
 });
@@ -54,9 +58,9 @@ const Footer = () =>{
                               <li>
                                   <b>CALL CENTER</b>
                               </li>
-                              <li><b>Conmutador:</b> (571) 597 833 00 ó (571)5978398 </li>
+                              <li><b>Conmutador:</b> <a className={classes.textDescription}>(571) 597 833 00 ó (571)5978398</a> </li>
                               <li>
-                               <b>linea gratuita nacional</b> 01 8000 912 002
+                               <b>linea gratuita nacional</b><a className={classes.textDescription}> 01 8000 912 002</a>
                                </li> 
                         </ul>
                         
@@ -65,7 +69,8 @@ const Footer = () =>{
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
                                 <li><b>HORARIO DE ATENCIÓN</b></li>
-                                <li><b>Lunes a viernes</b> 8:00 - 17:00</li>
+                                <li><b>Lunes a viernes</b> <a className={classes.textDescription}>8:00 - 17:00</a>
+                                </li>
                          </ul>  
                 </Grid>
                 <Grid container xs={12} sm={3} lg={3} md={4} direction="row" justifyContent="center">
@@ -81,10 +86,10 @@ const Footer = () =>{
                                       <b>Carrera 59 No. 26-70 Interior I - CAN</b>
                                       </li>
                                       <li className={classes.liItem}>
-                                      <b> Código postal:</b> 111321
+                                      <b> Código postal:</b><a className={classes.textDescription}> 111321</a>
                                       </li>
                                       <li className={classes.liItem}>
-                                      <b>Apartado Aéreo:</b> 80043
+                                      <b>Apartado Aéreo:</b> <a className={classes.textDescription}> 80043</a>
                                       </li>
                                       <li className={classes.liItem}>
                                        <b>Bogotá D.C., Colombia - Suramérica</b>

@@ -1,9 +1,7 @@
-import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-import React, { Component } from 'react';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
 import * as Values from 'Variables/values';
 import triangles from "img/paris.jpg";
-import ButtonRedWine from "common/buttonredwine";
-import { FcShop } from "react-icons/fc";
 import Styled from "styled-components";
 import imageItem from "../../../img/Dane_Inmuebles_image_01.svg"
 import Nature from "../../../img/Nature-amico.svg"
@@ -42,7 +40,6 @@ const useStyle = makeStyles({
     descriptionStatisticsSub: {
         fontSize: 30,
         color: "#585858",
-        marginLeft: 30,
         marginTop: 30,
         marginBottom: 30,
         zIndex: 1
@@ -118,9 +115,11 @@ const useStyle = makeStyles({
 
     cardglobal: {
         //margin: "0% 0% 0% 0%",
-        padding: "0% 0% 5% 0%",
-        backgroundColor: "#fafafa",
+        padding: "0% 5% 0% 5%"
     },
+    padding: {
+        padding: ""
+    }
 });
 
 const Topservice = () => {
@@ -134,15 +133,15 @@ const Topservice = () => {
 const SectionOne = () => {
     const classes = useStyle();
     return (
-        <Grid container>
-            <Grid xs={11}
-                sm={11}
+        <Grid container className={classes.cardglobal}>
+            <Grid xs={12}
+                sm={12}
                 md={6}
                 lg={6}
                 direction="column"
                 justifyContent="center"
-                className={classes.textLeft}
-                >
+
+            >
                 <Typography className={classes.TitleStatistics}  >
                     Registro de Bienes inmuebles
                 </Typography>
@@ -157,11 +156,11 @@ const SectionOne = () => {
 
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} md={5} lg={5}   >
+            <Grid container item xs={12} sm={12} md={6} lg={6}   >
 
-                <img src={imageItem}  />
+                <img src={imageItem} />
             </Grid>
-            <Grid container item xs={12} sm={12}  className={classes.descriptionStatisticsSub}>
+            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.descriptionStatisticsSub}>
                 De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la División de
                 Estadística y Proyecciones Económicas un registro administrativo es “todo registro resultante de
                 necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
@@ -199,6 +198,7 @@ const ImageSectionThree = Styled.img`
     width:500px;
     right:200px;
     z-index:-1;
+    text-align:center;
   };
   @media (max-width: 768px) {
     max-width:400;
@@ -212,12 +212,12 @@ const ImageSectionThree = Styled.img`
 const SectionTwo = () => {
     const classes = useStyle();
     return (
-        <Grid container>
+        <Grid container className={classes.sectionPar} >
 
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.sectionPar} >
+            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
 
                 <Typography className={`${classes.TitleStatistics}`} >
-                    Objetivos
+                    Objetivo
                 </Typography>
 
             </Grid>
@@ -228,7 +228,7 @@ const SectionTwo = () => {
                 <ImageItem src={Addres}></ImageItem>
 
             </ContainerImage>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.sectionPar} >
+            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
                 <Typography className={classes.descriptionStatisticsSub} >
                     Caracterizar con fines estadísticos, los bienes inmuebles que conforman el territorio nacional a través de
                     la integración de información física, jurídica, económica y geográfica del predio que sirva como
@@ -236,13 +236,13 @@ const SectionTwo = () => {
                 </Typography>
 
             </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.sectionPar}>
-                <Typography className={`${classes.TitleStatistics} ${classes.textLeft}`} >
+            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal}>
+                <Typography className={classes.TitleStatistics} >
                     Alcance de registro
                 </Typography>
             </Grid>
 
-            <Grid container item xs={12} sm={12} direction="row" className={classes.sectionPar}>
+            <Grid container item xs={12} sm={12} direction="row" className={classes.cardglobal} >
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <img src={DocumentBro} ></img>
                 </Grid>
@@ -269,7 +269,7 @@ const SectionTwo = () => {
 const SectionThree = () => {
     const classes = useStyle();
     return (
-        <Grid container>
+        <Grid container className={classes.cardglobal}>
 
             <Grid container item xs={12} sm={12} className={classes.marginBottom}>
                 <Typography className={`${classes.TitleStatistics} ${classes.textLeft}`} >
@@ -300,7 +300,7 @@ const SectionThree = () => {
                         </ul>
                     </div>
                 </Grid>
-                <Grid sm={3}>
+                <Grid sm={12} xs={12} md={3} lg={3}>
                     <ImageSectionThree src={NewIdea}></ImageSectionThree>
                 </Grid>
             </Grid>
@@ -308,26 +308,26 @@ const SectionThree = () => {
     )
 }
 
-const SectionFour = () =>{
+const SectionFour = () => {
     const classes = useStyle();
-   return(
-       <Grid container>
+    return (
+        <Grid container  className={classes.sectionPar}>
 
-<Grid container item xs={12} sm={12} className={classes.sectionPar}>
+            <Grid container item xs={12} sm={12} className={classes.cardglobal}>
                 <Typography className={classes.TitleStatistics}>
                     Fuentes de Información
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.sectionPar}>
+            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
                 <img src={DataExtration} className={classes.DataExtration}></img>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.sectionPar}>
+            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
                 <Typography className={classes.descriptionStatisticsSub}>
                     De acuerdo a los posibles canales para el levantamiento de la información, las principales fuentes para
                     conformar el registro de bienes inmuebles son los siguientes:
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.sectionPar}>
+            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
 
                 <ul className={classes.descriptionStatisticsSub}>
                     <li>Registro Catastral del IGAC (Instituto Geográfico Agustín Codazzi).</li>
@@ -353,15 +353,15 @@ const SectionFour = () =>{
                     <li>Registro de predios de la Agencia Nacional de Tierras.</li>
                 </ul>
             </Grid>
-       </Grid>
-   )
+        </Grid>
+    )
 }
 
 const Cardsservice = () => {
     const classes = useStyle();
     return (
         <Grid container>
-            <SectionOne></SectionOne>
+            <SectionOne ></SectionOne>
             <SectionTwo></SectionTwo>
             <SectionThree></SectionThree>
             <SectionFour></SectionFour>
@@ -374,7 +374,7 @@ const Cardsservice = () => {
 
 
 const ViewService = () => {
-  
+
     return (
         <Grid>
             <Topservice />
