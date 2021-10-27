@@ -23,7 +23,7 @@ const useStyle = makeStyles({
   
   centerButton: {
     justifyContent: "center",
-    padding: "0 0 8% 0 !important",
+    padding: "0 0 0 0 !important",
   },
 
   centerText: {
@@ -39,7 +39,7 @@ const useStyle = makeStyles({
   },
 
   Textp:{
-    color: Values.Redwinecolor,
+    color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "start",  
@@ -51,7 +51,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "center",  
-    margin: "2% 0 1% 0",
+    margin: "2% 0 2% 0",
   },
 
   root: {
@@ -61,7 +61,7 @@ const useStyle = makeStyles({
   },
 
   media: {
-    height: "28vh",
+    height: "24vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
   },

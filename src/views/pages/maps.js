@@ -20,7 +20,7 @@ const useStyle = makeStyles({
       },
     
       Textp:{
-        color: Values.Redwinecolor,
+        color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
