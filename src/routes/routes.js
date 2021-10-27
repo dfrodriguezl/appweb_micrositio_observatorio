@@ -37,7 +37,7 @@ import Contacto from 'pages/contacto';
 
 const useStyle = makeStyles({
   marginTop: {
-   marginTop:200
+   marginTop:160
   }
 });
 
