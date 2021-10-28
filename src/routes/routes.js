@@ -18,6 +18,7 @@ import {
 //
 import ContentGrid from 'pages/contentgrid';
 import Maps from 'pages/maps';
+import Navbar from 'templates/Navbar';
 import esmeralda from 'visores/esmeralda/esmeralda';
 import esmeralda2 from 'visores/esmeralda/esmeralda2';
 import Notfound from 'pages/notfound';
@@ -43,7 +44,6 @@ const useStyle = makeStyles({
 
 const RoutesMaps = () => {
   return (
-
     <div>
       <Switch>
         <Route exact path="/Visores/Esmeralda" component={esmeralda} />
@@ -61,6 +61,8 @@ const Generalroutes = () => {
   const classes = useStyle()
   return (
     <div >
+      <Header/>
+      <Navbar/>
         <Switch >
           <Route exact path="/Mapas" component={Maps} />
           <Route exact path="/Acerca" component={About} />
@@ -90,9 +92,6 @@ const Routes = () => {
   const classes = useStyle()
   return (
     <div>
-      <Header />
-      <Grid container className={classes.marginTop}>
-        </Grid>
       <Switch>
         <Route path="/Visores" component={RoutesMaps} />
         <Route path="/" component={Generalroutes} />
