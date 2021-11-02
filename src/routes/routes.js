@@ -39,7 +39,7 @@ import Ceed01 from 'pages/statistics/ceed/ceed'
 
 const useStyle = makeStyles({
   marginTop: {
-   marginTop:160
+   marginTop:80
   }
 });
 
@@ -64,6 +64,8 @@ const Generalroutes = () => {
     <div >
       <Header/>
       <Navbar/>
+      <Grid container className={classes.marginTop}>
+      </Grid>
         <Switch >
           <Route exact path="/Mapas" component={Maps} />
           <Route exact path="/Acerca" component={About} />

@@ -11,7 +11,7 @@ const cardService= [
             "title":"Censo de edificaciones (CEED)",
             "description":"Determina el estado actual de la actividad edificadora para establecer su composición, evolución y producción, contribuyendo a la medición y cálculo de los principales agregados macroeconómicos. ",
             "image_card":Sale,
-            "link":"/Visores/Esmeralda2"
+            "link":"/Servicios/estadisticas/Ceed"
         },
         {
             "id":2,
