@@ -10,13 +10,13 @@ const Map = () => {
 
   const [lng, setLng] = useState(-74.083);
   const [lat, setLat] = useState(4.70);
-  const [zoom, setZoom] = useState(15);
+  const [zoom, setZoom] = useState(6);
 
   //Constructor del mapa
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: 'mapbox://styles/alejo1792/ckuh9r31v0hc417qq5hpz4vwk',
+      style: 'mapbox://styles/alejo1792/ckvbhvgi86iih14of8t0ltez1',
       center: [lng, lat],
       zoom: zoom
     });         
