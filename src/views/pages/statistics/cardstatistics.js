@@ -81,7 +81,7 @@ const useStyle = makeStyles({
   
     root: {
       width: "40vh",
-      height:"75vh",
+      height:"85vh",
       borderRadius: "1em",
       boxShadow: "3px 3px 10px #7b7676",
     },
@@ -167,7 +167,7 @@ const CardStatistics=()=>{
                         </CardContent>
                       </CardContent>
                       <CardActions className={classes.centerButton}>
-                        <ButtonRedWine Title="Visitar" href="Servicios/estadisticas" />
+                        <ButtonRedWine Title="Visitar" href={infocard.link} />
                       </CardActions>
                     </Card>
                   </Grid>
