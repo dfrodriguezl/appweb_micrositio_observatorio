@@ -34,6 +34,7 @@ import Avaluos from 'pages/metodosavaluos';
 import Tipologia from 'pages/tipologia';
 import Ceed from 'pages/ceed';
 import Contacto from 'pages/contacto';
+import Ceed01 from 'pages/statistics/ceed/ceed'
 
 const useStyle = makeStyles({
   marginTop: {
@@ -73,6 +74,7 @@ const Generalroutes = () => {
           <Route exact path="/Metodosavaluos" component={Avaluos} />
           <Route exact path="/Tipologia" component={Tipologia} />
           <Route exact path="/Ceed" component={Ceed} />
+          <Route exact path ="/Servicios/estadisticas/Ceed"  component={Ceed01} />
           <Route exact path="/Contacto" component={Contacto} />
           <Route exact path="/" component={ContentGrid} />
           <Route path="/404" component={Notfound} />
