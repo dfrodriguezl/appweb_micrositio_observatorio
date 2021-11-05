@@ -1,17 +1,16 @@
 import { Grid, makeStyles, useMediaQuery, Typography } from "@material-ui/core";
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
+import * as Values from 'Observatorio/Variables/values';
 
-import ImageCeed from "img/Ceed01.jpeg"
+import ImageCeed from "Observatorio/img/Ceed01.jpeg"
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ButtonRedWine from "common/buttonredwine";
-import AmicoImage from "img/amico.png"
-
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import AmicoImage from "Observatorio/img/amico.png"
 const useStyle = makeStyles({
 
     gridglobal: {

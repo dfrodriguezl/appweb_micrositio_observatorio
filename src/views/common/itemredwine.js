@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, makeStyles } from '@material-ui/core';
-import * as Values from 'Variables/values';
+import * as Values from 'Observatorio/Variables/values';
 
 const useStyle = makeStyles({
   

@@ -9,14 +9,16 @@ import {
   makeStyles
 } from '@material-ui/core/styles';
 import Styled from "styled-components";
-import menuDane from "common/menu.js"
+import menuDane from "Observatorio/common/menu.js"
 import SideBarComponent from "./Sidebar.js"
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ButtonRedWine from "common/buttonredwine";
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import CallMadeSharpIcon from '@mui/icons-material/CallMadeSharp';
 import AccountBalancnceIcon from "@mui/icons-material/AccountBalance"
 import ArchiveIcon from "@mui/icons-material/Archive"
+
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import Economia from '@mui/icons-material/EqualizerTwoTone';
 import Sociedad from '@mui/icons-material/SupervisedUserCircleSharp';
@@ -352,7 +354,7 @@ const Navbar = () => {
           <DropDownLi onMouseEnter={handleStatusFalseAll} className={classes.liHover}  >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <MenuA href="/" >Inicio </MenuA>
+              <MenuA href="/Observatorio" >Inicio </MenuA>
 
             </UtilidadCentrarTexto>
           </DropDownLi>
@@ -365,7 +367,7 @@ const Navbar = () => {
               }} className={classes.colorMenuActive}>
                 <UtilidadCentrarTexto>
                   <AiOutlineDown  className={classes.rotate}/>
-                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
+                  <NavLink to="/Observatorio/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
 
               </DropDownLi> :
@@ -376,7 +378,7 @@ const Navbar = () => {
               }}>
                 <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
+                  <NavLink to="/Observatorio/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
 
               </DropDownLi>
@@ -391,7 +393,7 @@ const Navbar = () => {
               }} className={classes.colorMenuActive}>
                 <UtilidadCentrarTexto>
                   <AiOutlineDown  className={classes.rotate}/>
-                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+                  <NavLink to="/Observatorio/Mapas" className={classes.root} >Geovisores</NavLink>
                 </UtilidadCentrarTexto>
 
               </DropDownLi> : <DropDownLi onMouseEnter={() => {
@@ -401,7 +403,7 @@ const Navbar = () => {
               }}>
                 <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+                  <NavLink to="/Observatorio/Mapas" className={classes.root} >Geovisores</NavLink>
                 </UtilidadCentrarTexto>
 
               </DropDownLi>
@@ -417,11 +419,11 @@ const Navbar = () => {
               menuActive.ActiveCatastro.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown  className={classes.rotate}/>
-                  <MenuA href="/Catastromultiproposito">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multiproposito </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <MenuA href="/Catastromultiproposito">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multiproposito </MenuA>
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
@@ -434,17 +436,17 @@ const Navbar = () => {
               menuActive.ActiveInvestigacion.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
                   <AiOutlineDown  className={classes.rotate}/>
-                  <MenuA href="/Metodosavaluos">Investigaciones </MenuA>
+                  <MenuA href="/Observatorio/Metodosavaluos">Investigaciones </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <MenuA href="/Metodosavaluos">Investigaciones </MenuA>
+                  <MenuA href="/Observatorio/Metodosavaluos">Investigaciones </MenuA>
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
-          <li onMouseEnter={handleStatusFalseAll} >
-            <ButtonRedWine Title="Ingresar" href="Servicios/estadisticas" />
-          </li>
+             <li onMouseEnter={handleStatusFalseAll} >
+               <ButtonRedWine Title="Ingresar" href="/ObservatorioServicios/estadisticas" />
+             </li>
         </NavBarContenedor>
       </Grid>
       {

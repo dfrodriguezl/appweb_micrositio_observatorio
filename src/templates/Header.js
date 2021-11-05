@@ -3,8 +3,8 @@ import {  Grid } from '@material-ui/core';
 import {
     makeStyles
 } from '@material-ui/core/styles';
-import logoDane from "../img/logo-dane.svg";
-import logoObservatorio from "../img/logo-observatorio.svg";
+import logoDane from "Observatorio/img/logo-dane.svg";
+import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 import Styled from "styled-components";
 import Navbar  from './Navbar';
 

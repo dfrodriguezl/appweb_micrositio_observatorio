@@ -7,12 +7,16 @@
         ["module-resolver", {
           "root": ["./src"],
           "alias": {
-            "img": "./src/img",
-            "common":"./src/views/common",
-            "pages":"./src/views/pages",
-            "test": "./test",
-            "ui": "./src/visores/esmeralda/ui",
-            "underscore": "lodash"
+            "Observatorio/img": "./src/img",
+            "Observatorio/common":"./src/views/common",
+            "Observatorio/pages":"./src/views/pages",
+            "Observatorio/test": "./test",
+            "Observatorio/ui": "./src/visores/esmeralda/ui",
+            "Observatorio/underscore": "lodash",
+            "Observatorio/Variables": "./src/Variables",
+            "Observatorio/routes": "./src/routes",
+            "Observatorio/templates": "./src/templates",
+            "Observatorio/visores/esmeralda":"./src/visores/esmeralda"
           }
         }]
       ]

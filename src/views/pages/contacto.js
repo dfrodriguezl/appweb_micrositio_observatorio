@@ -1,11 +1,11 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React from 'react';
-import * as Values from 'Variables/values';
-import App from "img/App.svg";
-import ContactImage from "img/contact.jpeg"
-import ItemRedWine from "../common/itemredwine";
+import * as Values from 'Observatorio/Variables/values';
+import App from "Observatorio/img/App.svg";
+import ContactImage from "Observatorio/img/contact.jpeg"
+import ItemRedWine from "Observatorio/common/itemredwine";
 import TextField from '@mui/material/TextField';
-import ButtonRedWine from "common/buttonredwine";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 const useStyle = makeStyles({
 
     gridglobal: {

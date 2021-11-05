@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, makeStyles, useMediaQuery} from "@material-ui/core";
-import * as Values from 'Variables/values';
-import notfound from "img/404.svg";
+import * as Values from 'Observatorio/Variables/values';
+import notfound from "Observatorio/img/404.svg";
 
 const useStyle = makeStyles({
     containerImg:{

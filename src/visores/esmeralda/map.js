@@ -8,8 +8,8 @@ mapboxgl.accessToken =
 const Map = () => {
   const mapContainerRef = useRef(null);
 
-  const [lng, setLng] = useState(-74.083);
-  const [lat, setLat] = useState(4.70);
+  const [lng, setLng] = useState(-74.5447);
+  const [lat, setLat] = useState(4.73);
   const [zoom, setZoom] = useState(6);
 
   //Constructor del mapa
@@ -24,6 +24,29 @@ const Map = () => {
     // Navegacion ( +/- zoom )
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     
+    map.on('load', () => {
+      map.addSource('wms-test-source', {
+      'type': 'raster',
+      // use the tiles option to specify a WMS tile source URL
+      // https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/
+      'tiles': [
+      'https://geoserverportal.dane.gov.co/geoserver2/postgis/wms?service=WMS&version=1.1.0&request=GetMap&layers=postgis:PARQUES_NATURALES&FORMAT=image/png&TRANSPARENT=true&SRS=EPSG:4326'
+      ],
+      'tileSize': 256
+      });
+      map.addLayer(
+      {
+      'id': 'wms-test-layer',
+      'type': 'raster',
+      'source': 'wms-test-source',
+      'paint': {},      
+      }, 
+      // 'aeroway-line'
+      );
+      });
+
+      
+
     map.on('click', ({point}) => {
       const features = map.queryRenderedFeatures(point, {
         layers:['puntos']
@@ -40,7 +63,8 @@ const Map = () => {
       )
       .addTo(map);
 
-    });
+    });   
+
     // Clean up on unmount
     return () => map.remove();
   }, []); 

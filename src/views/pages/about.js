@@ -1,8 +1,8 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
-import * as Values from 'Variables/values';
-import House from "img/House.svg";
-import Judge from "img/Judge.svg";
+import * as Values from 'Observatorio/Variables/values';
+import House from "Observatorio/img/House.svg";
+import Judge from "Observatorio/img/Judge.svg";
 
 const useStyle = makeStyles({
     margintop:{

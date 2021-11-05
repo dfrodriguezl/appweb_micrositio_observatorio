@@ -1,9 +1,9 @@
 import { Grid, makeStyles, useMediaQuery, Paper, CardActions, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
-import Delivery from "img/Delivery.svg";
+import * as Values from 'Observatorio/Variables/values';
+import Delivery from "Observatorio/img/Delivery.svg";
 
-import imageItem from "../../../img/DANE_Estadisticas_imagen_principal.svg"
+import imageItem from "Observatorio/img/DANE_Estadisticas_imagen_principal.svg"
 import CardStatistics  from './cardstatistics';
 
 const useStyle = makeStyles({

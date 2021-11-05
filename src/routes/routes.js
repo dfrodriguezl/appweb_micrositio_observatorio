@@ -16,26 +16,26 @@ import {
 } from "react-router-dom";
 
 //
-import ContentGrid from 'pages/contentgrid';
-import Maps from 'pages/maps';
-import Navbar from 'templates/Navbar';
-import esmeralda from 'visores/esmeralda/esmeralda';
-import esmeralda2 from 'visores/esmeralda/esmeralda2';
-import Notfound from 'pages/notfound';
-import Header from 'templates/Header';
-import Footer from 'templates/footer';
-import Service from 'pages/services';
-import statistics from 'pages/statistics/statistics'
-import RegisterEstate from 'pages/estate/registerestate'
-import About from 'pages/about';
-import Catastro from 'pages/catastromultiproposito';
-import Otros from 'pages/otrosobservatorios';
-import Comite from 'pages/comitetecnico';
-import Avaluos from 'pages/metodosavaluos';
-import Tipologia from 'pages/tipologia';
-import Ceed from 'pages/ceed';
-import Contacto from 'pages/contacto';
-import Ceed01 from 'pages/statistics/ceed/ceed'
+import ContentGrid from 'Observatorio/pages/contentgrid';
+import Maps from 'Observatorio/pages/maps';
+import Navbar from 'Observatorio/templates/Navbar';
+import esmeralda from 'Observatorio/visores/esmeralda/esmeralda';
+import esmeralda2 from 'Observatorio/visores/esmeralda/esmeralda2';
+import Notfound from 'Observatorio/pages/notfound';
+import Header from 'Observatorio/templates/Header';
+import Footer from 'Observatorio/templates/footer';
+import Service from 'Observatorio/pages/services';
+import statistics from 'Observatorio/pages/statistics/statistics'
+import RegisterEstate from 'Observatorio/pages/estate/registerestate'
+import About from 'Observatorio/pages/about';
+import Catastro from 'Observatorio/pages/catastromultiproposito';
+import Otros from 'Observatorio/pages/otrosobservatorios';
+import Comite from 'Observatorio/pages/comitetecnico';
+import Avaluos from 'Observatorio/pages/metodosavaluos';
+import Tipologia from 'Observatorio/pages/tipologia';
+import Ceed from 'Observatorio/pages/ceed';
+import Contacto from 'Observatorio/pages/contacto';
+import Ceed01 from 'Observatorio/pages/statistics/ceed/ceed'
 
 const useStyle = makeStyles({
   marginTop: {
@@ -47,11 +47,11 @@ const RoutesMaps = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/Visores/Esmeralda" component={esmeralda} />
-        <Route exact path="/Visores/Esmeralda2" component={esmeralda2} />
-        <Route path="/404" component={Notfound} />
+        <Route exact path="/Observatorio/Visores/Esmeralda" component={esmeralda} />
+        <Route exact path="/Observatorio/Visores/Esmeralda2" component={esmeralda2} />
+        <Route path="/Observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/404" />
+          <Redirect to="/Observatorio/404" />
         </Route>
       </Switch>
     </div>
@@ -67,23 +67,23 @@ const Generalroutes = () => {
       <Grid container className={classes.marginTop}>
       </Grid>
         <Switch >
-          <Route exact path="/Mapas" component={Maps} />
-          <Route exact path="/Acerca" component={About} />
-          <Route exact path="/Servicios" component={Service} />
-          <Route exact path="/Servicios/estadisticas" component={statistics} />
-          <Route exact path="/Servicios/RegistroInmuebles" component={RegisterEstate} />
-          <Route exact path="/Catastromultiproposito" component={Catastro} />
-          <Route exact path="/Otrosobservatorios" component={Otros} />
-          <Route exact path="/Comitetecnico" component={Comite} />
-          <Route exact path="/Metodosavaluos" component={Avaluos} />
-          <Route exact path="/Tipologia" component={Tipologia} />
-          <Route exact path="/Ceed" component={Ceed} />
-          <Route exact path ="/Servicios/estadisticas/Ceed"  component={Ceed01} />
-          <Route exact path="/Contacto" component={Contacto} />
-          <Route exact path="/" component={ContentGrid} />
-          <Route path="/404" component={Notfound} />
+          <Route exact path="/Observatorio/Mapas" component={Maps} />
+          <Route exact path="/Observatorio/Acerca" component={About} />
+          <Route exact path="/Observatorio/Servicios" component={Service} />
+          <Route exact path="/Observatorio/Servicios/estadisticas" component={statistics} />
+          <Route exact path="/Observatorio/Servicios/RegistroInmuebles" component={RegisterEstate} />
+          <Route exact path="/Observatorio/Catastromultiproposito" component={Catastro} />
+          <Route exact path="/Observatorio/Otrosobservatorios" component={Otros} />
+          <Route exact path="/Observatorio/Comitetecnico" component={Comite} />
+          <Route exact path="/Observatorio/Metodosavaluos" component={Avaluos} />
+          <Route exact path="/Observatorio/Tipologia" component={Tipologia} />
+          <Route exact path="/Observatorio/Ceed" component={Ceed} />
+          <Route exact path ="/Observatorio/Servicios/estadisticas/Ceed" component={Ceed01} />
+          <Route exact path="/Observatorio/Contacto" component={Contacto} />
+          <Route exact path="/Observatorio" component={ContentGrid} />
+          <Route path="/Observatorio/404" component={Notfound} />
           <Route path="*">
-            <Redirect to="/404" />
+            <Redirect to="/Observatorio/404" />
           </Route>
         </Switch>
       <Footer />
@@ -97,11 +97,11 @@ const Routes = () => {
   return (
     <div>
       <Switch>
-        <Route path="/Visores" component={RoutesMaps} />
-        <Route path="/" component={Generalroutes} />
-        <Route path="/404" component={Notfound} />
+        <Route path="/Observatorio/Visores" component={RoutesMaps} />
+        <Route path="/Observatorio" component={Generalroutes} />
+        <Route path="/Observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/404" />
+          <Redirect to="/Observatorio/404" />
         </Route>
       </Switch>
     </div>

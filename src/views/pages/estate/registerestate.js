@@ -1,16 +1,16 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
-import * as Values from 'Variables/values';
-import triangles from "img/paris.jpg";
+import * as Values from 'Observatorio/Variables/values';
+import triangles from "Observatorio/img/paris.jpg";
 import Styled from "styled-components";
-import imageItem from "../../../img/Dane_Inmuebles_image_01.svg"
-import Nature from "../../../img/Nature-amico.svg"
-import Justice from "../../../img/Justice-rafiki.svg"
-import Finance from "../../../img/Finance-rafiki.svg"
-import Addres from "../../../img/Address-rafiki.svg"
-import DocumentBro from "../../../img/Documents-bro.svg"
-import NewIdea from "../../../img/New-idea-rafiki.svg"
-import DataExtration from "../../../img/Data-extraction-pana.svg"
+import imageItem from "Observatorio/img/Dane_Inmuebles_image_01.svg"
+import Nature from "Observatorio/img/Nature-amico.svg"
+import Justice from "Observatorio/img/Justice-rafiki.svg"
+import Finance from "Observatorio/img/Finance-rafiki.svg"
+import Addres from "Observatorio/img/Address-rafiki.svg"
+import DocumentBro from "Observatorio/img/Documents-bro.svg"
+import NewIdea from "Observatorio/img/New-idea-rafiki.svg"
+import DataExtration from "Observatorio/img/Data-extraction-pana.svg"
 const useStyle = makeStyles({
     DataExtration: {
         maxWidth: 500
