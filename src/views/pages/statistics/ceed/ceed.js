@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 
 import ImageCeed from "img/Ceed01.jpeg"
-import ImageCeedSub from "img/Ceed02.jpeg"
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -25,9 +24,9 @@ const useStyle = makeStyles({
         fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,
     },
-    Titleh3Main:{
+    Titleh3Main: {
         color: Values.Redwinecolor,
-        fontFamily:Values.SourceRoboto,
+        fontFamily: Values.SourceRoboto,
         fontSize: "35px",
         padding: Values.PaddingTitleText,
     },
@@ -39,7 +38,7 @@ const useStyle = makeStyles({
         textAlign: "start",
         margin: "1em 0 0 0",
     },
-    TextpMain:{
+    TextpMain: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: "25px",
@@ -51,7 +50,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "left",
-        width:700
+        width: 700
     },
     imagen_top: {
         width: "100% !important",
@@ -78,19 +77,23 @@ const useStyle = makeStyles({
         flexBasis: "100% !important",
         maxWidth: "100% !important",
     },
-    imageAmico:{
-        position:"absolute",
-        right:80
+    imageAmico: {
+        position: "absolute",
+        right: 80
+    },
+    imageTop: {
+        width: 480,
+        padding: "20px",
+        marginTop:"30px",
+        zIndex:-1
     }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(min-width:769px)');
-    var estilo = null;
-    { matches ? estilo = classes.imagen_top : estilo = classes.imagen_top2 }
     return (
-        <Grid item container direction="column" xs={12} lg={6} md={6} sm={12} className={estilo}></Grid>
+        <img src={ImageCeed} className={classes.imageTop} />
 
     )
 }
@@ -99,18 +102,23 @@ const TopCeed = () => {
     const classes = useStyle();
     return (
         <Grid container direccion="row" >
-            <Grid container
-            >
-                <h3 className={classes.Titleh3Main}>Censo de Edificaciones (CEED)</h3>
-            </Grid>
-            <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.TextpMain}>
-                    El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
-                    culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
-                    corresponden a la cobertura geográfica definida.
+            <Grid item xs={12} sm={6} md={6} lg={6}>
+                <Grid container
+                >
+                    <h3 className={classes.Titleh3Main}>Censo de Edificaciones (CEED)</h3>
+                </Grid>
+                <Grid item container direction="column" xs className={classes.containerTitle}>
+                    <p className={classes.TextpMain}>
+                        El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
+                        culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
+                        corresponden a la cobertura geográfica definida.
                 </p>
+                </Grid>
             </Grid>
-            <ImagenBottom />
+            <Grid xs={12} sm={6} md={6} lg={6} item>
+                <ImagenBottom />
+            </Grid>
+
         </Grid>
     );
 

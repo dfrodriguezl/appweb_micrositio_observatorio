@@ -108,7 +108,10 @@ const Footer = () =>{
                  className={classes.containerItem} 
                 justifyContent={'center'}>
                     <Box >
+                        <a href="https://idm.presidencia.gov.co/presidencia">
                         <Imagen src= {logoGobernment}/>
+                        </a>
+                        
                     </Box>
                 </Grid>
             </Grid>
