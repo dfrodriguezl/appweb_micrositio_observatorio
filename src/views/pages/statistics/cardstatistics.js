@@ -68,12 +68,13 @@ const useStyle = makeStyles({
       fontSize: Values.SizeText,
       textAlign: "start",
       margin: "1em 0 0 0",
+      marginTop:"5px !important"
     },
   
     Textpcard: {
       color: "#585858",
       fontFamily: Values.SourceRoboto,
-      fontSize: Values.SizeText,
+      fontSize: "20px",
       textAlign: "center"
   //    margin: "2% 0 1% 0",
   
@@ -81,7 +82,7 @@ const useStyle = makeStyles({
   
     root: {
       width: "40vh",
-      height:"85vh",
+      height:"75vh",
       borderRadius: "1em",
       boxShadow: "3px 3px 10px #7b7676",
     },

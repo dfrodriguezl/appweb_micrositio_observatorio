@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 
 import ImageCeed from "Observatorio/img/Ceed01.jpeg"
-import ImageCeedSub from "Observatorio/img/Ceed02.jpeg"
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -11,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ButtonRedWine from "Observatorio/common/buttonredwine";
-
+import AmicoImage from "Observatorio/img/amico.png"
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -24,6 +23,12 @@ const useStyle = makeStyles({
         fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,
     },
+    Titleh3Main: {
+        color: Values.Redwinecolor,
+        fontFamily: Values.SourceRoboto,
+        fontSize: "35px",
+        padding: Values.PaddingTitleText,
+    },
 
     Textp: {
         color: Values.TextParagraph,
@@ -32,16 +37,23 @@ const useStyle = makeStyles({
         textAlign: "start",
         margin: "1em 0 0 0",
     },
+    TextpMain: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: "25px",
+        textAlign: "start",
+        margin: "1em 0 0 0",
+    },
     TextpCenter: {
         color: "#585858",
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "left",
-        width:700
+        width: 700
     },
     imagen_top: {
         width: "100% !important",
-        height: "50vh",
+        height: "65vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${ImageCeed})`,
@@ -57,7 +69,6 @@ const useStyle = makeStyles({
     },
     imagen_top2: {
         width: "100%",
-        height: "66vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${ImageCeed})`,
@@ -65,15 +76,23 @@ const useStyle = makeStyles({
         flexBasis: "100% !important",
         maxWidth: "100% !important",
     },
+    imageAmico: {
+        position: "absolute",
+        right: 80
+    },
+    imageTop: {
+        width: 480,
+        padding: "20px",
+        marginTop:"30px",
+        zIndex:-1
+    }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(min-width:769px)');
-    var estilo = null;
-    { matches ? estilo = classes.imagen_top : estilo = classes.imagen_top2 }
     return (
-        <Grid item container direction="column" xs={4} className={estilo}></Grid>
+        <img src={ImageCeed} className={classes.imageTop} />
 
     )
 }
@@ -82,18 +101,23 @@ const TopCeed = () => {
     const classes = useStyle();
     return (
         <Grid container direccion="row" >
-            <Grid container
-            >
-                <h3 className={classes.Titleh3}>Censo de Edificaciones (CEED)</h3>
-            </Grid>
-            <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.Textp}>
-                    El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
-                    culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
-                    corresponden a la cobertura geográfica definida.
+            <Grid item xs={12} sm={6} md={6} lg={6}>
+                <Grid container
+                >
+                    <h3 className={classes.Titleh3Main}>Censo de Edificaciones (CEED)</h3>
+                </Grid>
+                <Grid item container direction="column" xs className={classes.containerTitle}>
+                    <p className={classes.TextpMain}>
+                        El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
+                        culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
+                        corresponden a la cobertura geográfica definida.
                 </p>
+                </Grid>
             </Grid>
-            <ImagenBottom />
+            <Grid xs={12} sm={6} md={6} lg={6} item>
+                <ImagenBottom />
+            </Grid>
+
         </Grid>
     );
 
@@ -140,6 +164,9 @@ const Form = () => {
                 <Grid item lg={9} md={9} sm={12} xs={12}>
                     <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Correo" />
                 </Grid>
+            </Grid>
+            <Grid container item>
+                <img src={AmicoImage} className={classes.imageAmico}></img>
             </Grid>
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
@@ -191,19 +218,19 @@ const Form = () => {
                 <Grid item lg={9} md={9} sm={12} xs={12}>
                     <Grid container item direction="row">
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Typography>
+                            <Typography className={classes.Textp}>
                                 de:
                             </Typography>
                         </Grid>
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Typography>
+                            <Typography className={classes.Textp}>
                                 hasta:
                             </Typography>
                         </Grid>
                     </Grid>
                     <Grid container item direction="row" spacing={2}>
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Box sx={{ minWidth: 60 }}>
+                            <Box sx={{ minWidth: 120 }}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">1996</InputLabel>
                                     <Select
@@ -218,8 +245,8 @@ const Form = () => {
                                 </FormControl>
                             </Box>
                         </Grid>
-                        <Grid item lg={3} md={3} sm={6} xs={6} >
-                            <Box sx={{ minWidth: 60 }} >
+                        <Grid item lg={2} md={2} sm={6} xs={6} >
+                            <Box sx={{ minWidth: 120 }} >
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">2010</InputLabel>
                                     <Select
