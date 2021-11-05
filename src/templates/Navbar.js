@@ -14,9 +14,21 @@ import SideBarComponent from "./Sidebar.js"
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ButtonRedWine from "common/buttonredwine";
-import CallMadeSharpIcon from '@mui/icons-material/CallMadeSharp';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import AccountBalancnceIcon from "@mui/icons-material/AccountBalance"
 import ArchiveIcon from "@mui/icons-material/Archive"
+
+import Economia from '@mui/icons-material/EqualizerTwoTone';
+import Sociedad from '@mui/icons-material/SupervisedUserCircleSharp';
+import Territorio from '@mui/icons-material/Terrain';
+import ServicioGeografico from '@mui/icons-material/Public';
+import Investigacion from '@mui/icons-material/EmojiObjects';
+import DownloadIcon from '@mui/icons-material/Download';
+import CodeIcon from '@mui/icons-material/Code';
+import AndroidIcon from '@mui/icons-material/PhoneAndroid';
+import MapIcon from '@mui/icons-material/Map';
+import RoomIcon from '@mui/icons-material/Room';
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 const useStyle = makeStyles({
   root: {
     textDecoration: 'none',
@@ -25,12 +37,13 @@ const useStyle = makeStyles({
     color: 'inherit'
   },
   menuActive: {
-    height: 500,
+    height: 430,
     width: "100%",
     position: "absolute",
     backgroundColor: "#F2F2F2",
     zIndex: 1,
-    top: 150
+    top: 150,
+    boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)"
   },
   colorMenuActive: {
     backgroundColor: "#821A3F",
@@ -41,39 +54,36 @@ const useStyle = makeStyles({
   },
   liTitle: {
     listStyle: "none",
-    marginTop: 5,
     "&:hover": {
       color: "#821A3F",
       cursor: "pointer"
     },
-    fontSize: 20,
-    padding: 2
+    fontSize: 16,
+    padding:"2px"
 
   },
-  liHover:{
+  liHover: {
     "&:hover": {
       color: "white",
       cursor: "pointer",
-      backgroundColor:"#821A3F"
+      backgroundColor: "#821A3F"
     }
   },
   liItem: {
-    marginTop: 5,
-    marginLeft: 30,
-    fontSize: 15,
+    marginLeft: "2px",
+    fontSize: 13,
+    justifyContent: "center",
     "&:hover": {
-      color: "#821A3F",
+      color: "#821A3F !important",
       cursor: "pointer"
-    },
-    padding: 2
+    }
   },
   ulItem: {
-    marginTop: 40,
+    marginTop: 30,
     listStyle: "none"
   },
   iconLi: {
-    color: "blue",
-    marginRight: 10
+    color: "blue"
   },
   cardglobal: {
     //margin: "0% 0% 0% 0%",
@@ -84,8 +94,26 @@ const useStyle = makeStyles({
     //margin: "0% 0% 0% 0%",
     padding: "0% 5% 0% 5%",
   },
-  aMenu:{
-    color:"black"
+  aMenu: {
+    color: "black",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#821A3F",
+      cursor: "pointer"
+    },
+    marginLeft:4
+  },
+  topIconsub: {
+    marginTop: "5px"
+  },
+  colorTerritorio: {
+    color: "green"
+  },
+  colorSociedad: {
+    color: "blue"
+  },
+  rotate:{
+    transform:"rotate(180deg)"
   }
 });
 
@@ -106,7 +134,6 @@ display:flex;
 justify-content: space-between;
 margin: 0px 0;
 width: 100%;
-padding: 5px;
 list-style: none;
 @media (max-width: 768px) {
   display:block;
@@ -121,7 +148,6 @@ const NavBarContenedor = Styled.ul`
     justify-content: center;
     margin: 0px 0;
     width: 100%;
-    padding: 5px;
     list-style: none;
     @media (max-width: 768px) {
       display:none;
@@ -233,18 +259,72 @@ const Navbar = () => {
     menuDane.map((data) => {
       let subResult = []
       data.subindices[position].map((menu) => {
+
         if (menu.isTitle) {
-          subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}><ArchiveIcon></ArchiveIcon>{menu.name}</LiItemTitle>)
+          var icon;
+          switch (menu.icon) {
+            case "Economia":
+              icon = <Economia></Economia>
+              break
+            case "Sociedad":
+              icon = <Sociedad className={classes.colorSociedad}></Sociedad>
+              break
+            case "Territorio":
+              icon = <Territorio className={classes.colorTerritorio}></Territorio>
+              break;
+            case "Datos":
+              icon = <DownloadIcon></DownloadIcon>
+              break;
+            case "Atlas":
+              icon = <MapIcon></MapIcon>
+              break;
+            case "Android":
+              icon = <AndroidIcon></AndroidIcon>
+              break;
+            case "Map":
+              icon = <RoomIcon></RoomIcon>
+              break;
+            case "Educacion":
+              icon = <CastForEducationIcon></CastForEducationIcon>
+              break;
+            default:
+              icon = <ArchiveIcon></ArchiveIcon>
+              break;
+          }
+          subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}>{icon}{menu.name}</LiItemTitle>)
         } else {
 
-          subResult.push(<LiItem key={menu.key} className={classes.liItem}><CallMadeSharpIcon className={classes.iconLi}></CallMadeSharpIcon><a href={menu.link} className={classes.aMenu}>{menu.name}</a></LiItem>)
+          subResult.push(<LiItem key={menu.key} className={classes.liItem}><Grid xs={12} md={12} lg={12} sm={12} container direction="row" alignItems="center" > <ArrowRightIcon item xs={1} md={1} sm={1} lg={1} className={classes.iconLi}></ArrowRightIcon><a item xs={11} md={11} lg={11} sm={11} href={menu.link} className={classes.aMenu}>{menu.name}</a></Grid></LiItem>)
 
         }
       })
-
-      result.push(<Grid container item xs direction="column" justifyContent="center" spacing={1} className={classes.cardglobalWhithout} >
+      var icon;
+      switch (data.title[position]) {
+        case "GIT I + D investigacion y desarrollo":
+          icon = <Investigacion></Investigacion>
+          break
+        case "Servicios web Geograficos":
+          icon = <ServicioGeografico></ServicioGeografico>
+          break;
+        case "Catalógo de matadatos geográficos":
+          icon = <CodeIcon></CodeIcon>
+          break;
+        case "Economia":
+          icon = <Economia></Economia>
+          break
+        case "Sociedad":
+          icon = <Sociedad className={classes.colorSociedad}></Sociedad>
+          break
+        case "Territorio":
+          icon = <Territorio className={classes.colorTerritorio}></Territorio>
+          break;
+        default:
+          icon = <AccountBalancnceIcon></AccountBalancnceIcon>
+          break;
+      }
+      result.push(<Grid container item xs direction="column" justifyContent="center" className={classes.cardglobalWhithout} >
         <ul className={classes.ulItem}>
-          <LiItemTitle className={classes.liTitle}><AccountBalancnceIcon></AccountBalancnceIcon><b>{data.title[position]}</b></LiItemTitle>
+          <LiItemTitle className={classes.liTitle}>{icon}<b>{data.title[position]}</b></LiItemTitle>
           {subResult}
         </ul>
       </Grid>)
@@ -284,7 +364,7 @@ const Navbar = () => {
                 })
               }} className={classes.colorMenuActive}>
                 <UtilidadCentrarTexto>
-                  <AiOutlineDown />
+                  <AiOutlineDown  className={classes.rotate}/>
                   <NavLink to="/Servicios" className={classes.root} >Servicios</NavLink>
                 </UtilidadCentrarTexto>
 
@@ -302,31 +382,31 @@ const Navbar = () => {
               </DropDownLi>
 
           }
-           {
+          {
             menuActive.ActiveGeovisores.value ?
-            <DropDownLi onMouseEnter={() => {
-              handleChangeMenuActive({
-                name: "ActiveGeovisores"
-              })
-            }} className={classes.colorMenuActive}> 
-            <UtilidadCentrarTexto>
-                <AiOutlineDown />
-                <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
-              </UtilidadCentrarTexto>
-  
-            </DropDownLi>: <DropDownLi onMouseEnter={() => {
-              handleChangeMenuActive({
-                name: "ActiveGeovisores"
-              })
-            }}> 
-            <UtilidadCentrarTexto>
-                <AiOutlineDown />
-                <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
-              </UtilidadCentrarTexto>
-  
-            </DropDownLi>
-            }
-        
+              <DropDownLi onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveGeovisores"
+                })
+              }} className={classes.colorMenuActive}>
+                <UtilidadCentrarTexto>
+                  <AiOutlineDown  className={classes.rotate}/>
+                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+                </UtilidadCentrarTexto>
+
+              </DropDownLi> : <DropDownLi onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveGeovisores"
+                })
+              }}>
+                <UtilidadCentrarTexto>
+                  <AiOutlineDown />
+                  <NavLink to="/Mapas" className={classes.root} >Geovisores</NavLink>
+                </UtilidadCentrarTexto>
+
+              </DropDownLi>
+          }
+
           <DropDownLi onMouseEnter={() => {
             handleChangeMenuActive({
               name: "ActiveCatastro"
@@ -336,7 +416,7 @@ const Navbar = () => {
             {
               menuActive.ActiveCatastro.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
-                  <AiOutlineDown />
+                  <AiOutlineDown  className={classes.rotate}/>
                   <MenuA href="/Catastromultiproposito">Catastro Multiproposito </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
@@ -353,7 +433,7 @@ const Navbar = () => {
             {
               menuActive.ActiveInvestigacion.value ?
                 <UtilidadCentrarTexto className={classes.colorMenuActive}>
-                  <AiOutlineDown />
+                  <AiOutlineDown  className={classes.rotate}/>
                   <MenuA href="/Metodosavaluos">Investigaciones </MenuA>
                 </UtilidadCentrarTexto>
                 : <UtilidadCentrarTexto>
@@ -362,9 +442,9 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
             }
           </DropDownLi>
-             <li onMouseEnter={handleStatusFalseAll} >
-               <ButtonRedWine Title="Ingresar" href="Servicios/estadisticas" />
-             </li>
+          <li onMouseEnter={handleStatusFalseAll} >
+            <ButtonRedWine Title="Ingresar" href="Servicios/estadisticas" />
+          </li>
         </NavBarContenedor>
       </Grid>
       {

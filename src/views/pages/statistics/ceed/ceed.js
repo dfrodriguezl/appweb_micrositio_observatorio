@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ButtonRedWine from "common/buttonredwine";
+import AmicoImage from "img/amico.png"
 
 const useStyle = makeStyles({
 
@@ -24,11 +25,24 @@ const useStyle = makeStyles({
         fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,
     },
+    Titleh3Main:{
+        color: Values.Redwinecolor,
+        fontFamily:Values.SourceRoboto,
+        fontSize: "35px",
+        padding: Values.PaddingTitleText,
+    },
 
     Textp: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
+        textAlign: "start",
+        margin: "1em 0 0 0",
+    },
+    TextpMain:{
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: "25px",
         textAlign: "start",
         margin: "1em 0 0 0",
     },
@@ -41,7 +55,7 @@ const useStyle = makeStyles({
     },
     imagen_top: {
         width: "100% !important",
-        height: "50vh",
+        height: "65vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${ImageCeed})`,
@@ -57,7 +71,6 @@ const useStyle = makeStyles({
     },
     imagen_top2: {
         width: "100%",
-        height: "66vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${ImageCeed})`,
@@ -65,6 +78,10 @@ const useStyle = makeStyles({
         flexBasis: "100% !important",
         maxWidth: "100% !important",
     },
+    imageAmico:{
+        position:"absolute",
+        right:80
+    }
 });
 
 const ImagenBottom = () => {
@@ -73,7 +90,7 @@ const ImagenBottom = () => {
     var estilo = null;
     { matches ? estilo = classes.imagen_top : estilo = classes.imagen_top2 }
     return (
-        <Grid item container direction="column" xs={4} className={estilo}></Grid>
+        <Grid item container direction="column" xs={12} lg={6} md={6} sm={12} className={estilo}></Grid>
 
     )
 }
@@ -84,10 +101,10 @@ const TopCeed = () => {
         <Grid container direccion="row" >
             <Grid container
             >
-                <h3 className={classes.Titleh3}>Censo de Edificaciones (CEED)</h3>
+                <h3 className={classes.Titleh3Main}>Censo de Edificaciones (CEED)</h3>
             </Grid>
             <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.Textp}>
+                <p className={classes.TextpMain}>
                     El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
                     culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
                     corresponden a la cobertura geográfica definida.
@@ -141,6 +158,9 @@ const Form = () => {
                     <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Correo" />
                 </Grid>
             </Grid>
+            <Grid container item>
+                <img src={AmicoImage} className={classes.imageAmico}></img>
+            </Grid>
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp} >
@@ -191,19 +211,19 @@ const Form = () => {
                 <Grid item lg={9} md={9} sm={12} xs={12}>
                     <Grid container item direction="row">
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Typography>
+                            <Typography className={classes.Textp}>
                                 de:
                             </Typography>
                         </Grid>
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Typography>
+                            <Typography className={classes.Textp}>
                                 hasta:
                             </Typography>
                         </Grid>
                     </Grid>
                     <Grid container item direction="row" spacing={2}>
                         <Grid item lg={3} md={3} sm={6} xs={6}>
-                            <Box sx={{ minWidth: 60 }}>
+                            <Box sx={{ minWidth: 120 }}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">1996</InputLabel>
                                     <Select
@@ -218,8 +238,8 @@ const Form = () => {
                                 </FormControl>
                             </Box>
                         </Grid>
-                        <Grid item lg={3} md={3} sm={6} xs={6} >
-                            <Box sx={{ minWidth: 60 }} >
+                        <Grid item lg={2} md={2} sm={6} xs={6} >
+                            <Box sx={{ minWidth: 120 }} >
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">2010</InputLabel>
                                     <Select
