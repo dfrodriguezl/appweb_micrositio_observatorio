@@ -2,7 +2,7 @@ import { Grid, makeStyles, useMediaQuery, Paper, CardActions, Card, CardContent,
 import React, { Component } from 'react';
 import * as Values from 'Variables/values';
 import Delivery from "img/Delivery.svg";
-import ButtonRedWine from "common/buttonredwine";
+
 import imageItem from "../../../img/DANE_Estadisticas_imagen_principal.svg"
 import CardStatistics  from './cardstatistics';
 
