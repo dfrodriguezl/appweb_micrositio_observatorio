@@ -9,7 +9,7 @@ const Map = () => {
   const mapContainerRef = useRef(null);
 
   const [lng, setLng] = useState(-74.5447);
-  const [lat, setLat] = useState(40.6892);
+  const [lat, setLat] = useState(4.73);
   const [zoom, setZoom] = useState(6);
 
   //Constructor del mapa
@@ -30,7 +30,7 @@ const Map = () => {
       // use the tiles option to specify a WMS tile source URL
       // https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/
       'tiles': [
-      'https://img.nj.gov/imagerywms/Natural2015?bbox={bbox-epsg-3857}&format=image/png&service=WMS&version=1.1.1&request=GetMap&srs=EPSG:3857&transparent=true&width=256&height=256&layers=Natural2015'
+      'https://geoserverportal.dane.gov.co/geoserver2/postgis/wms?service=WMS&version=1.1.0&request=GetMap&layers=postgis:PARQUES_NATURALES&FORMAT=image/png&TRANSPARENT=true&SRS=EPSG:4326'
       ],
       'tileSize': 256
       });
@@ -45,22 +45,7 @@ const Map = () => {
       );
       });
 
-      map.on('load', () => {
-        map.addSource('my-data', {
-          "type": "geojson",
-          "data": {
-          "type": "Feature",
-          "geometry": {
-          "type": "Point",
-          "coordinates": [-77.0323, 38.9131]
-          },
-          "properties": {
-          "title": "Mapbox DC",
-          "marker-symbol": "monument"
-          }
-          }
-          });
-      });
+      
 
     map.on('click', ({point}) => {
       const features = map.queryRenderedFeatures(point, {

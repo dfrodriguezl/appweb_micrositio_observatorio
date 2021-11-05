@@ -1,4 +1,4 @@
-import menuDane from "common/menu.js"
+import menuDane from "Observatorio/common/menu.js"
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';

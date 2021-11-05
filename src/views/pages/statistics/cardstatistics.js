@@ -1,10 +1,10 @@
 
 import { Grid, makeStyles, CardActions, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
-import * as Values from 'Variables/values';
-import Delivery from "img/Delivery.svg";
-import ButtonRedWine from "common/buttonredwine";
-import infocards from "common/statistics.js";
+import * as Values from 'Observatorio/Variables/values';
+import Delivery from "Observatorio/img/Delivery.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import infocards from "Observatorio/common/statistics.js";
 
 const useStyle = makeStyles({
     marginTop: {

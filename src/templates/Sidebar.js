@@ -5,7 +5,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import menuDane from "common/menu.js"
+import menuDane from "Observatorio/common/menu.js"
 import Styled from "styled-components";
 import SubSidebar from "./SubSidebar.js"
 const Accordion = styled((props) => (
