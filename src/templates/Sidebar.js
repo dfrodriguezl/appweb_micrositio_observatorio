@@ -8,6 +8,97 @@ import Typography from '@mui/material/Typography';
 import menuDane from "Observatorio/common/menu.js"
 import Styled from "styled-components";
 import SubSidebar from "./SubSidebar.js"
+import {
+    makeStyles
+} from '@material-ui/core/styles';
+
+const useStyle = makeStyles({
+    root: {
+        textDecoration: 'none',
+        margin: '5px',
+        padding: '5px',
+        color: 'inherit'
+    },
+    menuActive: {
+        height: 430,
+        width: "100%",
+        position: "absolute",
+        backgroundColor: "#F2F2F2",
+        zIndex: 1,
+        top: 150,
+        boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)"
+    },
+    colorMenuActive: {
+        backgroundColor: "#821A3F",
+        color: "#FFFFFF !important"
+    },
+    sectionTitleMenu: {
+        fontSize: "20px"
+    },
+    liTitle: {
+        listStyle: "none",
+        "&:hover": {
+            color: "#821A3F",
+            cursor: "pointer"
+        },
+        fontSize: 16,
+        padding: "2px"
+
+    },
+    liHover: {
+        "&:hover": {
+            color: "white",
+            cursor: "pointer",
+            backgroundColor: "#821A3F"
+        }
+    },
+    liItem: {
+        marginLeft: "2px",
+        fontSize: 13,
+        justifyContent: "center",
+        "&:hover": {
+            color: "#821A3F !important",
+            cursor: "pointer"
+        }
+    },
+    ulItem: {
+        marginTop: 30,
+        listStyle: "none"
+    },
+    iconLi: {
+        color: "blue"
+    },
+    cardglobal: {
+        //margin: "0% 0% 0% 0%",
+        padding: "0% 5% 0% 5%",
+        backgroundColor: "white",
+    },
+    cardglobalWhithout: {
+        //margin: "0% 0% 0% 0%",
+        padding: "0% 5% 0% 5%",
+    },
+    aMenu: {
+        color: "black",
+        textDecoration: "none",
+        "&:hover": {
+            color: "#821A3F",
+            cursor: "pointer"
+        },
+        marginLeft: 4
+    },
+    topIconsub: {
+        marginTop: "5px"
+    },
+    colorTerritorio: {
+        color: "green"
+    },
+    colorSociedad: {
+        color: "blue"
+    },
+    rotate: {
+        transform: "rotate(180deg)"
+    }
+});
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -42,7 +133,7 @@ const AccordionSummary = styled((props) => (
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
-    padding:0
+    padding: 0
 }));
 
 const ContainerMenu = Styled.div`
@@ -102,78 +193,3 @@ export default function CustomizedAccordions() {
         </ContainerMenu>
     );
 }
-
-/*
-
-
-
-function elegirMenu() {
-
-}
-const Sidebar = () => {
-    return (
-        <Grid container>
-            <Grid container item direction="column">
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                    >
-                        <Typography>Servicios</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <ul>
-                            {
-                                menuDane.map((indice) => {
-                                    return (
-                                        <li>{indice.title[0]}</li>
-                                    )
-                                    {
-                                        indice.subindices.map((subindice) => {
-                                            return (
-                                                <h1>asd</h1>
-                                            )
-                                        })
-                                    }
-
-                                })
-                            }
-                        </ul>
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel2a-header"
-                    >
-                        <Typography>Geovisores</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <ul>
-                            {
-                                menuDane.map((indice) => {
-                                    return (
-                                        <li>{indice.title[1]}</li>
-                                    )
-                                    {
-                                        indice.subindices.map((subindice) => {
-                                            return (
-                                                <h1>asd</h1>
-                                            )
-                                        })
-                                    }
-
-                                })
-                            }
-                        </ul>
-                    </AccordionDetails>
-                </Accordion>
-
-            </Grid>
-        </Grid>
-    )
-}
-
-export default Sidebar;*/
