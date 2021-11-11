@@ -81,7 +81,10 @@ const Generalroutes = () => {
           <Route exact path ="/Observatorio/Servicios/estadisticas/Ceed" component={Ceed01} />
           <Route exact path="/Observatorio/Contacto" component={Contacto} />
           <Route exact path="/Observatorio" component={ContentGrid} />
-          <Route path="/Observatorio/404" component={Notfound} />
+          <Route exact path="/">
+            <Redirect to="/Observatorio" />
+          </Route>
+          <Route path="/Observatorio/404" component={Notfound} />          
           <Route path="*">
             <Redirect to="/Observatorio/404" />
           </Route>
@@ -92,12 +95,13 @@ const Generalroutes = () => {
 };
 
 const Routes = () => {
-  let location = useLocation();
+  let location = useLocation()
   const classes = useStyle()
   return (
     <div>
       <Switch>
         <Route path="/Observatorio/Visores" component={RoutesMaps} />
+        <Route path="/" component={Generalroutes} />
         <Route path="/Observatorio" component={Generalroutes} />
         <Route path="/Observatorio/404" component={Notfound} />
         <Route path="*">
