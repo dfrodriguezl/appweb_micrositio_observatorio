@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Consultas>
+    <Consulta id="get_usuario">
+        <sql>
+        SELECT usuario_id from usuario where usuario_usuario=$usuario_usuario and usuario_pwd=$usuario_pwd
+        </sql>
+    </Consulta>
+    <Consulta id="info1_general_proyecto">
+        <sql>
+        select * from control_avaluos where con=$con
+        </sql>
+    </Consulta>
+    <Consulta id="info2_general_predio">
+        <sql>
+        select * from info2_general_predio where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info3_areas_usos">
+        <sql>
+        select * from info3_areas_usos where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info4_avaluos">
+        <sql>
+        select * from info4_avaluos where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info5_juridicos">
+        <sql>
+        select * from info5_juridicos where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info6_propietario_anterior_juridico">
+        <sql>
+        select * from info6_propietario_anterior_juridico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info7_propietario_catastral">
+        <sql>
+        select * from info7_propietario_catastral where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info8_propietario_juridico">
+        <sql>
+        select * from info8_propietario_juridico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info9_zmpa">
+        <sql>
+        select * from info9_zmpa where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info10_infraestructura">
+        <sql>
+        select * from info10_infraestructura where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info11_estudios_detallados">
+        <sql>
+        select * from info11_estudios_detallados where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info12_control_calidad_tecnico">
+        <sql>
+        select * from info12_control_calidad_tecnico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info13_control_calidad_juridico">
+        <sql>
+        select * from info13_control_calidad_juridico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info14_saneamiento_basico">
+        <sql>
+        select * from info14_saneamiento_basico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info15_saneaiento_juridico">
+        <sql>
+        select * from info15_saneaiento_juridico where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="info16_tributaria">
+        <sql>
+        select * from info16_tributaria where id_expediente=$id_expediente
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico1">
+        <sql>
+        select array_agg(grupo) as categoria,array_agg(cuenta)as data from(
+        select grupo, count(grupo)as cuenta from control_avaluos where grupo is not null group by grupo)sub
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico2">
+        <sql>
+        select array_agg(categoria) as categoria,array_agg(cuenta)as data from(
+        select ano_solicitud as categoria, count(ano_solicitud)as cuenta from control_avaluos where ano_solicitud is not null group by ano_solicitud)sub
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="grafico3">
+        <sql>
+            select array_agg(categoria) as categoria,array_agg(cuenta)as data from(
+            select tipo_avaluo as categoria, count(tipo_avaluo)as cuenta 
+            from control_avaluos where tipo_avaluo is not null group by tipo_avaluo)sub
+
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico4">
+        <sql>
+        select array_agg(grupo) as categoria,array_agg(cuenta)as data from(
+        select estado_programacion as grupo, count(estado_programacion)as cuenta from control_avaluos 
+        where estado_programacion is not null
+        group by estado_programacion)sub
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico5">
+        <sql>
+        select array_agg(grupo) as categoria,array_agg(cuenta)as data from(
+        select estatus_avaluo as grupo, count(estatus_avaluo)as cuenta from control_avaluos 
+        where estatus_avaluo is not null
+        group by estatus_avaluo)sub
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico6">
+        <sql>
+        select fecha_solicitud as grupo, count(fecha_solicitud)as cuenta from control_avaluos 
+        where fecha_solicitud is not null
+        group by fecha_solicitud order by fecha_solicitud
+        </sql>
+    </Consulta>
+
+    <Consulta id="grafico7">
+        <sql>
+            select fecha::date as grupo, count(fecha::date)as cuenta from auditoria 
+            group by fecha::date order by fecha::date
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_tipo">
+        <sql>
+            select tipo from control_avaluos where con=$con
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="reporte_general">
+        <sql>
+        select * from control_avaluos
+        </sql>
+    </Consulta>
+
+    <Consulta id="reporte_clientes">
+        <sql>
+        select grupo, count(grupo)as cuenta from control_avaluos group by grupo
+        </sql>
+    </Consulta>
+
+    <Consulta id="reporte_clientes">
+        <sql>
+        select grupo, count(grupo)as cuenta from control_avaluos group by grupo
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="reporte_notas">
+        <sql>
+        select usuario,nota,fecha from notas where con=$con
+        </sql>
+    </Consulta>
+
+    <Consulta id="reporte_avaluadores">
+        <sql>
+        select * from avaluadores
+        </sql>
+    </Consulta>
+
+
+
+    <Consulta id="mapa_avaluos">
+        <sql>
+            SELECT jsonb_build_object(
+                'type',     'FeatureCollection',
+                'features', jsonb_agg(features.Feature)
+            )as geojson from (
+            SELECT json_build_object(
+                'type',       'Feature',
+                'id',         con,
+                'geometry',   ST_AsGeoJSON(ST_MakePoint(longitud,latitud))::json,
+                'properties', json_build_object(
+                    'con', con,
+                    'id_avaluo', id_avaluo
+                )
+            ) as Feature
+            FROM control_avaluos where latitud is not null and longitud is not null)features
+        </sql>
+    </Consulta>
+    <Consulta id="mapa_individual">
+        <sql>
+            SELECT jsonb_build_object(
+                'type',     'FeatureCollection',
+                'features', jsonb_agg(features.Feature)
+            )as geojson from (
+            SELECT json_build_object(
+                'type',       'Feature',
+                'id',         con,
+                'geometry',   ST_AsGeoJSON(ST_MakePoint(longitud,latitud))::json,
+                'properties', json_build_object(
+                    'con', con,
+                    'id_avaluo', id_avaluo
+                )
+            ) as Feature
+            FROM control_avaluos where latitud is not null and longitud is not null and con=$con)features
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_proyectos">
+        <sql>
+            select con,grupo,municipio,direccion,avaluador_asignado,id_avaluo from control_avaluos 
+            where 
+            upper(nombre_cliente) like  upper('%' || $filtro || '%') 
+            or 
+            upper(id_avaluo) like  upper('%' || $filtro || '%') 
+            or 
+            upper(entidad_cliente) like  upper('%' || $filtro || '%') 
+            or 
+            upper(fmi) like  upper('%' || $filtro || '%') 
+            or 
+            upper(grupo) like  upper('%' || $filtro || '%') 
+            or 
+            upper(municipio) like  upper('%' || $filtro || '%') 
+            or 
+            upper(direccion) like  upper('%' || $filtro || '%') 
+            or 
+            upper(telefono) like  upper('%' || $filtro || '%') 
+            or 
+            upper(correo_electronico) like  upper('%' || $filtro || '%') 
+            limit 50
+        </sql>
+    </Consulta>
+    <Consulta id="update_control_avaluos">
+        <sql>
+            update control_avaluos set upd_query_alpaca where con=$con RETURNING con
+        </sql>
+    </Consulta>
+    <Consulta id="update_info2_general_predio">
+        <sql>
+            update info2_general_predio set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info3_areas_usos">
+        <sql>
+            update info3_areas_usos set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info4_avaluos">
+        <sql>
+            update info4_avaluos set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info5_juridicos">
+        <sql>
+            update info5_juridicos set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info6_propietario_anterior_juridico">
+        <sql>
+            update info6_propietario_anterior_juridico set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info7_propietario_catastral">
+        <sql>
+            update info7_propietario_catastral set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info8_propietario_juridico">
+        <sql>
+            update info8_propietario_juridico set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+
+    <Consulta id="update_info10_infraestructura">
+        <sql>
+            update info10_infraestructura set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+
+    <Consulta id="update_info11_estudios_detallados">
+        <sql>
+            update info11_estudios_detallados set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info12_control_calidad_tecnico">
+        <sql>
+            update info12_control_calidad_tecnico set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+
+    <Consulta id="update_info13_control_calidad_juridico">
+        <sql>
+            update info13_control_calidad_juridico set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+    <Consulta id="update_info14_saneamiento_basico">
+        <sql>
+            update info14_saneamiento_basico set upd_query_alpaca where id_expediente=$id_expediente RETURNING id_expediente
+        </sql>
+    </Consulta>
+
+
+
+    <Consulta id="get_campos_repositorio">
+        <sql>
+            select
+            json_build_object(
+                'nombre_documento',nombre,
+                'codigo', codigo,
+                'field', campo,
+                'helper', descripcion,
+                'type',tipo,
+                'required',obligatorio
+                ) as doc
+            from 
+            (
+            select concat(ds.cod_grupo,ds.cod_subgrupo) AS CODIGO,* from doc_grupo dg 
+            INNER join doc_subgrupo ds 
+            on dg.cod_grupo=ds.cod_grupo
+            where ds.cod_grupo =$cod_grupo) as sub
+        </sql>
+    </Consulta>
+
+    <Consulta id="insertar_repositorio">
+        <sql>
+           INSERT INTO repositorio_documental 
+            VALUES ($id_expediente, $codigo_documento,$atributos,$doc_nombre)
+            ON CONFLICT (id_expediente, codigo_documento) DO UPDATE
+            SET atributos = $atributos,doc_nombre=$doc_nombre
+        </sql>
+    </Consulta>
+
+   <Consulta id="get_documentos">
+        <sql>
+            select * from documentos where identificador=$identificador
+        </sql>
+    </Consulta>
+
+   <Consulta id="update_punto_avaluo">
+        <sql>
+            update control_avaluos set latitud=$latitud, longitud=$longitud 
+            where id_avaluo=(select id_avaluo from control_avaluos where con=$con)
+            returning con
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="get_datos_repositorio">
+        <sql>
+        select atributos from repositorio_documental
+        where id_expediente=$id_expediente
+        and codigo_documento=$codigo_documento
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_usuarios_rol">
+        <sql>
+        select usuario_nombre,usuario_usuario from usuario where usuario_rol=$usuario_rol
+        </sql>
+    </Consulta>
+    <Consulta id="get_usuarios_rol_tecnico">
+        <sql>
+        select usuario_nombre,usuario_usuario from usuario where usuario_rol in(7,9)
+        </sql>
+    </Consulta>
+    <Consulta id="get_usuarios">
+        <sql>
+        select usuario_nombre,usuario_usuario from usuario
+        </sql>
+    </Consulta>
+    
+    <Consulta id="get_formulario">
+        <sql>
+        select
+        json_build_object(
+            'field',field,
+            'label', label,
+            'type', type,
+            'size', size,
+            'helper',helper,
+            'enum',d.enum,
+            'editable',editable,
+            'regex',regex,
+            'message',message,
+            'tab',tab
+            ) as doc
+        from modulos m left join (select dominio,
+                                json_agg(json_build_object('value',valor,'label',descripcion)) as enum
+                                from dominios
+        group by dominio) as d
+                on m.enum=d.dominio
+                order by orden
+        </sql>
+    </Consulta>
+
+    <Consulta id="session">
+        <sql>
+        select * from usuario
+        where usuario_usuario=token
+        </sql>
+    </Consulta>
+
+    <Consulta id="estadistica1">
+        <sql>
+        select count(*) as estadistica from control_avaluos
+        </sql>
+    </Consulta>
+    <Consulta id="estadistica2">
+        <sql>
+        select round(avg(dias_elaboracion),0) as estadistica from control_avaluos
+        </sql>
+    </Consulta>
+    <Consulta id="estadistica3">
+        <sql>
+        select count(*) as estadistica from control_avaluos where grupo='SAE'
+        </sql>
+    </Consulta>
+    <Consulta id="estadistica4">
+        <sql>
+        select count(*) as estadistica from control_avaluos where estado_programacion='PROGRAMADO' 
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="insertar_tarea">
+        <sql>
+        insert into tareas values(
+            $id_expediente,
+            $codigo_tarea,
+            token,
+            (select usuario_usuario from usuario 
+                where usuario_rol=(select rol_encargado from tareas_listado where id_tarea=$codigo_tarea)
+                and grupo in (0,$codigo_grupo)),
+            now(),
+            null,
+            1,
+            $observaciones,
+            $codigo_grupo
+        )ON CONFLICT DO NOTHING RETURNING usuario_responsable
+        </sql>
+    </Consulta>
+    <Consulta id="regresar_tarea">
+        <sql>
+        insert into tareas values(
+            $id_expediente,
+            $codigo_tarea,
+            token,
+            $usuario_responsable,
+            now(),
+            null,
+            1,
+            $observaciones,
+            $codigo_grupo
+        )ON CONFLICT DO NOTHING RETURNING usuario_responsable
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_tareas">
+        <sql>
+        select con,id_avaluo,fecha_solicitud,avaluador_asignado,estado_programacion, 
+        now()::date - fecha_solicitud as dias
+        from control_avaluos
+        where estado_programacion in ('STAND BY','PROGRAMADO')
+        </sql>
+    </Consulta>
+
+    <Consulta id="update_tareas_estado">
+        <sql>
+        update tareas set estado=2
+        where id_expediente=$id_expediente and codigo_tarea=$codigo_tarea
+        returning id_expediente
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="get_numero_tareas">
+        <sql>
+        select count(*) from control_avaluos where estado_programacion in ('STAND BY','PROGRAMADO') 
+        </sql>
+    </Consulta>
+    <Consulta id="insert_avaluo">
+        <sql>
+        insert into control_avaluos(con) 
+        (select max(con)+1 from control_avaluos)
+        returning con
+        </sql>
+    </Consulta>
+    <Consulta id="update_insert_avaluo">
+        <sql>
+            update control_avaluos set upd_query_alpaca where con=$con RETURNING con
+        </sql>
+    </Consulta>
+    <Consulta id="update_id_avaluo_1">
+        <sql>
+            update control_avaluos set id_auto=
+            (select COALESCE(max(id_auto),0,max(id_auto))+1 from control_avaluos) where con=$con;
+        </sql>
+    </Consulta>
+
+    <Consulta id="update_id_avaluo_2">
+        <sql>
+            update control_avaluos set id_avaluo=
+            lpad((select COALESCE(max(id_auto),0,max(id_auto))+1 from control_avaluos)::text,5,'0') ||'-'||substring(EXTRACT(YEAR FROM current_timestamp)::text,3,3)
+            where con=$con
+            returning id_avaluo
+        </sql>
+    </Consulta>
+    <Consulta id="get_historia_expediente">
+        <sql>
+            select *,
+            (select usuario_cargo from usuario u where
+            u.usuario_usuario=e.usuario_usuario),
+            (select usuario_nombre from usuario u where
+            u.usuario_usuario=e.usuario_usuario)
+            from seguimiento_expedientes e
+            where id_expediente=$id_expediente order by iteracion
+        </sql>
+    </Consulta>
+
+
+    <Consulta id="centroide">
+        <sql>
+            SELECT jsonb_build_object(
+                'type',     'FeatureCollection',
+                'features', jsonb_agg(features.Feature)
+            )as geojson,ST_X(geom) as longitud, ST_Y(geom) as latitud
+
+            from (
+            SELECT json_build_object(
+                'type',       'Feature',
+                'id',         'id',
+                'geometry',   ST_AsGeoJSON(st_transform(geom,3857))::json,
+                'properties', json_build_object(
+                    'id', 'id'
+                )
+            ) as Feature,ST_Centroid(geom)as geom 
+            FROM municipios where mpio_ccnct=$cod_mpio)features
+            group by geom
+        </sql>
+    </Consulta>
+
+
+
+
+
+
+    <Consulta id="asignar_expediente_fisico_paso1">
+        <sql>
+            update seguimiento_expedientes set fecha_final=now()
+            ,activo=false where id_expediente=$id_expediente
+            and activo=true;
+        </sql>
+    </Consulta>
+    <Consulta id="asignar_expediente_fisico_paso2">
+        <sql>
+        insert into 
+        seguimiento_expedientes(id_expediente,iteracion,
+					    usuario_usuario,activo,fecha_inicio)
+            select $id_expediente,
+            (select max(iteracion)+1 from seguimiento_expedientes
+            where id_expediente=$id_expediente ),
+            $id_asignado,true,now();
+        </sql>
+    </Consulta>
+    <Consulta id="get_datos_busqueda_geometria">
+        <sql>
+            select lotcodigo,chip,direccion_
+            from geometria.tabla_lote_catastro 
+            where lotcodigo like '%' || $lotcodigo || '%' or chip like '%' || $chip || '%'
+            limit 20
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_geometria_busqueda">
+        <sql>
+        SELECT ST_AsGeoJSON(st_transform(geom,4326))as geom
+        from geometria.lote_catastro
+        where lotcodigo =$codigo
+        </sql>
+    </Consulta>
+   <Consulta id="insertar_dibujo_mapa">
+        <sql>
+            insert into geometria.dibujo
+            values($id_expediente,ST_SetSRID(ST_GeomFromGeoJSON($shape),4326))
+            on conflict(id_expediente) do update 
+                set geom=ST_SetSRID(ST_GeomFromGeoJSON($shape),4326)
+            returning id_expediente
+        </sql>
+    </Consulta>
+
+    <Consulta id="consultar_permisos">
+        <sql>
+
+            select p.id_permiso from usuario u
+            inner join rol r on u.usuario_rol=r.id_rol
+            left join rol_permisos rp on r.id_rol=rp.id_rol
+            inner join permisos p on rp.id_permiso=p.id_permiso
+            where usuario_usuario=token
+
+        </sql>
+    </Consulta>  
+
+    <Consulta id="expediente_asignado">
+        <sql>
+        select exists (
+        select id_expediente from tareas 
+        where usuario_responsable=token and estado=1 and id_expediente=$id_expediente)
+        </sql>
+    </Consulta>   
+
+    <Consulta id="get_avaluadores">
+        <sql>
+       select nombre from avaluadores order by nombre
+        </sql>
+    </Consulta>  
+    <Consulta id="get_avaluadores_nuevo_avaluo">
+        <sql>
+       select nombre as value,nombre as label from avaluadores order by nombre
+        </sql>
+    </Consulta>  
+
+    <Consulta id="get_avaluadores_editar">
+        <sql>
+       select * from avaluadores where nombre=$nombre
+        </sql>
+    </Consulta>  
+    <Consulta id="update_avaluador">
+        <sql>
+       update avaluadores set nombre=$nombre,cedula=$cedula,telefono=$telefono,correo=$correo 
+       where id=$id
+       returning nombre
+        </sql>
+    </Consulta> 
+
+    <Consulta id="correo_wilson">
+        <sql>
+        SELECT 
+            DATE(CURRENT_DATE - interval '7' day) as f_start, 
+            DATE(CURRENT_DATE - interval '1' day) as f_end,
+            (select count(*)as accesos
+        from auditoria where fecha > (CURRENT_DATE - interval '8' day)
+        and data::jsonb ? 'login'=true),
+        (select count(*) as t_intervenidos
+        from auditoria where fecha > (CURRENT_DATE - interval '8' day)
+        and data::jsonb ? 'login'=false	),
+            (select count(*) as i_raul
+        from auditoria where fecha > (CURRENT_DATE - interval '8' day)
+        and data::jsonb ? 'login' and usuario='raul.ardila'),
+            (select COUNT(*) as stand
+        from control_avaluos
+        where estado_programacion in ('STAND BY')),
+            (select count(*)as n_avaluos from control_avaluos),
+            (select count(*)AS t_sae from control_avaluos where grupo='SAE'),
+            (select round(avg(dias_elaboracion),0) as p_dias from control_avaluos)
+
+        </sql>
+    </Consulta> 
+
+    
+    <Consulta id="crear_avaluador">
+        <sql>
+       insert into avaluadores values((select max(id)+1 from avaluadores),$nombre,$cedula,$fecha_nacimiento,$telefono,$eps,$arl,$correo)
+       returning nombre
+        </sql>
+    </Consulta>
+
+    <Consulta id="get_depto">
+        <sql>
+       select id,nombre from depto
+        </sql>
+    </Consulta>  
+    <Consulta id="get_depto_listado">
+        <sql>
+        select distinct dpto_ccdgo  as value,dpto_cnmbr as label from municipios
+        </sql>
+    </Consulta> 
+
+    <Consulta id="get_mpio">
+        <sql>
+       select nombre from mpio where cod_depto=$cod_depto
+        </sql>
+    </Consulta> 
+        <Consulta id="get_mpio_listado">
+        <sql>
+       select cod_mpio as value, nombre as label from mpio where cod_depto=$cod_depto
+        </sql>
+    </Consulta> 
+    <Consulta id="insert_nota">
+        <sql>
+       insert into notas values(default,$con,$usuario,$nota,$fecha) returning id
+        </sql>
+    </Consulta> 
+    <Consulta id="get_notas">
+        <sql>
+      select * from notas where con=$con
+        </sql>
+    </Consulta> 
+    <Consulta id="get_matriculas">
+        <sql>
+        select fmi,id_avaluo,grupo from control_avaluos
+        where upper(fmi) like upper('%' || $matricula || '%') 
+        </sql>
+    </Consulta> 
+
+    <Consulta id="update_id_avaluo">
+        <sql>
+            update control_avaluos set id_avaluo=$id_avaluo where con=$con RETURNING con
+        </sql>
+    </Consulta> 
+<Consulta id="get_info_basica">
+        <sql>
+            select grupo,id_avaluo,con,avaluador_asignado,direccion
+            from control_avaluos
+            where con=$con
+        </sql>
+    </Consulta> 
+    <Consulta id="get_hermanos">
+        <sql>
+        select fmi,clase_bien,con from control_avaluos
+        where id_avaluo =$id_avaluo and con!=$con
+        </sql>
+    </Consulta> 
+    <Consulta id="get_id_avaluo">
+        <sql>
+        select id_avaluo
+        from control_avaluos
+        where con=$con
+        </sql>
+    </Consulta> 
+
+    <Consulta id="get_depto_mun_centroide">
+        <sql>
+        select dpto_ccdgo as id_depto,dpto_cnmbr as nom_depto,mpio_ccnct as id_mun,mpio_cnmbr as nom_mun
+        from municipios
+        where ST_Intersects(ST_SetSRID( ST_Point( $longitud, $latitud), 4326),geom)
+        </sql>
+    </Consulta> 
+
+
+
+
+
+
+    <Consulta id="get_campos_consulta">
+        <sql>
+        select
+        grupo,
+        sub_grupo,
+        entidad_cliente,
+        id_avaluo,
+        fmi,
+        no_contrato,
+        fecha_solicitud,
+        ano_solicitud,
+        tipo_avaluo,
+        tipo_solicitud,
+        regional,
+        municipio,
+        departamento,
+        tipo,
+        clase_bien,
+        nombre_cliente,
+        estado_programacion,
+        fecha_visita,
+        fecha_inicio_efectivo,
+        avaluador_asignado,
+        estatus_avaluador,
+        fecha_entrega_avaluador,
+        estatus_avaluo,
+        estatus_avaluo2,
+        control_calidad,
+        fecha_aprobacion,
+        revisor,
+        dias_visita_entrega_efectiva,
+        fecha_terminacion_informe,
+        dias_elaboracion,
+        indicador
+        from control_avaluos
+        </sql>
+    </Consulta> 
+
+
+    <Consulta id="pivot_grupo_ano">
+        <sql>
+        select grupo,ano_solicitud AS ano ,count(grupo)::integer as cuenta
+        from control_avaluos 
+        group by grupo,ano_solicitud 
+        order by grupo
+        </sql>
+    </Consulta> 
+    <Consulta id="pivot_grupo_ano_status">
+        <sql>
+        select grupo,ano_solicitud as ano,estatus_avaluo AS estatus ,count(estatus_avaluo)::integer as cuenta
+        from control_avaluos 
+        group by grupo,ano_solicitud,estatus_avaluo 
+        order by grupo
+        </sql>
+    </Consulta> 
+    <Consulta id="pivot_avaluador_ano">
+        <sql>
+        select grupo,ano_solicitud as ano, avaluador_asignado, count(ano_solicitud)::integer as cuenta
+        from control_avaluos 
+        group by grupo,ano_solicitud,avaluador_asignado
+        order by grupo
+        </sql>
+    </Consulta> 
+
+    <Consulta id="pivot_grupo_ano_sae">
+        <sql>
+        select grupo,ano_solicitud as ano,estatus_avaluo AS estatus ,count(estatus_avaluo)::integer as cuenta
+        from control_avaluos 
+        group by grupo,ano_solicitud,estatus_avaluo 
+        order by grupo
+        </sql>
+    </Consulta> 
+    <Consulta id="pivot_grupo_ano_sae2">
+        <sql>
+        select grupo,ano_solicitud as ano,estatus_avaluo2 AS estatus ,count(estatus_avaluo2)::integer as cuenta
+        from control_avaluos 
+        group by grupo,ano_solicitud,estatus_avaluo2 
+        order by grupo
+        </sql>
+    </Consulta> 
+
+
+
+
+
+
+    <Consulta id="descargar_notas">
+        <sql>
+      select * from notas
+        </sql>
+    </Consulta> 
+    <Consulta id="get_avaluos_stand_by">
+        <sql>
+        select false,con,id_avaluo,fmi,entidad_cliente,municipio,direccion from control_avaluos 
+        where estatus_avaluo='STAND BY'
+        </sql>
+    </Consulta> 
+    <Consulta id="get_avaluos_tablero">
+        <sql>
+        select false,con,id_avaluo,fmi,entidad_cliente,municipio,direccion,estado_programacion,avaluador_asignado,estatus_avaluador,estatus_avaluo,estatus_avaluo2,ano_solicitud::text from control_avaluos 
+        </sql>
+    </Consulta> 
+    <Consulta id="cargar_json">
+        <sql>
+        INSERT INTO geojson (con, geom) 
+        VALUES ($con,ST_SetSRID(ST_GeomFromGeoJSON($geom),4326))
+        ON CONFLICT (con) DO UPDATE 
+        SET geom = ST_SetSRID(ST_GeomFromGeoJSON($geom),4326);
+        </sql>
+    </Consulta> 
+    <Consulta id="get_json">
+        <sql>
+        select con,ST_AsGeoJSON(geom) as geom from geojson where con=$con
+        </sql>
+    </Consulta> 
+    <Consulta id="update_avaluos_stand_by">
+        <sql>
+        update control_avaluos set estatus_avaluo=$estatus_avaluo,
+        avaluador_asignado=$avaluador_asignado,fecha_visita=$fecha_visita 
+        where con = ANY($consecutivos::int[])
+        returning con
+        </sql>
+    </Consulta> 
+
+    <Consulta id="reporte_tabla">
+        <sql>
+        select * from control_avaluos
+        where con = ANY($consecutivos::int[])
+        </sql>
+    </Consulta> 
+
+</Consultas>

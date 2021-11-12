@@ -28,9 +28,9 @@ module.exports = {
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: "./dist"
   },
 
   module: {
@@ -51,6 +51,15 @@ module.exports = {
       {
         type: 'asset',
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        use: [
+          {
+              loader: 'url-loader',
+              options: {
+                  limit: 1000,
+                  name : 'img/[name].[ext]'
+              }
+          }
+      ]
       }
     ]
   },
@@ -78,5 +87,5 @@ module.exports = {
   // Depending on mode Webpack will apply different things
   // on final bundle. For now we don't need production's JavaScript 
   // minifying and other thing so let's set mode to development
-  mode: 'production'
+  mode: 'development'
 };

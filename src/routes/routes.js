@@ -76,7 +76,7 @@ const Generalroutes = () => {
           <Route exact path="/Tipologia" component={Tipologia} />
           <Route exact path="/Ceed" component={Ceed} />
           <Route exact path="/Contacto" component={Contacto} />
-          <Route exact path="/" component={ContentGrid} />
+          <Route exact path="/observatorio" component={ContentGrid} />
           <Route path="/404" component={Notfound} />
           <Route path="*">
             <Redirect to="/404" />

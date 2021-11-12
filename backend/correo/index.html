@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Avalúos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@350&display=swap" rel="stylesheet">
+
+  <meta name='viewport' 
+  content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+  user-scalable=0' >
+
+  <meta property="og:title" content="Avaluadores Profesionales Asociados." />
+  <meta property="og:image" content="https://nowsoft.app/sae/img/lg.png" />
+  <meta property="og:description" content="Sistema para el control de avalúos de APRA" />
+  <meta property="og:url" content="https://nowsoft.app/sae/html/inicio.html">
+
+
+  <style>
+
+
+p {
+    font-size: 12pt;
+    font-weight: 500;
+    margin:20px 0;
+  }
+
+
+body{
+
+    padding: 0px;
+    margin: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+    display: grid;
+}
+
+
+
+a{
+    font-size: 12pt;
+    text-decoration: none;
+    background-color: #42CA7A;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+a span{
+  margin: 0;
+}
+
+span.dato{
+    color: #1689E8;
+    font-weight: 800;
+    font-size: 15pt;
+}
+span.dato1{
+    color: #CA4E30;
+    font-weight: 800;
+    font-size: 15pt;
+}
+
+#nota{
+  font-size: 10pt;
+}
+
+
+#apra{
+ 
+  width: 50px;
+}
+#titulo{
+    font-size: 18pt;
+    color: #355070;
+    text-align: left;
+}
+
+  </style>
+
+
+</head>
+
+<body>
+
+
+<body>
+
+
+
+
+  <table style="width:100%">
+    <tr>
+      <th><img src="cid:apra" id="apra"></th>
+      <th><p id="titulo">Reporte semanal del sistema de control de avalúos</p></th> 
+    </tr>
+  </table>
+
+<img src="cid:logo">
+
+<p>El número de accesos al sistema durante el periodo comprendido entre el <span class="dato1">{{f_start}}</span> y el <span class="dato1">{{f_end}}</span> es de: <span class="dato">{{accesos}}</span>. En este periodo de tiempo se han intervenido un total de <span class="dato">{{t_intervenidos}}</span> avalúos en el sistema.</p>
+
+<p> El usuario 👨 Raúl Ardila ha ingresado al sistema en este periodo de tiempo un total de  <span class="dato">{{i_raul}}</span> veces.</p>
+<p>El total de avalúos en STAND BY 📅: <span class="dato">{{stand}}</span></p>
+<p>El total de avalúos cargados en el sistema 📋: <span class="dato">{{n_avaluos}} </span></p>
+<p>El total de avalúos de la SAE es de: <span class="dato">{{t_sae}}</span></p>
+<p>El promedio en días de elaboración para los avalúos en el sistema es de: <span class="dato">{{p_dias}}</span></p>
+
+<a href="https://nowsoft.app/apra/web/"><span>Visitar el aplicativo</span></a>
+
+
+<p id="nota">Este es un reporte automático generado desde el sistema, por favor no responda este mensaje.</p>
+
+
+</body>
+
+
+</body>
+
+
+
+</html>
