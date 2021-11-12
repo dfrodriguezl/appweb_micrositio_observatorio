@@ -12,7 +12,9 @@ import {
 
 
 const ContenedorFooter= Styled.div`
-        background-color: #FAFAFA;     
+        background-color: #FAFAFA;  
+        padding-left:10px;
+        padding-right:10px;   
                 
 `;
 const H3 = Styled.h3`
@@ -55,9 +57,9 @@ const Footer = () =>{
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
                 <Grid container item xs={12} sm={12} md={6} lg={4} direction="row" 
                     className={classes.containerItem}
-                     justifyContent="center" >                    
+                      >                    
                    
-                       <Box  item color="#B91450" fontSize = {30}><AiOutlinePhone/> </Box>
+                       <Box  item color="#B91450" fontSize ={30}><AiOutlinePhone/> </Box>
                         <ul  className={classes.ulItem}>
                               <li>
                                   <b>CALL CENTER</b>
@@ -71,7 +73,7 @@ const Footer = () =>{
                 </Grid>
                 <Grid  container xs={12} sm={12} md={6} lg={3} direction="row" 
                  className={classes.containerItem}
-                justifyContent="center">
+                >
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
                                 <li><b>HORARIO DE ATENCIÓN</b></li>
@@ -81,7 +83,7 @@ const Footer = () =>{
                 </Grid>
                 <Grid container xs={12} sm={12}  md={6} lg={3} direction="row" 
                  className={classes.containerItem}
-                justifyContent="center">
+                >
                      
                      <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             

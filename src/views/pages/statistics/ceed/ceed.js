@@ -17,32 +17,26 @@ const useStyle = makeStyles({
         padding: "0 10% 0 10%"
     },
 
-    Titleh3: {
+    Titleh3:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeTitle,
+        fontSize: Values.SizeTitle, 
         padding: Values.PaddingTitleText,
-    },
+        fontWeight:"bold"
+      },
+
+    Textp:{
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "start",  
+        margin: "1em 0 0 0",
+      },
     Titleh3Main: {
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
         fontSize: "35px",
         padding: Values.PaddingTitleText,
-    },
-
-    Textp: {
-        color: Values.TextParagraph,
-        fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeText,
-        textAlign: "start",
-        margin: "1em 0 0 0",
-    },
-    TextpMain: {
-        color: Values.TextParagraph,
-        fontFamily: Values.SourceRoboto,
-        fontSize: "25px",
-        textAlign: "start",
-        margin: "1em 0 0 0",
     },
     TextpCenter: {
         color: "#585858",
@@ -81,7 +75,7 @@ const useStyle = makeStyles({
         right: 80
     },
     imageTop: {
-        width: 480,
+        width: 400,
         padding: "20px",
         marginTop:"30px",
         zIndex:-1
@@ -104,10 +98,10 @@ const TopCeed = () => {
             <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Grid container
                 >
-                    <h3 className={classes.Titleh3Main}>Censo de Edificaciones (CEED)</h3>
+                    <h3 className={classes.Titleh3}>Censo de Edificaciones (CEED)</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                    <p className={classes.TextpMain}>
+                    <p className={classes.Textp}>
                         El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
                         culminada) que son presentados según las variables de desagregación captadas por la investigación, para las áreas urbanas y metropolitanas que
                         corresponden a la cobertura geográfica definida.
