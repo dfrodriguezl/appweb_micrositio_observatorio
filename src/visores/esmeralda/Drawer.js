@@ -39,6 +39,8 @@ import { FaSearchLocation,
 
 
 import Formulario from './ui/Formulario';
+import departamentos from '../../views/common/departamentos.json'
+import municipios from '../../views/common/municipios.json'
 
 const drawerWidth = 370;
 
@@ -190,11 +192,12 @@ contenedorParrafo:{
   },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const setPosition = props.setPosition
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -259,20 +262,22 @@ const [openModal, setOpenModal] = React.useState(false);
  const handleChanges = (e, value) => {
      setValues(value);
  };
+
+ const handleMunicipio = (value) =>{
+   console.log(value)
+   municipios.forEach((data)=>{
+       if(data.cod_mpio == value){
+        setPosition(data)
+       }
+   })
+ 
+ }
+
+
  //---fin state menu drawer
 
- const [opciones, setOpciones] = React.useState([
-  { id:1, 
-    nombre: 'Cundinamarca', 
-    precio: 50},
-  { id:2, 
-    nombre: 'Antioquia', 
-    precio:30},
-  { id:3, 
-    nombre: 'Valle del Cauca', 
-    precio:40},
-  { id:4, nombre: 'Atlantico', 
-    precio:45},]);
+ const [opciones, setOpciones] = React.useState(departamentos);
+ const [opcionesMunicipio, setMunicipio] = React.useState(municipios)
 
   return (
     <div className={classes.root}>
@@ -337,7 +342,8 @@ const [openModal, setOpenModal] = React.useState(false);
               <Typography variant="body1" color="initial">Realice la selección geográfica que desea ver en el mapa</Typography>
               <Formulario 
                   opciones={opciones}
-                  setOpciones={setOpciones}/>
+                  setOpciones={handleMunicipio}
+                  municipios={opcionesMunicipio}/>
         </TabPanel>
         <TabPanel  value={values} index={2}>
               <Typography align='left'  variant="body1" color="initial">Aqui encuentra los diferentes temas. </Typography>  

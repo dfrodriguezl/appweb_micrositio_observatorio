@@ -36,6 +36,8 @@ import Tipologia from 'Observatorio/pages/tipologia';
 import Ceed from 'Observatorio/pages/ceed';
 import Contacto from 'Observatorio/pages/contacto';
 import Ceed01 from 'Observatorio/pages/statistics/ceed/ceed'
+import Access from 'Observatorio/pages/access/login'
+import Register from 'Observatorio/pages/register/register'
 import Plataform from 'Observatorio/pages/plataformuser'
 
 const useStyle = makeStyles({
@@ -83,9 +85,8 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio/Contacto" component={Contacto} />
           <Route exact path="/Observatorio/PlataformaUsuario" component={Plataform} />
           <Route exact path="/Observatorio" component={ContentGrid} />
-          <Route exact path="/">
-            <Redirect to="/Observatorio" />
-          </Route>
+          <Route exact path="/Observatorio/login" component={Access} />
+          <Route exact path="/Observatorio/register" component={Register} />
           <Route path="/Observatorio/404" component={Notfound} />          
           <Route path="*">
             <Redirect to="/Observatorio/404" />

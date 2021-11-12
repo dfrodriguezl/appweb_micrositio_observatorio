@@ -28,30 +28,14 @@ const useStyle = makeStyles({
         maxWidth: 300
     },
     sectionPar: {
-        backgroundColor: "#F4F4F4"
+        backgroundColor: "#F4F4F4",
+        paddingBottom:"40px"
     },
     textLeft: {
         marginLeft: 30
     },
-    descriptionStatistics: {
-        fontSize: 30,
-        color: "#585858"
-    },
-    descriptionStatisticsSub: {
-        fontSize: 30,
-        color: "#585858",
-        marginTop: 30,
-        marginBottom: 30,
-        zIndex: 1
-    },
     imageRight: {
         height: 600
-    },
-    TitleStatistics: {
-        color: "#821A3F",
-        fontSize: 50,
-        fontWeight: "bold",
-        marginTop: 20
     },
     gridglobal: {
         padding: "0 10% 0 10%",
@@ -83,21 +67,21 @@ const useStyle = makeStyles({
         padding: "5% 10% 1% 10%",
     },
 
-    Titleh3: {
+    Titleh3:{
         color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
-        fontWeight: "bold",
-        fontSize: Values.SizeSubtitle,
-        textAlign: "center",
-        padding: "0 0 1em 0",
-    },
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeTitle, 
+        padding: Values.PaddingTitleText,
+        fontWeight:"bold"
+      },
 
-    Textp: {
+    Textp:{
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeAuxiliary,
-        textAlign: "center",
-    },
+        fontSize: Values.SizeText,
+        textAlign: "start",  
+        margin: "1em 0 0 0",
+      },
 
     root: {
         width: "42vh",
@@ -116,19 +100,14 @@ const useStyle = makeStyles({
     cardglobal: {
         //margin: "0% 0% 0% 0%",
         padding: "0% 10% 0% 10%"
+        
     },
-    padding: {
-        padding: ""
+    paddingBottom: {
+       paddingBottom:"20px"
     }
 });
 
-const Topservice = () => {
-    const classes = useStyle();
-    return (
-        <Grid container className={classes.imagen_top}>
-        </Grid>
-    );
-}
+
 
 const SectionOne = () => {
     const classes = useStyle();
@@ -142,10 +121,10 @@ const SectionOne = () => {
                 justifyContent="center"
 
             >
-                <Typography className={classes.TitleStatistics}  >
-                    Registro de Bienes inmuebles
+                <Typography className={classes.Titleh3}  >
+                    <strong>Registro de Bienes inmuebles</strong>
                 </Typography>
-                <Typography className={classes.descriptionStatistics}>
+                <Typography className={classes.Textp}>
                     Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
                     a través de encuestas por muestreo, que de acuerdo al DANE es “método estadístico por el cual se
                     investiga y analiza un fenómeno, mediante la selección de una muestra”. Sin embargo, a
@@ -160,7 +139,7 @@ const SectionOne = () => {
 
                 <img src={imageItem} />
             </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.descriptionStatisticsSub}>
+            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.Textp}>
                 De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la División de
                 Estadística y Proyecciones Económicas un registro administrativo es “todo registro resultante de
                 necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
@@ -182,12 +161,12 @@ const ContainerImage = Styled.div`
 `;
 
 const ImageItem = Styled.img`
-max-width: 300px;
+
     @media (max-width: 768px) {
-        max-width:100
+        max-width:50
       };
-      @media (max-width: 1300px) and (min-width: 769px) {
-        max-width:200
+      @media (max-width: 4000px) and (min-width: 769px) {
+        width: 230px;
       };
 `;
 
@@ -195,7 +174,7 @@ const ImageSectionThree = Styled.img`
 
 @media (max-width: 4000px) and (min-width: 769px) {
     position:absolute;
-    width:500px;
+    width:350px;
     right:200px;
     z-index:-1;
     text-align:center;
@@ -216,12 +195,12 @@ const SectionTwo = () => {
 
             <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
 
-                <Typography className={`${classes.TitleStatistics}`} >
+                <Typography className={`${classes.Titleh3}`} >
                     Objetivo
                 </Typography>
 
             </Grid>
-            <ContainerImage>
+            <ContainerImage className={classes.cardglobal} >
                 <ImageItem src={Nature} ></ImageItem>
                 <ImageItem src={Justice}></ImageItem>
                 <ImageItem src={Finance}></ImageItem>
@@ -229,7 +208,7 @@ const SectionTwo = () => {
 
             </ContainerImage>
             <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
-                <Typography className={classes.descriptionStatisticsSub} >
+                <Typography className={classes.Textp} >
                     Caracterizar con fines estadísticos, los bienes inmuebles que conforman el territorio nacional a través de
                     la integración de información física, jurídica, económica y geográfica del predio que sirva como
                     instrumento para la toma de decisiones en política pública
@@ -237,22 +216,22 @@ const SectionTwo = () => {
 
             </Grid>
             <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal}>
-                <Typography className={classes.TitleStatistics} >
+                <Typography className={classes.Titleh3} >
                     Alcance de registro
                 </Typography>
             </Grid>
 
             <Grid container item xs={12} sm={12} direction="row" className={classes.cardglobal} >
                 <Grid item xs={12} sm={12} md={4} lg={4}>
-                    <img src={DocumentBro} ></img>
+                    <img src={DocumentBro}  ></img>
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={8} lg={8}>
-                    <Typography className={classes.descriptionStatisticsSub}>
+                    <Typography className={classes.Textp}>
                         Cobertura total de los predios en las áreas urbano y rural que incluyan situaciones como:
 
                     </Typography>
-                    <ol className={classes.descriptionStatisticsSub}>
+                    <ol className={classes.Textp}>
                         <li>Predios formalizados a través del registro en la superintendencia de Notariado y Registro</li>
                         <li>Predios sin formalizar</li>
                         <li>Predios baldíos con y sin ocupación</li>
@@ -272,17 +251,17 @@ const SectionThree = () => {
         <Grid container className={classes.cardglobal}>
 
             <Grid container item xs={12} sm={12} className={classes.marginBottom}>
-                <Typography className={`${classes.TitleStatistics} ${classes.textLeft}`} >
+                <Typography className={`${classes.Titleh3} ${classes.textLeft}`} >
                     Usos
                 </Typography>
-                <Typography className={classes.descriptionStatisticsSub}>
+                <Typography className={classes.Textp}>
                     Haciendo alusión de metodologías como ANDERS WALLGREN, BRITT WALLGREN, 2007 el cual
                     menciona los registros de bienes inmuebles como instrumento para recopilar la información relacionada
                     a la localización o ubicación de los registros de población y registros empresariales, se toma en
                     consideración los diferentes resultados y usos requeridos, los cuales se listan a continuación:
                 </Typography>
                 <Grid sm={8} className={classes.textLeft}>
-                    <div className={classes.descriptionStatisticsSub}>
+                    <div className={classes.Textp}>
                         <ul>
                             <li> Tenencia de la tierra.</li>
                             <li>Suministro de marcos de muestreo para operaciones estadísticas como censo edificaciones y los
@@ -314,7 +293,7 @@ const SectionFour = () => {
         <Grid container  className={classes.sectionPar}>
 
             <Grid container item xs={12} sm={12} className={classes.cardglobal}>
-                <Typography className={classes.TitleStatistics}>
+                <Typography className={classes.Titleh3}>
                     Fuentes de Información
                 </Typography>
             </Grid>
@@ -322,14 +301,14 @@ const SectionFour = () => {
                 <img src={DataExtration} className={classes.DataExtration}></img>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
-                <Typography className={classes.descriptionStatisticsSub}>
+                <Typography className={classes.Textp}>
                     De acuerdo a los posibles canales para el levantamiento de la información, las principales fuentes para
                     conformar el registro de bienes inmuebles son los siguientes:
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
 
-                <ul className={classes.descriptionStatisticsSub}>
+                <ul className={classes.Textp}>
                     <li>Registro Catastral del IGAC (Instituto Geográfico Agustín Codazzi).</li>
                     <li>Registro Catastral de Bogotá.</li>
                     <li>Registro Catastral de Cali.</li>
@@ -377,9 +356,7 @@ const ViewService = () => {
 
     return (
         <Grid>
-            <Topservice />
             <Cardsservice />
-            <Topservice />
         </Grid>
     );
 }

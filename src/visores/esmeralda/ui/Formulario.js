@@ -30,11 +30,12 @@ select: {
    
   }));
 
-const Formulario = ({opciones, setOpciones}) => {
+const Formulario = ({opciones, setOpciones,municipios}) => {
     const classes = useStyles();
     const handleChanger = (event) => {
-        console.log(setOpciones(event.target.value));
+        setOpciones(event.target.value)
       };
+    
     return ( 
         <Fragment>
                 <FormControl variant="filled" className={classes.formControl} >
@@ -54,7 +55,7 @@ const Formulario = ({opciones, setOpciones}) => {
                                         <option value={100}>Ten</option>
                                         : opciones.map(opcion =>(
                                             
-                                            <option key={opcion.id} value={opcion.id}>{opcion.nombre}</option>
+                                            <option key={opcion.cod_dpto} value={opcion.cod_dpto}>{opcion.nombre}</option>
                                             
                                     ))}
                             </select>
@@ -71,13 +72,13 @@ const Formulario = ({opciones, setOpciones}) => {
                     <FormControl variant="filled" className={classes.formControl} >
                             <label id="demo-simple-select-filled-label">Municipio </label>
                             
-                            <select >
-                                    {opciones.length === 0
+                            <select onChange={handleChanger} >
+                                    {municipios.length === 0
                                         ?
                                         <option value={100}>Ten</option>
-                                        : opciones.map(opcion =>(
+                                        : municipios.map(opcion =>(
                                             
-                                            <option key={opcion.id} value={opcion.id}>{opcion.nombre}</option>
+                                            <option key={opcion.cod_mpio} value={opcion.cod_mpio}>{opcion.nombre}</option>
                                             
                                     ))}
                             </select>
