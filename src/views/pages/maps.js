@@ -1,9 +1,9 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
-import CardsMaps from 'common/Cards';
-import Paper from "img/Paper.svg";
-import ButtonRedWine from "common/buttonredwine";
+import * as Values from 'Observatorio/Variables/values';
+import CardsMaps from 'Observatorio/common/Cards';
+import Paper from "Observatorio/img/Paper.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 
 const useStyle = makeStyles({

@@ -1,9 +1,9 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
-import * as Values from 'Variables/values';
-import Small from "img/Small.svg";
-import Meeting from "img/Meeting.svg";
-import Remote from "img/Remote.svg";
+import * as Values from 'Observatorio/Variables/values';
+import Small from "Observatorio/img/Small.svg";
+import Meeting from "Observatorio/img/Meeting.svg";
+import Remote from "Observatorio/img/Remote.svg";
 
 const useStyle = makeStyles({
   margintop:{
@@ -28,7 +28,7 @@ const useStyle = makeStyles({
       padding: Values.PaddingTitleText,
     },
     gridglobal:{
-      padding: "0 10vw 0 10vw",
+      padding: "0 10vw 3vw 10vw",
       
     },
     contentrulesp:{

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Sale from "img/Sale.svg";
-import Fill from "img/Fill.svg";
-import Segment from "img/Segment.svg";
-import Building_ from "img/Building_.svg";
-import Buildingamico from "img/Buildingamico.svg";
+import Sale from "Observatorio/img/Sale.svg";
+import Fill from "Observatorio/img/Fill.svg";
+import Segment from "Observatorio/img/Segment.svg";
+import Building_ from "Observatorio/img/Building_.svg";
+import Buildingamico from "Observatorio/img/Buildingamico.svg";
 
 const cardotros = [
     {
         "id":1,
         "title":"IGAC",
         "image_card":Sale,
-        "link":""
+        "link":"/Visores/Esmeralda2"
     },
     {
         "id":2,

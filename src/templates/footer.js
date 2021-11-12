@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid, Box} from '@material-ui/core/';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlinePhone, AiOutlineClockCircle } from "react-icons/ai";
-import logoGobernment from "../img/logoGovernment.png";
+import logoGobernment from "Observatorio/img/logoGovernment.png";
 
 import {
     makeStyles
@@ -108,7 +108,10 @@ const Footer = () =>{
                  className={classes.containerItem} 
                 justifyContent={'center'}>
                     <Box >
+                        <a href="https://idm.presidencia.gov.co/presidencia">
                         <Imagen src= {logoGobernment}/>
+                        </a>
+                        
                     </Box>
                 </Grid>
             </Grid>

@@ -3,8 +3,8 @@ import {  Grid } from '@material-ui/core';
 import {
     makeStyles
 } from '@material-ui/core/styles';
-import logoDane from "../img/logo-dane.svg";
-import logoObservatorio from "../img/logo-observatorio.svg";
+import logoDane from "Observatorio/img/logo-dane.svg";
+import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 import Styled from "styled-components";
 import Navbar  from './Navbar';
 
@@ -69,7 +69,7 @@ const Header = () => {
         <header>
             <Grid container className={classes.backgroundHeader}>
                 <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
-                    <a href="/">
+                    <a href="/Observatorio">
                         <LogoObservatorio className={classes.logoObservatorio}  src={logoObservatorio} />
                         </a>
                     <TextLogo xs={12} sm={12} >

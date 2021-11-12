@@ -7,26 +7,27 @@ const menuDane = [
         [
           {
             key: "01",
-            name: "Servicios",
+            name: "Economía",
             link: "#",
+            icon:"Economia",
             isTitle: true
           },
           {
             key: "02",
-            name: "Ofertas de inmobiliarias",
+            name: "índice de Precios",
             link: "#",
             isTitle: false
           },
           {
             key: "03",
-            name: "Boletines",
+            name: "Comercio Exterior 2010",
             link: "#",
             isTitle: false
           },
           {
             key: "2000",
-            name: "Estadisticas",
-            link: "/Servicios/estadisticas",
+            name: "Licencias de Construcción",
+            link: "#",
             isTitle: false
           },
           {
@@ -39,6 +40,7 @@ const menuDane = [
             key: "05",
             name: "Sociedad",
             link: "#",
+            icon: "Sociedad",
             isTitle: true
           },
           {
@@ -57,6 +59,7 @@ const menuDane = [
             key: "08",
             name: "Territorio",
             link: "#",
+            icon:"Territorio",
             isTitle: true
           },
           {
@@ -71,76 +74,75 @@ const menuDane = [
             link: "#",
             isTitle: false
           },
+          {
+            key:"2012",
+            name:"Contexto Territorial",
+            link:"#",
+            isTitle:false
+          }
 
         ],
         [
           {
             key: "11",
-            name: "Economia",
+            name: "Censo Nacional de Población y Vivienda 2018 CNPV 2018",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "12",
-            name: "Índice de Precios",
+            name: "Registro Estadístico Base de Población - REBP",
             link: "#",
             isTitle: false
           },
           {
             key: "13",
-            name: "Comercio Exterior 2010",
+            name: "Censo General 2005",
             link: "#",
             isTitle: false
           },
           {
             key: "14",
-            name: "Licencias de Construcción",
+            name: "Enfoque diferencial étnico - CNPV 2018",
             link: "#",
             isTitle: false
           },
           {
             key: "15",
-            name: "Cuentas Nacionales",
+            name: "Estadísticas Vitales",
             link: "#",
             isTitle: false
           },
           {
             key: "16",
-            name: "Sociedad",
+            name: "Consulta de sedes SISE",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "17",
-            name: "Demografía y Población",
+            name: "Medida de la Pobreza Multidimensional por Manzana",
             link: "#",
             isTitle: false
           },
           {
             key: "18",
-            name: "Pobreza y Condiciones de Vida",
+            name: "Vulnerabilidad",
             link: "#",
             isTitle: false
           },
           {
             key: "19",
-            name: "Territorio",
+            name: "Indicadores Regionales",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "20",
-            name: "Agropecuario",
+            name: "Déficit Habitacional",
             link: "#",
             isTitle: false
-          },
-          {
-            key: "21",
-            name: "Ambientales",
-            link: "#",
-            isTitle: false
-          },
-
+          }
         ],
         [
           {
@@ -229,67 +231,68 @@ const menuDane = [
   },
   {
     title:
-      ["GIT investigacion y desarrollo", "Economia", "Otro titulo de Menu", "Otro titulo de Menu 03"],
+      ["GIT I + D investigacion y desarrollo", "Economia", "Otro titulo de Menu", "Otro titulo de Menu 03"],
     subindices:
       [
         [
           {
             key: "33",
-            name: "Economia",
+            name: "Descarga de datos",
             link: "#",
+            icon:"Datos",
             isTitle: true
           },
           {
             key: "34",
-            name: "Índice de Precios",
+            name: "MGN - Marco Geoestadístico Nacional",
             link: "#",
             isTitle: false
           },
           {
             key: "35",
-            name: "Comercio Exterior 2010",
+            name: "Étnicos",
             link: "#",
             isTitle: false
           },
           {
             key: "36",
-            name: "Licencias de Construcción",
+            name: "Nivel de Referencia de Veredas",
             link: "#",
             isTitle: false
           },
           {
             key: "37",
-            name: "Cuentas Nacionales",
+            name: "Marco Maestro rural de Agropecuario",
             link: "#",
             isTitle: false
           },
           {
             key: "38",
-            name: "Sociedad",
+            name: "MGN Integrado a la Información del CNPV",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "39",
-            name: "Demografía y Población",
+            name: "Codificación Divipola",
             link: "#",
             isTitle: false
           },
           {
             key: "40",
-            name: "Pobreza y Condiciones de Vida",
+            name: "Déficit habitacional",
             link: "#",
             isTitle: false
           },
           {
             key: "41",
-            name: "Territorio",
+            name: "Referencia de veredas",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "42",
-            name: "Agropecuario",
+            name: "Pueblo Wayúu",
             link: "#",
             isTitle: false
           },
@@ -304,76 +307,52 @@ const menuDane = [
         [
           {
             key: "44",
-            name: "Economia",
+            name: "EGIT - Gasto Interno en Turismo",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "45",
-            name: "Índice de Precios",
+            name: "Encuesta Mensual de Alojamiento",
             link: "#",
             isTitle: false
           },
           {
             key: "46",
-            name: "Comercio Exterior 2010",
+            name: "Directorio Estadistico de Empresas",
             link: "#",
             isTitle: false
           },
           {
             key: "47",
-            name: "Licencias de Construcción",
+            name: "Censo Nacional Agropecuario",
             link: "#",
             isTitle: false
           },
           {
             key: "48",
-            name: "Cuentas Nacionales",
+            name: "Economía Naranja - SIENA",
             link: "#",
             isTitle: false
           },
           {
             key: "49",
-            name: "Sociedad",
+            name: "Directorio Sector Público",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "50",
-            name: "Demografía y Población",
+            name: "Resultados del Conteo de Unidades Económicas",
             link: "#",
             isTitle: false
-          },
-          {
-            key: "51",
-            name: "Pobreza y Condiciones de Vida",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "52",
-            name: "Territorio",
-            link: "#",
-            isTitle: true
-          },
-          {
-            key: "53",
-            name: "Agropecuario",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "54",
-            name: "Ambientales",
-            link: "#",
-            isTitle: false
-          },
+          }
 
         ],
         [
           {
             key: "55",
-            name: "Economia",
+            name: "Economias",
             link: "#",
             isTitle: true
           },
@@ -442,7 +421,7 @@ const menuDane = [
         [
           {
             key: "66",
-            name: "Economia",
+            name: "Economias",
             link: "#",
             isTitle: true
           },
@@ -512,73 +491,41 @@ const menuDane = [
   },
   {
     title:
-      ["Servicios web Geograficos 02", "Sociedad 02", "Otro titulo de Menu 02", "Otro titulo de Menu 03"],
+      ["Catalógo de matadatos geográficos", "Territorio", "Otro titulo de Menu 02", "Otro titulo de Menu 03"],
     subindices:
       [
         [
           {
             key: "77",
-            name: "Economia",
+            name: "Atlas estadístico (2012)",
             link: "#",
+            icon: "Atlas",
+            isTitle: true
+          },
+          {
+            key: "3001",
+            name: "SISE - Sistemas de identificación de Sedes Educativas",
+            link: "#",
+            icon: "Educacion",
             isTitle: true
           },
           {
             key: "78",
-            name: "Índice de Precios",
+            name: "Mapas Interactivos",
             link: "#",
-            isTitle: false
+            icon:"Map",
+            isTitle: true
           },
           {
             key: "79",
-            name: "Comercio Exterior 2010",
+            name: "Aplicaciones móviles Android",
             link: "#",
-            isTitle: false
+            icon:"Android",
+            isTitle: true
           },
           {
             key: "80",
-            name: "Licencias de Construcción",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "81",
-            name: "Cuentas Nacionales",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "82",
-            name: "Sociedad",
-            link: "#",
-            isTitle: true
-          },
-          {
-            key: "83",
-            name: "Demografía y Población",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "84",
-            name: "Pobreza y Condiciones de Vida",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "85",
-            name: "Territorio",
-            link: "#",
-            isTitle: true
-          },
-          {
-            key: "86",
-            name: "Agropecuario",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "87",
-            name: "Ambientales",
+            name: "Divipola",
             link: "#",
             isTitle: false
           },
@@ -587,76 +534,53 @@ const menuDane = [
         [
           {
             key: "88",
-            name: "Economia",
+            name: "Nivel de Referencia de Veredas",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "89",
-            name: "Índice de Precios",
+            name: "MGN - Marco Geoestadistico Nacional",
             link: "#",
             isTitle: false
           },
           {
             key: "90",
-            name: "Comercio Exterior 2010",
+            name: "Sedes del DANE",
             link: "#",
             isTitle: false
           },
           {
             key: "91",
-            name: "Licencias de Construcción",
+            name: "Georreferenciador de Direcciones",
             link: "#",
             isTitle: false
           },
           {
             key: "92",
-            name: "Cuentas Nacionales",
+            name: "Consulta Divipola - División Político Administrativa de Colombia",
             link: "#",
             isTitle: false
           },
           {
             key: "93",
-            name: "Sociedad",
+            name: "Subregiones PDET",
             link: "#",
-            isTitle: true
+            isTitle: false
           },
           {
             key: "94",
-            name: "Demografía y Población",
+            name: "ENA - Encuesta Nacional Agropecuaria Resultados",
             link: "#",
             isTitle: false
-          },
-          {
-            key: "95",
-            name: "Pobreza y Condiciones de Vida",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "96",
-            name: "Territorio",
-            link: "#",
-            isTitle: true
-          },
-          {
-            key: "97",
-            name: "Agropecuario",
-            link: "#",
-            isTitle: false
-          },
-          {
-            key: "98",
-            name: "Ambientales",
-            link: "#",
-            isTitle: false
-          },
+          }
+          
 
         ],
         [
           {
             key: "99",
-            name: "Economia",
+            name: "Economias",
             link: "#",
             isTitle: true
           },
@@ -725,7 +649,7 @@ const menuDane = [
         [
           {
             key: "110",
-            name: "Economia",
+            name: "Economias",
             link: "#",
             isTitle: true
           },

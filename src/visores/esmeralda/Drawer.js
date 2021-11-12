@@ -20,12 +20,12 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import PropTypes from 'prop-types';
 //-----------Fin cambios
-import logoDane from "../../img/DANE__Geovisor__icon__logoDANE__01.svg";
+import logoDane from "Observatorio/img/DANE__Geovisor__icon__logoDANE__01.svg";
 // import logoObservatorio from "../../img/Logo_Observatorio_inmobiliario_Opcion1.svg";
 // import logoDane from "../../img/logo-dane.svg";
-import logoObservatorio from "../../img/logo-observatorio.svg";
+import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 //-----------inicio cambios
-import Instructivo from "../../img/subregion-pdet-geovisor-ayuda-geoportal-dane.png";
+import Instructivo from "Observatorio/img/subregion-pdet-geovisor-ayuda-geoportal-dane.png";
 import {  AiOutlineQuestionCircle,
           AiFillMail } from "react-icons/ai";
 import { FaSearchLocation,

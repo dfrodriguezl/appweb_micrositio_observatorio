@@ -1,11 +1,11 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
-import bloques from "img/Building.svg";
-import figure from "img/Career.svg";
-import lawyer from "img/Lawyer.svg";
-import Maintenance from "img/Maintenance.svg";
-import ButtonRedWine from "common/buttonredwine";
-import * as Values from "Variables/values";
+import bloques from "Observatorio/img/Building.svg";
+import figure from "Observatorio/img/Career.svg";
+import lawyer from "Observatorio/img/Lawyer.svg";
+import Maintenance from "Observatorio/img/Maintenance.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import * as Values from "Observatorio/Variables/values";
 
 const useStyle = makeStyles({
   puntos: {
@@ -296,7 +296,7 @@ const Top_content = () => {
           </p>
         </Grid>
         <Grid container>
-          <ButtonRedWine Title="Acerca de" href="/Acerca" />
+          <ButtonRedWine Title="Acerca de" href="/Observatorio/Acerca" />
         </Grid>
       </Grid>
       <Imagen />

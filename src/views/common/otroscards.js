@@ -1,8 +1,8 @@
 import { Grid, makeStyles, Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
-import ButtonRedWine from "common/buttonredwine";
-import cardsotros from "common/cardsotros";
+import * as Values from 'Observatorio/Variables/values';
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import cardsotros from "Observatorio/common/cardsotros";
 
 const useStyle = makeStyles({
   
@@ -46,6 +46,7 @@ const useStyle = makeStyles({
       height: "24vh",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center center",
+      backgroundSize: "80%",
       },
 
       gridglobal:{

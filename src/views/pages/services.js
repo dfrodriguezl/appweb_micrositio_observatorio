@@ -1,10 +1,10 @@
 import { Grid, makeStyles, useMediaQuery ,Paper, CardActions, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
-import Delivery from "img/Delivery.svg";
-import ButtonRedWine from "common/buttonredwine";
+import * as Values from 'Observatorio/Variables/values';
+import Delivery from "Observatorio/img/Delivery.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 
-import infocards from "common/cards_.js";
+import infocards from "Observatorio/common/cards_.js";
 
 const useStyle = makeStyles({
   
@@ -64,6 +64,7 @@ const useStyle = makeStyles({
     height: "24vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
+    backgroundSize: "80%",
   },
 
   cardglobal: {
@@ -124,7 +125,9 @@ const Topservice = () => {
           <h3 className={classes.Titleh3}>Servicios</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.Textp}>{Values.TextGeovisor}</p>      
+                <p className={classes.Textp}>El Observatorio Inmobiliario Nacional recopila y publica informacion acerca del Mercado Inmobiliario.</p>      
+                <p className={classes.Textp}>
+                  La informaciòn publicada esta articulada con los demas observatorios a nivel nacional, tales como: Metropolitanos, Regionales, Municipales y Distritales y busca disponer de la información acorde a estándares establecidos y de forma oficial, agregar valor mediante la consolidación de datos y aplicar nuevos métodos analíticos.</p> 
                 </Grid>
                 <ImagenBottom/> 
         </Grid>

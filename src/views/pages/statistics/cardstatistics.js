@@ -1,10 +1,10 @@
 
 import { Grid, makeStyles, CardActions, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
-import * as Values from 'Variables/values';
-import Delivery from "img/Delivery.svg";
-import ButtonRedWine from "common/buttonredwine";
-import infocards from "common/statistics.js";
+import * as Values from 'Observatorio/Variables/values';
+import Delivery from "Observatorio/img/Delivery.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
+import infocards from "Observatorio/common/statistics.js";
 
 const useStyle = makeStyles({
     marginTop: {
@@ -68,12 +68,13 @@ const useStyle = makeStyles({
       fontSize: Values.SizeText,
       textAlign: "start",
       margin: "1em 0 0 0",
+      marginTop:"5px !important"
     },
   
     Textpcard: {
       color: "#585858",
       fontFamily: Values.SourceRoboto,
-      fontSize: Values.SizeText,
+      fontSize: "20px",
       textAlign: "center"
   //    margin: "2% 0 1% 0",
   
@@ -167,7 +168,7 @@ const CardStatistics=()=>{
                         </CardContent>
                       </CardContent>
                       <CardActions className={classes.centerButton}>
-                        <ButtonRedWine Title="Visitar" href="Servicios/estadisticas" />
+                        <ButtonRedWine Title="Visitar" href={infocard.link} />
                       </CardActions>
                     </Card>
                   </Grid>

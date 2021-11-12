@@ -1,9 +1,9 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
-import * as Values from 'Variables/values';
-import CardsMaps from 'common/tipologiacards';
-import App from "img/App.svg";
-import ButtonRedWine from "common/buttonredwine";
+import * as Values from 'Observatorio/Variables/values';
+import CardsMaps from 'Observatorio/common/tipologiacards';
+import App from "Observatorio/img/tipologia.png";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
     
@@ -28,7 +28,7 @@ const useStyle = makeStyles({
 
       imagen_top:{    
         width: "100% !important",
-        height: "42vh",
+        height: "70vh",
         backgroundSize: "70%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${App})`,       
@@ -39,26 +39,19 @@ const useStyle = makeStyles({
    gridglobal:{
     padding: "0 10vw 0 10vw",    
   },
-
-   imagen_top2:{     
-         width: "100%",
-         height: "66vh",
-         backgroundSize: "100%",
-         backgroundRepeat: "no-repeat",
-         backgroundImage: `url(${App})`,       
-         backgroundPosition: "center center",
-         flexBasis: "100% !important",
-         maxWidth: "100% !important",
-   },
+  imageRigth:{
+    width:500
+  }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(min-width:769px)');
     var estilo = null;
-    {matches ? estilo=classes.imagen_top:estilo=classes.imagen_top2}   
+    
     return(
-      <Grid item container direction="column" xs={4} className={estilo}></Grid>
+      <img className={classes.imageRigth} src={App}></img>
+      
       
     )
   } 
@@ -69,14 +62,19 @@ const TopTipologia = () => {
         <Grid container direccion="row" >
            <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>Tipologías</h3>
+  
                 </Grid>
-                <Grid item container direction="column" xs className={classes.containerTitle}>
+                <Grid item container direction="column" xs={12} sm={6} md={6} lg={6} className={classes.containerTitle}>
+                <h3 className={classes.Titleh3}>Tipologías Constructivas</h3>
                 <p className={classes.Textp}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed turpis sit amet velit porttitor congue laoreet eu ex. In dapibus accumsan metus eu eleifend. Pellentesque vitae scelerisque mauris.                   
+                Las Tipologías Constructivas se refieren al tipo de construcciòn en las cuales se clasifica un inmueble, teniendo como punto de partida sus caracteristicas arquitectonicas, funciones de uso, actividades economicas, entre otras; Acorde a la Clasificaciòn realizada por el Instituto Geogràfico Agustin Codazzi - IGAC, existen 10 Tipologias constructivas: Asamblea, Negocios, Educativo, Industrial, De Alto Riesgo, Institucional, Mercantil, Residencial, Almacenamiento y Otras.
+                
                 </p> 
             </Grid>
-                <ImagenBottom/> 
+            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <ImagenBottom/> 
+            </Grid>
+                
         </Grid>
     );
 }
@@ -88,7 +86,6 @@ const Tipologias = () => {
         <Grid container justifyContent="center"
         alignItems="center"  className={classes.gridglobal}>
             <TopTipologia/>
-            <CardsMaps/>
         </Grid>
     );
 }
