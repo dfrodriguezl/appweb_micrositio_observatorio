@@ -5,13 +5,12 @@ import './mapa.css';
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ';
 
-const Map = () => {
+const Map = ({position,bbox}) => {
   const mapContainerRef = useRef(null);
-
-  const [lng, setLng] = useState(-74.5447);
-  const [lat, setLat] = useState(4.73);
-  const [zoom, setZoom] = useState(6);
-
+  console.log(position)
+  const [lng, setLng] = useState(position.lng);
+  const [lat, setLat] = useState(position.lat);
+  const [zoom, setZoom] = useState(position.zoom);
   //Constructor del mapa
   useEffect(() => {
     const map = new mapboxgl.Map({
