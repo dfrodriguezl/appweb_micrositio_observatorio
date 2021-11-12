@@ -49,9 +49,7 @@ module.exports = {
 
       },
       {
-        type: 'asset',
-        test: /\.(png|jpg|jpeg|gif|webp)$/i,
-
+        test: /\.(png|jpg|jpeg|gif|webp)$/,
         use: [
           {
             loader: "file-loader",
