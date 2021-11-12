@@ -36,6 +36,7 @@ import Tipologia from 'Observatorio/pages/tipologia';
 import Ceed from 'Observatorio/pages/ceed';
 import Contacto from 'Observatorio/pages/contacto';
 import Ceed01 from 'Observatorio/pages/statistics/ceed/ceed'
+import Plataform from 'Observatorio/pages/plataformuser'
 
 const useStyle = makeStyles({
   marginTop: {
@@ -80,6 +81,7 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio/Ceed" component={Ceed} />
           <Route exact path ="/Observatorio/Servicios/estadisticas/Ceed" component={Ceed01} />
           <Route exact path="/Observatorio/Contacto" component={Contacto} />
+          <Route exact path="/Observatorio/PlataformaUsuario" component={Plataform} />
           <Route exact path="/Observatorio" component={ContentGrid} />
           <Route exact path="/">
             <Redirect to="/Observatorio" />

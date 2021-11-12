@@ -90,6 +90,7 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: Values.SizeTitle,
     padding: Values.PaddingTitleText,
+    textAlign: "center",
   },
 
   titleStyle2: {
@@ -112,7 +113,7 @@ const useStyle = makeStyles({
 
   imagen_top2: {
     width: "100%",
-    height: "50vh",
+    height: "35vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
