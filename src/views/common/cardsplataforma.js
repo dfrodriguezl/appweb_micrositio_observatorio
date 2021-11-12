@@ -12,12 +12,6 @@ const Cardplataforma = [
     },
     {
         "id":2,
-        "title":"Indicadores",
-        "image_card":Pitch,
-        "link":""
-    },
-    {
-        "id":3,
         "title":"Mercado",
         "image_card":Data,
         "link":""
