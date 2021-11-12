@@ -28,9 +28,9 @@ module.exports = {
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    publicPath: "./dist"
+    publicPath: "./"
   },
 
   module: {
@@ -50,17 +50,29 @@ module.exports = {
       },
       {
         type: 'asset',
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        test: /\.(png|jpg|jpeg|gif|webp)$/i,
+
         use: [
           {
-              loader: 'url-loader',
+            loader: "file-loader",
               options: {
                   limit: 1000,
-                  name : 'img/[name].[ext]'
+                  name : '[name].[ext]'
               }
           }
       ]
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
     ]
   },
 
