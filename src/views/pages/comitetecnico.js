@@ -28,7 +28,7 @@ const useStyle = makeStyles({
       padding: Values.PaddingTitleText,
     },
     gridglobal:{
-      padding: "0 10vw 0 10vw",
+      padding: "0 10vw 3vw 10vw",
       
     },
     contentrulesp:{

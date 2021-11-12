@@ -38,6 +38,7 @@ import Contacto from 'Observatorio/pages/contacto';
 import Ceed01 from 'Observatorio/pages/statistics/ceed/ceed'
 import Access from 'Observatorio/pages/access/login'
 import Register from 'Observatorio/pages/register/register'
+import Plataform from 'Observatorio/pages/plataformuser'
 
 const useStyle = makeStyles({
   marginTop: {
@@ -82,10 +83,11 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio/Ceed" component={Ceed} />
           <Route exact path ="/Observatorio/Servicios/estadisticas/Ceed" component={Ceed01} />
           <Route exact path="/Observatorio/Contacto" component={Contacto} />
+          <Route exact path="/Observatorio/PlataformaUsuario" component={Plataform} />
           <Route exact path="/Observatorio" component={ContentGrid} />
           <Route exact path="/Observatorio/login" component={Access} />
           <Route exact path="/Observatorio/register" component={Register} />
-          <Route path="/Observatorio/404" component={Notfound} />
+          <Route path="/Observatorio/404" component={Notfound} />          
           <Route path="*">
             <Redirect to="/Observatorio/404" />
           </Route>
@@ -96,12 +98,13 @@ const Generalroutes = () => {
 };
 
 const Routes = () => {
-  let location = useLocation();
+  let location = useLocation()
   const classes = useStyle()
   return (
     <div>
       <Switch>
         <Route path="/Observatorio/Visores" component={RoutesMaps} />
+        <Route path="/" component={Generalroutes} />
         <Route path="/Observatorio" component={Generalroutes} />
         <Route path="/Observatorio/404" component={Notfound} />
         <Route path="*">

@@ -101,7 +101,9 @@ const Imagen = () => {
   } 
 
 const About = () => {
-    const classes = useStyle();
+  const classes = useStyle();
+  console.log("hola")
+  console.log(Judge)
     return(      
         <Grid container direction="column">
             <Grid container direction="row" className={classes.gridglobal}>

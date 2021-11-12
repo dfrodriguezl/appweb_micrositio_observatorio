@@ -10,7 +10,7 @@ const cardotros = [
         "id":1,
         "title":"IGAC",
         "image_card":Sale,
-        "link":""
+        "link":"/Visores/Esmeralda2"
     },
     {
         "id":2,
