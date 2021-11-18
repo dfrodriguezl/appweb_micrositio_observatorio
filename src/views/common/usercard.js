@@ -1,7 +1,7 @@
 import {
   Grid,
   makeStyles,
-  useMediaQuery ,
+  useMediaQuery,
   Paper,
   CardActions,
   Card,
@@ -14,6 +14,11 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import cardplataforma from "Observatorio/common/cardsplataforma";
+import Projections from "Observatorio/img/Projections.svg";
+import ejemplo from "Observatorio/files/EjemploPresentaciondeDatosObservatorioInmobiliario.xlsx";
+import Data from "Observatorio/img/Data-rafiki.svg";
+import * as FileSaver from "file-saver";
+import * as XLSX from "xlsx";
 
 const useStyle = makeStyles({
   centerButton: {
@@ -34,8 +39,16 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
     fontSize: Values.SizeText,
-    textAlign: "center",
+    textAlign: "left",
+
+    marginRight: "1em",
     // margin: "2% 0 1% 0",
+  },
+
+  contentrulesp2: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
   },
 
   Textp: {
@@ -43,13 +56,21 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeAuxiliary,
     textAlign: "start",
-    margin: "0 6% 0 6%",
+    width: "90%",
+    padding: "0 0 1em 0",
   },
 
   root: {
     width: "100%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
+  },
+  root1: {
+    width: "100%",
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    marginRight:"2em"
   },
 
   media: {
@@ -93,40 +114,151 @@ const Cardsmapas = () => {
   return (
     <Grid container>
       <Grid container>
-        {cardplataforma.map(function (cardplataforma) {
-          return (
+        {/* {cardplataforma.map(function (cardplataforma) {
+          return ( */}
             <Grid
               container
               direction="column"
-              key={cardplataforma.id}
+              key={1}
               className={classes.cardglobal}
             >
               <Card className={classes.root}>
                 <CardContent className={classes.cardglobal2}>
-                <Grid container direction="row" item xs>
+                  <Grid container direction="row" item xs>
                     <Grid item xs={2} direction="column" container>
-                    <CardMedia
+                      <CardMedia
                         className={estilo}
-                        image={cardplataforma.image_card}
-                    />
+                        image={Projections}
+                      />
                     </Grid>
                     <Grid item xs container direction="column">
-                    <CardContent
-                    className={(classes.centerText, classes.contentcar)}>
-                    <Typography className={classes.Titleh3}>
-                      {cardplataforma.title}
-                    </Typography>
-                  </CardContent>
+                      <CardContent
+                        className={(classes.centerText, classes.contentcar)}
+                      >
+                        <Grid container direction="row" item xs>
+                          <Typography className={classes.Titleh3}>
+                            Dashboard
+                          </Typography>
+                        </Grid>
+                      </CardContent>
                     </Grid>
-                </Grid>                    
+                  </Grid>
                 </CardContent>
-                {/* <CardActions className={classes.centerButton}>
-                  <ButtonRedWine Title="Hola" href={cardplataforma.link} />
-                </CardActions> */}
+              </Card>              
+            </Grid>
+            <Grid container
+              direction="column"
+              key={2}
+              className={classes.cardglobal}>
+            <Card className={classes.root}>
+                <CardContent className={classes.cardglobal2}>
+                  <Grid container direction="row" item xs>
+                    <Grid item xs={2} direction="column" container>
+                      <CardMedia
+                        className={estilo}
+                        image={Data}
+                      />
+                    </Grid>
+                    <Grid item xs container direction="column">
+                      <CardContent
+                        className={(classes.centerText, classes.contentcar)}
+                      >
+                        <Grid container direction="row" item xs>
+                          <Typography className={classes.Titleh3}>
+                            Mercado:
+                          </Typography>
+                          <Typography className={classes.Textp}>
+                          En esta sección podrá descargar el instructivo (Diagrama Entidad-Relación, atributos, dominios e instrucciones), ejemplo de diligenciamento de información en base de datos o ejemplo de diligenciamiento de información en capas geográficas y cargar de igual manera la información.
+                          </Typography>
+                        </Grid>
+                        <Grid container direction="row" item xs >
+                          <Grid container direction="column" item xs className={classes.root1} >
+                            <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">
+                              <Grid container item xs={6}>
+                                <p className={classes.contentrulesp2}>
+                                Instructivo
+                                </p>
+                              </Grid>
+                              <Grid className={classes.marginbutton2}>
+                                {/* <ButtonRedWine
+                                  Title="Descargar"
+                                  href={ejemplo}
+                                  download
+                                /> */}
+                                <button                                  
+                                ><a 
+                                href={ejemplo}
+                                download>Descargar</a></button>
+                              </Grid>
+                            </Grid>
+                            <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">
+                              <Grid container item xs={6}>
+                                <p className={classes.contentrulesp2}>
+                                Ejemplo Bases de Datos
+                                </p>
+                              </Grid>
+                              <Grid className={classes.marginbutton2}>
+                                <ButtonRedWine
+                                  Title="Descargar"
+                                  href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                                  Values="1"
+                                />
+                              </Grid>
+                            </Grid>
+                            <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">
+                              <Grid container item xs={6}>
+                                <p className={classes.contentrulesp2}>
+                                Ejemplo Capas Geográficas
+                                </p>
+                              </Grid>
+                              <Grid className={classes.marginbutton2}>
+                                <ButtonRedWine
+                                  Title="Descargar"
+                                  href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                                  Values="1"
+                                />
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Grid container direction="column" item xs className={classes.root1}>
+                            <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">
+                              <Grid container item xs={6}>
+                                <p className={classes.contentrulesp2}>
+                                Cargue Bases de Datos
+                                </p>
+                              </Grid>
+                              <Grid className={classes.marginbutton2}>
+                                <ButtonRedWine
+                                  Title="Cargue"
+                                  href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                                  Values="1"
+                                />
+                              </Grid>
+                            </Grid>
+                            <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">
+                              <Grid container item xs={6}>
+                                <p className={classes.contentrulesp2}>
+                                Cargue de Capas Geográficas
+                                </p>
+                              </Grid>
+                              <Grid className={classes.marginbutton2}>
+                                <ButtonRedWine
+                                  Title="Cargue"
+                                  href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                                  Values="1"
+                                />
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </CardContent>
+                    </Grid>
+                  </Grid>
+                </CardContent>
               </Card>
             </Grid>
-          );
-        })}
+        {/* //   );
+        // })} */}
       </Grid>
     </Grid>
   );

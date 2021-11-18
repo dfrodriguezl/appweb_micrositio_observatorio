@@ -36,7 +36,7 @@ const useStyle = makeStyles({
   //  },
  
    gridglobal:{
-    padding: "0 10vw 0 10vw",    
+    padding: "0 10vw 2vw 10vw",    
   },
 
   //  imagen_top2:{     
