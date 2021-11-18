@@ -54,9 +54,9 @@ const Footer = () =>{
     return(
         <ContenedorFooter>
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
-            <Grid container  justifyContent={'center'}>
+            <Grid container  justifyContent="center">
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid container item xs={12} sm={12} md={6} lg={4} direction="row" 
+                <Grid item container  xs={12} sm={12} md={6} lg={4} direction="row" 
                     className={classes.containerItem}
                       >                    
                    
@@ -72,7 +72,7 @@ const Footer = () =>{
                         </ul>
                         
                 </Grid>
-                <Grid  container xs={12} sm={12} md={6} lg={3} direction="row" 
+                <Grid  item container xs={12} sm={12} md={6} lg={3} direction="row" 
                  className={classes.containerItem}
                 >
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
@@ -82,7 +82,7 @@ const Footer = () =>{
                                 </li>
                          </ul>  
                 </Grid>
-                <Grid container xs={12} sm={12}  md={6} lg={3} direction="row" 
+                <Grid item container xs={12} sm={12}  md={6} lg={3} direction="row" 
                  className={classes.containerItem}
                 >
                      
@@ -107,7 +107,7 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid container xs={12} sm={12} md={6} lg={2}  
+                <Grid  item container xs={12} sm={12} md={6} lg={2}  
                  className={classes.containerItem} 
                 justifyContent={'center'}>
                     <Box >

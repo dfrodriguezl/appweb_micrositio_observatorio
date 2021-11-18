@@ -65,8 +65,8 @@ const Generalroutes = () => {
   const classes = useStyle()
   return (
     <div >
-      {/* <Header/>
-      <Navbar/> */}
+      <Header/>
+      <Navbar/> 
       <Grid container className={classes.marginTop}>
       </Grid>
         <Switch >
@@ -92,7 +92,7 @@ const Generalroutes = () => {
             <Redirect to="/Observatorio/404" />
           </Route>
         </Switch>
-      {/* <Footer /> */}
+       <Footer /> 
     </div>
   );
 };

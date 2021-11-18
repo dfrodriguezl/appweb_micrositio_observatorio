@@ -263,7 +263,7 @@ const Navbar = () => {
 
     let name = event.name
     for (const key in menuActive) {
-      menuActive[key].value = false
+      menuActive[key.name].value = false
     }
     menuActive[name].value = true
     setMenuActive({
