@@ -2,37 +2,37 @@ const menuDane = [
     [
         {
           name:"¿Ques es un Observatorio?",
-          link:"",
+          link:"/Observatorio",
           icon:"",
           isMain:true
         },
         {
             name:"Observatorio Inmobiliario Nacional",
-            link:"",
+            link:"/Observatorio",
             icon:"",
             isMain:true
         },
         {
           name:"Usos del Observatorio Inmobiliario Nacional",
-          link:"",
+          link:"/Observatorio#uso",
           icon:"",
           isMain:true
         },
         {
           name:"Normatividad",
-          link:"",
+          link:"/Observatorio#Normativa",
           icon:"",
           isMain:true
         },
         {
             name:"Otros Observatorios Inmobiliarios",
-            link:"",
+            link:"/Observatorio/Otrosobservatorios",
             icon:"",
             isMain:true
         },
         {
             name:"Comite Técnico Asesor",
-            link:"",
+            link:"/Observatorio/Comitetecnico",
             icon:"",
             isMain:true
         }
@@ -106,19 +106,19 @@ const menuDane = [
         },
         {
             name:"Comparación Modelos Catastrales",
-            link:"/Observatorio/Catastromultiproposito",
+            link:"/Observatorio/Catastromultiproposito#comparacionModel",
             icon:"",
             isMain:true
         },
         {
             name:"Catastro para la Regularizacion de la Propiedad",
-            link:"/Observatorio/Catastromultiproposito",
+            link:"/Observatorio/Catastromultiproposito#catastroRegulacion",
             icon:"",
             isMain:true
         },
         {
             name:"Catastro Multipropósito para la Toma de Decisiones",
-            link:"/Observatorio/Catastromultiproposito",
+            link:"/Observatorio/Catastromultiproposito#catastroTomaDeDecisiones",
             icon:"",
             isMain:true
         },

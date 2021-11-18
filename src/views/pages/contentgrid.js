@@ -447,6 +447,7 @@ const Bottom_content = () => {
   const classes = useStyle();
   return (
     <Grid
+    id="Normativa"
       container
       direction="column"
       justifyContent="center"
@@ -537,7 +538,7 @@ const Bottom_content_footer = () => {
     }
   }
   return (
-    <Grid container className={classes.margintop}>
+    <Grid id="uso" container className={classes.margintop}>
       <Grid
         container
         direction="column"
