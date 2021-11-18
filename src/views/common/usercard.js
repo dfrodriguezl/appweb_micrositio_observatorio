@@ -15,7 +15,6 @@ import * as Values from "Observatorio/Variables/values";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import cardplataforma from "Observatorio/common/cardsplataforma";
 import Projections from "Observatorio/img/Projections.svg";
-import ejemplo from "Observatorio/files/EjemploPresentaciondeDatosObservatorioInmobiliario.xlsx";
 import Data from "Observatorio/img/Data-rafiki.svg";
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
@@ -186,9 +185,9 @@ const Cardsmapas = () => {
                                   download
                                 /> */}
                                 <button                                  
-                                ><a 
-                                href={ejemplo}
-                                download>Descargar</a></button>
+                            >
+                              <a href="/files/EjemploPresentaciondeDatosObservatorioInmobiliario.xlsx" download>File Template</a>
+                            </button>
                               </Grid>
                             </Grid>
                             <Grid direction="row" item container xs justifyContent="flex-start" alignItems="center">

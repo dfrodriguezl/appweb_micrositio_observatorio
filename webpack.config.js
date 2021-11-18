@@ -28,7 +28,7 @@ module.exports = {
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     publicPath: "/Observatorio/"
   },
@@ -73,7 +73,10 @@ module.exports = {
       },
       {
         test: /\.xlsx.?$/,
-        loader: 'excel-loader'
+        loader: 'file-loader',
+        options: {
+          name: `src/files/[name].[ext]`
+      }
       },
     ]
   },
