@@ -71,6 +71,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.xlsx.?$/,
+        loader: 'excel-loader'
+      },
     ]
   },
 
