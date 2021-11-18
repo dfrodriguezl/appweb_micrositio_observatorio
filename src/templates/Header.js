@@ -22,31 +22,39 @@ const useStyle = makeStyles({
         zIndex: 1000,
         top: 0,
         left: 0
-    },
-    titleObservatorio: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: "#821A3F",
-        marginTop: 10
-    },
-    subtitleObservatorio: {
-        fontSize: 25,
-        color: "#4C4C4C"
     }
-
 });
 
 const TextLogo = Styled.div`
-@media (max-width: 1300px) and (min-width: 769px) {
-    font-size:15px !important;
+
+`;
+
+const TextLogoTitle = Styled.div`
+font-size: 25px;
+font-weight: bold;
+color: #821A3F;
+margin-top: 10px;
+
+@media (max-width: 4000px) and (min-width: 769px) {
+    font-size:25px !important;
  }
  @media (max-width: 768px) {
-    font-size:10px !important;
+    font-size:20px !important;
  }
- @media (max-width: 680px) {
-    display:none;
+
+`
+const TextSubTitle = Styled.div`
+font-size:20px;
+color: #4C4C4C;
+
+@media (max-width: 4000px) and (min-width: 769px) {
+    font-size:20px !important;
  }
-`;
+ @media (max-width: 768px) {
+    font-size:15px !important;
+ }
+
+`
 
 const LogoObservatorio = Styled.img`
     height:80px;
@@ -87,10 +95,10 @@ const Header = () => {
                         <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                     </a>
                     <TextLogo xs={12} sm={12} >
-                        <div className={classes.titleObservatorio} >
+                        <TextLogoTitle >
                             Observatorio
-                        </div>
-                        <div className={classes.subtitleObservatorio} >Inmobiliario Nacional</div>
+                        </TextLogoTitle>
+                        <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
                     </TextLogo>
 
 

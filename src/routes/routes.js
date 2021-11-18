@@ -74,11 +74,11 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio/Acerca" component={About} />
           <Route exact path="/Observatorio/Servicios" component={Service} />
           <Route exact path="/Observatorio/Servicios/estadisticas" component={statistics} />
-          <Route exact path="/Observatorio/Servicios/RegistroInmuebles" component={RegisterEstate} />
+          <Route exact path="/Observatorio/Catastromultiproposito/RegistroInmuebles" component={RegisterEstate} />
           <Route exact path="/Observatorio/Catastromultiproposito" component={Catastro} />
           <Route exact path="/Observatorio/Otrosobservatorios" component={Otros} />
           <Route exact path="/Observatorio/Comitetecnico" component={Comite} />
-          <Route exact path="/Observatorio/Metodosavaluos" component={Avaluos} />
+          <Route exact path="/Observatorio/Catastromultiproposito/Metodosavaluos" component={Avaluos} />
           <Route exact path="/Observatorio/Tipologia" component={Tipologia} />
           <Route exact path="/Observatorio/Ceed" component={Ceed} />
           <Route exact path ="/Observatorio/Servicios/estadisticas/Ceed" component={Ceed01} />

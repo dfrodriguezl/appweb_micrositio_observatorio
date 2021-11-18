@@ -15,6 +15,7 @@ const ContenedorFooter= Styled.div`
         background-color: #FAFAFA;  
         padding-left:10px;
         padding-right:10px;   
+        padding-top:5%;
                 
 `;
 const H3 = Styled.h3`
