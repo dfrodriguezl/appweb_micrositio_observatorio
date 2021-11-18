@@ -51,7 +51,7 @@ const useStyle = makeStyles({
   },
 
   gridglobal: {
-    padding: "0 10vw 0 10vw",
+    padding: "0 10vw 3vw 10vw",
   },
 
   gridglobal2: {
@@ -65,6 +65,11 @@ const useStyle = makeStyles({
 
   margintop: {
     padding: "0 10vw 3vw 10vw",
+    backgroundColor: "#f4f4f4",
+  },
+
+  margintop1: {
+    padding: "0 14.5vw 3vw 14.5vw",
     backgroundColor: "#f4f4f4",
   },
 
@@ -113,13 +118,22 @@ const useStyle = makeStyles({
 
   imagen_top2: {
     width: "100%",
-    height: "35vh",
+    height: "42vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
     backgroundPosition: "initial",
     flexBasis: "100% !important",
     maxWidth: "100% !important",
+  },
+
+  imagen_top3: {
+    width: "100%",
+    height: "42vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${bloques})`,
+    backgroundPosition: "initial",
   },
 
   Titleh3: {
@@ -223,14 +237,24 @@ const useStyle = makeStyles({
 
 const Imagen = () => {
   const classes = useStyle();
-  const matches = useMediaQuery("(min-width:660px)");
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
   var estilo = null;
   {
-    matches ? (estilo = classes.imagen_top) : (estilo = classes.imagen_top2);
+    if (matches2) {
+      estilo = classes.imagen_top;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_top2;
+      } else {
+        estilo = classes.imagen_top3;
+      }
+    }
   }
   return (
     <Grid item container direction="column" xs={6} className={estilo}></Grid>
-  );
+  ); 
 };
 
 const ImagenNormativa = () => {
@@ -289,12 +313,12 @@ const Top_content = () => {
             facilitar la toma de decisiones relacionadas al Ordenamiento
             Territorial.
           </p>
-          <p className={classes.Textp}>
+          {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto
             Geográfico Agustín Codazzi - IGAC, que es la maxima autoridad
             catastral en la Nación y cuya información esta a disposición del
             público.
-          </p>
+          </p> */}
         </Grid>
         <Grid container>
           <ButtonRedWine Title="Acerca de" href="/Observatorio/Acerca" />
@@ -307,8 +331,13 @@ const Top_content = () => {
 
 const Center_content = () => {
   const classes = useStyle();
+  const matches = useMediaQuery("(min-width:431px)");
+  var estilo = null;
+  {
+    matches ? (estilo = classes.margintop) : (estilo = classes.margintop1);
+  }
   return (
-    <Grid container className={classes.margintop}>
+    <Grid container className={estilo}>
       <Grid
         container
         direction="column"
