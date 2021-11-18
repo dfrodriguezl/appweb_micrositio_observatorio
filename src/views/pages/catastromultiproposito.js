@@ -191,6 +191,7 @@ const ComparationModels = () =>{
       className={classes.margintop}
       justifyContent="center"
       alignItems="center"
+      id="comparacionModel"
     >
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>Comparación Modelos Catastrales</h3>
@@ -272,13 +273,13 @@ const ComparationModels = () =>{
           </p>
         </Grid>
       </Grid>
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid id="catastroRegulacion" container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
           Catastro para la Regularización de la Propiedad
         </h3>
       </Grid>
       <Imagenpng />
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid id="catastroTomaDeDecisiones" container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
           Catastro Multipropósito para la Toma de Decisiones
         </h3>
