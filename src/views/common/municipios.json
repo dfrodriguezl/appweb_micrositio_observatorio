@@ -9792,7 +9792,7 @@
     ]
   },
   {
-    "cod_dpto": 91,
+    "cod_dpto": "91",
     "cod_mpio": 91001,
     "nombre": "LETICIA",
     "bbox": [
@@ -9801,7 +9801,7 @@
     ]
   },
   {
-    "cod_dpto": 91,
+    "cod_dpto": "91",
     "cod_mpio": 91540,
     "nombre": "PUERTO NARIÑO",
     "bbox": [

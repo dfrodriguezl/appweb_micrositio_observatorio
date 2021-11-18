@@ -314,10 +314,10 @@ const [openModal, setOpenModal] = React.useState(false);
         }}
       >
         <div className={classes.drawerHeader}>
-          <img className={classes.logo} src= {logoObservatorio} />
+          <a href="/observatorio"><img className={classes.logo} src= {logoObservatorio} /></a>
           <Grid container className={classes.contenedorObservatorio} item xs={12} sm ={6}> 
               <Typography variant="body1" color="secondary">Observatorio</Typography> 
-              <Typography variant="body1" className={classes.nombre} color="initial">Inmobiliario Nacionál</Typography> 
+              <Typography variant="body1" className={classes.nombre} color="initial">Inmobiliario Nacional</Typography> 
           </Grid>
           <Grid container justifyContent='flex-end' item xs={12} sm ={6}>
              <a href= 'https://www.dane.gov.co/' target="_blank" >

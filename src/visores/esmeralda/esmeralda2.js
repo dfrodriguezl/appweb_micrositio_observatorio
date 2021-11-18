@@ -28,8 +28,8 @@ const esmeralda2 = () => {
         <div>
             <Drawer setPosition ={handlePosition}/>
             <Map position={position} bbox={bbox}/>
-            <DrawerRight/>
-            <DrawerBottom/>
+            {/*<DrawerRight/>
+            <DrawerBottom/>*/}
         </div>
      );
 }
