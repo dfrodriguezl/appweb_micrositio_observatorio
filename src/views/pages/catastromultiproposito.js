@@ -2,6 +2,9 @@ import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
+import Transfer from "Observatorio/img/Transfer.svg";
+import ImgPng from "Observatorio/img/Captura.svg";
+import Business from "Observatorio/img/Business.svg";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -23,6 +26,25 @@ const useStyle = makeStyles({
          flexBasis: "100% !important",
          maxWidth: "100% !important",
       },
+      imagen_Business:{    
+        width: "100% !important",
+        height: "40vh",
+        backgroundSize: "85%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${Business})`,       
+        backgroundPosition: "center",
+         
+      },    
+      imagen_Business2:{     
+         width: "100%",
+         height: "50vh",
+         backgroundSize: "100%",
+         backgroundRepeat: "no-repeat",
+         backgroundImage: `url(${Business})`,       
+         backgroundPosition: "center center",
+         flexBasis: "100% !important",
+         maxWidth: "100% !important",
+      },
       gridglobal:{
         padding: "0 10vw 3vw 10vw",        
       },
@@ -32,14 +54,89 @@ const useStyle = makeStyles({
         fontWeight: "bold",
         fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,
+        textAlign: "center",
+      },
+      textStyle: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        padding: "0 1vw 0 1vw",
+      },
+      textStyle2: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
       },
       contentrulesp:{
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "justify",  
-        margin:"1em 0 0 0", 
+        margin:"1em 0 1em 0", 
       }, 
+      num: {
+        backgroundColor: "#4c4c4c",
+        borderRadius: "50%",
+        textAlign: "center",
+        color: Values.TextButton,
+        fontFamily: Values.SourceWorksans,
+        fontWeight: "bold",
+        fontSize: Values.SizeSubtitle,
+        width: "3.5rem",
+        height: "3.5rem",
+        padding: "1vh 2vh",
+      },
+      margintop: {
+        padding: "0 10vw 3vw 10vw",
+        backgroundColor: "#f4f4f4",
+      },
+      imagen_transfer:{    
+        width: "100% !important",
+        height: "40vh",
+        backgroundSize: "85%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${Transfer})`,       
+        backgroundPosition: "center",
+         
+      },   
+      imagen_transfer2:{     
+        width: "100%",
+        height: "50vh",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${Transfer})`,       
+        backgroundPosition: "center center",
+        flexBasis: "100% !important",
+        maxWidth: "100% !important",
+     },
+
+     imagen_png:{    
+      width: "100% !important",
+      height: "40vh",
+      backgroundSize: "85%",
+      backgroundRepeat: "no-repeat",
+      backgroundImage: `url(${ImgPng})`,       
+      backgroundPosition: "center",
+       
+    },   
+    imagen_png2:{     
+      width: "100%",
+      height: "50vh",
+      backgroundSize: "100%",
+      backgroundRepeat: "no-repeat",
+      backgroundImage: `url(${ImgPng})`,       
+      backgroundPosition: "center center",
+      flexBasis: "100% !important",
+      maxWidth: "100% !important",
+   },
+     texto:{
+      color: Values.Redwinecolor,
+      fontFamily: Values.SourceRoboto,
+      fontWeight: "bold",
+      fontSize: Values.SizeSubtitle,
+      padding: "0 0 1em 0",
+      textAlign: "center",
+     },
 })
 
 const Imagen = () => {
@@ -53,12 +150,206 @@ const Imagen = () => {
     )  
   } 
 
+  const ImagenBusiness = () => {
+    const classes = useStyle();
+    const matches = useMediaQuery('(min-width:769px)');
+    var estilo = null;
+    {matches ? estilo=classes.imagen_Business :estilo=classes.imagen_Business2}   
+    return(
+      <Grid item container xs={4} className={estilo}>   
+      </Grid>  
+    )  
+  }
+
+  const ImagenTransfer = () => {
+    const classes = useStyle();
+    const matches = useMediaQuery('(min-width:769px)');
+    var estilo = null;
+    {matches ? estilo=classes.imagen_transfer :estilo=classes.imagen_transfer2}   
+    return(
+      <Grid item container xs={4} className={estilo}>   
+      </Grid>  
+    )  
+  } 
+
+  const Imagenpng = () => {
+    const classes = useStyle();
+    const matches = useMediaQuery('(min-width:769px)');
+    var estilo = null;
+    {matches ? estilo=classes.imagen_png :estilo=classes.imagen_png2}   
+    return(
+      <Grid item container xs={4} className={estilo}>   
+      </Grid>  
+    )  
+  } 
+
+const ComparationModels = () =>{
+  const classes = useStyle();
+  return (
+    <Grid
+      container
+      className={classes.margintop}
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Grid container justifyContent="center" alignItems="center">
+        <h3 className={classes.titleStyle}>Comparación Modelos Catastrales</h3>
+      </Grid>
+      <ImagenTransfer />
+      <Grid container direction="row">
+        <Grid container item xs>
+          <Grid container justifyContent="center">
+            <p className={classes.texto}>Modelo Catastral Anterior</p>
+          </Grid>
+          <p className={classes.textStyle}>
+            1. Esquema Anterior: IGAC - Desentralizacos - Delegados.
+            <br />
+            2. Delegados Disminución del presupuesto a Entidades Centralizadas.
+            <br />
+            3. Asimetria de Información.
+            <br />
+            4. Rezago en la actualización de la Base Gravable.
+            <br />
+            5. Disminución en la frecuencia de actualización de Catastros.
+            <br />
+            6. Percepción negativa por parte de las ET y entidades de orden
+            nacional respecto de la actual estrategia catastral, en especial
+            sobre el rol del IGAC.
+            <br />
+            7. Aproximaciones insostenibles del Multipróposito.
+            <br />
+            8. Desarticulación con Registro.
+            <br />
+            9. Baja Calidad Servicio al Ciudadano.
+            <br />
+            10. Baja Capacidad Técnica.
+            <br />
+            11. Desarticulación con Catastros.
+            <br />
+            12. Sin Registro de la Informalidad.
+            <br />
+            13. Metodología de Alto Costo.
+          </p>
+        </Grid>
+        <Grid container item xs>
+          <Grid container justifyContent="center">
+            <p className={classes.texto}>Premisas Catastro Multipróposito</p>
+          </Grid>
+          <p className={classes.textStyle}>
+            1. Nuevo esquema de desentralización.
+            <br />
+            2. Estructura Funcional y operativa colaborativa.
+            <br />
+            3. Modelo de operación mas eficiente.
+            <br />
+            4. Acciones transformacionales
+            <br />
+            5. Ajustes Normativos
+            <br />
+            6. Cambio de Módelo de Operación
+            <br />
+            7. Apertura Metodológica y Tecnológica
+            <br />
+            8. Simplificación en los Procesos
+            <br />
+            9. Esquemas Sostenibles
+            <br />
+            10. Seguridad Jurídica
+            <br />
+            11. Habilitación de Hestores Catastrales
+            <br />
+            12. Integración Catastro - Registro
+            <br />
+            13. Numero Unico Predial Registral - NUPRE
+            <br />
+            14. Repositorio de datos maestros basados en LADM
+            <br />
+            15. Sistema de Adminsitracion de Tierras - SAT
+            <br />
+            16. Mercado formal de Tierras
+            <br />
+            17. Simplificación de Tramites
+          </p>
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center">
+        <h3 className={classes.titleStyle}>
+          Catastro para la Regularización de la Propiedad
+        </h3>
+      </Grid>
+      <Imagenpng />
+      <Grid container justifyContent="center" alignItems="center">
+        <h3 className={classes.titleStyle}>
+          Catastro Multipropósito para la Toma de Decisiones
+        </h3>
+      </Grid>
+      <Grid container direction="row">
+        <ImagenBusiness />
+          <Grid item container xs>
+            <p className={classes.contentrulesp}>
+              La implementación de la Política de Catastro Multipropósito
+              permitira obtener una línea base de información estrátegica del
+              territorio, fundamental para la toma de decisiones y el diseño de
+              políticas públicas rápidas y efectivas para la reconstrucción del
+              tejido social y económico del país.
+            </p>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Grid container item xs={1}>
+              <h1 className={classes.num}>1</h1>
+              </Grid>
+              <Grid container item xs>
+              <p className={classes.textStyle2}>
+                Planificación Territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el Territorio
+              </p>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Grid container item xs={1}>
+              <h1 className={classes.num}>2</h1>
+              </Grid>
+              <Grid container item xs>
+              <p className={classes.textStyle2}>
+              Resiliencia: Superación ante la adversidad, recosntruccion del Tejido Social, Activación Económica
+              </p>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Grid container item xs={1}>
+              <h1 className={classes.num}>3</h1>
+              </Grid>
+              <Grid container item xs>
+              <p className={classes.textStyle2}>
+              Situaciones de Emergencia: Formulación de políticas públicas rápidas y efectivas para mitigar el riesgo ante contingencias.
+              </p>
+              </Grid>
+            </Grid>
+          </Grid>
+      </Grid>
+      <Grid />
+    </Grid>
+  );
+}
+
 const Catastro = () => {
     const classes = useStyle();
     return(
         <Grid container direction="column" className={classes.gridglobal}>
-            <Grid container justifyContent="center"
-        alignItems="center">
+            <Grid container justifyContent="center" alignItems="center">
                     <h3 className={classes.titleStyle}>Catastro Multipropósito</h3>
             </Grid>
             <Grid container direction="row">
@@ -102,9 +393,18 @@ const Catastro = () => {
                 <p className={classes.contentrulesp}>
                     Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
                 </p>  
-            </Grid>
+            </Grid>            
         </Grid>  
     )
 }
 
-export default Catastro;
+const General = () => {
+  return(
+      <Grid container>
+        <Catastro/>
+        <ComparationModels/>        
+      </Grid>
+  )
+}
+
+export default General;

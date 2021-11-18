@@ -16,7 +16,8 @@
             "Observatorio/Variables": "./src/Variables",
             "Observatorio/routes": "./src/routes",
             "Observatorio/templates": "./src/templates",
-            "Observatorio/visores/esmeralda":"./src/visores/esmeralda"
+            "Observatorio/visores/esmeralda":"./src/visores/esmeralda",
+            "Observatorio/files":"./src/files"
           }
         }]
       ]
