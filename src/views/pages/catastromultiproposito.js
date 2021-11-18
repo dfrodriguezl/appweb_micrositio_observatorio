@@ -112,23 +112,30 @@ const useStyle = makeStyles({
 
      imagen_png:{    
       width: "100% !important",
-      height: "40vh",
-      backgroundSize: "85%",
+      height: "95vh",
+      backgroundSize: "69%",
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${ImgPng})`,       
-      backgroundPosition: "center",
-       
+      backgroundPosition: "center",       
     },   
     imagen_png2:{     
       width: "100%",
-      height: "50vh",
-      backgroundSize: "100%",
+      height: "65vh",
+      backgroundSize: "102%",
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${ImgPng})`,       
       backgroundPosition: "center center",
       flexBasis: "100% !important",
       maxWidth: "100% !important",
    },
+   imagen_png3:{    
+    width: "100% !important",
+    height: "95vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${ImgPng})`,       
+    backgroundPosition: "center",       
+  },   
      texto:{
       color: Values.Redwinecolor,
       fontFamily: Values.SourceRoboto,
@@ -173,14 +180,27 @@ const Imagen = () => {
   } 
 
   const Imagenpng = () => {
-    const classes = useStyle();
-    const matches = useMediaQuery('(min-width:769px)');
-    var estilo = null;
-    {matches ? estilo=classes.imagen_png :estilo=classes.imagen_png2}   
-    return(
-      <Grid item container xs={4} className={estilo}>   
-      </Grid>  
-    )  
+    const classes = useStyle();    
+
+  const matches = useMediaQuery("(max-width:769px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_png;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_png2;
+      } else {
+        estilo = classes.imagen_png3;
+      }
+    }
+  }
+  return(
+    <Grid item container xs={12} className={estilo}>   
+    </Grid>  
+  ) 
   } 
 
 const ComparationModels = () =>{
