@@ -48,6 +48,12 @@ const useStyle = makeStyles({
       gridglobal:{
         padding: "0 10vw 3vw 10vw",        
       },
+      circule:{
+        margin: "0 0.5em 0 0vw",
+        maxWidth: "17% !important",
+        flexBasis: "8.333333% !important",        
+      },
+      
       titleStyle:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
@@ -319,7 +325,7 @@ const ComparationModels = () =>{
               justifyContent="flex-start"
               alignItems="center"
             >
-              <Grid container item xs={1}>
+              <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>1</h1>
               </Grid>
               <Grid container item xs>
@@ -334,7 +340,7 @@ const ComparationModels = () =>{
               justifyContent="flex-start"
               alignItems="center"
             >
-              <Grid container item xs={1}>
+              <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>2</h1>
               </Grid>
               <Grid container item xs>
@@ -349,7 +355,7 @@ const ComparationModels = () =>{
               justifyContent="flex-start"
               alignItems="center"
             >
-              <Grid container item xs={1}>
+              <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>3</h1>
               </Grid>
               <Grid container item xs>
