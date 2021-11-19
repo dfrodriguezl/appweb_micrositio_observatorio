@@ -10,6 +10,9 @@ const useStyle = makeStyles({
       padding: "0 0 5% 0",
       backgroundColor:"#f4f4f4",
     },
+    listyle:{
+      paddingLeft:"0.6em"
+    },
     containerTitle:{
       minHeight: "13vh"
     },
@@ -31,12 +34,22 @@ const useStyle = makeStyles({
       padding: "0 10vw 3vw 10vw",
       
     },
+    gridglobalmovil:{
+      padding: "0 5vw 3vw 5vw",
+      
+    },
     contentrulesp:{
       color: Values.TextParagraph,
       fontFamily: Values.SourceRoboto,
-      fontSize: Values.SizeText,
-      textAlign: "justify",  
+      fontSize: Values.SizeText, 
       margin:"1em 0 0 0",
+    }, 
+    contentrulesp2:{
+      color: Values.TextParagraph,
+      fontFamily: Values.SourceRoboto,
+      fontSize: Values.SizeText, 
+      margin:"1em 0 0 0",
+      paddingLeft:"1em"
     }, 
     imagen_top:{    
       width: "100% !important",
@@ -103,9 +116,14 @@ const ImagenJudge = () => {
 
 const Comite = () => {
   const classes = useStyle();
+  const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
   return(      
-      <Grid container direction="column">
-          <Grid container direction="row" className={classes.gridglobal}>
+      <Grid container direction="column"  className={estilo}>
+          <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
                   <h3 className={classes.titleStyle}>Comité Técnico Asesor</h3>
               </Grid>
@@ -113,21 +131,17 @@ const Comite = () => {
               <p className={classes.contentrulesp}>
                 Acorde al Decreto 148 de 2020, e-l Comite Técnico Asesor es la Instancia Técnica Asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la Gestión Catastral, presentadas por el Instituto Geográfico Agustin Codazzi - IGAC, entre sus funciones estan:
               </p>        
-              <p className={classes.contentrulesp}>
-                    1. Velar por la idoneidad de las propuestas presentadas por el IGAC
-                    <br/>
-                    2. Recomendar el ajuste de las propuestas presentadas por el IGAC
-                    <br/>
-                    3. Emitir conceptos a favor o en contra acerca de lad propuestas presentadas por el IGAC
-                    <br/>
-                    4. Dar concepto sobre el uso de insumos cartográficos que esten pro fuera del rango de temporalidad y especificaciones técnicas.
-                    <br/>
-                    5. Las demas establecidad en el Comité
-              </p>        
+              <ol className={classes.contentrulesp2}>
+                    <li className={classes.listyle}>Velar por la idoneidad de las propuestas presentadas por el IGAC</li>
+                    <li className={classes.listyle}>Recomendar el ajuste de las propuestas presentadas por el IGAC</li>
+                    <li className={classes.listyle}>Emitir conceptos a favor o en contra acerca de lad propuestas presentadas por el IGAC</li>
+                    <li className={classes.listyle}>Dar concepto sobre el uso de insumos cartográficos que esten pro fuera del rango de temporalidad y especificaciones técnicas.</li>
+                    <li className={classes.listyle}>Las demas establecidad en el Comité</li>
+              </ol>        
               </Grid>
               <Imagen/> 
           </Grid>
-          <Grid container direction="row" className={classes.gridglobal}>
+          <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
                   <h3 className={classes.titleStyle2}>Composición del Comité Técnico Asesor</h3>
               </Grid>
@@ -136,17 +150,13 @@ const Comite = () => {
               <p className={classes.contentrulesp}>
                     El Comité Técnico Asesor esta compuesto por:
                     </p>  
-                    <p className={classes.contentrulesp}>
-                    1. Director/a del Departamento Administrativo Nacional de Estadística - DANE, quien presidira dicho comité.
-                    <br/>    
-                    2. Director/a Técnico/a de Registro ó Superintendente delegado de tierras de la Superintendencia de Notariado y Registro - SNR ó su delegado/a de nivel Asesor.
-                    <br/>    
-                    3. Director/a Técnico/a de Geoestadística del  DANE o su delegado/a de nivel Asesor, tiene como labor exclusiva la Secretaría Técnica del Comité y la disposición de los medios logisticos y operativos.
-                    <br/>    
-                    4. Dos expertos/as internacionales
-                    <br/>    
-                    5. Dos expertos/as nacionales
-                    </p>  
+                    <ol className={classes.contentrulesp2}>
+                    <li className={classes.listyle}>Director/a del Departamento Administrativo Nacional de Estadística - DANE, quien presidira dicho comité.</li>
+                    <li className={classes.listyle}>Director/a Técnico/a de Registro ó Superintendente delegado de tierras de la Superintendencia de Notariado y Registro - SNR ó su delegado/a de nivel Asesor.</li> 
+                    <li className={classes.listyle}>Director/a Técnico/a de Geoestadística del  DANE o su delegado/a de nivel Asesor, tiene como labor exclusiva la Secretaría Técnica del Comité y la disposición de los medios logisticos y operativos.</li>
+                    <li className={classes.listyle}>Dos expertos/as internacionales</li>                      
+                    <li className={classes.listyle}>Dos expertos/as nacionales</li>
+                    </ol>  
                     <p className={classes.contentrulesp}>
                     Para la seleccion de los expertos nacionales e internacionales, el DANE definira los criterios de seleccion que considere propicios para el desenvolvimiento de sus labores dentro del comité.
                     </p>         

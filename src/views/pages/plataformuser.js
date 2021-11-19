@@ -7,7 +7,10 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 const useStyle = makeStyles({
     
     gridglobal:{
-        padding: "0 10% 0 10%",
+        padding: "0 10vw 0 10vw",
+      },
+      gridglobalmovil:{
+        padding: "0 5vw 0 5vw",
       },
     
     Titleh3:{
@@ -35,9 +38,7 @@ const useStyle = makeStyles({
   //       backgroundPositionY: "25%",    
   //  },
  
-   gridglobal:{
-    padding: "0 10vw 2vw 10vw",    
-  },
+   
 
   //  imagen_top2:{     
   //        width: "100%",
@@ -67,9 +68,14 @@ const Topobservatorio = () => {
 
 const otrosobservatorios = () => {
     const classes = useStyle(); 
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={classes.gridglobal}>
+        alignItems="center"  className={estilo}>
             <Topobservatorio/>
             <Cardsformulario/>
         </Grid>

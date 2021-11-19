@@ -7,6 +7,9 @@ const useStyle = makeStyles({
   gridglobal: {
     padding: "0 10vw 2vw 10vw",
   },
+  gridglobalmovil: {
+    padding: "0 5vw 2vw 5vw",
+  },
   contentrulesp2: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
@@ -24,7 +27,7 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "justify",
+    // textAlign: "justify",
     margin: "1em 0 0 0",
   },
   num: {
@@ -109,8 +112,13 @@ const useStyle = makeStyles({
 
 const avaluos = () => {
   const classes = useStyle();
+  const matches = useMediaQuery("(min-width:769px)");
+  var estilo = null;
+  {
+    matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+  }
   return (
-    <Grid container direction="column" className={classes.gridglobal}>
+    <Grid container direction="column" className={estilo}>
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
           Métodos para el Cálculo de Avalúos

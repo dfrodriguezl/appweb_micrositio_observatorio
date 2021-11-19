@@ -7,10 +7,10 @@ const useStyle = makeStyles({
     containerImg:{
         width: "100%",
         height: "80vh",
-        backgroundSize: "100%",
+        backgroundSize: "54%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${notfound})`,    
-        backgroundPosition: "initial",
+        backgroundPosition: "center",
       },
 
       containerImg2:{
@@ -23,7 +23,10 @@ const useStyle = makeStyles({
       },
 
       global:{
-        padding:"0 10% 0 10%",
+        padding:"0 10vw 0 10vw",
+      },
+      globalmovil:{
+        padding:"0 5vw 0 5vw",
       },
       titleStyle:{
         color: Values.Redwinecolor,
@@ -42,7 +45,7 @@ const Imgnotfound = () => {
      var estilo = null;
     {matches ? estilo=classes.containerImg:estilo=classes.containerImg2} 
      return(
-       <Grid item container direction="column" xs={6} className={estilo}>           
+       <Grid item container direction="column" xs={12} className={estilo}>           
        </Grid>
        
      );
@@ -64,8 +67,13 @@ const Imgnotfound = () => {
 
 const Notfound = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.global:estilo=classes.globalmovil
+    }
     return(
-     <Grid item container className={classes.global} justifyContent="center"
+     <Grid item container className={estilo} justifyContent="center"
      alignItems="center">
        <Mensajenotfound/>
        <Imgnotfound/>
