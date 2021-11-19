@@ -59,7 +59,7 @@ const useStyle = makeStyles({
         padding: "0 10vw 0 10vw",
     },
     TextFieldWidth: {
-        width: 400
+        width: "100%"
     },
     imagen_top2: {
         width: "100%",
@@ -75,24 +75,35 @@ const useStyle = makeStyles({
         right: 80
     },
     imageTop: {
+        width: "100%",
+        padding: "20px",
+        marginTop:"30px",
+        zIndex:-1
+    },
+    imageTop02: {
         width: 400,
         padding: "20px",
         marginTop:"30px",
         zIndex:-1
+    },
+    TextFieldWidth02:{
+        width:400
     }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
-    const matches = useMediaQuery('(min-width:769px)');
+    const matches = useMediaQuery('(max-width:769px)');
+    let image = matches ? classes.imageTop : classes.imageTop02
     return (
-        <img src={ImageCeed} className={classes.imageTop} />
+        <img src={ImageCeed} className={image} />
 
     )
 }
 
 const TopCeed = () => {
     const classes = useStyle();
+    
     return (
         <Grid container direccion="row" >
             <Grid item xs={12} sm={6} md={6} lg={6}>
@@ -109,7 +120,7 @@ const TopCeed = () => {
                 </Grid>
             </Grid>
             <Grid xs={12} sm={6} md={6} lg={6} item>
-                <ImagenBottom />
+            <ImagenBottom />
             </Grid>
 
         </Grid>
@@ -119,6 +130,8 @@ const TopCeed = () => {
 
 const Form = () => {
     const classes = useStyle()
+    const matches = useMediaQuery('(max-width:769px)');
+    let TextFieldWidth = matches ? classes.TextFieldWidth : classes.TextFieldWidth02
     return (
         <Grid container direction="column" spacing={2}>
             <Grid container item
@@ -146,7 +159,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Nombre" />
+                    <TextField className={TextFieldWidth} id="outlined-basic" label="Nombre" />
                 </Grid>
             </Grid>
             <Grid container item direction="row">
@@ -156,7 +169,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Correo" />
+                    <TextField className={TextFieldWidth} id="outlined-basic" label="Correo" />
                 </Grid>
             </Grid>
             <Grid container item>
@@ -169,7 +182,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Cargo" />
+                    <TextField className={TextFieldWidth} id="outlined-basic" label="Cargo" />
                 </Grid>
             </Grid>
             <Grid container item direction="row">
@@ -179,7 +192,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={classes.TextFieldWidth} id="outlined-basic" label="Dependencia" />
+                    <TextField className={TextFieldWidth} id="outlined-basic" label="Dependencia" />
                 </Grid>
             </Grid>
             <Grid container item direction="row">
@@ -188,7 +201,7 @@ const Form = () => {
                         Gestor Catastral
                     </Typography>
                 </Grid>
-                <Box sx={{ minWidth: 400 }}>
+                <Box className={TextFieldWidth}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Gestor catastro</InputLabel>
                         <Select
@@ -266,7 +279,7 @@ const Form = () => {
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
                     <TextField
-                        className={classes.TextFieldWidth}
+                        className={TextFieldWidth}
                         id="outlined-multiline-static"
                         label="objetivo"
                         multiline

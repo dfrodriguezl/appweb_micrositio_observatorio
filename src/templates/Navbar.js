@@ -10,7 +10,9 @@ import {
 } from '@material-ui/core/styles';
 import Styled from "styled-components";
 import menuDane from "Observatorio/common/newmenu.js"
-import SideBarComponent from "./Sidebar.js"
+import SideBarComponent from "./newsidebar.js"
+import * as Values from 'Observatorio/Variables/values';
+import { Button  } from '@material-ui/core';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ButtonRedWine from "Observatorio/common/buttonredwine";
@@ -113,7 +115,25 @@ const useStyle = makeStyles({
   },
   rotate: {
     transform: "rotate(180deg)"
-  }
+  },
+  boton: {
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop:"4px",
+    width: "max-content",
+    fontSize: "calc(0.7em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    "&:hover":{
+        backgroundColor: Values.HoverButton,
+        border:"none",
+    }
+}
 });
 
 
@@ -146,6 +166,7 @@ const NavBarContenedor = Styled.ul`
     display:flex;
     justify-content: center;
     margin: 0px 0;
+    height:40px;
     width: 100%;
     list-style: none;
     @media (max-width: 768px) {
@@ -192,14 +213,15 @@ display: none;
 position: absolute;
 background-color: #F2F2F2;
 width: 300px;
+font-size:calc(0.5em + 1vh);
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 z-index: 1;
-left:2px;
-top:55px;
+top:40px;
+left:0px;
 `;
 const SubMenuA = Styled.a`
    color: #969393;
-  padding: 12px 16px;
+  padding: 10px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -210,7 +232,7 @@ const SubMenuA = Styled.a`
 
 const SubMenuASub = Styled.a`
    color: #969393;
-  padding: 12px 16px;
+  padding: 10px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -235,7 +257,7 @@ const DropDownLi = Styled(MenuIL)`
         
     } */
   `;
-const Navbar = () => {
+const Navbar = ({sideBarOpen}) => {
   const classes = useStyle();
   const [menuActive, setMenuActive] = useState(
     {
@@ -258,12 +280,12 @@ const Navbar = () => {
     }
   )
   const [position, setMoveMenu] = useState(null)
-  const [sideBarOpen, setSideBarOpen] = useState(false)
+ 
   function handleChangeMenuActive(event) {
 
     let name = event.name
     for (const key in menuActive) {
-      menuActive[key].value = false
+       menuActive[key].value = false
     }
     menuActive[name].value = true
     setMenuActive({
@@ -283,21 +305,18 @@ const Navbar = () => {
     setMoveMenu(null)
 
   }
-  function setOpenSideBar() {
-    setSideBarOpen(!sideBarOpen)
-  }
+
 
   useEffect(() => {
 
   }, []);
 
   let result = []
-  console.log(menuDane)
   if (position != null) {
     let subResult = []
     menuDane[position].map((data) => {
       if (data.isMain) {
-        subResult.push(<SubMenuA href={data.link}><strong>{data.name}</strong></SubMenuA>)
+        subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
       } else {
         subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
       }
@@ -385,19 +404,6 @@ const Navbar = () => {
   return (
     <Grid container onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={12} sm={12} className={classes.cardglobal}>
-        <SideBarContener>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={setOpenSideBar}
-            sx={{ mr: 5 }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-        </SideBarContener>
         <NavBarContenedor>
           <DropDownLi onMouseEnter={handleStatusFalseAll} className={classes.liHover}  >
             <UtilidadCentrarTexto>
@@ -420,6 +426,7 @@ const Navbar = () => {
                   <MenuA href="/Observatorio">Observatorio </MenuA>
                   {result}
                 </UtilidadCentrarTexto>
+               
                 </DropDownLi>
                 :
                 <DropDownLi onMouseEnter={() => {
@@ -433,7 +440,7 @@ const Navbar = () => {
                 </UtilidadCentrarTexto>
                 </DropDownLi>
             }
-         
+       
          
 
             {
@@ -520,7 +527,9 @@ const Navbar = () => {
           }
 
           <li onMouseEnter={handleStatusFalseAll} >
-            <ButtonRedWine Title="Ingresar" href="/ObservatorioServicios/estadisticas" />
+            
+
+            <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>
           </li>
         </NavBarContenedor>
       </Grid>
@@ -528,15 +537,6 @@ const Navbar = () => {
         sideBarOpen ?
           <SideBarComponent></SideBarComponent>
           : null
-      }
-      {/*
-        position == 0 || position ?
-          <div 
-            className={classes.menuActive}
-          >
-            {result}
-          </div>
-          : null*/
       }
 
     </Grid>

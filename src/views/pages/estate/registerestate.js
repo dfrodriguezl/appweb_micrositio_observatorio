@@ -180,9 +180,19 @@ const ImageSectionThree = Styled.img`
     text-align:center;
   };
   @media (max-width: 768px) {
-    max-width:400;
-    width:400px;
+    width:100%;
     text-align:center;
+  };
+
+`
+
+const ImageSectionFour = Styled.img`
+
+@media (max-width: 4000px) and (min-width: 769px) {
+      width:500px;
+  };
+  @media (max-width: 768px) {
+    width:100%;
   };
 
 `
@@ -298,7 +308,7 @@ const SectionFour = () => {
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
-                <img src={DataExtration} className={classes.DataExtration}></img>
+                <ImageSectionFour src={DataExtration}></ImageSectionFour>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
                 <Typography className={classes.Textp}>
@@ -340,8 +350,8 @@ const Cardsservice = () => {
     const classes = useStyle();
     return (
         <Grid container>
-            <SectionOne ></SectionOne>
-            <SectionTwo></SectionTwo>
+            <SectionOne></SectionOne>
+          <SectionTwo></SectionTwo>
             <SectionThree></SectionThree>
             <SectionFour></SectionFour>
 
