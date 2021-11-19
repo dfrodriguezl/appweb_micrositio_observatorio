@@ -9,7 +9,7 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 const useStyle = makeStyles({
 
     gridglobal: {
-        padding: "0 10% 0 10%",
+        padding: "0 10vw 0 10vw",
     },
 
     Titleh3: {
@@ -37,8 +37,8 @@ const useStyle = makeStyles({
         backgroundPositionY: "20%",
     },
 
-    gridglobal: {
-        padding: "0 10vw 0 10vw",
+    gridglobalmovil: {
+        padding: "0 5vw 0 5vw",
     },
 
     imagen_top2: {
@@ -96,9 +96,13 @@ const Contacto = () => {
     const matches = useMediaQuery('(max-width:769px)');
     let image = matches ? classes.ImageContact02 : classes.ImageContact
     let textFieldStyle = matches ? classes.TextFieldStyle: classes.TextFieldStyle02
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-            alignItems="center" className={classes.gridglobal}>
+            alignItems="center" className={estilo}>
             <TopContacto />
             <Grid container spacing={2} direction="row">
 

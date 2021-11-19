@@ -8,9 +8,7 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
     
-    gridglobal:{
-        padding: "0 10% 0 10%",
-      },
+    
     
     Titleh3:{
         color: Values.Redwinecolor,
@@ -38,6 +36,9 @@ const useStyle = makeStyles({
  
    gridglobal:{
     padding: "0 10vw 0 10vw",    
+  },
+  gridglobalmovil:{
+    padding: "0 5vw 3vw 5vw",        
   },
 
    imagen_top2:{     
@@ -88,9 +89,14 @@ const Topmaps = () => {
 
 const maps = () => {
     const classes = useStyle(); 
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={classes.gridglobal}>
+        alignItems="center"  className={estilo}>
             <Topmaps/>
             <CardsMaps/>
         </Grid>

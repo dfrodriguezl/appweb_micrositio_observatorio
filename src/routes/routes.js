@@ -86,6 +86,9 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio" component={ContentGrid} />
           <Route exact path="/Observatorio/login" component={Access} />
           <Route exact path="/Observatorio/register" component={Register} />
+          <Route exact path="/">
+            <Redirect to="/Observatorio" />
+          </Route>
           <Route path="/Observatorio/404" component={Notfound} />          
           <Route path="*">
             <Redirect to="/Observatorio/404" />

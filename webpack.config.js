@@ -30,7 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: "/Observatorio/"
   },
 
   module: {
@@ -72,8 +72,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.xlsx.?$/,
-        loader: 'excel-loader'
+        test: /\.(xlsx|docx).?$/,
+        loader: 'file-loader',
+        options: {
+          name: `src/files/[name].[ext]`
+      }
       },
     ]
   },

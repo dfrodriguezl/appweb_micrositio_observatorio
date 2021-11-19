@@ -54,8 +54,8 @@ const useStyle = makeStyles({
     padding: "0 10vw 3vw 10vw",
   },
 
-  gridglobal2: {
-    padding: "0 10vw 3vw 10vw",
+  gridglobalmovil: {
+    padding: "0 5vw 3vw 5vw",
   },
 
   marginbuttom: {
@@ -87,6 +87,14 @@ const useStyle = makeStyles({
     fontSize: Values.SizeText,
     textAlign: "center",
     padding: "0 0 0 0.3vw",
+  },
+
+  textStyle3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,    
+    padding: "0 1vw 0 1vw",
+    width:"51%"
   },
 
   titleStyle: {
@@ -297,8 +305,13 @@ const ImagenBottom = () => {
 
 const Top_content = () => {
   const classes = useStyle();
+  const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
   return (
-    <Grid container direction="row" className={classes.gridglobal}>
+    <Grid container direction="row" className={estilo}>
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
       </Grid>
@@ -445,6 +458,11 @@ const Center_content = () => {
 
 const Bottom_content = () => {
   const classes = useStyle();
+  const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
   return (
     <Grid
     id="Normativa"
@@ -452,7 +470,7 @@ const Bottom_content = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      className={(classes.marginbuttom, classes.gridglobal2)}
+      className={(classes.marginbuttom, estilo)}
     >
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
@@ -527,14 +545,18 @@ const Bottom_content_footer = () => {
   const matches = useMediaQuery("(min-width:1281px)");
   const matches2 = useMediaQuery("(max-width:769px)");
   var estilo = null;
+  var estilo2 = null;
   console.log({ matches2 });
   if (matches) {
     estilo = classes.imagen_uso;
+    estilo2 = classes.textStyle;
   } else {
     if (matches2) {
       estilo = classes.containerImgNone;
+      estilo2 = classes.textStyle3;
     } else {
       estilo = classes.imagen_uso2;
+      estilo2 = classes.textStyle;
     }
   }
   return (
@@ -558,7 +580,7 @@ const Bottom_content_footer = () => {
           alignItems="center"
         >
           <h1 className={classes.num}>1</h1>
-          <p className={classes.textStyle}>Seguimiento dinamica inmobiliaria</p>
+          <p className={estilo2}>Seguimiento dinamica inmobiliaria</p>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -615,7 +637,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>2</h1>
-          <p className={classes.textStyle}>
+          <p className={estilo2}>
             Integración información estadística
           </p>
         </Grid>
@@ -627,7 +649,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>3</h1>
-          <p className={classes.textStyle}>Publicidad de datos oficiales</p>
+          <p className={estilo2}>Publicidad de datos oficiales</p>
         </Grid>
         <Grid
           container
@@ -637,7 +659,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={classes.textStyle}>Fuente de investigaciónes</p>
+          <p className={estilo2}>Fuente de investigaciónes</p>
         </Grid>
       </Grid>
     </Grid>

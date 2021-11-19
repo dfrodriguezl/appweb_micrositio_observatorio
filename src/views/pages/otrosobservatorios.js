@@ -6,10 +6,10 @@ import App from "Observatorio/img/App.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
-    
-    gridglobal:{
-        padding: "0 10% 0 10%",
-      },
+  listyle:{
+    paddingLeft:"0.6em"
+  },
+   
     
     Titleh3:{
         color: Values.Redwinecolor,
@@ -26,9 +26,18 @@ const useStyle = makeStyles({
         margin: "1em 0 0 0",
       },
 
+      Textp2:{
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "start",  
+        margin: "1em 0 0 0",
+        paddingLeft:"1em"
+      },
+
       imagen_top:{    
         width: "100% !important",
-        height: "57vh",
+        height: "50vh",
         backgroundSize: "70%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${App})`,       
@@ -38,6 +47,9 @@ const useStyle = makeStyles({
  
    gridglobal:{
     padding: "0 10vw 0 10vw",    
+  },
+  gridglobalmovil:{
+    padding: "0 5vw 2vw 5vw",    
   },
 
    imagen_top2:{     
@@ -75,19 +87,14 @@ const Topobservatorio = () => {
                 <p className={classes.Textp}>
                     Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos mas relevantes son:                    
                 </p> 
-                <p className={classes.Textp}>
-                    1. Calculo de Avalúos
-                    <br/>
-                    2. Registro de Ofertas tanto públicas como privadas
-                    <br/>
-                    3. Seguimiento y análisis a las dinamicas inmobiliarias
-                    <br/>
-                    4. Integración con información estadística
-                    <br/>
-                    5. Publicación de datos oficiales
-                    <br/>
-                    6. Fuente de investigaciones cientifias
-                </p>    
+                <ol className={classes.Textp2}>
+                    <li className={classes.listyle}>Calculo de Avalúos</li>
+                    <li className={classes.listyle}>Registro de Ofertas tanto públicas como privadas</li>
+                    <li className={classes.listyle}>Seguimiento y análisis a las dinamicas inmobiliarias</li>
+                    <li className={classes.listyle}>Integración con información estadística</li>
+                    <li className={classes.listyle}>Publicación de datos oficiales</li>
+                    <li className={classes.listyle}>Fuente de investigaciones cientifias</li>
+                </ol>    
                 <p className={classes.Textp}>
                     los mismos deben estar articulados con el Observatorio Nacional del Depatamento Nacional de Estadística - DANE.
                 </p> 
@@ -100,9 +107,14 @@ const Topobservatorio = () => {
 
 const otrosobservatorios = () => {
     const classes = useStyle(); 
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={classes.gridglobal}>
+        alignItems="center"  className={estilo}>
             <Topobservatorio/>
             <CardsMaps/>
         </Grid>

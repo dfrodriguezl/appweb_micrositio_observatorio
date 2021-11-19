@@ -13,8 +13,8 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 import AmicoImage from "Observatorio/img/amico.png"
 const useStyle = makeStyles({
 
-    gridglobal: {
-        padding: "0 10% 0 10%"
+    gridglobalmovil: {
+        padding: "0 5vw 0 5vw"
     },
 
     Titleh3:{
@@ -302,9 +302,14 @@ const Form = () => {
 
 const Ceed = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-            alignItems="center" className={classes.gridglobal}>
+            alignItems="center" className={estilo}>
             <TopCeed />
             <Form />
         </Grid>
