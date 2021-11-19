@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
 import React from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/App.svg";
@@ -57,7 +57,11 @@ const useStyle = makeStyles({
     },
     TextFieldStyle: {
         backgroundColor: "#F3F3F3",
-        width: 400
+        width: "100%"
+    },
+    TextFieldStyle02: {
+        backgroundColor: "#F3F3F3",
+        width: 300
     },
     marginTop: {
         marginTop: 80,
@@ -67,8 +71,11 @@ const useStyle = makeStyles({
         marginBotton: 60
     },
     textFieldMultiline:{
-        width:"600px",
+        width:"100%",
         marginTop:"5px"
+    },
+    ImageContact02:{
+        width:"100%"
     }
 });
 
@@ -86,7 +93,9 @@ const TopContacto = () => {
 
 const Contacto = () => {
     const classes = useStyle();
-    const matches = useMediaQuery("(min-width:769px)");
+    const matches = useMediaQuery('(max-width:769px)');
+    let image = matches ? classes.ImageContact02 : classes.ImageContact
+    let textFieldStyle = matches ? classes.TextFieldStyle: classes.TextFieldStyle02
     var estilo = null;
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
@@ -95,10 +104,10 @@ const Contacto = () => {
         <Grid container justifyContent="center"
             alignItems="center" className={estilo}>
             <TopContacto />
-            <Grid container direction="row">
+            <Grid container spacing={2} direction="row">
 
                 <Grid item container xs={12} sm={12} md={5} lg={5}>
-                    <img src={ContactImage} className={classes.ImageContact}></img>
+                    <img src={ContactImage} className={image}></img>
                 </Grid>
                 <Grid item direction="column" xs={12} sm={12} md={6} lg={6} >
                     <Grid item direction="row" container>
@@ -107,8 +116,8 @@ const Contacto = () => {
                                 Nombre
                             </Typography>
                         </Grid>
-                        <Grid item lg={4} md={4} sm={4}>
-                            <TextField className={classes.TextFieldStyle} id="outlined-basic" label="Nombre" />
+                        <Grid item lg={4} md={4} sm={4} xs={12}>
+                            <TextField className={textFieldStyle} id="outlined-basic" label="Nombre" />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -117,8 +126,8 @@ const Contacto = () => {
                                 Celular/Teléfono
                             </Typography>
                         </Grid>
-                        <Grid item lg={4} md={4} sm={4}>
-                            <TextField className={classes.TextFieldStyle} id="outlined-basic" label="Celular/Teléfono" />
+                        <Grid item lg={4} md={4} sm={4} xs={12}>
+                            <TextField className={textFieldStyle} id="outlined-basic" label="Celular/Teléfono" />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -127,8 +136,8 @@ const Contacto = () => {
                                 Dirección
                             </Typography>
                         </Grid>
-                        <Grid item lg={4} md={4} sm={4}>
-                            <TextField className={classes.TextFieldStyle} id="outlined-basic" label="Dirección" />
+                        <Grid item lg={4} md={4} sm={4} xs={12}>
+                            <TextField className={textFieldStyle} id="outlined-basic" label="Dirección" />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -137,13 +146,13 @@ const Contacto = () => {
                                 Correo electrónico
                             </Typography>
                         </Grid>
-                        <Grid item lg={4} md={4} sm={4}>
-                            <TextField className={classes.TextFieldStyle} id="outlined-basic" label="Correo" />
+                        <Grid item lg={4} md={4} sm={4} xs={12}>
+                            <TextField className={textFieldStyle} id="outlined-basic" label="Correo" />
                         </Grid>
                     </Grid>
 
                     <Grid item lg={12} md={12} sm={12} xs={12} container justifyContent="center">
-                        <Grid item >
+                        <Grid item   >
                             <Typography className={classes.Textp}>
                                 Petición / Queja / Reclamo y/o Sugerencia
                             </Typography>

@@ -13,18 +13,6 @@ const menuDane = [
             isMain:true
         },
         {
-          name:"Usos del Observatorio Inmobiliario Nacional",
-          link:"/Observatorio#uso",
-          icon:"",
-          isMain:true
-        },
-        {
-          name:"Normatividad",
-          link:"/Observatorio#Normativa",
-          icon:"",
-          isMain:true
-        },
-        {
             name:"Otros Observatorios Inmobiliarios",
             link:"/Observatorio/Otrosobservatorios",
             icon:"",
@@ -48,6 +36,24 @@ const menuDane = [
         {
             name:"Estadísticas",
             link:"/Observatorio/Servicios/estadisticas",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Censo Edificaiones CEED",
+            link:"/Observatorio/Servicios/estadisticas/Ceed",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Plataforma Usuario",
+            link:"/Observatorio/PlataformaUsuario",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Contactenos",
+            link:"/Observatorio/Contacto",
             icon:"",
             isMain:true
         }
@@ -105,24 +111,6 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Comparación Modelos Catastrales",
-            link:"/Observatorio/Catastromultiproposito#comparacionModel",
-            icon:"",
-            isMain:true
-        },
-        {
-            name:"Catastro para la Regularizacion de la Propiedad",
-            link:"/Observatorio/Catastromultiproposito#catastroRegulacion",
-            icon:"",
-            isMain:true
-        },
-        {
-            name:"Catastro Multipropósito para la Toma de Decisiones",
-            link:"/Observatorio/Catastromultiproposito#catastroTomaDeDecisiones",
-            icon:"",
-            isMain:true
-        },
-        {
             name:"Métodos para el Cálculo de Avalúos",
             link:"/Observatorio/Catastromultiproposito/Metodosavaluos",
             icon:"",
@@ -145,7 +133,6 @@ const menuDane = [
 ]
 
 export default menuDane
-
 
 
 

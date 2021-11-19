@@ -42,7 +42,7 @@ import Plataform from 'Observatorio/pages/plataformuser'
 
 const useStyle = makeStyles({
   marginTop: {
-   marginTop:80
+   marginTop:"120px"
   }
 });
 
@@ -66,7 +66,6 @@ const Generalroutes = () => {
   return (
     <div >
       <Header/>
-      <Navbar/> 
       <Grid container className={classes.marginTop}>
       </Grid>
         <Switch >

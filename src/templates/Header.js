@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useMediaQuery } from 'react';
 import { Grid } from '@material-ui/core';
 import {
     makeStyles
@@ -7,7 +7,9 @@ import logoDane from "Observatorio/img/logo-dane.svg";
 import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 import Styled from "styled-components";
 import Navbar from './Navbar';
-
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 const useStyle = makeStyles({
     root: {
         height: '50px'
@@ -17,29 +19,34 @@ const useStyle = makeStyles({
         Height: 47,
     },
     backgroundHeader: {
-        backgroundColor: "#F3F3F3",
+       
+        borderBottom: "1px solid #EEE"
+    },
+    main:{
+        backgroundColor: "white",
         position: "fixed",
         zIndex: 1000,
         top: 0,
-        left: 0
+        left: 0,
     }
 });
 
 const TextLogo = Styled.div`
-
+line-height:1;
 `;
 
 const TextLogoTitle = Styled.div`
 font-size: 25px;
 font-weight: bold;
 color: #821A3F;
-margin-top: 10px;
+margin-top: 25px;
 
 @media (max-width: 4000px) and (min-width: 769px) {
     font-size:25px !important;
+    margin-top: 15px;
  }
  @media (max-width: 768px) {
-    font-size:20px !important;
+    font-size:18px !important;
  }
 
 `
@@ -51,7 +58,7 @@ color: #4C4C4C;
     font-size:20px !important;
  }
  @media (max-width: 768px) {
-    font-size:15px !important;
+    font-size:13px !important;
  }
 
 `
@@ -64,9 +71,8 @@ const LogoObservatorio = Styled.img`
 
     @media (max-width: 698px){
         height:60px;
-        widht:100px;
         margin-top:10px;
-        margin-left:20px;
+        margin-left:0px;
     }
 `
 
@@ -83,31 +89,74 @@ margin-left:20px;
     margin-left:20px;
 }
 `
+const ContainerIcon = Styled.div`
+margin-top:10px;
+@media (max-width: 4000px) and (min-width: 769px) {
+    display:none;
+ }
+`
 
 const Header = () => {
     const classes = useStyle();
+    const [sideBarOpen, setSideBarOpen] = useState(false)
+    function setOpenSideBar() {
+        setSideBarOpen(!sideBarOpen)
+    }
     return (
 
         <header>
-            <Grid container className={classes.backgroundHeader}>
-                <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
-                    <a href="/Observatorio">
-                        <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
-                    </a>
-                    <TextLogo xs={12} sm={12} >
-                        <TextLogoTitle >
-                            Observatorio
-                        </TextLogoTitle>
-                        <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
-                    </TextLogo>
+            <Grid container className={classes.main} >
+                <Grid container item className={classes.backgroundHeader}>
+                    <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
+                        <ContainerIcon item justifyContent="center">
+                            {
+                                sideBarOpen ?
+                                    <IconButton
+                                        size="large"
+                                        edge="center"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        onClick={setOpenSideBar}
+
+                                    >
+                                        <CloseIcon></CloseIcon>
+                                    </IconButton>
+
+                                    : <IconButton
+                                        size="large"
+                                        edge="center"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        onClick={setOpenSideBar}
+
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                            }
+
+                        </ContainerIcon>
+                        <a href="/Observatorio">
+                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
+                        </a>
+                        <TextLogo xs={12} sm={12} >
+                            <TextLogoTitle >
+                                Observatorio
+                            </TextLogoTitle>
+                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
+                        </TextLogo>
 
 
+                    </Grid>
+                    <Grid container item xs={5} sm={5} md={6} lg={6} justifyContent="flex-end" >
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
+                    </Grid>
                 </Grid>
-                <Grid container item xs={5} sm={5} md={6} lg={6} justifyContent="flex-end" >
-                    <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
+                <Grid container item>
+                    <Navbar sideBarOpen={sideBarOpen}></Navbar>
                 </Grid>
-                <Navbar></Navbar>
             </Grid>
+
+
         </header>
 
     );

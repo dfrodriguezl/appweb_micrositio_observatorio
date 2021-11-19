@@ -1,7 +1,7 @@
-import { Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
-import App from "Observatorio/img/tipologia.png";
+import App from "Observatorio/img/Mobilelogin-rafiki1.svg";
 import TextField from '@mui/material/TextField';
 import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
 const useStyle = makeStyles({
@@ -39,7 +39,7 @@ const useStyle = makeStyles({
         padding: "0 10vw 0 10vw",
     },
     imageRigth: {
-        width: 500
+        width: 400
     },
     containerForm: {
         backgroundColor: "#f3f3f3",
@@ -48,14 +48,19 @@ const useStyle = makeStyles({
     },
     itemTextField: {
         backgroundColor: "white",
-        width: "350px"
+        width:"100%"
+    },
+    image:{
+        width:"100%"
     }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
+    const matches = useMediaQuery('(max-width:769px)');
+    let image = matches ? classes.image : classes.imageRigth
     return (
-        <img className={classes.imageRigth} src={App}></img>
+        <img className={image} src={App}></img>
     )
 }
 
@@ -67,32 +72,27 @@ const FormAccess = () => {
                 alignItems="center">
 
             </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={5} md={6} lg={6}>
                 <ImagenBottom />
             </Grid>
-            <Grid item container xs={12} sm={6} md={6} lg={6} alignItems="center"  >
-                <Grid direction="row" item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
-                    <Grid item lg={3} md={3} sm={3}>
+            <Grid item container xs={12} sm={7} md={6} lg={6} alignItems="center"  >
+                <Grid direction="row" spacing={2} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
+                    <Grid item lg={3} md={3} sm={3} xs={3}>
                         <Typography className={classes.Textp} >
                             Nombre
                         </Typography>
                     </Grid>
-                    <Grid item lg={6} md={6} sm={6}>
-                        <TextField item className={classes.itemTextField} id="outlined-basic" label="Nombre" />
+                    <Grid item lg={9} md={9} sm={9} xs={9}>
+                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Nombre" />
                     </Grid>
-                    <Grid item lg={3} md={3} sm={3}>
 
-                    </Grid>
-                    <Grid item lg={3} md={3} sm={3}>
+                    <Grid item lg={3} md={3} sm={3} xs={3}>
                         <Typography className={classes.Textp} >
                             Contraseña
                         </Typography>
                     </Grid>
-                    <Grid item lg={6} md={6} sm={6}>
-                        <TextField item className={classes.itemTextField} id="outlined-basic" label="Contraseña" />
-                    </Grid>
-                    <Grid item lg={3} md={3} sm={3}>
-
+                    <Grid item lg={9} md={9} sm={9} xs={9}>
+                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Contraseña" />
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Typography className={classes.Textp} >

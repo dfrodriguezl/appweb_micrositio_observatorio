@@ -188,9 +188,19 @@ const ImageSectionThree = Styled.img`
     text-align:center;
   };
   @media (max-width: 768px) {
-    max-width:400;
-    width:400px;
+    width:100%;
     text-align:center;
+  };
+
+`
+
+const ImageSectionFour = Styled.img`
+
+@media (max-width: 4000px) and (min-width: 769px) {
+      width:500px;
+  };
+  @media (max-width: 768px) {
+    width:100%;
   };
 
 `
@@ -320,8 +330,8 @@ const SectionFour = () => {
                     Fuentes de Información
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center"  >
-                <img src={DataExtration} className={classes.DataExtration}></img>
+            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
+                <ImageSectionFour src={DataExtration}></ImageSectionFour>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center"  >
                 <Typography className={classes.Textp}>
@@ -367,7 +377,6 @@ const Cardsservice = () => {
             <SectionTwo></SectionTwo>
             <SectionThree></SectionThree>
             <SectionFour></SectionFour>
-
         </Grid>
     );
 }

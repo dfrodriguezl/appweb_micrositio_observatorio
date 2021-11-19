@@ -41,17 +41,20 @@ const useStyle = makeStyles({
  
   imageRigth:{
     width:500
+  },
+  imageMobile:{
+    width:"100%"
   }
 });
 
 const ImagenBottom = () => {
     const classes = useStyle();
-    const matches = useMediaQuery('(min-width:769px)');
-    var estilo = null;
+    const matches = useMediaQuery('(max-width:769px)');
+    let estilo =  matches ?classes.imageMobile : classes.imageRigth
+    console.log(estilo)
     
     return(
-      <img className={classes.imageRigth} src={App}></img>
-      
+      <img className={estilo} src={App}></img>
       
     )
   } 
@@ -59,12 +62,9 @@ const ImagenBottom = () => {
 const TopTipologia = () => {
     const classes = useStyle();    
     return (
-        <Grid container direccion="row" >
-           <Grid container justifyContent="center"
-          alignItems="center">
-  
-                </Grid>
-                <Grid item container direction="column" xs={12} sm={6} md={6} lg={6} className={classes.containerTitle}>
+        <Grid item container direccion="row" xs={12} sm={12} md={12} lg={12} >
+          
+             <Grid item container direction="column" xs={12} sm={6} md={6} lg={6} className={classes.containerTitle}>
                 <h3 className={classes.Titleh3}>Tipologías Constructivas</h3>
                 <p className={classes.Textp}>
                 Las Tipologías Constructivas se refieren al tipo de construcciòn en las cuales se clasifica un inmueble, teniendo como punto de partida sus caracteristicas arquitectonicas, funciones de uso, actividades economicas, entre otras; Acorde a la Clasificaciòn realizada por el Instituto Geogràfico Agustin Codazzi - IGAC, existen 10 Tipologias constructivas: Asamblea, Negocios, Educativo, Industrial, De Alto Riesgo, Institucional, Mercantil, Residencial, Almacenamiento y Otras.
@@ -72,7 +72,7 @@ const TopTipologia = () => {
                 </p> 
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={6}>
-            <ImagenBottom/> 
+                    <ImagenBottom/> 
             </Grid>
                 
         </Grid>

@@ -13,7 +13,7 @@ import {
 
 const ContenedorFooter= Styled.div`
         background-color: #FAFAFA;  
-        padding-left:10px;
+        padding-left:40px;
         padding-right:10px;   
         padding-top:5%;
                 
@@ -56,7 +56,7 @@ const Footer = () =>{
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
             <Grid container  justifyContent="center">
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
-                <Grid item container  xs={12} sm={12} md={6} lg={4} direction="row" 
+                <Grid item container  xs={12} sm={12} md={4} lg={4} direction="row" 
                     className={classes.containerItem}
                       >                    
                    
@@ -72,7 +72,7 @@ const Footer = () =>{
                         </ul>
                         
                 </Grid>
-                <Grid  item container xs={12} sm={12} md={6} lg={3} direction="row" 
+                <Grid  item container xs={12} sm={12} md={4} lg={3} direction="row" 
                  className={classes.containerItem}
                 >
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
@@ -82,7 +82,7 @@ const Footer = () =>{
                                 </li>
                          </ul>  
                 </Grid>
-                <Grid item container xs={12} sm={12}  md={6} lg={3} direction="row" 
+                <Grid item container xs={12} sm={12}  md={4} lg={3} direction="row" 
                  className={classes.containerItem}
                 >
                      
@@ -107,7 +107,7 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid  item container xs={12} sm={12} md={6} lg={2}  
+                <Grid  item container xs={12} sm={12} md={12} lg={2}  
                  className={classes.containerItem} 
                 justifyContent={'center'}>
                     <Box >
