@@ -5,7 +5,7 @@ import Small from "Observatorio/img/Small.svg";
 
 const useStyle = makeStyles({
   gridglobal: {
-    padding: "0 10vw 0 10vw",
+    padding: "0 10vw 2vw 10vw",
   },
   contentrulesp2: {
     color: Values.TextParagraph,
