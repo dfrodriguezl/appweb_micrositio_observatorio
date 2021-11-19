@@ -9,9 +9,12 @@ import infocards from "Observatorio/common/cards_.js";
 const useStyle = makeStyles({
   
     gridglobal:{
-        padding: "0% 10% 0 10%",
+        padding: "0% 10% 2vw 10%",
       },
 
+      gridglobalmovil:{
+        padding: "0% 5vw 2vw 5vw",
+      },
 
     Textpdes:{
       color: Values.TextParagraph,
@@ -185,9 +188,14 @@ const Cardsservice = () => {
 
 const ViewService = () => {
     const classes = useStyle(); 
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={classes.gridglobal}>
+        alignItems="center"  className={estilo}>
             <Topservice/>
             <Cardsservice/>
         </Grid>

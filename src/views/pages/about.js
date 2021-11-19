@@ -34,6 +34,9 @@ const useStyle = makeStyles({
   gridglobal: {
     padding: "0 10vw 3vw 10vw",
   },
+  gridglobalmovil: {
+    padding: "0 5vw 3vw 5vw",
+  },
   num: {
     backgroundColor: "#4c4c4c",
     borderRadius: "50%",
@@ -136,18 +139,21 @@ const About = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
   var estilo = null;
+  var estilomovil = null;
   var direccion = null;
   {
     if(matches){
       estilo = classes.textStyle1
       direccion = "row"
+      estilomovil=classes.gridglobal
     }else{
       estilo = classes.textStyle2
       direccion = "column"
+      estilomovil=classes.gridglobalmovil
     }
   }
   return (
-    <Grid container direction="column"  className={classes.gridglobal}>
+    <Grid container direction="column" className={estilomovil}>
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
           <h3 className={classes.titleStyle}>¿Qué es un Observatorio?</h3>

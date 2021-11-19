@@ -65,7 +65,7 @@ const useStyle = makeStyles({
     boxShadow: "3px 3px 10px #7b7676",
   },
   root1: {
-    width: "60%",
+    width: "90%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
@@ -213,7 +213,9 @@ const Cardsmapas = () => {
                         información.
                       </Typography>
                     </Grid>
-                    <Grid container direction="column" item xs alignItems="center" justifyContent="center">
+                  </CardContent>
+                  
+                <Grid container direction="column" item xs alignItems="center" justifyContent="center">
                       <Grid
                         container
                         direction="column"
@@ -356,8 +358,7 @@ const Cardsmapas = () => {
                         </Grid>
                       </Grid>
                     </Grid>
-                  </CardContent>
-                </Grid>
+                </Grid>                
               </Grid>
             </CardContent>
           </Card>

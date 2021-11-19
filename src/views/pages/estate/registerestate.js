@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import triangles from "Observatorio/img/paris.jpg";
@@ -28,8 +28,12 @@ const useStyle = makeStyles({
         maxWidth: 300
     },
     sectionPar: {
-        backgroundColor: "#F4F4F4",
-        paddingBottom:"40px"
+        backgroundColor: "#F4F4F4", 
+        padding: "0 10vw 2vw 10vw",       
+    },
+    sectionParmovil: {
+        backgroundColor: "#F4F4F4", 
+        padding: "0 5vw 2vw 5vw",       
     },
     textLeft: {
         marginLeft: 30
@@ -38,7 +42,10 @@ const useStyle = makeStyles({
         height: 600
     },
     gridglobal: {
-        padding: "0 10% 0 10%",
+        padding: "0 10vw 2vw 10vw",
+    },
+    gridglobalmovil: {
+        padding: "0 5vw 2vw 5vw",
     },
     titleCard: {
         textAlign: "center"
@@ -61,10 +68,6 @@ const useStyle = makeStyles({
     centerText: {
         textAlign: "center",
         padding: "10% 0 0 0",
-    },
-
-    gridglobal: {
-        padding: "5% 10% 1% 10%",
     },
 
     Titleh3:{
@@ -99,7 +102,7 @@ const useStyle = makeStyles({
 
     cardglobal: {
         //margin: "0% 0% 0% 0%",
-        padding: "0% 10% 0% 10%"
+        padding: "0% 10vw 0% 10vw"
         
     },
     paddingBottom: {
@@ -111,8 +114,13 @@ const useStyle = makeStyles({
 
 const SectionOne = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
-        <Grid container className={classes.cardglobal}>
+        <Grid container className={estilo}>
             <Grid xs={12}
                 sm={12}
                 md={6}
@@ -190,24 +198,29 @@ const ImageSectionThree = Styled.img`
 
 const SectionTwo = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.sectionPar:estilo=classes.sectionParmovil
+    }
     return (
-        <Grid container className={classes.sectionPar} >
+        <Grid container className={estilo} >
 
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} md={12} lg={12}>
 
                 <Typography className={`${classes.Titleh3}`} >
                     Objetivo
                 </Typography>
 
             </Grid>
-            <ContainerImage className={classes.cardglobal} >
+            <ContainerImage >
                 <ImageItem src={Nature} ></ImageItem>
                 <ImageItem src={Justice}></ImageItem>
                 <ImageItem src={Finance}></ImageItem>
                 <ImageItem src={Addres}></ImageItem>
 
             </ContainerImage>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} md={12} lg={12} >
                 <Typography className={classes.Textp} >
                     Caracterizar con fines estadísticos, los bienes inmuebles que conforman el territorio nacional a través de
                     la integración de información física, jurídica, económica y geográfica del predio que sirva como
@@ -215,13 +228,13 @@ const SectionTwo = () => {
                 </Typography>
 
             </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.cardglobal}>
+            <Grid container item xs={12} sm={12} md={12} lg={12}>
                 <Typography className={classes.Titleh3} >
                     Alcance de registro
                 </Typography>
             </Grid>
 
-            <Grid container item xs={12} sm={12} direction="row" className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} direction="row" >
                 <Grid item xs={12} sm={12} md={4} lg={4}>
                     <img src={DocumentBro}  ></img>
                 </Grid>
@@ -247,8 +260,13 @@ const SectionTwo = () => {
 
 const SectionThree = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    }
     return (
-        <Grid container className={classes.cardglobal}>
+        <Grid container className={estilo}>
 
             <Grid container item xs={12} sm={12} className={classes.marginBottom}>
                 <Typography className={`${classes.Titleh3} ${classes.textLeft}`} >
@@ -289,24 +307,29 @@ const SectionThree = () => {
 
 const SectionFour = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.sectionPar:estilo=classes.sectionParmovil
+    }
     return (
-        <Grid container  className={classes.sectionPar}>
+        <Grid container  className={estilo}>
 
-            <Grid container item xs={12} sm={12} className={classes.cardglobal}>
+            <Grid container item xs={12} sm={12} >
                 <Typography className={classes.Titleh3}>
                     Fuentes de Información
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} justifyContent="center"  >
                 <img src={DataExtration} className={classes.DataExtration}></img>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} justifyContent="center"  >
                 <Typography className={classes.Textp}>
                     De acuerdo a los posibles canales para el levantamiento de la información, las principales fuentes para
                     conformar el registro de bienes inmuebles son los siguientes:
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
+            <Grid container item xs={12} sm={12} justifyContent="center"  >
 
                 <ul className={classes.Textp}>
                     <li>Registro Catastral del IGAC (Instituto Geográfico Agustín Codazzi).</li>
@@ -339,7 +362,7 @@ const SectionFour = () => {
 const Cardsservice = () => {
     const classes = useStyle();
     return (
-        <Grid container>
+        <Grid container >
             <SectionOne ></SectionOne>
             <SectionTwo></SectionTwo>
             <SectionThree></SectionThree>
@@ -348,9 +371,6 @@ const Cardsservice = () => {
         </Grid>
     );
 }
-
-
-
 
 const ViewService = () => {
 
