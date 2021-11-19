@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMediaQuery } from 'react';
 import { Grid } from '@material-ui/core';
 import {
     makeStyles
@@ -9,6 +9,7 @@ import Styled from "styled-components";
 import Navbar from './Navbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 const useStyle = makeStyles({
     root: {
         height: '50px'
@@ -18,11 +19,15 @@ const useStyle = makeStyles({
         Height: 47,
     },
     backgroundHeader: {
-        backgroundColor: "#F3F3F3",
+       
+        borderBottom: "1px solid #EEE"
+    },
+    main:{
+        backgroundColor: "white",
         position: "fixed",
         zIndex: 1000,
         top: 0,
-        left: 0
+        left: 0,
     }
 });
 
@@ -100,38 +105,58 @@ const Header = () => {
     return (
 
         <header>
-            <Grid container className={classes.backgroundHeader}>
+            <Grid container className={classes.main} >
+                <Grid container item className={classes.backgroundHeader}>
+                    <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
+                        <ContainerIcon item justifyContent="center">
+                            {
+                                sideBarOpen ?
+                                    <IconButton
+                                        size="large"
+                                        edge="center"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        onClick={setOpenSideBar}
 
-                <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
-                    <ContainerIcon item justifyContent="center">
-                        <IconButton
-                            size="large"
-                            edge="center"
-                            color="inherit"
-                            aria-label="menu"
-                            onClick={setOpenSideBar}
+                                    >
+                                        <CloseIcon></CloseIcon>
+                                    </IconButton>
 
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </ContainerIcon>
-                    <a href="/Observatorio">
-                        <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
-                    </a>
-                    <TextLogo xs={12} sm={12} >
-                        <TextLogoTitle >
-                            Observatorio
-                        </TextLogoTitle>
-                        <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
-                    </TextLogo>
+                                    : <IconButton
+                                        size="large"
+                                        edge="center"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        onClick={setOpenSideBar}
+
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                            }
+
+                        </ContainerIcon>
+                        <a href="/Observatorio">
+                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
+                        </a>
+                        <TextLogo xs={12} sm={12} >
+                            <TextLogoTitle >
+                                Observatorio
+                            </TextLogoTitle>
+                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
+                        </TextLogo>
 
 
+                    </Grid>
+                    <Grid container item xs={5} sm={5} md={6} lg={6} justifyContent="flex-end" >
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
+                    </Grid>
                 </Grid>
-                <Grid container item xs={5} sm={5} md={6} lg={6} justifyContent="flex-end" >
-                    <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
+                <Grid container item>
+                    <Navbar sideBarOpen={sideBarOpen}></Navbar>
                 </Grid>
-                <Navbar sideBarOpen={sideBarOpen}></Navbar>
             </Grid>
+
+
         </header>
 
     );

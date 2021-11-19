@@ -54,6 +54,9 @@ const Accordion = styled((props) => (
 
 const ContainerMenu = Styled.div`
 padding:4%;
+position:absolute;
+z-index:1000;
+background-color:white;
 @media (max-width: 4000px) and (min-width: 769px) {
     display:none;
  }
@@ -65,17 +68,32 @@ export default function CustomizedAccordions() {
     const classes = useStyle()
     for(var i=0;i<menuDane.length;i++){
         for(var j=0;j<menuDane[i].length;j++){
-            if(menuDane[i][j].isMain){
-                subResult.push( <Grid item xs={6} md={6}>
-                    <IconData sx={{ fontSize: 5 ,marginBottom:"2px"}}></IconData>
-                    <a  className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
-                                    </Grid>)
+            if (i == 2){
+                if(j == 0){
+                    subResult.push( <Grid item xs={6} md={6}>
+                        <IconData sx={{ fontSize: 5 ,marginBottom:"2px"}}></IconData>
+                        <a  className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                                        </Grid>)
+                }else{
+                    subResult.push( <Grid item xs={12} md={12}>
+                        <IconData sx={{ fontSize: 3 ,marginBottom:"2px" , marginLeft:"10px"}}></IconData>
+                        <a  className={classes.Textp02} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                                        </Grid>)
+                }
             }else{
-                subResult.push( <Grid item xs={6} md={6}>
-                    <IconData sx={{ fontSize: 5, marginBottom:"2px" }}></IconData>
-                    <a  className={classes.Textp02} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
-                                    </Grid>)
+                if(menuDane[i][j].isMain){
+                    subResult.push( <Grid item xs={6} md={6}>
+                        <IconData sx={{ fontSize: 5 ,marginBottom:"2px"}}></IconData>
+                        <a  className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                                        </Grid>)
+                }else{
+                    subResult.push( <Grid item xs={6} md={6}>
+                        <IconData sx={{ fontSize: 5, marginBottom:"2px" }}></IconData>
+                        <a  className={classes.Textp02} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                                        </Grid>)
+                }
             }
+           
           
         }
 
