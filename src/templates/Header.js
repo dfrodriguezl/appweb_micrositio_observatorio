@@ -83,10 +83,10 @@ padding:10px;
 margin-left:20px;
 
 @media (max-width: 698px){
-    height:60px;
+    height:50px;
     widht:90px;
-    margin-top:10px;
-    margin-left:20px;
+    margin-top:15px;
+    margin-left:5px;
 }
 `
 const ContainerIcon = Styled.div`
@@ -107,7 +107,7 @@ const Header = () => {
         <header>
             <Grid container className={classes.main} >
                 <Grid container item className={classes.backgroundHeader}>
-                    <Grid container item xs={7} sm={7} md={6} lg={6} direction="row">
+                    <Grid container item xs={8} sm={6} md={6} lg={6} direction="row">
                         <ContainerIcon item justifyContent="center">
                             {
                                 sideBarOpen ?
@@ -147,7 +147,7 @@ const Header = () => {
 
 
                     </Grid>
-                    <Grid container item xs={5} sm={5} md={6} lg={6} justifyContent="flex-end" >
+                    <Grid container item xs={4} sm={4} md={6} lg={6} justifyContent="flex-end" >
                         <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
                     </Grid>
                 </Grid>

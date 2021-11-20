@@ -109,7 +109,7 @@ export default function CustomizedAccordions() {
                 title="Geovisores"
                 break;
             case 3:
-                title = "Catastro multiproposito"
+                title = "Catastro Multipropósito"
                 break;
         }
         result.push(<Grid item container direction="row">

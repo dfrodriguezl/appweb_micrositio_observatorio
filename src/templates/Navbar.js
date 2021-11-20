@@ -452,7 +452,7 @@ const Navbar = ({sideBarOpen}) => {
               }} className={classes.colorMenuActive}>
                 <UtilidadCentrarTexto >
                   <AiOutlineDown className={classes.rotate} />
-                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multipropósito </MenuA>
                   {result}
                 </UtilidadCentrarTexto>
                 </DropDownLi>
@@ -464,7 +464,7 @@ const Navbar = ({sideBarOpen}) => {
                 }}>
                 <UtilidadCentrarTexto>
                   <AiOutlineDown />
-                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multiproposito </MenuA>
+                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multipropósito </MenuA>
                 </UtilidadCentrarTexto>
                  </DropDownLi>
             }
