@@ -1,6 +1,8 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
 import bloques from "Observatorio/img/Building.svg";
+import frente from "Observatorio/img/city1.gif";
+
 import figure from "Observatorio/img/Career.svg";
 import lawyer from "Observatorio/img/Lawyer.svg";
 import Maintenance from "Observatorio/img/Maintenance.svg";
@@ -53,11 +55,15 @@ const useStyle = makeStyles({
   gridglobal: {
     padding: "0 10vw 3vw 10vw",
   },
-
+  gridglobalNo: {
+    height:"250px"
+  },
   gridglobalmovil: {
     padding: "0 5vw 3vw 5vw",
   },
-
+  gridglobalmovil1: {
+   
+  },
   marginbuttom: {
     padding: "5% 0 5% 0",
     backgroundColor: Values.TextButton,
@@ -227,19 +233,20 @@ const useStyle = makeStyles({
   },
 
   imagen_uso: {
-    backgroundSize: "50%",
+    width: "100% !important",
+    height: "300px",
     backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${Maintenance})`,
-    backgroundPositionX: "81%",
-    backgroundPositionY: "38%",
+    backgroundImage: `url(${frente})`,
+    backgroundSize: "100% 100%",
+    backgroundPosition: "center center",
+    flexBasis: "100% !important",
+    maxWidth: "100% !important",
+  
   },
 
   imagen_uso2: {
-    backgroundSize: "50%",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${Maintenance})`,
-    backgroundPositionX: "85%",
-    backgroundPositionY: "3.6vw !important",
+    backgroundSize: "0",
+    
   },
 });
 
@@ -291,17 +298,32 @@ const ImagenCenter = () => {
   return <Grid item container direction="column" xs className={estilo}></Grid>;
 };
 
-const ImagenBottom = () => {
+const ImagenTop = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
   var estilo = null;
   {
-    matches ? (estilo = classes.imagen_uso) : (estilo = classes.containerImg2);
+    matches ? (estilo = classes.imagen_uso2) : (estilo = classes.imagen_uso);
   }
   return (
     <Grid item container direction="column" xs={4} className={estilo}></Grid>
   );
 };
+
+const Top_image = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(min-width:769px)");
+    var estilo = null;
+    {
+      matches?estilo=classes.gridglobal:estilo=classes.gridglobalNo
+    }
+  return (
+    <Grid container direction="row" className={estilo}>
+      <ImagenTop />
+    </Grid>
+  );
+};
+
 
 const Top_content = () => {
   const classes = useStyle();
@@ -312,9 +334,13 @@ const Top_content = () => {
     }
   return (
     <Grid container direction="row" className={estilo}>
+
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
       </Grid>
+
+     
+
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
@@ -670,6 +696,7 @@ const ContentGrid = () => {
   const classes = useStyle();
   return (
     <Grid container>
+      <Top_image/>
       <Top_content />
       <Center_content />
       <Bottom_content />
