@@ -82,10 +82,10 @@ padding:10px;
 margin-left:20px;
 
 @media (max-width: 698px){
-    height:60px;
+    height:50px;
     widht:90px;
-    margin-top:10px;
-    margin-left:20px;
+    margin-top:15px;
+    margin-left:5px;
 }
 `
 const ContainerIcon = Styled.div`

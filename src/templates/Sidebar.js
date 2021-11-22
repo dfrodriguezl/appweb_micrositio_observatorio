@@ -172,7 +172,7 @@ export default function CustomizedAccordions() {
             </Accordion>
             <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>Catastro Multiproposito</Typography>
+                    <Typography>Catastro Multipropósito</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <ul>

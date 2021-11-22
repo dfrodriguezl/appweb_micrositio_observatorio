@@ -1,6 +1,7 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
 import bloques from "Observatorio/img/Building.svg";
+import frente from "Observatorio/img/city1.gif";
 import figure from "Observatorio/img/Career.svg";
 import lawyer from "Observatorio/img/Lawyer.svg";
 import Maintenance from "Observatorio/img/Maintenance.svg";
@@ -9,7 +10,7 @@ import * as Values from "Observatorio/Variables/values";
 
 const useStyle = makeStyles({
   puntos: {
-    padding: "1.5vw 0 0px 1vh",
+    padding: "1.5vw 0 0px 7vh",
   },
 
   marginbutton: {
@@ -94,7 +95,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,    
     padding: "0 1vw 0 1vw",
-    width:"51%"
+    width:"60%"
   },
 
   titleStyle: {
@@ -150,6 +151,7 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: Values.SizeTitle,
     padding: Values.PaddingTitleText,
+    textAlign:"center",
   },
 
   Textp: {
@@ -241,6 +243,18 @@ const useStyle = makeStyles({
     backgroundPositionX: "85%",
     backgroundPositionY: "3.6vw !important",
   },
+
+  imagen_movil: {
+    width: "100% !important",
+    height: "28vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${frente})`,
+    backgroundPosition: "center",
+  },
+  imagen_movil2: {
+    backgroundImage: "none",
+  },
 });
 
 const Imagen = () => {
@@ -262,6 +276,19 @@ const Imagen = () => {
   }
   return (
     <Grid item container direction="column" xs={6} className={estilo}></Grid>
+  ); 
+};
+
+const ImagenMovil = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(min-width:541px)");  
+  
+  var estilo = null;
+  {
+    matches?estilo = classes.imagen_movil2:estilo = classes.imagen_movil
+  }
+  return (
+    <Grid  container direction="column" className={estilo}></Grid>
   ); 
 };
 
@@ -312,6 +339,7 @@ const Top_content = () => {
     }
   return (
     <Grid container direction="row" className={estilo}>
+      <ImagenMovil/>
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
       </Grid>
@@ -465,7 +493,6 @@ const Bottom_content = () => {
     }
   return (
     <Grid
-    id="Normativa"
       container
       direction="column"
       justifyContent="center"
@@ -560,7 +587,7 @@ const Bottom_content_footer = () => {
     }
   }
   return (
-    <Grid id="uso" container className={classes.margintop}>
+    <Grid container className={classes.margintop}>
       <Grid
         container
         direction="column"

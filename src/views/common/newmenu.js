@@ -1,7 +1,7 @@
 const menuDane = [
     [
         {
-          name:"¿Que es un Observatorio?",
+          name:"¿Qué es es un Observatorio?",
           link:"/Observatorio",
           icon:"",
           isMain:true
