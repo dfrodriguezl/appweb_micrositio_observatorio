@@ -40,7 +40,7 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Censo de edificaiones CEED",
+            name:"Censo de Edificaciones CEED",
             link:"/Observatorio/Servicios/estadisticas/Ceed",
             icon:"",
             isMain:true

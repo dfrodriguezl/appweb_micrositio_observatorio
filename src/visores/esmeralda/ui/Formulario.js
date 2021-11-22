@@ -14,9 +14,12 @@ const useStyles = makeStyles((theme) => ({
         main: "#A2024D"
     },
     formControl: {
-        margin: theme.spacing(1),
+        margin: "8px 0px",
         width:"300px",
-        borderRadius: '50%',
+        borderRadius: '5px',
+        height:"40px",
+        boder: "1px solid #ccc",
+        padding:"5px"
     },
     select: {
         borderRadius: 5,
@@ -26,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#fff',
         border: '1px solid #000',
     },
-
+    titleLabel:{
+        fontSize:".85em",
+        fontWeight:"bold"
+    }
 
 }));
 const Formulario = ({ opciones, setOpciones, municipios }) => {
@@ -45,10 +51,10 @@ const Formulario = ({ opciones, setOpciones, municipios }) => {
 
     return (
         <Fragment>
-            <FormControl variant="filled" className={classes.formControl} >
-                <label id="demo-simple-select-filled-label">Departamento </label>
+            <FormControl variant="filled"  >
+                <label id="demo-simple-select-filled-label" className={classes.titleLabel}>Departamento </label>
  
-                <select onChange={handleChangeDepart} >
+                <select onChange={handleChangeDepart} className={classes.formControl} >
                     {opciones.length === 0
                         ?
                         <option value={100}>Ten</option>
@@ -59,10 +65,10 @@ const Formulario = ({ opciones, setOpciones, municipios }) => {
                         ))}
                 </select>
             </FormControl>
-            <FormControl variant="filled" className={classes.formControl} >
-                <label id="demo-simple-select-filled-label">Municipio </label>
+            <FormControl variant="filled"  >
+                <label id="demo-simple-select-filled-label" className={classes.titleLabel}>Municipio </label>
 
-                <select onChange={handleChanger} >
+                <select onChange={handleChanger} className={classes.formControl} >
                     {municipios.map(opcion => {
 
                         if (opcion.cod_dpto == departamentoActual) {

@@ -19,10 +19,10 @@ const useStyle = makeStyles({
         Height: 47,
     },
     backgroundHeader: {
-       
+
         borderBottom: "1px solid #EEE"
     },
-    main:{
+    main: {
         backgroundColor: "white",
         position: "fixed",
         zIndex: 1000,
@@ -53,12 +53,15 @@ margin-top: 25px;
 const TextSubTitle = Styled.div`
 font-size:20px;
 color: #4C4C4C;
+margin-right:20px;
 
 @media (max-width: 4000px) and (min-width: 769px) {
     font-size:20px !important;
  }
  @media (max-width: 768px) {
     font-size:13px !important;
+    margin-right:0px;
+
  }
 
 `
@@ -67,8 +70,6 @@ const LogoObservatorio = Styled.img`
     height:80px;
     widht:120px;
     padding:10px;
-    margin-left:20px;
-
     @media (max-width: 698px){
         height:60px;
         margin-top:10px;
@@ -107,7 +108,22 @@ const Header = () => {
         <header>
             <Grid container className={classes.main} >
                 <Grid container item className={classes.backgroundHeader}>
-                    <Grid container item xs={8} sm={6} md={6} lg={6} direction="row">
+                    <Grid container item xs={3} sm={5} md={6} lg={6} direction="row">
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
+
+                    </Grid>
+                    <Grid container item xs={9} sm={7} md={6} lg={6} justifyContent="flex-end" >
+
+                      
+                        <a href="/Observatorio">
+                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
+                        </a>
+                        <TextLogo xs={12} sm={12} >
+                            <TextLogoTitle >
+                                Observatorio
+                            </TextLogoTitle>
+                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
+                        </TextLogo>
                         <ContainerIcon item justifyContent="center">
                             {
                                 sideBarOpen ?
@@ -135,23 +151,9 @@ const Header = () => {
                             }
 
                         </ContainerIcon>
-                        <a href="/Observatorio">
-                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
-                        </a>
-                        <TextLogo xs={12} sm={12} >
-                            <TextLogoTitle >
-                                Observatorio
-                            </TextLogoTitle>
-                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
-                        </TextLogo>
-
-
-                    </Grid>
-                    <Grid container item xs={4} sm={4} md={6} lg={6} justifyContent="flex-end" >
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
                     </Grid>
                 </Grid>
-                <Grid container item>
+                <Grid container item className={classes.backgroundHeader}>
                     <Navbar sideBarOpen={sideBarOpen}></Navbar>
                 </Grid>
             </Grid>
