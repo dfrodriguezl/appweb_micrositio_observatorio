@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/tipologiacards';
 import App from "Observatorio/img/App.svg";
-import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
     

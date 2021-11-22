@@ -1,7 +1,7 @@
 const menuDane = [
     [
         {
-          name:"¿Ques es un Observatorio?",
+          name:"¿Que es un Observatorio?",
           link:"/Observatorio",
           icon:"",
           isMain:true
@@ -40,7 +40,7 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Censo Edificaiones CEED",
+            name:"Censo de Edificaciones CEED",
             link:"/Observatorio/Servicios/estadisticas/Ceed",
             icon:"",
             isMain:true
@@ -52,7 +52,7 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Contactenos",
+            name:"Contáctenos",
             link:"/Observatorio/Contacto",
             icon:"",
             isMain:true
@@ -73,7 +73,7 @@ const menuDane = [
             isMain:false
         },
         {
-            name:"Bogota",
+            name:"Bogotá",
             link:"/Observatorio/Visores/Esmeralda2",
             icon:"",
             isMain:false
@@ -85,7 +85,7 @@ const menuDane = [
             isMain:false
         },
         {
-            name:"San Andres",
+            name:"San Andrés",
             link:"/Observatorio/Visores/Esmeralda2",
             icon:"",
             isMain:false
