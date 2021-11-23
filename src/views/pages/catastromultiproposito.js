@@ -74,6 +74,13 @@ const useStyle = makeStyles({
         fontSize: Values.SizeText,
         padding: "0 1vw 0 1vw",
       },
+      textStyle1: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        padding: "0 1vw 0 1vw",
+        marginLeft:"1.8vw",
+      },
       textStyle2: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
@@ -141,14 +148,15 @@ const useStyle = makeStyles({
       backgroundPosition: "center",       
     },   
     imagen_png2:{     
-      width: "100%",
-      height: "65vh",
-      backgroundSize: "102%",
-      backgroundRepeat: "no-repeat",
-      backgroundImage: `url(${ImgPng})`,       
-      backgroundPosition: "center center",
-      flexBasis: "100% !important",
-      maxWidth: "100% !important",
+       width: "100%",
+       height: "65vh",
+       backgroundSize: "102%",
+       backgroundRepeat: "no-repeat",
+       backgroundImage: `url(${ImgPng})`,       
+       backgroundPosition: "center center",
+       flexBasis: "100% !important",
+       maxWidth: "100% !important",
+      // backgroundImage: "none",  
    },
    imagen_png3:{    
     width: "100% !important",
@@ -165,6 +173,10 @@ const useStyle = makeStyles({
       fontSize: Values.SizeSubtitle,
       padding: "0 0 1em 0",
       textAlign: "center",
+     },
+     circulemarg:{
+       margin: "1vw 0 1vw 0",
+    
      },
 })
 
@@ -249,7 +261,7 @@ const ComparationModels = () =>{
           <Grid container justifyContent="center">
             <p className={classes.texto}>Modelo Catastral Anterior</p>
           </Grid>
-          <ol className={classes.textStyle}>
+          <ol className={classes.textStyle1}>
             <li className={classes.listyle}>Esquema Anterior: IGAC - Desentralizacos - Delegados.</li>
             <li className={classes.listyle}>Delegados Disminución del presupuesto a Entidades Centralizadas.</li>
             <li className={classes.listyle}>Asimetria de Información.</li>            
@@ -271,7 +283,7 @@ const ComparationModels = () =>{
           <Grid container justifyContent="center">
             <p className={classes.texto}>Premisas Catastro Multipróposito</p>
           </Grid>
-          <ol className={classes.textStyle}>
+          <ol className={classes.textStyle1}>
             <li className={classes.listyle}>Nuevo esquema de desentralización.</li>            
             <li className={classes.listyle}>Estructura Funcional y operativa colaborativa.</li>            
             <li className={classes.listyle}>Modelo de operación mas eficiente.</li>
@@ -318,11 +330,12 @@ const ComparationModels = () =>{
               direction="row"
               justifyContent="flex-start"
               alignItems="center"
+              className={classes.circulemarg}
             >
               <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>1</h1>
               </Grid>
-              <Grid container item xs>
+              <Grid  container item xs>
               <p className={classes.textStyle2}>
                 Planificación Territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el Territorio
               </p>
@@ -333,6 +346,7 @@ const ComparationModels = () =>{
               direction="row"
               justifyContent="flex-start"
               alignItems="center"
+              className={classes.circulemarg}
             >
               <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>2</h1>
@@ -348,6 +362,7 @@ const ComparationModels = () =>{
               direction="row"
               justifyContent="flex-start"
               alignItems="center"
+              className={classes.circulemarg}
             >
               <Grid container item xs={1} className={classes.circule}>
               <h1 className={classes.num}>3</h1>

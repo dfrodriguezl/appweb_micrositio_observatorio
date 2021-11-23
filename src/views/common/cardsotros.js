@@ -10,31 +10,31 @@ const cardotros = [
         "id":1,
         "title":"IGAC",
         "image_card":Sale,
-        "link":"/Visores/Esmeralda2"
+        "link":"http://www2.igac.gov.co/igac_web/contenidos/plantilla_anclasDocs_cont_pagDetalle.jsp?idMenu=101"
     },
     {
         "id":2,
         "title":"Bogotá",
         "image_card":Fill,
-        "link":""
+        "link":"http://www.inventariobogota.gov.co/observatorios/observatorio-tecnico-catastral-otc"
     },
     {
         "id":3,
         "title":"Barranquilla",
         "image_card":Segment,
-        "link":""
+        "link":"http://catastro.barranquilla.gov.co:7000/Observatorio/"
     },
     {
         "id":4,
         "title":"Cali",
         "image_card":Building_,
-        "link":""
+        "link":"https://www.cali.gov.co/catastro/publicaciones/147970/observatorio-inmobiliario/"
     },
     {
         "id":5,
         "title":"Medellín",
         "image_card":Buildingamico,
-        "link":""
+        "link":"http://catastrooime.blogspot.com/"
     }
 
 ]
