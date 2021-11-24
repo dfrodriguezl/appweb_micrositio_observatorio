@@ -7,17 +7,18 @@ mapboxgl.accessToken =
 
 const Map = ({position,bbox}) => {
   const mapContainerRef = useRef(null);
-  console.log(position)
-  const [lng, setLng] = useState(position.lng);
+   console.log(position)
+  /*const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
-  const [zoom, setZoom] = useState(position.zoom);
+  const [zoom, setZoom] = useState(position.zoom);*/
   //Constructor del mapa
   useEffect(() => {
+    
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
-      center: [lng, lat],
-      zoom: zoom,
+      center: [position.lng, position.lat],
+      zoom: position.zoom,
     });
 
     // Navegacion ( +/- zoom )
@@ -57,7 +58,7 @@ const Map = ({position,bbox}) => {
 
     // Clean up on unmount
     return () => map.remove();
-  }, []);
+  }, [position]);
 
   return (
     <div>
