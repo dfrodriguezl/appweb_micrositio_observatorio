@@ -5,6 +5,7 @@ import Small from "Observatorio/img/Small.svg";
 import Transfer from "Observatorio/img/Transfer.svg";
 import ImgPng from "Observatorio/img/Captura.svg";
 import Business from "Observatorio/img/Business.svg";
+import Hong from "Observatorio/img/1Hong.svg";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -27,7 +28,8 @@ const useStyle = makeStyles({
          maxWidth: "100% !important",
       },
       listyle:{
-        paddingLeft:"0.6em"
+        paddingLeft:"0.6em",
+        paddingRight: "0.6em",
       },
       imagen_Business:{    
         width: "100% !important",
@@ -149,15 +151,20 @@ const useStyle = makeStyles({
     },   
     imagen_png2:{     
        width: "100%",
-       height: "65vh",
-       backgroundSize: "102%",
+       height: "105vh",
+       backgroundSize: "100%",
        backgroundRepeat: "no-repeat",
-       backgroundImage: `url(${ImgPng})`,       
-       backgroundPosition: "center center",
-       flexBasis: "100% !important",
-       maxWidth: "100% !important",
-      // backgroundImage: "none",  
+       backgroundImage: `url(${Hong})`,       
+       backgroundPositionY: "1vh",     
    },
+   imagen_png4:{     
+    width: "100%",
+    height: "186vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Hong})`,       
+    backgroundPositionY: "1vh",     
+},
    imagen_png3:{    
     width: "100% !important",
     height: "95vh",
@@ -217,6 +224,7 @@ const Imagen = () => {
     const classes = useStyle();    
 
   const matches = useMediaQuery("(max-width:769px)");
+  const matches1 = useMediaQuery("(max-width:541px)");
   const matches2 = useMediaQuery("(min-width:1281px)");  
   
   var estilo = null;
@@ -224,10 +232,14 @@ const Imagen = () => {
     if (matches2) {
       estilo = classes.imagen_png;
     } else {
-      if (matches) {
+      if (matches1) {
         estilo = classes.imagen_png2;
       } else {
-        estilo = classes.imagen_png3;
+        if(matches){
+          estilo = classes.imagen_png4;
+        }else{
+          estilo = classes.imagen_png3;
+        }
       }
     }
   }

@@ -48,9 +48,9 @@ const esmeralda2 = () => {
             <Map position={position} bbox={bbox}/>
             {/*<DrawerRight/>
             <DrawerBottom/>*/}
-            {/* <button className={classes.boton} id="fly">
+            <button className={classes.boton} id="fly">
                 Bogotá
-            </button> */}
+            </button> 
         </div>
      );
 }
