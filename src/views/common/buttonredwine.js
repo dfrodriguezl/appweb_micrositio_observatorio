@@ -10,7 +10,7 @@ boton: {
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
     color: Values.TextButton,
-    fontFamily: Values.SourceWorksans,
+    fontFamily: Values.SourceRoboto,
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",

@@ -53,7 +53,7 @@ const useStyle = makeStyles({
   Textp: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontSize: Values.SizeAuxiliary,
+    fontSize: Values.SizeText,
     textAlign: "start",
     width: "90%",
     padding: "0 0 1em 0",
@@ -118,7 +118,7 @@ const useStyle = makeStyles({
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
     color: Values.TextButton,
-    fontFamily: Values.SourceWorksans,
+    fontFamily: Values.SourceRoboto,
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
@@ -127,6 +127,7 @@ const useStyle = makeStyles({
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
+    border:"none",
     
     "&:hover":{
         backgroundColor: Values.HoverButton,

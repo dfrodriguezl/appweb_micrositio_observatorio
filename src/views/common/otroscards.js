@@ -98,7 +98,7 @@ const Cardsmapas = () => {
                 </CardContent>
               </CardContent>
               <CardActions className={classes.centerButton}>
-              <ButtonRedWine Title="Visitar" href={cardsotros.link}/>
+              <ButtonRedWine Title="Visitar" Values="1" href={cardsotros.link}/>
               </CardActions>
             </Card>
           </Grid>
