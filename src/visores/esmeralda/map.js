@@ -23,7 +23,7 @@ const Map = ({position,bbox}) => {
       center: [lng, lat],
       zoom: zoom,
     });
-    let isAtStart = true;
+    // let isAtStart = true;
     // Navegacion ( +/- zoom )
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
@@ -42,35 +42,21 @@ const Map = ({position,bbox}) => {
     //   });
     // });
 
-    document.getElementById('fly').addEventListener('click', () => {
-      // depending on whether we're currently at point a or b, aim for
-      // point a or b
-    const target = isAtStart ? end : start;
+  //   document.getElementById('fly').addEventListener('click', () => {
+  //   const target = isAtStart ? end : start;
 
-      // and now we're at the opposite point
-    isAtStart = !isAtStart;
+  //   isAtStart = !isAtStart;
 
-    map.flyTo({
-          // These options control the ending camera position: centered at
-          // the target, at zoom level 9, and north up.
-    center: target,
-    zoom: 9,
-    bearing: 0,
-
-          // These options control the flight curve, making it move
-          // slowly and zoom out almost completely before starting
-          // to pan.
-     speed: 0.8, // make the flying slow
-     curve: 1, // change the speed at which it zooms out
-
-          // This can be any easing function: it takes a number between
-          // 0 and 1 and returns another number between 0 and 1.
-       easing: (t) => t,
-
-          // this animation is considered essential with respect to prefers-reduced-motion
-       essential: true
-     });
-  });
+  //   map.flyTo({
+  //   center: target,
+  //   zoom: 9,
+  //   bearing: 0,
+  //    speed: 0.8,
+  //    curve: 1,
+  //      easing: (t) => t,
+  //      essential: true
+  //    });
+  // });
 
     map.on("click", ({ point }) => {
       const features = map.queryRenderedFeatures(point, {
