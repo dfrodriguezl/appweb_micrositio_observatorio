@@ -301,19 +301,18 @@ export default function PersistentDrawerLeft(props) {
   };
 
   const handleMunicipio = (value) => {
-    console.log(value)
     municipios.forEach((data) => {
       if (data.cod_mpio == value) {
+        console.log(data.cod_mpio)
         setPosition(data)
       }
     })
-
   }
 
 
   //---fin state menu drawer
 
-  const [opciones, setOpciones] = React.useState(departamentos);
+  const [opcionesDepartamento, setDepartamentos] = React.useState(departamentos);
   const [opcionesMunicipio, setMunicipio] = React.useState(municipios)
 
   return (
@@ -378,7 +377,7 @@ export default function PersistentDrawerLeft(props) {
         <TabPanel value={values} index={1}>
           <Typography variant="body1" className={classes.Textp} color="initial">Realice la selección geográfica que desea ver en el mapa</Typography>
           <Formulario
-            opciones={opciones}
+            opciones={opcionesDepartamento}
             setOpciones={handleMunicipio}
             municipios={opcionesMunicipio} />
         </TabPanel>

@@ -39,7 +39,8 @@ const esmeralda2 = () => {
              lat:value.bbox[1],
              zoom:6
          }
-
+         console.log(value)
+         console.log(data)
          setPosition(data)
     }
     return ( 
