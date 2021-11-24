@@ -51,7 +51,7 @@ const esmeralda2 = () => {
             <DrawerBottom/>*/}
             {/* <button className={classes.boton} id="fly">
                 Bogotá
-            </button> */}
+            </button>  */}
         </div>
      );
 }
