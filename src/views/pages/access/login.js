@@ -66,6 +66,7 @@ const ImagenBottom = () => {
 
 const FormAccess = () => {
     const classes = useStyle();
+    const matches = useMediaQuery('(max-width:769px)');
     return (
         <Grid container direccion="row" >
             <Grid container justifyContent="center"
@@ -94,13 +95,16 @@ const FormAccess = () => {
                     <Grid item lg={9} md={9} sm={9} xs={9}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Contraseña" />
                     </Grid>
+                    <Grid item container justifyContent="center" alignItems="center">
+                        <ButtonRedWine Title="Iniciar Sesión" />
+                    </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Typography className={classes.Textp} >
                             Si no esta registrado, por favor hágalo mediante el siguiente botón
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Registrarse" />
+                        <ButtonRedWine Title="Registrarse"  href="/Observatorio/register"/>
                     </Grid>
 
                 </Grid>
