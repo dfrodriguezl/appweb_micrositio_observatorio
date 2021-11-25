@@ -27,7 +27,7 @@ import logoDane from "Observatorio/img/DANE__Geovisor__icon__logoDANE__01.svg";
 // import logoDane from "../../img/logo-dane.svg";
 import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 //-----------inicio cambios
-import Instructivo from "Observatorio/img/subregion-pdet-geovisor-ayuda-geoportal-dane.png";
+import Instructivo from "Observatorio/img/bannerhelp.png";
 import {
   AiOutlineQuestionCircle,
   AiFillMail
