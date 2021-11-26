@@ -78,22 +78,22 @@ const FormAccess = () => {
             </Grid>
             <Grid item container xs={12} sm={7} md={6} lg={6} alignItems="center"  >
                 <Grid direction="row" spacing={2} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
-                    <Grid item lg={3} md={3} sm={3} xs={3}>
+                    <Grid item lg={3} md={3} sm={3} xs={12}>
                         <Typography className={classes.Textp} >
-                            Nombre
+                            Usuario
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={9}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Nombre" />
+                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic"  />
                     </Grid>
 
-                    <Grid item lg={3} md={3} sm={3} xs={3}>
+                    <Grid item lg={3} md={3} sm={3} xs={12}>
                         <Typography className={classes.Textp} >
                             Contraseña
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={9}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Contraseña" />
+                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic"  />
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
                         <ButtonRedWine Title="Iniciar Sesión" />

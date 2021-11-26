@@ -1,16 +1,53 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState,forwardRef ,useImperativeHandle} from "react";
 import mapboxgl from "mapbox-gl";
 import "./mapa.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
 
-const Map = ({position,bbox}) => {
+const Map = forwardRef((props,ref) => {
   const mapContainerRef = useRef(null);
-   console.log(position)
+  const position= props.position
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
+
+  useImperativeHandle(ref, () => ({
+
+    toFly(position) {
+      toFly(position)
+    }
+
+  }));
+  const toFly = (position) =>{
+    console.log("asd")
+    const map = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      style: "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+      center: [lng, lat],
+      zoom: zoom,
+    });
+     map.flyTo({
+          //These options control the ending camera position: centered at
+          // the target, at zoom level 9, and north up.
+         center: [position.lng,position.lat],
+         zoom: 9,
+        bearing: 0,
+
+          // These options control the flight curve, making it move
+          // slowly and zoom out almost completely before starting
+          // to pan.
+         speed: 0.8, // make the flying slow
+         curve: 1, // change the speed at which it zooms out
+
+          // This can be any easing function: it takes a number between
+          // 0 and 1 and returns another number between 0 and 1.
+      //    easing: (t) => t,
+
+          // this animation is considered essential with respect to prefers-reduced-motion
+          essential: true
+      });
+  }
   
   //Constructor del mapa
 
@@ -78,13 +115,13 @@ const Map = ({position,bbox}) => {
 
     // Clean up on unmount
     return () => map.remove();
-  }, [position]);
+  }, []);
 
   return (
     <div>
       <div className="map-container" ref={mapContainerRef} />
     </div>
   );
-};
+});
 
 export default Map;

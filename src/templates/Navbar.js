@@ -13,26 +13,6 @@ import menuDane from "Observatorio/common/newmenu.js"
 import SideBarComponent from "./newsidebar.js"
 import * as Values from 'Observatorio/Variables/values';
 import { Button  } from '@material-ui/core';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ButtonRedWine from "Observatorio/common/buttonredwine";
-import CallMadeSharpIcon from '@mui/icons-material/CallMadeSharp';
-import AccountBalancnceIcon from "@mui/icons-material/AccountBalance"
-import ArchiveIcon from "@mui/icons-material/Archive"
-
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
-import Economia from '@mui/icons-material/EqualizerTwoTone';
-import Sociedad from '@mui/icons-material/SupervisedUserCircleSharp';
-import Territorio from '@mui/icons-material/Terrain';
-import ServicioGeografico from '@mui/icons-material/Public';
-import Investigacion from '@mui/icons-material/EmojiObjects';
-import DownloadIcon from '@mui/icons-material/Download';
-import CodeIcon from '@mui/icons-material/Code';
-import AndroidIcon from '@mui/icons-material/PhoneAndroid';
-import MapIcon from '@mui/icons-material/Map';
-import RoomIcon from '@mui/icons-material/Room';
-import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 const useStyle = makeStyles({
   root: {
     textDecoration: 'none',
