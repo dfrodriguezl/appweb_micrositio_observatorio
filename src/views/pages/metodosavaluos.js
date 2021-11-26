@@ -97,7 +97,7 @@ const useStyle = makeStyles({
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
-    margin: "10% 0 4% 0",
+    margin: "2% 0 2% 0",
     width: "max-content",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
@@ -127,9 +127,7 @@ const avaluos = () => {
       </Grid>
       <Grid container>
         <p className={classes.contentrulesp}>
-          Para la determinación de Avalúos Catastrales, se hace necesario el
-          calculo del valor comercial de los inmuebles, los cuales se pueden
-          calcular por los siguientes metodos:--
+          Para la determinación del valor comercial de los inmuebles, se disponen de diferentes Métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
         </p>
       </Grid>
       <Grid container direction="row" className={classes.numpadding}>
@@ -261,9 +259,9 @@ const avaluos = () => {
             alignItems="center"
           >
             <h1 className={classes.titleStyle2}>Otros</h1>
-            {/* <p className={classes.textStyle}>
-                        Es la determinación del valor comercial de un inmueble a partir del análisis de rentas o ingresos del mismo, puede ser del objeto de estudio o de bienes similares
-                        </p> */}
+            <p className={classes.textStyle}>
+                        Otros métodos estadísticos para el calculo de avalúos comerciales.
+                        </p>
           </Grid>
         </Grid>
       </Grid>
@@ -276,14 +274,15 @@ const avaluos = () => {
         alignItems="center"
         className={classes.numpadding}
       >
-        <Grid container item xs={10}>
+        <Grid container>
           <p className={classes.contentrulesp2}>
             En el siguiente enlace se podra descargar un documento teorico
             respecto a las Tecnicas Valuatorias mas conocidad y usadas para la
             determinacion de avalúos
           </p>
         </Grid>
-        <Grid className={classes.marginbutton2}>
+        
+      </Grid>
           <button className={classes.boton}>
             <a
               className={classes.alink}
@@ -293,8 +292,6 @@ const avaluos = () => {
               Descargar
             </a>
           </button>
-        </Grid>
-      </Grid>
     </Grid>
   );
 };
