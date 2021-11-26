@@ -62,7 +62,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "center",
-    padding: "0 0 0 0.3vw",
+    padding: "0 2vw 0 3vw",
   },
   contentrulesp: {
     color: Values.TextParagraph,

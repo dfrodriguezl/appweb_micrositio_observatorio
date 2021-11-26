@@ -346,13 +346,7 @@ const Top_content = () => {
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
-            El Observatorio Inmobiliario Nacional es un Sistema de Información,
-            que cuenta con un Componente Geográfico cuyo objetivo es consolidar
-            los datos provenientes y recopilados por los Gestores Catastrales en
-            relación al mercado inmobiliario, de fuentes como: ofertas,
-            transacciones, costos de construcción, entre otras, para apoyar y
-            facilitar la toma de decisiones relacionadas al Ordenamiento
-            Territorial.
+          El Observatorio Inmobiliario Nacional es un Sistema de Información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
           </p>
           {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto
@@ -607,7 +601,7 @@ const Bottom_content_footer = () => {
           alignItems="center"
         >
           <h1 className={classes.num}>1</h1>
-          <p className={estilo2}>Seguimiento dinámica inmobiliaria</p>
+          <p className={estilo2}>Seguimiento a la dinámica inmobiliaria</p>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -686,7 +680,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={estilo2}>Fuente de investigaciones</p>
+          <p className={estilo2}>Fuente de investigacio-nes</p>
         </Grid>
       </Grid>
     </Grid>
