@@ -25,7 +25,7 @@
      showgrid="false"
      inkscape:zoom="0.79311236"
      inkscape:cx="370.06106"
-     inkscape:cy="552.88509"
+     inkscape:cy="452.01666"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -13098,15 +13098,15 @@
        id="text27925-0"
        transform="scale(0.93562438,1.068805)"><tspan
          sodipodi:role="line"
-         id="tspan27923-0"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.74773px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle;fill:#585858;fill-opacity:1;stroke-width:0.307914"
          x="183.89684"
-         y="37.788296">Catastro y Registro</tspan><tspan
+         y="37.788296"
+         id="tspan27927-5">Integracion</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.74773px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle;fill:#585858;fill-opacity:1;stroke-width:0.307914"
          x="183.89684"
          y="45.187523"
-         id="tspan27927-5">Integrados</tspan></text>
+         id="tspan3545">Fisica - Jurídica</tspan></text>
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:6.13809px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';word-spacing:0px;stroke-width:0.328826"

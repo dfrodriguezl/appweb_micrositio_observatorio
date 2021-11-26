@@ -283,7 +283,7 @@ const ComparationModels = () =>{
             nacional respecto de la actual estrategia catastral, en especial
             sobre el rol del IGAC.</li>            
             <li className={classes.listyle}>Aproximaciones insostenibles del Multipróposito.</li>            
-            <li className={classes.listyle}>Desarticulación con Registro.</li>            
+            <li className={classes.listyle}>Desarticulación con SNR.</li>            
             <li className={classes.listyle}>Baja calidad servicio al ciudadano.</li>            
             <li className={classes.listyle}>Baja capacidad técnica.</li>            
             <li className={classes.listyle}>Desarticulación con catastros.</li>            
@@ -296,9 +296,9 @@ const ComparationModels = () =>{
             <p className={classes.texto}>Premisas Catastro Multipróposito</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Nuevo esquema de desentralización.</li>            
+            <li className={classes.listyle}>Nuevo esquema de descentralización.</li>            
             <li className={classes.listyle}>Estructura funcional y operativa colaborativa.</li>            
-            <li className={classes.listyle}>Modelo de operación mas eficiente.</li>
+            <li className={classes.listyle}>Modelo de operación más eficiente.</li>
             <li className={classes.listyle}>Acciones transformacionales</li>
             <li className={classes.listyle}>Ajustes normativos</li>
             <li className={classes.listyle}>Cambio de módelo de Operación</li>

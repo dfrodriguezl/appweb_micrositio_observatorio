@@ -176,7 +176,7 @@ const Comite = () => {
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
               <p className={classes.contentrulesp}>
-                Acorde al Decreto 148 de 2020, e-l Comite Técnico Asesor es la Instancia Técnica Asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la Gestión Catastral, presentadas por el Instituto Geográfico Agustin Codazzi - IGAC, entre sus funciones estan:
+              Acorde al Decreto 148 de 2020, el Comite Técnico Asesor es la instancia técnica asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la gestión catastral, presentadas por el Instituto Geográfico Agustin Codazzi - IGAC, entre sus funciones estan:
               </p>        
               <ol className={classes.contentrulesp2}>
                     <li className={classes.listyle}>Velar por la idoneidad de las propuestas presentadas por el IGAC</li>
