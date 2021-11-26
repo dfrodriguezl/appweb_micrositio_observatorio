@@ -5,6 +5,7 @@ import "./mapa.css";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
 
+  let eventMap;
 const Map = forwardRef((props,ref) => {
   const mapContainerRef = useRef(null);
   const position= props.position
@@ -20,14 +21,7 @@ const Map = forwardRef((props,ref) => {
 
   }));
   const toFly = (position) =>{
-    console.log("asd")
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
-      center: [lng, lat],
-      zoom: zoom,
-    });
-     map.flyTo({
+    eventMap.flyTo({
           //These options control the ending camera position: centered at
           // the target, at zoom level 9, and north up.
          center: [position.lng,position.lat],
@@ -123,7 +117,7 @@ const Map = forwardRef((props,ref) => {
         )
         .addTo(map);
     });
-
+    eventMap = map
     // Clean up on unmount
     return () => map.remove();
   }, []);
