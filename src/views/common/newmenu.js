@@ -1,7 +1,7 @@
 const menuDane = [
     [
         {
-          name:"¿Qué es es un Observatorio?",
+          name:"¿Qué es un Observatorio?",
           link:"/Observatorio",
           icon:"",
           isMain:true
@@ -19,7 +19,7 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Comite Técnico Asesor",
+            name:"Comité Técnico Asesor",
             link:"/Observatorio/Comitetecnico",
             icon:"",
             isMain:true

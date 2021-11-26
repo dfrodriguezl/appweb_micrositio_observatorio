@@ -72,10 +72,14 @@ const useStyle = makeStyles({
     },
     textFieldMultiline:{
         width:"100%",
-        marginTop:"5px"
+        marginTop:"5px",
+        backgroundColor: "#F3F3F3",
     },
     ImageContact02:{
         width:"100%"
+    },
+    containerRow:{
+        marginTop:"100px !important"
     }
 });
 
@@ -109,7 +113,7 @@ const Contacto = () => {
                 <Grid item container xs={12} sm={12} md={5} lg={5}>
                     <img src={ContactImage} className={image}></img>
                 </Grid>
-                <Grid item direction="column" xs={12} sm={12} md={6} lg={6} >
+                <Grid item direction="column" xs={12} sm={12} md={6} lg={6} container spacing={1} >
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
                             <Typography className={classes.Textp}>
@@ -117,17 +121,17 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField className={textFieldStyle} id="outlined-basic" label="Nombre" />
+                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
-                    <Grid item direction="row" container>
-                        <Grid item lg={5} md={5} sm={5} xs={12}>
+                    <Grid item direction="row"  container>
+                        <Grid item lg={5} md={5} sm={5} xs={12} >
                             <Typography className={classes.Textp}>
                                 Celular/Teléfono
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField className={textFieldStyle} id="outlined-basic" label="Celular/Teléfono" />
+                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -137,7 +141,7 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField className={textFieldStyle} id="outlined-basic" label="Dirección" />
+                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -147,30 +151,25 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField className={textFieldStyle} id="outlined-basic" label="Correo" />
+                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
 
-                    <Grid item lg={12} md={12} sm={12} xs={12} container justifyContent="center">
-                        <Grid item   >
+                    <Grid item  container justifyContent="center">
                             <Typography className={classes.Textp}>
                                 Petición / Queja / Reclamo y/o Sugerencia
                             </Typography>
-
-                        </Grid>
                     </Grid>
-                    <Grid item lg={12} md={12} sm={12} xs={12}>
+                    <Grid container item>
                         <TextField
                             id="filled-multiline-static"
-                            label="Multiline"
                             multiline
                             rows={6}
-                            defaultValue="Default Value"
-                            variant="filled"
+                            defaultValue=""
                             className={classes.textFieldMultiline}
                         />
                     </Grid>
-                    <Grid container item justifyContent="flex-end" className={classes.marginTop}>
+                    <Grid container item justifyContent="flex-end" >
                         <Grid item lg={2} md={2} sm={2} xs={4} justifyContent="flex-end">
                             <ButtonRedWine Title="Enviar"></ButtonRedWine>
                         </Grid>

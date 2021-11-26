@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useRef ,useEffect,forwardRef,useState} from 'react';
 import Drawer from './Drawer';
 import Map from './map';
 import mapboxgl from 'mapbox-gl';
@@ -27,12 +27,12 @@ const useStyle = makeStyles({
 
 const esmeralda2 = () => {
     const classes = useStyle();
+    const mapaData = useRef()
     const [position, setPosition] = React.useState({
         lng:-74.5447,
         lat:4.73,
         zoom:6
     });
-    const [bbox,setBox] = React.useState([-74.5447,4.73])
     const handlePosition = (value) =>{
          let data={
              lng:value.bbox[0],
@@ -41,13 +41,21 @@ const esmeralda2 = () => {
          }
          console.log(value)
          console.log(data)
-         setPosition(data)
+         console.log(mapaData)
+         mapaData.current.toFly(data)
     }
+
+      
     return ( 
         <div>
             <Drawer setPosition ={handlePosition}/>
-            <Map position={position} bbox={bbox}/>
-            {/*<DrawerRight/>
+            <Map ref={mapaData} position={position}  />
+            {
+              
+            /* <Map ref={} position={position} bbox={bbox}   />
+            <MapEvent position={position} bbox={bbox} ref={mapaData}></MapEvent>
+       
+            <DrawerRight/>
             <DrawerBottom/>*/}
             {/* <button className={classes.boton} id="fly">
                 Bogotá

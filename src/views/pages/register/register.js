@@ -40,7 +40,7 @@ const useStyle = makeStyles({
     },
     imageRigth: {
         width: "100%",
-        padding: "50px"
+        padding: "0px"
     },
     containerForm: {
         backgroundColor: "#f3f3f3",
@@ -50,6 +50,9 @@ const useStyle = makeStyles({
     itemTextField: {
         backgroundColor: "white",
         width: "100%"
+    },
+    gridMain:{
+        paddingBottom:"50px"
     }
 });
 
@@ -63,28 +66,25 @@ const ImagenBottom = () => {
 const FormRegister = () => {
     const classes = useStyle();
     return (
-        <Grid container direccion="row" >
-            <Grid container justifyContent="center"
-                alignItems="center">
-
-            </Grid>
+        <Grid container direccion="row" className={classes.gridMain} >
+            
 
             <Grid item container xs={12} sm={6} md={6} lg={6} alignItems="center"  >
-                <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Grid item container>
                     <Typography className={classes.Titleh3}>
                         <strong>Registro</strong>
                     </Typography>
                 </Grid>
                 <Grid direction="row" spacing={1} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                    <Grid item container >
                         <Typography className={classes.Textp} >
                             Tipo de Usuario
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Seleccione ...." />
                     </Grid>
-                    <Grid item container justifyContent="center">
+                    <Grid item container>
                         <Typography className={classes.Textp} >
                             Nombre o Razon social
                         </Typography>
@@ -92,7 +92,7 @@ const FormRegister = () => {
                     <Grid item lg={12} md={12} sm={12} xs={12} >
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
                     </Grid>
-                    <Grid item container justifyContent="center">
+                    <Grid item container >
                         <Typography className={classes.Textp} >
                             Correo electrónico
                         </Typography>
@@ -100,41 +100,44 @@ const FormRegister = () => {
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
                     </Grid>
-                    <Grid item container justifyContent="center">
+                    <Grid item container >
                         <Typography className={classes.Textp} >
                             El Correo electrónico suministrado corresponderá al usuario de ingreso a la plataforma
                         </Typography>
                     </Grid>
 
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                    <Grid item container>
                         <Typography className={classes.Textp} >
                             Teléfono
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
                     </Grid>
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                    <Grid item container>
                         <Typography className={classes.Textp} >
                             Clave
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
                     </Grid>
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                    <Grid item container>
                         <Typography className={classes.Textp} >
                             Confirmar clave
                         </Typography>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
                         <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
                     </Grid>
 
-                    <Grid item container justifyContent="center">
+                    <Grid item container >
                         <Typography className={classes.Textp} >
                             La clave debe ser por lo menos de 8 caracteres
                         </Typography>
+                    </Grid>
+                    <Grid item container >
+                        <ButtonRedWine Title="Enviar" />
                     </Grid>
 
                 </Grid>
@@ -142,8 +145,8 @@ const FormRegister = () => {
 
             <Grid item xs={12} sm={6} md={6} lg={6}>
                 <ImagenBottom />
-                <Grid item container alignItems="center" justifyContent="center" >
-                    <Typography item lg={9} md={9} sm={9} xs={12}>
+                <Grid item container  >
+                    <Typography>
                         Una vez haya realizado el registro usted podra: cargar / suministrar y / o descargar  información / formularios, visualizar estadísticas y historico de la información suministrada como usuario.
                     </Typography>
                 </Grid>
@@ -161,9 +164,7 @@ const Register = () => {
         <Grid container justifyContent="center" spacing={3}
             alignItems="center" className={classes.gridglobal}>
             <FormRegister />
-            <Grid item container justifyContent="center" alignItems="center">
-                <ButtonRedWine Title="Enviar" />
-            </Grid>
+
         </Grid>
     );
 }
