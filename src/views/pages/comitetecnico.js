@@ -4,6 +4,8 @@ import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
 import Meeting from "Observatorio/img/Meeting.svg";
 import Remote from "Observatorio/img/Remote.svg";
+import Discussion from "Observatorio/img/Discussion.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
   margintop:{
@@ -23,11 +25,17 @@ const useStyle = makeStyles({
       fontSize: Values.SizeTitle,
       padding: Values.PaddingTitleText,
     },
+    marginbutton: {
+      padding: "0em 0em 0 0em",
+    },
+    marginbutton2: {
+      padding: "0em 0em 0 11%",
+    },
     titleStyle2:{
       color: Values.Redwinecolor,
       fontFamily: Values.SourceRoboto,
       fontWeight: "bold",
-      fontSize: Values.SizeTitle,
+      fontSize: Values.SizeSubtitle,
       padding: Values.PaddingTitleText,
     },
     gridglobal:{
@@ -90,6 +98,27 @@ const useStyle = makeStyles({
        flexBasis: "100% !important",
        maxWidth: "100% !important",
     },   
+
+    imagen_Discussion:{    
+      width: "100% !important",
+      height: "47vh",
+      backgroundSize: "106%",
+      backgroundRepeat: "no-repeat",
+      backgroundImage: `url(${Discussion})`,       
+      backgroundPosition: "center",
+       
+       
+    },       
+    imagen_Discussion2:{     
+       width: "100%",
+       height: "47vh",
+       backgroundSize: "100%",
+       backgroundRepeat: "no-repeat",
+       backgroundImage: `url(${Discussion})`,       
+       backgroundPosition: "center center",
+       flexBasis: "100% !important",
+       maxWidth: "100% !important",
+    },   
 })
 
 const Imagen = () => {
@@ -97,6 +126,17 @@ const Imagen = () => {
   const matches = useMediaQuery('(min-width:660px)');
   var estilo = null;
   {matches ? estilo=classes.imagen_top :estilo=classes.imagen_top2}   
+  return(
+    <Grid item container direction="column" xs={4} className={estilo}>   
+    </Grid>  
+  )  
+} 
+
+const Imagen3 = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery('(min-width:660px)');
+  var estilo = null;
+  {matches ? estilo=classes.imagen_Discussion :estilo=classes.imagen_Discussion2}   
   return(
     <Grid item container direction="column" xs={4} className={estilo}>   
     </Grid>  
@@ -118,8 +158,15 @@ const Comite = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
+    var estilo2 = null;
     {
-      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+      if(matches){
+        estilo=classes.gridglobal
+        estilo2=classes.marginbutton2
+      }else{
+        estilo=classes.gridglobalmovil
+        estilo2=classes.marginbutton
+      }
     }
   return(      
       <Grid container direction="column"  className={estilo}>
@@ -143,7 +190,7 @@ const Comite = () => {
           </Grid>
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle2}>Composición del Comité Técnico Asesor</h3>
+                  <h3 className={classes.titleStyle}>Composición del Comité Técnico Asesor</h3>
               </Grid>
               <ImagenJudge/>   
               <Grid item container direction="column" xs className={classes.containerTitle}>
@@ -161,6 +208,27 @@ const Comite = () => {
                     Para la seleccion de los expertos nacionales e internacionales, el DANE definira los criterios de seleccion que considere propicios para el desenvolvimiento de sus labores dentro del comité.
                     </p>         
               </Grid>           
+          </Grid>
+          <Grid container direction="row">
+              <Grid container justifyContent="center" alignItems="center">
+                  <h3 className={classes.titleStyle}>Logros</h3>
+              </Grid>
+              <Grid item container direction="column" xs className={classes.containerTitle}>
+              <p className={classes.contentrulesp}>
+              La Instancia Técnica Asesora debatió la resolución 1149 de 2021, “Por la cual se actualiza la reglamentación técnica de la formación, actualización, conservación y difusión catastral con enfoque multipropósito”
+              </p>        
+              <Grid container justifyContent="flex-start" alignItems="center">
+                  <h3 className={classes.titleStyle2}>RESOLUCIÓN 1149 DE 2021</h3>
+                  <Grid className={estilo2}>
+                  <ButtonRedWine
+                    Title="Ver"
+                    href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"
+                    Values="1"
+                  />
+                </Grid>
+              </Grid>
+              </Grid>
+              <Imagen3/> 
           </Grid>
       </Grid>
     

@@ -12,6 +12,9 @@ const Map = ({position,bbox}) => {
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);*/
   //Constructor del mapa
+
+  
+
   useEffect(() => {
     
     const map = new mapboxgl.Map({

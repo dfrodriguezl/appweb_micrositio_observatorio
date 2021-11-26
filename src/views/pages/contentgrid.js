@@ -427,7 +427,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>Integración</h1>
           <p className={classes.textStyle}>
-            Integración con diversos Sistemas de Información de nivel publico y
+            Integración con diversos Sistemas de Información de nivel público y
             privado.
           </p>
         </Grid>
@@ -475,7 +475,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>LADM</h1>
           <p className={classes.textStyle}>
-            Basado en el modelo estandar LADM - COL para la interoperailidad de
+            Basado en el modelo estandar LADM - COL para la interoperabilidad de
             información del Catastro Multipróposito.
           </p>
         </Grid>
@@ -513,7 +513,7 @@ const Bottom_content = () => {
             </p>
             <p className={classes.contentrulesp}>
               Los observatorios inmobiliarios son una práctica ya implementada
-              en Colombia por parte de algunos Catastros desentralizados, como
+              en Colombia por parte de algunos Catastros descentralizados, como
               mecanismos de visibilidad de información e insumo para la
               generación de conocimiento.
             </p>
@@ -542,7 +542,7 @@ const Bottom_content = () => {
                 <Grid className={classes.marginbutton2}>
                   <ButtonRedWine
                     Title="Ver"
-                    href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                    href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970"
                     Values="1"
                   />
                 </Grid>
@@ -554,7 +554,7 @@ const Bottom_content = () => {
                 <Grid className={classes.marginbutton2}>
                   <ButtonRedWine
                     Title="Ver"
-                    href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                    href="https://colaboracion.dnp.gov.co/CDT/Conpes/Económicos/3958.pdf"
                     Values="1"
                   />
                 </Grid>
@@ -607,7 +607,7 @@ const Bottom_content_footer = () => {
           alignItems="center"
         >
           <h1 className={classes.num}>1</h1>
-          <p className={estilo2}>Seguimiento dinamica inmobiliaria</p>
+          <p className={estilo2}>Seguimiento dinámica inmobiliaria</p>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -686,7 +686,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={estilo2}>Fuente de investigaciónes</p>
+          <p className={estilo2}>Fuente de investigaciones</p>
         </Grid>
       </Grid>
     </Grid>

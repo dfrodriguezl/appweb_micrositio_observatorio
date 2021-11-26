@@ -234,14 +234,14 @@ const Cardsmapas = () => {
                         >
                           <Grid container item xs={6}>
                             <p className={classes.contentrulesp2}>
-                              Instructivo
+                            Formato Mercado
                             </p>
                           </Grid>
                           <Grid className={classes.marginbutton2}>
                             <button className={classes.boton}>
                               <a
                               className={classes.alink}
-                                href="Observatorio/src/files/EjemploPresentaciondeDatosObservatorioInmobiliario.xlsx"
+                                href="Observatorio/src/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                                 download
                               >
                                 Descargar
@@ -266,7 +266,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                               <a
                               className={classes.alink}
-                                href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
                                 download
                               >
                                 Descargar
@@ -291,7 +291,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                               <a
                               className={classes.alink}
-                                href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
                                 download
                               >
                                 Descargar
@@ -324,7 +324,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                               <a
                               className={classes.alink}
-                                href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                href="Observatorio/src/files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                                 download
                               >
                                 Cargue
@@ -349,7 +349,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                               <a
                               className={classes.alink}
-                                href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
                                 download
                               >
                                 Cargue

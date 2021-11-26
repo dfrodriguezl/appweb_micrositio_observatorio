@@ -274,21 +274,21 @@ const ComparationModels = () =>{
             <p className={classes.texto}>Modelo Catastral Anterior</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Esquema Anterior: IGAC - Desentralizacos - Delegados.</li>
-            <li className={classes.listyle}>Delegados Disminución del presupuesto a Entidades Centralizadas.</li>
-            <li className={classes.listyle}>Asimetria de Información.</li>            
-            <li className={classes.listyle}>Rezago en la actualización de la Base Gravable.</li>            
-            <li className={classes.listyle}>Disminución en la frecuencia de actualización de Catastros.</li>            
+            <li className={classes.listyle}>Esquema anterior: IGAC - Descentralizados - Delegados.</li>
+            <li className={classes.listyle}>Delegados disminución del presupuesto a entidades centralizadas.</li>
+            <li className={classes.listyle}>Asimetría de información.</li>            
+            <li className={classes.listyle}>Rezago en la actualización de la base gravable.</li>            
+            <li className={classes.listyle}>Disminución en la frecuencia de actualización de catastros.</li>            
             <li className={classes.listyle}>Percepción negativa por parte de las ET y entidades de orden
             nacional respecto de la actual estrategia catastral, en especial
             sobre el rol del IGAC.</li>            
             <li className={classes.listyle}>Aproximaciones insostenibles del Multipróposito.</li>            
             <li className={classes.listyle}>Desarticulación con Registro.</li>            
-            <li className={classes.listyle}>Baja Calidad Servicio al Ciudadano.</li>            
-            <li className={classes.listyle}>Baja Capacidad Técnica.</li>            
-            <li className={classes.listyle}>Desarticulación con Catastros.</li>            
-            <li className={classes.listyle}>Sin Registro de la Informalidad.</li>            
-            <li className={classes.listyle}>Metodología de Alto Costo.</li>            
+            <li className={classes.listyle}>Baja calidad servicio al ciudadano.</li>            
+            <li className={classes.listyle}>Baja capacidad técnica.</li>            
+            <li className={classes.listyle}>Desarticulación con catastros.</li>            
+            <li className={classes.listyle}>Sin registro de la informalidad.</li>            
+            <li className={classes.listyle}>Metodología de alto costo.</li>            
           </ol>
         </Grid>
         <Grid container item xs>
@@ -297,22 +297,22 @@ const ComparationModels = () =>{
           </Grid>
           <ol className={classes.textStyle1}>
             <li className={classes.listyle}>Nuevo esquema de desentralización.</li>            
-            <li className={classes.listyle}>Estructura Funcional y operativa colaborativa.</li>            
+            <li className={classes.listyle}>Estructura funcional y operativa colaborativa.</li>            
             <li className={classes.listyle}>Modelo de operación mas eficiente.</li>
             <li className={classes.listyle}>Acciones transformacionales</li>
-            <li className={classes.listyle}>Ajustes Normativos</li>
-            <li className={classes.listyle}>Cambio de Módelo de Operación</li>
-            <li className={classes.listyle}>Apertura Metodológica y Tecnológica</li>
-            <li className={classes.listyle}>Simplificación en los Procesos</li>
-            <li className={classes.listyle}>Esquemas Sostenibles</li>
-            <li className={classes.listyle}>Seguridad Jurídica</li>
-            <li className={classes.listyle}>Habilitación de Hestores Catastrales</li>
-            <li className={classes.listyle}>Integración Catastro - Registro</li>
-            <li className={classes.listyle}>Numero Unico Predial Registral - NUPRE</li>
+            <li className={classes.listyle}>Ajustes normativos</li>
+            <li className={classes.listyle}>Cambio de módelo de Operación</li>
+            <li className={classes.listyle}>Apertura metodológica y tecnológica</li>
+            <li className={classes.listyle}>Simplificación en los procesos</li>
+            <li className={classes.listyle}>Esquemas sostenibles</li>
+            <li className={classes.listyle}>Seguridad jurídica</li>
+            <li className={classes.listyle}>Habilitación de gestores catastrales</li>
+            <li className={classes.listyle}>Integración catastro - registro</li>
+            <li className={classes.listyle}>Número único predial registral - NUPRE</li>
             <li className={classes.listyle}>Repositorio de datos maestros basados en LADM</li>
-            <li className={classes.listyle}>Sistema de Adminsitracion de Tierras - SAT</li>
-            <li className={classes.listyle}>Mercado formal de Tierras</li>
-            <li className={classes.listyle}>Simplificación de Tramites</li>            
+            <li className={classes.listyle}>Sistema de adminsitración de Tierras - SAT</li>
+            <li className={classes.listyle}>Mercado formal de tierras</li>
+            <li className={classes.listyle}>Simplificación de trámites</li>            
           </ol>
         </Grid>
       </Grid>
