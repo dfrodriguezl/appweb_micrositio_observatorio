@@ -680,7 +680,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={estilo2}>Fuente de investigacio-nes</p>
+          <p className={estilo2}>Fuente de investigaciones</p>
         </Grid>
       </Grid>
     </Grid>
