@@ -134,13 +134,7 @@ const SectionOne = () => {
                 </Typography>
                 <Typography className={classes.Textp}>
                     Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
-                    a través de encuestas por muestreo, que de acuerdo al DANE es “método estadístico por el cual se
-                    investiga y analiza un fenómeno, mediante la selección de una muestra”. Sin embargo, a
-                    recomendaciones internacionales, convendría usar más los registros administrativos, debido a las
-                    ventajas de cobertura temática y geográfica, además de constituirse como una fuente de información
-                    que, considerando la periodicidad de su actualización y constituyéndose en fuentes para derivar
-                    información estadística.
-
+                    a través de encuestas por muestreo, que de acuerdo al DANE es <em>“método estadístico por el cual se investiga y analiza un fenómeno, mediante la selección de una muestra”.</em> Sin embargo, acorde a las recomendaciones internacionales, convendría usar más los registros administrativos, debido a las ventajas de cobertura temática y geográfica, además de constituirse como una fuente de información que, considerando la periodicidad de su actualización y constituyéndose en fuentes para derivar información estadística.
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} md={6} lg={6}   >
@@ -149,12 +143,8 @@ const SectionOne = () => {
             </Grid>
             <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.Textp}>
                 De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la División de
-                Estadística y Proyecciones Económicas un registro administrativo es “todo registro resultante de
-                necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
-                programas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su
-                utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones,
-                cobertura alcanzada, variables investigadas, calidad de las respuestas, procesamiento de los datos y
-                frecuencia de disponibilidad de ellos.” CEPAL (2003).
+                Estadística y Proyecciones Económicas un registro administrativo es <em>“todo registro resultante de
+                necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los pogramas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones, cobertura alcanzada, variables investigadas, calidad de las respuestas, procesamiento de los datos y frecuencia de disponibilidad de ellos.”</em>CEPAL (2003).
             </Grid>
         </Grid>
 
@@ -298,7 +288,7 @@ const SectionThree = () => {
                                 Generación de estadísticas de áreas protegidas.</li>
                             <li>Identificar fenómenos de conurbación, redensificación, sostenibilidad y habitabilidad.
                                 Generación de indicadores para medición de consumo de suelo.</li>
-                            <li>Índices de precios de vivienda.</li>
+                            <li>Indices de precios de vivienda.</li>
                             <li>Vulnerabilidad económica y sociodemográfica (Riesgos asociados).</li>
                             <li>Estratificación.</li>
                             <li>Aptitud de uso.</li>

@@ -205,7 +205,7 @@ const Comite = () => {
                     <li className={classes.listyle}>Dos expertos/as nacionales</li>
                     </ol>  
                     <p className={classes.contentrulesp}>
-                    Para la seleccion de los expertos nacionales e internacionales, el DANE definira los criterios de seleccion que considere propicios para el desenvolvimiento de sus labores dentro del comité.
+                    Para la selección de los expertos nacionales e internacionales, el DANE definira los criterios de selección que considere propicios para el desenvolvímiento de sus labores dentro del comité.
                     </p>         
               </Grid>           
           </Grid>

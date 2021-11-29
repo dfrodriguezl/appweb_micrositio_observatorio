@@ -127,7 +127,7 @@ const avaluos = () => {
       </Grid>
       <Grid container>
         <p className={classes.contentrulesp}>
-          Para la determinación del valor comercial de los inmuebles, se disponen de diferentes Métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
+        Para la determinación del valor comercial de los inmuebles, se disponen de diferentes Métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
         </p>
       </Grid>
       <Grid container direction="row" className={classes.numpadding}>
@@ -150,11 +150,11 @@ const avaluos = () => {
             alignItems="center"
           >
             <h1 className={classes.titleStyle2}>
-              Método de Comparacion o de Mercado
+              Método de Comparación o de Mercado
             </h1>
             <p className={classes.textStyle}>
               Corresponde al estudio de ofertas o transacciones recientes de
-              bienes similares o comparales al objeto de avaluo
+              bienes similares o comparables al objeto de avalúo
             </p>
           </Grid>
         </Grid>
@@ -177,12 +177,10 @@ const avaluos = () => {
             alignItems="center"
           >
             <h1 className={classes.titleStyle2}>
-              Método de Capitalización de rentas o Ingresos
+            Método de Capitalización de Rentas o Ingresos
             </h1>
             <p className={classes.textStyle}>
-              Es la determinación del valor comercial de un inmueble a partir
-              del análisis de rentas o ingresos del mismo, puede ser del objeto
-              de estudio o de bienes similares
+            Es la determinación del valor comercial de un inmueble a partir del análisis de rentas o ingresos del mismo, puede ser del objeto de estudio o de bienes similares
             </p>
           </Grid>
         </Grid>
@@ -207,8 +205,7 @@ const avaluos = () => {
         >
           <h1 className={classes.titleStyle3}>Método de Costo de Reposición</h1>
           <p className={classes.textStyle2}>
-            Consiste en establecer el vlor comercial de una construcción a patir
-            de la depreciación de una estimacion del costo de sus materiales
+          Consiste en establecer el valor comercial de una construcción a patir de la depreciación de una estimación del costo de sus materiales
           </p>
         </Grid>
       </Grid>
@@ -260,7 +257,7 @@ const avaluos = () => {
           >
             <h1 className={classes.titleStyle2}>Otros</h1>
             <p className={classes.textStyle}>
-                        Otros métodos estadísticos para el calculo de avalúos comerciales.
+                        Otros métodos estadísticos para el cálculo de avalúos comerciales.
                         </p>
           </Grid>
         </Grid>
@@ -276,9 +273,7 @@ const avaluos = () => {
       >
         <Grid container>
           <p className={classes.contentrulesp2}>
-            En el siguiente enlace se podra descargar un documento teorico
-            respecto a las Tecnicas Valuatorias mas conocidad y usadas para la
-            determinacion de avalúos
+          En el siguiente enlace se podra descargar un documento teorico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
           </p>
         </Grid>
         
