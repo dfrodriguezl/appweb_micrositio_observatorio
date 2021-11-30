@@ -67,8 +67,7 @@ const TopTipologia = () => {
              <Grid item container direction="column" xs={12} sm={6} md={6} lg={6} className={classes.containerTitle}>
                 <h3 className={classes.Titleh3}>Tipologías Constructivas</h3>
                 <p className={classes.Textp}>
-                Las Tipologías Constructivas se refieren al tipo de construcciòn en las cuales se clasifica un inmueble, teniendo como punto de partida sus caracteristicas arquitectonicas, funciones de uso, actividades economicas, entre otras; Acorde a la Clasificaciòn realizada por el Instituto Geogràfico Agustin Codazzi - IGAC, existen 10 Tipologias constructivas: Asamblea, Negocios, Educativo, Industrial, De Alto Riesgo, Institucional, Mercantil, Residencial, Almacenamiento y Otras.
-                
+                Las tipologías constructivas se refieren al tipo de construcción en las cuales se clasifica un inmueble, teniendo como punto de partida sus características arquitectónicas, funciones de uso, actividades economicas, entre otras; acorde a la clasificación realizada por el Instituto Geogràfico Agustin Codazzi - IGAC, existen 10 tipologías constructivas: Asamblea, negocios, educativo, industrial, de alto riesgo, institucional, mercantil, residencial, almacenamiento y otras.
                 </p> 
                 <p className={classes.Textp}>
                    En el siguiente botón se podrá descargar un documento que lista las Tipologías Constructivas mas habituales en Colombia.

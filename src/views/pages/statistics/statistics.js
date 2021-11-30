@@ -149,7 +149,7 @@ const Cardsservice = () => {
           <strong>Estadisticas</strong>
         </Typography>
         <Typography className={classes.Textp}>
-          La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generara continuo conocimiento sobre las tendencias y dinamicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.  ---
+        La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generará continuo conocimiento sobre las tendencias y dinámicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.
         </Typography>
       </Grid>
       <Grid container item xs={12} sm={12} md={6} lg={6} className={classes.containerImg} >

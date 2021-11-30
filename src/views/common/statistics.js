@@ -15,7 +15,7 @@ const cardService= [
         },
         {
             "id":2,
-            "title":"Estadisticas de Licencias de Construcción (ELIC)",
+            "title":"Estadísticas de Licencias de Construcción (ELIC)",
             "description":"Tiene como objetivo conocer el potencial de la actividad edificadora del país, cuantificar el total de metros aprobados para construcción, por destino, según tipo de licencias, tipo de solicitud, clase de construcción y estrato socioeconómico. ",
             "image_card":Fill,
             "link":"/Observatorio/Visores/Esmeralda2"

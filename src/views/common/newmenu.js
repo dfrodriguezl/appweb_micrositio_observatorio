@@ -2,7 +2,7 @@ const menuDane = [
     [
         {
           name:"¿Qué es un Observatorio?",
-          link:"/Observatorio",
+          link:"/Observatorio/Acerca",
           icon:"",
           isMain:true
         },

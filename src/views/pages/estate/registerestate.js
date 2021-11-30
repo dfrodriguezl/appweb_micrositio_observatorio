@@ -28,12 +28,12 @@ const useStyle = makeStyles({
         maxWidth: 300
     },
     sectionPar: {
-        backgroundColor: "#F4F4F4", 
-        padding: "0 10vw 2vw 10vw",       
+        backgroundColor: "#F4F4F4",
+        padding: "0 10vw 2vw 10vw",
     },
     sectionParmovil: {
-        backgroundColor: "#F4F4F4", 
-        padding: "0 5vw 2vw 5vw",       
+        backgroundColor: "#F4F4F4",
+        padding: "0 5vw 2vw 5vw",
     },
     textLeft: {
         marginLeft: 30
@@ -70,21 +70,21 @@ const useStyle = makeStyles({
         padding: "10% 0 0 0",
     },
 
-    Titleh3:{
+    Titleh3: {
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeTitle, 
+        fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,
-        fontWeight:"bold"
-      },
+        fontWeight: "bold"
+    },
 
-    Textp:{
+    Textp: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
-        textAlign: "start",  
+        textAlign: "start",
         margin: "1em 0 0 0",
-      },
+    },
 
     root: {
         width: "42vh",
@@ -103,10 +103,13 @@ const useStyle = makeStyles({
     cardglobal: {
         //margin: "0% 0% 0% 0%",
         padding: "0% 10vw 0% 10vw"
-        
+
     },
     paddingBottom: {
-       paddingBottom:"20px"
+        paddingBottom: "20px"
+    },
+    containerAlcance:{
+        padding:"40px"
     }
 });
 
@@ -117,7 +120,7 @@ const SectionOne = () => {
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
-      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+        matches ? estilo = classes.gridglobal : estilo = classes.gridglobalmovil
     }
     return (
         <Grid container className={estilo}>
@@ -134,8 +137,8 @@ const SectionOne = () => {
                 </Typography>
                 <Typography className={classes.Textp}>
                     Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
-                    a través de encuestas por muestreo, que de acuerdo al DANE es “método estadístico por el cual se
-                    investiga y analiza un fenómeno, mediante la selección de una muestra”. Sin embargo, a
+                    a través de encuestas por muestreo, que de acuerdo al DANE es <i>“método estadístico por el cual se
+                    investiga y analiza un fenómeno, mediante la selección de una muestra”.</i> Sin embargo, acorde a las
                     recomendaciones internacionales, convendría usar más los registros administrativos, debido a las
                     ventajas de cobertura temática y geográfica, además de constituirse como una fuente de información
                     que, considerando la periodicidad de su actualización y constituyéndose en fuentes para derivar
@@ -143,18 +146,18 @@ const SectionOne = () => {
 
                 </Typography>
             </Grid>
-            <Grid container item xs={12} sm={12} md={6} lg={6}   >
+            <Grid item xs={12} sm={12} md={6} lg={6}   >
 
                 <img src={imageItem} />
             </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12} className={classes.Textp}>
+            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textp}>
                 De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la División de
-                Estadística y Proyecciones Económicas un registro administrativo es “todo registro resultante de
-                necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
-                programas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su
-                utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones,
-                cobertura alcanzada, variables investigadas, calidad de las respuestas, procesamiento de los datos y
-                frecuencia de disponibilidad de ellos.” CEPAL (2003).
+                Estadística y Proyecciones Económicas un registro administrativo es <i>“todo registro resultante de
+                    necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
+                    programas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su
+                    utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones,
+                    cobertura alcanzada, variables investigadas, calidad de las respuestas, procesamiento de los datos y
+                    frecuencia de disponibilidad de ellos.”</i> CEPAL (2003).
             </Grid>
         </Grid>
 
@@ -205,13 +208,24 @@ const ImageSectionFour = Styled.img`
 
 `
 
+const ImageAlcance = Styled.img`
+
+@media (max-width: 4000px) and (min-width: 769px) {
+      width:400px;
+  };
+  @media (max-width: 768px) {
+    width:100%;
+  };
+
+`
+
 
 const SectionTwo = () => {
     const classes = useStyle();
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
-      matches?estilo=classes.sectionPar:estilo=classes.sectionParmovil
+        matches ? estilo = classes.sectionPar : estilo = classes.sectionParmovil
     }
     return (
         <Grid container className={estilo} >
@@ -245,20 +259,20 @@ const SectionTwo = () => {
             </Grid>
 
             <Grid container item xs={12} sm={12} direction="row" >
-                <Grid item xs={12} sm={12} md={4} lg={4}>
-                    <img src={DocumentBro}  ></img>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
+                    <ImageAlcance src={DocumentBro}  ></ImageAlcance>
                 </Grid>
 
-                <Grid item xs={12} sm={12} md={8} lg={8}>
+                <Grid item xs={12} sm={12} md={6} lg={6} className={classes.containerAlcance}>
                     <Typography className={classes.Textp}>
                         Cobertura total de los predios en las áreas urbano y rural que incluyan situaciones como:
 
                     </Typography>
                     <ol className={classes.Textp}>
-                        <li>Predios formalizados a través del registro en la superintendencia de Notariado y Registro</li>
+                        <li>Predios formalizados a través del registro en la<br></br> superintendencia de Notariado y Registro</li>
                         <li>Predios sin formalizar</li>
                         <li>Predios baldíos con y sin ocupación</li>
-                        <li>Predios que hagan parte de comunidades negras, resguardos indígenas y raizales</li>
+                        <li>Predios que hagan parte de comunidades negras,<br></br> resguardos indígenas y raizales</li>
                         <li>Predios de uso público</li>
                     </ol>
 
@@ -273,7 +287,7 @@ const SectionThree = () => {
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
-      matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+        matches ? estilo = classes.gridglobal : estilo = classes.gridglobalmovil
     }
     return (
         <Grid container className={estilo}>
@@ -283,10 +297,10 @@ const SectionThree = () => {
                     Usos
                 </Typography>
                 <Typography className={classes.Textp}>
-                    Haciendo alusión de metodologías como ANDERS WALLGREN, BRITT WALLGREN, 2007 el cual
-                    menciona los registros de bienes inmuebles como instrumento para recopilar la información relacionada
-                    a la localización o ubicación de los registros de población y registros empresariales, se toma en
-                    consideración los diferentes resultados y usos requeridos, los cuales se listan a continuación:
+                Haciendo alusión a las metodologías de ANDERS WALLGREN, BRITT WALLGREN, 2007, las cuales
+                mencionan los registros de bienes inmuebles como instrumento para recopilar la información relacionada
+                a la localización o ubicación de los registros de población y registros empresariales, se toma en
+                consideración los diferentes resultados y usos requeridos, los cuales se listan a continuación:         
                 </Typography>
                 <Grid sm={8} className={classes.textLeft}>
                     <div className={classes.Textp}>
@@ -320,10 +334,10 @@ const SectionFour = () => {
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
-      matches?estilo=classes.sectionPar:estilo=classes.sectionParmovil
+        matches ? estilo = classes.sectionPar : estilo = classes.sectionParmovil
     }
     return (
-        <Grid container  className={estilo}>
+        <Grid container className={estilo}>
 
             <Grid container item xs={12} sm={12} >
                 <Typography className={classes.Titleh3}>

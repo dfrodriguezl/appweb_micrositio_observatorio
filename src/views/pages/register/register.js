@@ -78,7 +78,7 @@ const FormRegister = () => {
                 <Grid direction="row" spacing={1} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
                     <Grid item container >
                         <Typography className={classes.Textp} >
-                            Tipo de Usuario
+                            Tipo de Usuario *
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -86,7 +86,7 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
-                            Nombre o Razon social
+                            Nombre o Razon social *
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12} >
@@ -94,7 +94,15 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
-                            Correo electrónico
+                            Correo electrónico *
+                        </Typography>
+                    </Grid>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
+                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                    </Grid>
+                    <Grid item container >
+                        <Typography className={classes.Textp} >
+                            Confirmar Correo electrónico *
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -116,7 +124,7 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
-                            Clave
+                            Clave *
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -124,7 +132,7 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
-                            Confirmar clave
+                            Confirmar clave *
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -134,6 +142,11 @@ const FormRegister = () => {
                     <Grid item container >
                         <Typography className={classes.Textp} >
                             La clave debe ser por lo menos de 8 caracteres
+                        </Typography>
+                    </Grid>
+                    <Grid item container >
+                        <Typography className={classes.Textp} >
+                            * Campo obligatorio
                         </Typography>
                     </Grid>
                     <Grid item container >

@@ -117,7 +117,7 @@ const Contacto = () => {
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
                             <Typography className={classes.Textp}>
-                                Nombre
+                                Nombre *
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
@@ -147,7 +147,7 @@ const Contacto = () => {
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
                             <Typography className={classes.Textp}>
-                                Correo electrónico
+                                Correo electrónico *
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
@@ -157,7 +157,7 @@ const Contacto = () => {
 
                     <Grid item  container justifyContent="center">
                             <Typography className={classes.Textp}>
-                                Petición / Queja / Reclamo y/o Sugerencia
+                                Petición / Queja / Reclamo y/o Sugerencia *
                             </Typography>
                     </Grid>
                     <Grid container item>
@@ -169,8 +169,14 @@ const Contacto = () => {
                             className={classes.textFieldMultiline}
                         />
                     </Grid>
-                    <Grid container item justifyContent="flex-end" >
-                        <Grid item lg={2} md={2} sm={2} xs={4} justifyContent="flex-end">
+                    <Grid container item   >
+                        <Grid item lg={10} md={10} sm={10} xs={12} >
+                        <Typography className={classes.Textp}>
+                                * Campos Obligatorios
+                            </Typography>
+                        </Grid>
+                        <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">
+               
                             <ButtonRedWine Title="Enviar"></ButtonRedWine>
                         </Grid>
                     </Grid>
