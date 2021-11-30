@@ -1,54 +1,55 @@
-import React, { useRef, useEffect, useState,forwardRef ,useImperativeHandle} from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import mapboxgl from "mapbox-gl";
 import "./mapa.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
 
-  let eventMap;
-const Map = forwardRef((props,ref) => {
+let eventMap;
+const Map = forwardRef((props, ref) => {
   const mapContainerRef = useRef(null);
-  const position= props.position
+  const position = props.position;
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
 
   useImperativeHandle(ref, () => ({
-
     toFly(position) {
-      toFly(position)
-    }
-
+      toFly(position);
+    },
   }));
-  const toFly = (position) =>{
+  const toFly = (position) => {
     eventMap.flyTo({
-          //These options control the ending camera position: centered at
-          // the target, at zoom level 9, and north up.
-         center: [position.lng,position.lat],
-         zoom: 9,
-        bearing: 0,
+      //These options control the ending camera position: centered at
+      // the target, at zoom level 9, and north up.
+      center: [position.lng, position.lat],
+      zoom: 9,
+      bearing: 0,
 
-          // These options control the flight curve, making it move
-          // slowly and zoom out almost completely before starting
-          // to pan.
-         speed: 0.8, // make the flying slow
-         curve: 1, // change the speed at which it zooms out
+      // These options control the flight curve, making it move
+      // slowly and zoom out almost completely before starting
+      // to pan.
+      speed: 0.8, // make the flying slow
+      curve: 1, // change the speed at which it zooms out
 
-          // This can be any easing function: it takes a number between
-          // 0 and 1 and returns another number between 0 and 1.
+      // This can be any easing function: it takes a number between
+      // 0 and 1 and returns another number between 0 and 1.
       //    easing: (t) => t,
 
-          // this animation is considered essential with respect to prefers-reduced-motion
-          essential: true
-      });
-  }
-  
+      // this animation is considered essential with respect to prefers-reduced-motion
+      essential: true,
+    });
+  };
+
   //Constructor del mapa
 
-  
-
   useEffect(() => {
-    
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
@@ -74,21 +75,21 @@ const Map = forwardRef((props,ref) => {
     //   });
     // });
 
-  //   document.getElementById('fly').addEventListener('click', () => {
-  //   const target = isAtStart ? end : start;
+    //   document.getElementById('fly').addEventListener('click', () => {
+    //   const target = isAtStart ? end : start;
 
-  //   isAtStart = !isAtStart;
+    //   isAtStart = !isAtStart;
 
-  //   map.flyTo({
-  //   center: target,
-  //   zoom: 9,
-  //   bearing: 0,
-  //    speed: 0.8,
-  //    curve: 1,
-  //      easing: (t) => t,
-  //      essential: true
-  //    });
-  // });
+    //   map.flyTo({
+    //   center: target,
+    //   zoom: 9,
+    //   bearing: 0,
+    //    speed: 0.8,
+    //    curve: 1,
+    //      easing: (t) => t,
+    //      essential: true
+    //    });
+    // });
 
     map.on("click", ({ point }) => {
       const features = map.queryRenderedFeatures(point, {
@@ -106,7 +107,7 @@ const Map = forwardRef((props,ref) => {
         )
         .addTo(map);
     });
-    eventMap = map
+    eventMap = map;
     // Clean up on unmount
     return () => map.remove();
   }, []);

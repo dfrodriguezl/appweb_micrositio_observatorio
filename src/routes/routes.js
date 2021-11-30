@@ -66,6 +66,7 @@ const Generalroutes = () => {
   return (
     <div >
       <Header/>
+      <Navbar/> 
       <Grid container className={classes.marginTop}>
       </Grid>
         <Switch >

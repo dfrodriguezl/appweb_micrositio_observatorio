@@ -2,22 +2,15 @@ import {
   Grid,
   makeStyles,
   useMediaQuery,
-  Paper,
-  CardActions,
   Card,
   CardContent,
   CardMedia,
-  Button,
   Typography,
 } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
-import ButtonRedWine from "Observatorio/common/buttonredwine";
-import cardplataforma from "Observatorio/common/cardsplataforma";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
-import * as FileSaver from "file-saver";
-import * as XLSX from "xlsx";
 
 const useStyle = makeStyles({
   centerButton: {
@@ -27,6 +20,7 @@ const useStyle = makeStyles({
 
   centerText: {
     textAlign: "center",
+    padding: "3vh 0 0 0",
   },
 
   contentcar: {
@@ -42,6 +36,10 @@ const useStyle = makeStyles({
 
     marginRight: "1em",
     // margin: "2% 0 1% 0",
+  },
+
+  marginout:{
+    margin: "0 0 0.5vw 0",
   },
 
   contentrulesp2: {
@@ -63,19 +61,41 @@ const useStyle = makeStyles({
     width: "100%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
+    
   },
   root1: {
-    width: "90%",
+    width: "95%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
     marginBottom: "2em",
   },
 
+  root2: {
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    backgroundColor:"#ffffff",
+  },
+
+  root3: {
+    width: "90%",
+    borderRadius: "1em",
+    border: "1px solid",
+    backgroundColor:"#ffffff",
+  },
+
+  root4: {
+    width: "95%",
+    borderRadius: "1em",
+    padding: "1em",
+    backgroundColor:"#E5E5E5",
+  },
+
   media: {
     height: "47vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "100%",
+    backgroundSize: "90%",
     backgroundPositionX: "3%",
     backgroundPositionY: "-42%",
   },
@@ -109,6 +129,12 @@ const useStyle = makeStyles({
     padding: "0% 0% 0% 0%",
     backgroundColor: "white",
   },
+  margincard:{
+      margin:"0 2vw 0 0",
+  },
+  margincard1:{
+    margin:"0 3vw 0 0",
+},
   alink:{
     textDecoration:"none",
     color: Values.TextButton,
@@ -170,14 +196,44 @@ const Cardsmapas = () => {
                 <Grid item xs={4} direction="column" container>
                   <CardMedia className={estilo} image={Projections} />
                 </Grid>
-                <Grid item xs container direction="column">
-                  <CardContent
-                    className={(classes.centerText, classes.contentcar)}
-                  >
-                    <Grid container direction="row" item xs>
-                      <Typography className={classes.Titleh3}>
-                        Dashboard
-                      </Typography>
+                <Grid item xs container direction="column" justifyContent="center">
+                  <CardContent className={(classes.centerText)}>
+                  <Grid container direction="row" item xs className={classes.root4} justifyContent="center">
+                    <Grid className={classes.margincard} container direction="column" item xs={5} justifyContent="center">
+                      <Grid container direction="row" className={classes.marginout}>
+                        <Grid container item xs={8} className={classes.margincard1}>
+                          <p className={classes.contentrulesp2}>
+                          Cantidad de ofertas PH
+                          </p>
+                        </Grid>
+                        <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                          0
+                        </Grid>
+                      </Grid>
+                      <Grid container direction="row" className={classes.marginout}>
+                        <Grid container item xs={8} className={classes.margincard1}>
+                          <p className={classes.contentrulesp2}>
+                          Cantidad de ofertas NPH
+                          </p>
+                        </Grid>
+                        <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                        0
+                            </Grid>
+                            </Grid>
+                            <Grid container direction="row" className={classes.marginout}>
+                            <Grid container item xs={8} className={classes.margincard1}>
+                            <p className={classes.contentrulesp2}>
+                            Cantidad de ofertas rurales
+                            </p>
+                            </Grid>
+                            <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                               0
+                            </Grid>
+                            </Grid>
+                    </Grid>                          
+                          <Grid className={classes.root2} item xs>
+                          No hay estadísticas para mostrar
+                          </Grid>
                     </Grid>
                   </CardContent>
                 </Grid>
@@ -199,24 +255,19 @@ const Cardsmapas = () => {
                 </Grid>
                 <Grid item xs container direction="column">
                   <CardContent
-                    className={(classes.centerText, classes.contentcar)}
+                    className={(classes.centerText)}
                   >
                     <Grid container direction="row" item xs>
-                      <Typography className={classes.Titleh3}>
-                        Mercado:
+                      <Typography className={classes.Textp}>
+                      En esta sección podrá descargar el formato que contiene la estructura de mercado para PH, NPH y predios Rurales (el formato incluye especificaciones, descripcion de atributos y dominios en los casos que hay lugar), ejemplo de diligenciamento del respectivo formato en base de datos y capas geográficas. 
                       </Typography>
                       <Typography className={classes.Textp}>
-                        En esta sección podrá descargar el instructivo (Diagrama
-                        Entidad-Relación, atributos, dominios e instrucciones),
-                        ejemplo de diligenciamento de información en base de
-                        datos o ejemplo de diligenciamiento de información en
-                        capas geográficas y cargar de igual manera la
-                        información.
+                        Asi mismo esta habilitada la carga de información por cualquiera de los dos métodos utilizados
                       </Typography>
                     </Grid>
                   </CardContent>
                   
-                <Grid container direction="column" item xs alignItems="center" justifyContent="center">
+                <Grid container direction="column" item xs>
                       <Grid
                         container
                         direction="column"
@@ -358,7 +409,7 @@ const Cardsmapas = () => {
                           </Grid>
                         </Grid>
                       </Grid>
-                    </Grid>
+                </Grid>
                 </Grid>                
               </Grid>
             </CardContent>
