@@ -175,7 +175,7 @@ const Cardsservice = () => {
                   </CardContent>
                 </CardContent>
                 <CardActions className={classes.centerButton}>
-                <ButtonRedWine Title="Visitar" href="Servicios/estadisticas"/>
+                <ButtonRedWine Values="1" Title="Visitar" href={infocards.link}/>
                 </CardActions>
               </Card>
             </Grid>

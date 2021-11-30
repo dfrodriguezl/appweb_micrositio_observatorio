@@ -25,7 +25,7 @@ const CardServicios =[
         "title":"Estadisticas",
         "image_card":Segment,
         "description":"Genearación de Estadìsticas y/o Indicadores, sobre el comportamiento inmobiliario a lo largo del territorio Nacional.",
-        "link":""
+        "link":"https://www.dane.gov.co/index.php/estadisticas-por-tema"
     }
 
 ]

@@ -85,18 +85,18 @@ const Topobservatorio = () => {
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle} >              
                 <p className={classes.Textp}>
-                    Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos mas relevantes son:                    
+                    Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos más relevantes son:                    
                 </p> 
                 <ol className={classes.Textp2}>
-                    <li className={classes.listyle}>Calculo de Avalúos</li>
-                    <li className={classes.listyle}>Registro de Ofertas tanto públicas como privadas</li>
+                    <li className={classes.listyle}>Cálculo de avalúos</li>
+                    <li className={classes.listyle}>Registro de ofertas tanto públicas como privadas</li>
                     <li className={classes.listyle}>Seguimiento y análisis a las dinamicas inmobiliarias</li>
                     <li className={classes.listyle}>Integración con información estadística</li>
                     <li className={classes.listyle}>Publicación de datos oficiales</li>
-                    <li className={classes.listyle}>Fuente de investigaciones cientifias</li>
+                    <li className={classes.listyle}>Fuente de investigaciones cientificas</li>
                 </ol>    
                 <p className={classes.Textp}>
-                    los mismos deben estar articulados con el Observatorio Nacional del Depatamento Nacional de Estadística - DANE.
+                    los mismos deben estar articulados con el Observatorio Nacional del Depatamento Administrativo Nacional de Estadística (DANE).
                 </p> 
             </Grid>
                 <ImagenBottom/> 

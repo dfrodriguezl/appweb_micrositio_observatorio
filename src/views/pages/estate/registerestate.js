@@ -312,7 +312,7 @@ const SectionThree = () => {
                                 Generación de estadísticas de áreas protegidas.</li>
                             <li>Identificar fenómenos de conurbación, redensificación, sostenibilidad y habitabilidad.
                                 Generación de indicadores para medición de consumo de suelo.</li>
-                            <li>Índices de precios de vivienda.</li>
+                            <li>Indices de precios de vivienda.</li>
                             <li>Vulnerabilidad económica y sociodemográfica (Riesgos asociados).</li>
                             <li>Estratificación.</li>
                             <li>Aptitud de uso.</li>

@@ -5,6 +5,7 @@ import Small from "Observatorio/img/Small.svg";
 import Transfer from "Observatorio/img/Transfer.svg";
 import ImgPng from "Observatorio/img/Captura.svg";
 import Business from "Observatorio/img/Business.svg";
+import Hong from "Observatorio/img/1Hong.svg";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -27,7 +28,8 @@ const useStyle = makeStyles({
          maxWidth: "100% !important",
       },
       listyle:{
-        paddingLeft:"0.6em"
+        paddingLeft:"0.6em",
+        paddingRight: "0.6em",
       },
       imagen_Business:{    
         width: "100% !important",
@@ -149,15 +151,20 @@ const useStyle = makeStyles({
     },   
     imagen_png2:{     
        width: "100%",
-       height: "65vh",
-       backgroundSize: "102%",
+       height: "105vh",
+       backgroundSize: "100%",
        backgroundRepeat: "no-repeat",
-       backgroundImage: `url(${ImgPng})`,       
-       backgroundPosition: "center center",
-       flexBasis: "100% !important",
-       maxWidth: "100% !important",
-      // backgroundImage: "none",  
+       backgroundImage: `url(${Hong})`,       
+       backgroundPositionY: "1vh",     
    },
+   imagen_png4:{     
+    width: "100%",
+    height: "186vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Hong})`,       
+    backgroundPositionY: "1vh",     
+},
    imagen_png3:{    
     width: "100% !important",
     height: "95vh",
@@ -217,6 +224,7 @@ const Imagen = () => {
     const classes = useStyle();    
 
   const matches = useMediaQuery("(max-width:769px)");
+  const matches1 = useMediaQuery("(max-width:541px)");
   const matches2 = useMediaQuery("(min-width:1281px)");  
   
   var estilo = null;
@@ -224,10 +232,14 @@ const Imagen = () => {
     if (matches2) {
       estilo = classes.imagen_png;
     } else {
-      if (matches) {
+      if (matches1) {
         estilo = classes.imagen_png2;
       } else {
-        estilo = classes.imagen_png3;
+        if(matches){
+          estilo = classes.imagen_png4;
+        }else{
+          estilo = classes.imagen_png3;
+        }
       }
     }
   }
@@ -262,21 +274,19 @@ const ComparationModels = () =>{
             <p className={classes.texto}>Modelo Catastral Anterior</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Esquema Anterior: IGAC - Desentralizacos - Delegados.</li>
-            <li className={classes.listyle}>Delegados Disminución del presupuesto a Entidades Centralizadas.</li>
-            <li className={classes.listyle}>Asimetria de Información.</li>            
-            <li className={classes.listyle}>Rezago en la actualización de la Base Gravable.</li>            
-            <li className={classes.listyle}>Disminución en la frecuencia de actualización de Catastros.</li>            
-            <li className={classes.listyle}>Percepción negativa por parte de las ET y entidades de orden
-            nacional respecto de la actual estrategia catastral, en especial
-            sobre el rol del IGAC.</li>            
-            <li className={classes.listyle}>Aproximaciones insostenibles del Multipróposito.</li>            
-            <li className={classes.listyle}>Desarticulación con Registro.</li>            
-            <li className={classes.listyle}>Baja Calidad Servicio al Ciudadano.</li>            
-            <li className={classes.listyle}>Baja Capacidad Técnica.</li>            
-            <li className={classes.listyle}>Desarticulación con Catastros.</li>            
-            <li className={classes.listyle}>Sin Registro de la Informalidad.</li>            
-            <li className={classes.listyle}>Metodología de Alto Costo.</li>            
+            <li className={classes.listyle}>Esquema anterior: IGAC - Descentralizados - Delegados.</li>
+            <li className={classes.listyle}>Disminución del presupuesto a entidades centralizadas</li>
+            <li className={classes.listyle}>Asimetría de información</li>            
+            <li className={classes.listyle}>Rezago en la actualización de la base gravable</li>            
+            <li className={classes.listyle}>Disminución en la frecuencia de actualización de Catastros</li>            
+            <li className={classes.listyle}>Percepción negativa por parte de las entidades de orden nacional respecto de la actual estrategia catastral, en especial sobre el rol del IGAC</li>            
+            <li className={classes.listyle}>Aproximaciones insostenibles del Multipróposito</li>            
+            <li className={classes.listyle}>Desarticulación con SNR</li>            
+            <li className={classes.listyle}>Baja calidad servicio al ciudadano</li>            
+            <li className={classes.listyle}>Baja capacidad técnica.</li>            
+            <li className={classes.listyle}>Desarticulación con catastros.</li>            
+            <li className={classes.listyle}>Sin registro de la informalidad.</li>            
+            <li className={classes.listyle}>Metodología de alto costo.</li>            
           </ol>
         </Grid>
         <Grid container item xs>
@@ -284,23 +294,23 @@ const ComparationModels = () =>{
             <p className={classes.texto}>Premisas Catastro Multipróposito</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Nuevo esquema de desentralización.</li>            
-            <li className={classes.listyle}>Estructura Funcional y operativa colaborativa.</li>            
-            <li className={classes.listyle}>Modelo de operación mas eficiente.</li>
+            <li className={classes.listyle}>Nuevo esquema de descentralización.</li>            
+            <li className={classes.listyle}>Estructura funcional y operativa colaborativa.</li>            
+            <li className={classes.listyle}>Modelo de operación más eficiente.</li>
             <li className={classes.listyle}>Acciones transformacionales</li>
-            <li className={classes.listyle}>Ajustes Normativos</li>
-            <li className={classes.listyle}>Cambio de Módelo de Operación</li>
-            <li className={classes.listyle}>Apertura Metodológica y Tecnológica</li>
-            <li className={classes.listyle}>Simplificación en los Procesos</li>
-            <li className={classes.listyle}>Esquemas Sostenibles</li>
-            <li className={classes.listyle}>Seguridad Jurídica</li>
-            <li className={classes.listyle}>Habilitación de Hestores Catastrales</li>
+            <li className={classes.listyle}>Ajustes normativos</li>
+            <li className={classes.listyle}>Cambio de módelo de Operación</li>
+            <li className={classes.listyle}>Apertura metodológica y tecnológica</li>
+            <li className={classes.listyle}>Simplificación en los procesos</li>
+            <li className={classes.listyle}>Esquemas sostenibles</li>
+            <li className={classes.listyle}>Seguridad jurídica</li>
+            <li className={classes.listyle}>Habilitación de gestores catastrales</li>
             <li className={classes.listyle}>Integración Catastro - Registro</li>
-            <li className={classes.listyle}>Numero Unico Predial Registral - NUPRE</li>
+            <li className={classes.listyle}>Número único predial registral - NUPRE</li>
             <li className={classes.listyle}>Repositorio de datos maestros basados en LADM</li>
-            <li className={classes.listyle}>Sistema de Adminsitracion de Tierras - SAT</li>
-            <li className={classes.listyle}>Mercado formal de Tierras</li>
-            <li className={classes.listyle}>Simplificación de Tramites</li>            
+            <li className={classes.listyle}>Sistema de adminsitración de Tierras - SAT</li>
+            <li className={classes.listyle}>Mercado formal de tierras</li>
+            <li className={classes.listyle}>Simplificación de trámites</li>            
           </ol>
         </Grid>
       </Grid>
@@ -337,7 +347,7 @@ const ComparationModels = () =>{
               </Grid>
               <Grid  container item xs>
               <p className={classes.textStyle2}>
-                Planificación Territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el Territorio
+                Planificación territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el territorio
               </p>
               </Grid>
             </Grid>
@@ -353,7 +363,7 @@ const ComparationModels = () =>{
               </Grid>
               <Grid container item xs>
               <p className={classes.textStyle2}>
-              Resiliencia: Superación ante la adversidad, recosntruccion del Tejido Social, Activación Económica
+              Resiliencia: Superación ante la adversidad, recosntrucción del tejido social, activación económica
               </p>
               </Grid>
             </Grid>
@@ -369,7 +379,7 @@ const ComparationModels = () =>{
               </Grid>
               <Grid container item xs>
               <p className={classes.textStyle2}>
-              Situaciones de Emergencia: Formulación de políticas públicas rápidas y efectivas para mitigar el riesgo ante contingencias.
+              Situaciones de emergencia: Formulación de políticas públicas rápidas y efectivas para mitigar el riesgo ante contingencias.
               </p>
               </Grid>
             </Grid>
@@ -395,7 +405,7 @@ const Catastro = () => {
             <Grid container direction="row">
                 <Grid item container xs >
                     <p className={classes.contentrulesp}>
-                    La Política e implementación del Catastro con enfoque Multipropósito, es uno de los productos transformacionales de mayor prioridad para el Gobierno Nacional, el cual tiene como enfoque la conformación de un Sistema:
+                    La política e implementación del catastro con enfoque multipropósito, es uno de los productos transformacionales de mayor prioridad para el gobierno nacional, el cual tiene como enfoque la conformación de un sistema:
                     </p>  
                     <ol className={classes.contentrulesp2}>
                       <li className={classes.listyle}>Integral</li>
@@ -403,10 +413,10 @@ const Catastro = () => {
                       <li className={classes.listyle}>Actualizado</li>
                       <li className={classes.listyle}>Confiable</li>
                       <li className={classes.listyle}>Digital e</li>
-                      <li className={classes.listyle}>Interoberable con otros Sistemas de Información</li>
+                      <li className={classes.listyle}>Interoberable con otros sistemas de información</li>
                     </ol>       
                     <p className={classes.contentrulesp}>
-                      Esta nueva política busca que el catastro trascienda  de una óptica meramente fiscal y sea considerado como un instrumento estratégico para el apoyo en la toma de decisiones en lo concerniente al Ordenamiento Territorial.
+                      Esta nueva política busca que el catastro trascienda  de una óptica meramente fiscal y sea considerado como un instrumento estratégico para el apoyo en la toma de decisiones en lo concerniente al ordenamiento territorial.
                     </p>       
                 </Grid>
                 <Imagen/> 
@@ -416,12 +426,12 @@ const Catastro = () => {
                   Con la implementación del catastro multipropósito, se contribuirá con:
                 </p>  
                 <ol className={classes.contentrulesp2}>
-                    <li className={classes.listyle}>Seguridad Jurídica: Integración con la Información de Registro Público</li>
-                    <li className={classes.listyle}>Eficiencia del Mercado Inmobiliario</li> 
-                    <li className={classes.listyle}>Desarrollo Territorial: Mejor asignación de recursos, identificación de necesidades de grupos poblacionales (educación, acceso a servicios públicos, infraestructura,  regularización de la propiedad, ordenamiento ambiental, social y territorial, entre otros).</li>
+                    <li className={classes.listyle}>Seguridad jurídica: Integración con la información de registro Público</li>
+                    <li className={classes.listyle}>Eficiencia del mercado inmobiliario</li> 
+                    <li className={classes.listyle}>Desarrollo territorial: Mejor asignación de recursos, identificación de necesidades de grupos poblacionales (educación, acceso a servicios públicos, infraestructura,  regularización de la propiedad, ordenamiento ambiental, social y territorial, entre otros).</li>
                 </ol>  
                 <p className={classes.contentrulesp}>
-                    <strong>El Departamento Administrativo Nacional de Estadística - DANE</strong>, viene trabajando en la política de Catastro Multipropósito y en las recomendaciones del Conpes 4007 de 2020, para el fortalecimiento del Sistema de Administración del Territorio – SAT, el cual utiliza el catastro como herramienta  para el desarrollo sostenible del territorio incorporando las 4 funciones principales de la administración del territorio (tenencia, valor, uso y desarrollo), en lugar de gestionar estas funciones de forma separada, como sucede actualmente en Colombia. 
+                    <strong>El Departamento Administrativo Nacional de Estadística - DANE</strong>, viene trabajando en la política de Catastro Multipropósito y en las recomendaciones del Conpes 4007 de 2020, para el fortalecimiento del sistema de administración del territorio – SAT, el cual utiliza el catastro como herramienta  para el desarrollo sostenible del territorio incorporando las 4 funciones principales de la administración del territorio (tenencia, valor, uso y desarrollo), en lugar de gestionar estas funciones de forma separada, como sucede actualmente en Colombia. 
                 </p>  
                 <p className={classes.contentrulesp}>
                     Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
