@@ -147,15 +147,15 @@ const Form = () => {
             </Grid>
 
             <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center" >
-                <p className={classes.TextpCenter}>El DANE deberá suministrar al Gestor Catastral el Censo de Edificaciones CEED a nivel de manzana. Lo anterior en el marco de la reserva estadística contenida en el artículo 5° de la Ley 79 de 1993.</p>
+                <i className={classes.TextpCenter}>"El DANE deberá suministrar al Gestor Catastral el Censo de Edificaciones CEED a nivel de manzana. Lo anterior en el marco de la reserva estadística contenida en el artículo 5° de la Ley 79 de 1993."</i>
             </Grid>
             <Grid container item>
-                <p className={classes.Textp}>De acuerdo con lo anterior, por favor diligencie el siguiente cuestionario*:</p>
+                <p className={classes.Textp}>De acuerdo con lo anterior, por favor diligencie el siguiente cuestionario**:</p>
             </Grid>
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp}>
-                        Nombre
+                        Nombre *
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
@@ -165,7 +165,7 @@ const Form = () => {
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp} >
-                        Correo
+                        Correo *
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
@@ -178,7 +178,7 @@ const Form = () => {
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp} >
-                        Cargo
+                        Cargo *
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
@@ -188,7 +188,7 @@ const Form = () => {
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp} >
-                        Dependencia
+                        Dependencia *
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
@@ -198,7 +198,7 @@ const Form = () => {
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp}>
-                        Gestor Catastral
+                        Gestor Catastral *
                     </Typography>
                 </Grid>
                 <Box className={TextFieldWidth}>
@@ -219,7 +219,7 @@ const Form = () => {
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
                     <Typography className={classes.Textp}>
-                        Temporalidad
+                        Temporalidad *
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
@@ -287,9 +287,12 @@ const Form = () => {
                     />
                 </Grid>
             </Grid>
-            <Grid container item>
+            <Grid container item direction="column">
                 <Typography className={classes.Textp}>
-                    *La solicitud de información será enviada al correo registrado.
+                    * Campos obligatorio
+                </Typography>
+                <Typography className={classes.Textp}>
+                    ** La solicitud de información será enviada al correo registrado.
                 </Typography>
             </Grid>
             <Grid container item>

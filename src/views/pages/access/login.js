@@ -106,6 +106,14 @@ const FormAccess = () => {
                     <Grid item container justifyContent="center" alignItems="center">
                         <ButtonRedWine Title="Registrarse"  href="/Observatorio/register"/>
                     </Grid>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
+                        <Typography className={classes.Textp} >
+                        Si olvido su contraseña, oprima el siguiente botón y siga las instrucciones
+                        </Typography>
+                    </Grid>
+                    <Grid item container justifyContent="center" alignItems="center">
+                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/register"/>
+                    </Grid>
 
                 </Grid>
             </Grid>
