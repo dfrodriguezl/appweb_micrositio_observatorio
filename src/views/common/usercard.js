@@ -11,6 +11,8 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
+import Excel from "Observatorio/img/excel.png";
+import geograph from "Observatorio/img/geograph.png";
 
 const useStyle = makeStyles({
   centerButton: {
@@ -20,7 +22,7 @@ const useStyle = makeStyles({
 
   centerText: {
     textAlign: "center",
-    padding: "3vh 0 0 0",
+    // padding: "3vh 0 0 0",
   },
 
   contentcar: {
@@ -48,6 +50,14 @@ const useStyle = makeStyles({
     fontSize: Values.SizeText,
   },
 
+  contentrulesp3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: "calc(0.6em + 0.4vh)",
+    textAlign:"center",
+  },
+
+
   Textp: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
@@ -55,6 +65,15 @@ const useStyle = makeStyles({
     textAlign: "start",
     width: "90%",
     padding: "0 0 1em 0",
+  },
+
+  Textp1: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "start",
+    width: "90%",
+    padding: "1em 0 1em 0",
   },
 
   root: {
@@ -68,13 +87,23 @@ const useStyle = makeStyles({
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
-    marginBottom: "2em",
+    margin: "0 0 2em 0.5em",
+    backgroundColor:"#E5E5E5",
+  },
+
+  root5: {
+    width: "95%",
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    backgroundColor:"#ffffff",
   },
 
   root2: {
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
+    marginBottom: "2em",
     backgroundColor:"#ffffff",
   },
 
@@ -89,24 +118,43 @@ const useStyle = makeStyles({
     width: "95%",
     borderRadius: "1em",
     padding: "1em",
-    backgroundColor:"#E5E5E5",
+    backgroundColor:"#E5E5E5",    
+    marginBottom: "2em",
+  },
+
+  rootcolor:{
+    backgroundColor:"#E5E5E5",  
+  },
+
+  excel: {
+    height: "14vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80%",
+    width:"100%",
+  },
+  excel2: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "60%",
   },
 
   media: {
     height: "47vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "90%",
-    backgroundPositionX: "3%",
-    backgroundPositionY: "-42%",
+    backgroundPosition: "center center",
   },
 
   media2: {
-    height: "24vh",
+    height: "27vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "110%",
-    backgroundPositionX: "3%",
-    backgroundPositionY: "88%",
+    backgroundSize: "65%",
   },
+
+mediawidth:{
+  maxWidth:"100% !important",
+  flexBasis:"100% !important",
+},
 
   media3: {
     height: "47vh",
@@ -131,33 +179,36 @@ const useStyle = makeStyles({
   },
   margincard:{
       margin:"0 2vw 0 0",
+      maxWidth:"100% !important",
+      flexBasis:"100% !important"
   },
   margincard1:{
     margin:"0 3vw 0 0",
 },
   alink:{
-    textDecoration:"none",
-    color: Values.TextButton,
+    textDecoration:"none",    
   },
   boton: {
     padding: "0.3em 1em 0.3em 1em",
     borderRadius: "2vh",
-    backgroundColor: Values.Redwinecolor,
-    color: Values.TextButton,
+    backgroundColor:"#ffffff",
     fontFamily: Values.SourceRoboto,
     textTransform: "capitalize",
+    color: "#4C4C4C",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
     margin: "10% 0 4% 0",
-    width: "max-content",
+    width: "98%",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
     border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
     
     "&:hover":{
-        backgroundColor: Values.HoverButton,
+        // backgroundColor: Values.HoverButton,
         border:"none",
+        color: Values.TextButton,
     }
 }
 });
@@ -168,12 +219,17 @@ const Cardsmapas = () => {
   const matches2 = useMediaQuery("(min-width:1281px)");  
   
   var estilo = null;
+  var estilo2 = null;
+  var estilo3 = null;
   {
     if (matches2) {
       estilo = classes.media;
+      estilo2 = classes.excel;
     } else {
       if (matches) {
         estilo = classes.media2;
+        estilo3 = classes.mediawidth;
+        estilo2 = classes.excel2;
       } else {
         estilo = classes.media3;
       }
@@ -182,8 +238,6 @@ const Cardsmapas = () => {
   return (
     <Grid container>
       <Grid container>
-        {/* {cardplataforma.map(function (cardplataforma) {
-          return ( */}
         <Grid
           container
           direction="column"
@@ -193,7 +247,7 @@ const Cardsmapas = () => {
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
               <Grid container direction="row" item xs>
-                <Grid item xs={4} direction="column" container>
+                <Grid item xs={4} direction="column" container container className={estilo3}>
                   <CardMedia className={estilo} image={Projections} />
                 </Grid>
                 <Grid item xs container direction="column" justifyContent="center">
@@ -206,7 +260,7 @@ const Cardsmapas = () => {
                           Cantidad de ofertas PH
                           </p>
                         </Grid>
-                        <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                        <Grid container item xs justifyContent="center" alignItems="center" className={classes.root3}>                              
                           0
                         </Grid>
                       </Grid>
@@ -216,7 +270,7 @@ const Cardsmapas = () => {
                           Cantidad de ofertas NPH
                           </p>
                         </Grid>
-                        <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                        <Grid container item xs justifyContent="center" alignItems="center" className={classes.root3}>                              
                         0
                             </Grid>
                             </Grid>
@@ -226,15 +280,99 @@ const Cardsmapas = () => {
                             Cantidad de ofertas rurales
                             </p>
                             </Grid>
-                            <Grid container item xs justifyContent="center" className={classes.root3}>                              
+                            <Grid container item xs justifyContent="center" alignItems="center" className={classes.root3}>                              
                                0
                             </Grid>
                             </Grid>
                     </Grid>                          
                           <Grid className={classes.root2} item xs>
-                          No hay estadísticas para mostrar
+                            No hay estadísticas para mostrar
                           </Grid>
-                    </Grid>
+                          <Grid
+                        container
+                        direction="column"
+                        item
+                        xs={12}
+                        className={classes.root5}
+                      >
+                        <Grid
+                          direction="row"
+                          item
+                          container
+                          xs
+                          justifyContent="flex-start"
+                          alignItems="center"
+                        >
+                          <Grid container item xs={6}>
+                            <p className={classes.contentrulesp2}>
+                            
+                            </p>
+                          </Grid>
+                          <Grid className={classes.marginbutton2}>
+                            {/* <button className={classes.boton}>
+                              <a
+                              className={classes.alink}
+                                href="Observatorio/src/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+                                download
+                              >
+                                Descargar
+                              </a>
+                            </button> */}
+                          </Grid>
+                        </Grid>
+                        <Grid
+                          direction="row"
+                          item
+                          container
+                          xs
+                          justifyContent="flex-start"
+                          alignItems="center"
+                        >
+                          <Grid container item xs={6}>
+                            <p className={classes.contentrulesp2}>
+                             
+                            </p>
+                          </Grid>
+                          <Grid className={classes.marginbutton2}>
+                          {/* <button className={classes.boton}>
+                              <a
+                              className={classes.alink}
+                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                download
+                              >
+                                Descargar
+                              </a>
+                            </button> */}
+                          </Grid>
+                        </Grid>
+                        <Grid
+                          direction="row"
+                          item
+                          container
+                          xs
+                          justifyContent="flex-start"
+                          alignItems="center"
+                        >
+                          <Grid container item xs={6}>
+                            <p className={classes.contentrulesp2}>
+                            
+                            </p>
+                          </Grid>
+                          <Grid className={classes.marginbutton2}>
+                          {/* <button className={classes.boton}>
+                              <a
+                              className={classes.alink}
+                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
+                                download
+                              >
+                                Descargar
+                              </a>
+                            </button> */}
+                          </Grid>
+                        </Grid>
+                  </Grid>
+                  </Grid>
+                  
                   </CardContent>
                 </Grid>
               </Grid>
@@ -250,7 +388,7 @@ const Cardsmapas = () => {
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
               <Grid container direction="row" item xs>
-                <Grid item xs={4} direction="column" container>
+                <Grid item xs={4} direction="column" container className={estilo3} justifyContent="center">
                   <CardMedia className={estilo} image={Data} />
                 </Grid>
                 <Grid item xs container direction="column">
@@ -258,16 +396,15 @@ const Cardsmapas = () => {
                     className={(classes.centerText)}
                   >
                     <Grid container direction="row" item xs>
-                      <Typography className={classes.Textp}>
+                      <Typography className={classes.Textp1}>
                       En esta sección podrá descargar el formato que contiene la estructura de mercado para PH, NPH y predios Rurales (el formato incluye especificaciones, descripcion de atributos y dominios en los casos que hay lugar), ejemplo de diligenciamento del respectivo formato en base de datos y capas geográficas. 
                       </Typography>
                       <Typography className={classes.Textp}>
                         Asi mismo esta habilitada la carga de información por cualquiera de los dos métodos utilizados
                       </Typography>
                     </Grid>
-                  </CardContent>
-                  
-                <Grid container direction="column" item xs>
+                  </CardContent>                  
+                <Grid container direction="column" item xs >
                       <Grid
                         container
                         direction="column"
@@ -275,81 +412,72 @@ const Cardsmapas = () => {
                         xs
                         className={classes.root1}
                       >
+                        <p className={classes.contentrulesp2}>
+                          Archivos para descarga
+                        </p>
                         <Grid
                           direction="row"
                           item
                           container
                           xs
-                          justifyContent="flex-start"
+                          justifyContent="center"
                           alignItems="center"
                         >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                            Formato Mercado
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
+                          <Grid className={classes.marginbutton2} item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          xs={6}>
                             <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                href="Observatorio/src/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={Excel} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
+                                  <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
+                                </Grid>
+                              </Grid>
                             </button>
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          direction="row"
-                          item
+                          </Grid>                         
+                          <Grid className={classes.marginbutton2} item
                           container
-                          xs
-                          justifyContent="flex-start"
+                          justifyContent="center"
                           alignItems="center"
-                        >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                              Ejemplo Bases de Datos
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                          <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
+                          xs={6}>
+                            <button className={classes.boton}>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={Excel} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
+                                  <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
+                                </Grid>
+                              </Grid>
                             </button>
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          direction="row"
-                          item
+                          </Grid>    
+                          <Grid className={classes.marginbutton2} item
                           container
-                          xs
-                          justifyContent="flex-start"
+                          justifyContent="center"
                           alignItems="center"
-                        >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                              Ejemplo Capas Geográficas
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                          <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
+                          xs={6}>
+                            <button className={classes.boton}>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={geograph} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
+                                  <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
+                                </Grid>
+                              </Grid>
                             </button>
-                          </Grid>
-                        </Grid>
+                          </Grid>    
+                        </Grid>                        
                       </Grid>
                       <Grid
                         container
@@ -358,6 +486,9 @@ const Cardsmapas = () => {
                         xs
                         className={classes.root1}
                       >
+                        <p className={classes.contentrulesp2}>
+                        Links para carga
+                        </p>
                         <Grid
                           direction="row"
                           item
@@ -366,47 +497,40 @@ const Cardsmapas = () => {
                           justifyContent="flex-start"
                           alignItems="center"
                         >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                              Cargue Bases de Datos
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                          <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                href="Observatorio/src/files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
-                                download
-                              >
-                                Cargue
-                              </a>
-                            </button>
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          direction="row"
-                          item
+                          <Grid className={classes.marginbutton2} item
                           container
-                          xs
-                          justifyContent="flex-start"
+                          justifyContent="center"
                           alignItems="center"
-                        >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                              Cargue de Capas Geográficas
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                          <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
-                                download
-                              >
-                                Cargue
-                              </a>
+                          xs={6}>
+                            <button className={classes.boton}>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={Excel} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>CARGA MERCADO</strong></p>
+                                  <p className={classes.contentrulesp3}>Formato: Excel</p>
+                                </Grid>
+                              </Grid>
                             </button>
-                          </Grid>
+                          </Grid> 
+                          <Grid className={classes.marginbutton2} item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          xs={6}>
+                            <button className={classes.boton}>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={geograph} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>CARGA MERCADO</strong></p>
+                                  <p className={classes.contentrulesp3}>Formato: Excel</p>
+                                </Grid>
+                              </Grid>
+                            </button>
+                          </Grid> 
                         </Grid>
                       </Grid>
                 </Grid>
@@ -415,8 +539,6 @@ const Cardsmapas = () => {
             </CardContent>
           </Card>
         </Grid>
-        {/* //   );
-        // })} */}
       </Grid>
     </Grid>
   );

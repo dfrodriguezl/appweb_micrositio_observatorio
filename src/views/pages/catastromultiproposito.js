@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
@@ -6,6 +6,7 @@ import Transfer from "Observatorio/img/Transfer.svg";
 import ImgPng from "Observatorio/img/Captura.svg";
 import Business from "Observatorio/img/Business.svg";
 import Hong from "Observatorio/img/1Hong.svg";
+import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -27,6 +28,26 @@ const useStyle = makeStyles({
          flexBasis: "100% !important",
          maxWidth: "100% !important",
       },
+      boton: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition:"all 0.8s ease-out",
+        cursor: "pointer",
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        border:"none",
+        
+        "&:hover":{
+            backgroundColor: Values.HoverButton,
+            border:"none",
+        }
+    },
       listyle:{
         paddingLeft:"0.6em",
         paddingRight: "0.6em",
@@ -55,6 +76,10 @@ const useStyle = makeStyles({
       },
       gridglobalmovil:{
         padding: "0 5vw 3vw 5vw",        
+      },
+
+      margboton:{
+        margin:"1em 0 0 0",
       },
       circule:{
         margin: "0 0.5em 0 0vw",
@@ -179,6 +204,14 @@ const useStyle = makeStyles({
       fontWeight: "bold",
       fontSize: Values.SizeSubtitle,
       padding: "0 0 1em 0",
+      textAlign: "center",
+     },
+
+     texto1:{
+      color: Values.Redwinecolor,
+      fontFamily: Values.SourceRoboto,
+      fontWeight: "bold",
+      fontSize: Values.SizeSubtitle,      
       textAlign: "center",
      },
      circulemarg:{
@@ -436,6 +469,19 @@ const Catastro = () => {
                 <p className={classes.contentrulesp}>
                     Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
                 </p>  
+                <p className={classes.contentrulesp}>
+                  A continuación se anexa el Conpes 4007 de 2020, mediante el cual se dan las directrices para el fortalecimiento del sistema de administración del territorio:
+                </p>
+                <Grid container direction="row" className={classes.margboton}>
+                  <Grid container item xs>
+                  <p className={classes.texto1}>CONPES 4007 de 2020</p>
+                  </Grid>
+                <Grid Grid container item xs={9}>
+                <Button className={classes.boton} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
+                  ver
+                </Button>
+                </Grid>
+                </Grid>
             </Grid>            
         </Grid>  
     )
