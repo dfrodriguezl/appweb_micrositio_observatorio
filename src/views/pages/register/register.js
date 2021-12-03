@@ -1,9 +1,15 @@
-import { Grid, makeStyles, Typography } from "@material-ui/core";
-import React, { Component, useMediaQuery } from 'react';
+import { Grid, makeStyles, Typography,Button } from "@material-ui/core";
+import React, { Component, useMediaQuery, useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-amico1.svg";
 import TextField from '@mui/material/TextField';
 import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
+import Modal from "Observatorio/pages/modal"
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -53,6 +59,25 @@ const useStyle = makeStyles({
     },
     gridMain:{
         paddingBottom:"50px"
+    },
+    boton: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition:"all 0.8s ease-out",
+        cursor: "pointer",
+        margin: "10% 0 4% 0",
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        "&:hover":{
+            backgroundColor: Values.HoverButton,
+            border:"none",
+        }
     }
 });
 
@@ -65,6 +90,13 @@ const ImagenBottom = () => {
 
 const FormRegister = () => {
     const classes = useStyle();
+    const [open,setOpen] = useState(false)
+    const openModal  = () =>{
+            setOpen(true)
+    }
+    const handleClose = () =>{
+        console.log("cerrando")
+    }
     return (
         <Grid container direccion="row" className={classes.gridMain} >
             
@@ -82,7 +114,20 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="Seleccione ...." />
+
+                    <Box className={classes.itemTextField}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">Seleccione ...</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            label="Age"
+                        >
+                            <MenuItem value={20}>Persona Natural</MenuItem>
+                            <MenuItem value={30}>Persona Juridica</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
@@ -150,7 +195,9 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item container >
-                        <ButtonRedWine Title="Enviar" />
+
+                        <Button  handleClose={handleClose} className={classes.boton} disableElevation onClick={openModal} >Enviar</Button>
+                     
                     </Grid>
 
                 </Grid>
@@ -164,7 +211,9 @@ const FormRegister = () => {
                     </Typography>
                 </Grid>
             </Grid>
+            <Modal open={open} Title="Su registro ha sido ¡Exitoso!" textContainer="Al correo diligenciado llegará un e-mail indicando su codigo de registro, que correponde al codigo_observatorio que es necesario suministrar cada vez que se suba información a la plataforma" >
 
+            </Modal>
 
         </Grid>
     );
