@@ -63,7 +63,7 @@ const useStyle = makeStyles({
   contentrulesp3: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontSize: "calc(0.6em + 0.3vh)",
+    fontSize: "calc(0.5em + 0.2vh)",
     textAlign:"center",
   },
 
