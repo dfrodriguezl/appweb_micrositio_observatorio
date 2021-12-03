@@ -27,29 +27,6 @@ const useStyle = makeStyles({
         textAlign: "start",  
         margin: "1em 0 0 0",
       },
-
-  //     imagen_top:{    
-  //       width: "100% !important",
-  //       height: "57vh",
-  //       backgroundSize: "70%",
-  //       backgroundRepeat: "no-repeat",
-  //       backgroundImage: `url(${App})`,       
-  //       backgroundPositionX: "left", 
-  //       backgroundPositionY: "25%",    
-  //  },
- 
-   
-
-  //  imagen_top2:{     
-  //        width: "100%",
-  //        height: "66vh",
-  //        backgroundSize: "100%",
-  //        backgroundRepeat: "no-repeat",
-  //        backgroundImage: `url(${App})`,       
-  //        backgroundPosition: "center center",
-  //        flexBasis: "100% !important",
-  //        maxWidth: "100% !important",
-  //  },
 });
 
 
