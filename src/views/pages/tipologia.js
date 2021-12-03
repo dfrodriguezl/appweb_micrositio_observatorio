@@ -91,7 +91,7 @@ const TopTipologia = () => {
         <p className={classes.Textp}>
           En el siguiente botón se podrá descargar un documento que lista las Tipologías Constructivas mas habituales en Colombia.
         </p>
-        <a className={classes.boton} href="http://localhost:8080/test.docx">Descargar</a>
+        <a className={classes.boton} href="http://localhost:3000/Test.docx">Descargar</a>
       </Grid>
       <Grid item xs={12} sm={6} md={6} lg={6}>
         <ImagenBottom />
