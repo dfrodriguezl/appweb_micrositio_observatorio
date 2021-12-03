@@ -10,7 +10,7 @@ const cardotros = [
         "id":1,
         "title":"IGAC",
         "image_card":Sale,
-        "link":"http://www2.igac.gov.co/igac_web/contenidos/plantilla_anclasDocs_cont_pagDetalle.jsp?idMenu=101"
+        "link":"https://www.icde.gov.co/datos-y-recursos/datos-y-recursos-de-informacion/datos/observatorio/observatorio-inmobiliario"
     },
     {
         "id":2,
