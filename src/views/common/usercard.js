@@ -7,12 +7,22 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
+import SelectBox from 'devextreme-react/select-box';
+import PieChart, {
+  Series,
+  Label,
+  Connector,
+  Size,
+  Export,
+} from 'devextreme-react/pie-chart';
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
 import Excel from "Observatorio/img/excel.png";
 import geograph from "Observatorio/img/geograph.png";
+import { dataSource } from "Observatorio/common/datosdashboard.js";
+
 
 const useStyle = makeStyles({
   centerButton: {
@@ -45,9 +55,9 @@ const useStyle = makeStyles({
   },
 
   contentrulesp2: {
-    color: Values.TextParagraph,
+    fontSize: "calc(0.8em + 0.9vh)",
     fontFamily: Values.SourceRoboto,
-    fontSize: Values.SizeText,
+    color: Values.Redwinecolor,
   },
 
   contentrulesp3: {
@@ -97,6 +107,7 @@ const useStyle = makeStyles({
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
     backgroundColor:"#ffffff",
+    marginTop:"-1vw",
   },
 
   root2: {
@@ -172,7 +183,9 @@ mediawidth:{
     padding: "0% 0% 1.5% 0%",
     backgroundColor: "white",
   },
-
+  marginbutton2:{
+    marginTop:"-2vw"
+  },
   cardglobal2: {
     padding: "0% 0% 0% 0%",
     backgroundColor: "white",
@@ -286,7 +299,23 @@ const Cardsmapas = () => {
                             </Grid>
                     </Grid>                          
                           <Grid className={classes.root2} item xs>
-                            No hay estadísticas para mostrar
+                          <PieChart                        
+                        id="pie"
+                        dataSource={dataSource}
+                        palette="Bright"
+                        // title="Area of Countries"
+                        >
+                            <Series
+                              argumentField="country"
+                              valueField="medals"
+                            >
+                              <Label visible={true}>
+                                <Connector visible={true} width={1} />
+                              </Label>
+                            </Series>
+                            <Size width={700} />                            
+                            T<Export enabled={true} />
+                        </PieChart>
                           </Grid>
                           <Grid
                         container
@@ -294,33 +323,8 @@ const Cardsmapas = () => {
                         item
                         xs={12}
                         className={classes.root5}
-                      >
-                        <Grid
-                          direction="row"
-                          item
-                          container
-                          xs
-                          justifyContent="flex-start"
-                          alignItems="center"
-                        >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                            
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                            {/* <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                href="Observatorio/src/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
-                            </button> */}
-                          </Grid>
-                        </Grid>
-                        <Grid
+                      >                        
+                        {/* <Grid
                           direction="row"
                           item
                           container
@@ -334,42 +338,9 @@ const Cardsmapas = () => {
                             </p>
                           </Grid>
                           <Grid className={classes.marginbutton2}>
-                          {/* <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
-                            </button> */}
+                          
                           </Grid>
-                        </Grid>
-                        <Grid
-                          direction="row"
-                          item
-                          container
-                          xs
-                          justifyContent="flex-start"
-                          alignItems="center"
-                        >
-                          <Grid container item xs={6}>
-                            <p className={classes.contentrulesp2}>
-                            
-                            </p>
-                          </Grid>
-                          <Grid className={classes.marginbutton2}>
-                          {/* <button className={classes.boton}>
-                              <a
-                              className={classes.alink}
-                                // href="Observatorio/src/files/MODELO_PRESENTACION_DATOS_OBSERVATORIO_INOMBILIARIO_NACIONAL_VERSION_1.xlsx"
-                                download
-                              >
-                                Descargar
-                              </a>
-                            </button> */}
-                          </Grid>
-                        </Grid>
+                        </Grid> */}
                   </Grid>
                   </Grid>
                   
