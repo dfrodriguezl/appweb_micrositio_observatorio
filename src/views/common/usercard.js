@@ -63,7 +63,7 @@ const useStyle = makeStyles({
   contentrulesp3: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
-    fontSize: "calc(0.5em + 0.2vh)",
+    fontSize: "calc(0.5em + 0.4vh)",
     textAlign:"center",
   },
 
@@ -400,16 +400,18 @@ const Cardsmapas = () => {
                           alignItems="center"
                           xs={6}>
                             <button className={classes.boton}>
+                            <a className={classes.alink} href="http://localhost:3000/EJEMPLO_MERCADO.xlsx" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={Excel} />
                                 </Grid>
                                 <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
+                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO</strong></p>
                                   <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
                                   <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
                                 </Grid>
                               </Grid>
+                              </a>
                             </button>
                           </Grid>                         
                           <Grid className={classes.marginbutton2} item
@@ -418,16 +420,18 @@ const Cardsmapas = () => {
                           alignItems="center"
                           xs={6}>
                             <button className={classes.boton}>
+                            <a className={classes.alink} href="http://localhost:3000/FORMATO_MERCADO.xlsx" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={Excel} />
                                 </Grid>
                                 <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
-                                  <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
-                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
+                                  <p className={classes.contentrulesp3}><strong>Nombre: FORMATO MERCADO</strong></p>
+                                  <p className={classes.contentrulesp3}>50 KB   |   02/12/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Formato mercado para PH, NPH y predios rurales</p>
                                 </Grid>
                               </Grid>
+                              </a>
                             </button>
                           </Grid>    
                           <Grid className={classes.marginbutton2} item
@@ -436,16 +440,18 @@ const Cardsmapas = () => {
                           alignItems="center"
                           xs={6}>
                             <button className={classes.boton}>
+                            <a className={classes.alink} href="http://localhost:3000/TECNICAS_VALUATORIAS.docx" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={geograph} />
                                 </Grid>
                                 <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: EJEMPLO MERCADO.xlsx</strong></p>
-                                  <p className={classes.contentrulesp3}>36 KB   |   02/12/2021</p>
-                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Ejemplo de mercado según  formato establecido</p>
+                                  <p className={classes.contentrulesp3}><strong>Nombre: CAPAS GEOGRAFICAS</strong></p>
+                                  <p className={classes.contentrulesp3}>472 KB   |   01/09/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Capas geográficas y ejemplo</p>
                                 </Grid>
                               </Grid>
+                              </a>
                             </button>
                           </Grid>    
                         </Grid>                        

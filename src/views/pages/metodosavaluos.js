@@ -340,16 +340,18 @@ const avaluos = () => {
         
       </Grid>
       <button className={estilo4}>
+      <a className={classes.alink} href="http://localhost:3000/TECNICAS_VALUATORIAS.docx" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={word} />
                                 </Grid>
                                 <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: TECNICAS VALUATORIAS.docx</strong></p>
+                                  <p className={classes.contentrulesp3}><strong>Nombre: TECNICAS VALUATORIAS</strong></p>
                                   <p className={classes.contentrulesp3}>472 KB   |   01/09/2021</p>
                                   <p className={classes.contentrulesp3}><strong>Descripción: </strong>Técnica valuatorias en Colombia y el mundo</p>
                                 </Grid>
                               </Grid>
+                              </a>
                             </button>
     </Grid>
   );
