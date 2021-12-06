@@ -260,7 +260,7 @@ const Cardsmapas = () => {
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
               <Grid container direction="row" item xs>
-                <Grid item xs={4} direction="column" container container className={estilo3}>
+                <Grid item xs={4} direction="column" container justifyContent="center" className={estilo3}>
                   <CardMedia className={estilo} image={Projections} />
                 </Grid>
                 <Grid item xs container direction="column" justifyContent="center">

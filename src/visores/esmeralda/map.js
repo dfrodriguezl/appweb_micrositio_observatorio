@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import mapboxgl from "mapbox-gl";
 import "./mapa.css";
+import stylejson from "./maplayer.json"
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
@@ -22,7 +23,11 @@ const Map = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     toFly(position) {
       toFly(position);
+      
     },
+    enableLayer(id, isEnable){
+      addlayer(id, isEnable);
+    }
   }));
   const toFly = (position) => {
     eventMap.flyTo({
@@ -47,14 +52,26 @@ const Map = forwardRef((props, ref) => {
     });
   };
 
+  const addlayer = (id, isEnable) => {
+    console.log(stylejson.layers[0])
+    if(eventMap.getLayer(id)){
+      eventMap.setLayoutProperty(
+        id,
+        'visibility',
+         isEnable ? 'visible':'none'
+        );
+     }
+  };
+
   //Constructor del mapa
 
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+      style: stylejson.sources.composite.url,
       center: [lng, lat],
-      zoom: zoom,
+      zoom: zoom,      
+      
     });
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
@@ -90,7 +107,25 @@ const Map = forwardRef((props, ref) => {
     //      essential: true
     //    });
     // });
-
+   
+    map.on("load", () => {
+     // map.removeLayer('dpt-dfq012');
+     // map.removeLayer('mpi-bu9n0v');
+     // map.removeLayer('puntos');
+     stylejson.layers.forEach(function(element) {
+      console.log({element});
+      if(map.getLayer(element.id)){
+        map.setLayoutProperty(
+          element.id,
+          'visibility',
+           'none'
+          );
+       } 
+    })
+     
+  
+    })
+    
     map.on("click", ({ point }) => {
       const features = map.queryRenderedFeatures(point, {
         layers: ["puntos"],
