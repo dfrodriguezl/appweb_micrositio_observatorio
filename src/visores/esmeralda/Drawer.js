@@ -337,7 +337,7 @@ export default function PersistentDrawerLeft(props) {
     if(event.target.name == "Departamentos"){
       enabledLayer(stylejson.layers[0].id,event.target.checked)
     }
-    if(event.taget.name == "MunicipiosCheck"){
+    if(event.target.name == "MunicipiosCheck"){
       enabledLayer(stylejson.layers[1].id,event.target.checked)
     }
     if(event.target.name == "Puntos"){
@@ -436,7 +436,7 @@ export default function PersistentDrawerLeft(props) {
             label="puntos"
           />
         </FormGroup>
-        <FormHelperText>Be careful</FormHelperText>
+        <FormHelperText></FormHelperText>
       </FormControl>
         </TabPanel>
         <TabPanel value={values} index={3}>
