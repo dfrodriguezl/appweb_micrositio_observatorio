@@ -90,13 +90,13 @@ const Topobservatorio = () => {
                 <ol className={classes.Textp2}>
                     <li className={classes.listyle}>Cálculo de avalúos</li>
                     <li className={classes.listyle}>Registro de ofertas tanto públicas como privadas</li>
-                    <li className={classes.listyle}>Seguimiento y análisis a las dinamicas inmobiliarias</li>
+                    <li className={classes.listyle}>Seguimiento y análisis a las dinámicas inmobiliarias</li>
                     <li className={classes.listyle}>Integración con información estadística</li>
                     <li className={classes.listyle}>Publicación de datos oficiales</li>
-                    <li className={classes.listyle}>Fuente de investigaciones cientificas</li>
+                    <li className={classes.listyle}>Fuente de investigaciones científicas</li>
                 </ol>    
                 <p className={classes.Textp}>
-                    los mismos deben estar articulados con el Observatorio Nacional del Depatamento Administrativo Nacional de Estadística (DANE).
+                    Los mismos deben estar articulados con el Observatorio Nacional del Departamento Administrativo Nacional de Estadística (DANE).
                 </p> 
             </Grid>
                 <ImagenBottom/> 

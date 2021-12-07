@@ -166,17 +166,10 @@ const About = () => {
           className={classes.containerTitle}
         >
           <p className={classes.contentrulesp}>
-            Existen varios tipos de observatorios, sin embargo, se entiende por
-            observatorio, un instrumento que recopila, analiza e interpreta
-            información relevante de un tema previamente establecido, con el fin
-            de generar conocimiento, para el posterior monitoreo y soporte al
-            proceso de toma decisiones.
+            Existen varios tipos de observatorios, sin embargo, se entiende por observatorio, un instrumento que recopila, analiza e interpreta información relevante de un tema previamente establecido, con el fin de generar conocimiento, para el posterior monitoreo y soporte al proceso de toma decisiones. 
           </p>
           <p className={classes.contentrulesp}>
-            Todo observatorio debe tener como objetivos la compilación e
-            integración de información, la elaboración de estadísticas globales
-            y específicas, la formulación de análisis y proyecciones y la
-            alimentación periódica de indicadores.
+            Todo observatorio debe tener como objetivos la compilación e integración de información, la elaboración de estadísticas globales y específicas, la formulación de análisis y proyecciones y la alimentación periódica de indicadores.
           </p>
         </Grid>
         <Imagen />
@@ -245,7 +238,7 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>1</h1>
-              <p className={estilo}>Disposiciones Generales del Servicio Publico</p>
+              <p className={estilo}>Disposiciones Generales del Servicio Público</p>
             </Grid>
           </Grid>
           <Grid item container direction="row" xs={6} className={classes.puntos}>
@@ -278,7 +271,7 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>4</h1>
-              <p className={estilo}>Inspección Vigilacia y Control</p>
+              <p className={estilo}>Inspección Vigilancia y Control</p>
             </Grid>
           </Grid>
         </Grid>

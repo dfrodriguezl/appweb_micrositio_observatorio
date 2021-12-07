@@ -400,8 +400,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>Seguimiento y Disposición</h1>
           <p className={classes.textStyle}>
-            Seguimiento y disposición en el tiempo de ofertas, transacciones,
-            costos de construcción, entre otros.
+            Seguimiento y disposición en el tiempo de ofertas, transacciones, costos de construcción, entre otros.
           </p>
         </Grid>
         <Grid
@@ -421,8 +420,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>Integración</h1>
           <p className={classes.textStyle}>
-            Integración con diversos Sistemas de Información de nivel público y
-            privado.
+            Integración con diversos Sistemas de Información de nivel público y privado.
           </p>
         </Grid>
       </Grid>
@@ -445,9 +443,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>Comunicación</h1>
           <p className={classes.textStyle}>
-            Comunicación directa y en doble vía con los ciudadanos mediante la
-            puesta en marcha de servicios digitales para asegurar una
-            actualización permanente de la información predial.
+            Comunicación directa y en doble vía con los ciudadanos mediante la puesta en marcha de servicios digitales para asegurar una actualización permanente de la información predial.
           </p>
         </Grid>
         <Grid
@@ -469,8 +465,7 @@ const Center_content = () => {
         >
           <h1 className={classes.titleStyle2}>LADM</h1>
           <p className={classes.textStyle}>
-            Basado en el modelo estandar LADM - COL para la interoperabilidad de
-            información del Catastro Multipróposito.
+            Basado en el modelo estándar LADM - COL para la interoperabilidad de información del Catastro Multipropósito.
           </p>
         </Grid>
       </Grid>
@@ -500,20 +495,13 @@ const Bottom_content = () => {
         <Grid item container direction="column" xs>
           <Grid container direction="column">
             <p className={classes.contentrulesp}>
-              Para la disposición de información del mercado inmobiliario, se
-              pone a disposición y funcionamiento el Observatorio Inmobiliario
-              Nacional, que articula e integra diferentes fuentes de información
-              en este campo.
+              Para la disposición de información del mercado inmobiliario, se pone a disposición y funcionamiento el Observatorio Inmobiliario Nacional, que articula e integra diferentes fuentes de información en este campo.
             </p>
             <p className={classes.contentrulesp}>
-              Los observatorios inmobiliarios son una práctica ya implementada
-              en Colombia por parte de algunos Catastros descentralizados, como
-              mecanismos de visibilidad de información e insumo para la
-              generación de conocimiento.
+              Los observatorios inmobiliarios son una práctica ya implementada en Colombia por parte de algunos Catastros descentralizados, como mecanismos de visibilidad de información e insumo para la generación de conocimiento.
             </p>
-            <p className={classes.contentrulesp}>
-              El Observatorio Inmobiliario Nacional tiene su fundamento
-              normativo en:
+            <p className={classes.contentrulesp}>              
+              El Observatorio Inmobiliario Nacional tiene su fundamento normativo en:
             </p>
           </Grid>
           <Grid container direction="column">
@@ -637,7 +625,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Avaluós</p>
+              <p className={classes.textStyle1}>Avalúos</p>
             </Grid>
             <Grid
               container

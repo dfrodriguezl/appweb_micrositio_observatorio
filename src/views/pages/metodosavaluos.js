@@ -1,7 +1,9 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
+import word from "Observatorio/img/word.png";
+import geograph from "Observatorio/img/geograph.png";
 
 const useStyle = makeStyles({
   gridglobal: {
@@ -22,6 +24,23 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: Values.SizeTitle,
     padding: Values.PaddingTitleText,
+  },
+  excel: {
+    height: "14vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80%",
+    width:"100%",
+  },
+  excel2: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "28%",
+  },
+  contentrulesp3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: "calc(0.6em + 0.3vh)",
+    textAlign:"center",
   },
   contentrulesp: {
     color: Values.TextParagraph,
@@ -86,37 +105,79 @@ const useStyle = makeStyles({
   },
   alink:{
     textDecoration:"none",
-    color: Values.TextButton,
+  },
+  mediawidth:{
+    maxWidth:"100% !important",
+    flexBasis:"100% !important",
   },
   boton: {
     padding: "0.3em 1em 0.3em 1em",
     borderRadius: "2vh",
-    backgroundColor: Values.Redwinecolor,
-    color: Values.TextButton,
+    backgroundColor:"#ffffff",
     fontFamily: Values.SourceRoboto,
     textTransform: "capitalize",
+    color: "#4C4C4C",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
-    margin: "2% 0 2% 0",
-    width: "max-content",
+    margin: "2% 0 0 0",
+    width: "30%",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
     border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
     
-     "&:hover":{
-         backgroundColor: Values.HoverButton,
-         border:"none",
-     }
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
+  },
+
+  boton1: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "2% 0 0 0",
+    width: "100%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
 }
 });
+
 
 const avaluos = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
   var estilo = null;
+  var estilo3 = null;
+  var estilo2 = null;
+  var estilo4 = null;
   {
-    matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+    if (matches){
+      estilo=classes.gridglobal;
+      estilo4=classes.boton;
+      estilo2 = classes.excel;
+    }else{
+      estilo=classes.gridglobalmovil;
+      estilo2 = classes.excel2;
+      estilo3 = classes.mediawidth;
+      estilo4=classes.boton1;
+    }
   }
   return (
     <Grid container direction="column" className={estilo}>
@@ -273,20 +334,25 @@ const avaluos = () => {
       >
         <Grid container>
           <p className={classes.contentrulesp2}>
-          En el siguiente enlace se podra descargar un documento teorico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
+          En el siguiente enlace se podrá descargar un documento teórico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
           </p>
         </Grid>
         
       </Grid>
-          <button className={classes.boton}>
-            <a
-              className={classes.alink}
-              href="Observatorio/src/files/Documento_Investistigacion_Tecnicas_Valuatorias.docx"
-              download
-            >
-              Descargar
-            </a>
-          </button>
+      <button className={estilo4}>
+      <a className={classes.alink} href="http://localhost:3000/TECNICAS_VALUATORIAS.docx" download>
+                              <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={word} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: TECNICAS VALUATORIAS</strong></p>
+                                  <p className={classes.contentrulesp3}>472 KB   |   01/09/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Técnica valuatorias en Colombia y el mundo</p>
+                                </Grid>
+                              </Grid>
+                              </a>
+                            </button>
     </Grid>
   );
 };

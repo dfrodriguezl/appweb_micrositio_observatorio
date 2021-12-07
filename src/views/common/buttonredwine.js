@@ -18,7 +18,7 @@ boton: {
     width: "max-content",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     "&:hover":{
         backgroundColor: Values.HoverButton,
         border:"none",

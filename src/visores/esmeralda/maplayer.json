@@ -1,0 +1,55 @@
+{
+    "version": 8,
+    "name": "Basic",
+    "id": "route",
+    "metadata": {
+      "mapbox:origin": "basic-template-v1",
+      "mapbox:autocomposite": true,
+      "mapbox:type": "template",
+      "mapbox:sdk-support": {
+        "js": "0.45.0",
+        "android": "6.0.0",
+        "ios": "4.0.0"
+      }
+    },
+    "sources": {
+      "composite": {
+        "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+        "type": "vector"
+      }
+    },
+    "sprite": "mapbox://sprites/examples/cjikt35x83t1z2rnxpdmjs7y7",
+    "glyphs": "mapbox://fonts/{username}/{fontstack}/{range}.pbf",     
+    "layers": [{        
+        "id": "dpt-dfq012",
+        "type": "line",
+        "source": {
+              "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+              "type": "vector"
+          },
+        "source-layer": "dpt-dfq012",
+        "paint": {
+          
+        }
+        
+      },
+      {
+        "id": "mpi-bu9n0v",
+        "type": "line",
+        "source": "sources",
+        "source-layer": "mpi-bu9n0v",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "puntos",
+        "type": "circle",
+        "source": "sources",
+        "source-layer": "puntos",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      }
+    ] 
+  }
