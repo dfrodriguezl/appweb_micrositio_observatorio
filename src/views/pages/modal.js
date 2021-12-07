@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import * as Values from 'Observatorio/Variables/values';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
+import {makeStyles} from "@material-ui/core";
 const style = {
   position: 'absolute',
   top: '50%',
@@ -11,29 +11,47 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
+  boxShadow: 2,
+  borderRadius:"10px",
+  padding:"20px",
   p: 4,
 };
 
+const useStyle = makeStyles({
+  Titleh3: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeTitle,
+    padding: Values.PaddingTitleText,
+},
+
+Textp: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "start",
+    margin: "1em 0 0 0",
+    marginTop:"30px"
+}
+   
+})
+
 export default function BasicModal(props) {
-    const handleClose = () =>{
-       
-    }
+  const classes = makeStyles()
+
+  
   return (
       <Modal
         open={props.open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        onClose={props.handleClose}
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography  className={classes.Textp}>
             {props.Title}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography  className={classes.Textp} >
             {props.textContainer}
           </Typography>
-          <button onClick={handleClose}>asd</button>
         </Box>
       </Modal>
   );

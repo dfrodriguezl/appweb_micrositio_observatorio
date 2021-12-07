@@ -50,8 +50,17 @@ import municipios from '../../views/common/municipios.json'
 import CloseIcon from '@mui/icons-material/Close';
 import * as Values from 'Observatorio/Variables/values';
 import Buttonredwine from "../../views/common/buttonredwine";
-const drawerWidth = 370;
 
+
+import FormLabel from '@mui/material/FormLabel';
+import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import Checkbox from '@mui/material/Checkbox';
+
+import stylejson from "./maplayer.json"
+const drawerWidth = 370;
 const useStyles = makeStyles((theme) => ({
   title: {
     color: "#821A3F",
@@ -235,6 +244,7 @@ export default function PersistentDrawerLeft(props) {
   const [open, setOpen] = React.useState(false);
 
   const setPosition = props.setPosition
+  const enabledLayer = props.enabledLayer
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -303,7 +313,6 @@ export default function PersistentDrawerLeft(props) {
   const handleMunicipio = (value) => {
     municipios.forEach((data) => {
       if (data.cod_mpio == value) {
-        console.log(data.cod_mpio)
         setPosition(data)
       }
     })
@@ -314,7 +323,29 @@ export default function PersistentDrawerLeft(props) {
 
   const [opcionesDepartamento, setDepartamentos] = React.useState(departamentos);
   const [opcionesMunicipio, setMunicipio] = React.useState(municipios)
-
+  const [state, setState] = React.useState({
+    Departamentos: false,
+    MunicipiosCheck: false,
+    Puntos: false,
+  });
+  const { Departamentos, MunicipiosCheck, Puntos } = state;
+  const handleChangeCheckbox = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+    if(event.target.name == "Departamentos"){
+      enabledLayer(stylejson.layers[0].id,event.target.checked)
+    }
+    if(event.taget.name == "MunicipiosCheck"){
+      enabledLayer(stylejson.layers[1].id,event.target.checked)
+    }
+    if(event.target.name == "Puntos"){
+      enabledLayer(stylejson.layers[2].id,event.target.checked)
+    }
+  
+ 
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -383,7 +414,30 @@ export default function PersistentDrawerLeft(props) {
         </TabPanel>
         <TabPanel value={values} index={2}>
           <Typography align='left' variant="body1" className={classes.Textp} color="initial">Aqui encuentra los diferentes temas. </Typography>
-
+<FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+        <FormLabel component="legend">Temas</FormLabel>
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox checked={Departamentos} onChange={handleChangeCheckbox} name="Departamentos" />
+            }
+            label="Departamentos"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={MunicipiosCheck} onChange={handleChangeCheckbox} name="MunicipiosCheck" />
+            }
+            label="Municipios"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={Puntos} onChange={handleChangeCheckbox} name="Puntos" />
+            }
+            label="puntos"
+          />
+        </FormGroup>
+        <FormHelperText>Be careful</FormHelperText>
+      </FormControl>
         </TabPanel>
         <TabPanel value={values} index={3}>
           <Typography align='left' variant="body1" className={classes.Textp} color="initial">Envíe su consulta por correo electrónico o tramite su petición, queja, reclamo, sugerencia o denuncia en el formulario DANE. </Typography>
