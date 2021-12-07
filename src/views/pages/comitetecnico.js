@@ -176,14 +176,14 @@ const Comite = () => {
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
               <p className={classes.contentrulesp}>
-              Acorde al Decreto 148 de 2020, el Comite Técnico Asesor es la instancia técnica asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la gestión catastral, presentadas por el Instituto Geográfico Agustin Codazzi - IGAC, entre sus funciones estan:
+              Acorde al Decreto 148 de 2020, el Comité Técnico Asesor es la instancia técnica asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la gestión catastral, presentadas por el Instituto Geográfico Agustín Codazzi - IGAC, entre sus funciones estan:
               </p>        
               <ol className={classes.contentrulesp2}>
                     <li className={classes.listyle}>Velar por la idoneidad de las propuestas presentadas por el IGAC</li>
                     <li className={classes.listyle}>Recomendar el ajuste de las propuestas presentadas por el IGAC</li>
-                    <li className={classes.listyle}>Emitir conceptos a favor o en contra acerca de lad propuestas presentadas por el IGAC</li>
-                    <li className={classes.listyle}>Dar concepto sobre el uso de insumos cartográficos que esten pro fuera del rango de temporalidad y especificaciones técnicas.</li>
-                    <li className={classes.listyle}>Las demas establecidad en el Comité</li>
+                    <li className={classes.listyle}>Emitir conceptos a favor o en contra acerca de las propuestas presentadas por el IGAC</li>
+                    <li className={classes.listyle}>Dar concepto sobre el uso de insumos cartográficos que estén pro fuera del rango de temporalidad y especificaciones técnicas.</li>
+                    <li className={classes.listyle}>Las demás establecidas en el Comité</li>
               </ol>        
               </Grid>
               <Imagen/> 
@@ -195,17 +195,17 @@ const Comite = () => {
               <ImagenJudge/>   
               <Grid item container direction="column" xs className={classes.containerTitle}>
               <p className={classes.contentrulesp}>
-                    El Comité Técnico Asesor esta compuesto por:
+                    El Comité Técnico Asesor está compuesto por:
                     </p>  
                     <ol className={classes.contentrulesp2}>
-                    <li className={classes.listyle}>Director/a del Departamento Administrativo Nacional de Estadística - DANE, quien presidira dicho comité.</li>
-                    <li className={classes.listyle}>Director/a Técnico/a de Registro ó Superintendente delegado de tierras de la Superintendencia de Notariado y Registro - SNR ó su delegado/a de nivel Asesor.</li> 
-                    <li className={classes.listyle}>Director/a Técnico/a de Geoestadística del  DANE o su delegado/a de nivel Asesor, tiene como labor exclusiva la Secretaría Técnica del Comité y la disposición de los medios logisticos y operativos.</li>
+                    <li className={classes.listyle}>Director/a del Departamento Administrativo Nacional de Estadística - DANE, quien presidirá dicho comité.</li>
+                    <li className={classes.listyle}>Director/a Técnico/a de Registro o Superintendente delegado de tierras de la Superintendencia de Notariado y Registro - SNR o su delegado/a de nivel Asesor.</li> 
+                    <li className={classes.listyle}>Director/a Técnico/a de Geoestadística del  DANE o su delegado/a de nivel Asesor, tiene como labor exclusiva la Secretaría Técnica del Comité y la disposición de los medios logísticos y operativos.</li>
                     <li className={classes.listyle}>Dos expertos/as internacionales</li>                      
                     <li className={classes.listyle}>Dos expertos/as nacionales</li>
                     </ol>  
                     <p className={classes.contentrulesp}>
-                    Para la selección de los expertos nacionales e internacionales, el DANE definira los criterios de selección que considere propicios para el desenvolvímiento de sus labores dentro del comité.
+                    Para la selección de los expertos nacionales e internacionales, el DANE definirá los criterios de selección que considere propicios para el desenvolvimiento de sus labores dentro del comité.
                     </p>         
               </Grid>           
           </Grid>

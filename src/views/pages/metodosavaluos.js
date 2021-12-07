@@ -334,7 +334,7 @@ const avaluos = () => {
       >
         <Grid container>
           <p className={classes.contentrulesp2}>
-          En el siguiente enlace se podra descargar un documento teorico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
+          En el siguiente enlace se podrá descargar un documento teórico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
           </p>
         </Grid>
         

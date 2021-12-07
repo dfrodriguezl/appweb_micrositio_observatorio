@@ -128,9 +128,9 @@ const Topservice = () => {
           <h3 className={classes.Titleh3}>Servicios</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.Textp}>El Observatorio Inmobiliario Nacional recopila y publica informacion acerca del Mercado Inmobiliario.</p>      
+                <p className={classes.Textp}>El Observatorio Inmobiliario Nacional recopila y pública información acerca del mercado inmobiliario.</p>      
                 <p className={classes.Textp}>
-                  La informaciòn publicada esta articulada con los demas observatorios a nivel nacional, tales como: Metropolitanos, Regionales, Municipales y Distritales y busca disponer de la información acorde a estándares establecidos y de forma oficial, agregar valor mediante la consolidación de datos y aplicar nuevos métodos analíticos.</p> 
+                  La información publicada está articulada con los demás observatorios a nivel nacional, tales como: Metropolitanos, regionales, municipales y distritales y busca disponer de la información acorde a estándares establecidos y de forma oficial, agregar valor mediante la consolidación de datos y aplicar nuevos métodos analíticos.</p> 
                 </Grid>
                 <ImagenBottom/> 
         </Grid>

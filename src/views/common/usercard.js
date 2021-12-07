@@ -368,7 +368,7 @@ const Cardsmapas = () => {
                   >
                     <Grid container direction="row" item xs>
                       <Typography className={classes.Textp1}>
-                      En esta sección podrá descargar el formato que contiene la estructura de mercado para PH, NPH y predios Rurales (el formato incluye especificaciones, descripcion de atributos y dominios en los casos que hay lugar), ejemplo de diligenciamento del respectivo formato en base de datos y capas geográficas. 
+                      En esta sección podrá descargar el formato que contiene la estructura de mercado para PH, NPH y predios Rurales (el formato incluye especificaciones, descripcion de atributos y dominios en los casos que hay lugar), ejemplo de diligenciamiento del respectivo formato en base de datos y capas geográficas.
                       </Typography>
                       <Typography className={classes.Textp}>
                         Asi mismo esta habilitada la carga de información por cualquiera de los dos métodos utilizados
