@@ -54,34 +54,7 @@ app.post("/users", function (req, res) {
 })
 
  function sendEmail({email,contenido,subject,res}){
-    // Definimos el transporter
-    var transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-     port: 465,
-      auth: {
-        user: 'noreplytestsendemail@gmail.com',
-        pass: 'dane2021+'
-      }
-    });
-    // Definimos el email
-    var mailOptions = {
-      from: 'Remitente',
-      to: email,
-      subject: subject,
-      text: contenido
-    };
-    // Enviamos el email
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-        res.send(500, err.message);
-      } else {
-        console.log("Email sent");
-        res.status(200).json({
-          data:'Informacion recibida correctamente'
-        });
-      }
-    });
+   
 }
 
 /*app.get('/*', (req,res) =>{
