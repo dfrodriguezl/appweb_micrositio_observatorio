@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, Typography,useMediaQuery,Button } from "@material-ui/core";
 import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/App.svg";
@@ -143,12 +143,15 @@ const Contacto = () => {
     }
     const validateForm = (form) =>{
         if(!form.nombre || form.nombre == ''){
+            setFormComplete(false)
             return
         }
         if(!form.correoElectronico || form.correoElectronico == ''){
+            setFormComplete(false)
             return
         }
         if(!form.peticion || form.peticion == ''){
+            setFormComplete(false)
             return 
         }
 
@@ -265,7 +268,7 @@ const Contacto = () => {
                         </Grid>
                         <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">
                
-                        <button disabled={!formComplete} className={classes.boton} onClick={sendForm} >Enviar</button>
+                        <Button disabled={!formComplete} disableElevation className={classes.boton} onClick={sendForm} >Enviar</Button>
                         </Grid>
                     </Grid>
                 </Grid>

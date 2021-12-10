@@ -1,9 +1,8 @@
 import { Grid, makeStyles, Typography, Button } from "@material-ui/core";
-import React, { Component, useMediaQuery, useState } from 'react';
+import React, {  useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-amico1.svg";
 import TextField from '@mui/material/TextField';
-import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
 import Modal from "Observatorio/pages/modal"
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
