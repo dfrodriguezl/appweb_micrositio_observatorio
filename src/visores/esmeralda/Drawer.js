@@ -327,8 +327,18 @@ export default function PersistentDrawerLeft(props) {
     Departamentos: false,
     MunicipiosCheck: false,
     Puntos: false,
+    capa01:false,
+    capa02:false,
+    capa03:false,
+    capa04:false,
+    capa05:false,
+    capa06:false,
+    capa07:false,
+    capa08:false,
+    capa09:false,
+    capa10:false
   });
-  const { Departamentos, MunicipiosCheck, Puntos } = state;
+  const { Departamentos, MunicipiosCheck, Puntos,capa01,capa02,capa03,capa04,capa05,capa06,capa07,capa08,capa09,capa10} = state;
   const handleChangeCheckbox = (event) => {
     setState({
       ...state,
@@ -343,7 +353,38 @@ export default function PersistentDrawerLeft(props) {
     if(event.target.name == "Puntos"){
       enabledLayer(stylejson.layers[2].id,event.target.checked)
     }
-  
+    if(event.target.name == "capa01"){
+      enabledLayer(stylejson.layers[3].id,event.target.checked)
+    }
+    if(event.target.name == "capa02"){
+      console.log("asd")
+      enabledLayer(stylejson.layers[4].id,event.target.checked)
+    }
+    if(event.target.name == "capa03"){
+      enabledLayer(stylejson.layers[5].id,event.target.checked)
+    }
+    if(event.target.name == "capa04"){
+      enabledLayer(stylejson.layers[6].id,event.target.checked)
+    }
+
+    if(event.target.name == "capa05"){
+      enabledLayer(stylejson.layers[7].id,event.target.checked)
+    }
+    if(event.target.name == "capa06"){
+      enabledLayer(stylejson.layers[8].id,event.target.checked)
+    }
+    if(event.target.name == "capa07"){
+      enabledLayer(stylejson.layers[9].id,event.target.checked)
+    }
+    if(event.target.name == "capa08"){
+      enabledLayer(stylejson.layers[10].id,event.target.checked)
+    }
+    if(event.target.name == "capa09"){
+      enabledLayer(stylejson.layers[11].id,event.target.checked)
+    }
+    if(event.target.name == "capa10"){
+      enabledLayer(stylejson.layers[12].id,event.target.checked)
+    }
  
   };
   return (
@@ -413,10 +454,11 @@ export default function PersistentDrawerLeft(props) {
             municipios={opcionesMunicipio} />
         </TabPanel>
         <TabPanel value={values} index={2}>
-          <Typography align='left' variant="body1" className={classes.Textp} color="initial">Aqui encuentra los diferentes temas. </Typography>
+          <Typography align='left' variant="body1" className={classes.Textp} color="initial"></Typography>
 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-        <FormLabel component="legend">Temas</FormLabel>
+        <FormLabel component="legend"></FormLabel>
         <FormGroup>
+          
           <FormControlLabel
             control={
               <Checkbox checked={Departamentos} onChange={handleChangeCheckbox} name="Departamentos" />
@@ -434,6 +476,66 @@ export default function PersistentDrawerLeft(props) {
               <Checkbox checked={Puntos} onChange={handleChangeCheckbox} name="Puntos" />
             }
             label="puntos"
+          />
+           <FormControlLabel
+            control={
+              <Checkbox checked={capa01} onChange={handleChangeCheckbox} name="capa01" />
+            }
+            label="Déficit de cobertura en servicios públicos Bogotá"
+          />
+           <FormControlLabel
+            control={
+              <Checkbox checked={capa02} onChange={handleChangeCheckbox} name="capa02" />
+            }
+            label="Déficit de cobertura en servicios públicos Teusaquillo "
+          />
+             <FormControlLabel
+            control={
+              <Checkbox checked={capa03} onChange={handleChangeCheckbox} name="capa03" />
+            }
+            label="Densidad habitacional Bogotá"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox checked={capa04} onChange={handleChangeCheckbox} name="capa04" />
+            }
+            label="Densidad habitacional Teusaquillo"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox checked={capa05} onChange={handleChangeCheckbox} name="capa05" />
+            }
+            label="Déficit diferencial de población con cobertura en servicios públicos Teusaquillo"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox checked={capa06} onChange={handleChangeCheckbox} name="capa06" />
+            }
+            label="Déficit diferencial de población con cobertura en servicios públicos Bogotá"
+          />
+           <FormControlLabel
+            control={
+              <Checkbox checked={capa07} onChange={handleChangeCheckbox} name="capa07" />
+            }
+            label="Garantía de desarrollo por sector economico Teusaquillo"
+          />
+           <FormControlLabel
+            control={
+              <Checkbox checked={capa08} onChange={handleChangeCheckbox} name="capa08" />
+            }
+            label="Garantía de desarrollo por sector economico Bogotá"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox checked={capa09} onChange={handleChangeCheckbox} name="capa09" />
+            }
+            label="Garantía de desarrollo productivo  Bogotá"
+          />
+            <FormControlLabel
+            control={
+              <Checkbox checked={capa10} onChange={handleChangeCheckbox} name="capa10" />
+            }
+            label="Garantía de desarrollo productivo Teusaquillo"
           />
         </FormGroup>
         <FormHelperText></FormHelperText>
