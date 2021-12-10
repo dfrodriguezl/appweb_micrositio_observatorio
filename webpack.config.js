@@ -72,7 +72,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(xlsx|docx).?$/,
+        test: /\.(xlsx|docx|gpkg|pdf).?$/,
         loader: 'file-loader',
         options: {
           name: `src/files/[name].[ext]`

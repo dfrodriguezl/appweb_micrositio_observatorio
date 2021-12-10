@@ -11,7 +11,14 @@ import {
 } from "@material-ui/core";
 import SelectBox from "devextreme-react/select-box";
 import { useForm } from "react-hook-form";
-import Chart from 'devextreme-react/chart';
+import {
+  Chart,
+  CommonSeriesSettings,
+  SeriesTemplate,
+  Format,
+  ArgumentAxis,
+  Font
+} from "devextreme-react/chart";
 import PieChart, {
   Series,
   Label,
@@ -20,13 +27,14 @@ import PieChart, {
   Size,
   Export,
   Tooltip,
+  
 } from "devextreme-react/pie-chart";
 import React, { Component, useState } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
 import Excel from "Observatorio/img/excel.png";
-import Growth from "Observatorio/img/Growth.svg";
+import pdf from "Observatorio/img/pdf.png";
 import geograph from "Observatorio/img/geograph.png";
 import { dataSource } from "Observatorio/common/datosdashboard.js";
 import { dataSource2 } from "Observatorio/common/dashboardbar.js";
@@ -46,11 +54,21 @@ const useStyle = makeStyles({
     paddingBottom: "0 !important",
   },
 
+  Titleh: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: "calc(1em + 1.5vh)",
+    textAlign: "center",
+
+    // margin: "2% 0 1% 0",
+  },
+
   Titleh3: {
     color: Values.Redwinecolor,
     fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
-    fontSize: Values.SizeText,
+    fontSize: "calc(1em + 1.5vh)",
     textAlign: "left",
 
     marginRight: "1em",
@@ -64,7 +82,7 @@ const useStyle = makeStyles({
   contentrulesp2: {
     fontSize: "calc(0.8em + 0.9vh)",
     fontFamily: Values.SourceRoboto,
-    color: Values.Redwinecolor,
+    color: Values.TextParagraph,
   },
 
   contentrulesp3: {
@@ -98,16 +116,34 @@ const useStyle = makeStyles({
     boxShadow: "3px 3px 10px #7b7676",
   },
   root1: {
-    width: "95%",
+    width: "74%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
-    margin: "0 0 2em 0.5em",
+    margin: "0 0 2em 12.5em",
+    backgroundColor: "#E5E5E5",
+  },
+
+  rootno: {
+    width: "91%",
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    margin: "0 0 2em 2.5em",
+    backgroundColor: "#E5E5E5",
+  },
+
+  rootno1: {
+    width: "91%",
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    margin: "0 0 2em 1em",
     backgroundColor: "#E5E5E5",
   },
 
   root5: {
-    width: "95%",
+    width: "100%",
     borderRadius: "1em",
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
@@ -131,11 +167,11 @@ const useStyle = makeStyles({
   },
 
   root4: {
-    width: "95%",
+    width: "100%",
     borderRadius: "1em",
     padding: "1em",
     backgroundColor: "#E5E5E5",
-    margin: "2em 0 0 0",
+    margin: "2em 0 0 -0.6em",
   },
 
   rootcolor: {
@@ -151,20 +187,33 @@ const useStyle = makeStyles({
   excel2: {
     height: "10vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "60%",
+    backgroundSize: "37%",
+  },
+
+  excel3: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "65%",
   },
 
   media: {
     height: "30vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "90%",
+    backgroundSize: "60%",
     backgroundPosition: "center center",
+  },
+
+  media1: {
+    height: "30vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "72%",
+    backgroundPosition: "right",
   },
 
   media2: {
     height: "27vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "65%",
+    backgroundSize: "43%",
   },
 
   mediawidth: {
@@ -175,9 +224,15 @@ const useStyle = makeStyles({
   media3: {
     height: "47vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "100%",
-    backgroundPositionX: "3%",
-    backgroundPositionY: "70%",
+    backgroundSize: "45%",
+    backgroundPosition: "center",
+  },
+
+  media4: {
+    height: "25vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "55%",
+    backgroundPosition: "center",
   },
 
   gridglobal: {
@@ -208,7 +263,9 @@ const useStyle = makeStyles({
   },
   contentnum: {
     fontFamily: Values.SourceRoboto,
-    fontSize: "calc(0.9em + 0.9vh)",
+    fontSize: "calc(1em + 1.5vh)",
+    fontWeight: "bold",
+    color: Values.Redwinecolor,
   },
   boton: {
     padding: "0.3em 1em 0.3em 1em",
@@ -233,6 +290,13 @@ const useStyle = makeStyles({
       color: Values.TextButton,
     },
   },
+
+  pading: {
+    padding: "0 0 0 0",
+  },
+  pading2: {
+    padding: "3vw 1vw 0 1vw",
+  },
 });
 
 const FileUpload = () => {
@@ -248,19 +312,45 @@ const Cardsmapas = () => {
   var estilo2 = null;
   var estilo3 = null;
   var sizegrafico = null;
+  var direccion = null;
+  var pading = null;
+  var title_ = null;
+  var numero = null;
+  var root = null;
+  var estilo4 = null;
+  var prueba = null;
   {
     if (matches2) {
       estilo = classes.media;
+      estilo4 = classes.media1;
       estilo2 = classes.excel;
-      sizegrafico = 700;
+      direccion = "row";
+      sizegrafico = 580;
+      prueba = 1250;
+      pading = classes.pading;
+      title_ = "row";
+      numero = 4;
+      root = classes.root1;
     } else {
       if (matches) {
         estilo = classes.media2;
         estilo3 = classes.mediawidth;
         estilo2 = classes.excel2;
-        sizegrafico = 310;
+        sizegrafico = 300;
+        prueba = 300;
+        direccion = "column";
+        pading = classes.pading2;
+        title_ = "column";
+        root = classes.rootno1;
+        estilo4 = classes.media4;
       } else {
         estilo = classes.media3;
+        sizegrafico = 450;
+        title_ = "column";
+        pading = classes.pading2;
+        root = classes.rootno;
+        estilo4 = classes.media3;
+        estilo2 = classes.excel3;
       }
     }
   }
@@ -275,16 +365,110 @@ const Cardsmapas = () => {
         >
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
-              <Grid container direction="row" item xs>
-                <Grid
-                  item
-                  xs={4}
-                  direction="column"
-                  container
-                  justifyContent="center"
-                  className={estilo3}
-                >
-                  <CardMedia className={estilo} image={Projections} />
+              <Grid container direction="column">
+                <Grid container direction={direccion} className={pading}>
+                  <Grid
+                    container
+                    item
+                    xs
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <p className={classes.Titleh3}>Estadísticas</p>
+                  </Grid>
+                  <Grid
+                    container
+                    direction="column"
+                    item
+                    xs
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <Grid
+                      container
+                      direction="row"
+                      className={classes.marginout}
+                    >
+                      <Grid
+                        container
+                        item
+                        xs={8}
+                        className={classes.margincard1}
+                        alignItems="center"
+                      >
+                        <p className={classes.contentrulesp2}>
+                          Cantidad de ofertas PH
+                        </p>
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        justifyContent="center"
+                        alignItems="center"
+                        className={classes.root3}
+                      >
+                        <p className={classes.contentnum}>50</p>
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      className={classes.marginout}
+                    >
+                      <Grid
+                        container
+                        item
+                        xs={8}
+                        className={classes.margincard1}
+                        alignItems="center"
+                      >
+                        <p className={classes.contentrulesp2}>
+                          Cantidad de ofertas NPH
+                        </p>
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        justifyContent="center"
+                        alignItems="center"
+                        className={classes.root3}
+                      >
+                        <p className={classes.contentnum}>150</p>
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      className={classes.marginout}
+                    >
+                      <Grid
+                        container
+                        item
+                        xs={8}
+                        className={classes.margincard1}
+                        alignItems="center"
+                      >
+                        <p className={classes.contentrulesp2}>
+                          Cantidad de ofertas rurales
+                        </p>
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        justifyContent="center"
+                        alignItems="center"
+                        className={classes.root3}
+                      >
+                        <p className={classes.contentnum}>200</p>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={numero} direction="column" container>
+                    <CardMedia className={estilo} image={Projections} />
+                  </Grid>
                 </Grid>
                 <Grid
                   item
@@ -302,105 +486,46 @@ const Cardsmapas = () => {
                       className={classes.root4}
                       justifyContent="center"
                     >
-                      <Grid
-                        className={classes.margincard}
-                        container
-                        direction="column"
-                        item
-                        xs={5}
-                        justifyContent="center"
-                      >
-                        <Grid
-                          container
-                          direction="row"
-                          className={classes.marginout}
-                        >
-                          <Grid
-                            container
-                            item
-                            xs={8}
-                            className={classes.margincard1}
-                          >
-                            <p className={classes.contentrulesp2}>
-                              Cantidad de ofertas PH
-                            </p>
-                          </Grid>
-                          <Grid
-                            container
-                            item
-                            xs
-                            justifyContent="center"
-                            alignItems="center"
-                            className={classes.root3}
-                          >
-                            <p className={classes.contentnum}>0</p>
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          direction="row"
-                          className={classes.marginout}
-                        >
-                          <Grid
-                            container
-                            item
-                            xs={8}
-                            className={classes.margincard1}
-                          >
-                            <p className={classes.contentrulesp2}>
-                              Cantidad de ofertas NPH
-                            </p>
-                          </Grid>
-                          <Grid
-                            container
-                            item
-                            xs
-                            justifyContent="center"
-                            alignItems="center"
-                            className={classes.root3}
-                          >
-                            <p className={classes.contentnum}>0</p>
-                          </Grid>
-                        </Grid>
-                        <Grid
-                          container
-                          direction="row"
-                          className={classes.marginout}
-                        >
-                          <Grid
-                            container
-                            item
-                            xs={8}
-                            className={classes.margincard1}
-                          >
-                            <p className={classes.contentrulesp2}>
-                              Cantidad de ofertas rurales
-                            </p>
-                          </Grid>
-                          <Grid
-                            container
-                            item
-                            xs
-                            justifyContent="center"
-                            alignItems="center"
-                            className={classes.root3}
-                          >
-                            <p className={classes.contentnum}>0</p>
-                          </Grid>
-                        </Grid>
-                      </Grid>
                       <Grid className={classes.root2} item xs>
-                        <p className={classes.contentrulesp2}>Ofertas</p>
-                        <PieChart
-                          id="pie"
-                          dataSource={dataSource}
-                          palette="Bright"
-                        >
-                          <Series argumentField="country" valueField="medals" />
-                          <Tooltip enabled={true} />
-                          <Size width={sizegrafico} />
-                          <Export enabled={true} />
-                        </PieChart>
+                        <Grid container item xs direction={title_}>
+                          <Grid
+                            container
+                            item
+                            xs
+                            justifyContent="center"
+                            alignItems="center"
+                          >
+                            <p className={classes.Titleh}>
+                              Distribución por tipo de oferta
+                            </p>
+                          </Grid>
+                          <Grid
+                            container
+                            item
+                            xs
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="center"
+                          >
+                            <PieChart
+                              id="pie"
+                              dataSource={dataSource}
+                              palette="Soft"
+                            >
+                              <Series
+                                argumentField="country"
+                                valueField="medals"
+                              />
+                              <Tooltip
+                                enabled={true}
+                                contentTemplate={customizeText}
+                                color="#821a3f"
+                              ><Font size={18} color="white"/></Tooltip>
+                              <Size width={sizegrafico} />
+                              <Export enabled={true} />
+                            </PieChart>
+                          </Grid>
+                        </Grid>
                       </Grid>
                       <Grid
                         container
@@ -409,7 +534,9 @@ const Cardsmapas = () => {
                         xs={12}
                         className={classes.root5}
                       >
-                      <p className={classes.contentrulesp2}>Ofertas</p>
+                        <p className={classes.Titleh}>
+                          Distribución por destinación económica
+                        </p>
                         <Grid
                           direction="row"
                           item
@@ -421,15 +548,28 @@ const Cardsmapas = () => {
                           <Chart
                             id="chart"
                             dataSource={dataSource2}
+                            palette="Soft"
                           >
-                            <Series
+                            <CommonSeriesSettings
                               valueField="mass"
                               argumentField="name"
                               type="bar"
-                            />
-                            <Legend visible={false} />
-                            <Tooltip enabled={true} />
-                            <Size width={sizegrafico} />
+                              ignoreEmptyPoints={true}
+                            >
+                              {/* <Label visible={true}>
+                                <Format type="fixedPoint" precision={0} />
+                              </Label> */}
+                              <ArgumentAxis aggregateByCategory={true} />
+                            </CommonSeriesSettings>
+                            <SeriesTemplate nameField="name" />
+                            <Legend visible={true} />
+                            <Tooltip
+                                enabled={true}
+                                color="#821a3f"
+                              >
+                                <Font size={18} color="white"/>
+                              </Tooltip>
+                            <Size width={prueba} />
                             <Export enabled={true} />
                           </Chart>
 
@@ -470,19 +610,35 @@ const Cardsmapas = () => {
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
               <Grid container direction="row" item xs>
-                <Grid
-                  item
-                  xs={4}
-                  direction="column"
-                  container
-                  className={estilo3}
-                  justifyContent="center"
-                >
-                  <CardMedia className={estilo} image={Data} />
-                </Grid>
                 <Grid item xs container direction="column">
                   <CardContent className={classes.centerText}>
-                    <Grid container direction="row" item xs>
+                    <Grid container direction={direccion} className={pading}>
+                      <Grid item xs={numero} direction="column" container>
+                        <CardMedia className={estilo4} image={Data} />
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
+                      >
+                        <Typography className={classes.Textp1}>
+                          En esta sección podrá descargar el formato que
+                          contiene la estructura de mercado para PH, NPH y
+                          predios Rurales (el formato incluye especificaciones,
+                          descripcion de atributos y dominios en los casos que
+                          hay lugar), ejemplo de diligenciamiento del respectivo
+                          formato en base de datos y capas geográficas.
+                        </Typography>
+                        <Typography className={classes.Textp}>
+                          Asi mismo esta habilitada la carga de información por
+                          cualquiera de los dos métodos utilizados
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    {/* <Grid container direction="column" item xs>
                       <Typography className={classes.Textp1}>
                         En esta sección podrá descargar el formato que contiene
                         la estructura de mercado para PH, NPH y predios Rurales
@@ -495,19 +651,11 @@ const Cardsmapas = () => {
                         Asi mismo esta habilitada la carga de información por
                         cualquiera de los dos métodos utilizados
                       </Typography>
-                    </Grid>
+                    </Grid> */}
                   </CardContent>
                   <Grid container direction="column" item xs>
-                    <Grid
-                      container
-                      direction="column"
-                      item
-                      xs
-                      className={classes.root1}
-                    >
-                      <p className={classes.contentrulesp2}>
-                        Archivos para descarga
-                      </p>
+                    <Grid container direction="column" item xs className={root}>
+                      <p className={classes.Titleh3}>Archivos para descarga</p>
                       <Grid
                         direction="row"
                         item
@@ -625,7 +773,53 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="http://localhost:3000/TECNICAS_VALUATORIAS.docx"
+                              href="http://localhost:3000/INSTRUCTIVO GEOPACKAGE.pdf"
+                              download
+                            >
+                              <Grid container direction="row">
+                                <Grid
+                                  item
+                                  xs={4}
+                                  direction="column"
+                                  container
+                                  className={estilo3}
+                                >
+                                  <CardMedia className={estilo2} image={pdf} />
+                                </Grid>
+                                <Grid
+                                  item
+                                  xs
+                                  container
+                                  direction="column"
+                                  justifyContent="center"
+                                >
+                                  <p className={classes.contentrulesp3}>
+                                    <strong>Nombre: MANUAL GEOPACKAGE</strong>
+                                  </p>
+                                  <p className={classes.contentrulesp3}>
+                                    541 KB | 09/12/2021
+                                  </p>
+                                  <p className={classes.contentrulesp3}>
+                                    <strong>Descripción: </strong>Manual cargue
+                                    informacion Geopackage
+                                  </p>
+                                </Grid>
+                              </Grid>
+                            </a>
+                          </button>
+                        </Grid>
+                        <Grid
+                          className={classes.marginbutton2}
+                          item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          xs={6}
+                        >
+                          <button className={classes.boton}>
+                            <a
+                              className={classes.alink}
+                              href="http://localhost:3000/OFERTAS_OBSERVATORIO.gpkg"
                               download
                             >
                               <Grid container direction="row">
@@ -649,14 +843,16 @@ const Cardsmapas = () => {
                                   justifyContent="center"
                                 >
                                   <p className={classes.contentrulesp3}>
-                                    <strong>Nombre: CAPAS GEOGRAFICAS</strong>
+                                    <strong>
+                                      Nombre: 
+                                    </strong>
+                                    OFERTAS OBSERVATORIO
                                   </p>
                                   <p className={classes.contentrulesp3}>
-                                    472 KB | 01/09/2021
+                                    160 KB | 09/12/2021
                                   </p>
                                   <p className={classes.contentrulesp3}>
-                                    <strong>Descripción: </strong>Capas
-                                    geográficas y ejemplo
+                                    <strong>Descripción: </strong>Paquete mercado para PH, NPH y predios rurales
                                   </p>
                                 </Grid>
                               </Grid>
@@ -665,14 +861,8 @@ const Cardsmapas = () => {
                         </Grid>
                       </Grid>
                     </Grid>
-                    <Grid
-                      container
-                      direction="column"
-                      item
-                      xs
-                      className={classes.root1}
-                    >
-                      <p className={classes.contentrulesp2}>Links para carga</p>
+                    <Grid container direction="column" item xs className={root}>
+                      <p className={classes.Titleh3}>Links para carga</p>
                       <Grid
                         direction="row"
                         item
@@ -771,4 +961,7 @@ const Cardsmapas = () => {
   );
 };
 
+function customizeText(arg) {
+  return `${arg.valueText} (${arg.percentText})`;
+}
 export default Cardsmapas;

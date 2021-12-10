@@ -1,27 +1,46 @@
 
 export const dataSource2 = [{
-    name: 'Jupiter',
-    mass: 318,
+    name: 'Agricola',
+    mass: 13,
   }, {
-    name: 'Saturn',
-    mass: 95,
+    name: 'Agroindustrial',
+    mass: 34,
   }, {
-    name: 'Uranus',
-    mass: 14.6,
+    name: 'Agroforestal',
+    mass: 50,
   }, {
-    name: 'Neptune',
-    mass: 17.2,
+    name: 'Comercial',
+    mass: 35,
   }, {
-    name: 'Earth',
-    mass: 1,
+    name: 'Cultural',
+    mass: 67,
   }, {
-    name: 'Venus',
-    mass: 0.82,
+    name: 'Educativo',
+    mass: 45,
   }, {
-    name: 'Mars',
-    mass: 0.11,
+    name: 'Forestal',
+    mass: 20,
   }, {
-    name: 'Mercury',
-    mass: 0.06,
-  }];
+    name: 'Habitacional',
+    mass: 10,
+  }, {
+    name: 'Industrial',
+    mass: 0,
+  }, {
+    name: 'Institucional',
+    mass: 56,
+  }, {
+    name: 'Lote Urbanizable No Urbanizado',
+    mass: 40,
+  }, {
+    name: 'Lote Urbanizable No Construido',
+    mass: 20,
+  }, {
+    name: 'Lote No Urbanizable',
+    mass: 10,
+  }
+
+
+
+];
   
