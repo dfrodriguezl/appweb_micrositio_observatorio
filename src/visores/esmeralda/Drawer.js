@@ -336,9 +336,10 @@ export default function PersistentDrawerLeft(props) {
     capa07:false,
     capa08:false,
     capa09:false,
-    capa10:false
+    capa10:false,
+    capa11:false
   });
-  const { Departamentos, MunicipiosCheck, Puntos,capa01,capa02,capa03,capa04,capa05,capa06,capa07,capa08,capa09,capa10} = state;
+  const { Departamentos, MunicipiosCheck, Puntos,capa01,capa02,capa03,capa04,capa05,capa06,capa07,capa08,capa09,capa10,capa11} = state;
   const handleChangeCheckbox = (event) => {
     setState({
       ...state,
@@ -384,6 +385,9 @@ export default function PersistentDrawerLeft(props) {
     }
     if(event.target.name == "capa10"){
       enabledLayer(stylejson.layers[12].id,event.target.checked)
+    }
+    if(event.target.name == "capa11"){
+      enabledLayer(stylejson.layers[13].id,event.target.checked)
     }
  
   };
@@ -476,6 +480,12 @@ export default function PersistentDrawerLeft(props) {
               <Checkbox checked={Puntos} onChange={handleChangeCheckbox} name="Puntos" />
             }
             label="puntos"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox checked={capa11} onChange={handleChangeCheckbox} name="capa11" />
+            }
+            label="Puntos de calor"
           />
            <FormControlLabel
             control={
