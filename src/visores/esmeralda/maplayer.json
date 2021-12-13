@@ -1,160 +1,202 @@
 {
-    "version": 8,
-    "name": "Basic",
-    "id": "route",
-    "metadata": {
-      "mapbox:origin": "basic-template-v1",
-      "mapbox:autocomposite": true,
-      "mapbox:type": "template",
-      "mapbox:sdk-support": {
-        "js": "0.45.0",
-        "android": "6.0.0",
-        "ios": "4.0.0"
-      }
-    },
-    "sources": {
-      "composite": {
-        "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
-        "type": "vector"
-      }
-    },
-    "sprite": "mapbox://sprites/examples/cjikt35x83t1z2rnxpdmjs7y7",
-    "glyphs": "mapbox://fonts/{username}/{fontstack}/{range}.pbf",     
-    "layers": [
-      {        
-        "id": "dpt-dfq012",
-        "type": "line",
-        "source": {
-              "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
-              "type": "vector"
-          },
-        "source-layer": "dpt-dfq012",
-        "paint": {
-          
-        }
+  "version": 8,
+  "name": "Basic",
+  "id": "route",
+  "metadata": {
+    "mapbox:origin": "basic-template-v1",
+    "mapbox:autocomposite": true,
+    "mapbox:type": "template",
+    "mapbox:sdk-support": {
+      "js": "0.45.0",
+      "android": "6.0.0",
+      "ios": "4.0.0"
+    }
+  },
+  "sources": {
+    "composite": {
+      "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+      "type": "vector"
+    }
+  },
+  "sprite": "mapbox://sprites/examples/cjikt35x83t1z2rnxpdmjs7y7",
+  "glyphs": "mapbox://fonts/{username}/{fontstack}/{range}.pbf",     
+  "layers": [
+    {        
+      "id": "dpt-dfq012",
+      "type": "line",
+      "zoom": "6.01",
+      "latitud": "4.448",
+      "longitud": "-72.800",
+      "source": {
+            "url": "mapbox://styles/alejo1792/ckvvdgjyh2ptd14s3dpi89ydb",
+            "type": "vector"
+        },
+      "source-layer": "dpt-dfq012",
+      "paint": {
         
-      },
-      {
-        "id": "mpi-bu9n0v",
-        "type": "line",
-        "source": "sources",
-        "source-layer": "mpi-bu9n0v",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "puntos",
-        "type": "circle",
-        "source": "sources",
-        "source-layer": "puntos",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-
-      {
-        "id": "csp-ind1-2-bogota-c53ld5",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "csp-ind1-2-bogota-c53ld5",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-
-      {
-        "id": "csp-ind1-2-teusaquillo-do4gyq",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "csp-ind1-2-teusaquillo-do4gyq",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-
-      {
-        "id": "dh-ind2-bogota-bsmu1u",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "dh-ind2-bogota-bsmu1u",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "dh-ind2-teusaquillo-8tv1hf",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "dh-ind2-teusaquillo-8tv1hf",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "dpf-ind1-1-teusaquillo-3oht1r",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "dpf-ind1-1-teusaquillo-3oht1r",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "dpf-ind1-1-bogota-5pejn7",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "dpf-ind1-1-bogota-5pejn7",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-
-
-      {
-        "id": "gds-ind3-2-teusaquillo-6hfwxd",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "gds-ind3-2-teusaquillo-6hfwxd",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "gds-ind3-2-bogota-18wemn",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "gds-ind3-2-bogota-18wemn",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "gdp-ind3-1-bogota-72gpfg",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "gdp-ind3-1-bogota-72gpfg",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },
-      {
-        "id": "gdp-ind3-1-teusaquillo-ang6vm",
-        "type": "fill",
-        "source": "sources",
-        "source-layer": "gdp-ind3-1-teusaquillo-ang6vm",
-        "paint": {
-          "fill-color": "#f0f"
-        }
-      },{
-        "id": "dot1-bi0mc0",
-        "type": "Heatmap",
-        "source": "sources",
-        "source-layer": "dot1-bi0mc0",
-        "paint": {
-          "fill-color": "#f0f"
-        }
       }
+      
+    },
+    {
+      "id": "mpi-bu9n0v",
+      "type": "line",
+      "zoom": "8.01",
+      "latitud": "4.415",
+      "longitud": "-73.916",
+      "source": "sources",
+      "source-layer": "mpi-bu9n0v",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "puntos",
+      "type": "circle",
+      "zoom": "10.01",
+      "latitud": "4.644",
+      "longitud": "-74.116",
+      "source": "sources",
+      "source-layer": "puntos",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
 
-    ] 
-  }
+    {
+      "id": "csp-ind1-2-bogota-c53ld5",
+      "type": "fill",
+      "zoom": "12.01",
+      "latitud": "4.644",
+      "longitud": "-74.116",
+      "source": "sources",
+      "source-layer": "csp-ind1-2-bogota-c53ld5",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+
+    {
+      "id": "csp-ind1-2-teusaquillo-do4gyq",
+      "type": "fill",
+      "zoom": "13.50",
+      "latitud": "4.641",
+      "longitud": "-74.084",
+      "source": "sources",
+      "source-layer": "csp-ind1-2-teusaquillo-do4gyq",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+
+    {
+      "id": "dh-ind2-bogota-bsmu1u",
+      "type": "fill",
+      "zoom": "12.01",
+      "latitud": "4.641",
+      "longitud": "-74.102",
+      "source": "sources",
+      "source-layer": "dh-ind2-bogota-bsmu1u",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "dh-ind2-teusaquillo-8tv1hf",
+      "type": "fill",
+      "zoom": "13.61",
+      "latitud": "4.641",
+      "longitud": "-74.083",
+      "source": "sources",
+      "source-layer": "dh-ind2-teusaquillo-8tv1hf",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "dpf-ind1-1-teusaquillo-3oht1r",
+      "type": "fill",
+      "zoom": "13.01",
+      "latitud": "4.642",
+      "longitud": "-74.085",
+      "source": "sources",
+      "source-layer": "dpf-ind1-1-teusaquillo-3oht1r",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "dpf-ind1-1-bogota-5pejn7",
+      "type": "fill",
+      "zoom": "12.01",
+      "latitud": " 4.628",
+      "longitud": "-74.088",
+      "source": "sources",
+      "source-layer": "dpf-ind1-1-bogota-5pejn7",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+
+
+    {
+      "id": "gds-ind3-2-teusaquillo-6hfwxd",
+      "type": "fill",
+      "zoom": "13.02",
+      "latitud": "4.640",
+      "longitud": "-74.083",
+      "source": "sources",
+      "source-layer": "gds-ind3-2-teusaquillo-6hfwxd",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "gds-ind3-2-bogota-18wemn",
+      "type": "fill",
+      "zoom": "12.00",
+      "latitud": "4.659",
+      "longitud": "-74.105",
+      "source": "sources",
+      "source-layer": "gds-ind3-2-bogota-18wemn",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "gdp-ind3-1-bogota-72gpfg",
+      "type": "fill",
+      "zoom": "12.01",
+      "latitud": "4.662",
+      "longitud": "-74.109",
+      "source": "sources",
+      "source-layer": "gdp-ind3-1-bogota-72gpfg",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },
+    {
+      "id": "gdp-ind3-1-teusaquillo-ang6vm",
+      "type": "fill",
+      "zoom": "13.60",
+      "latitud": "4.641",
+      "longitud": "-74.083",
+      "source": "sources",
+      "source-layer": "gdp-ind3-1-teusaquillo-ang6vm",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    },{
+      "id": "dot1-bi0mc0",
+      "type": "Heatmap",
+      "zoom": "10.60",
+      "latitud": "4.663",
+      "longitud": "-74.087",
+      "source": "sources",
+      "source-layer": "dot1-bi0mc0",
+      "paint": {
+        "fill-color": "#f0f"
+      }
+    }
+
+  ] 
+}
