@@ -146,6 +146,15 @@
         "paint": {
           "fill-color": "#f0f"
         }
+      },
+      {
+        "id": "dot1-bi0mc0",
+        "type": "Heatmap",
+        "source": "sources",
+        "source-layer": "dot1-bi0mc0",
+        "paint": {
+          "fill-color": "#f0f"
+        }
       }
 
     ] 
