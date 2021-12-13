@@ -1,9 +1,17 @@
 import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-rafiki1.svg";
 import TextField from '@mui/material/TextField';
 import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+const sha256 = require('js-sha256');
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -52,6 +60,25 @@ const useStyle = makeStyles({
     },
     image:{
         width:"100%"
+    },
+    boton: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition: "all 0.8s ease-out",
+        cursor: "pointer",
+        margin: "10% 0 4% 0",
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        "&:hover": {
+            backgroundColor: Values.HoverButton,
+            border: "none",
+        }
     }
 });
 
@@ -67,6 +94,71 @@ const ImagenBottom = () => {
 const FormAccess = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(max-width:769px)');
+    const [form, setForm] = useState({
+        user:"",
+        clave: "",
+        showPassword: false
+
+    })
+
+    const handleClickShowPassword = (event) => {
+        setForm({
+            ...form,
+            showPassword: !form.showPassword,
+        });
+    };
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+    const handleChangeValue = (event) => {
+        let name = event.target.name
+        let value = event.target.value
+      
+        let newForm = {
+            ...form,
+            [name]: value
+        }
+        setForm(newForm)
+       // validateForm(newForm)
+    }
+
+    const [openLoading,setLoading] = useState(false)
+
+    const sendForm = () => {
+      
+        console.log("enviando form")
+        let valor = sha256.hmac('prueba',form.clave)
+        let body={
+            name: form.razonSocial,
+            email: form.correoElectronico,
+            phone: form.telefono,
+            infokey: valor
+        }
+        setLoading(true)
+        axios.post(
+            "http://localhost:3000/users", 
+             body, 
+             {
+                 headers: { 
+                     'Content-Type' : 'application/json' 
+                 }
+             }
+     ).then(response => {   
+         if(response.status == 200 ){
+             if(response.data.code == "OK"){
+                setLoading(false)
+             }else{
+                 setLoading(false)
+                 alert('ocurrio un problema con la creación de su usuario')
+             }
+
+         }else{
+            setLoading(false)
+            alert('ocurrio un problema con la creación de su usuario')
+         }  
+         
+     });
+    }
     return (
         <Grid container direccion="row" >
             <Grid container justifyContent="center"
@@ -84,7 +176,7 @@ const FormAccess = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={9} md={9} sm={9} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic"  />
+                        <TextField name="user" item size="small" value={form.user} onChange={handleChangeValue} className={classes.itemTextField} id="outlined-basic"  />
                     </Grid>
 
                     <Grid item lg={3} md={3} sm={3} xs={12}>
@@ -93,10 +185,34 @@ const FormAccess = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={9} md={9} sm={9} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic"  />
+                    <FormControl className={classes.itemTextField} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-password"
+                                type={form.showPassword ? 'text' : 'password'}
+                                value={form.clave}
+                                name="clave"
+
+                                onChange={handleChangeValue}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {form.showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Password"
+                            />
+                        </FormControl>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Iniciar Sesión" />
+        
+                        <button onClick={sendForm} className={classes.boton}>Iniciar Sesión</button>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Typography className={classes.Textp} >

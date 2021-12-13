@@ -162,7 +162,7 @@ const Contacto = () => {
         event.preventDefault();
         setLoading(true)
           axios.post(
-           "/contact", 
+           "http://localhost:3000/contact", 
             form, 
             {
                 headers: { 

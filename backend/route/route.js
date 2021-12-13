@@ -1,7 +1,8 @@
+const { Router } = require('express')
+const UserController = require('../controller/UserController')
 const router = Router();
 
-router.post('/users', );
-router.get('/:enrollmentProcessId', EnrollmentController.enrollmentProcessId);
-router.put('/:enrollmentProcessId', OperationsController.updateStatusUnrollment);
+router.post('/users',  UserController.createUser);
 
-export default router;
+
+module.exports = router;

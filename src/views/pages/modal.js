@@ -37,7 +37,7 @@ Textp: {
 })
 
 export default function BasicModal(props) {
-  const classes = makeStyles()
+  const classes = useStyle()
 
   
   return (

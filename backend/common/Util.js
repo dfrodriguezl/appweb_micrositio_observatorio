@@ -5,7 +5,7 @@ class Util{
         this.res = res
     }
 
-    saveData(status, data, message, code){
+    saveData({status, data, message, code}){
         this.status = status
         this.data = data
         this.message = message
@@ -19,6 +19,8 @@ class Util{
             message:this.message,
             status:this.status
           };
-          return this.res.status(this.statusCode).json(result);
+          return this.res.status(200).json(result);
     }
 }
+
+module.exports = Util;

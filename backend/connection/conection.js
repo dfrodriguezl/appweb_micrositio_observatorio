@@ -1,4 +1,4 @@
-const Pool = require('pg')
+const Pool = require('pg').Pool
 
 function conexion(){
     this.pool=null;
@@ -6,17 +6,16 @@ function conexion(){
     this.inicia= function(){
         this.pool=new Pool({
          connectionLimit:100,
-         host:'localhost',
+         host:'',
          user:'',
          password:'',
-         database: ''
+         database: '',
+         port:0
         })
     }
-    this.obtener= function(callback){
-        this.pool.getConnection(function(error,connection){
-         callback(error,connection);
-        })
-    }   
+    this.getConnection= function(){
+        return this.pool
+    } 
 }
 
 module.exports=new conexion();

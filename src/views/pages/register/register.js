@@ -16,6 +16,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import {Loader} from '../loader/loader'
+
+const sha256 = require('js-sha256');
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -97,7 +99,7 @@ const ImagenBottom = () => {
 const FormRegister = () => {
     const classes = useStyle();
     const [form, setForm] = useState({
-        tipoUsuario: null,
+        tipoUsuario: 10,
         razonSocial: "",
         correoElectronico: "",
         telefono: "",
@@ -165,30 +167,50 @@ const FormRegister = () => {
     const [openLoading,setLoading] = useState(false)
 
     const sendForm = () => {
+      
+        
+        console.log("enviando form")
+       
         if(form.clave != form.confirmarClave){
             alert("Contraseña no coincides")
         }
         if(form.correoElectronico != form.confirmarCorreo){
             alert("correo no coincide")
         }
+        if(form.clave.length != 8){
+            alert("la contraseña debe tener 8 caracteres")
+        }
+        let valor = sha256.hmac('prueba',form.clave)
+        let body={
+            name: form.razonSocial,
+            email: form.correoElectronico,
+            phone: form.telefono,
+            infokey: valor
+        }
+        setLoading(true)
         axios.post(
-            "/users", 
-             form, 
+            "http://localhost:3000/users", 
+             body, 
              {
                  headers: { 
                      'Content-Type' : 'application/json' 
                  }
              }
-     ).then(response => {        
-           setLoading(false)
-           setOpen(true)
-           setForm({
-             nombre:"",
-             telefono:"",
-             direccion:"",
-             correoElectronico:"",
-             peticion:""
-           })
+     ).then(response => {   
+         if(response.status == 200 ){
+             if(response.data.code == "OK"){
+                setLoading(false)
+                setOpen(true)
+             }else{
+                 setLoading(false)
+                 alert('ocurrio un problema con la creación de su usuario')
+             }
+
+         }else{
+            setLoading(false)
+            alert('ocurrio un problema con la creación de su usuario')
+         }  
+         
      });
     }
     return (
@@ -341,7 +363,7 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container >
 
-                        <Button  disabled={!formComplete} handleClose={handleClose} className={classes.boton} disableElevation onClick={sendForm} >Enviar</Button>
+                        <Button  disabled={!formComplete} className={classes.boton} disableElevation onClick={sendForm} >Enviar</Button>
 
                     </Grid>
 
