@@ -172,7 +172,7 @@ const FormRegister = () => {
             alert("correo no coincide")
         }
         axios.post(
-            "http://localhost:3000/users", 
+            "/users", 
              form, 
              {
                  headers: { 

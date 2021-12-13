@@ -7,20 +7,8 @@ const menuDane = [
           isMain:true
         },
         {
-            name:"Observatorio Inmobiliario Nacional",
-            link:"/Observatorio",
-            icon:"",
-            isMain:true
-        },
-        {
             name:"Otros Observatorios Inmobiliarios",
             link:"/Observatorio/Otrosobservatorios",
-            icon:"",
-            isMain:true
-        },
-        {
-            name:"Comité Técnico Asesor",
-            link:"/Observatorio/Comitetecnico",
             icon:"",
             isMain:true
         }
@@ -67,41 +55,17 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Esmeralda",
-            link:"/Observatorio/Visores/Esmeralda",
-            icon:"",
-            isMain:false
-        },
-        {
-            name:"Bogotá",
+            name:"Mercado Inmobiliario Bogotá",
             link:"/Observatorio/Visores/Esmeralda2",
             icon:"",
             isMain:false
         },
         {
-            name:"SAE",
-            link:"/Observatorio/Visores/Esmeralda",
+            name:"Dashboard análisis Soacha",
+            link:"http://159.203.180.99:9091/",
             icon:"",
             isMain:false
         },
-        {
-            name:"San Andrés",
-            link:"/Observatorio/Visores/Esmeralda2",
-            icon:"",
-            isMain:false
-        },
-        {
-            name:"Valores Rurales",
-            link:"/Observatorio/Visores/Esmeralda",
-            icon:"",
-            isMain:false
-        },
-        {
-            name:"Apartamentos",
-            link:"/Observatorio/Visores/Esmeralda2",
-            icon:"",
-            isMain:false
-        }
     ],
     [
         {
@@ -125,6 +89,12 @@ const menuDane = [
         {
             name:"Registro de Bienes Inmuebles",
             link:"/Observatorio/Catastromultiproposito/RegistroInmuebles",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Comité Técnico Asesor",
+            link:"/Observatorio/Comitetecnico",
             icon:"",
             isMain:true
         }

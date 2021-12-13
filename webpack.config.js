@@ -96,7 +96,7 @@ module.exports = {
     }),
     */
 
-    //new CompressionPlugin()
+    new CompressionPlugin()
     
   ],
 

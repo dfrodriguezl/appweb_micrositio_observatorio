@@ -541,7 +541,7 @@ const Cardsmapas = () => {
                           direction="row"
                           item
                           container
-                          xs
+                          
                           justifyContent="center"
                           alignItems="center"
                         >
@@ -675,7 +675,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="http://localhost:3000/EJEMPLO_MERCADO.xlsx"
+                              href="/Observatorio/file/EJEMPLO_MERCADO.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -724,7 +724,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="http://localhost:3000/FORMATO_MERCADO.xlsx"
+                              href="/Observatorio/file/FORMATO_MERCADO.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -773,7 +773,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="http://localhost:3000/INSTRUCTIVO GEOPACKAGE.pdf"
+                              href="/Observatorio/file/INSTRUCTIVO GEOPACKAGE.pdf"
                               download
                             >
                               <Grid container direction="row">
@@ -819,7 +819,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="http://localhost:3000/OFERTAS_OBSERVATORIO.gpkg"
+                              href="/Observatorio/file/OFERTAS_OBSERVATORIO.gpkg"
                               download
                             >
                               <Grid container direction="row">

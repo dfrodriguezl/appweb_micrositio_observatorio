@@ -388,7 +388,7 @@ const Navbar = ({sideBarOpen}) => {
           <DropDownLi onMouseEnter={handleStatusFalseAll} className={classes.liHover}  >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <MenuA href="/Observatorio" >Inicio </MenuA>
+              <MenuA href="/Observatorio/" >Inicio </MenuA>
 
             </UtilidadCentrarTexto>
           </DropDownLi>
@@ -403,7 +403,7 @@ const Navbar = ({sideBarOpen}) => {
               }} className={classes.colorMenuActive}>
                 <UtilidadCentrarTexto >
                   <AiOutlineDown className={classes.rotate} />
-                  <MenuA href="/Observatorio">Observatorio </MenuA>
+                  <MenuA href="/Observatorio/">Observatorio </MenuA>
                   {result}
                 </UtilidadCentrarTexto>
                

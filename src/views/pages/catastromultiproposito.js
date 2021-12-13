@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery, Button } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia} from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
@@ -7,6 +7,8 @@ import ImgPng from "Observatorio/img/Captura.svg";
 import Business from "Observatorio/img/Business.svg";
 import Hong from "Observatorio/img/1Hong.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+
+import word from "Observatorio/img/powerpoint.png";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -31,21 +33,48 @@ const useStyle = makeStyles({
       boton: {
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "2vh",
-        backgroundColor: Values.Redwinecolor,
-        color: Values.TextButton,
+        backgroundColor:"#ffffff",
         fontFamily: Values.SourceRoboto,
         textTransform: "capitalize",
+        color: "#4C4C4C",
         transition:"all 0.8s ease-out",
         cursor: "pointer",
-        width: "max-content",
+        margin: "2% 0 0 0",
+        width: "30%",
         fontSize: "calc(1em + 0.3vh)",
         borderRadius: "2vh",
         fontWeight: "bold",
         border:"none",
+        boxShadow: "3px 3px 10px #7b7676",
         
         "&:hover":{
-            backgroundColor: Values.HoverButton,
+            // backgroundColor: Values.HoverButton,
             border:"none",
+            color: Values.TextButton,
+        }
+      },
+    
+      boton1: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor:"#ffffff",
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        color: "#4C4C4C",
+        transition:"all 0.8s ease-out",
+        cursor: "pointer",
+        margin: "2% 0 0 0",
+        width: "100%",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        border:"none",
+        boxShadow: "3px 3px 10px #7b7676",
+        
+        "&:hover":{
+            // backgroundColor: Values.HoverButton,
+            border:"none",
+            color: Values.TextButton,
         }
     },
       listyle:{
@@ -217,7 +246,27 @@ const useStyle = makeStyles({
      circulemarg:{
        margin: "1vw 0 1vw 0",
     
-     },
+  },
+  excel: {
+    height: "14vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80%",
+    width:"100%",
+  },
+  excel2: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "28%",
+  },
+  alink:{
+    textDecoration:"none",
+  },
+  contentrulesp3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: "calc(0.6em + 0.3vh)",
+    textAlign:"center",
+  },
 })
 
 const Imagen = () => {
@@ -430,6 +479,25 @@ const Catastro = () => {
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
     }
+
+    var estilo3 = null;
+    var estilo2 = null;
+    var estilo4 = null;
+    {
+      if (matches){
+        estilo4=classes.boton;
+        estilo2 = classes.excel;
+      }else{
+        estilo2 = classes.excel2;
+        estilo3 = classes.mediawidth;
+        estilo4=classes.boton1;
+      }
+    }
+
+  
+  
+
+  
     return(
         <Grid container direction="column" className={estilo}>
             <Grid container justifyContent="center" alignItems="center">
@@ -468,7 +536,28 @@ const Catastro = () => {
                 </p>  
                 <p className={classes.contentrulesp}>
                     Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
-                </p>  
+          </p>  
+          
+          <button className={estilo4}>
+        <a className={classes.alink} href="/Observatorio/file/Presentación_CM.pptx" download>
+          <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={word} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: Catastro Multipropósito</strong></p>
+                                  <p className={classes.contentrulesp3}>9.936 KB   |   01/10/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Presentación política de Catastro multipropósito</p>
+                                </Grid>
+            </Grid>
+          </a>
+        </button>
+
+
+
+
+
+
                 <p className={classes.contentrulesp}>
                   A continuación se anexa el Conpes 4007 de 2020, mediante el cual se dan las directrices para el fortalecimiento del sistema de administración del territorio:
                 </p>

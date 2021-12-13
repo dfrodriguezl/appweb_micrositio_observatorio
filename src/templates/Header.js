@@ -115,7 +115,7 @@ const Header = () => {
                     <Grid container item xs={9} sm={7} md={6} lg={6} justifyContent="flex-end" >
 
                       
-                        <a href="/Observatorio">
+                        <a href="/Observatorio/">
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
                         <TextLogo xs={12} sm={12} >

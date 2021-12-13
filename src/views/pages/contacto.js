@@ -162,7 +162,7 @@ const Contacto = () => {
         event.preventDefault();
         setLoading(true)
           axios.post(
-           "http://localhost:3000/contact", 
+           "/contact", 
             form, 
             {
                 headers: { 
@@ -181,7 +181,7 @@ const Contacto = () => {
           })
     });
     /*
-    axios.post(`http://localhost:3000/users`,{ formTemp })
+    axios.post(`/users`,{ formTemp })
     .then(res => {
       console.log(res);
       console.log(res.data);

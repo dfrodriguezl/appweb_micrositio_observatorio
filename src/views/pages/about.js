@@ -1,8 +1,10 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import House from "Observatorio/img/House.svg";
 import Judge from "Observatorio/img/Judge.svg";
+
+import word from "Observatorio/img/powerpoint.png";
 
 const useStyle = makeStyles({
   margintop: {
@@ -107,6 +109,74 @@ const useStyle = makeStyles({
     flexBasis: "100% !important",
     maxWidth: "100% !important",
   },
+  excel: {
+    height: "14vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80%",
+    width:"100%",
+  },
+  excel2: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "28%",
+  },
+  alink:{
+    textDecoration:"none",
+  },
+  contentrulesp3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: "calc(0.6em + 0.3vh)",
+    textAlign:"center",
+  },
+  boton: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "2% 0 0 0",
+    width: "30%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
+  },
+
+  boton1: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "2% 0 0 0",
+    width: "100%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
+},
+
 });
 
 const Imagen = () => {
@@ -152,6 +222,21 @@ const About = () => {
       estilomovil=classes.gridglobalmovil
     }
   }
+
+  var estilo3 = null;
+  var estilo2 = null;
+  var estilo4 = null;
+  {
+    if (matches){
+      estilo4=classes.boton;
+      estilo2 = classes.excel;
+    }else{
+      estilo2 = classes.excel2;
+      estilo3 = classes.mediawidth;
+      estilo4=classes.boton1;
+    }
+  }
+
   return (
     <Grid container direction="column" className={estilomovil}>
       <Grid container direction="row">
@@ -174,6 +259,23 @@ const About = () => {
         </Grid>
         <Imagen />
       </Grid>
+
+      <button className={estilo4}>
+        <a className={classes.alink} href="/Observatorio/file/ObservatorioInmobiliario.pptx" download>
+          <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={word} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: Observatorio Inmobiliario</strong></p>
+                                  <p className={classes.contentrulesp3}>7.248 KB   |   01/08/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Presentación Observatorio Inmobiliario Nacional</p>
+                                </Grid>
+            </Grid>
+          </a>
+        </button>
+
+
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
           <h3 className={classes.titleStyle2}>Decreto 148 de 2020</h3>

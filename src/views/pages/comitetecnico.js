@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
@@ -6,6 +6,8 @@ import Meeting from "Observatorio/img/Meeting.svg";
 import Remote from "Observatorio/img/Remote.svg";
 import Discussion from "Observatorio/img/Discussion.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+
+import word from "Observatorio/img/powerpoint.png";
 
 const useStyle = makeStyles({
   margintop:{
@@ -118,7 +120,73 @@ const useStyle = makeStyles({
        backgroundPosition: "center center",
        flexBasis: "100% !important",
        maxWidth: "100% !important",
-    },   
+  },   
+  excel: {
+    height: "14vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "80%",
+    width:"100%",
+  },
+  excel2: {
+    height: "10vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "28%",
+  },
+  alink:{
+    textDecoration:"none",
+  },
+  contentrulesp3: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: "calc(0.6em + 0.3vh)",
+    textAlign:"center",
+  },
+  boton: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "2% 0 0 0",
+    width: "30%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
+  },
+  boton1: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "2% 0 0 0",
+    width: "100%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    
+    "&:hover":{
+        // backgroundColor: Values.HoverButton,
+        border:"none",
+        color: Values.TextButton,
+    }
+},
 })
 
 const Imagen = () => {
@@ -168,6 +236,21 @@ const Comite = () => {
         estilo2=classes.marginbutton
       }
     }
+    var estilo3 = null;
+
+    var estilo4 = null;
+    {
+      if (matches){
+        estilo4=classes.boton;
+        estilo2 = classes.excel;
+      }else{
+        estilo2 = classes.excel2;
+        estilo3 = classes.mediawidth;
+        estilo4=classes.boton1;
+      }
+    }
+  
+  
   return(      
       <Grid container direction="column"  className={estilo}>
           <Grid container direction="row">
@@ -187,7 +270,23 @@ const Comite = () => {
               </ol>        
               </Grid>
               <Imagen/> 
-          </Grid>
+      </Grid>
+      
+      <button className={estilo4}>
+        <a className={classes.alink} href="/Observatorio/file/Presentación_ComiteTécnicoAsesor.pptx" download>
+          <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={word} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: Comité Técnico Asesor</strong></p>
+                                  <p className={classes.contentrulesp3}>1.317 KB   |   01/10/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Presentación Comité Técnico Asesor para la regulación de la gestión catastral. </p>
+                                </Grid>
+            </Grid>
+          </a>
+        </button>
+
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
                   <h3 className={classes.titleStyle}>Composición del Comité Técnico Asesor</h3>
@@ -229,7 +328,9 @@ const Comite = () => {
               </Grid>
               </Grid>
               <Imagen3/> 
-          </Grid>
+      </Grid>
+      
+
       </Grid>
     
   )
