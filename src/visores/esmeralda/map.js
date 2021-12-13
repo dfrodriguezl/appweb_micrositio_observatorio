@@ -53,7 +53,6 @@ const Map = forwardRef((props, ref) => {
   };
 
   const addlayer = (id, isEnable) => {
-    console.log(stylejson.layers[0])
     if(eventMap.getLayer(id)){
       eventMap.setLayoutProperty(
         id,

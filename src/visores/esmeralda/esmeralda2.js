@@ -39,16 +39,17 @@ const esmeralda2 = () => {
              lat:value.bbox[1],
              zoom:6
          }
-         console.log(value)
-         console.log(data)
-         console.log(mapaData)
          mapaData.current.toFly(data)
+    }
+
+    const enabledLayer = (id,isEnable) =>{
+        mapaData.current.enableLayer(id,isEnable)
     }
 
       
     return ( 
         <div>
-            <Drawer setPosition ={handlePosition}/>
+            <Drawer setPosition ={handlePosition} enabledLayer={enabledLayer}/>
             <Map ref={mapaData} position={position}  />
             {
               

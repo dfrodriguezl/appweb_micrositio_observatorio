@@ -20,7 +20,8 @@
     },
     "sprite": "mapbox://sprites/examples/cjikt35x83t1z2rnxpdmjs7y7",
     "glyphs": "mapbox://fonts/{username}/{fontstack}/{range}.pbf",     
-    "layers": [{        
+    "layers": [
+      {        
         "id": "dpt-dfq012",
         "type": "line",
         "source": {
@@ -50,6 +51,102 @@
         "paint": {
           "fill-color": "#f0f"
         }
+      },
+
+      {
+        "id": "csp-ind1-2-bogota-c53ld5",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "csp-ind1-2-bogota-c53ld5",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+
+      {
+        "id": "csp-ind1-2-teusaquillo-do4gyq",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "csp-ind1-2-teusaquillo-do4gyq",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+
+      {
+        "id": "dh-ind2-bogota-bsmu1u",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "dh-ind2-bogota-bsmu1u",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "dh-ind2-teusaquillo-8tv1hf",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "dh-ind2-teusaquillo-8tv1hf",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "dpf-ind1-1-teusaquillo-3oht1r",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "dpf-ind1-1-teusaquillo-3oht1r",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "dpf-ind1-1-bogota-5pejn7",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "dpf-ind1-1-bogota-5pejn7",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+
+
+      {
+        "id": "gds-ind3-2-teusaquillo-6hfwxd",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "gds-ind3-2-teusaquillo-6hfwxd",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "gds-ind3-2-bogota-18wemn",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "gds-ind3-2-bogota-18wemn",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "gdp-ind3-1-bogota-72gpfg",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "gdp-ind3-1-bogota-72gpfg",
+        "paint": {
+          "fill-color": "#f0f"
+        }
+      },
+      {
+        "id": "gdp-ind3-1-teusaquillo-ang6vm",
+        "type": "fill",
+        "source": "sources",
+        "source-layer": "gdp-ind3-1-teusaquillo-ang6vm",
+        "paint": {
+          "fill-color": "#f0f"
+        }
       }
+
     ] 
   }

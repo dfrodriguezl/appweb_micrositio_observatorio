@@ -1,11 +1,12 @@
-import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
-import React from 'react';
+import { Grid, makeStyles, Typography,useMediaQuery,Button } from "@material-ui/core";
+import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/App.svg";
 import ContactImage from "Observatorio/img/contact.jpeg"
-import ItemRedWine from "Observatorio/common/itemredwine";
 import TextField from '@mui/material/TextField';
-import ButtonRedWine from "Observatorio/common/buttonredwine";
+import axios from 'axios';
+import {Loader} from './loader/loader'
+import Modal from "Observatorio/pages/modal"
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -80,6 +81,25 @@ const useStyle = makeStyles({
     },
     containerRow:{
         marginTop:"100px !important"
+    },
+    boton: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition: "all 0.8s ease-out",
+        cursor: "pointer",
+        margin: "10% 0 4% 0",
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        "&:hover": {
+            backgroundColor: Values.HoverButton,
+            border: "none",
+        }
     }
 });
 
@@ -98,6 +118,75 @@ const TopContacto = () => {
 const Contacto = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(max-width:769px)');
+    const [openLoading,setLoading] = useState(false)
+    const [open, setOpen] = useState(false)
+    const handleClose = () => setOpen(false)
+    const [form,setForm] = useState({
+        nombre:"",
+        telefono:"",
+        direccion:"",
+        correoElectronico:"",
+        peticion:""
+    })
+
+    const [formComplete,setFormComplete] = useState(false)
+    const handleChangeValue = (event) => {
+        let name = event.target.name
+        let value = event.target.value
+      
+        let newForm = {
+            ...form,
+            [name]: value
+        }
+        setForm(newForm)
+        validateForm(newForm)
+    }
+    const validateForm = (form) =>{
+        if(!form.nombre || form.nombre == ''){
+            setFormComplete(false)
+            return
+        }
+        if(!form.correoElectronico || form.correoElectronico == ''){
+            setFormComplete(false)
+            return
+        }
+        if(!form.peticion || form.peticion == ''){
+            setFormComplete(false)
+            return 
+        }
+
+        setFormComplete(true)
+
+    }
+    const sendForm = (event) =>{
+        event.preventDefault();
+        setLoading(true)
+          axios.post(
+           "http://localhost:3000/contact", 
+            form, 
+            {
+                headers: { 
+                    'Content-Type' : 'application/json' 
+                }
+            }
+    ).then(response => {        
+          setLoading(false)
+          setOpen(true)
+          setForm({
+            nombre:"",
+            telefono:"",
+            direccion:"",
+            correoElectronico:"",
+            peticion:""
+          })
+    });
+    /*
+    axios.post(`http://localhost:3000/users`,{ formTemp })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })*/
+    }
     let image = matches ? classes.ImageContact02 : classes.ImageContact
     let textFieldStyle = matches ? classes.TextFieldStyle: classes.TextFieldStyle02
     var estilo = null;
@@ -121,7 +210,7 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
+                            <TextField name="nombre" onChange={handleChangeValue} value={form.nombre} size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
                     <Grid item direction="row"  container>
@@ -131,7 +220,7 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
+                            <TextField name="telefono" value={form.telefono} onChange={handleChangeValue} size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -141,7 +230,7 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
+                            <TextField name="direccion" value={form.direccion} onChange={handleChangeValue} size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
                     <Grid item direction="row" container>
@@ -151,7 +240,7 @@ const Contacto = () => {
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
-                            <TextField size="small" className={textFieldStyle} id="outlined-basic"  />
+                            <TextField  name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue}  size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
 
@@ -165,7 +254,9 @@ const Contacto = () => {
                             id="filled-multiline-static"
                             multiline
                             rows={6}
-                            defaultValue=""
+                            name="peticion"
+                            value={form.peticion}
+                            onChange={handleChangeValue}
                             className={classes.textFieldMultiline}
                         />
                     </Grid>
@@ -177,12 +268,14 @@ const Contacto = () => {
                         </Grid>
                         <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">
                
-                            <ButtonRedWine Title="Enviar"></ButtonRedWine>
+                        <Button disabled={!formComplete} disableElevation className={classes.boton} onClick={sendForm} >Enviar</Button>
                         </Grid>
                     </Grid>
                 </Grid>
 
             </Grid>
+            <Loader open={openLoading}></Loader>
+            <Modal open={open} handleClose={handleClose} Title="Excelente!" textContainer="Su mensaje fue enviado correctamente" ></Modal>
         </Grid>
     );
 }

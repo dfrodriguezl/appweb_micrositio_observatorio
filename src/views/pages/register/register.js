@@ -1,15 +1,21 @@
-import { Grid, makeStyles, Typography,Button } from "@material-ui/core";
-import React, { Component, useMediaQuery, useState } from 'react';
+import { Grid, makeStyles, Typography, Button } from "@material-ui/core";
+import React, {  useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-amico1.svg";
 import TextField from '@mui/material/TextField';
-import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
 import Modal from "Observatorio/pages/modal"
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
+import {Loader} from '../loader/loader'
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -57,8 +63,8 @@ const useStyle = makeStyles({
         backgroundColor: "white",
         width: "100%"
     },
-    gridMain:{
-        paddingBottom:"50px"
+    gridMain: {
+        paddingBottom: "50px"
     },
     boton: {
         padding: "0.3em 1em 0.3em 1em",
@@ -67,16 +73,16 @@ const useStyle = makeStyles({
         color: Values.TextButton,
         fontFamily: Values.SourceRoboto,
         textTransform: "capitalize",
-        transition:"all 0.8s ease-out",
+        transition: "all 0.8s ease-out",
         cursor: "pointer",
         margin: "10% 0 4% 0",
         width: "max-content",
         fontSize: "calc(1em + 0.3vh)",
         borderRadius: "2vh",
         fontWeight: "bold",
-        "&:hover":{
+        "&:hover": {
             backgroundColor: Values.HoverButton,
-            border:"none",
+            border: "none",
         }
     }
 });
@@ -90,16 +96,104 @@ const ImagenBottom = () => {
 
 const FormRegister = () => {
     const classes = useStyle();
-    const [open,setOpen] = useState(false)
-    const openModal  = () =>{
-            setOpen(true)
+    const [form, setForm] = useState({
+        tipoUsuario: null,
+        razonSocial: "",
+        correoElectronico: "",
+        telefono: "",
+        clave: "",
+        confirmarCorreo: "",
+        confirmarClave: "",
+        showPassword: false,
+        showConfirmPassword: false
+
+    })
+    const [open, setOpen] = useState(false)
+    const [formComplete, setFormComplete] = useState(false);
+ 
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+    const handleClickShowPassword = (event) => {
+        setForm({
+            ...form,
+            showPassword: !form.showPassword,
+        });
+    };
+
+    const handleClickShowConfirmPassword = (event) => {
+        setForm({
+            ...form,
+            showConfirmPassword: !form.showConfirmPassword,
+        });
+    };
+    const handleChangeValue = (event) => {
+        let name = event.target.name
+        let value = event.target.value
+      
+        let newForm = {
+            ...form,
+            [name]: value
+        }
+        setForm(newForm)
+        validateForm(newForm)
     }
-    const handleClose = () =>{
-        console.log("cerrando")
+
+    const validateForm = (form) =>{
+
+        if(!form.tipoUsuario){
+            setFormComplete(false)
+            return
+        }
+        if(!form.correoElectronico ||form.correoElectronico == ""){
+                setFormComplete(false)
+                return
+        }
+        if(!form.razonSocial ||form.razonSocial == ""){
+            setFormComplete(false)
+            return
+        }
+        if(!form.clave || form.clave == ""){
+            setFormComplete(false)
+            return
+        }
+        setFormComplete(true)
+
+    }
+    const handleClose = () => setOpen(false)
+
+    const [openLoading,setLoading] = useState(false)
+
+    const sendForm = () => {
+        if(form.clave != form.confirmarClave){
+            alert("Contraseña no coincides")
+        }
+        if(form.correoElectronico != form.confirmarCorreo){
+            alert("correo no coincide")
+        }
+        axios.post(
+            "http://localhost:3000/users", 
+             form, 
+             {
+                 headers: { 
+                     'Content-Type' : 'application/json' 
+                 }
+             }
+     ).then(response => {        
+           setLoading(false)
+           setOpen(true)
+           setForm({
+             nombre:"",
+             telefono:"",
+             direccion:"",
+             correoElectronico:"",
+             peticion:""
+           })
+     });
     }
     return (
         <Grid container direccion="row" className={classes.gridMain} >
-            
+
 
             <Grid item container xs={12} sm={6} md={6} lg={6} alignItems="center"  >
                 <Grid item container>
@@ -115,19 +209,22 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
 
-                    <Box className={classes.itemTextField}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Seleccione ...</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            label="Age"
-                        >
-                            <MenuItem value={20}>Persona Natural</MenuItem>
-                            <MenuItem value={30}>Persona Juridica</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
+                        <Box className={classes.itemTextField}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Seleccione ...</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Age"
+                                    onChange={handleChangeValue}
+                                    name="tipoUsuario"
+                                    value={form.tipoUsuario}
+                                >
+                                    <MenuItem value="20">Persona Natural</MenuItem>
+                                    <MenuItem value="30">Persona Juridica</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
@@ -135,7 +232,7 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12} >
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField name="razonSocial" value={form.razonSocial} onChange={handleChangeValue} item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -143,7 +240,7 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField item name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue} size="small" className={classes.itemTextField} id="outlined-basic" label="" />
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -151,7 +248,7 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField item value={form.confirmarCorreo} name="confirmarCorreo" onChange={handleChangeValue} size="small" className={classes.itemTextField} id="outlined-basic" label="" />
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -173,7 +270,32 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
+
+                        <FormControl className={classes.itemTextField} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-password"
+                                type={form.showPassword ? 'text' : 'password'}
+                                value={form.clave}
+                                name="clave"
+
+                                onChange={handleChangeValue}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {form.showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Password"
+                            />
+                        </FormControl>
+
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
@@ -181,7 +303,30 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
+                        <FormControl className={classes.itemTextField} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-password"
+                                type={form.showConfirmPassword ? 'text' : 'password'}
+                                value={form.confirmarClave}
+                                name="confirmarClave"
+
+                                onChange={handleChangeValue}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowConfirmPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {form.showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Password"
+                            />
+                        </FormControl>
                     </Grid>
 
                     <Grid item container >
@@ -196,8 +341,8 @@ const FormRegister = () => {
                     </Grid>
                     <Grid item container >
 
-                        <Button  handleClose={handleClose} className={classes.boton} disableElevation onClick={openModal} >Enviar</Button>
-                     
+                        <Button  disabled={!formComplete} handleClose={handleClose} className={classes.boton} disableElevation onClick={sendForm} >Enviar</Button>
+
                     </Grid>
 
                 </Grid>
@@ -211,7 +356,8 @@ const FormRegister = () => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Modal open={open} Title="Su registro ha sido ¡Exitoso!" textContainer="Al correo diligenciado llegará un e-mail indicando su codigo de registro, que correponde al codigo_observatorio que es necesario suministrar cada vez que se suba información a la plataforma" >
+            <Loader open={openLoading}></Loader>
+            <Modal open={open} handleClose={handleClose} Title="Su registro ha sido ¡Exitoso!" textContainer="Al correo diligenciado llegará un e-mail indicando su codigo de registro, que correponde al codigo_observatorio que es necesario suministrar cada vez que se suba información a la plataforma" >
 
             </Modal>
 
