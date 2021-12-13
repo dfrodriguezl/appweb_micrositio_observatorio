@@ -30,15 +30,6 @@ app.get('/file/:name', function (req, res) {
   res.end();
 });
 
-app.get('/rest/:name', function (req, res) {
-  let fileName = req.params.name
-  console.log("leyendo archivo")
-  var file = fs.readFileSync(__dirname + '/public/' + fileName, {encoding: 'utf8'}).toString();
-  
-  return res.status(200).send(JSON.parse(file))
-
-});
-
 
 app.post("/contact",function(req,res){
     let body = req.body
