@@ -63,6 +63,7 @@ const RoutesMaps = () => {
 
 const Generalroutes = () => {
   const classes = useStyle()
+  let user = localStorage.getItem("token")
   return (
     <div >
       <Header/>
@@ -85,7 +86,9 @@ const Generalroutes = () => {
           <Route exact path="/Observatorio/Contacto" component={Contacto} />
           <Route exact path="/Observatorio/PlataformaUsuario" component={Plataform} />
           <Route exact path="/Observatorio" component={ContentGrid} />
-          <Route exact path="/Observatorio/login" component={Access} />
+          <Route exact path="/Observatorio/login"  render={()=>{
+            return user ? <Redirect to="/"></Redirect>: <Access></Access>
+          }} />
           <Route exact path="/Observatorio/register" component={Register} />
           <Route exact path="/">
             <Redirect to="/Observatorio" />

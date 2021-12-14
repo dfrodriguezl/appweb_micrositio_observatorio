@@ -26,7 +26,6 @@ boton: {
 
 const ButtonRedWine = (props) => {    
     const classes = useStyle();
-    console.log(props)
     if (props.Values == 1) {
         return (   
             <Button className={classes.boton} disableElevation href={props.href} target="_blank">{props.Title}</Button>

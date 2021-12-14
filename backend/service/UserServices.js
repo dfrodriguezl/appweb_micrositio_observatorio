@@ -26,7 +26,11 @@ class UserService {
                       if(error){
                           rechazar(null)
                       }
-                      resolver(result)
+                      if(result.rows.length > 0){
+                        resolver(result.rows[0])
+                      }else{
+                        resolver(null)
+                      }
                   })
               
                 

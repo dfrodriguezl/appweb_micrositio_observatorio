@@ -12,6 +12,9 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const sha256 = require('js-sha256');
+import axios from 'axios';
+import {Loader} from '../loader/loader'
+import { Redirect } from 'react-router';
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -82,6 +85,7 @@ const useStyle = makeStyles({
     }
 });
 
+
 const ImagenBottom = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(max-width:769px)');
@@ -91,9 +95,9 @@ const ImagenBottom = () => {
     )
 }
 
-const FormAccess = () => {
+const FormAccess = (props) => {
     const classes = useStyle();
-    const matches = useMediaQuery('(max-width:769px)');
+
     const [form, setForm] = useState({
         user:"",
         clave: "",
@@ -129,24 +133,24 @@ const FormAccess = () => {
         console.log("enviando form")
         let valor = sha256.hmac('prueba',form.clave)
         let body={
-            name: form.razonSocial,
-            email: form.correoElectronico,
-            phone: form.telefono,
+            email: form.user,
             infokey: valor
         }
         setLoading(true)
         axios.post(
-            "http://localhost:3000/users", 
+            "http://localhost:3000/login", 
              body, 
              {
                  headers: { 
                      'Content-Type' : 'application/json' 
                  }
              }
-     ).then(response => {   
+     ).then(response => { 
+         console.log(response)  
          if(response.status == 200 ){
              if(response.data.code == "OK"){
-                setLoading(false)
+                localStorage.setItem("token",response.data.data.token)
+                props.setAuth(true)
              }else{
                  setLoading(false)
                  alert('ocurrio un problema con la creación de su usuario')
@@ -233,7 +237,7 @@ const FormAccess = () => {
 
                 </Grid>
             </Grid>
-
+            <Loader open={openLoading}></Loader>
 
         </Grid>
     );
@@ -242,12 +246,18 @@ const FormAccess = () => {
 
 const Access = () => {
     const classes = useStyle();
-    return (
-        <Grid container justifyContent="center"
-            alignItems="center" className={classes.gridglobal}>
-            <FormAccess />
-        </Grid>
-    );
+    const [login,setLogin] = useState(false)
+    if(login){
+        return  <Redirect to="/" />
+    }else{
+        return (
+            <Grid container justifyContent="center"
+                alignItems="center" className={classes.gridglobal}>
+                <FormAccess  setAuth ={setLogin} />
+            </Grid>
+        );
+    }
+
 }
 
 export default Access

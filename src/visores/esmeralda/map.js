@@ -25,8 +25,8 @@ const Map = forwardRef((props, ref) => {
       toFly(position);
       
     },
-    enableLayer(id, isEnable){
-      addlayer(id, isEnable);
+    enableLayer(layer, isEnable){
+      addlayer(layer, isEnable);
     }
   }));
   const toFly = (position) => {
@@ -34,7 +34,7 @@ const Map = forwardRef((props, ref) => {
       //These options control the ending camera position: centered at
       // the target, at zoom level 9, and north up.
       center: [position.lng, position.lat],
-      zoom: 9,
+      zoom: position.zoom ? position.zoom : 9,
       bearing: 0,
 
       // These options control the flight curve, making it move
@@ -52,14 +52,19 @@ const Map = forwardRef((props, ref) => {
     });
   };
 
-  const addlayer = (id, isEnable) => {
-    if(eventMap.getLayer(id)){
+  const addlayer = (layer, isEnable) => {
+    if(eventMap.getLayer(layer.id)){
       eventMap.setLayoutProperty(
-        id,
+        layer.id,
         'visibility',
          isEnable ? 'visible':'none'
         );
      }
+     toFly({
+       lng:layer.longitud,
+       lat:layer.latitud,
+       zoom: layer.zoom
+     })
   };
 
   //Constructor del mapa
