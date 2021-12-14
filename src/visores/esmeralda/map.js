@@ -7,13 +7,63 @@ import React, {
 } from "react";
 import mapboxgl from "mapbox-gl";
 import "./mapa.css";
-import stylejson from "./maplayer.json"
+import stylejson from "./maplayer.json";
+import { makeStyles } from "@material-ui/core";
+
+const useStyle = makeStyles({
+  identify: {
+    display: "flex",
+    top: "0",
+    flex: "1 0 auto",
+    height: "100%",
+    display: "flex",
+    outline: "0",
+    zIndex: 1000,
+    position: "fixed",
+    overflowY: "auto",
+    flexDirection: "column",
+    top: "64px",
+    width: "330px",
+    height: "calc(100% - 700px)",
+    borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
+    backgroundColor: "#ffffff",
+    left: "calc(100% - 35vh)",
+  },
+
+  legendkey: {
+    display: "inline-block",
+    borderRadius: "20%",
+    width: "10px",
+    height: "10px",
+    marginRight: "5px",
+  },
+
+  Legend: {
+    display: "flex",
+    top: "0",
+    flex: "1 0 auto",
+    display: "flex",
+    outline: "0",
+    zIndex: 1000,
+    position: "fixed",
+    overflowY: "auto",
+    flexDirection: "column",
+    top: "305px",
+    width: "97px",
+    height: "calc(100% - 860px)",
+    borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
+    backgroundColor: "#ffffff",
+    left: "calc(100% - 10.2vh)",
+    padding:"0 0 0 1em"
+  },
+});
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
 
 let eventMap;
 const Map = forwardRef((props, ref) => {
+  const classes = useStyle();
   const mapContainerRef = useRef(null);
   const position = props.position;
   const [lng, setLng] = useState(position.lng);
@@ -23,11 +73,10 @@ const Map = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     toFly(position) {
       toFly(position);
-      
     },
-    enableLayer(id, isEnable){
+    enableLayer(id, isEnable) {
       addlayer(id, isEnable);
-    }
+    },
   }));
   const toFly = (position) => {
     eventMap.flyTo({
@@ -53,13 +102,13 @@ const Map = forwardRef((props, ref) => {
   };
 
   const addlayer = (id, isEnable) => {
-    if(eventMap.getLayer(id)){
+    if (eventMap.getLayer(id)) {
       eventMap.setLayoutProperty(
         id,
-        'visibility',
-         isEnable ? 'visible':'none'
-        );
-     }
+        "visibility",
+        isEnable ? "visible" : "none"
+      );
+    }
   };
 
   //Constructor del mapa
@@ -69,8 +118,7 @@ const Map = forwardRef((props, ref) => {
       container: mapContainerRef.current,
       style: stylejson.sources.composite.url,
       center: [lng, lat],
-      zoom: zoom,      
-      
+      zoom: zoom,
     });
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
@@ -106,25 +154,48 @@ const Map = forwardRef((props, ref) => {
     //      essential: true
     //    });
     // });
-   
+
     map.on("load", () => {
-     // map.removeLayer('dpt-dfq012');
-     // map.removeLayer('mpi-bu9n0v');
-     // map.removeLayer('puntos');
-     stylejson.layers.forEach(function(element) {
-      console.log({element});
-      if(map.getLayer(element.id)){
-        map.setLayoutProperty(
-          element.id,
-          'visibility',
-           'none'
-          );
-       } 
-    })
-     
-  
-    })
-    
+      // map.removeLayer('dpt-dfq012');
+      // map.removeLayer('mpi-bu9n0v');
+      // map.removeLayer('puntos');
+      map.getCanvas().style.cursor = "default";
+      const layers = ["-2594 - 0", "1 - 100+"];
+
+      const colors = ['#e9ff00',
+      '#ff001d'];
+
+      const legend = document.getElementById("legend");
+
+      layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement("div");
+        const key = document.createElement("span");
+        key.className = classes.legendkey;
+        key.style.backgroundColor = color;
+
+        const value = document.createElement("span");
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+      });
+      stylejson.layers.forEach(function (element) {
+        console.log({ element });
+        if (map.getLayer(element.id)) {
+          map.setLayoutProperty(element.id, "visibility", "none");
+        }
+      });
+      map.on('mousemove', (event) => {
+        const states = map.queryRenderedFeatures(event.point, {
+          layers: ['dh-ind2-bogota-bsmu1u']
+        });
+        document.getElementById('pd').innerHTML = states.length
+          ? `<h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
+          : `<p></p>`;
+      });
+    });
+
     map.on("click", ({ point }) => {
       const features = map.queryRenderedFeatures(point, {
         layers: ["puntos"],
@@ -149,6 +220,13 @@ const Map = forwardRef((props, ref) => {
   return (
     <div>
       <div className="map-container" ref={mapContainerRef} />
+      <div className={classes.identify} id="features">
+        <h2>Información</h2>
+        <div id="pd">
+          {/* <p>Hover over a state!</p> */}
+        </div>
+      </div>
+      <div className={classes.Legend} id="legend"><h2>Deficit</h2></div>
     </div>
   );
 });

@@ -25,8 +25,9 @@ const useStyle = makeStyles({
 });
 
 
+
 const esmeralda2 = () => {
-    const classes = useStyle();
+    
     const mapaData = useRef()
     const [position, setPosition] = React.useState({
         lng:-74.5447,
@@ -51,16 +52,7 @@ const esmeralda2 = () => {
         <div>
             <Drawer setPosition ={handlePosition} enabledLayer={enabledLayer}/>
             <Map ref={mapaData} position={position}  />
-            {
-              
-            /* <Map ref={} position={position} bbox={bbox}   />
-            <MapEvent position={position} bbox={bbox} ref={mapaData}></MapEvent>
-       
-            <DrawerRight/>
-            <DrawerBottom/>*/}
-            {/* <button className={classes.boton} id="fly">
-                Bogotá
-            </button>  */}
+            
         </div>
      );
 }

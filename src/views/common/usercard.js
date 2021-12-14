@@ -299,11 +299,7 @@ const useStyle = makeStyles({
   },
 });
 
-const FileUpload = () => {
-  return <div></div>;
-};
-
-const Cardsmapas = () => {
+const Cardsmapas = () => {  
   const classes = useStyle();
   const matches = useMediaQuery("(max-width:769px)");
   const matches2 = useMediaQuery("(min-width:1281px)");
@@ -552,20 +548,22 @@ const Cardsmapas = () => {
                           >
                             <CommonSeriesSettings
                               valueField="mass"
-                              argumentField="name"
+                              argumentField="id"
                               type="bar"
                               ignoreEmptyPoints={true}
                             >
-                              {/* <Label visible={true}>
+                            {/* <Label visible={true}>
                                 <Format type="fixedPoint" precision={0} />
                               </Label> */}
-                              <ArgumentAxis aggregateByCategory={true} />
+                              
                             </CommonSeriesSettings>
                             <SeriesTemplate nameField="name" />
-                            <Legend visible={true} />
+                            <Legend visible={true} verticalAlignment="top" horizontalAlignment="center"
+                              itemTextPosition="right" width={18}/>
                             <Tooltip
                                 enabled={true}
                                 color="#821a3f"
+                                customizeTooltip={customizeTooltip}
                               >
                                 <Font size={18} color="white"/>
                               </Tooltip>
@@ -904,8 +902,6 @@ const Cardsmapas = () => {
                                   Formato: Excel
                                 </p>
                               </Grid>
-
-                              <FileUpload />
                             </Grid>
                           </button>
                         </Grid>
@@ -963,5 +959,11 @@ const Cardsmapas = () => {
 
 function customizeText(arg) {
   return `${arg.valueText} (${arg.percentText})`;
+}
+
+function customizeTooltip (arg) {
+  return {
+    text: `${arg.seriesName} - ${arg.valueText}`,
+  };
 }
 export default Cardsmapas;

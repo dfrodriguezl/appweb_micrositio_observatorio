@@ -39,6 +39,8 @@ import Ceed01 from 'Observatorio/pages/statistics/ceed/ceed'
 import Access from 'Observatorio/pages/access/login'
 import Register from 'Observatorio/pages/register/register'
 import Plataform from 'Observatorio/pages/plataformuser'
+import Repository from 'Observatorio/pages/repository'
+import Experimentalstatistics from 'Observatorio/pages/experimental_statistics'
 
 const useStyle = makeStyles({
   marginTop: {
@@ -71,6 +73,8 @@ const Generalroutes = () => {
       </Grid>
         <Switch >
           <Route exact path="/Observatorio/Mapas" component={Maps} />
+          <Route exact path="/Observatorio/Repositorio" component={Repository} />
+          <Route exact path="/Observatorio/Estadisticasexperimentales" component={Experimentalstatistics} />
           <Route exact path="/Observatorio/Acerca" component={About} />
           <Route exact path="/Observatorio/Servicios" component={Service} />
           <Route exact path="/Observatorio/Servicios/estadisticas" component={statistics} />
