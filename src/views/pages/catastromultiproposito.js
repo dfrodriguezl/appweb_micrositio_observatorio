@@ -19,7 +19,26 @@ const useStyle = makeStyles({
         backgroundImage: `url(${Small})`,       
         backgroundPosition: "center",
          
-      },      
+      },
+      boton4: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition:"all 0.8s ease-out",
+        cursor: "pointer",
+        
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        // fontWeight: "bold",
+        "&:hover":{
+            backgroundColor: Values.HoverButton,
+            border:"none",
+        }
+    }, 
       imagen_top2:{     
          width: "100%",
          height: "50vh",
@@ -566,7 +585,7 @@ const Catastro = () => {
                   <p className={classes.texto1}>CONPES 4007 de 2020</p>
                   </Grid>
                 <Grid Grid container item xs={9}>
-                <Button className={classes.boton} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
+                <Button className={classes.boton4} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
                   ver
                 </Button>
                 </Grid>

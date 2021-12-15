@@ -44,7 +44,20 @@ const menuDane = [
             link:"/Observatorio/Contacto",
             icon:"",
             isMain:true
-        }
+        },
+        {
+            name:"Repositorio",
+            link:"/Observatorio/Repositorio",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Estadísticas experimentales",
+            link:"/Observatorio/Estadisticasexperimentales",
+            icon:"",
+            isMain:true
+        },
+
 
     ],
     [
