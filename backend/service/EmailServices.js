@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer")
 
 class EmailService {
   static async sendEmail({email,contenido,subject}) {
@@ -30,4 +30,4 @@ class EmailService {
     });
   }
 }
-export default EmailService
+module.exports = EmailService

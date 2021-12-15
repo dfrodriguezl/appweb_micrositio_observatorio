@@ -346,48 +346,48 @@ export default function PersistentDrawerLeft(props) {
       [event.target.name]: event.target.checked,
     });
     if(event.target.name == "Departamentos"){
-      enabledLayer(stylejson.layers[0].id,event.target.checked)
+      enabledLayer(stylejson.layers[0],event.target.checked)
     }
     if(event.target.name == "MunicipiosCheck"){
-      enabledLayer(stylejson.layers[1].id,event.target.checked)
+      enabledLayer(stylejson.layers[1],event.target.checked)
     }
     if(event.target.name == "Puntos"){
-      enabledLayer(stylejson.layers[2].id,event.target.checked)
+      enabledLayer(stylejson.layers[2],event.target.checked)
     }
     if(event.target.name == "capa01"){
-      enabledLayer(stylejson.layers[3].id,event.target.checked)
+      enabledLayer(stylejson.layers[3],event.target.checked)
     }
     if(event.target.name == "capa02"){
       console.log("asd")
-      enabledLayer(stylejson.layers[4].id,event.target.checked)
+      enabledLayer(stylejson.layers[4],event.target.checked)
     }
     if(event.target.name == "capa03"){
-      enabledLayer(stylejson.layers[5].id,event.target.checked)
+      enabledLayer(stylejson.layers[5],event.target.checked)
     }
     if(event.target.name == "capa04"){
-      enabledLayer(stylejson.layers[6].id,event.target.checked)
+      enabledLayer(stylejson.layers[6],event.target.checked)
     }
 
     if(event.target.name == "capa05"){
-      enabledLayer(stylejson.layers[7].id,event.target.checked)
+      enabledLayer(stylejson.layers[7],event.target.checked)
     }
     if(event.target.name == "capa06"){
-      enabledLayer(stylejson.layers[8].id,event.target.checked)
+      enabledLayer(stylejson.layers[8],event.target.checked)
     }
     if(event.target.name == "capa07"){
-      enabledLayer(stylejson.layers[9].id,event.target.checked)
+      enabledLayer(stylejson.layers[9],event.target.checked)
     }
     if(event.target.name == "capa08"){
-      enabledLayer(stylejson.layers[10].id,event.target.checked)
+      enabledLayer(stylejson.layers[10],event.target.checked)
     }
     if(event.target.name == "capa09"){
-      enabledLayer(stylejson.layers[11].id,event.target.checked)
+      enabledLayer(stylejson.layers[11],event.target.checked)
     }
     if(event.target.name == "capa10"){
-      enabledLayer(stylejson.layers[12].id,event.target.checked)
+      enabledLayer(stylejson.layers[12],event.target.checked)
     }
     if(event.target.name == "capa11"){
-      enabledLayer(stylejson.layers[13].id,event.target.checked)
+      enabledLayer(stylejson.layers[13],event.target.checked)
     }
  
   };

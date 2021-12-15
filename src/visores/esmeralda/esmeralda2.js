@@ -43,8 +43,8 @@ const esmeralda2 = () => {
          mapaData.current.toFly(data)
     }
 
-    const enabledLayer = (id,isEnable) =>{
-        mapaData.current.enableLayer(id,isEnable)
+    const enabledLayer = (layer,isEnable) =>{
+        mapaData.current.enableLayer(layer,isEnable)
     }
 
       

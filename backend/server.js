@@ -6,9 +6,8 @@ var cors = require('cors')
 var expressStaticGzip = require("express-static-gzip");
 
 var DIST_DIR = path.join(__dirname, "../dist");
+var routes =  require('./route/route')
 
-
-var nodemailer = require('nodemailer');
 
 app.use("/", expressStaticGzip(DIST_DIR));
 
@@ -20,6 +19,8 @@ app.use(express.urlencoded({
     limit: '50mb'
 }));
 
+app.use("",routes)
+/*
 app.get('/file/:name', function (req, res) {
   let fileName = req.params.name
   console.log("leyendo archivo")
