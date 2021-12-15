@@ -161,24 +161,44 @@ const Contacto = () => {
     const sendForm = (event) =>{
         event.preventDefault();
         setLoading(true)
+        let newBody ={
+            name:form.nombre,
+            phone:form.telefono,
+            address:form.direccion,
+            email:form.correoElectronico,
+            tema:form.peticion
+        }
           axios.post(
            "http://localhost:3000/contact", 
-            form, 
+            newBody, 
             {
                 headers: { 
                     'Content-Type' : 'application/json' 
                 }
             }
-    ).then(response => {        
-          setLoading(false)
-          setOpen(true)
-          setForm({
-            nombre:"",
-            telefono:"",
-            direccion:"",
-            correoElectronico:"",
-            peticion:""
-          })
+    ).then(response => {    
+        
+        if(response.status == 200 ){
+            if(response.data.code == "OK"){
+               setLoading(false)
+               setOpen(true)
+               setForm({
+                nombre:"",
+                telefono:"",
+                direccion:"",
+                correoElectronico:"",
+                peticion:""
+              })
+            }else{
+                setLoading(false)
+                alert('ocurrio un problema con el envio de mensajes')
+            }
+
+        }else{
+           setLoading(false)
+           alert('ocurrio un problema con el envio de mensajes')
+        }  
+
     });
     /*
     axios.post(`/users`,{ formTemp })

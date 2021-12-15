@@ -173,12 +173,15 @@ const FormRegister = () => {
        
         if(form.clave != form.confirmarClave){
             alert("Contraseña no coincides")
+            return
         }
         if(form.correoElectronico != form.confirmarCorreo){
             alert("correo no coincide")
+            return
         }
         if(form.clave.length != 8){
             alert("la contraseña debe tener 8 caracteres")
+            return
         }
         let valor = sha256.hmac('prueba',form.clave)
         let body={

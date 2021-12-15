@@ -73,7 +73,6 @@ const useStyle = makeStyles({
         textTransform: "capitalize",
         transition: "all 0.8s ease-out",
         cursor: "pointer",
-        margin: "10% 0 4% 0",
         width: "max-content",
         fontSize: "calc(1em + 0.3vh)",
         borderRadius: "2vh",
@@ -153,12 +152,12 @@ const FormAccess = (props) => {
                 props.setAuth(true)
              }else{
                  setLoading(false)
-                 alert('ocurrio un problema con la creación de su usuario')
+                 alert('Usuario o contraseña incorrecto')
              }
 
          }else{
             setLoading(false)
-            alert('ocurrio un problema con la creación de su usuario')
+            alert('ocurrio un problema externo')
          }  
          
      });
@@ -189,7 +188,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item lg={9} md={9} sm={9} xs={12}>
-                    <FormControl className={classes.itemTextField} variant="outlined">
+                    <FormControl size="small" className={classes.itemTextField} variant="outlined">
                             <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
