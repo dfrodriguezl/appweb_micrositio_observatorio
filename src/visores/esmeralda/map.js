@@ -124,6 +124,9 @@ const Map = forwardRef((props, ref) => {
       style: stylejson.sources.composite.url,
       center: [lng, lat],
       zoom: zoom,
+      
+      
+      antialias: true
     });
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
@@ -191,7 +194,7 @@ const Map = forwardRef((props, ref) => {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
       });
-      map.on('mousemove', (event) => {
+      map.on('click', (event) => {
         const states = map.queryRenderedFeatures(event.point, {
           layers: ['dh-ind2-bogota-bsmu1u']
         });

@@ -30,9 +30,9 @@ const esmeralda2 = () => {
     
     const mapaData = useRef()
     const [position, setPosition] = React.useState({
-        lng:-74.5447,
-        lat:4.73,
-        zoom:6
+        lng:-74.091,
+        lat:4.646,
+        zoom:11
     });
     const handlePosition = (value) =>{
          let data={
