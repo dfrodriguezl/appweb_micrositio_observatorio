@@ -15,6 +15,11 @@ const useStyle = makeStyles({
     backgroundColor: "#f4f4f4",
     
   },
+  alink: {
+    textDecoration: "none",
+    color: Values.TextButton,    
+    fontFamily: Values.SourceRoboto,
+  },
   containerbarra: {
     margin: "1em 0 0 0",
     backgroundColor: "#F3F3F3",
@@ -25,7 +30,7 @@ const useStyle = makeStyles({
     fontWeight:"normal",
   },
   containercontent:{
-    margin: "1em 0 0 0",
+    
     padding: "0.7em 0 0.7em 0.7em",
     color: "#585858",
     fontWeight:"normal",
@@ -92,8 +97,28 @@ const useStyle = makeStyles({
   tabla:{
     borderCollapse:"collapse",
     textAlign:"left",
+    margin: "1.5em 0 0 0",
+  },
+  columnatabla:{
+    borderBottom: "1px dotted",
+  },
+  boton: {
+    padding: "0.1em 0.5em 0.1em 0.5em",
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
     
-  }
+    textTransform: "capitalize",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    width: "max-content",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    // fontWeight: "bold",
+    "&:hover":{
+        backgroundColor: Values.HoverButton,
+        border:"none",
+    }
+}
 });
 
 const Imagen = () => {
@@ -153,35 +178,65 @@ const Repository = () => {
           <th className={classes.containerbarra}>Descripción</th>
           <th className={classes.containerbarra}>Descargar</th>
         </tr>
-        <tr >
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>TECNICAS VALUATORIAS.docx</th>
           <th className={classes.containercontent}>Técnicas valuatorias en Colombia y el mundo</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/TECNICAS_VALUATORIAS.docx"
+                  download
+              >Descargar</a>
+            </Button></th>
         </tr>
-        <tr>
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>TIPO CONSTRUCTIVAS.docx</th>
           <th className={classes.containercontent}>Tipologías constructivas habituales en Colombia</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/TIPO_CONSTRUCTIVAS.docx"
+                  download
+              >Descargar</a>
+            </Button></th>
         </tr>
-        <tr>
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>EJEMPLO MERCADO.xlsx</th>
           <th className={classes.containercontent}>Ejemplo de mercado según formato establecido</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/EJEMPLO_MERCADO.xlsx"
+                  download
+              >Descargar</a>
+            </Button></th>
         </tr>
-        <tr>
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>FORMATO MERCADO.xlsx</th>
           <th className={classes.containercontent}>Formato mercado para PH, NPH y predios rurales</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/FORMATO_MERCADO.xlsx"
+                  download
+              >Descargar</a>
+            </Button></th>
         </tr>
-        <tr>
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>MANUAL GEOPACKAGE.pdf</th>
           <th className={classes.containercontent}>Manual cargue información Geopackage</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}><Button className={classes.boton}><a className={classes.alink}
+                  href="/Observatorio/file/INSTRUCTIVO_GEOPACKAGE.pdf"
+                  download
+              >Descargar</a>
+              </Button></th>
         </tr>
-        <tr>
+        <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>OFERTAS OBSERVATORIO.gpkg</th>
           <th className={classes.containercontent}>Paquete mercado para PH, NPH y predios rurales</th>
-          <th className={classes.containercontent}><Button>Descargar</Button></th>
+          <th className={classes.containercontent}>
+            <Button className={classes.boton}>
+              <a className={classes.alink}
+                  href="/Observatorio/file/OFERTAS_OBSERVATORIO.gpkg"
+                  download
+              >Descargar</a>
+            </Button></th>
         </tr>
       </table>
     </Grid>

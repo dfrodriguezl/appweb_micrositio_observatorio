@@ -38,7 +38,7 @@ const esmeralda2 = () => {
          let data={
              lng:value.bbox[0],
              lat:value.bbox[1],
-             zoom:6
+             zoom:11
          }
          mapaData.current.toFly(data)
     }
