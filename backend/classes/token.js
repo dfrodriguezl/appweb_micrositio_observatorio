@@ -8,6 +8,13 @@ class Token {
             usuario: payload
         }, seed, { expiresIn: caducidad });
     }
+
+    static async generateJwtToken(payload){
+        return jwt.sign({
+            usuario: payload
+        }, seed, { expiresIn: '1h' });
+    }
+
    static async  comprobarToken(userToken){
         return new Promise( (resolve, reject ) => {
             jwt.verify(userToken, seed, ( err, decoded ) => {
