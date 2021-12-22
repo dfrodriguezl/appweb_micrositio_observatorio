@@ -231,7 +231,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/register"/>
+                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
                     </Grid>
 
                 </Grid>
@@ -247,7 +247,7 @@ const Access = () => {
     const classes = useStyle();
     const [login,setLogin] = useState(false)
     if(login){
-        return  <Redirect to="/" />
+        return  <Redirect to="/Observatorio/PlataformaUsuario" />
     }else{
         return (
             <Grid container justifyContent="center"

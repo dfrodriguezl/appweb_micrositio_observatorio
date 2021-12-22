@@ -122,25 +122,7 @@ const LiItem = Styled.li`
   font-size:15px !important;
 }
 `
-const LiItemTitle = Styled.li`
-@media (max-width: 1300px) and (min-width: 769px) {
-  font-size:15px !important;
-}
-`
 
-const SideBarContener = Styled.ul`    
-display:flex;
-justify-content: space-between;
-margin: 0px 0;
-width: 100%;
-list-style: none;
-@media (max-width: 768px) {
-  display:block;
-}
-@media (max-width: 4000px) and (min-width: 769px) {
-  display:none;
-}
-`;
 
 const NavBarContenedor = Styled.ul`    
     display:flex;
@@ -184,7 +166,6 @@ const UtilidadCentrarTexto = Styled.div`
     align-items:center;
 `;
 
-const ContainerMenu = Styled.div``
 
 
 
@@ -237,7 +218,7 @@ const DropDownLi = Styled(MenuIL)`
         
     } */
   `;
-const Navbar = ({sideBarOpen}) => {
+const Navbar = ({sideBarOpen,isLogin}) => {
   const classes = useStyle();
   const [menuActive, setMenuActive] = useState(
     {
@@ -286,101 +267,42 @@ const Navbar = ({sideBarOpen}) => {
 
   }
 
-
+  const cerrarSesion = () =>{
+    
+  }
   useEffect(() => {
+      console.log(isLogin)
+  }, isLogin);
 
-  }, []);
 
   let result = []
   if (position != null) {
     let subResult = []
     menuDane[position].map((data) => {
-      if (data.isMain) {
-        subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
-      } else {
-        subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
+      if(data.isProtected){
+          if(isLogin){
+            if (data.isMain) {
+              subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
+            } else {
+              subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
+            }
+          }
+      }else{
+        if (data.isMain) {
+          subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
+        } else {
+          subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
+        }
       }
+     
 
     })
     result.push(<DropDownContent>
       {subResult}
     </DropDownContent>)
-    /* menuDane.map((data) => {
-       let subResult = []
-       data.subindices[position].map((menu) => {
- 
-         if (menu.isTitle) {
-           var icon;
-           switch (menu.icon) {
-             case "Economia":
-               icon = <Economia></Economia>
-               break
-             case "Sociedad":
-               icon = <Sociedad className={classes.colorSociedad}></Sociedad>
-               break
-             case "Territorio":
-               icon = <Territorio className={classes.colorTerritorio}></Territorio>
-               break;
-             case "Datos":
-               icon = <DownloadIcon></DownloadIcon>
-               break;
-             case "Atlas":
-               icon = <MapIcon></MapIcon>
-               break;
-             case "Android":
-               icon = <AndroidIcon></AndroidIcon>
-               break;
-             case "Map":
-               icon = <RoomIcon></RoomIcon>
-               break;
-             case "Educacion":
-               icon = <CastForEducationIcon></CastForEducationIcon>
-               break;
-             default:
-               icon = <ArchiveIcon></ArchiveIcon>
-               break;
-           }
-           subResult.push(<LiItemTitle key={menu.key} className={classes.liTitle}>{icon}{menu.name}</LiItemTitle>)
-         } else {
- 
-           subResult.push(<LiItem key={menu.key} className={classes.liItem}><Grid xs={12} md={12} lg={12} sm={12} container direction="row" alignItems="center" > <ArrowRightIcon item xs={1} md={1} sm={1} lg={1} className={classes.iconLi}></ArrowRightIcon><a item xs={11} md={11} lg={11} sm={11} href={menu.link} className={classes.aMenu}>{menu.name}</a></Grid></LiItem>)
- 
-         }
-       })
-       var icon;
-       switch (data.title[position]) {
-         case "GIT I + D investigacion y desarrollo":
-           icon = <Investigacion></Investigacion>
-           break
-         case "Servicios web Geograficos":
-           icon = <ServicioGeografico></ServicioGeografico>
-           break;
-         case "Catalógo de matadatos geográficos":
-           icon = <CodeIcon></CodeIcon>
-           break;
-         case "Economia":
-           icon = <Economia></Economia>
-           break
-         case "Sociedad":
-           icon = <Sociedad className={classes.colorSociedad}></Sociedad>
-           break
-         case "Territorio":
-           icon = <Territorio className={classes.colorTerritorio}></Territorio>
-           break;
-         default:
-           icon = <AccountBalancnceIcon></AccountBalancnceIcon>
-           break;
-       }
-       result.push(<Grid container item xs direction="column" justifyContent="center" className={classes.cardglobalWhithout} >
-         <ul className={classes.ulItem}>
-           <LiItemTitle className={classes.liTitle}>{icon}<b>{data.title[position]}</b></LiItemTitle>
-           {subResult}
-         </ul>
-       </Grid>)
-     })*/
   }
 
-
+ 
   return (
     <Grid container onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={12} sm={12} className={classes.cardglobal}>
@@ -508,8 +430,11 @@ const Navbar = ({sideBarOpen}) => {
 
           <li onMouseEnter={handleStatusFalseAll} >
             
-
-            <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>
+            {
+              !isLogin ?  <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>:
+              <button className={classes.boton}  >Cerrar Sesión</button>
+            }
+           
           </li>
         </NavBarContenedor>
       </Grid>

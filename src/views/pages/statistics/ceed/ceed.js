@@ -1,5 +1,5 @@
 import { Grid, makeStyles, useMediaQuery, Typography } from "@material-ui/core";
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 
 import ImageCeed from "Observatorio/img/Ceed01.jpeg"
@@ -9,8 +9,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ButtonRedWine from "Observatorio/common/buttonredwine";
 import AmicoImage from "Observatorio/img/amico.png"
+import axios from 'axios';
+import {Loader} from '../../loader/loader'
+import Modal from "Observatorio/pages/modal"
 const useStyle = makeStyles({
 
     gridglobalmovil: {
@@ -88,6 +90,24 @@ const useStyle = makeStyles({
     },
     TextFieldWidth02:{
         width:400
+    },
+    boton: {
+        padding: "0.3em 1em 0.3em 1em",
+        borderRadius: "2vh",
+        backgroundColor: Values.Redwinecolor,
+        color: Values.TextButton,
+        fontFamily: Values.SourceRoboto,
+        textTransform: "capitalize",
+        transition: "all 0.8s ease-out",
+        cursor: "pointer",
+        width: "max-content",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        "&:hover": {
+            backgroundColor: Values.HoverButton,
+            border: "none",
+        }
     }
 });
 
@@ -131,7 +151,68 @@ const TopCeed = () => {
 const Form = () => {
     const classes = useStyle()
     const matches = useMediaQuery('(max-width:769px)');
+    const [form, setForm] = useState({
+        name: "",
+        email:"",
+        dependencie:"",
+        tempo_init:"",
+        tempo_end:"",
+        objetive:""
+    })
     let TextFieldWidth = matches ? classes.TextFieldWidth : classes.TextFieldWidth02
+
+    const handleChangeValue = (event) => {
+        let name = event.target.name
+        let value = event.target.value
+      
+        let newForm = {
+            ...form,
+            [name]: value
+        }
+        setForm(newForm)
+    }
+    const handleClose = () => setOpen(false)
+    const sendForm = () => {
+      
+        console.log("enviando form")
+       setLoading(true)
+        axios.post(
+            "http://localhost:3000/ceed", 
+             form, 
+             {
+                 headers: { 
+                     'Content-Type' : 'application/json' 
+                 }
+             }
+     ).then(response => { 
+         console.log(response)  
+         
+         if(response.status == 200 ){
+             if(response.data.code == "OK"){
+                setOpen(true)
+                setLoading(false)
+                setForm({
+                    name: "",
+                    email:"",
+                    dependencie:"",
+                    tempo_init:"",
+                    tempo_end:"",
+                    objetive:""
+                })
+             }else{
+                 setLoading(false)
+                 alert('Lo sentimos ocurrio un problema')
+             }
+
+         }else{
+            setLoading(false)
+            alert('Lo sentimos ocurrio un problema')
+         } 
+         
+     });
+    }
+    const [open, setOpen] = useState(false)
+    const [openLoading,setLoading] = useState(false)
     return (
         <Grid container direction="column" spacing={2}>
             <Grid container item
@@ -159,7 +240,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={TextFieldWidth} id="outlined-basic" label="Nombre" />
+                    <TextField className={TextFieldWidth}  value={form.name} name="name" onChange={handleChangeValue}  id="outlined-basic" label="Nombre" />
                 </Grid>
             </Grid>
             <Grid container item direction="row">
@@ -169,7 +250,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={TextFieldWidth} id="outlined-basic" label="Correo" />
+                    <TextField className={TextFieldWidth}  value={form.email} name="email" onChange={handleChangeValue} id="outlined-basic" label="Correo" />
                 </Grid>
             </Grid>
             <Grid container item>
@@ -192,7 +273,7 @@ const Form = () => {
                     </Typography>
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
-                    <TextField className={TextFieldWidth} id="outlined-basic" label="Dependencia" />
+                    <TextField className={TextFieldWidth}  value={form.dependencie} name="dependencie" onChange={handleChangeValue} id="outlined-basic" label="Dependencia" />
                 </Grid>
             </Grid>
             <Grid container item direction="row">
@@ -210,8 +291,7 @@ const Form = () => {
                             label="Age"
                         >
                             <MenuItem value={10}>Gestor catastro Antioquia</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={20}>Gestor catastro Medellin</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
@@ -243,11 +323,15 @@ const Form = () => {
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-                                        label="1996"
+                                        label=""
+                                        onChange={handleChangeValue}
+                                        name="tempo_init"
+                                        value={form.tempo_init}
                                     >
-                                        <MenuItem value={10}>1996</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                         <MenuItem value=""></MenuItem>
+                                        <MenuItem value="1996">1996</MenuItem>
+                                        <MenuItem value="1998">1998</MenuItem>
+                                        <MenuItem value="2000">2000</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Box>
@@ -259,11 +343,15 @@ const Form = () => {
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-                                        label="1996"
+                                        label=""
+                                        onChange={handleChangeValue}
+                                        name="tempo_end"
+                                        value={form.tempo_end}
                                     >
-                                        <MenuItem value={10}>2010</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                       <MenuItem value=""></MenuItem>
+                                        <MenuItem value="1996">1996</MenuItem>
+                                        <MenuItem value="1998">1998</MenuItem>
+                                        <MenuItem value="2000">2000</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Box>
@@ -284,6 +372,9 @@ const Form = () => {
                         label="objetivo"
                         multiline
                         rows={4}
+                        value={form.objetive} 
+                        name="objetive" 
+                        onChange={handleChangeValue}
                     />
                 </Grid>
             </Grid>
@@ -296,8 +387,13 @@ const Form = () => {
                 </Typography>
             </Grid>
             <Grid container item>
-                <ButtonRedWine Title="Enviar" />
+                     <button onClick={sendForm} className={classes.boton}>Enviar</button>
             </Grid>
+
+            <Loader open={openLoading}></Loader>
+            <Modal open={open} handleClose={handleClose} Title="Excelente" textContainer="Su registro ha sido ¡Exitoso! " >
+
+            </Modal>
         </Grid>
     )
 }
