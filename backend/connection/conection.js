@@ -6,10 +6,10 @@ function conexion(){
     this.inicia= function(){
         this.pool=new Pool({
             connectionLimit:100,
-            host:'159.203.180.99',
-            user:'observatorio',
+            host:'',
+            user:'',
             password:'',
-            database: 'observatorio',
+            database: '',
             port:49155
            })
     }

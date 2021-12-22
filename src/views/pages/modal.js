@@ -32,6 +32,14 @@ Textp: {
     textAlign: "start",
     margin: "1em 0 0 0",
     marginTop:"30px"
+},
+Titlep: {
+  color: Values.TextParagraph,
+  fontFamily: Values.SourceRoboto,
+  fontSize: Values.SizeText,
+  textAlign: "center",
+  margin: "1em 0 0 0",
+  marginTop:"30px"
 }
    
 })
@@ -46,7 +54,7 @@ export default function BasicModal(props) {
         onClose={props.handleClose}
       >
         <Box sx={style}>
-          <Typography  className={classes.Textp}>
+          <Typography  className={classes.Titlep}>
             {props.Title}
           </Typography>
           <Typography  className={classes.Textp} >

@@ -8,7 +8,9 @@ class Token {
             usuario: payload
         }, seed, { expiresIn: caducidad });
     }
-
+    static  destroyer(token){
+        jwt.destroy(token)
+    }
     static async generateJwtToken(payload){
         return jwt.sign({
             usuario: payload

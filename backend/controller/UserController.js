@@ -5,6 +5,7 @@ const Token = require("../classes/token");
 class UserController {
   static async resetPassword(req, res) {
     let util = new Util(res);
+    console.log(req.body)
     let body = req.body;
     let response = {
       status: 200,
@@ -57,9 +58,10 @@ class UserController {
           name: userFound.name,
           email: userFound.email,
         });
+        let split = tokenUser.split(".")
         await EmailService.sendEmail({
           email: body.email,
-          contenido: "http://localhost:9000/observatorio/restore/" + tokenUser,
+          contenido: "http://localhost:9000/observatorio/restore/" + split[0]+"/"+split[1]+"/"+split[2],
           subject: "Recuperación contraseña",
         });
       } else {

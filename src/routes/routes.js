@@ -100,7 +100,7 @@ const Generalroutes = () => {
       <Switch>
         <Route
           exact
-          path="/Observatorio/restore:auth"
+          path="/Observatorio/restore/:auth/:autht/:authp"
           component={RestoreAccount}
         />
         <Route

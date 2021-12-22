@@ -6,7 +6,7 @@ class UserService {
             pool.inicia()
 
             return new Promise((resolver, rechazar) => {
-                  pool.getConnection().query("update  private.user  set clave = $2  where email = $1 ",[model.email,model.infokey],(error,result)=>{
+                  pool.getConnection().query("update  private.user  set passworduser = $2  where email = $1 ",[model.usuario.email,model.infokey],(error,result)=>{
                       console.log(error) 
                       if(error){
                           rechazar(false)
