@@ -771,7 +771,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="/Observatorio/file/INSTRUCTIVO GEOPACKAGE.pdf"
+                              href="/Observatorio/file/INSTRUCTIVO_GEOPACKAGE.pdf"
                               download
                             >
                               <Grid container direction="row">

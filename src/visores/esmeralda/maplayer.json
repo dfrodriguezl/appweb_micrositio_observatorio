@@ -23,7 +23,7 @@
   "layers": [
     {        
       "id": "dpt-dfq012",
-      "type": "line",
+      "type": "fill-extrusion",
       "zoom": "6.01",
       "latitud": "4.448",
       "longitud": "-72.800",
@@ -39,7 +39,7 @@
     },
     {
       "id": "mpi-bu9n0v",
-      "type": "line",
+      "type": "fill-extrusion",
       "zoom": "8.01",
       "latitud": "4.415",
       "longitud": "-73.916",
@@ -64,7 +64,7 @@
 
     {
       "id": "csp-ind1-2-bogota-c53ld5",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "12.01",
       "latitud": "4.644",
       "longitud": "-74.116",
@@ -77,7 +77,7 @@
 
     {
       "id": "csp-ind1-2-teusaquillo-do4gyq",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "13.50",
       "latitud": "4.641",
       "longitud": "-74.084",
@@ -90,7 +90,7 @@
 
     {
       "id": "dh-ind2-bogota-bsmu1u",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "12.01",
       "latitud": "4.641",
       "longitud": "-74.102",
@@ -102,7 +102,7 @@
     },
     {
       "id": "dh-ind2-teusaquillo-8tv1hf",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "13.61",
       "latitud": "4.641",
       "longitud": "-74.083",
@@ -114,7 +114,7 @@
     },
     {
       "id": "dpf-ind1-1-teusaquillo-3oht1r",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "13.01",
       "latitud": "4.642",
       "longitud": "-74.085",
@@ -126,7 +126,7 @@
     },
     {
       "id": "dpf-ind1-1-bogota-5pejn7",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "12.01",
       "latitud": " 4.628",
       "longitud": "-74.088",
@@ -140,7 +140,7 @@
 
     {
       "id": "gds-ind3-2-teusaquillo-6hfwxd",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "13.02",
       "latitud": "4.640",
       "longitud": "-74.083",
@@ -152,7 +152,7 @@
     },
     {
       "id": "gds-ind3-2-bogota-18wemn",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "12.00",
       "latitud": "4.659",
       "longitud": "-74.105",
@@ -164,7 +164,7 @@
     },
     {
       "id": "gdp-ind3-1-bogota-72gpfg",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "12.01",
       "latitud": "4.662",
       "longitud": "-74.109",
@@ -176,7 +176,7 @@
     },
     {
       "id": "gdp-ind3-1-teusaquillo-ang6vm",
-      "type": "fill",
+      "type": "fill-extrusion",
       "zoom": "13.60",
       "latitud": "4.641",
       "longitud": "-74.083",
