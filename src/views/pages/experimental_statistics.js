@@ -8,6 +8,52 @@ const useStyle = makeStyles({
       padding: "0 0 5% 0",
       backgroundColor:"#f4f4f4",
     },
+    tabla:{
+      borderCollapse:"collapse",
+      textAlign:"left",
+      margin: "1.5em 0 0 0",
+    },
+    columnatabla:{
+      borderBottom: "1px dotted",
+    },
+    boton: {
+      padding: "0.1em 0.5em 0.1em 0.5em",
+      borderRadius: "2vh",
+      backgroundColor: Values.Redwinecolor,
+      
+      textTransform: "capitalize",
+      transition:"all 0.8s ease-out",
+      cursor: "pointer",
+      width: "max-content",
+      fontSize: "calc(1em + 0.3vh)",
+      borderRadius: "2vh",
+      // fontWeight: "bold",
+      "&:hover":{
+          backgroundColor: Values.HoverButton,
+          border:"none",
+      }
+  },
+  alink: {
+    textDecoration: "none",
+    color: Values.TextButton,    
+    fontFamily: Values.SourceRoboto,
+  },
+    containercontent:{    
+      padding: "0.7em 0 0.7em 0.7em",
+      color: "#585858",
+      fontWeight:"normal",
+      fontFamily: Values.SourceRoboto,
+      fontSize: Values.SizeText,
+    },
+    containerbarra: {
+      margin: "1em 0 0 0",
+      backgroundColor: "#F3F3F3",
+      padding: "0.7em 0 0.7em 0.7em",
+      color: "#585858",
+      fontFamily: Values.SourceRoboto,
+      fontSize: Values.SizeText,
+      fontWeight:"normal",
+    },
     listyle:{
       paddingLeft:"0.6em"
     },
@@ -107,7 +153,35 @@ const ExperimentalStadistics = () => {
               Los documentos de estadísticas experimentales, hacen referencia a los procedimientos y análisis de las variables estadísticas del geoportal del Departamento Administrativo Nacional de Estadística - DANE, condensados en indicadores cuyo resultado se puede apreciar en el visor dispuesto en la presente herramienta 
               </p> 
               </Grid>
+              
       </Grid>
+      <table className={classes.tabla}>
+        <tr>
+          <th className={classes.containerbarra}>Nombre del archivo</th>
+          <th className={classes.containerbarra}>Descripción</th>
+          <th className={classes.containerbarra}>Descargar</th>
+        </tr>
+        <tr className={classes.columnatabla}>
+          <th className={classes.containercontent}>DOC DIRECTIVO IND 2021 20211203.docx</th>
+          <th className={classes.containercontent}>Descripción de los indicadores obtenidos, variables utilizadas, diagrama procedimental y resultados, en base a la información recopilada del censo poblacional del DANE.</th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/DOC_DIRECTIVO_IND_2021_20211203.docx"
+                  download
+              >Descargar</a>
+            </Button></th>
+        </tr>
+        <tr className={classes.columnatabla}>
+          <th className={classes.containercontent}>DOC TECN IND 20211203.docx</th>
+          <th className={classes.containercontent}>Descripción en detalle de los procesos realizados con la información del censo poblacional del DANE para la obtención de los indicadores</th>
+          <th className={classes.containercontent}><Button className={classes.boton}>
+          <a className={classes.alink}
+                  href="/Observatorio/file/DOC_TECN_IND_20211203.docx"
+                  download
+              >Descargar</a>
+            </Button></th>
+        </tr>
+      </table>
       </Grid>
     
   )

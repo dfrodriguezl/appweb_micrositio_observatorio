@@ -8,6 +8,9 @@ import {
   CardMedia,
   Typography,
   Button,
+  Modal,
+  Box,
+  TextField
 } from "@material-ui/core";
 import SelectBox from "devextreme-react/select-box";
 import { useForm } from "react-hook-form";
@@ -17,7 +20,7 @@ import {
   SeriesTemplate,
   Format,
   ArgumentAxis,
-  Font
+  Font,
 } from "devextreme-react/chart";
 import PieChart, {
   Series,
@@ -27,7 +30,6 @@ import PieChart, {
   Size,
   Export,
   Tooltip,
-  
 } from "devextreme-react/pie-chart";
 import React, { Component, useState } from "react";
 import * as Values from "Observatorio/Variables/values";
@@ -36,6 +38,7 @@ import Data from "Observatorio/img/Data-rafiki.svg";
 import Excel from "Observatorio/img/excel.png";
 import pdf from "Observatorio/img/pdf.png";
 import geograph from "Observatorio/img/geograph.png";
+import forgot from "Observatorio/img/Forgot.svg";
 import { dataSource } from "Observatorio/common/datosdashboard.js";
 import { dataSource2 } from "Observatorio/common/dashboardbar.js";
 
@@ -43,6 +46,42 @@ const useStyle = makeStyles({
   centerButton: {
     justifyContent: "center",
     padding: "0 0 0 0 !important",
+  },
+  modalstyle: {
+    position: "absolute",
+    top: "50%",
+    borderRadius:"2vh",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    backgroundColor: "#F3F3F3",
+    border: "1px #000",
+    boxShadow: "24px",
+  },
+  botonpass: {
+    padding: "0.1em 0.5em 0.1em 0.5em",
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceRoboto,
+    textTransform: "capitalize",
+    transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    width: "max-content",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    // fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: Values.HoverButton,
+      border: "none",
+    },
+  },
+
+  paddingmodal: {
+    padding: "0 0 0 1em",
+  },
+  paddingmodal1: {
+    padding: "0 0 0.5em 1em",
   },
 
   centerText: {
@@ -70,9 +109,6 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: "calc(1em + 1.5vh)",
     textAlign: "left",
-
-    marginRight: "1em",
-    // margin: "2% 0 1% 0",
   },
 
   marginout: {
@@ -101,6 +137,15 @@ const useStyle = makeStyles({
     padding: "0 0 1em 0",
   },
 
+  Textpass: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",
+    width: "90%",
+    padding: "0 0 1em 0",
+  },
+
   Textp1: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
@@ -121,6 +166,15 @@ const useStyle = makeStyles({
     boxShadow: "3px 3px 10px #7b7676",
     padding: "1em",
     margin: "0 0 2em 12.5em",
+    backgroundColor: "#E5E5E5",
+  },
+
+  rootpassword: {
+    width: "80%",
+    borderRadius: "1em",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "1em",
+    margin: "0 0 2em 1.5em",
     backgroundColor: "#E5E5E5",
   },
 
@@ -299,10 +353,13 @@ const useStyle = makeStyles({
   },
 });
 
-const Cardsmapas = () => {  
+const Cardsmapas = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(max-width:769px)");
   const matches2 = useMediaQuery("(min-width:1281px)");
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   var estilo = null;
   var estilo2 = null;
@@ -342,6 +399,7 @@ const Cardsmapas = () => {
       } else {
         estilo = classes.media3;
         sizegrafico = 450;
+        prueba = 600;
         title_ = "column";
         pading = classes.pading2;
         root = classes.rootno;
@@ -516,7 +574,9 @@ const Cardsmapas = () => {
                                 enabled={true}
                                 contentTemplate={customizeText}
                                 color="#821a3f"
-                              ><Font size={18} color="white"/></Tooltip>
+                              >
+                                <Font size={18} color="white" />
+                              </Tooltip>
                               <Size width={sizegrafico} />
                               <Export enabled={true} />
                             </PieChart>
@@ -537,7 +597,6 @@ const Cardsmapas = () => {
                           direction="row"
                           item
                           container
-                          
                           justifyContent="center"
                           alignItems="center"
                         >
@@ -552,21 +611,25 @@ const Cardsmapas = () => {
                               type="bar"
                               ignoreEmptyPoints={true}
                             >
-                            {/* <Label visible={true}>
+                              {/* <Label visible={true}>
                                 <Format type="fixedPoint" precision={0} />
                               </Label> */}
-                              
                             </CommonSeriesSettings>
                             <SeriesTemplate nameField="name" />
-                            <Legend visible={true} verticalAlignment="top" horizontalAlignment="center"
-                              itemTextPosition="right" width={18}/>
+                            <Legend
+                              visible={true}
+                              verticalAlignment="top"
+                              horizontalAlignment="center"
+                              itemTextPosition="right"
+                              width={18}
+                            />
                             <Tooltip
-                                enabled={true}
-                                color="#821a3f"
-                                customizeTooltip={customizeTooltip}
-                              >
-                                <Font size={18} color="white"/>
-                              </Tooltip>
+                              enabled={true}
+                              color="#821a3f"
+                              customizeTooltip={customizeTooltip}
+                            >
+                              <Font size={18} color="white" />
+                            </Tooltip>
                             <Size width={prueba} />
                             <Export enabled={true} />
                           </Chart>
@@ -636,20 +699,6 @@ const Cardsmapas = () => {
                         </Typography>
                       </Grid>
                     </Grid>
-                    {/* <Grid container direction="column" item xs>
-                      <Typography className={classes.Textp1}>
-                        En esta sección podrá descargar el formato que contiene
-                        la estructura de mercado para PH, NPH y predios Rurales
-                        (el formato incluye especificaciones, descripcion de
-                        atributos y dominios en los casos que hay lugar),
-                        ejemplo de diligenciamiento del respectivo formato en
-                        base de datos y capas geográficas.
-                      </Typography>
-                      <Typography className={classes.Textp}>
-                        Asi mismo esta habilitada la carga de información por
-                        cualquiera de los dos métodos utilizados
-                      </Typography>
-                    </Grid> */}
                   </CardContent>
                   <Grid container direction="column" item xs>
                     <Grid container direction="column" item xs className={root}>
@@ -841,16 +890,15 @@ const Cardsmapas = () => {
                                   justifyContent="center"
                                 >
                                   <p className={classes.contentrulesp3}>
-                                    <strong>
-                                      Nombre: 
-                                    </strong>
+                                    <strong>Nombre:</strong>
                                     OFERTAS OBSERVATORIO
                                   </p>
                                   <p className={classes.contentrulesp3}>
                                     160 KB | 09/12/2021
                                   </p>
                                   <p className={classes.contentrulesp3}>
-                                    <strong>Descripción: </strong>Paquete mercado para PH, NPH y predios rurales
+                                    <strong>Descripción: </strong>Paquete
+                                    mercado para PH, NPH y predios rurales
                                   </p>
                                 </Grid>
                               </Grid>
@@ -952,6 +1000,141 @@ const Cardsmapas = () => {
             </CardContent>
           </Card>
         </Grid>
+        <Grid
+          container
+          direction="column"
+          key={3}
+          className={classes.cardglobal}
+        >
+          <Card className={classes.root}>
+            <CardContent className={classes.cardglobal2}>
+              <Grid container direction="row" item xs>
+                <Grid item xs container direction="column">
+                  <CardContent className={classes.centerText}>
+                    <Grid container direction={direccion} className={pading}>
+                      <Grid item xs={numero} direction="column" container>
+                        <CardMedia className={estilo} image={forgot} />
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
+                      >
+                        <Grid
+                          container
+                          className={classes.rootpassword}
+                          justifyContent="center"
+                        >
+                          <Typography className={classes.Textpass}>
+                            En el siguiente link podra modificar la contraseña.
+                          </Typography>
+                          <Typography className={classes.Textpass}>
+                            Recuerde que debe tener por lo menos 8 caracteres
+                          </Typography>
+                          <Button
+                            onClick={handleOpen}
+                            className={classes.botonpass}
+                          >
+                            Cambiar Contraseña
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Modal
+          keepMounted
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="keep-mounted-modal-title"
+          aria-describedby="keep-mounted-modal-description"
+        >
+          <Box className={classes.modalstyle}>
+            <Grid container direction="column">
+              <Grid container xs item direction="row">
+                <Grid
+                  container
+                  xs={4}
+                  item
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  className={classes.paddingmodal}
+                >
+                  <Typography>Contraseña antigua</Typography>
+                </Grid>
+                <Grid container xs item direction="row">
+                  <TextField
+                    id="outlined-password-input1"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
+              </Grid>
+              <Grid container xs item direction="row">
+                <Grid
+                  container
+                  xs={4}
+                  item
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  className={classes.paddingmodal}
+                >
+                  <Typography>Nueva contraseña</Typography>
+                </Grid>
+                <Grid container xs item direction="row">
+                  <TextField
+                    id="outlined-password-input2"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
+              </Grid>
+              <Grid container xs item direction="row">
+                <Grid
+                  container
+                  xs={4}
+                  item
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  className={classes.paddingmodal}
+                >
+                  <Typography>Confirmar contraseña</Typography>
+                </Grid>
+                <Grid container xs item direction="row">
+                  <TextField
+                    id="outlined-password-input3"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
+              </Grid>
+              <Grid container
+                  xs
+                  item
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  className={classes.paddingmodal1}>
+              <Button className={classes.botonpass}>
+                Enviar
+              </Button>
+              </Grid>
+            </Grid>
+          </Box>
+        </Modal>
       </Grid>
     </Grid>
   );
@@ -961,7 +1144,7 @@ function customizeText(arg) {
   return `${arg.valueText} (${arg.percentText})`;
 }
 
-function customizeTooltip (arg) {
+function customizeTooltip(arg) {
   return {
     text: `${arg.seriesName} - ${arg.valueText}`,
   };

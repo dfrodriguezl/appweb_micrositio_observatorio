@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import './mapa.css';
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ';
+  'pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNreGpjdHVqczJ0MjQyb3N0Ym90cGVoNjcifQ.Q3g2EArsJHuWV7_o8VrLaw';  
 
 const Map = () => {
   const mapContainerRef = useRef(null);
