@@ -111,6 +111,8 @@ const FormRegister = () => {
 
     })
     const [open, setOpen] = useState(false)
+    const [openUserExits, setopenUserExits] = useState(false)
+    const [openValidation, setOpenValidation] = useState(false)
     const [formComplete, setFormComplete] = useState(false);
  
     const handleMouseDownPassword = (event) => {
@@ -163,6 +165,8 @@ const FormRegister = () => {
 
     }
     const handleClose = () => setOpen(false)
+    const handleCloseUserExits = () => setopenUserExits(false)
+    const handleCloseUserValidation = () => setOpenValidation(false)
 
     const [openLoading,setLoading] = useState(false)
 
@@ -205,8 +209,14 @@ const FormRegister = () => {
                 setLoading(false)
                 setOpen(true)
              }else{
-                 setLoading(false)
-                 alert('ocurrio un problema con la creación de su usuario')
+                 if(response.data.code == "US001"){
+                    setLoading(false)
+                    setopenUserExits(true)
+                 }else{
+                    setLoading(false)
+                    alert('ocurrio un problema con la creación de su usuario')
+                 }
+                
              }
 
          }else{
@@ -385,6 +395,11 @@ const FormRegister = () => {
             <Modal open={open} handleClose={handleClose} Title="Su registro ha sido ¡Exitoso!" textContainer="Al correo diligenciado llegará un e-mail indicando su codigo de registro, que correponde al codigo_observatorio que es necesario suministrar cada vez que se suba información a la plataforma" >
 
             </Modal>
+            <Modal open={openUserExits} handleClose={handleCloseUserExits} Title="El correo registrado ya esta en nuestra base de datos" textContainer="Por favor ingrese con su contraseña, de lo contrario ingrese por el boton “olvido su contraseña” para recuperarla" >
+            </Modal>
+            <Modal open={openValidation} handleClose={handleCloseUserValidation} Title="Su registro no ha sido exitoso" textContainer="Por favor valide los datos ingresados e intente nuevamente" >
+            </Modal>
+
 
         </Grid>
     );

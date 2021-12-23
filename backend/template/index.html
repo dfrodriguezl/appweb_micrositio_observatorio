@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+    <style>
+        .container {
+            background-color: #f4f4f4;
+          
+            padding:50px;
+        }
+
+        .bottom {
+
+            color: #4C4C4C;
+            font-family: "Roboto";
+            font-size: calc(0.6em + 0.9vh);
+            text-align: start;
+            margin: 1em 0 0 0;
+        }
+        .top{
+            height: 80px;
+            width: 100%;
+        }
+
+        .textP {
+        }
+        .imagen{
+            width: 100px;
+        }
+        .logodane{
+           width:200px;
+           
+        }
+        @media(max-width:768px){
+            .container{
+                width: 600px;
+            }
+        }
+        @media(max-width:569px){
+            .container{
+                width: 500px;
+            }
+        }
+        @media(max-width:500px){
+            .container{
+                width: 100%;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+        @media (max-width: 4000px) and (min-width: 769px) {
+            .container{
+                width: 800px;
+            }
+        }
+    </style>
+</header>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <img class="logodane" src="http://localhost:3000/logoinmobiliario"  />
+            <img class="imagen" src="http://localhost:3000/logodane" />
+    
+         </div>
+        <div class="bottom">
+            <p class="textP">
+
+                Siga el sigueinte link para modificar la contraseña:<br><br>
+
+                (xxxxx aca va el token xxxxx)<br><br>
+
+                Si usted no ha seleccionado la opción “olvido su contraseña” en la pagina del Observatorio Inmobiliario
+                Nacional, por favor omita el presente mensaje.<br><br>
+
+                El link enviado tiene una ventana de tiempo para ser utilizado de una hora.<br><br>
+
+                Cordialmente,<br><br>
+
+                Departamento Administrativo Nacional de Estadistica - DANE
+            </p>
+
+        </div>
+
+    </div>
+
+</body>

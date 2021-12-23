@@ -82,7 +82,6 @@ const useStyle = makeStyles({
     width:"100%"
 },containerForm:{
     backgroundColor:"#F3F3F3",
-    height: "200px",
     width: "100%",
     padding:"30px",
     marginTop:"50px",

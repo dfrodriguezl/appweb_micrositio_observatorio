@@ -1,6 +1,7 @@
 let Util = require("../common/Util");
 const EmailService = require("../service/EmailServices");
 const UserService = require("../service/UserServices");
+const TemplateRegister = require('../template/TemplateRegister')
 const Token = require("../classes/token");
 class UserController {
   static async resetPassword(req, res) {
@@ -59,9 +60,10 @@ class UserController {
           email: userFound.email,
         });
         let split = tokenUser.split(".")
+        let contenidoTemplate =  TemplateRegister.getTemplateRegister("http://localhost:9000/observatorio/restore/" + split[0]+"/"+split[1]+"/"+split[2])
         await EmailService.sendEmail({
           email: body.email,
-          contenido: "http://localhost:9000/observatorio/restore/" + split[0]+"/"+split[1]+"/"+split[2],
+          contenido: contenidoTemplate ,
           subject: "Recuperación contraseña",
         });
       } else {
@@ -92,17 +94,25 @@ class UserController {
       return util.sendResponse();
     }
     try {
-      let success = await UserService.createUser(body);
-      if (success != true) {
-        response.code = "ERROR";
+      let userFound = await UserService.searchUserEmail(body);
+      if(userFound){
+      
+        response.code = "US001";
         response.message = "Ocurrio un error en el registro de datos";
-      } else {
-        await EmailService.sendEmail({
-          email: body.email,
-          contenido: "Felicidades te has registrado en nuestra plataforma",
-          subject: "Usuario Registrado",
-        });
+      }else{
+        let success = await UserService.createUser(body);
+        if (success != true) {
+          response.code = "ERROR";
+          response.message = "Ocurrio un error en el registro de datos";
+        } else {
+          await EmailService.sendEmail({
+            email: body.email,
+            contenido: "Felicidades te has registrado en nuestra plataforma",
+            subject: "Usuario Registrado",
+          });
+        }
       }
+    
     } catch (error) {
       console.log(error);
       response.code = "ERROR";

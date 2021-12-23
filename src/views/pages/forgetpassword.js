@@ -80,8 +80,10 @@ const sendEmail = () =>{
 }
   return (
     <Grid container justifyContent="center" alignContent="center">
-        <Grid item container  spacing={3} xs={12} md={6} sm={6} lg={6} className={classes.containerForm}>
-          <Typography>Email</Typography>
+        <Grid item container  spacing={2} xs={12} md={6} sm={6} lg={6} className={classes.containerForm}>
+          <Grid item container justifyContent="center" alignContent="center">
+               <Typography className={classes.Textp}>   Diligencie y envie su usuario, revise su correo y siga las instrucciones</Typography>
+           </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <TextField
               name="email"
@@ -93,7 +95,7 @@ const sendEmail = () =>{
               id="outlined-basic"
             />
           </Grid>
-          <button className={classes.boton} onClick={sendEmail} >Recuperar Contraseña</button>
+          <button className={classes.boton} onClick={sendEmail} >Enviar</button>
         </Grid>
         <Loader open={openLoading}></Loader>
         <Modal open={open} handleClose={handleClose} Title="Envio de correo Exitoso" textContainer="Se ha enviado a su correo lo necesario para reestablecer contraseña" >

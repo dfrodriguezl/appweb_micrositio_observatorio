@@ -16,7 +16,7 @@ class EmailService {
       from: "",
       to: email,
       subject: subject,
-      text: contenido,
+      html: contenido,
     };
     // Enviamos el email
     transporter.sendMail(mailOptions, function (error, info) {
