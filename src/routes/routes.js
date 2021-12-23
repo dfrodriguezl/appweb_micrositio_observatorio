@@ -41,6 +41,7 @@ import Repository from "Observatorio/pages/repository";
 import Experimentalstatistics from "Observatorio/pages/experimental_statistics";
 import ForgetPassword from "../views/pages/forgetpassword";
 import RestoreAccount from "../views/pages/restore";
+import ChangePassword from "../views/pages/changepassword";
 const useStyle = makeStyles({
   marginTop: {
     marginTop: "120px",
@@ -74,28 +75,28 @@ const Generalroutes = () => {
   const classes = useStyle();
 
   let user = localStorage.getItem("token");
-  let isAuth = false
+  let isAuth = false;
   if (user) {
-      isAuth = true
+    isAuth = true;
   }
   const [isLogin, setAuth] = useState(isAuth);
 
   const redirectTo = (value) => {
-    setAuth(value);
+    setAuth(true);
   };
-  const cerrarSesionActiva = () => {
+  const cerrarSesionActiva = (value) => {
     localStorage.removeItem("token");
-    setAuth(FALSE);
+    setAuth(true);
   };
 
   useEffect(() => {
-  
+   
   }, []);
 
   return (
     <div>
       <Header />
-      <Navbar isLogin={isLogin} />
+      <Navbar isLogin={isLogin} setAuth={cerrarSesionActiva} />
       <Grid container className={classes.marginTop}></Grid>
       <Switch>
         <Route
@@ -152,6 +153,7 @@ const Generalroutes = () => {
         />
         <Route exact path="/Observatorio/Contacto" component={Contacto} />
         <Route
+          isAuth={isLogin}
           exact
           path="/Observatorio/PlataformaUsuario"
           component={Plataform}
@@ -166,6 +168,17 @@ const Generalroutes = () => {
               <Redirect to="/Observatorio/PlataformaUsuario"></Redirect>
             ) : (
               <Access></Access>
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/Observatorio/ChangePassword"
+          render={() => {
+            return user && isLogin ? (
+              <ChangePassword></ChangePassword>
+            ) : (
+              <Redirect to="/Observatorio/"></Redirect>
             );
           }}
         />

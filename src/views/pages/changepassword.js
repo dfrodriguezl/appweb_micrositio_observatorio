@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import Styled from "styled-components";
 import classStyle from "Observatorio/common/style/stylegeneric";
-import TextField from "@mui/material/TextField";
 import axios from "axios";
 import { Loader } from "./loader/loader";
 import Modal from "Observatorio/pages/modal";
@@ -18,25 +17,22 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const RestoreAccount = (props) => {
-  let token =
-    props.match.params.auth +
-    "." +
-    props.match.params.autht +
-    "." +
-    props.match.params.authp;
+const ChangePassword = (props) => {
   const classes = classStyle();
   const [form, setForm] = useState({
     clave: "",
+    newclave:"",
     confirmclave: "",
     showPassword: false,
+    showNewPassword:false,
     showconfirmPassword: false,
   });
-  const [openFailed, setopenFailed] = useState(false);
-  const handleCloseFailed = () => setopenFailed(false);
   const [openLoading, setLoading] = useState(false);
-  const handleClose = () => setOpen(false);
+
   const [open, setOpen] = useState(false);
+  const [openFailed, setOpenFail] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleCloseFailed = () =>  setOpenFail(false)
   const handleChangeValue = (event) => {
     let name = event.target.name;
     let value = event.target.value;
@@ -58,6 +54,12 @@ const RestoreAccount = (props) => {
       showPassword: !form.showPassword,
     });
   };
+  const handleClickNewPassword = (event) => {
+    setForm({
+      ...form,
+      showNewPassword: !form.showNewPassword,
+    });
+  };
   const handleClickShowConfirmPassword = (event) => {
     setForm({
       ...form,
@@ -67,13 +69,36 @@ const RestoreAccount = (props) => {
 
   const sendEmail = () => {
     console.log("enviando form");
+    if(!form.newclave || form.newclave == ""){
+      alert('completa el formulario')
+      return
+    }
+    if(!form.confirmclave || form.confirmclave == ""){
+      alert('completa el formulario')
+      return
+    }
+    if(!form.clave || form.clave == ""){
+      alert('completa el formulario')
+      return
+    }
+    if(form.newclave.length != 8){
+      alert('la clave debe tener 8 digitos')
+      return
+    }
+    if(form.newclave != form.confirmclave){
+      alert('contraseñas no coinciden')
+      return 
+    }
     let valor = sha256.hmac("prueba", form.clave);
+    let newPassowrd =  sha256.hmac("prueba", form.newclave);
     let body = {
       infokey: valor,
+      newinfokey:newPassowrd
     };
     setLoading(true);
+    let token = localStorage.getItem("token")
     axios
-      .post("http://localhost:3000/user/resetpassword", body, {
+      .post("http://localhost:3000/user/changepassword", body, {
         headers: {
           "Content-Type": "application/json",
           token: token,
@@ -85,18 +110,9 @@ const RestoreAccount = (props) => {
           if (response.data.code == "OK") {
             setLoading(false);
             setOpen(true);
-            setForm({
-                clave: "",
-                confirmclave: "",
-                showPassword: false,
-                showconfirmPassword: false,
-            });
           } else {
             setLoading(false);
-            if(response.data.code == "UN001"){
-                alert("Acceso denegado");
-            }
-           
+            setOpenFail(true)
           }
         } else {
           setLoading(false);
@@ -119,7 +135,7 @@ const RestoreAccount = (props) => {
         <Grid container item>
           <Grid item lg={6} md={6} sm={6} xs={12}>
             <Typography item className={classes.Textp}>
-              Nueva contraseña
+              Contraseña antigua
             </Typography>
           </Grid>
           <Grid item lg={6} md={6} sm={6} xs={12}>
@@ -141,6 +157,43 @@ const RestoreAccount = (props) => {
                       edge="end"
                     >
                       {form.showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid container item>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <Typography item className={classes.Textp}>
+              Nueva Contraseña
+            </Typography>
+          </Grid>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <FormControl className={classes.itemTextField} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={form.showNewPassword ? "text" : "password"}
+                value={form.newclave}
+                name="newclave"
+                size="small"
+                onChange={handleChangeValue}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickNewPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {form.showNewPassword ? (
+                        <VisibilityOff />
+                      ) : (
+                        <Visibility />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 }
@@ -212,4 +265,4 @@ const RestoreAccount = (props) => {
   );
 };
 
-export default RestoreAccount;
+export default ChangePassword;

@@ -241,7 +241,7 @@ const Navbar = ({sideBarOpen,isLogin}) => {
     }
   )
   const [position, setMoveMenu] = useState(null)
- 
+
   function handleChangeMenuActive(event) {
 
     let name = event.name
@@ -267,12 +267,22 @@ const Navbar = ({sideBarOpen,isLogin}) => {
 
   }
 
+  let token = localStorage.getItem("token")
+  let isOk = false
+  if(token){
+      isOk = true
+  }
+
+  const [isSession, setSession] = useState(isOk);
+
   const cerrarSesion = () =>{
-    
+        localStorage.removeItem("token")
+        setSession(false)
+        props.setAuth(false)
   }
   useEffect(() => {
-      console.log(isLogin)
-  }, isLogin);
+      
+  }, isSession);
 
 
   let result = []
@@ -280,7 +290,7 @@ const Navbar = ({sideBarOpen,isLogin}) => {
     let subResult = []
     menuDane[position].map((data) => {
       if(data.isProtected){
-          if(isLogin){
+          if(isSession){
             if (data.isMain) {
               subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
             } else {
@@ -431,8 +441,8 @@ const Navbar = ({sideBarOpen,isLogin}) => {
           <li onMouseEnter={handleStatusFalseAll} >
             
             {
-              !isLogin ?  <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>:
-              <button className={classes.boton}  >Cerrar Sesión</button>
+              !isSession ?  <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>:
+              <Button className={classes.boton} onClick={cerrarSesion}  >Cerrar Sesión</Button>
             }
            
           </li>

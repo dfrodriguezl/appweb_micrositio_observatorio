@@ -12,5 +12,5 @@ router.post('/contact',ContactController.sendMessage)
 router.post('/user/forgetpassword',UserController.forgetPassword)
 router.post('/ceed',CeedController.createCeed)
 router.post('/user/resetpassword',Middleware.verificaToken,UserController.resetPassword)
-
+router.post('/user/changepassword',Middleware.verificaToken,UserController.changePassord)
 module.exports = router;

@@ -1,12 +1,55 @@
 let Util = require("../common/Util");
 const EmailService = require("../service/EmailServices");
 const UserService = require("../service/UserServices");
-const TemplateRegister = require('../template/TemplateRegister')
+const TemplateRegister = require("../template/TemplateRegister");
 const Token = require("../classes/token");
 class UserController {
-  static async resetPassword(req, res) {
+  static async changePassord(req, res) {
     let util = new Util(res);
     console.log(req.body)
+    let body = req.body;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };
+    if (!body || typeof body !== "object") {
+      util.saveData(response);
+      return util.sendResponse();
+    }
+    try {
+      let login = await UserService.login({
+        email: req.body.usuario.email,
+        infokey: req.body.infokey,
+      });
+      if (login) {
+        req.body.email = req.body.usuario.email;
+        req.body.infokey = req.body.newinfokey
+        let updatePassword = await UserService.updatePassword(req.body);
+        if (updatePassword) {
+          response.code = "OK";
+          response.message = "Cambio de contraseña exitoso";
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos , ocurrio un problema en nuestro sistema";
+        }
+      } else {
+        response.code = "PWS001";
+        response.message = "La contraseña no coincide con la contraseña actual";
+      }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    util.saveData(response);
+    return util.sendResponse();
+  }
+  static async resetPassword(req, res) {
+    let util = new Util(res);
+    console.log(req.body);
     let body = req.body;
     let response = {
       status: 200,
@@ -22,8 +65,8 @@ class UserController {
       let updatePassword = await UserService.updatePassword(body);
 
       if (updatePassword) {
-        response.code = "OK"
-        response.message = "Cambio de contraseña exitoso"
+        response.code = "OK";
+        response.message = "Cambio de contraseña exitoso";
       } else {
         response.code = "USER001";
         response.message =
@@ -59,11 +102,18 @@ class UserController {
           name: userFound.name,
           email: userFound.email,
         });
-        let split = tokenUser.split(".")
-        let contenidoTemplate =  TemplateRegister.getTemplateRegister("http://localhost:9000/observatorio/restore/" + split[0]+"/"+split[1]+"/"+split[2])
+        let split = tokenUser.split(".");
+        let contenidoTemplate = TemplateRegister.getTemplateRegister(
+          "http://localhost:9000/observatorio/restore/" +
+            split[0] +
+            "/" +
+            split[1] +
+            "/" +
+            split[2]
+        );
         await EmailService.sendEmail({
           email: body.email,
-          contenido: contenidoTemplate ,
+          contenido: contenidoTemplate,
           subject: "Recuperación contraseña",
         });
       } else {
@@ -95,11 +145,10 @@ class UserController {
     }
     try {
       let userFound = await UserService.searchUserEmail(body);
-      if(userFound){
-      
+      if (userFound) {
         response.code = "US001";
         response.message = "Ocurrio un error en el registro de datos";
-      }else{
+      } else {
         let success = await UserService.createUser(body);
         if (success != true) {
           response.code = "ERROR";
@@ -112,7 +161,6 @@ class UserController {
           });
         }
       }
-    
     } catch (error) {
       console.log(error);
       response.code = "ERROR";
@@ -151,6 +199,7 @@ class UserController {
         });
         response.data = {
           token: tokenUser,
+          name:userFound.name
         };
       } else {
         response.code = "USER001";
