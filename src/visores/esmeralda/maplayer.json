@@ -23,7 +23,7 @@
   "layers": [
     {        
       "id": "dpt-dfq012",
-      "type": "fill-extrusion",
+      "type": "fill",
       "zoom": "6.01",
       "latitud": "4.448",
       "longitud": "-72.800",
@@ -39,14 +39,14 @@
     },
     {
       "id": "mpi-bu9n0v",
-      "type": "fill-extrusion",
+      "type": "fill",
       "zoom": "8.01",
       "latitud": "4.415",
       "longitud": "-73.916",
       "source": "sources",
       "source-layer": "mpi-bu9n0v",
       "paint": {
-        "fill-color": "#f0f"
+        "fill": "#f0f"
       }
     },
     {
