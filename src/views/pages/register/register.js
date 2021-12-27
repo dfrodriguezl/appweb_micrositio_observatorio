@@ -16,6 +16,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import {Loader} from '../loader/loader'
+import enviroment from "../../../config/enviroment"
 
 const sha256 = require('js-sha256');
 const useStyle = makeStyles({
@@ -196,7 +197,7 @@ const FormRegister = () => {
         }
         setLoading(true)
         axios.post(
-            "http://localhost:3000/users", 
+            `${enviroment.endpoint}/users`, 
              body, 
              {
                  headers: { 

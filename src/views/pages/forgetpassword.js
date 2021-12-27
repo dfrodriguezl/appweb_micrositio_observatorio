@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import {Loader} from './loader/loader'
 import Modal from "Observatorio/pages/modal"
+import enviroment from "../../config/enviroment"
 const ContainerForm = Styled.div`    
 
     display: flex;
@@ -50,7 +51,7 @@ const sendEmail = () =>{
     }
     setLoading(true)
     axios.post(
-        "http://localhost:3000/user/forgetpassword", 
+        `${enviroment.endpoint}/user/forgetpassword`, 
          body, 
          {
              headers: { 

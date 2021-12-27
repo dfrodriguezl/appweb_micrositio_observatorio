@@ -17,7 +17,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
+import enviroment from "../../config/enviroment"
 const RestoreAccount = (props) => {
   let token =
     props.match.params.auth +
@@ -73,7 +73,7 @@ const RestoreAccount = (props) => {
     };
     setLoading(true);
     axios
-      .post("http://localhost:3000/user/resetpassword", body, {
+      .post(`${enviroment.endpoint}/user/resetpassword`, body, {
         headers: {
           "Content-Type": "application/json",
           token: token,

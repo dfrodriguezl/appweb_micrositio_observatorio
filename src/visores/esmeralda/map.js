@@ -54,12 +54,12 @@ const useStyle = makeStyles({
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
     backgroundColor: "#ffffff",
     left: "calc(100% - 10.2vh)",
-    padding:"0 0 0 1em"
+    padding: "0 0 0 1em",
   },
 });
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNrc3hwdHBkMTFjYzczMHRjenpjaGNiMTYifQ.eHUIBj1P3bqS_koG8-JqhQ";
+  "pk.eyJ1IjoiYWxlam8xNzkyIiwiYSI6ImNreGpjdHVqczJ0MjQyb3N0Ym90cGVoNjcifQ.Q3g2EArsJHuWV7_o8VrLaw";
 
 let eventMap;
 const Map = forwardRef((props, ref) => {
@@ -69,14 +69,15 @@ const Map = forwardRef((props, ref) => {
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
+  let capaSeleccionada;
 
   useImperativeHandle(ref, () => ({
     toFly(position) {
       toFly(position);
     },
-    enableLayer(layer, isEnable){
+    enableLayer(layer, isEnable) {
       addlayer(layer, isEnable);
-    }
+    },
   }));
   const toFly = (position) => {
     eventMap.flyTo({
@@ -102,18 +103,20 @@ const Map = forwardRef((props, ref) => {
   };
 
   const addlayer = (layer, isEnable) => {
-    if(eventMap.getLayer(layer.id)){
+    if (eventMap.getLayer(layer.id)) {
       eventMap.setLayoutProperty(
         layer.id,
-        'visibility',
-         isEnable ? 'visible':'none'
-        );
-     }
-     toFly({
-       lng:layer.longitud,
-       lat:layer.latitud,
-       zoom: layer.zoom
-     })
+        "visibility",
+        isEnable ? "visible" : "none"
+      );
+    }
+    if (isEnable) {
+      toFly({
+        lng: layer.longitud,
+        lat: layer.latitud,
+        zoom: layer.zoom,
+      });
+    }
   };
 
   //Constructor del mapa
@@ -124,9 +127,8 @@ const Map = forwardRef((props, ref) => {
       style: stylejson.sources.composite.url,
       center: [lng, lat],
       zoom: zoom,
-      
-      
-      antialias: true
+
+      antialias: true,
     });
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
@@ -170,8 +172,7 @@ const Map = forwardRef((props, ref) => {
       map.getCanvas().style.cursor = "default";
       const layers = ["-2594 - 0", "1 - 100+"];
 
-      const colors = ['#e9ff00',
-      '#ff001d'];
+      const colors = ["#e9ff00", "#ff001d"];
 
       const legend = document.getElementById("legend");
 
@@ -194,11 +195,13 @@ const Map = forwardRef((props, ref) => {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
       });
-      map.on('click', (event) => {
+      map.on("click", (event) => {
+        console.log("doy click")
+        
         const states = map.queryRenderedFeatures(event.point, {
-          layers: ['dh-ind2-bogota-bsmu1u']
+          layers: ["dh-ind2-bogota-bsmu1u"],
         });
-        document.getElementById('pd').innerHTML = states.length
+        document.getElementById("pd").innerHTML = states.length
           ? `<h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
           : `<p></p>`;
       });
@@ -230,11 +233,11 @@ const Map = forwardRef((props, ref) => {
       <div className="map-container" ref={mapContainerRef} />
       <div className={classes.identify} id="features">
         <h2>Información</h2>
-        <div id="pd">
-          {/* <p>Hover over a state!</p> */}
-        </div>
+        <div id="pd">{/* <p>Hover over a state!</p> */}</div>
       </div>
-      <div className={classes.Legend} id="legend"><h2>Deficit</h2></div>
+      <div className={classes.Legend} id="legend">
+        <h2>Deficit</h2>
+      </div>
     </div>
   );
 });

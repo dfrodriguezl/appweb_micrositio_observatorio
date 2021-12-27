@@ -13,6 +13,7 @@ import AmicoImage from "Observatorio/img/amico.png"
 import axios from 'axios';
 import {Loader} from '../../loader/loader'
 import Modal from "Observatorio/pages/modal"
+import enviroment from "../../../../config/enviroment"
 const useStyle = makeStyles({
 
     gridglobalmovil: {
@@ -177,7 +178,7 @@ const Form = () => {
         console.log("enviando form")
        setLoading(true)
         axios.post(
-            "http://localhost:3000/ceed", 
+            `${enviroment.endpoint}/ceed`, 
              form, 
              {
                  headers: { 

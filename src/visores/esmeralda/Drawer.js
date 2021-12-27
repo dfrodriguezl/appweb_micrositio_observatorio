@@ -95,6 +95,10 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  itemLayer:{
+      marginTop:40,
+      marginBottom:40
+  },
   logo: {
     height: '3em',
     margin: 0,
@@ -461,86 +465,99 @@ export default function PersistentDrawerLeft(props) {
           <Typography align='left' variant="body1" className={classes.Textp} color="initial"></Typography>
 <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
         <FormLabel component="legend"></FormLabel>
-        <FormGroup>
+        <FormGroup >
           
           <FormControlLabel
             control={
-              <Checkbox checked={Departamentos} onChange={handleChangeCheckbox} name="Departamentos" />
+              <Checkbox className={classes.itemLayer} checked={Departamentos} onChange={handleChangeCheckbox} name="Departamentos" />
             }
             label="Departamentos"
           />
+            <Divider />
           <FormControlLabel
             control={
-              <Checkbox checked={MunicipiosCheck} onChange={handleChangeCheckbox} name="MunicipiosCheck" />
+              <Checkbox className={classes.itemLayer}  checked={MunicipiosCheck} onChange={handleChangeCheckbox} name="MunicipiosCheck" />
             }
             label="Municipios"
           />
+           <Divider />
           <FormControlLabel
             control={
               <Checkbox checked={Puntos} onChange={handleChangeCheckbox} name="Puntos" />
             }
             label="puntos"
           />
+           <Divider />
           <FormControlLabel
             control={
               <Checkbox checked={capa11} onChange={handleChangeCheckbox} name="capa11" />
             }
             label="Puntos de calor"
           />
+           <Divider />
            <FormControlLabel
             control={
               <Checkbox checked={capa01} onChange={handleChangeCheckbox} name="capa01" />
             }
             label="Déficit de cobertura en servicios públicos Bogotá"
           />
+           <Divider />
            <FormControlLabel
             control={
               <Checkbox checked={capa02} onChange={handleChangeCheckbox} name="capa02" />
             }
             label="Déficit de cobertura en servicios públicos Teusaquillo "
           />
+           <Divider />
              <FormControlLabel
             control={
               <Checkbox checked={capa03} onChange={handleChangeCheckbox} name="capa03" />
             }
             label="Densidad habitacional Bogotá"
           />
+           <Divider />
             <FormControlLabel
             control={
               <Checkbox checked={capa04} onChange={handleChangeCheckbox} name="capa04" />
             }
             label="Densidad habitacional Teusaquillo"
           />
+           <Divider />
             <FormControlLabel
             control={
               <Checkbox checked={capa05} onChange={handleChangeCheckbox} name="capa05" />
             }
             label="Déficit diferencial de población con cobertura en servicios públicos Teusaquillo"
           />
+           <Divider />
             <FormControlLabel
             control={
               <Checkbox checked={capa06} onChange={handleChangeCheckbox} name="capa06" />
             }
             label="Déficit diferencial de población con cobertura en servicios públicos Bogotá"
           />
+           <Divider />
            <FormControlLabel
             control={
               <Checkbox checked={capa07} onChange={handleChangeCheckbox} name="capa07" />
             }
             label="Garantía de desarrollo por sector economico Teusaquillo"
           />
+           <Divider />
            <FormControlLabel
             control={
               <Checkbox checked={capa08} onChange={handleChangeCheckbox} name="capa08" />
             }
             label="Garantía de desarrollo por sector economico Bogotá"
           />
+           <Divider />
             <FormControlLabel
             control={
               <Checkbox checked={capa09} onChange={handleChangeCheckbox} name="capa09" />
             }
             label="Garantía de desarrollo productivo  Bogotá"
           />
+           <Divider />
             <FormControlLabel
             control={
               <Checkbox checked={capa10} onChange={handleChangeCheckbox} name="capa10" />
