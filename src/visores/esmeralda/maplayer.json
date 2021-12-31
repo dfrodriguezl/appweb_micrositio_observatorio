@@ -35,7 +35,7 @@
       "paint": {},
       "legend": [
         {
-          "range": "-98,3 - -90,9",
+          "range": "-0 - -90,9",
           "style": "linear-gradient(#0d0887, #350499);"
         },
         {
@@ -246,60 +246,44 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "-1 - -0,8",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "-0,8 - -0,6",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "-0,6 - -0,4",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "-0,4 - -0,2",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "-0,2 - 0 ",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0 - 0,2",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,2 - 0,4",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,4 - 0,6",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,6 - 0,8",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0,8 - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
     },
@@ -317,60 +301,44 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "-1 - -0,8",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "-0,8 - -0,6",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "-0,6 - -0,4",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "-0,4 - -0,2",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "-0,2 - 0 ",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0 - 0,2",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,2 - 0,4",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,4 - 0,6",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,6 - 0,8",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0,8 - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
     },
@@ -383,6 +351,184 @@
       "longitud": "-74.102",
       "source": "sources",
       "source-layer": "dh-ind2-bogota-bsmu1u",
+      "paint": {
+        "fill-color": "#f0f"
+      },
+      "legend": [
+        {
+          "range": "-98,3 - -90,9",
+          "style": "linear-gradient(#0d0887, #350499);",
+          "baseColor": "#0d0887"
+        },
+        {
+          "range": "-90,9 - -83,5",
+          "style": "linear-gradient(#350499, #5302a4);",
+          "baseColor": "#350499"
+        },
+        {
+          "range": "-83,5 - -76,1",
+          "style": "linear-gradient(#5302a4,#7000a8);",
+          "baseColor": "#5302a4"
+        },
+        {
+          "range": "-76,1 - -68,7 ",
+          "style": "linear-gradient(#7000a8,#8b0aa5);",
+          "baseColor": "#7000a8"
+        },
+        {
+          "range": "-68,7 - -61,3 ",
+          "style": "linear-gradient(#8b0aa5,#a31e99);",
+          "baseColor": "#8b0aa5"
+        },
+        {
+          "range": "-61,3 - -53,9 ",
+          "style": "linear-gradient(#a31e99,#b93289);",
+          "baseColor": "#a31e99"
+        },
+        {
+          "range": "-53,9 - -46,5",
+          "style": "linear-gradient(#b93289,#cb4778);",
+          "baseColor": "#b93289"
+        },
+        {
+          "range": "-46,5 - - 39,1 ",
+          "style": "linear-gradient(#cb4778,#db5c68);",
+          "baseColor": "#cb4778"
+        },
+        {
+          "range": "-39,1 - -31,7 ",
+          "style": "linear-gradient(#db5c68,#e87158);",
+          "baseColor": "#db5c68"
+        },
+        {
+          "range": "-31,7 - -24,3",
+          "style": "linear-gradient(#e87158,#f48849);",
+          "baseColor": "#e87158"
+        },
+        {
+          "range": "-24,3 - -16,9 ",
+          "style": "linear-gradient(#f48849,#fba139);",
+          "baseColor": "#f48849"
+        },
+        {
+          "range": "-16,9 - -9,5 ",
+          "style": "linear-gradient(#fba139,#febc2b);",
+          "baseColor": "#fba139"
+        },
+        {
+          "range": "-9,5 - -2,1",
+          "style": "linear-gradient(#febc2b,#fada24);",
+          "baseColor": "#febc2b"
+        },
+        {
+          "range": "-2,1 - -5,3 ",
+          "style": "linear-gradient(#fada24,#f0f921);",
+          "baseColor": "#fada24"
+        },
+        {
+          "range": "-5,3 - -12,7 ",
+          "style": "linear-gradient(#fada24,#f0f921);",
+          "baseColor": "#fada24"
+        }
+      ]
+    },
+    {
+      "id": "dh-ind2-teusaquillo-8tv1hf",
+      "type": "fill-extrusion",
+      "zoom": "13.61",
+      "latitud": "4.641",
+      "longitud": "-74.083",
+      "source": "sources",
+      "source-layer": "dh-ind2-teusaquillo-8tv1hf",
+      "paint": {
+        "fill-color": "#f0f"
+      },
+      "legend": [
+        {
+          "range": "-98,3 - -90,9",
+          "style": "linear-gradient(#0d0887, #350499);",
+          "baseColor": "#0d0887"
+        },
+        {
+          "range": "-90,9 - -83,5",
+          "style": "linear-gradient(#350499, #5302a4);",
+          "baseColor": "#350499"
+        },
+        {
+          "range": "-83,5 - -76,1",
+          "style": "linear-gradient(#5302a4,#7000a8);",
+          "baseColor": "#5302a4"
+        },
+        {
+          "range": "-76,1 - -68,7 ",
+          "style": "linear-gradient(#7000a8,#8b0aa5);",
+          "baseColor": "#7000a8"
+        },
+        {
+          "range": "-68,7 - -61,3 ",
+          "style": "linear-gradient(#8b0aa5,#a31e99);",
+          "baseColor": "#8b0aa5"
+        },
+        {
+          "range": "-61,3 - -53,9 ",
+          "style": "linear-gradient(#a31e99,#b93289);",
+          "baseColor": "#a31e99"
+        },
+        {
+          "range": "-53,9 - -46,5",
+          "style": "linear-gradient(#b93289,#cb4778);",
+          "baseColor": "#b93289"
+        },
+        {
+          "range": "-46,5 - - 39,1 ",
+          "style": "linear-gradient(#cb4778,#db5c68);",
+          "baseColor": "#cb4778"
+        },
+        {
+          "range": "-39,1 - -31,7 ",
+          "style": "linear-gradient(#db5c68,#e87158);",
+          "baseColor": "#db5c68"
+        },
+        {
+          "range": "-31,7 - -24,3",
+          "style": "linear-gradient(#e87158,#f48849);",
+          "baseColor": "#e87158"
+        },
+        {
+          "range": "-24,3 - -16,9 ",
+          "style": "linear-gradient(#f48849,#fba139);",
+          "baseColor": "#f48849"
+        },
+        {
+          "range": "-16,9 - -9,5 ",
+          "style": "linear-gradient(#fba139,#febc2b);",
+          "baseColor": "#fba139"
+        },
+        {
+          "range": "-9,5 - -2,1",
+          "style": "linear-gradient(#febc2b,#fada24);",
+          "baseColor": "#febc2b"
+        },
+        {
+          "range": "-2,1 - -5,3 ",
+          "style": "linear-gradient(#fada24,#f0f921);",
+          "baseColor": "#fada24"
+        },
+        {
+          "range": "-5,3 - -12,7 ",
+          "style": "linear-gradient(#fada24,#f0f921);",
+          "baseColor": "#fada24"
+        }
+      ]
+    },
+    {
+      "id": "dpf-ind1-1-teusaquillo-3oht1r",
+      "type": "fill-extrusion",
+      "zoom": "13.01",
+      "latitud": "4.642",
+      "longitud": "-74.085",
+      "source": "sources",
+      "source-layer": "dpf-ind1-1-teusaquillo-3oht1r",
       "paint": {
         "fill-color": "#f0f"
       },
@@ -430,146 +576,6 @@
       ]
     },
     {
-      "id": "dh-ind2-teusaquillo-8tv1hf",
-      "type": "fill-extrusion",
-      "zoom": "13.61",
-      "latitud": "4.641",
-      "longitud": "-74.083",
-      "source": "sources",
-      "source-layer": "dh-ind2-teusaquillo-8tv1hf",
-      "paint": {
-        "fill-color": "#f0f"
-      },
-      "legend": [
-        {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
-        }
-      ]
-    },
-    {
-      "id": "dpf-ind1-1-teusaquillo-3oht1r",
-      "type": "fill-extrusion",
-      "zoom": "13.01",
-      "latitud": "4.642",
-      "longitud": "-74.085",
-      "source": "sources",
-      "source-layer": "dpf-ind1-1-teusaquillo-3oht1r",
-      "paint": {
-        "fill-color": "#f0f"
-      },
-      "legend": [
-        {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
-        }
-      ]
-    },
-    {
       "id": "dpf-ind1-1-bogota-5pejn7",
       "type": "fill-extrusion",
       "zoom": "12.01",
@@ -582,60 +588,44 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "-1 - -0,8",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "-0,8 - -0,6",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "-0,6 - -0,4",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "-0,4 - -0,2",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "-0,2 - 0 ",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0 - 0,2",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,2 - 0,4",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,4 - 0,6",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,6 - 0,8",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0,8 - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
     },
@@ -653,60 +643,44 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "0 - 0,1",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "0,1 - 0,2",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "0,2 - 0,3",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "0,3 - 0,4",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "0,4 - 0,5",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0,5- 0,6",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,6 - 0,7",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,7 - 0,8",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,8 - 0,9",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0, - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
     },
@@ -793,62 +767,47 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "-1 - -0,8",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "-0,8 - -0,6",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "-0,6 - -0,4",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "-0,4 - -0,2",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "-0,2 - 0 ",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0 - 0,2",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,2 - 0,4",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,4 - 0,6",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,6 - 0,8",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0,8 - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
+
     },
     {
       "id": "gdp-ind3-1-teusaquillo-ang6vm",
@@ -863,62 +822,47 @@
       },
       "legend": [
         {
-          "range": "-98,3 - -90,9",
-          "style": "linear-gradient(#0d0887, #350499);"
+          "range": "-1 - -0,8",
+          "style": "linear-gradient(#0d0887,#0d0887);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#350499, #5302a4);"
+          "range": "-0,8 - -0,6",
+          "style": "linear-gradient(#0d0887,#46039f);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#5302a4,#7000a8);"
+          "range": "-0,6 - -0,4",
+          "style": "linear-gradient(#46039f,#7300a8);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#7000a8,#8b0aa5);"
+          "range": "-0,4 - -0,2",
+          "style": "linear-gradient(#7300a8,#9c179e);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#8b0aa5,#a31e99);"
+          "range": "-0,2 - 0 ",
+          "style": "linear-gradient(#9c179e,#bd3785);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#a31e99,#b93289);"
+          "range": "0 - 0,2",
+          "style": "linear-gradient(#bd3785,#d7576c);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#b93289,#cb4778);"
+          "range": "0,2 - 0,4",
+          "style": "linear-gradient(#d7576c,#ed7953);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#cb4778,#db5c68);"
+          "range": "0,4 - 0,6",
+          "style": "linear-gradient(#ed7953,#fa9f3b);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#db5c68,#e87158);"
+          "range": "0,6 - 0,8",
+          "style": "linear-gradient(#fa9f3b,#fdc926);"
         },
         {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#e87158,#f48849);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#f48849,#fba139);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fba139,#febc2b);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#febc2b,#fada24);"
-        },
-        {
-          "range": "-90,9 - -83,5",
-          "style": "linear-gradient(#fada24,#f0f921);"
+          "range": "0,8 - 1",
+          "style": "linear-gradient(#fdc926,#f0f921);"
         }
       ]
+
     },
     {
       "id": "dot1-bi0mc0",

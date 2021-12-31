@@ -84,6 +84,9 @@ const Generalroutes = () => {
   const redirectTo = (value) => {
     setAuth(true);
   };
+  function refreshPage(){ 
+    window.location.reload(); 
+}
   const cerrarSesionActiva = (value) => {
     localStorage.removeItem("token");
     setAuth(true);
@@ -91,7 +94,7 @@ const Generalroutes = () => {
 
   useEffect(() => {
    
-  }, []);
+  }, isLogin);
 
   return (
     <div>

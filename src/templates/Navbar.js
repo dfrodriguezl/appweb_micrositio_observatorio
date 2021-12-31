@@ -282,7 +282,7 @@ const Navbar = ({sideBarOpen,isLogin}) => {
   }
   useEffect(() => {
       
-  }, isSession);
+  }, [isSession,isLogin]);
 
 
   let result = []

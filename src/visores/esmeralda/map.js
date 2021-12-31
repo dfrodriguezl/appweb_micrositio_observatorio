@@ -9,7 +9,7 @@ import mapboxgl from "mapbox-gl";
 import "./mapa.css";
 import stylejson from "./maplayer.json";
 import { makeStyles } from "@material-ui/core";
-
+import CloseIcon from '@mui/icons-material/Close';
 const useStyle = makeStyles({
   identify: {
     position: "fixed",
@@ -22,12 +22,12 @@ const useStyle = makeStyles({
     position: "fixed",
     overflowY: "auto",
     flexDirection: "column",
-    width: "330px",
-    height: "500px",
+    width: "150px",
+    height: "400px",
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
     backgroundColor: "#ffffff",
-    left: "calc(100% - 400px)",
-    visibility: "hidden"
+    left: "calc(100% - 200px)",
+    visibility: "hidden",
   },
 
   legendkey: {
@@ -69,7 +69,7 @@ const Map = forwardRef((props, ref) => {
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
-  let capaSeleccionada ={};
+  let capaSeleccionada = {};
 
   useImperativeHandle(ref, () => ({
     toFly(position) {
@@ -79,6 +79,9 @@ const Map = forwardRef((props, ref) => {
       addlayer(layer, isEnable);
     },
   }));
+  const closeLegend = () =>{
+    document.getElementById("features").style.visibility = "hidden";
+  }
   const toFly = (position) => {
     eventMap.flyTo({
       //These options control the ending camera position: centered at
@@ -111,8 +114,8 @@ const Map = forwardRef((props, ref) => {
       );
     }
     if (isEnable) {
-      capaSeleccionada.id = layer.id
-      capaSeleccionada.legend = layer.legend
+      capaSeleccionada.id = layer.id;
+      capaSeleccionada.legend = layer.legend;
       toFly({
         lng: layer.longitud,
         lat: layer.latitud,
@@ -196,32 +199,56 @@ const Map = forwardRef((props, ref) => {
         if (map.getLayer(element.id)) {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
-        console.log(element.legend)
+        console.log(element.legend);
       });
       map.on("click", (event) => {
-        console.log("doy click")
+        console.log("doy click");
         const states = map.queryRenderedFeatures(event.point, {
           layers: [capaSeleccionada.id],
         });
-        
-        console.log(states.length)
-        console.log(states)
-        document.getElementById("features").style.visibility = "visible"
-        let legendFinally = ""
-        console.log(capaSeleccionada)
-        capaSeleccionada.legend.forEach(function(element){
-              legendFinally +=`
-              <div  style="display: inline-flex;margin-top:10px;">
-                   <div style="background:${element.style};height:20px;width:20px;margin-left:5px;"></div>
-                   <div>${element.range}</div>
-                   </div>
-              `
-        })
-        legendFinally = `<div style="display:grid;">${legendFinally}</div>`
-        document.getElementById("pd").innerHTML = states.length
-          ? `${legendFinally}
-          <h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
-          : `<p>hola</p>`;
+        if (capaSeleccionada.id != "puntos" 
+        && capaSeleccionada.id != "dpt-dfq012"
+        && capaSeleccionada.id != "mpi-bu9n0v"
+        && capaSeleccionada.id != "dot1-bi0mc0") {
+          document.getElementById("features").style.visibility = "visible";
+          let legendFinally = "";
+          capaSeleccionada.legend.forEach(function (element) {
+            legendFinally += `
+                <div  style="display: inline-flex;margin-top:10px;">
+                     <div style="background:${element.style};height:20px;width:20px;margin-left:5px;"></div>
+                     <div>${element.range}</div>
+                     </div>
+                `;
+          });
+          legendFinally = `<div style="display:grid;">${legendFinally}</div>`;
+          document.getElementById("pd").innerHTML = states.length
+            ? `${legendFinally}`
+            : `${legendFinally} <p>sin información</p>`;
+
+            if (!states.length) {
+              return;
+            }
+            const feature = states[0];
+            console.log(feature)
+            console.log(feature.geometry.coordinates[0][0])
+
+            let valueToShow = ``
+            if(feature.properties.Densidad_h || feature.properties.Densidad_h == 0 ){
+                valueToShow = "Densidad: "+feature.properties.Densidad_h
+            }else if(feature.properties.Deficit_dp || feature.properties.Deficit_dp == 0){
+                valueToShow = "Deficit: "+feature.properties.Deficit_dp
+            }else if(feature.properties.Deficit_cs || feature.properties.Deficit_cs == 0){
+              valueToShow = "Deficit: "+feature.properties.Deficit_cs
+            }else if(feature.properties.Garantia_d|| feature.properties.Garantia_d == 0){
+              valueToShow = "Garantia : "+feature.properties.Garantia_d
+            }
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+              .setLngLat(feature.geometry.coordinates[0][0])
+              .setHTML(
+                `<h3>${feature.properties.Categorias}</h3><p>${valueToShow}</p>`
+              )
+              .addTo(map);
+        }
       });
     });
 
@@ -250,7 +277,7 @@ const Map = forwardRef((props, ref) => {
     <div>
       <div className="map-container" ref={mapContainerRef} />
       <div className={classes.identify} id="features">
-        <h2>Información</h2>
+       <CloseIcon onClick={closeLegend}></CloseIcon> <h2>Información</h2>
         <div id="pd">{/* <p>Hover over a state!</p> */}</div>
       </div>
       <div className={classes.Legend} id="legend">
