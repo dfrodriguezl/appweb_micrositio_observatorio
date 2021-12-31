@@ -1035,7 +1035,7 @@ const Cardsmapas = () => {
                             Recuerde que debe tener por lo menos 8 caracteres
                           </Typography>
                           <Button
-                            onClick={handleOpen}
+                            href="/Observatorio/ChangePassword"
                             className={classes.botonpass}
                           >
                             Cambiar Contraseña

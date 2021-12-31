@@ -37,7 +37,8 @@ const menuDane = [
             name:"Plataforma Usuario",
             link:"/Observatorio/PlataformaUsuario",
             icon:"",
-            isMain:true
+            isMain:true,
+            isProtected:true
         },
         {
             name:"Contáctenos",

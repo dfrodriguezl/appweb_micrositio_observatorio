@@ -7,11 +7,13 @@ class Middleware {
         await  Token.comprobarToken( userToken )
             .then((decoded) => {
                 console.log('Decoded', decoded );
-                req.usuario = decoded.usuario;
+                req.body.usuario = decoded.usuario;
+               
                 next();
             })
             .catch( err => {
                 res.json({
+                    code:"UN001",
                     ok: false,
                     mensaje: 'Token no es correcto'
                 });

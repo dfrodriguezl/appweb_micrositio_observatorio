@@ -36,6 +36,7 @@
     "assert": "^2.0.0",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
     "devextreme": "21.2",
     "devextreme-react": "^21.2.3",
     "es6-promise": "^4.2.8",

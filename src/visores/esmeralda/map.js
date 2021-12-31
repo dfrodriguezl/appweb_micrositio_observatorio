@@ -9,25 +9,25 @@ import mapboxgl from "mapbox-gl";
 import "./mapa.css";
 import stylejson from "./maplayer.json";
 import { makeStyles } from "@material-ui/core";
-
+import CloseIcon from '@mui/icons-material/Close';
 const useStyle = makeStyles({
   identify: {
+    position: "fixed",
     display: "flex",
-    top: "0",
+    top: "140px",
     flex: "1 0 auto",
     height: "100%",
-    display: "flex",
     outline: "0",
-    zIndex: 1000,
+    zIndex: 5000,
     position: "fixed",
     overflowY: "auto",
     flexDirection: "column",
-    top: "64px",
-    width: "330px",
-    height: "calc(100% - 700px)",
+    width: "150px",
+    height: "400px",
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
     backgroundColor: "#ffffff",
-    left: "calc(100% - 35vh)",
+    left: "calc(100% - 200px)",
+    visibility: "hidden",
   },
 
   legendkey: {
@@ -54,7 +54,7 @@ const useStyle = makeStyles({
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
     backgroundColor: "#ffffff",
     left: "calc(100% - 10.2vh)",
-    padding:"0 0 0 1em"
+    padding: "0 0 0 1em",
   },
 });
 
@@ -69,15 +69,19 @@ const Map = forwardRef((props, ref) => {
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
+  let capaSeleccionada = {};
 
   useImperativeHandle(ref, () => ({
     toFly(position) {
       toFly(position);
     },
-    enableLayer(layer, isEnable){
+    enableLayer(layer, isEnable) {
       addlayer(layer, isEnable);
-    }
+    },
   }));
+  const closeLegend = () =>{
+    document.getElementById("features").style.visibility = "hidden";
+  }
   const toFly = (position) => {
     eventMap.flyTo({
       //These options control the ending camera position: centered at
@@ -102,18 +106,22 @@ const Map = forwardRef((props, ref) => {
   };
 
   const addlayer = (layer, isEnable) => {
-    if(eventMap.getLayer(layer.id)){
+    if (eventMap.getLayer(layer.id)) {
       eventMap.setLayoutProperty(
         layer.id,
-        'visibility',
-         isEnable ? 'visible':'none'
-        );
-     }
-     toFly({
-       lng:layer.longitud,
-       lat:layer.latitud,
-       zoom: layer.zoom
-     })
+        "visibility",
+        isEnable ? "visible" : "none"
+      );
+    }
+    if (isEnable) {
+      capaSeleccionada.id = layer.id;
+      capaSeleccionada.legend = layer.legend;
+      toFly({
+        lng: layer.longitud,
+        lat: layer.latitud,
+        zoom: layer.zoom,
+      });
+    }
   };
 
   //Constructor del mapa
@@ -124,9 +132,8 @@ const Map = forwardRef((props, ref) => {
       style: stylejson.sources.composite.url,
       center: [lng, lat],
       zoom: zoom,
-      
-      
-      antialias: true
+
+      antialias: true,
     });
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
@@ -170,8 +177,7 @@ const Map = forwardRef((props, ref) => {
       map.getCanvas().style.cursor = "default";
       const layers = ["-2594 - 0", "1 - 100+"];
 
-      const colors = ['#e9ff00',
-      '#ff001d'];
+      const colors = ["#e9ff00", "#ff001d"];
 
       const legend = document.getElementById("legend");
 
@@ -193,14 +199,56 @@ const Map = forwardRef((props, ref) => {
         if (map.getLayer(element.id)) {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
+        console.log(element.legend);
       });
-      map.on('click', (event) => {
+      map.on("click", (event) => {
+        console.log("doy click");
         const states = map.queryRenderedFeatures(event.point, {
-          layers: ['dh-ind2-bogota-bsmu1u']
+          layers: [capaSeleccionada.id],
         });
-        document.getElementById('pd').innerHTML = states.length
-          ? `<h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
-          : `<p></p>`;
+        if (capaSeleccionada.id != "puntos" 
+        && capaSeleccionada.id != "dpt-dfq012"
+        && capaSeleccionada.id != "mpi-bu9n0v"
+        && capaSeleccionada.id != "dot1-bi0mc0") {
+          document.getElementById("features").style.visibility = "visible";
+          let legendFinally = "";
+          capaSeleccionada.legend.forEach(function (element) {
+            legendFinally += `
+                <div  style="display: inline-flex;margin-top:10px;">
+                     <div style="background:${element.style};height:20px;width:20px;margin-left:5px;"></div>
+                     <div>${element.range}</div>
+                     </div>
+                `;
+          });
+          legendFinally = `<div style="display:grid;">${legendFinally}</div>`;
+          document.getElementById("pd").innerHTML = states.length
+            ? `${legendFinally}`
+            : `${legendFinally} <p>sin información</p>`;
+
+            if (!states.length) {
+              return;
+            }
+            const feature = states[0];
+            console.log(feature)
+            console.log(feature.geometry.coordinates[0][0])
+
+            let valueToShow = ``
+            if(feature.properties.Densidad_h || feature.properties.Densidad_h == 0 ){
+                valueToShow = "Densidad: "+feature.properties.Densidad_h
+            }else if(feature.properties.Deficit_dp || feature.properties.Deficit_dp == 0){
+                valueToShow = "Deficit: "+feature.properties.Deficit_dp
+            }else if(feature.properties.Deficit_cs || feature.properties.Deficit_cs == 0){
+              valueToShow = "Deficit: "+feature.properties.Deficit_cs
+            }else if(feature.properties.Garantia_d|| feature.properties.Garantia_d == 0){
+              valueToShow = "Garantia : "+feature.properties.Garantia_d
+            }
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+              .setLngLat(feature.geometry.coordinates[0][0])
+              .setHTML(
+                `<h3>${feature.properties.Categorias}</h3><p>${valueToShow}</p>`
+              )
+              .addTo(map);
+        }
       });
     });
 
@@ -229,12 +277,12 @@ const Map = forwardRef((props, ref) => {
     <div>
       <div className="map-container" ref={mapContainerRef} />
       <div className={classes.identify} id="features">
-        <h2>Información</h2>
-        <div id="pd">
-          {/* <p>Hover over a state!</p> */}
-        </div>
+       <CloseIcon onClick={closeLegend}></CloseIcon> <h2>Información</h2>
+        <div id="pd">{/* <p>Hover over a state!</p> */}</div>
       </div>
-      <div className={classes.Legend} id="legend"><h2>Deficit</h2></div>
+      <div className={classes.Legend} id="legend">
+        <h2>Deficit</h2>
+      </div>
     </div>
   );
 });

@@ -15,6 +15,7 @@ const sha256 = require('js-sha256');
 import axios from 'axios';
 import {Loader} from '../loader/loader'
 import { Redirect } from 'react-router';
+import enviroment from '../../../config/enviroment'
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -137,7 +138,7 @@ const FormAccess = (props) => {
         }
         setLoading(true)
         axios.post(
-            "http://localhost:3000/login", 
+            `${enviroment.endpoint}/login`, 
              body, 
              {
                  headers: { 
@@ -149,6 +150,7 @@ const FormAccess = (props) => {
          if(response.status == 200 ){
              if(response.data.code == "OK"){
                 localStorage.setItem("token",response.data.data.token)
+                localStorage.setItem("name",response.data.data.name)
                 props.setAuth(true)
              }else{
                  setLoading(false)
@@ -231,7 +233,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/register"/>
+                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
                     </Grid>
 
                 </Grid>
@@ -247,7 +249,7 @@ const Access = () => {
     const classes = useStyle();
     const [login,setLogin] = useState(false)
     if(login){
-        return  <Redirect to="/" />
+        return  <Redirect to="/Observatorio/PlataformaUsuario" />
     }else{
         return (
             <Grid container justifyContent="center"
