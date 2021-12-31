@@ -12,22 +12,22 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyle = makeStyles({
   identify: {
+    position: "fixed",
     display: "flex",
-    top: "0",
+    top: "140px",
     flex: "1 0 auto",
     height: "100%",
-    display: "flex",
     outline: "0",
-    zIndex: 1000,
+    zIndex: 5000,
     position: "fixed",
     overflowY: "auto",
     flexDirection: "column",
-    top: "64px",
     width: "330px",
-    height: "calc(100% - 700px)",
+    height: "500px",
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
     backgroundColor: "#ffffff",
-    left: "calc(100% - 35vh)",
+    left: "calc(100% - 400px)",
+    visibility: "hidden"
   },
 
   legendkey: {
@@ -69,7 +69,7 @@ const Map = forwardRef((props, ref) => {
   const [lng, setLng] = useState(position.lng);
   const [lat, setLat] = useState(position.lat);
   const [zoom, setZoom] = useState(position.zoom);
-  let capaSeleccionada;
+  let capaSeleccionada ={};
 
   useImperativeHandle(ref, () => ({
     toFly(position) {
@@ -111,6 +111,8 @@ const Map = forwardRef((props, ref) => {
       );
     }
     if (isEnable) {
+      capaSeleccionada.id = layer.id
+      capaSeleccionada.legend = layer.legend
       toFly({
         lng: layer.longitud,
         lat: layer.latitud,
@@ -194,16 +196,32 @@ const Map = forwardRef((props, ref) => {
         if (map.getLayer(element.id)) {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
+        console.log(element.legend)
       });
       map.on("click", (event) => {
         console.log("doy click")
-        
         const states = map.queryRenderedFeatures(event.point, {
-          layers: ["dh-ind2-bogota-bsmu1u"],
+          layers: [capaSeleccionada.id],
         });
+        
+        console.log(states.length)
+        console.log(states)
+        document.getElementById("features").style.visibility = "visible"
+        let legendFinally = ""
+        console.log(capaSeleccionada)
+        capaSeleccionada.legend.forEach(function(element){
+              legendFinally +=`
+              <div  style="display: inline-flex;margin-top:10px;">
+                   <div style="background:${element.style};height:20px;width:20px;margin-left:5px;"></div>
+                   <div>${element.range}</div>
+                   </div>
+              `
+        })
+        legendFinally = `<div style="display:grid;">${legendFinally}</div>`
         document.getElementById("pd").innerHTML = states.length
-          ? `<h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
-          : `<p></p>`;
+          ? `${legendFinally}
+          <h3>${states[0].properties.Categorias}</h3><p><strong><em>${states[0].properties.Densidad_h}</strong> Densidad</em></p>`
+          : `<p>hola</p>`;
       });
     });
 

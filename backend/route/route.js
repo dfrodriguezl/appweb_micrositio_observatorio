@@ -4,7 +4,8 @@ const ContactController = require('../controller/ContactController')
 const CeedController = require('../controller/CeedController')
 const  Middleware = require('../middlewares/Middleware')
 const router = Router();
-
+const Crypto = require('../crypto/Crypto')
+const keyEncrypt ="ObservatorioInmobiliarioNacional2021xhladjljsljlejeieiwlwiwlqilwqijljwkcma"
 router.post('/users',  UserController.createUser);
 router.post('/login', UserController.login)
 router.get('/user',Middleware.verificaToken, UserController.testToken)
