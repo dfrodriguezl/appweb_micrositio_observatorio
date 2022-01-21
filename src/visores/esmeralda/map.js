@@ -280,8 +280,8 @@ const Map = forwardRef((props, ref) => {
        <CloseIcon onClick={closeLegend}></CloseIcon> <h2>Información</h2>
         <div id="pd">{/* <p>Hover over a state!</p> */}</div>
       </div>
-      <div className={classes.Legend} id="legend">
-        <h2>Deficit</h2>
+      <div id="legend">
+        {/* <h2>Deficit</h2> */}
       </div>
     </div>
   );
