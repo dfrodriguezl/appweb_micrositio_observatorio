@@ -4,6 +4,7 @@ import * as Values from 'Observatorio/Variables/values';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {makeStyles} from "@material-ui/core";
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -29,9 +30,9 @@ Textp: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "start",
+    textAlign: "center",
     margin: "1em 0 0 0",
-    marginTop:"30px"
+    marginTop:"30px !important"
 },
 Titlep: {
   color: Values.TextParagraph,
@@ -39,7 +40,7 @@ Titlep: {
   fontSize: Values.SizeText,
   textAlign: "center",
   margin: "1em 0 0 0",
-  marginTop:"30px"
+  marginTop:"13px !important"
 }
    
 })

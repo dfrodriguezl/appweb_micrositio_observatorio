@@ -101,6 +101,7 @@ const useStyle = makeStyles({
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
+    border:"none",
     "&:hover": {
         backgroundColor: Values.HoverButton,
         border: "none",

@@ -71,7 +71,7 @@ const useStyle = makeStyles({
     },
     boton: {
         padding: "0.3em 1em 0.3em 1em",
-        borderRadius: "2vh",
+        borderRadius: "6vh",
         backgroundColor: Values.Redwinecolor,
         color: Values.TextButton,
         fontFamily: Values.SourceRoboto,
@@ -81,8 +81,10 @@ const useStyle = makeStyles({
         margin: "10% 0 4% 0",
         width: "max-content",
         fontSize: "calc(1em + 0.3vh)",
+        border: "none",
         borderRadius: "2vh",
         fontWeight: "bold",
+        
         "&:hover": {
             backgroundColor: Values.HoverButton,
             border: "none",
@@ -135,7 +137,7 @@ const FormRegister = () => {
     const handleChangeValue = (event) => {
         let name = event.target.name
         let value = event.target.value
-      
+        console.log({value});
         let newForm = {
             ...form,
             [name]: value

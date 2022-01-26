@@ -5,7 +5,7 @@ class EmailService {
     // Definimos el transporter
     var transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 465,
+      port: 587,
       auth: {
         user: "noreplytestsendemail@gmail.com",
         pass: "dane2021+",
