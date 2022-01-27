@@ -11,7 +11,7 @@ const CardServicios =[
         "title":"Ofertas de inmobiliarias",
         "image_card":Sale,
         "description":"Permite conocer el valor y ubicación de las Ofertas Inmobiliarias existenes en el Territorio Nacional..",
-        "link":"/Observatorio/Visores/Esmeralda"
+        "link":"https://nowsoft.app/geoportal/geovisores/territorio/ofertas-mercado/"
     },
     {
         "id":2,

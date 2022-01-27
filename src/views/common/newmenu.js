@@ -70,13 +70,13 @@ const menuDane = [
         },
         {
             name:"Mercado Inmobiliario Bogotá",
-            link:"/Observatorio/Visores/Esmeralda2",
+            link:"https://nowsoft.app/geoportal/geovisores/territorio/ofertas-mercado/",
             icon:"",
             isMain:false
         },
         {
             name:"Dashboard análisis Soacha",
-            link:"http://159.203.180.99:9091/",
+            link:"http://159.203.180.99:9091/ofertas",
             icon:"",
             isMain:false
         },
