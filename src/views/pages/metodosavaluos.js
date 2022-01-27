@@ -340,7 +340,7 @@ const avaluos = () => {
         
       </Grid>
       <button className={estilo4}>
-      <a className={classes.alink} href="/Observatorio/file/TECNICAS_VALUATORIAS.docx" download>
+      <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/TECNICAS_VALUATORIAS.docx" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={word} />

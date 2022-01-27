@@ -183,7 +183,7 @@ const Repository = () => {
           <th className={classes.containercontent}>Técnicas valuatorias en Colombia y el mundo</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/TECNICAS_VALUATORIAS.docx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/TECNICAS_VALUATORIAS.docx"
                   download
               >Descargar</a>
             </Button></th>
@@ -193,7 +193,7 @@ const Repository = () => {
           <th className={classes.containercontent}>Tipologías constructivas habituales en Colombia</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/TIPO_CONSTRUCTIVAS.docx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/TIPO_CONSTRUCTIVAS.docx"
                   download
               >Descargar</a>
             </Button></th>
@@ -203,7 +203,7 @@ const Repository = () => {
           <th className={classes.containercontent}>Ejemplo de mercado según formato establecido</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/EJEMPLO_MERCADO.xlsx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/EJEMPLO_MERCADO.xlsx"
                   download
               >Descargar</a>
             </Button></th>
@@ -213,7 +213,7 @@ const Repository = () => {
           <th className={classes.containercontent}>Formato mercado para PH, NPH y predios rurales</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/FORMATO_MERCADO.xlsx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
                   download
               >Descargar</a>
             </Button></th>
@@ -222,8 +222,9 @@ const Repository = () => {
           <th className={classes.containercontent}>MANUAL GEOPACKAGE.pdf</th>
           <th className={classes.containercontent}>Manual cargue información Geopackage</th>
           <th className={classes.containercontent}><Button className={classes.boton}><a className={classes.alink}
-                  href="/Observatorio/file/INSTRUCTIVO_GEOPACKAGE.pdf"
+                  href="https://nowsoft.app/geoportal/descargas/oin/INSTRUCTIVO_GEOPACKAGE.pdf"
                   download
+                  target="_blank"
               >Descargar</a>
               </Button></th>
         </tr>
@@ -233,7 +234,7 @@ const Repository = () => {
           <th className={classes.containercontent}>
             <Button className={classes.boton}>
               <a className={classes.alink}
-                  href="/Observatorio/file/OFERTAS_OBSERVATORIO.gpkg"
+                  href="https://nowsoft.app/geoportal/descargas/oin/OFERTAS_OBSERVATORIO.gpkg"
                   download
               >Descargar</a>
             </Button></th>

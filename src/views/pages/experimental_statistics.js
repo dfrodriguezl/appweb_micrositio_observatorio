@@ -166,7 +166,7 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>Descripción de los indicadores obtenidos, variables utilizadas, diagrama procedimental y resultados, en base a la información recopilada del censo poblacional del DANE.</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/DOC_DIRECTIVO_IND_2021_20211203.docx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/DOC_DIRECTIVO_IND_2021_20211203.docx"
                   download
               >Descargar</a>
             </Button></th>
@@ -176,7 +176,7 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>Descripción en detalle de los procesos realizados con la información del censo poblacional del DANE para la obtención de los indicadores</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="/Observatorio/file/DOC_TECN_IND_20211203.docx"
+                  href="https://nowsoft.app/geoportal/descargas/oin/DOC_TECN_IND_20211203.docx"
                   download
               >Descargar</a>
             </Button></th>

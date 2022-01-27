@@ -722,7 +722,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="/Observatorio/file/EJEMPLO_MERCADO.xlsx"
+                              href="https://nowsoft.app/geoportal/descargas/oin/EJEMPLO_MERCADO.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -771,7 +771,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="/Observatorio/file/FORMATO_MERCADO.xlsx"
+                              href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -820,8 +820,9 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="/Observatorio/file/INSTRUCTIVO_GEOPACKAGE.pdf"
+                              href="https://nowsoft.app/geoportal/descargas/oin/INSTRUCTIVO_GEOPACKAGE.pdf"
                               download
+                              target="_blank"
                             >
                               <Grid container direction="row">
                                 <Grid
@@ -866,7 +867,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="/Observatorio/file/OFERTAS_OBSERVATORIO.gpkg"
+                              href="https://nowsoft.app/geoportal/descargas/oin/OFERTAS_OBSERVATORIO.gpkg"
                               download
                             >
                               <Grid container direction="row">
