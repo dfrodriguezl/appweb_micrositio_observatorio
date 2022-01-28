@@ -33,7 +33,7 @@ class UserController {
         } else {
           response.code = "ERR001";
           response.message =
-            "Lo sentimos , ocurrio un problema en nuestro sistema";
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
         }
       } else {
         response.code = "PWS001";
