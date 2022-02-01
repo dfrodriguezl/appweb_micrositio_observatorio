@@ -3,16 +3,25 @@ const nodemailer = require("nodemailer")
 class EmailService {
   static async sendEmail({email,contenido,subject}) {
     // Definimos el transporter
-    var transporter = nodemailer.createTransport({
+    let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 587,
+      port: 465,
+      secure : true,
       auth: {
         user: "noreplytestsendemail@gmail.com",
         pass: "dane2021+",
-      },
+      },   
+      tls: {
+        rejectUnauthorized: false
+      }   
     });
-    // Definimos el email
-    var mailOptions = {
+
+    transporter.verify().then(()=>{
+      console.log('ready for send emails');
+    })
+
+    // Definimos el email noreplytestsendemail@gmail.com dane2021+
+    let mailOptions = {
       from: "",
       to: email,
       subject: subject,

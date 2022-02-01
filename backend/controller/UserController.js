@@ -2,6 +2,7 @@ let Util = require("../common/Util");
 const EmailService = require("../service/EmailServices");
 const UserService = require("../service/UserServices");
 const TemplateRegister = require("../template/TemplateRegister");
+const TemplateLogin = require("../template/TemplateLogin");
 const Token = require("../classes/token");
 class UserController {
   static async changePassord(req, res) {
@@ -104,7 +105,7 @@ class UserController {
         });
         let split = tokenUser.split(".");
         let contenidoTemplate = TemplateRegister.getTemplateRegister(
-          "http://localhost:9000/observatorio/restore/" +
+          "https://nowsoft.app/Observatorio/restore/" +
             split[0] +
             "/" +
             split[1] +
@@ -150,15 +151,18 @@ class UserController {
         response.message = "Ocurrio un error en el registro de datos";
       } else {
         let success = await UserService.createUser(body);
-        if (success != true) {
+        if (success) {
+          const id = success.id
+          console.log(id);
+          let contenidoTemplateLogin = TemplateLogin.getTemplateLogin(id);
+            await EmailService.sendEmail({
+              email: body.email,
+              contenido: contenidoTemplateLogin,
+              subject: "Usuario Registrado",
+            });
+        } else {
           response.code = "ERROR";
           response.message = "Ocurrio un error en el registro de datos";
-        } else {
-          await EmailService.sendEmail({
-            email: body.email,
-            contenido: "Felicidades te has registrado en nuestra plataforma",
-            subject: "Usuario Registrado",
-          });
         }
       }
     } catch (error) {

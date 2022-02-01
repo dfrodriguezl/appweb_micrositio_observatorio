@@ -1,6 +1,11 @@
-class TemplateRegister {
-  static getTemplateRegister(url) {
-    return `
+
+
+
+class TemplateLogin{
+
+
+    static  getTemplateLogin(id_user){
+            return `
             <head>
                 <style>
                     .container {
@@ -61,21 +66,20 @@ class TemplateRegister {
             <body>
                 <div class=\"container\">
                     <div class=\"top\">
-                    <img class=\"logodane\" src="https://nowsoft.app/geoportal/descargas/oin/logo-observatorio.PNG"  />
-                    <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />
+                        <img class=\"logodane\" src="https://nowsoft.app/geoportal/descargas/oin/logo-observatorio.PNG"  />
+                        <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />
                 
                      </div>
                     <div class=\"bottom\">
                         <p class=\"textP\">
             
-                            Siga el sigueinte link para modificar la contraseña:<br><br>
+                            Gracias por registrarse en el Observatorio Inmobiliario Nacional - OIN.<br><br>
+
+                            Su codigo de registro es el siguiente ${id_user}, recuerde que este numero debe ser suministrado en la informacion que se suba a la paltaforma en el campo: codigo_observatorio.<br><br>
+
+                            Para ingresar a la plataforma favor dirigase al siguiente link.<br><br>
             
-                            ${url}<br><br>
-            
-                            Si usted no ha seleccionado la opción “olvido su contraseña” en la pagina del Observatorio Inmobiliario
-                            Nacional, por favor omita el presente mensaje.<br><br>
-            
-                            El link enviado tiene una ventana de tiempo para ser utilizado de una hora.<br><br>
+                            https://nowsoft.app/Observatorio/login <br><br>
             
                             Cordialmente,<br><br>
             
@@ -86,8 +90,8 @@ class TemplateRegister {
             
                 </div>
                 </body>
-        `;
-  }
+        `
+    }
 }
 
-module.exports = TemplateRegister;
+module.exports = TemplateLogin
