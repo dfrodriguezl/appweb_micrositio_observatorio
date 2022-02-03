@@ -1,6 +1,6 @@
 'use strict';
 const env = {
-    endpoint:  "https://nowsoft.app/Observatorio",
+    endpoint:  "http://localhost:3000",
 };
 module.exports = env;
 

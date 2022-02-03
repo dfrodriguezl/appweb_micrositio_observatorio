@@ -211,6 +211,7 @@ const FormRegister = () => {
              if(response.data.code == "OK"){
                 setLoading(false)
                 setOpen(true)
+                window.location="/Observatorio/login"
              }else{
                  if(response.data.code == "US001"){
                     setLoading(false)
@@ -415,7 +416,6 @@ const Register = () => {
         <Grid container justifyContent="center" spacing={3}
             alignItems="center" className={classes.gridglobal}>
             <FormRegister />
-
         </Grid>
     );
 }

@@ -10,7 +10,7 @@ import {
   Button,
   Modal,
   Box,
-  TextField
+  TextField,
 } from "@material-ui/core";
 import SelectBox from "devextreme-react/select-box";
 import { useForm } from "react-hook-form";
@@ -41,8 +41,45 @@ import geograph from "Observatorio/img/geograph.png";
 import forgot from "Observatorio/img/Forgot.svg";
 import { dataSource } from "Observatorio/common/datosdashboard.js";
 import { dataSource2 } from "Observatorio/common/dashboardbar.js";
+import enviroment from '../../config/enviroment'
 
 const useStyle = makeStyles({
+  botonmodal: {
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop: "4px",
+    width: "max-content",
+    fontSize: "calc(0.7em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: Values.HoverButton,
+      border: "none",
+    },
+  },
+  botonmodal1: {
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop: "4px",
+    width: "max-content",
+    fontSize: "calc(0.7em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    float: "right",
+    textAlign: "center",
+    border: "none",
+    padding: "1vh 1vh 1vh 1vh",
+  },
   centerButton: {
     justifyContent: "center",
     padding: "0 0 0 0 !important",
@@ -50,7 +87,7 @@ const useStyle = makeStyles({
   modalstyle: {
     position: "absolute",
     top: "50%",
-    borderRadius:"2vh",
+    borderRadius: "2vh",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 600,
@@ -353,6 +390,19 @@ const useStyle = makeStyles({
   },
 });
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "30%",
+  bgcolor: "background.paper",
+  boxShadow: 2,
+  borderRadius: "10px",
+  padding: "20px",
+  p: 4,
+};
+
 const Cardsmapas = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(max-width:769px)");
@@ -360,6 +410,39 @@ const Cardsmapas = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const upload = () => {
+    document.getElementById("file").files[0];
+    console.log(document.getElementById("file").files[0]);
+
+    const archivos = document.getElementById("file").files;
+    const data = new FormData();
+  
+    data.append('archivo', archivos[0]);
+
+    axios
+      .post(`${enviroment.endpoint}/PlataformaUsuario`, data ,{
+        headers: { 
+            'Content-Type' : 'application/json' 
+        }
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.status == 200) {
+          if (response.data.code == "OK") {
+            localStorage.setItem("token", response.data.data.token);
+            localStorage.setItem("name", response.data.data.name);
+            props.setAuth(true);
+          } else {
+            setLoading(false);
+            alert("Usuario o contraseña incorrecto");
+          }
+        } else {
+          setLoading(false);
+          alert("ocurrio un problema externo");
+        }
+      });
+  };
 
   var estilo = null;
   var estilo2 = null;
@@ -462,7 +545,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>50</p>
+                        <p className={classes.contentnum}>0</p>
                       </Grid>
                     </Grid>
                     <Grid
@@ -489,7 +572,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>150</p>
+                        <p className={classes.contentnum}>0</p>
                       </Grid>
                     </Grid>
                     <Grid
@@ -516,7 +599,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>200</p>
+                        <p className={classes.contentnum}>0</p>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -926,7 +1009,10 @@ const Cardsmapas = () => {
                           alignItems="center"
                           xs={6}
                         >
-                          <button className={classes.boton}>
+                          <button
+                            className={classes.boton}
+                            onClick={handleOpen}
+                          >
                             <Grid container direction="row">
                               <Grid
                                 item
@@ -987,7 +1073,7 @@ const Cardsmapas = () => {
                                   <strong>CARGA CAPAS GEOGRÁFICAS</strong>
                                 </p>
                                 <p className={classes.contentrulesp3}>
-                                  Formato: XXX
+                                  Formato: Gpkg
                                 </p>
                               </Grid>
                             </Grid>
@@ -1022,7 +1108,7 @@ const Cardsmapas = () => {
                         xs
                         direction="column"
                         justifyContent="center"
-                        alignItems="flex-start"
+                        alignItems="center"
                       >
                         <Grid
                           container
@@ -1050,93 +1136,47 @@ const Cardsmapas = () => {
             </CardContent>
           </Card>
         </Grid>
+      </Grid>
+      <form action="/files" method="post" encType="multipart/form-data">
         <Modal
-          keepMounted
           open={open}
           onClose={handleClose}
-          aria-labelledby="keep-mounted-modal-title"
-          aria-describedby="keep-mounted-modal-description"
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
         >
-          <Box className={classes.modalstyle}>
-            <Grid container direction="column">
-              <Grid container xs item direction="row">
-                <Grid
-                  container
-                  xs={4}
-                  item
-                  direction="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  className={classes.paddingmodal}
-                >
-                  <Typography>Contraseña antigua</Typography>
-                </Grid>
-                <Grid container xs item direction="row">
-                  <TextField
-                    id="outlined-password-input1"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                  />
-                </Grid>
-              </Grid>
-              <Grid container xs item direction="row">
-                <Grid
-                  container
-                  xs={4}
-                  item
-                  direction="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  className={classes.paddingmodal}
-                >
-                  <Typography>Nueva contraseña</Typography>
-                </Grid>
-                <Grid container xs item direction="row">
-                  <TextField
-                    id="outlined-password-input2"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                  />
-                </Grid>
-              </Grid>
-              <Grid container xs item direction="row">
-                <Grid
-                  container
-                  xs={4}
-                  item
-                  direction="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  className={classes.paddingmodal}
-                >
-                  <Typography>Confirmar contraseña</Typography>
-                </Grid>
-                <Grid container xs item direction="row">
-                  <TextField
-                    id="outlined-password-input3"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                  />
-                </Grid>
-              </Grid>
-              <Grid container
-                  xs
-                  item
-                  direction="row"
-                  justifyContent="flex-start"
-                  alignItems="center"
-                  className={classes.paddingmodal1}>
-              <Button className={classes.botonpass}>
-                Enviar
-              </Button>
-              </Grid>
-            </Grid>
+          <Box sx={style}>
+            <Typography
+              className={classes.Titlep}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Text in a modal
+            </Typography>
+            <Typography
+              className={classes.Textp}
+              id="modal-modal-description"
+              sx={{ mt: 2 }}
+            >
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+            <input
+              className={classes.botonmodal}
+              // onClick={}
+              type="file"
+              id="file"
+              name="avatar"
+              accept="xlsx/gpkg"
+            />
+            <input
+              className={classes.botonmodal1}
+              onClick={upload}
+              type="submit"
+              value="Cargar"
+            />
           </Box>
         </Modal>
-      </Grid>
+      </form>
     </Grid>
   );
 };

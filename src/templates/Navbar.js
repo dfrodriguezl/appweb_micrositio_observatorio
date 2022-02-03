@@ -1,54 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core/';
+import React, { useState, useEffect } from "react";
+import { Grid, Modal, Box, Typography } from "@material-ui/core/";
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
-import {
-  BrowserRouter as Router,
-  NavLink
-} from "react-router-dom";
-import {
-  makeStyles
-} from '@material-ui/core/styles';
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Styled from "styled-components";
-import menuDane from "Observatorio/common/newmenu.js"
-import SideBarComponent from "./newsidebar.js"
-import * as Values from 'Observatorio/Variables/values';
-import { Button  } from '@material-ui/core';
+import menuDane from "Observatorio/common/newmenu.js";
+import SideBarComponent from "./newsidebar.js";
+import * as Values from "Observatorio/Variables/values";
+import { Button } from "@material-ui/core";
 const useStyle = makeStyles({
+
   root: {
-    textDecoration: 'none',
-    margin: '5px',
-    padding: '5px',
-    color: 'inherit'
+    textDecoration: "none",
+    margin: "5px",
+    padding: "5px",
+    color: "inherit",
   },
   menuActive: {
     position: "relative",
     backgroundColor: "#F2F2F2",
     zIndex: 1,
-    boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)"
+    boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)",
   },
   colorMenuActive: {
     backgroundColor: "#821A3F",
-    color: "#FFFFFF !important"
+    color: "#FFFFFF !important",
   },
   sectionTitleMenu: {
-    fontSize: "20px"
+    fontSize: "20px",
   },
   liTitle: {
     listStyle: "none",
     "&:hover": {
       color: "#821A3F",
-      cursor: "pointer"
+      cursor: "pointer",
     },
     fontSize: 16,
-    padding: "2px"
-
+    padding: "2px",
   },
   liHover: {
     "&:hover": {
       color: "white",
       cursor: "pointer",
-      backgroundColor: "#821A3F"
-    }
+      backgroundColor: "#821A3F",
+    },
   },
   liItem: {
     marginLeft: "2px",
@@ -56,15 +51,15 @@ const useStyle = makeStyles({
     justifyContent: "center",
     "&:hover": {
       color: "#821A3F !important",
-      cursor: "pointer"
-    }
+      cursor: "pointer",
+    },
   },
   ulItem: {
     marginTop: 30,
-    listStyle: "none"
+    listStyle: "none",
   },
   iconLi: {
-    color: "blue"
+    color: "blue",
   },
   cardglobal: {
     //margin: "0% 0% 0% 0%",
@@ -80,21 +75,21 @@ const useStyle = makeStyles({
     textDecoration: "none",
     "&:hover": {
       color: "#821A3F",
-      cursor: "pointer"
+      cursor: "pointer",
     },
-    marginLeft: 4
+    marginLeft: 4,
   },
   topIconsub: {
-    marginTop: "5px"
+    marginTop: "5px",
   },
   colorTerritorio: {
-    color: "green"
+    color: "green",
   },
   colorSociedad: {
-    color: "blue"
+    color: "blue",
   },
   rotate: {
-    transform: "rotate(180deg)"
+    transform: "rotate(180deg)",
   },
   boton: {
     borderRadius: "2vh",
@@ -102,27 +97,80 @@ const useStyle = makeStyles({
     color: Values.TextButton,
     fontFamily: Values.SourceWorksans,
     textTransform: "capitalize",
-    transition:"all 0.8s ease-out",
+    transition: "all 0.8s ease-out",
     cursor: "pointer",
-    marginTop:"4px",
+    marginTop: "4px",
     width: "max-content",
     fontSize: "calc(0.7em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
-    "&:hover":{
-        backgroundColor: Values.HoverButton,
-        border:"none",
-    }
+    "&:hover": {
+      backgroundColor: Values.HoverButton,
+      border: "none",
+    },
+  },
+  boton1: {
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop: "4px",
+    width: "max-content",
+    fontSize: "calc(0.7em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    float: "right",
+    "&:hover": {
+      backgroundColor: Values.HoverButton,
+      border: "none",
+    },
+  },
+  Titleh3: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeTitle,
+    padding: Values.PaddingTitleText,
+},
+
+Textp: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",
+    margin: "1em 0 0 0",
+    marginTop:"30px !important"
+},
+Titlep: {
+  color: Values.TextParagraph,
+  fontFamily: Values.SourceRoboto,
+  fontSize: Values.SizeText,
+  textAlign: "center",
+  margin: "1em 0 0 0",
+  marginTop:"13px !important"
 }
 });
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 2,
+  borderRadius:"10px",
+  padding:"20px",
+  p: 4,
+};
 
 const LiItem = Styled.li`
 @media (max-width: 1300px) and (min-width: 769px) {
   font-size:15px !important;
 }
-`
-
+`;
 
 const NavBarContenedor = Styled.ul`    
     display:flex;
@@ -154,20 +202,12 @@ const MenuIL = Styled.li`
     }
     `;
 
-
-
-
-
-
 const UtilidadCentrarTexto = Styled.div`
     position:relative;
     display: flex;
     justify-content: center;
     align-items:center;
 `;
-
-
-
 
 const DropDownContent = Styled.div`
 display: none;
@@ -218,246 +258,299 @@ const DropDownLi = Styled(MenuIL)`
         
     } */
   `;
-const Navbar = ({sideBarOpen,isLogin}) => {
+const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
-  const [menuActive, setMenuActive] = useState(
-    {
-      ActiveServicios: {
-        id: 1,
-        value: false
-      },
-      ActiveGeovisores: {
-        id: 2,
-        value: false
-      },
-      ActiveCatastro: {
-        id: 3,
-        value: false
-      },
-      ActiveInvestigacion: {
-        id: 0,
-        value: false
-      }
-    }
-  )
-  const [position, setMoveMenu] = useState(null)
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [menuActive, setMenuActive] = useState({
+    ActiveServicios: {
+      id: 1,
+      value: false,
+    },
+    ActiveGeovisores: {
+      id: 2,
+      value: false,
+    },
+    ActiveCatastro: {
+      id: 3,
+      value: false,
+    },
+    ActiveInvestigacion: {
+      id: 0,
+      value: false,
+    },
+  });
+  const [position, setMoveMenu] = useState(null);
 
   function handleChangeMenuActive(event) {
-
-    let name = event.name
+    let name = event.name;
     for (const key in menuActive) {
-       menuActive[key].value = false
+      menuActive[key].value = false;
     }
-    menuActive[name].value = true
+    menuActive[name].value = true;
     setMenuActive({
-      ...menuActive
-    })
-    setMoveMenu(menuActive[name].id)
+      ...menuActive,
+    });
+    setMoveMenu(menuActive[name].id);
   }
 
   function handleStatusFalseAll() {
     for (const key in menuActive) {
-      menuActive[key].value = false
+      menuActive[key].value = false;
     }
 
     setMenuActive({
-      ...menuActive
-    })
-    setMoveMenu(null)
-
+      ...menuActive,
+    });
+    setMoveMenu(null);
   }
 
-  let token = localStorage.getItem("token")
-  let isOk = false
-  if(token){
-      isOk = true
+  let token = localStorage.getItem("token");
+  let isOk = false;
+  if (token) {
+    isOk = true;
   }
 
   const [isSession, setSession] = useState(isOk);
 
-  const cerrarSesion = () =>{
-        localStorage.removeItem("token")
-        setSession(false)
-        props.setAuth(false)
-  }
+  const cerrarSesion = () => {
+    localStorage.removeItem("token");
+    setSession(false);
+    props.setAuth(false);
+  };
   useEffect(() => {
-      
-  }, [isSession,isLogin]);
+    
+  }, [isSession, isLogin]);
 
-
-  let result = []
+  let result = [];
   if (position != null) {
-    let subResult = []
+    let subResult = [];
     menuDane[position].map((data) => {
-      if(data.isProtected){
-          if(isSession){
-            if (data.isMain) {
-              subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
-            } else {
-              subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
-            }
+      if (data.isProtected) {
+        if (isSession) {
+          if (data.isMain) {
+            subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>);
+          } else {
+            subResult.push(
+              <SubMenuASub href={data.link}>{data.name}</SubMenuASub>
+            );
           }
-      }else{
+        }
+      } else {
         if (data.isMain) {
-          subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>)
+          subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>);
         } else {
-          subResult.push(<SubMenuASub href={data.link} >{data.name}</SubMenuASub>)
+          subResult.push(
+            <SubMenuASub href={data.link}>{data.name}</SubMenuASub>
+          );
         }
       }
-     
-
-    })
-    result.push(<DropDownContent>
-      {subResult}
-    </DropDownContent>)
+    });
+    result.push(
+      <DropDownContent>
+        {console.log(subResult)}
+        {subResult}
+      </DropDownContent>
+    );
   }
 
- 
   return (
     <Grid container onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={12} sm={12} className={classes.cardglobal}>
         <NavBarContenedor>
-          <DropDownLi onMouseEnter={handleStatusFalseAll} className={classes.liHover}  >
+          <DropDownLi
+            onMouseEnter={handleStatusFalseAll}
+            className={classes.liHover}
+          >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <MenuA href="/Observatorio/" >Inicio </MenuA>
-
+              <MenuA href="/Observatorio/">Inicio </MenuA>
             </UtilidadCentrarTexto>
           </DropDownLi>
 
-         
-            {
-              menuActive.ActiveInvestigacion.value ?
-              <DropDownLi onMouseEnter={() => {
+          {menuActive.ActiveInvestigacion.value ? (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveInvestigacion"
-                })
-              }} className={classes.colorMenuActive}>
-                <UtilidadCentrarTexto >
-                  <AiOutlineDown className={classes.rotate} />
-                  <MenuA href="/Observatorio/">Observatorio </MenuA>
-                  {result}
-                </UtilidadCentrarTexto>
-               
-                </DropDownLi>
-                :
-                <DropDownLi onMouseEnter={() => {
-                  handleChangeMenuActive({
-                    name: "ActiveInvestigacion"
-                  })
-                }} >
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <MenuA href="/Observatorio/Metodosavaluos">Observatorio </MenuA>
-                </UtilidadCentrarTexto>
-                </DropDownLi>
-            }
-       
-         
-
-            {
-              menuActive.ActiveCatastro.value ?
-              <DropDownLi onMouseEnter={() => {
+                  name: "ActiveInvestigacion",
+                });
+              }}
+              className={classes.colorMenuActive}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown className={classes.rotate} />
+                <MenuA href="/Observatorio/">Observatorio </MenuA>
+                {result}
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          ) : (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveCatastro"
-                })
-              }} className={classes.colorMenuActive}>
-                <UtilidadCentrarTexto >
-                  <AiOutlineDown className={classes.rotate} />
-                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multipropósito </MenuA>
-                  {result}
-                </UtilidadCentrarTexto>
-                </DropDownLi>
-                : 
-                <DropDownLi onMouseEnter={() => {
-                  handleChangeMenuActive({
-                    name: "ActiveCatastro"
-                  })
-                }}>
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <MenuA href="/Observatorio/Catastromultiproposito">Catastro Multipropósito </MenuA>
-                </UtilidadCentrarTexto>
-                 </DropDownLi>
-            }
-         
-          
-           
-            {menuActive.ActiveGeovisores.value ?
-               <DropDownLi onMouseEnter={() => {
+                  name: "ActiveInvestigacion",
+                });
+              }}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <MenuA href="/Observatorio/Metodosavaluos">Observatorio </MenuA>
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          )}
+
+          {menuActive.ActiveCatastro.value ? (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveGeovisores"
-                })
-              }}  className={classes.colorMenuActive}>
-                <UtilidadCentrarTexto >
-                  <AiOutlineDown className={classes.rotate} />
-                  <NavLink to="/Observatorio/Mapas" className={classes.root} >Geovisores</NavLink>
-                  {result}
-                </UtilidadCentrarTexto>
-                </DropDownLi>
-              :
-              <DropDownLi onMouseEnter={() => {
+                  name: "ActiveCatastro",
+                });
+              }}
+              className={classes.colorMenuActive}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown className={classes.rotate} />
+                <MenuA href="/Observatorio/Catastromultiproposito">
+                  Catastro Multipropósito{" "}
+                </MenuA>
+                {result}
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          ) : (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveGeovisores"
-                })
-              }} >
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <NavLink to="/Observatorio/Mapas" className={classes.root} >Geovisores</NavLink>
-                </UtilidadCentrarTexto>
-                   </DropDownLi>
-              
-          }
-       
+                  name: "ActiveCatastro",
+                });
+              }}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <MenuA href="/Observatorio/Catastromultiproposito">
+                  Catastro Multipropósito{" "}
+                </MenuA>
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          )}
 
-          {
-            menuActive.ActiveServicios.value ?
-              <DropDownLi onMouseEnter={() => {
+          {menuActive.ActiveGeovisores.value ? (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveServicios"
-                })
-              }} className={classes.colorMenuActive}>
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown className={classes.rotate} />
-                  <NavLink to="/Observatorio/Servicios" className={classes.root} >Servicios</NavLink>
-                  {result}
-                </UtilidadCentrarTexto>
-
-              </DropDownLi> :
-              <DropDownLi onMouseEnter={() => {
+                  name: "ActiveGeovisores",
+                });
+              }}
+              className={classes.colorMenuActive}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown className={classes.rotate} />
+                <NavLink to="/Observatorio/Mapas" className={classes.root}>
+                  Geovisores
+                </NavLink>
+                {result}
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          ) : (
+            <DropDownLi
+              onMouseEnter={() => {
                 handleChangeMenuActive({
-                  name: "ActiveServicios"
-                })
-              }}>
-                <UtilidadCentrarTexto>
-                  <AiOutlineDown />
-                  <NavLink to="/Observatorio/Servicios" className={classes.root} >Servicios</NavLink>
-                </UtilidadCentrarTexto>
+                  name: "ActiveGeovisores",
+                });
+              }}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <NavLink to="/Observatorio/Mapas" className={classes.root}>
+                  Geovisores
+                </NavLink>
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          )}
 
-              </DropDownLi>
+          {menuActive.ActiveServicios.value ? (
+            <DropDownLi
+              onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveServicios",
+                });
+              }}
+              className={classes.colorMenuActive}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown className={classes.rotate} />
+                <NavLink to="/Observatorio/Servicios" className={classes.root}>
+                  Servicios
+                </NavLink>
+                {result}
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          ) : (
+            <DropDownLi
+              onMouseEnter={() => {
+                handleChangeMenuActive({
+                  name: "ActiveServicios",
+                });
+              }}
+            >
+              <UtilidadCentrarTexto>
+                <AiOutlineDown />
+                <NavLink to="/Observatorio/Servicios" className={classes.root}>
+                  Servicios
+                </NavLink>
+              </UtilidadCentrarTexto>
+            </DropDownLi>
+          )}
 
-          }
-
-          <li onMouseEnter={handleStatusFalseAll} >
-            
-            {
-              !isSession ?  <Button className={classes.boton} disableElevation href="/Observatorio/login">Ingresar</Button>:
-              <Button className={classes.boton} onClick={cerrarSesion}  >Cerrar Sesión</Button>
-            }
-           
+          <li onMouseEnter={handleStatusFalseAll}>
+            {!isSession ? (
+              <Button
+                className={classes.boton}
+                disableElevation
+                href="/Observatorio/login"
+              >
+                Ingresar
+              </Button>
+            ) : (
+              <Button
+                className={classes.boton}
+                onClick={handleOpen}
+              >
+                Cerrar Sesión
+              </Button>
+            )}
           </li>
         </NavBarContenedor>
       </Grid>
-      {
-        sideBarOpen ?
-          <SideBarComponent></SideBarComponent>
-          : null
-      }
-
+      {sideBarOpen ? <SideBarComponent></SideBarComponent> : null}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography className={classes.Titlep} id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography className={classes.Textp} id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+          <Button
+                className={classes.boton}
+                onClick={cerrarSesion}
+                href="/Observatorio/login"
+              >
+                Si
+          </Button>
+          <Button
+                className={classes.boton1}
+                onClick={handleClose}
+              >
+                No
+          </Button>
+        </Box>
+      </Modal>
     </Grid>
-
-
-
   );
 };
 

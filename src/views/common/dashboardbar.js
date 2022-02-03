@@ -2,55 +2,55 @@
 export const dataSource2 = [{
     id: '1',
     name: 'Agricola',
-    mass: 13,
+    mass: 0,
   }, {
     id: '2',
     name: 'Agroindustrial',
-    mass: 34,
+    mass: 0,
   }, {
     id: '3',
     name: 'Agroforestal',
-    mass: 50,
+    mass: 0,
   }, {
     id: '4',
     name: 'Comercial',
-    mass: 35,
+    mass: 0,
   }, {
     id: '5',
     name: 'Cultural',
-    mass: 67,
+    mass: 0,
   }, {
     id: '6',
     name: 'Educativo',
-    mass: 45,
+    mass: 0,
   }, {
     id: '7',
     name: 'Forestal',
-    mass: 20,
+    mass: 0,
   }, {
     id: '8',
     name: 'Habitacional',
-    mass: 10,
+    mass: 0,
   }, {
     id: '9',
     name: 'Industrial',
-    mass: 1,
+    mass: 0,
   }, {
     id: '10',
     name: 'Institucional',
-    mass: 56,
+    mass: 0,
   }, {
     id: '11',
     name: 'Lote Urbanizable No Urbanizado',
-    mass: 40,
+    mass: 0,
   }, {
     id: '12',
     name: 'Lote Urbanizable No Construido',
-    mass: 20,
+    mass: 0,
   }, {
     id: '13',
     name: 'Lote No Urbanizable',
-    mass: 10,
+    mass: 0,
   }
 
 

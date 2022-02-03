@@ -246,7 +246,9 @@ const FormAccess = (props) => {
 }
 
 
-const Access = () => {
+const Access = (props) => {
+
+    console.log(props)
     const classes = useStyle();
     const [login,setLogin] = useState(false)
     if(login){
@@ -255,7 +257,7 @@ const Access = () => {
         return (
             <Grid container justifyContent="center"
                 alignItems="center" className={classes.gridglobal}>
-                <FormAccess  setAuth ={setLogin} />
+                <FormAccess  setAuth ={props.setAuth} />
             </Grid>
         );
     }

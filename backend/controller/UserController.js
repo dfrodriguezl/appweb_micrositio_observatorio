@@ -4,6 +4,8 @@ const UserService = require("../service/UserServices");
 const TemplateRegister = require("../template/TemplateRegister");
 const TemplateLogin = require("../template/TemplateLogin");
 const Token = require("../classes/token");
+const xlsxFile = require('read-excel-file/node');
+const fs = require('fs')
 class UserController {
   static async changePassord(req, res) {
     let util = new Util(res);
@@ -217,6 +219,29 @@ class UserController {
     util.saveData(response);
     return util.sendResponse();
   }
+
+static async upload(req, res){
+  console.log(req)
+  let file = req.files.archivo
+  console.log(req.body)
+  console.log(file);
+  let ext = "xlsx"
+  let log = "asd"
+  let nombre =Date.now()+".xlsx"
+ 
+  let stream = fs.createWriteStream('./public/'+nombre)
+   stream.write(file.data,(err)=>{
+    xlsxFile('./public/'+nombre, { getSheets: true }).then((sheets) => {
+      sheets.forEach((obj)=>{
+             
+                
+             })
+         }).catch((err)=>{
+           console.log(err)
+         })
+   })
+
+}
 
   static async testToken(req, res) {
     let util = new Util(res);

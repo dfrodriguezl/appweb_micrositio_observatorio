@@ -1,10 +1,10 @@
 export const dataSource = [{
     country: 'Ofertas PH',
-    medals: 50
+    medals: 0
   }, {
     country: 'Ofertas NPH',
-    medals: 150
+    medals: 0
   }, {
     country: 'Ofertas Rurales',
-    medals: 200
+    medals: 0
   } ]

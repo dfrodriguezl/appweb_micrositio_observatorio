@@ -80,9 +80,9 @@ const Generalroutes = () => {
     isAuth = true;
   }
   const [isLogin, setAuth] = useState(isAuth);
-
+  
   const redirectTo = (value) => {
-    setAuth(true);
+   setAuth(true);
   };
   function refreshPage(){ 
     window.location.reload(); 
@@ -93,7 +93,7 @@ const Generalroutes = () => {
   };
 
   useEffect(() => {
-   
+      setAuth(isAuth)
   }, isLogin);
 
   return (
@@ -156,21 +156,28 @@ const Generalroutes = () => {
         />
         <Route exact path="/Observatorio/Contacto" component={Contacto} />
         <Route
-          isAuth={isLogin}
+          isAuth={isLogin}          
           exact
           path="/Observatorio/PlataformaUsuario"
-          component={Plataform}
+          render={() => {            
+            return !isAuth ? (
+              <Access  setAuth={redirectTo}></Access>
+            ) : (
+              <Plataform></Plataform>
+            );
+          }}
+          
         />
         <Route exact path="/Observatorio" component={ContentGrid} />
         <Route
           exact
           path="/Observatorio/login"
-          setAuth={redirectTo}
+         
           render={() => {
             return user && isLogin ? (
               <Redirect to="/Observatorio/PlataformaUsuario"></Redirect>
             ) : (
-              <Access></Access>
+              <Access  setAuth={redirectTo}></Access>
             );
           }}
         />
