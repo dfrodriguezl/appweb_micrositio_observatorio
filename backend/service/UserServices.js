@@ -81,7 +81,7 @@ class UserService {
             if (error) {
               rechazar(false);
             }
-            if (result.rows.length > 0) {
+            if (result) {
               resolver(result.rows[0]);
             } else {
               resolver(null);

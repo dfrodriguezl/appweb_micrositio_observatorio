@@ -221,7 +221,7 @@ class UserController {
   }
 
   static async upload(req, res) {
-    console.log(req);
+    let util = new Util(res);
     let file = req.files.archivo;
     console.log(req.body);
     console.log(file);
@@ -231,31 +231,57 @@ class UserController {
 
     let stream = fs.createWriteStream("./public/" + nombre);
     let position = 0;
+    let response = {
+      status: 200,
+      data: {},
+      message: "registro exitoso",
+      code: "OK",
+    };
     stream.write(file.data, (err) => {
-      xlsxFile("./public/" + nombre, { getSheets: true })
-        .then((sheets) => {
-          sheets.forEach((obj) => {
-            xlsxFile("./public/" + nombre, { sheet: obj.name }).then(async (rows) => {
-              let newRows = rows.splice(2, rows.length);
-              for (let i = 0; i < newRows.length; i++) {
-                let dataToSend
-                console.log(position)
-                switch (position) {
-                  case 0:
-                    console.log(newRows[i])
-                    dataToSend = ParserModel.transformToSheetsPH(newRows[i]) //transforma en el objeto que se creo en el enviador
-                    //await UserService.uploadfile(dataToSend) aqui iria para enviar los datos
-                    break;
+      try {
+        xlsxFile("./public/" + nombre, { getSheets: true })
+          .then((sheets) => {
+            sheets.forEach(async (obj) => {
+              await xlsxFile("./public/" + nombre, { sheet: obj.name }).then(
+                async (rows) => {
+                  let newRows = rows.splice(2, rows.length);
+                  for (let i = 0; i < newRows.length; i++) {
+                    let dataToSend;
+                    console.log(position);
+                    switch (position) {
+                      case 0:
+                        console.log(newRows[i]);
+                        dataToSend = ParserModel.transformToSheetsPH(
+                          newRows[i]
+                        ); //transforma en el objeto que se creo en el enviador
+                        await UserService.uploadfile(dataToSend)  //aqui iria para enviar los datos
+                        break;
+                    }
+                  }
+                  position += 1;
                 }
-              }
-              position += 1;
+              ).catch((err)=>{
+                response.code = "ERROR";
+                response.message = "Ocurrio un error inesperado";
+              });
             });
-           
+            util.saveData(response);
+            return util.sendResponse();
+          })
+          .catch((err) => {
+            response.code = "ERROR";
+            response.message = "Ocurrio un error inesperado";
+            util.saveData(response);
+            return util.sendResponse();
           });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      } catch (error) {
+        response.code = "ERROR";
+        response.message = "Ocurrio un error inesperado";
+        util.saveData(response);
+        return util.sendResponse();
+      }
+
+   
     });
   }
 
