@@ -4,12 +4,12 @@ const UserService = require("../service/UserServices");
 const TemplateRegister = require("../template/TemplateRegister");
 const TemplateLogin = require("../template/TemplateLogin");
 const Token = require("../classes/token");
-const xlsxFile = require('read-excel-file/node');
-const fs = require('fs')
+const xlsxFile = require("read-excel-file/node");
+const fs = require("fs");
+const ParserModel = require("../classes/parserModel");
 class UserController {
   static async changePassord(req, res) {
     let util = new Util(res);
-    console.log(req.body)
     let body = req.body;
     let response = {
       status: 200,
@@ -28,7 +28,7 @@ class UserController {
       });
       if (login) {
         req.body.email = req.body.usuario.email;
-        req.body.infokey = req.body.newinfokey
+        req.body.infokey = req.body.newinfokey;
         let updatePassword = await UserService.updatePassword(req.body);
         if (updatePassword) {
           response.code = "OK";
@@ -154,14 +154,14 @@ class UserController {
       } else {
         let success = await UserService.createUser(body);
         if (success) {
-          const id = success.id
+          const id = success.id;
           console.log(id);
           let contenidoTemplateLogin = TemplateLogin.getTemplateLogin(id);
-            await EmailService.sendEmail({
-              email: body.email,
-              contenido: contenidoTemplateLogin,
-              subject: "Usuario Registrado",
-            });
+          await EmailService.sendEmail({
+            email: body.email,
+            contenido: contenidoTemplateLogin,
+            subject: "Usuario Registrado",
+          });
         } else {
           response.code = "ERROR";
           response.message = "Ocurrio un error en el registro de datos";
@@ -205,7 +205,7 @@ class UserController {
         });
         response.data = {
           token: tokenUser,
-          name:userFound.name
+          name: userFound.name,
         };
       } else {
         response.code = "USER001";
@@ -220,28 +220,44 @@ class UserController {
     return util.sendResponse();
   }
 
-static async upload(req, res){
-  console.log(req)
-  let file = req.files.archivo
-  console.log(req.body)
-  console.log(file);
-  let ext = "xlsx"
-  let log = "asd"
-  let nombre =Date.now()+".xlsx"
- 
-  let stream = fs.createWriteStream('./public/'+nombre)
-   stream.write(file.data,(err)=>{
-    xlsxFile('./public/'+nombre, { getSheets: true }).then((sheets) => {
-      sheets.forEach((obj)=>{
-             
-                
-             })
-         }).catch((err)=>{
-           console.log(err)
-         })
-   })
+  static async upload(req, res) {
+    console.log(req);
+    let file = req.files.archivo;
+    console.log(req.body);
+    console.log(file);
+    let ext = "xlsx";
+    let log = "asd";
+    let nombre = Date.now() + ".xlsx";
 
-}
+    let stream = fs.createWriteStream("./public/" + nombre);
+    let position = 0;
+    stream.write(file.data, (err) => {
+      xlsxFile("./public/" + nombre, { getSheets: true })
+        .then((sheets) => {
+          sheets.forEach((obj) => {
+            xlsxFile("./public/" + nombre, { sheet: obj.name }).then(async (rows) => {
+              let newRows = rows.splice(2, rows.length);
+              for (let i = 0; i < newRows.length; i++) {
+                let dataToSend
+                console.log(position)
+                switch (position) {
+                  case 0:
+                    console.log(newRows[i])
+                    dataToSend = ParserModel.transformToSheetsPH(newRows[i]) //transforma en el objeto que se creo en el enviador
+                    //await UserService.uploadfile(dataToSend) aqui iria para enviar los datos
+                    break;
+                }
+              }
+              position += 1;
+            });
+           
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  }
 
   static async testToken(req, res) {
     let util = new Util(res);
