@@ -23,7 +23,7 @@ class Token {
                 if (err) {
                     reject();
                 } else {
-                    console.log(decoded)
+                    //console.log(decoded)
                     resolve(decoded);
                 }
             })

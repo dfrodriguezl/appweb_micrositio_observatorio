@@ -8,6 +8,7 @@ const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const ParserModel = require("../classes/parserModel");
 class UserController {
+
   static async changePassord(req, res) {
     let util = new Util(res);
     let body = req.body;
@@ -50,6 +51,7 @@ class UserController {
     util.saveData(response);
     return util.sendResponse();
   }
+
   static async resetPassword(req, res) {
     let util = new Util(res);
     console.log(req.body);
@@ -83,6 +85,7 @@ class UserController {
     util.saveData(response);
     return util.sendResponse();
   }
+
   static async forgetPassword(req, res) {
     let util = new Util(res);
     let body = req.body;
@@ -132,6 +135,7 @@ class UserController {
     util.saveData(response);
     return util.sendResponse();
   }
+
   static async createUser(req, res) {
     let util = new Util(res);
     let body = req.body;
@@ -186,7 +190,7 @@ class UserController {
       message: "registro exitoso",
       code: "OK",
     };
-    console.log(body);
+    
     if (!body || typeof body !== "object") {
       util.saveData(response);
       return util.sendResponse();
@@ -196,8 +200,7 @@ class UserController {
 
       if (userFound) {
         response.code = "OK";
-        response.message = "Usuario encontrado";
-        console.log(userFound);
+        response.message = "Usuario encontrado";        
         const tokenUser = await Token.getJwtToken({
           id: userFound.id,
           name: userFound.name,
@@ -206,6 +209,7 @@ class UserController {
         response.data = {
           token: tokenUser,
           name: userFound.name,
+          id: userFound.id,
         };
       } else {
         response.code = "USER001";
@@ -220,51 +224,128 @@ class UserController {
     return util.sendResponse();
   }
 
+  static async statistics(req, res) {
+    let util = new Util(res);
+    let body = req.body;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {           
+        let selectph = await UserService.statisticsph(req.body.usuario.id);
+        let selectnph = await UserService.statisticsnph(req.body.usuario.id);
+        let selectrural = await UserService.statisticsrural(req.body.usuario.id);
+        if (selectph && selectnph && selectrural) {
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          response.data = {
+            cantidadph: selectph.cantidad,
+            cantidadnph: selectnph.cantidad,
+            cantidadrural: selectrural.cantidad,
+          };
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
   static async upload(req, res) {
     let util = new Util(res);
     let file = req.files.archivo;
-    console.log(req.body);
-    console.log(file);
+    
     let ext = "xlsx";
     let log = "asd";
     let nombre = Date.now() + ".xlsx";
 
     let stream = fs.createWriteStream("./public/" + nombre);
-    let position = 0;
+    // let position = 0;
     let response = {
       status: 200,
       data: {},
       message: "registro exitoso",
       code: "OK",
     };
-    stream.write(file.data, (err) => {
+    if (!body || typeof body !== "object") {
+      util.saveData(response);
+      return util.sendResponse();
+    }
+    stream.write(file.data, (err) => { //excel
       try {
         xlsxFile("./public/" + nombre, { getSheets: true })
           .then((sheets) => {
-            sheets.forEach(async (obj) => {
+            sheets.forEach(async (obj) => { //cantridad hojas
               await xlsxFile("./public/" + nombre, { sheet: obj.name }).then(
-                async (rows) => {
+                async (rows) => {                                 
                   let newRows = rows.splice(2, rows.length);
                   for (let i = 0; i < newRows.length; i++) {
-                    let dataToSend;
-                    console.log(position);
-                    switch (position) {
-                      case 0:
-                        console.log(newRows[i]);
-                        dataToSend = ParserModel.transformToSheetsPH(
+                    let dataToSend;                
+                    console.log({i})  
+                    console.log(obj)  
+                    console.log(newRows.length)                                      
+                    switch (obj.name) {                                         
+                      case "PH":
+                        console.log({dataToSend})
+                        dataToSend = ParserModel.transformToSheetsPH(                          
                           newRows[i]
                         ); //transforma en el objeto que se creo en el enviador
-                        await UserService.uploadfile(dataToSend)  //aqui iria para enviar los datos
+                        
+                        let phfound = await UserService.searchOfferPh(dataToSend);     
+                        if(phfound){
+                          await UserService.updateOfferPh(dataToSend)  //aqui iria para update
+                          console.log("holaph")
+                        }else{
+                          await UserService.uploadfileph(dataToSend)  //aqui iria parainsert
+                          
+                        }
+                        break;
+                      case "NPH":                        
+                        dataToSend = ParserModel.transformToSheetsNPH(                          
+                          newRows[i]
+                        ); //transforma en el objeto que se creo en el enviador
+                        
+                        let nphfound = await UserService.searchOfferNph(dataToSend);
+                        if(nphfound){
+                          await UserService.updateOfferNph(dataToSend)  //aqui iria para update
+                          console.log("holanph")
+                        }else{
+                          await UserService.uploadfilenph(dataToSend)  //aqui iria parainsert
+                          
+                        }
+                        break;
+                      case "RURAL":                        
+                        dataToSend = ParserModel.transformToSheetsRURAL(                          
+                          newRows[i]
+                        ); //transforma en el objeto que se creo en el enviador
+                        
+                        let ruralfound = await UserService.searchOfferRural(dataToSend);
+                        if(ruralfound){
+                          await UserService.updateOfferRural(dataToSend)  //aqui iria para update
+                          console.log("holarural")
+                        }else{
+                          await UserService.uploadfilerural(dataToSend)  //aqui iria parainsert
+                          
+                        }
                         break;
                     }
-                  }
-                  position += 1;
+                  }                  
                 }
               ).catch((err)=>{
                 response.code = "ERROR";
                 response.message = "Ocurrio un error inesperado";
-              });
+              });              
             });
+            //console.log({response})
             util.saveData(response);
             return util.sendResponse();
           })
@@ -279,9 +360,7 @@ class UserController {
         response.message = "Ocurrio un error inesperado";
         util.saveData(response);
         return util.sendResponse();
-      }
-
-   
+      }  
     });
   }
 

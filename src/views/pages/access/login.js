@@ -152,6 +152,7 @@ const FormAccess = (props) => {
              if(response.data.code == "OK"){
                 localStorage.setItem("token",response.data.data.token)
                 localStorage.setItem("name",response.data.data.name)
+                localStorage.setItem("id",response.data.data.id)
                 props.setAuth(true)
              }else{
                  setLoading(false)

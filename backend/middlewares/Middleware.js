@@ -6,7 +6,7 @@ class Middleware {
         const userToken = req.headers.token ? req.headers.token : '';
         await  Token.comprobarToken( userToken )
             .then((decoded) => {
-                console.log('Decoded', decoded );
+                //console.log('Decoded', decoded );
                 req.body.usuario = decoded.usuario;
                
                 next();

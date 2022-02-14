@@ -31,7 +31,7 @@ import PieChart, {
   Export,
   Tooltip,
 } from "devextreme-react/pie-chart";
-import React, { Component, useState } from "react";
+import React, { Component, useState,useEffect } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
@@ -39,9 +39,12 @@ import Excel from "Observatorio/img/excel.png";
 import pdf from "Observatorio/img/pdf.png";
 import geograph from "Observatorio/img/geograph.png";
 import forgot from "Observatorio/img/Forgot.svg";
+import anotation from "Observatorio/img/Annotation-cuate.svg";
 import { dataSource } from "Observatorio/common/datosdashboard.js";
 import { dataSource2 } from "Observatorio/common/dashboardbar.js";
-import enviroment from '../../config/enviroment'
+import enviroment from '../../config/enviroment';
+import Modal2 from "Observatorio/pages/modal";
+
 
 const useStyle = makeStyles({
   botonmodal: {
@@ -148,6 +151,15 @@ const useStyle = makeStyles({
     textAlign: "left",
   },
 
+  Titleh4: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: "calc(1em + 1.5vh)",
+    textAlign: "left",
+    padding:"0 0 0 6em"
+  },
+
   marginout: {
     margin: "0 0 0.5vw 0",
   },
@@ -181,6 +193,25 @@ const useStyle = makeStyles({
     textAlign: "center",
     width: "90%",
     padding: "0 0 1em 0",
+  },
+
+  Textp_1: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "start",
+    width: "90%",
+    padding: "1em 0 0.5em 10em",
+  },
+
+  Textp_2: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "start",
+    width: "90%",
+    padding: "1em 0 0.5em 10em",
+    fontStyle: "italic"
   },
 
   Textp1: {
@@ -404,16 +435,55 @@ const style = {
 };
 
 const Cardsmapas = () => {
+
+  const [statistics, setstatistics] = useState({
+    cantidadph:"",
+    cantidadnph:"",
+    cantidadrural:""
+  })   
+
+  const loadStatistics = () =>{
+    console.log({statistics})
+    let token = localStorage.getItem("token")
+    axios
+      .get(`${enviroment.endpoint}/PlataformaUsuario`,{
+        headers: { 
+            'Content-Type' : 'application/json',
+            token: token, 
+        }
+    })
+      .then((response) => {
+        if (response.status == 200) {
+          if (response.data.code == "OK") {
+            setstatistics(response.data.data)
+            console.log(response.data.data)
+          } else {
+            alert("ocurrio un problema Error!..");
+          }
+        } else {         
+          alert("ocurrio un problema externo");
+        }
+      })
+  }
+
+  useEffect(()=>{   
+    loadStatistics();      
+  }, [])
+
   const classes = useStyle();
   const matches = useMediaQuery("(max-width:769px)");
   const matches2 = useMediaQuery("(min-width:1281px)");
+
   const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [openValidation, setOpenValidation] = useState(false)
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleClose1 = () => setOpen1(false);
 
   const upload = () => {
     document.getElementById("file").files[0];
-    console.log(document.getElementById("file").files[0]);
 
     const archivos = document.getElementById("file").files;
     const data = new FormData();
@@ -429,16 +499,18 @@ const Cardsmapas = () => {
       .then((response) => {
         console.log(response);
         if (response.status == 200) {
-          if (response.data.code == "OK") {
-            localStorage.setItem("token", response.data.data.token);
-            localStorage.setItem("name", response.data.data.name);
-            props.setAuth(true);
+          if (response.data.code == "OK") {            
+            loadStatistics();
+            setOpen1(true) 
+            setOpen(false)            
           } else {
-            setLoading(false);
+            // setLoading(false);
+            setOpenValidation(true)
             alert("Usuario o contraseña incorrecto");
           }
         } else {
-          setLoading(false);
+          // setLoading(false);
+          setOpenValidation(true)
           alert("ocurrio un problema externo");
         }
       });
@@ -545,7 +617,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>0</p>
+                        <p className={classes.contentnum}>{statistics.cantidadph}</p>
                       </Grid>
                     </Grid>
                     <Grid
@@ -572,7 +644,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>0</p>
+                        <p className={classes.contentnum}>{statistics.cantidadnph}</p>
                       </Grid>
                     </Grid>
                     <Grid
@@ -599,7 +671,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>0</p>
+                        <p className={classes.contentnum}>{statistics.cantidadrural}</p>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -1090,6 +1162,113 @@ const Cardsmapas = () => {
         <Grid
           container
           direction="column"
+          key={4}
+          className={classes.cardglobal}
+        >
+          <Card className={classes.root}>
+            <CardContent className={classes.cardglobal2}>
+              <Grid container direction="row" item xs>
+                <Grid item xs container direction="column">
+                  <CardContent className={classes.centerText}>
+                      <Grid direction="row" container>
+                      <p className={classes.Titleh4}>Censo de Edificaciones (CEED)</p>
+                      </Grid>
+                      <Grid>
+                      <Typography className={classes.Textp_1}>El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y culminada).</Typography>
+                      <Typography className={classes.Textp_1}>
+                        Con el diligenciamiento del siguiente formulario, el DANE suministrara la informaciòn requerida al correo registrado, en cumplimiento al Artículo 2.2.2.2.26. Obligación de suministro de información la gestión catastral, en su numeral 4 que menciona: 
+                      </Typography>
+                      <Typography className={classes.Textp_2}>
+                        "EL DANE deberá suministrar al Gestor Catastral el Cesnso de Edificaciones CEED a nivel de manzana. Lo anterior en el marco de la reserva estadística contenida en el artículo 5° de la Ley 79 de 1993"
+                      </Typography>
+                      </Grid>
+                    <Grid container direction={direccion} className={pading}>
+                      <Grid item xs={numero} direction="column" container>
+                        <CardMedia className={estilo} image={anotation} />
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <Grid
+                          container
+                          className={classes.rootpassword}
+                          justifyContent="center"
+                        >
+                          <Typography className={classes.Textpass}>
+                            formulario
+                          </Typography>
+                          <Button
+                            href="/Observatorio/ChangePassword"
+                            className={classes.botonpass}
+                          >
+                            boton
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          key={5}
+          className={classes.cardglobal}
+        >
+          <Card className={classes.root}>
+            <CardContent className={classes.cardglobal2}>
+              <Grid container direction="row" item xs>
+                <Grid item xs container direction="column">
+                  <CardContent className={classes.centerText}>
+                      <Grid direction="row" container>
+                      <p className={classes.Titleh4}>Visor</p>
+                      </Grid>
+                      <Grid>
+                      <Typography className={classes.Textp_1}>En la siguiente herramienta se podrá visualizar la ubicación geográfica de las ofertas, asi mismo, se podrán realizar filtros por el tipo de ofertas y/o destino economico.</Typography>
+                      </Grid>
+                    <Grid container direction={direccion} className={pading}>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <Grid
+                          container
+                          className={classes.rootpassword}
+                          justifyContent="center"
+                        >
+                          {/* <Typography className={classes.Textpass}>
+                            formulario
+                          </Typography>
+                          <Button
+                            href="/Observatorio/ChangePassword"
+                            className={classes.botonpass}
+                          >
+                            boton
+                          </Button> */}
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid
+          container
+          direction="column"
           key={3}
           className={classes.cardglobal}
         >
@@ -1175,8 +1354,52 @@ const Cardsmapas = () => {
               value="Cargar"
             />
           </Box>
-        </Modal>
+        </Modal>            
       </form>
+            {/* <Modal2 open={open1} Title="El cargue a sido ¡Exitoso!" textContainer="La información del excel a sido cargada de forma exitosa" >
+            </Modal2> */}
+
+            <Modal
+          open={open1}
+          onClose={handleClose1}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography
+              className={classes.Titlep}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Text in a modal
+            </Typography>
+            <Typography
+              className={classes.Textp}
+              id="modal-modal-description"
+              sx={{ mt: 2 }}
+            >
+              ligula.
+            </Typography>
+            <input
+              className={classes.botonmodal}
+              // onClick={}
+              type="file"
+              id="file"
+              name="avatar"
+              accept="xlsx/gpkg"
+            />
+            <input
+              className={classes.botonmodal1}
+              onClick={upload}
+              type="submit"
+              value="Cargar"
+            />
+          </Box>
+        </Modal> 
+           
+            <Modal2 open={openValidation} handleClose={handleClose1} Title="Su cargue no ha sido exitoso" textContainer="Por favor valide los datos ingresados e intente nuevamente" >
+            </Modal2>
     </Grid>
   );
 };

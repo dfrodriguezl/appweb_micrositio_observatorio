@@ -59,7 +59,7 @@ const sendEmail = () =>{
              }
          }
  ).then(response => { 
-     console.log(response)  
+     //console.log(response)  
      if(response.status == 200 ){
          if(response.data.code == "OK"){
                 setLoading(false)
