@@ -7,6 +7,7 @@ const Token = require("../classes/token");
 const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const ParserModel = require("../classes/parserModel");
+const SheetsController = require("./SheetsController");
 class UserController {
 
   static async changePassord(req, res) {
@@ -266,8 +267,7 @@ class UserController {
     
     let ext = "xlsx";
     let log = "asd";
-    let nombre = Date.now() + ".xlsx";
-
+    let nombre = Date.now() + ".xlsx"
     let stream = fs.createWriteStream("./public/" + nombre);
     // let position = 0;
     let response = {
@@ -276,86 +276,74 @@ class UserController {
       message: "registro exitoso",
       code: "OK",
     };
-    if (!body || typeof body !== "object") {
-      util.saveData(response);
-      return util.sendResponse();
-    }
-    stream.write(file.data, (err) => { //excel
+    stream.write(file.data, async (err) => { //excel
       try {
         xlsxFile("./public/" + nombre, { getSheets: true })
-          .then((sheets) => {
-            sheets.forEach(async (obj) => { //cantridad hojas
-              await xlsxFile("./public/" + nombre, { sheet: obj.name }).then(
-                async (rows) => {                                 
-                  let newRows = rows.splice(2, rows.length);
-                  for (let i = 0; i < newRows.length; i++) {
-                    let dataToSend;                
-                    console.log({i})  
-                    console.log(obj)  
-                    console.log(newRows.length)                                      
-                    switch (obj.name) {                                         
-                      case "PH":
-                        console.log({dataToSend})
-                        dataToSend = ParserModel.transformToSheetsPH(                          
-                          newRows[i]
-                        ); //transforma en el objeto que se creo en el enviador
+          .then(async (sheets) => {
+            console.log(sheets)
+            for(let i = 0; i < sheets.length;i++){
+              let rows = await  SheetsController.openSheetsFile(nombre,sheets[i].name)
+              let newRows = rows.splice(2, rows.length);
+                for (let i = 0; i < newRows.length; i++) {
+                  let dataToSend;                                                 
+                  switch (sheets[i].name) {                                         
+                    case "PH":
+                      console.log({dataToSend})
+                      dataToSend = ParserModel.transformToSheetsPH(                          
+                        newRows[i]
+                      ); //transforma en el objeto que se creo en el enviador
+                      
+                      let phfound = await UserService.searchOfferPh(dataToSend);     
+                      if(phfound){
+                        await UserService.updateOfferPh(dataToSend)  //aqui iria para update
+                        console.log("holaph")
+                      }else{
+                        await UserService.uploadfileph(dataToSend)  //aqui iria parainsert
                         
-                        let phfound = await UserService.searchOfferPh(dataToSend);     
-                        if(phfound){
-                          await UserService.updateOfferPh(dataToSend)  //aqui iria para update
-                          console.log("holaph")
-                        }else{
-                          await UserService.uploadfileph(dataToSend)  //aqui iria parainsert
-                          
-                        }
-                        break;
-                      case "NPH":                        
-                        dataToSend = ParserModel.transformToSheetsNPH(                          
-                          newRows[i]
-                        ); //transforma en el objeto que se creo en el enviador
+                      }
+                      break;
+                    case "NPH":                        
+                      dataToSend = ParserModel.transformToSheetsNPH(                          
+                        newRows[i]
+                      ); //transforma en el objeto que se creo en el enviador
+                      
+                      let nphfound = await UserService.searchOfferNph(dataToSend);
+                      if(nphfound){
+                        await UserService.updateOfferNph(dataToSend)  //aqui iria para update
+                        console.log("holanph")
+                      }else{
+                        await UserService.uploadfilenph(dataToSend)  //aqui iria parainsert
                         
-                        let nphfound = await UserService.searchOfferNph(dataToSend);
-                        if(nphfound){
-                          await UserService.updateOfferNph(dataToSend)  //aqui iria para update
-                          console.log("holanph")
-                        }else{
-                          await UserService.uploadfilenph(dataToSend)  //aqui iria parainsert
-                          
-                        }
-                        break;
-                      case "RURAL":                        
-                        dataToSend = ParserModel.transformToSheetsRURAL(                          
-                          newRows[i]
-                        ); //transforma en el objeto que se creo en el enviador
+                      }
+                      break;
+                    case "RURAL":                        
+                      dataToSend = ParserModel.transformToSheetsRURAL(                          
+                        newRows[i]
+                      ); //transforma en el objeto que se creo en el enviador
+                      
+                      let ruralfound = await UserService.searchOfferRural(dataToSend);
+                      if(ruralfound){
+                        await UserService.updateOfferRural(dataToSend)  //aqui iria para update
+                      }else{
+                        await UserService.uploadfilerural(dataToSend)  //aqui iria parainsert
                         
-                        let ruralfound = await UserService.searchOfferRural(dataToSend);
-                        if(ruralfound){
-                          await UserService.updateOfferRural(dataToSend)  //aqui iria para update
-                          console.log("holarural")
-                        }else{
-                          await UserService.uploadfilerural(dataToSend)  //aqui iria parainsert
-                          
-                        }
-                        break;
-                    }
-                  }                  
-                }
-              ).catch((err)=>{
-                response.code = "ERROR";
-                response.message = "Ocurrio un error inesperado";
-              });              
-            });
-            //console.log({response})
+                      }
+                      break;
+                  }
+                }   
+            }
             util.saveData(response);
             return util.sendResponse();
           })
           .catch((err) => {
+            console.log(err)
             response.code = "ERROR";
             response.message = "Ocurrio un error inesperado";
             util.saveData(response);
             return util.sendResponse();
           });
       } catch (error) {
+        console.log(error)
         response.code = "ERROR";
         response.message = "Ocurrio un error inesperado";
         util.saveData(response);

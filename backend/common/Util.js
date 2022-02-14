@@ -19,6 +19,8 @@ class Util{
             message:this.message,
             status:this.status
           };
+          //Esto no debe ir  aproducción
+          console.log("voy a enviar respuesta " + JSON.stringify(result))
           return this.res.status(200).json(result);
     }
 }
