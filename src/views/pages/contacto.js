@@ -243,7 +243,7 @@ const Contacto = () => {
                             <TextField name="telefono" value={form.telefono} onChange={handleChangeValue} size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
                     </Grid>
-                    <Grid item direction="row" container>
+                    {/* <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
                             <Typography className={classes.Textp}>
                                 Dirección
@@ -252,7 +252,7 @@ const Contacto = () => {
                         <Grid item lg={4} md={4} sm={4} xs={12}>
                             <TextField name="direccion" value={form.direccion} onChange={handleChangeValue} size="small" className={textFieldStyle} id="outlined-basic"  />
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
                             <Typography className={classes.Textp}>

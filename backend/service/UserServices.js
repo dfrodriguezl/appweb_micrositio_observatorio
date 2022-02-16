@@ -52,10 +52,10 @@ class UserService {
       pool
         .getConnection()
         .query(
-          "select * from private.offerph o where o.id_oferta_ph= $1 and o.codigo_observatorio= $2",
+          "select o.id_oferta_ph, o.codigo_observatorio from private.offerph o where o.id_oferta_ph= $1 and o.codigo_observatorio= $2",
           [file.a, file.b],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }
@@ -75,10 +75,10 @@ class UserService {
       pool
         .getConnection()
         .query(
-          "select * from private.offernph o where o.id_oferta_nph= $1 and o.codigo_observatorio= $2",
+          "select o.id_oferta_nph, o.codigo_observatorio from private.offernph o where o.id_oferta_nph= $1 and o.codigo_observatorio= $2",
           [file.a, file.b],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }
@@ -98,10 +98,10 @@ class UserService {
       pool
         .getConnection()
         .query(
-          "select * from private.offerrural o where o.id_oferta_rural= $1 and o.codigo_observatorio= $2",
+          "select o.id_oferta_rural, o.codigo_observatorio from private.offerrural o where o.id_oferta_rural= $1 and o.codigo_observatorio= $2",
           [file.a, file.b],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }
@@ -301,7 +301,7 @@ class UserService {
           "SELECT count(*) as cantidad FROM private.offerph r where r.codigo_observatorio=$1",
           [obj],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }
@@ -324,7 +324,7 @@ class UserService {
           "SELECT count(*) as cantidad FROM private.offernph r where r.codigo_observatorio=$1",
           [obj],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }
@@ -349,7 +349,7 @@ class UserService {
           "SELECT count(*) as cantidad FROM private.offerrural r where r.codigo_observatorio=$1",
           [obj],
           (error, result) => {
-            console.log(error);
+            
             if (error) {
               rechazar(null);
             }

@@ -268,7 +268,9 @@ class UserController {
     let ext = "xlsx";
     let log = "asd";
     let nombre = Date.now() + ".xlsx"
-    let stream = fs.createWriteStream("./public/" + nombre);
+    console.log("aqui voy")
+    let stream = fs.createWriteStream("/home/geoportal/html/geoportal/descargas/oin/" + nombre);
+    console.log("pase")
     // let position = 0;
     let response = {
       status: 200,
@@ -278,21 +280,25 @@ class UserController {
     };
     stream.write(file.data, async (err) => { //excel
       try {
-        xlsxFile("./public/" + nombre, { getSheets: true })
+        console.log("aqui voy2")
+        xlsxFile("/home/geoportal/html/geoportal/descargas/oin/" + nombre, { getSheets: true })//error pro
           .then(async (sheets) => {
+            console.log("pase2")
             console.log(sheets)
             for(let i = 0; i < sheets.length;i++){
+              console.log("aqui voy3 arreglo")
               let rows = await  SheetsController.openSheetsFile(nombre,sheets[i].name)
+              console.log("pase3")
               let newRows = rows.splice(2, rows.length);
-                for (let i = 0; i < newRows.length; i++) {
+                for (let j = 0; j < newRows.length; j++) {
                   let dataToSend;                                                 
                   switch (sheets[i].name) {                                         
                     case "PH":
                       console.log({dataToSend})
                       dataToSend = ParserModel.transformToSheetsPH(                          
-                        newRows[i]
+                        newRows[j]
                       ); //transforma en el objeto que se creo en el enviador
-                      
+                      console.log({dataToSend})
                       let phfound = await UserService.searchOfferPh(dataToSend);     
                       if(phfound){
                         await UserService.updateOfferPh(dataToSend)  //aqui iria para update
@@ -304,7 +310,7 @@ class UserController {
                       break;
                     case "NPH":                        
                       dataToSend = ParserModel.transformToSheetsNPH(                          
-                        newRows[i]
+                        newRows[j]
                       ); //transforma en el objeto que se creo en el enviador
                       
                       let nphfound = await UserService.searchOfferNph(dataToSend);
@@ -318,7 +324,7 @@ class UserController {
                       break;
                     case "RURAL":                        
                       dataToSend = ParserModel.transformToSheetsRURAL(                          
-                        newRows[i]
+                        newRows[j]
                       ); //transforma en el objeto que se creo en el enviador
                       
                       let ruralfound = await UserService.searchOfferRural(dataToSend);

@@ -506,12 +506,12 @@ const Cardsmapas = () => {
           } else {
             // setLoading(false);
             setOpenValidation(true)
-            alert("Usuario o contraseña incorrecto");
+            //alert("Usuario o contraseña incorrecto");
           }
         } else {
           // setLoading(false);
           setOpenValidation(true)
-          alert("ocurrio un problema externo");
+          //alert("ocurrio un problema externo");
         }
       });
   };

@@ -74,12 +74,7 @@ const menuDane = [
             icon:"",
             isMain:false
         },
-        {
-            name:"Dashboard análisis Soacha",
-            link:"http://159.203.180.99:9091/ofertas",
-            icon:"",
-            isMain:false
-        },
+        
     ],
     [
         {

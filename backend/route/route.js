@@ -1,5 +1,6 @@
 const { Router } = require('express')
 
+
 const UserController = require('../controller/UserController')
 const ContactController = require('../controller/ContactController')
 const CeedController = require('../controller/CeedController')
@@ -18,3 +19,8 @@ router.post('/user/changepassword',Middleware.verificaToken,UserController.chang
 router.get('/PlataformaUsuario',Middleware.verificaToken,UserController.statistics)
 router.post('/PlataformaUsuario',UserController.upload)
 module.exports = router;
+
+
+
+// const path = require("path");
+// const directory = path.join(__dirname, "./public/");
