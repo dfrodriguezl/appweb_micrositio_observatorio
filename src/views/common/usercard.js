@@ -13,6 +13,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import SelectBox from "devextreme-react/select-box";
+import Map from 'devextreme-react/map';
 import { useForm } from "react-hook-form";
 import {
   Chart,
@@ -30,6 +31,8 @@ import PieChart, {
   Size,
   Export,
   Tooltip,
+  Title,
+  Color,
 } from "devextreme-react/pie-chart";
 import React, { Component, useState,useEffect } from "react";
 import * as Values from "Observatorio/Variables/values";
@@ -40,13 +43,20 @@ import pdf from "Observatorio/img/pdf.png";
 import geograph from "Observatorio/img/geograph.png";
 import forgot from "Observatorio/img/Forgot.svg";
 import anotation from "Observatorio/img/Annotation-cuate.svg";
-import { dataSource } from "Observatorio/common/datosdashboard.js";
-import { dataSource2 } from "Observatorio/common/dashboardbar.js";
+const Dash = require ("Observatorio/common/datosdashboard.js");
+const DashBar = require ("Observatorio/common/dashboardbar.js");
+import {Loader} from '../pages/loader/loader'
 import enviroment from '../../config/enviroment';
 import Modal2 from "Observatorio/pages/modal";
+let respuesta="";
+import MapDash from './dashMap.js';
 
+const markerUrl = 'https://js.devexpress.com/Demos/RealtorApp/images/map-marker.png';
 
 const useStyle = makeStyles({
+  tamaño: {
+    width:"100%"
+},
   botonmodal: {
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
@@ -435,15 +445,20 @@ const style = {
 };
 
 const Cardsmapas = () => {
+  // let respuesta="";
+  const [statistics, setstatistics] = useState({})   
 
-  const [statistics, setstatistics] = useState({
-    cantidadph:"",
-    cantidadnph:"",
-    cantidadrural:""
-  })   
+  const [ph_venta_arriendo, setph_venta_arriendo] = useState({})
+  const [nph_venta_arriendo, setnph_venta_arriendo] = useState({})
+  const [rural_venta_arriendo, setrural_venta_arriendo] = useState({})
+  const [ph_destinacion_economica, setph_destinacion_economica] = useState({})
+  const [nph_destinacion_economica, setnph_destinacion_economica] = useState({})
+  const [rural_destinacion_economica, setrural_destinacion_economica] = useState({})
+  const [locationph, setlocationph] = useState({})
+  const [openLoading,setLoading] = useState(false)
+  
 
-  const loadStatistics = () =>{
-    console.log({statistics})
+  const loadStatistics = () =>{    
     let token = localStorage.getItem("token")
     axios
       .get(`${enviroment.endpoint}/PlataformaUsuario`,{
@@ -455,8 +470,59 @@ const Cardsmapas = () => {
       .then((response) => {
         if (response.status == 200) {
           if (response.data.code == "OK") {
-            setstatistics(response.data.data)
             console.log(response.data.data)
+            setstatistics(response.data.data)            
+          } else {
+            alert("ocurrio un problema Error!..");
+          }
+        } else {         
+          alert("ocurrio un problema externo");
+        }
+      })
+  }
+
+  const loadStatisticsventaarrendoph = () =>{    
+    let token = localStorage.getItem("token")
+    axios
+      .get(`${enviroment.endpoint}/PlataformaUsuario/graphis`,{
+        headers: { 
+            'Content-Type' : 'application/json',
+            token: token, 
+        }
+    })
+      .then((response) => {
+        if (response.status == 200) {
+          if (response.data.code == "OK") {  
+            setph_venta_arriendo(response.data.data.cantidadph_arrendo_ventaph)    
+            setnph_venta_arriendo(response.data.data.cantidadph_arrendo_ventanph) 
+            setrural_venta_arriendo(response.data.data.cantidadph_arrendo_ventarural)  
+            setph_destinacion_economica(response.data.data.cantidad_destinacion_economica_ph)
+            setnph_destinacion_economica(response.data.data.cantidad_destinacion_economica_nph) 
+            setrural_destinacion_economica(response.data.data.cantidad_destinacion_economica_rural)     
+                 
+          } else {
+            alert("ocurrio un problema Error!..");
+          }
+        } else {         
+          alert("ocurrio un problema externo");
+        }
+      })
+  }  
+
+  const locationUser = () =>{    
+    let token = localStorage.getItem("token")
+    axios
+      .get(`${enviroment.endpoint}/PlataformaUsuario/location`,{
+        headers: { 
+            'Content-Type' : 'application/json',
+            token: token, 
+        }
+    })
+      .then((response) => {
+        if (response.status == 200) {
+          if (response.data.code == "OK") {
+            //console.log(response.data.data.locationph) 
+            setlocationph(response.data.data.locationph)           
           } else {
             alert("ocurrio un problema Error!..");
           }
@@ -467,8 +533,21 @@ const Cardsmapas = () => {
   }
 
   useEffect(()=>{   
-    loadStatistics();      
-  }, [])
+    loadStatistics(); 
+    loadStatisticsventaarrendoph();   
+    locationUser();
+  },[]) 
+
+   let dataSourceGeneral = Dash.dashBoardCake(statistics)     
+   let dataSourcePh = Dash.dashBoardCakePh(ph_venta_arriendo)
+   let dataSourceNph = Dash.dashBoardCakeNph(nph_venta_arriendo)
+   let dataSourceRural = Dash.dashBoardCakeRural(rural_venta_arriendo)
+   let dataDestinacionPh = DashBar.dashBoardDestinacionPH(ph_destinacion_economica)
+   let dataDestinacionNph = DashBar.dashBoardDestinacionNPH(nph_destinacion_economica)
+   let dataDestinacionRural = DashBar.dashBoardDestinacionRural(rural_destinacion_economica)
+   let dataLocationPh = MapDash.markersDataPh(locationph)
+    // console.log("primero",dataSourceNph)
+    // console.log("segundo",dataDestinacionPh)
 
   const classes = useStyle();
   const matches = useMediaQuery("(max-width:769px)");
@@ -476,42 +555,47 @@ const Cardsmapas = () => {
 
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = useState(false);
-  const [openValidation, setOpenValidation] = useState(false)
-
+  const [open2, setOpen2] = useState(false);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleClose1 = () => setOpen1(false);
+  const handleClose2 = () => setOpen2(false);
 
   const upload = () => {
     document.getElementById("file").files[0];
-
+    let token = localStorage.getItem("token")
     const archivos = document.getElementById("file").files;
     const data = new FormData();
   
     data.append('archivo', archivos[0]);
-
+    setLoading(true)
+    setOpen(false)
     axios
       .post(`${enviroment.endpoint}/PlataformaUsuario`, data ,{
         headers: { 
-            'Content-Type' : 'application/json' 
+            'Content-Type' : 'application/json',
+            token: token, 
         }
     })
-      .then((response) => {
-        console.log(response);
+      .then((response) => {        
         if (response.status == 200) {
+          respuesta=response.data.code;          
           if (response.data.code == "OK") {            
             loadStatistics();
-            setOpen1(true) 
-            setOpen(false)            
+            loadStatisticsventaarrendoph(); 
+            locationUser();
+            setLoading(false)
+            setOpen1(true)            
           } else {
-            // setLoading(false);
-            setOpenValidation(true)
+            setLoading(false);
+            setOpen2(true)
+            setOpen1(false) 
             //alert("Usuario o contraseña incorrecto");
           }
         } else {
-          // setLoading(false);
-          setOpenValidation(true)
-          //alert("ocurrio un problema externo");
+          setLoading(false);          
+          alert("ocurrio un problema externo");
         }
       });
   };
@@ -520,6 +604,7 @@ const Cardsmapas = () => {
   var estilo2 = null;
   var estilo3 = null;
   var sizegrafico = null;
+  var sizegrafico2 = null;
   var direccion = null;
   var pading = null;
   var title_ = null;
@@ -534,6 +619,7 @@ const Cardsmapas = () => {
       estilo2 = classes.excel;
       direccion = "row";
       sizegrafico = 580;
+      sizegrafico2 = 450;
       prueba = 1250;
       pading = classes.pading;
       title_ = "row";
@@ -545,6 +631,7 @@ const Cardsmapas = () => {
         estilo3 = classes.mediawidth;
         estilo2 = classes.excel2;
         sizegrafico = 300;
+        sizegrafico2 = 250;
         prueba = 300;
         direccion = "column";
         pading = classes.pading2;
@@ -554,6 +641,7 @@ const Cardsmapas = () => {
       } else {
         estilo = classes.media3;
         sizegrafico = 450;
+        sizegrafico2 = 350;
         prueba = 600;
         title_ = "column";
         pading = classes.pading2;
@@ -718,9 +806,12 @@ const Cardsmapas = () => {
                           >
                             <PieChart
                               id="pie"
-                              dataSource={dataSource}
-                              palette="Soft"
+                              dataSource={dataSourceGeneral}
+                              palette="Material"
                             >
+                              <Title text={"General"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
                               <Series
                                 argumentField="country"
                                 valueField="medals"
@@ -735,7 +826,102 @@ const Cardsmapas = () => {
                               <Size width={sizegrafico} />
                               <Export enabled={true} />
                             </PieChart>
-                          </Grid>
+                          </Grid>                          
+                        </Grid>
+                        <Grid container item xs direction={title_}>
+                        <Grid
+                            container
+                            item
+                            xs
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="center"
+                          >
+                            <PieChart
+                              id="pie1"
+                              dataSource={dataSourcePh}
+                              palette="Material"
+                            >
+                              <Title text={"PH"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
+                              <Series
+                                argumentField="country"
+                                valueField="medals"
+                              />
+                              <Tooltip
+                                enabled={true}
+                                contentTemplate={customizeText}
+                                color="#821a3f"
+                              >
+                                <Font size={18} color="white" />
+                              </Tooltip>
+                              <Size width={sizegrafico2} />
+                              <Export enabled={true} />
+                            </PieChart>
+                          </Grid>  
+                          <Grid
+                            container
+                            item
+                            xs
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="center"
+                          >
+                            <PieChart
+                              id="pie2"
+                              dataSource={dataSourceNph}
+                              palette="Material"
+                            >
+                              <Title text={"NPH"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
+                              <Series
+                                argumentField="country"
+                                valueField="medals"
+                              />
+                              <Tooltip
+                                enabled={true}
+                                contentTemplate={customizeText}
+                                color="#821a3f"
+                              >
+                                <Font size={18} color="white" />
+                              </Tooltip>
+                              <Size width={sizegrafico2} />
+                              <Export enabled={true} />
+                            </PieChart>
+                          </Grid>  
+                          <Grid
+                            container
+                            item
+                            xs
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="center"
+                          >
+                            <PieChart
+                              id="pie3"
+                              dataSource={dataSourceRural}
+                              palette="Material"
+                            >
+                              <Title text={"Rural"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
+                              <Series
+                                argumentField="country"
+                                valueField="medals"
+                              />
+                              <Tooltip
+                                enabled={true}
+                                contentTemplate={customizeText}
+                                color="#821a3f"
+                              >
+                                <Font size={18} color="white" />
+                              </Tooltip>
+                              <Size width={sizegrafico2} />
+                              <Export enabled={true} />
+                            </PieChart>
+                          </Grid>  
                         </Grid>
                       </Grid>
                       <Grid
@@ -757,20 +943,23 @@ const Cardsmapas = () => {
                         >
                           <Chart
                             id="chart"
-                            dataSource={dataSource2}
-                            palette="Soft"
+                            dataSource={dataDestinacionPh}
+                            palette="Soft"                            
                           >
+                            <Title text={"PH"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                            </Title>
                             <CommonSeriesSettings
                               valueField="mass"
                               argumentField="id"
                               type="bar"
                               ignoreEmptyPoints={true}
                             >
-                              {/* <Label visible={true}>
+                              <Label visible={true}>
                                 <Format type="fixedPoint" precision={0} />
-                              </Label> */}
+                              </Label>
                             </CommonSeriesSettings>
-                            <SeriesTemplate nameField="name" />
+                            <SeriesTemplate argumentField="id" nameField="name" />
                             <Legend
                               visible={true}
                               verticalAlignment="top"
@@ -809,6 +998,146 @@ const Cardsmapas = () => {
                             No hay estadísticas para mostrar
                           </Grid> */}
                         </Grid>
+                        <Grid
+                          direction="row"
+                          item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                        >
+                          <Chart
+                            id="chart"
+                            dataSource={dataDestinacionNph}
+                            palette="Soft"
+                          >
+                            <Title text={"NPH"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
+                            <CommonSeriesSettings
+                              valueField="mass"
+                              argumentField="id"
+                              type="bar"
+                              ignoreEmptyPoints={true}
+                            >
+                              <Label visible={true}>
+                                <Format type="fixedPoint" precision={0} />
+                              </Label>
+                            </CommonSeriesSettings>
+                            <SeriesTemplate nameField="name" />
+                            <Legend
+                              visible={true}
+                              verticalAlignment="top"
+                              horizontalAlignment="center"
+                              itemTextPosition="right"
+                              width={18}
+                            />
+                            <Tooltip
+                              enabled={true}
+                              color="#821a3f"
+                              customizeTooltip={customizeTooltip}
+                            >
+                              <Font size={18} color="white" />
+                            </Tooltip>
+                            <Size width={prueba} />
+                            <Export enabled={true} />
+                          </Chart>
+                        </Grid>
+                        <Grid
+                          direction="row"
+                          item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                        >
+                          <Chart
+                            id="chart"
+                            dataSource={dataDestinacionRural}
+                            palette="Soft"
+                          >
+                            <Title text={"RURAL"}>
+                                  <Font color="#821a3f" family="Roboto" size={25} weight="bold"/> 
+                              </Title>
+                            <CommonSeriesSettings
+                              valueField="mass"
+                              argumentField="id"
+                              type="bar"
+                              ignoreEmptyPoints={true}
+                            >
+                              <Label visible={true}>
+                                <Format type="fixedPoint" precision={0} />
+                              </Label>
+                            </CommonSeriesSettings>
+                            <SeriesTemplate nameField="name" />
+                            <Legend
+                              visible={true}
+                              verticalAlignment="top"
+                              horizontalAlignment="center"
+                              itemTextPosition="right"
+                              width={18}
+                            />
+                            <Tooltip
+                              enabled={true}
+                              color="#821a3f"
+                              customizeTooltip={customizeTooltip}
+                            >
+                              <Font size={18} color="white" />
+                            </Tooltip>
+                            <Size width={prueba} />
+                            <Export enabled={true} />
+                          </Chart>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        
+        <Grid
+          container
+          direction="column"
+          key={5}
+          className={classes.cardglobal}
+        >
+          <Card className={classes.root}>
+            <CardContent className={classes.cardglobal2}>
+              <Grid container direction="row" item xs>
+                <Grid item xs container direction="column">
+                  <CardContent className={classes.centerText}>
+                      <Grid direction="row" container>
+                      <p className={classes.Titleh4}>Visor</p>
+                      </Grid>
+                      <Grid>
+                      <Typography className={classes.Textp_1}>En la siguiente herramienta se podrá visualizar la ubicación geográfica de las ofertas, asi mismo, se podrán realizar filtros por el tipo de ofertas y/o destino economico.</Typography>
+                      </Grid>
+                    <Grid container direction={direccion} className={pading}>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        {/* <Grid
+                          container
+                          className={classes.rootpassword}
+                          justifyContent="center"
+                        > */}
+                            <div className={classes.tamaño}>
+                              <Map
+                                defaultZoom={11}
+                                height={440}
+                                width="100%"
+                                controls={true}
+                                markerIconSrc={markerUrl}
+                                markers={dataLocationPh}
+                                provider="bing">
+                              </Map>
+                            </div>
+                        {/* </Grid> */}
                       </Grid>
                     </Grid>
                   </CardContent>
@@ -1220,55 +1549,6 @@ const Cardsmapas = () => {
         <Grid
           container
           direction="column"
-          key={5}
-          className={classes.cardglobal}
-        >
-          <Card className={classes.root}>
-            <CardContent className={classes.cardglobal2}>
-              <Grid container direction="row" item xs>
-                <Grid item xs container direction="column">
-                  <CardContent className={classes.centerText}>
-                      <Grid direction="row" container>
-                      <p className={classes.Titleh4}>Visor</p>
-                      </Grid>
-                      <Grid>
-                      <Typography className={classes.Textp_1}>En la siguiente herramienta se podrá visualizar la ubicación geográfica de las ofertas, asi mismo, se podrán realizar filtros por el tipo de ofertas y/o destino economico.</Typography>
-                      </Grid>
-                    <Grid container direction={direccion} className={pading}>
-                      <Grid
-                        container
-                        item
-                        xs
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <Grid
-                          container
-                          className={classes.rootpassword}
-                          justifyContent="center"
-                        >
-                          {/* <Typography className={classes.Textpass}>
-                            formulario
-                          </Typography>
-                          <Button
-                            href="/Observatorio/ChangePassword"
-                            className={classes.botonpass}
-                          >
-                            boton
-                          </Button> */}
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid
-          container
-          direction="column"
           key={3}
           className={classes.cardglobal}
         >
@@ -1397,9 +1677,34 @@ const Cardsmapas = () => {
             />
           </Box>
         </Modal> 
+
+        <Modal
+          open={open2}
+          onClose={handleClose2}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography
+              className={classes.Titlep}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+             Error!!
+            </Typography>
+            <Typography
+              className={classes.Textp}
+              id="modal-modal-description"
+              sx={{ mt: 2 }}
+            >
+              {respuesta}
+              {console.log(respuesta)}
+            </Typography>
+          </Box>
+        </Modal> 
            
-            <Modal2 open={openValidation} handleClose={handleClose1} Title="Su cargue no ha sido exitoso" textContainer="Por favor valide los datos ingresados e intente nuevamente" >
-            </Modal2>
+        <Loader open={openLoading}></Loader>    
     </Grid>
   );
 };
@@ -1413,4 +1718,5 @@ function customizeTooltip(arg) {
     text: `${arg.seriesName} - ${arg.valueText}`,
   };
 }
+
 export default Cardsmapas;

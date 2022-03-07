@@ -17,7 +17,9 @@ router.post('/ceed',CeedController.createCeed)
 router.post('/user/resetpassword',Middleware.verificaToken,UserController.resetPassword)
 router.post('/user/changepassword',Middleware.verificaToken,UserController.changePassord)
 router.get('/PlataformaUsuario',Middleware.verificaToken,UserController.statistics)
-router.post('/PlataformaUsuario',UserController.upload)
+router.get('/PlataformaUsuario/graphis',Middleware.verificaToken,UserController.statistics_venta_arriendo)
+router.get('/PlataformaUsuario/location',Middleware.verificaToken,UserController.locationUser)
+router.post('/PlataformaUsuario',Middleware.verificaToken,UserController.upload)
 module.exports = router;
 
 

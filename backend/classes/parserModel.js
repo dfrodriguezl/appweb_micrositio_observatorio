@@ -39,8 +39,8 @@ class ParserModel {
               a35: objSheet[34],
               a36: objSheet[35],
               a37: objSheet[36],
-              a38: objSheet[37],
-              a39: objSheet[38]
+              a38: objSheet[37]
+            //   a39: objSheet[38]
         }
     }
 
@@ -76,8 +76,8 @@ class ParserModel {
             a28: objSheet[27],
             a29: objSheet[28],
             a30: objSheet[29],
-            a31: objSheet[30],
-            a32: objSheet[31]
+            a31: objSheet[30]
+            // a32: objSheet[31]
       }
     }
 
@@ -117,8 +117,8 @@ class ParserModel {
             a32: objSheet[31],
             a33: objSheet[32],
             a34: objSheet[33],
-            a35: objSheet[34],
-            a36: objSheet[35]
+            a35: objSheet[34]
+            // a36: objSheet[35]
       }
     }
 

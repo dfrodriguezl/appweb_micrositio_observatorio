@@ -20,7 +20,7 @@ class Util{
             status:this.status
           };
           //Esto no debe ir  aproducción
-          console.log("voy a enviar respuesta " + JSON.stringify(result))
+          //console.log("voy a enviar respuesta " + JSON.stringify(result))
           return this.res.status(200).json(result);
     }
 }

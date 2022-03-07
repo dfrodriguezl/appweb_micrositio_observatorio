@@ -1,5 +1,6 @@
 let Util = require("../common/Util");
 const EmailService = require("../service/EmailServices");
+const Validate = require("../service/Validate");
 const UserService = require("../service/UserServices");
 const TemplateRegister = require("../template/TemplateRegister");
 const TemplateLogin = require("../template/TemplateLogin");
@@ -251,6 +252,7 @@ class UserController {
           response.message =
             "Lo sentimos, ocurrio un problema en nuestro sistema";
         }
+        console.log(response.data)
     } catch (error) {
       console.log(error);
       response.code = "ERROR";
@@ -261,78 +263,211 @@ class UserController {
     return util.sendResponse();
   }
 
+  static async statistics_venta_arriendo(req, res) {
+    let util = new Util(res);
+    let body = req.body;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try { 
+        let selectph  = await UserService.statisticsph_venta_arriendo(req.body.usuario.id);
+        let selectnph  = await UserService.statisticsnph_venta_arriendo(req.body.usuario.id);
+        let selectrural  = await UserService.statisticsrural_venta_arriendo(req.body.usuario.id);
+        let selectphdestinacioneconomicaPh = await UserService.statisticsph_destinacion_economica(req.body.usuario.id);
+        let selectphdestinacioneconomicaNph = await UserService.statisticsnph_destinacion_economica(req.body.usuario.id);
+        let selectphdestinacioneconomicaRural = await UserService.statisticsrural_destinacion_economica(req.body.usuario.id);
+        if (selectph && selectnph && selectrural && selectphdestinacioneconomicaPh && selectphdestinacioneconomicaNph && selectphdestinacioneconomicaRural) {
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";   
+          let arrayph = selectph.rows
+          let arraynph = selectnph.rows
+          let arrayrural = selectrural.rows
+          let arrayphdestinacion=selectphdestinacioneconomicaPh.rows
+          let arraynphdestinacion=selectphdestinacioneconomicaNph.rows
+          let arrayruraldestinacion=selectphdestinacioneconomicaRural.rows         
+          // console.log("hola1", arraynphdestinacion)
+          // console.log("hola2", arrayruraldestinacion)
+            const totalph = arrayph.reduce((prev, curr)=>{              
+              prev[curr['nombre_tipo_oferta']]=curr['venta_arriendo'];
+              return prev
+             }, {});   
+             
+             const totalnph = arraynph.reduce((prev, curr)=>{              
+              prev[curr['nombre_tipo_oferta']]=curr['venta_arriendo'];
+              return prev
+             }, {});  
+
+             const totalrural = arrayrural.reduce((prev, curr)=>{              
+              prev[curr['nombre_tipo_oferta']]=curr['venta_arriendo'];
+              return prev
+             }, {}); 
+
+             const totaldestinacionPh = arrayphdestinacion.reduce((prev, curr)=>{              
+              prev[curr['destinacionph']]=curr['destinacion'];
+              return prev
+             }, {}); 
+
+             const totaldestinacionNph = arraynphdestinacion.reduce((prev, curr)=>{              
+              prev[curr['destinacionnph']]=curr['destinacion'];
+              return prev
+             }, {}); 
+
+             const totaldestinacionRural = arrayruraldestinacion.reduce((prev, curr)=>{              
+              prev[curr['destinacionrural']]=curr['destinacion'];
+              return prev
+             }, {}); 
+
+            response.data = {
+              cantidadph_arrendo_ventaph: totalph,
+              cantidadph_arrendo_ventanph: totalnph,
+              cantidadph_arrendo_ventarural: totalrural,
+              cantidad_destinacion_economica_ph: totaldestinacionPh,
+              cantidad_destinacion_economica_nph: totaldestinacionNph,
+              cantidad_destinacion_economica_rural: totaldestinacionRural
+            }; 
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+        
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    //console.log(response.data, "hola data")
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
+  static async locationUser(req, res) {
+    let util = new Util(res);
+    let body = req.body;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {           
+        let selectph = await UserService.locationPh(req.body.usuario.id);
+        if (selectph) {
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          let arrayph = selectph.rows
+
+          // console.log(arrayph.length)
+          // console.log("___________________")
+          // console.log(arrayph)
+
+          // const totallocationph = arrayph.reduce((prev, curr)=>{              
+          //   prev[curr['nombre_destinacion_economica']]=curr['direccion'];
+          //   return prev
+          //  }, {}); 
+
+          response.data = {
+            locationph: arrayph,
+          };
+
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    //console.log("prueba", response.data)
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
   static async upload(req, res) {
     let util = new Util(res);
     let file = req.files.archivo;
-    
+    let id_obsevatorio = req.body.usuario.id;
     let ext = "xlsx";
     let log = "asd";
     let nombre = Date.now() + ".xlsx"
-    console.log("aqui voy")
-    let stream = fs.createWriteStream("/home/geoportal/html/geoportal/descargas/oin/" + nombre);
-    console.log("pase")
-    // let position = 0;
+    let stream = fs.createWriteStream("./public/" + nombre);       
     let response = {
       status: 200,
       data: {},
       message: "registro exitoso",
       code: "OK",
     };
-    stream.write(file.data, async (err) => { //excel
-      try {
-        console.log("aqui voy2")
-        xlsxFile("/home/geoportal/html/geoportal/descargas/oin/" + nombre, { getSheets: true })//error pro
+    stream.write(file.data, async (err) => { //excel      
+      try {        
+        xlsxFile("./public/" + nombre, { getSheets: true })//error pro
           .then(async (sheets) => {
-            console.log("pase2")
-            console.log(sheets)
+            
             for(let i = 0; i < sheets.length;i++){
-              console.log("aqui voy3 arreglo")
+              
               let rows = await  SheetsController.openSheetsFile(nombre,sheets[i].name)
-              console.log("pase3")
-              let newRows = rows.splice(2, rows.length);
+              
+              let newRows = rows.splice(2, rows.length);              
                 for (let j = 0; j < newRows.length; j++) {
-                  let dataToSend;                                                 
+                  let dataToSend;        
+                  let valid;                                         
                   switch (sheets[i].name) {                                         
-                    case "PH":
-                      console.log({dataToSend})
+                    case "PH":                      
                       dataToSend = ParserModel.transformToSheetsPH(                          
                         newRows[j]
-                      ); //transforma en el objeto que se creo en el enviador
-                      console.log({dataToSend})
-                      let phfound = await UserService.searchOfferPh(dataToSend);     
-                      if(phfound){
-                        await UserService.updateOfferPh(dataToSend)  //aqui iria para update
-                        console.log("holaph")
-                      }else{
-                        await UserService.uploadfileph(dataToSend)  //aqui iria parainsert
-                        
+                      ); //transforma en el objeto que se creo en el enviador                      
+                      valid = Validate.validPh(dataToSend);
+                      if(valid==="exito"){
+                        let phfound = await UserService.searchOfferPh(dataToSend,id_obsevatorio);     
+                        if(phfound){
+                          await UserService.updateOfferPh(dataToSend, id_obsevatorio)  //aqui iria para update                          
+                        }else{
+                          await UserService.uploadfileph(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
+                        }                        
+                      }else{                        
+                        response.code = valid;
+                        j = newRows.length;
+                        i = sheets.length            
                       }
                       break;
                     case "NPH":                        
                       dataToSend = ParserModel.transformToSheetsNPH(                          
                         newRows[j]
                       ); //transforma en el objeto que se creo en el enviador
-                      
-                      let nphfound = await UserService.searchOfferNph(dataToSend);
+                      valid = Validate.validNph(dataToSend);
+                      if(valid==="exito"){
+                      let nphfound = await UserService.searchOfferNph(dataToSend, id_obsevatorio);
                       if(nphfound){
-                        await UserService.updateOfferNph(dataToSend)  //aqui iria para update
-                        console.log("holanph")
+                        await UserService.updateOfferNph(dataToSend, id_obsevatorio)  //aqui iria para update                        
                       }else{
-                        await UserService.uploadfilenph(dataToSend)  //aqui iria parainsert
-                        
+                        await UserService.uploadfilenph(dataToSend, id_obsevatorio)  //aqui iria parainsert                        
                       }
-                      break;
+                     }else{
+                      response.code = valid;
+                      j = newRows.length;
+                      i = sheets.length  
+                     }                     
+                     break;
                     case "RURAL":                        
                       dataToSend = ParserModel.transformToSheetsRURAL(                          
                         newRows[j]
                       ); //transforma en el objeto que se creo en el enviador
-                      
-                      let ruralfound = await UserService.searchOfferRural(dataToSend);
-                      if(ruralfound){
-                        await UserService.updateOfferRural(dataToSend)  //aqui iria para update
+                      valid = Validate.validRural(dataToSend);
+                      if(valid==="exito"){
+                        let ruralfound = await UserService.searchOfferRural(dataToSend, id_obsevatorio);
+                        if(ruralfound){
+                          await UserService.updateOfferRural(dataToSend, id_obsevatorio)  //aqui iria para update
+                        }else{
+                          await UserService.uploadfilerural(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
+                        }
                       }else{
-                        await UserService.uploadfilerural(dataToSend)  //aqui iria parainsert
-                        
+                        response.code = valid;
+                        j = newRows.length;
+                        i = sheets.length  
                       }
                       break;
                   }
