@@ -1,15 +1,25 @@
 class MapDash {
-  static markersDataPh(data){    
+  static markersDataPh(data){   
     let location = [];
-    for (let i = 0; i < data.length; i++) {
-     location[i] =
-        {
-              location: [data[i].latitud, data[i].longitud],
-              tooltip: {
-                text: '<h2>Información</h2><br><h4>'+data[i].nombre_destinacion_economica+'</h4>',
-              },
-        }          
-    }
+    if(typeof data.length === "undefined" ){
+      location[0] =
+      {
+            location: [4.3556, -74.0451],
+            tooltip: {
+              text: '<h2>Información</h2><br><h4>Sin Información en la BD para mostrar</h4>',
+            },
+      }
+    }else{
+      for (let i = 0; i < data.length; i++) {
+        location[i] =
+           {
+                 location: [data[i].latitud, data[i].longitud],
+                 tooltip: {
+                   text: '<h2>Información</h2><br><h4>'+data[i].nombre_destinacion_economica+'</h4>',
+                 },
+           }          
+       }
+    }    
     return location;
   }
 }

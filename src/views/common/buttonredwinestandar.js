@@ -22,6 +22,24 @@ boton: {
         border:"none",
     }
 },
+
+boton1: {
+    borderRadius: "2vh",
+    backgroundColor: "#f12c72",
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    width: "max-content",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    "&:hover":{
+        backgroundColor: Values.HoverButton,
+        border:"none",
+    }
+  },
 });
 
 const ButtonRedWine = (props) => {    
@@ -31,6 +49,17 @@ const ButtonRedWine = (props) => {
             <Button className={classes.boton} disableElevation href={props.href} target="_blank">{props.Title}</Button>
             )
     }
+    if (props.Values == 5) {
+        return (
+          <Button
+            className={classes.boton1}
+            disableElevation
+            href={props.href}
+          >
+            {props.Title}
+          </Button>
+        );
+      }
     return (   
         <Button className={classes.boton} disableElevation href={props.href}>{props.Title}</Button>
         )

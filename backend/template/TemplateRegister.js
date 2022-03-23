@@ -6,7 +6,7 @@ class TemplateRegister {
                     .container {
                         background-color: #f4f4f4;
                       
-                        padding:50px;
+                        padding:20px;
                     }
                     .im{
                         color: #4C4C4C !important;
@@ -18,12 +18,24 @@ class TemplateRegister {
                         font-size: calc(0.6em + 0.9vh);
                         text-align: start;
                         margin: 1em 0 0 0;
+                        display:flex;
+                        flex-direcction: row;
                     }
                     .top{
                         height: 9vh;
                         width: 100%;
                     }
-            
+
+                    .imagenfooter{
+                        width: 94%
+                    }
+                    .imagenwelcome{
+                        float: left;
+                        width: 80%
+                    }
+                    .izquierda{
+                        width:300%;
+                    }
                     .textP {
                     }
                     .imagen{
@@ -53,7 +65,7 @@ class TemplateRegister {
                     }
                     @media (max-width: 4000px) and (min-width: 769px) {
                         .container{
-                            width: 800px;
+                            width: 1315px;
                         }
                     }
                 </style>
@@ -62,29 +74,32 @@ class TemplateRegister {
                 <div class=\"container\">
                     <div class=\"top\">
                     <img class=\"logodane\" src="https://nowsoft.app/geoportal/descargas/oin/logo-observatorio.PNG"  />
-                    <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />
-                
+                    <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />              
                      </div>
                     <div class=\"bottom\">
-                        <p class=\"textP\">
+                        <div>
+                        <img class=\"imagenwelcome\" src="https://nowsoft.app/geoportal/descargas/oin/Reset.png" />
+                        </div>
+                        <div class=\"izquierda\">
+                        <p class=\"textP\">            
+                        ¡Buen día!, si usted ha solicitado modificar su contraseña, porfavor siga el siguiente link, de lo contrario omita este mensaje:<br><br>
             
-                            Siga el sigueinte link para modificar la contraseña:<br><br>
+                        ${url}<br><br>
             
-                            ${url}<br><br>
+                        ** El link enviado tiene validez de uso de una hora.<br><br>
             
-                            Si usted no ha seleccionado la opción “olvido su contraseña” en la pagina del Observatorio Inmobiliario
-                            Nacional, por favor omita el presente mensaje.<br><br>
+                        Cordialmente,<br><br>
             
-                            El link enviado tiene una ventana de tiempo para ser utilizado de una hora.<br><br>
-            
-                            Cordialmente,<br><br>
-            
-                            Departamento Administrativo Nacional de Estadistica - DANE
+                        Departamento Administrativo Nacional de Estadistica - DANE
                         </p>
+                        </div>
             
                     </div>
             
                 </div>
+                <footer>
+                <img class=\"imagenfooter\" src="https://nowsoft.app/geoportal/descargas/oin/footer2.PNG" />
+                </footer>
                 </body>
         `;
   }

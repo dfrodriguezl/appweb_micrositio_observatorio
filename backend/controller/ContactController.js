@@ -29,7 +29,7 @@ class ContactController{
             }else{
                     await EmailService.sendEmail({
                             email:"idcarrillod@dane.gov.co",
-                            contenido:"Tienes una  nueva solicitud de información  de "+body.name +" con el correo "+body.email,
+                            contenido:"Tienes una  nueva solicitud de información  de "+body.name +" con el correo "+body.email+" por el siguiente motivo "+body.tema,
                             subject:"Información Contactenos"
                     })
             }

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Modal, Box, Typography } from "@material-ui/core/";
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, NavLink} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Styled from "styled-components";
 import menuDane from "Observatorio/common/newmenu.js";
 import SideBarComponent from "./newsidebar.js";
 import * as Values from "Observatorio/Variables/values";
 import { Button } from "@material-ui/core";
+
+//
+
 const useStyle = makeStyles({
 
   root: {
@@ -220,6 +223,7 @@ z-index: 1;
 top:40px;
 left:0px;
 `;
+
 const SubMenuA = Styled.a`
    color: #969393;
   padding: 10px 10px;
@@ -258,6 +262,7 @@ const DropDownLi = Styled(MenuIL)`
         
     } */
   `;
+
 const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
   const [open, setOpen] = React.useState(false);
@@ -311,24 +316,24 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   if (token) {
     isOk = true;
   }
-
-  const [isSession, setSession] = useState(isOk);
-
+  console.log("is0k", isOk)
   const cerrarSesion = () => {
     localStorage.removeItem("token");
     setSession(false);
+    isOk = false;
     props.setAuth(false);
   };
   useEffect(() => {
     
+    
   }, [isSession, isLogin]);
-
+  const [isSession, setSession] = useState(isOk);
   let result = [];
   if (position != null) {
     let subResult = [];
     menuDane[position].map((data) => {
       if (data.isProtected) {
-        if (isSession) {
+        if (isOk) {
           if (data.isMain) {
             subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>);
           } else {
@@ -354,7 +359,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
       </DropDownContent>
     );
   }
-
+  
   return (
     <Grid container onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={12} sm={12} className={classes.cardglobal}>
@@ -502,7 +507,13 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           )}
 
           <li onMouseEnter={handleStatusFalseAll}>
-            {!isSession ? (
+            {isOk ? 
+            <Button
+            className={classes.boton}
+            onClick={handleOpen}
+          >
+            Cerrar Sesión
+          </Button>:
               <Button
                 className={classes.boton}
                 disableElevation
@@ -510,14 +521,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               >
                 Ingresar
               </Button>
-            ) : (
-              <Button
-                className={classes.boton}
-                onClick={handleOpen}
-              >
-                Cerrar Sesión
-              </Button>
-            )}
+            }
           </li>
         </NavBarContenedor>
       </Grid>
@@ -553,5 +557,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     </Grid>
   );
 };
+
+
 
 export default Navbar;

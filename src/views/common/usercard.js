@@ -1,4 +1,5 @@
 import axios from "axios";
+import styles from './style/estilos.css';
 import {
   Grid,
   makeStyles,
@@ -12,7 +13,11 @@ import {
   Box,
   TextField,
 } from "@material-ui/core";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import SelectBox from "devextreme-react/select-box";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import Map from 'devextreme-react/map';
 import { useForm } from "react-hook-form";
 import {
@@ -38,25 +43,99 @@ import React, { Component, useState,useEffect } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/Projections.svg";
 import Data from "Observatorio/img/Data-rafiki.svg";
-import Excel from "Observatorio/img/excel.png";
-import pdf from "Observatorio/img/pdf.png";
-import geograph from "Observatorio/img/geograph.png";
+import Excel from "Observatorio/img/Excel1.png";
+import Excel2 from "Observatorio/img/Excel2.png";
+import pdf from "Observatorio/img/PDF1.png";
+import pdf2 from "Observatorio/img/PDF2.png";
+import geograph from "Observatorio/img/Address-pana1.png";
+import geograph2 from "Observatorio/img/Address-pana2.png";
 import forgot from "Observatorio/img/Forgot.svg";
+import choose from "Observatorio/img/Choose-rafiki.svg";
+import Broken from "Observatorio/img/Broken.svg";
+import Powerful from "Observatorio/img/Powerful.svg";
+import Personal from "Observatorio/img/Personal.svg";
 import anotation from "Observatorio/img/Annotation-cuate.svg";
 const Dash = require ("Observatorio/common/datosdashboard.js");
 const DashBar = require ("Observatorio/common/dashboardbar.js");
 import {Loader} from '../pages/loader/loader'
 import enviroment from '../../config/enviroment';
-import Modal2 from "Observatorio/pages/modal";
 let respuesta="";
 import MapDash from './dashMap.js';
+import Buttonp from 'devextreme-react/button';
+import DataGrid, {
+  Column, Editing, Paging, Lookup,
+} from 'devextreme-react/data-grid';
+import { employees, states } from './datarepository.js';
 
 const markerUrl = 'https://js.devexpress.com/Demos/RealtorApp/images/map-marker.png';
 
 const useStyle = makeStyles({
+
+  buttondownload:{
+    color: "#F3F3F3",
+      width: "max-content",
+      cursor: "pointer",
+      padding: "0.1em 0.5em 0.1em 0.5em",
+      fontSize: "calc(1em + 0.3vh)",
+      transition: "all 0.8s ease-out",
+      fontFamily: "Roboto",
+      bordeRadius: "2vh",
+      textTransform: "capitalize",
+      backgroundColor: "#821a3f",
+      textDecoration: "none",
+  },
+
+  itemTextField: {
+    backgroundColor: "white",
+    width: "20%",
+    margin: "0 0.5em 0.5em 0",
+},
   tamaño: {
     width:"100%"
 },
+datarepository:{
+  margin: "13px 10px 0px 10px",
+  color: "#000000",
+  backgroundColor: "#ffffff",
+  lineHeight: "inherit",
+},
+botonmodalinput: {
+  
+    display: "none"
+},
+borderspan:{
+  width: "50%",
+    border: "1px solid #0a0909",
+    margin: "0 0 0 2%",
+    borderRadius: "2vh",
+    padding: "1.5% 0 0 0",
+    textAlign: "center",
+    color: "#4C4C4C",
+    fontFamily: Values.SourceWorksans,
+    fontSize: "calc(0.7em + 0.3vh)",
+    fontWeight: "bold",
+},
+
+botonmodalcargar: {
+  borderRadius: "2vh",
+  backgroundColor: Values.Redwinecolor,
+  color: Values.TextButton,
+  fontFamily: Values.SourceWorksans,
+  textTransform: "capitalize",
+  transition: "all 0.8s ease-out",
+  cursor: "pointer",
+  marginTop: "4px",
+  width: "max-content",
+  fontSize: "calc(0.7em + 0.3vh)",
+  fontWeight: "bold",
+  height: "4vh",
+  padding:"0.5em 1em",
+  "&:hover": {
+    backgroundColor: Values.HoverButton,
+    border: "none",
+  },
+},
+
   botonmodal: {
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
@@ -68,7 +147,6 @@ const useStyle = makeStyles({
     marginTop: "4px",
     width: "max-content",
     fontSize: "calc(0.7em + 0.3vh)",
-    borderRadius: "2vh",
     fontWeight: "bold",
     "&:hover": {
       backgroundColor: Values.HoverButton,
@@ -84,7 +162,7 @@ const useStyle = makeStyles({
     transition: "all 0.8s ease-out",
     cursor: "pointer",
     marginTop: "4px",
-    width: "max-content",
+    width: "30%",
     fontSize: "calc(0.7em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
@@ -166,12 +244,37 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontWeight: "bold",
     fontSize: "calc(1em + 1.5vh)",
+    //textAlign: "left",
+    //padding:"0 0 0 6em"
+  },
+
+  Titleh11: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: "calc(1em + 0.9vh)",
+    //textAlign: "left",
+    //padding:"0 0 0 7em"
+  },
+
+  Titleh12: {
+    color: Values.Redwinecolor,
+    fontFamily: Values.SourceRoboto,
+    fontWeight: "bold",
+    fontSize: "calc(1em + 0.9vh)",
     textAlign: "left",
-    padding:"0 0 0 6em"
+    padding:"0 0.2em 0 0.2em"
   },
 
   marginout: {
     margin: "0 0 0.5vw 0",
+  },
+
+  contentrulesp31: {
+    fontSize: "calc(0.9em + 1.2vh)",
+    fontFamily: Values.SourceRoboto,
+    color: Values.TextParagraph,
+    fontWeight: "bold"
   },
 
   contentrulesp2: {
@@ -196,6 +299,24 @@ const useStyle = makeStyles({
     padding: "0 0 1em 0",
   },
 
+  Textpmodal: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",
+    width: "90%",
+    padding: "0 0 1em 0",
+  },
+
+  Textpmodal1: {
+    color: Values.TextParagraph,
+    fontFamily: Values.SourceRoboto,
+    fontSize: Values.SizeText,
+    textAlign: "center",
+    width: "100%",
+    padding: "1em 0 1em 0",
+  },
+
   Textpass: {
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
@@ -209,9 +330,9 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "start",
-    width: "90%",
-    padding: "1em 0 0.5em 10em",
+    //textAlign: "start",
+    //width: "90%",
+    padding: "1em 1em",
   },
 
   Textp_2: {
@@ -313,25 +434,32 @@ const useStyle = makeStyles({
   excel: {
     height: "14vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "80%",
+    backgroundSize: "60%",
     width: "100%",
   },
   excel2: {
     height: "10vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "37%",
+    backgroundSize: "27%",
   },
 
   excel3: {
-    height: "10vh",
+    height: "16vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "65%",
+    backgroundSize: "64%",
   },
 
   media: {
     height: "30vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "60%",
+    backgroundPosition: "center center",
+  },
+
+  mediamodal: {
+    height: "16vh",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "90%",
     backgroundPosition: "center center",
   },
 
@@ -436,7 +564,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "30%",
+  width: "40%",
   bgcolor: "background.paper",
   boxShadow: 2,
   borderRadius: "10px",
@@ -444,10 +572,82 @@ const style = {
   p: 4,
 };
 
-const Cardsmapas = () => {
-  // let respuesta="";
-  const [statistics, setstatistics] = useState({})   
+const style2 = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "90%",
+  bgcolor: "background.paper",
+  boxShadow: 2,
+  borderRadius: "10px",
+  padding: "20px",
+  p: 4,
+};
 
+const style3 = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "62%",
+  bgcolor: "background.paper",
+  boxShadow: 2,
+  borderRadius: "10px",
+  padding: "20px",
+  p: 4,
+};
+
+const Datarepository = () => {
+  const classes = useStyle();
+    return (
+        <DataGrid
+          className={classes.datarepository}
+          id="gridContainer"
+          dataSource={employees}
+          keyExpr="ID"
+          allowColumnReordering={true}
+          showBorders={true}
+          showColumnLines={true}
+          showRowLines={true}
+          rowAlternationEnabled={false}      
+          > 
+          <Paging defaultPageSize={10}/>         
+          {/* <Editing
+            mode="row"
+            //allowUpdating={true}
+            //useIcons={true}
+            allowDeleting={true} /> */}
+
+          <Column dataField="Prefix" caption="Nombre del archivo" alignment="center"/>
+          <Column dataField="FirstName" caption="Tipo de documento" alignment="center"/>
+          <Column
+            dataField="BirthDate"
+            caption="Fecha"
+            width={125}
+            dataType="date" alignment="center"/>
+          {/* <Column
+            dataField="StateID"
+            caption="State"
+            width={125} alignment="center"
+          >
+            <Lookup dataSource={states} displayExpr="Name" valueExpr="ID" />
+          </Column> */}
+          
+
+          {/* <Column type="buttons" width={150} caption="Eliminar" dataField="Descargar">
+          <Button name="delete" cssclassName="buttondownload"/>
+          </Column> */}
+
+          <Column dataField="Eliminar" caption="Eliminar" alignment="center" width={150} cellRender={deleteinfo} />
+
+          <Column dataField="Descargar" caption="Descargar" alignment="center" width={150} cellRender={renderGridCell} />
+        </DataGrid>
+    );
+}
+
+const Cardsmapas = () => {
+  const [statistics, setstatistics] = useState({})   
   const [ph_venta_arriendo, setph_venta_arriendo] = useState({})
   const [nph_venta_arriendo, setnph_venta_arriendo] = useState({})
   const [rural_venta_arriendo, setrural_venta_arriendo] = useState({})
@@ -455,13 +655,13 @@ const Cardsmapas = () => {
   const [nph_destinacion_economica, setnph_destinacion_economica] = useState({})
   const [rural_destinacion_economica, setrural_destinacion_economica] = useState({})
   const [locationph, setlocationph] = useState({})
-  const [openLoading,setLoading] = useState(false)
-  
+  const [openLoading,setLoading] = useState(false) 
+  let suma = 0;
 
   const loadStatistics = () =>{    
     let token = localStorage.getItem("token")
     axios
-      .get(`${enviroment.endpoint}/PlataformaUsuario`,{
+      .get(`${enviroment.endpoint}/PlataformaUsuario/statistics`,{
         headers: { 
             'Content-Type' : 'application/json',
             token: token, 
@@ -471,9 +671,10 @@ const Cardsmapas = () => {
         if (response.status == 200) {
           if (response.data.code == "OK") {
             console.log(response.data.data)
-            setstatistics(response.data.data)            
+            setstatistics(response.data.data)        
           } else {
-            alert("ocurrio un problema Error!..");
+            //setOpen3(true) 
+            alert("ocurrio un problema Error!..1");
           }
         } else {         
           alert("ocurrio un problema externo");
@@ -498,16 +699,18 @@ const Cardsmapas = () => {
             setrural_venta_arriendo(response.data.data.cantidadph_arrendo_ventarural)  
             setph_destinacion_economica(response.data.data.cantidad_destinacion_economica_ph)
             setnph_destinacion_economica(response.data.data.cantidad_destinacion_economica_nph) 
-            setrural_destinacion_economica(response.data.data.cantidad_destinacion_economica_rural)     
-                 
+            setrural_destinacion_economica(response.data.data.cantidad_destinacion_economica_rural)          
           } else {
-            alert("ocurrio un problema Error!..");
+            console.log("ocurrio un problema Error!..2");
           }
         } else {         
           alert("ocurrio un problema externo");
         }
       })
   }  
+
+  const [open3, setOpen3] = useState(false);
+  const handleClose3 = () => setOpen3(false);
 
   const locationUser = () =>{    
     let token = localStorage.getItem("token")
@@ -524,13 +727,15 @@ const Cardsmapas = () => {
             //console.log(response.data.data.locationph) 
             setlocationph(response.data.data.locationph)           
           } else {
-            alert("ocurrio un problema Error!..");
+            setOpen3(true) 
           }
         } else {         
           alert("ocurrio un problema externo");
         }
       })
   }
+
+  suma=parseInt(statistics.cantidadph)+parseInt(statistics.cantidadnph)+parseInt(statistics.cantidadrural)
 
   useEffect(()=>{   
     loadStatistics(); 
@@ -557,6 +762,7 @@ const Cardsmapas = () => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleClose1 = () => setOpen1(false);
@@ -572,7 +778,7 @@ const Cardsmapas = () => {
     setLoading(true)
     setOpen(false)
     axios
-      .post(`${enviroment.endpoint}/PlataformaUsuario`, data ,{
+      .post(`${enviroment.endpoint}/PlataformaUsuario/upload`, data ,{
         headers: { 
             'Content-Type' : 'application/json',
             token: token, 
@@ -599,7 +805,7 @@ const Cardsmapas = () => {
         }
       });
   };
-
+  
   var estilo = null;
   var estilo2 = null;
   var estilo3 = null;
@@ -611,12 +817,14 @@ const Cardsmapas = () => {
   var numero = null;
   var root = null;
   var estilo4 = null;
+  var estilo5 = null;
   var prueba = null;
   {
     if (matches2) {
       estilo = classes.media;
       estilo4 = classes.media1;
       estilo2 = classes.excel;
+      estilo5 = style;
       direccion = "row";
       sizegrafico = 580;
       sizegrafico2 = 450;
@@ -638,6 +846,7 @@ const Cardsmapas = () => {
         title_ = "column";
         root = classes.rootno1;
         estilo4 = classes.media4;
+        estilo5 = style2;
       } else {
         estilo = classes.media3;
         sizegrafico = 450;
@@ -648,9 +857,11 @@ const Cardsmapas = () => {
         root = classes.rootno;
         estilo4 = classes.media3;
         estilo2 = classes.excel3;
+        estilo5 = style3;
       }
     }
-  }
+  } 
+
   return (
     <Grid container>
       <Grid container>
@@ -681,6 +892,33 @@ const Cardsmapas = () => {
                     justifyContent="center"
                     alignItems="center"
                   >
+                    <Grid
+                      container
+                      direction="row"
+                      className={classes.marginout}
+                    >
+                      <Grid
+                        container
+                        item
+                        xs={8}
+                        className={classes.margincard1}
+                        alignItems="center"
+                      >
+                        <p className={classes.contentrulesp31}>
+                          Total Ofertas
+                        </p>
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        justifyContent="center"
+                        alignItems="center"
+                        className={classes.root3}
+                      >
+                        <p className={classes.contentnum}>{suma}</p>
+                      </Grid>
+                    </Grid>
                     <Grid
                       container
                       direction="row"
@@ -1086,15 +1324,14 @@ const Cardsmapas = () => {
                             <Export enabled={true} />
                           </Chart>
                         </Grid>
-                      </Grid>
+                      </Grid>                      
                     </Grid>
                   </CardContent>
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
-        </Grid>
-        
+        </Grid>        
         <Grid
           container
           direction="column"
@@ -1103,15 +1340,82 @@ const Cardsmapas = () => {
         >
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
-              <Grid container direction="row" item xs>
-                <Grid item xs container direction="column">
+              <Grid container direction="row" item xs >
+                <Grid item xs container direction="column" >
                   <CardContent className={classes.centerText}>
-                      <Grid direction="row" container>
+                      <Grid direction="row" container justifyContent="center">
                       <p className={classes.Titleh4}>Visor</p>
                       </Grid>
                       <Grid>
                       <Typography className={classes.Textp_1}>En la siguiente herramienta se podrá visualizar la ubicación geográfica de las ofertas, asi mismo, se podrán realizar filtros por el tipo de ofertas y/o destino economico.</Typography>
                       </Grid>
+                        <Grid direction="row" container alignItems="center" justifyContent="center">
+                          <p className={classes.Titleh11}>
+                            Total de Puntos:                          
+                          </p>
+                          <p className={classes.Titleh12}>
+                            {suma}                         
+                          </p>
+                          <Box className={classes.itemTextField}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label-departamento">Departamento</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Age"
+                                    //onChange={handleChangeValue}
+                                    name="tipoUsuario"
+                                    //value={form.tipoUsuario}
+                                >
+                                    <MenuItem value="20">Cundinamarca</MenuItem>
+                                    <MenuItem value="30">Antioquia</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                        <Box className={classes.itemTextField}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label-">Tipo de Oferta</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Age"
+                                    //onChange={handleChangeValue}
+                                    name="tipoUsuario"
+                                    //value={form.tipoUsuario}
+                                >
+                                    <MenuItem value="20">PH</MenuItem>
+                                    <MenuItem value="30">NPH</MenuItem>
+                                    <MenuItem value="40">RURAL</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                        <Box className={classes.itemTextField}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Destino Económico</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    label="Age"
+                                    //onChange={handleChangeValue}
+                                    name="tipoUsuario"
+                                    //value={form.tipoUsuario}
+                                >
+                                    <MenuItem value="10">Agricola</MenuItem>
+                                    <MenuItem value="20">Agroindustrial</MenuItem>
+                                    <MenuItem value="30">Agroforestal</MenuItem>
+                                    <MenuItem value="40">Comercial</MenuItem>
+                                    <MenuItem value="50">Cultural</MenuItem>
+                                    <MenuItem value="60">Educativo</MenuItem>
+                                    <MenuItem value="70">Forestal</MenuItem>
+                                    <MenuItem value="80">Habitacional</MenuItem>
+                                    <MenuItem value="90">Industrial</MenuItem>
+                                    <MenuItem value="100">Lote Urbanizable No Urbanizado</MenuItem>
+                                    <MenuItem value="110">Lote Urbanizado No Construido</MenuItem>
+                                    <MenuItem value="120">Lote No Urbanizable</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                        </Grid>
                     <Grid container direction={direccion} className={pading}>
                       <Grid
                         container
@@ -1422,6 +1726,141 @@ const Cardsmapas = () => {
                                 container
                                 className={estilo3}
                               >
+                                <CardMedia className={estilo2} image={Excel2} />
+                              </Grid>
+                              <Grid
+                                item
+                                xs
+                                container
+                                direction="column"
+                                justifyContent="center"
+                              >
+                                <p className={classes.contentrulesp3}>
+                                  <strong>CARGA MERCADO</strong>
+                                </p>
+                                <p className={classes.contentrulesp3}>
+                                  Formato: Excel
+                                </p>
+                              </Grid>
+                            </Grid>
+                          </button>
+                        </Grid>
+                        <Grid
+                          className={classes.marginbutton2}
+                          item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          xs={6}
+                        >
+                          <button className={classes.boton}>
+                            <Grid container direction="row">
+                              <Grid
+                                item
+                                xs={4}
+                                direction="column"
+                                container
+                                className={estilo3}
+                              >
+                                <CardMedia
+                                  className={estilo2}
+                                  image={geograph2}
+                                />
+                              </Grid>
+                              <Grid
+                                item
+                                xs
+                                container
+                                direction="column"
+                                justifyContent="center"
+                              >
+                                <p className={classes.contentrulesp3}>
+                                  <strong>CARGA CAPAS GEOGRÁFICAS</strong>
+                                </p>
+                                <p className={classes.contentrulesp3}>
+                                  Formato: Gpkg
+                                </p>
+                              </Grid>
+                            </Grid>
+                          </button>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          key={12}
+          className={classes.cardglobal}
+        >
+          <Card className={classes.root}>
+            <CardContent className={classes.cardglobal2}>
+              <Grid container direction="row" item xs>
+                <Grid item xs container direction="column">
+                  
+                  <CardContent className={classes.centerText}>
+                  <p className={classes.Titleh}>
+                  Repositorio Documental - Usuario
+                        </p>
+                    <Grid container direction={direccion} className={pading}>
+                    
+                      <Grid item xs={numero} direction="column" container>
+                        <CardMedia className={estilo4} image={Personal} />
+                      </Grid>
+                      <Grid
+                        container
+                        item
+                        xs
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
+                      >
+                        <Typography className={classes.Textp1}>
+                        En esta sección podrá visualizar los archivos cargados al observatorio inmobiliario nacional, por fecha y tipo.
+                        </Typography>
+                        <Typography className={classes.Textp}>
+                        Como usuario que provee la informacion por la cual se alimenta el micrositio, ademas de cargar, podrá descargar y eliminar archivos.
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                  <Grid container direction="column" item xs>
+                    <Datarepository/>
+                    {/* <Grid container direction="column" item xs className={root}>
+                      <p className={classes.Titleh3}>Links para carga</p>
+                      <Grid
+                        direction="row"
+                        item
+                        container
+                        xs
+                        justifyContent="flex-start"
+                        alignItems="center"
+                      >
+                        <Grid
+                          className={classes.marginbutton2}
+                          item
+                          container
+                          justifyContent="center"
+                          alignItems="center"
+                          xs={6}
+                        >
+                          <button
+                            className={classes.boton}
+                            onClick={handleOpen}
+                          >
+                            <Grid container direction="row">
+                              <Grid
+                                item
+                                xs={4}
+                                direction="column"
+                                container
+                                className={estilo3}
+                              >
                                 <CardMedia className={estilo2} image={Excel} />
                               </Grid>
                               <Grid
@@ -1481,14 +1920,15 @@ const Cardsmapas = () => {
                           </button>
                         </Grid>
                       </Grid>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
         </Grid>
-        <Grid
+        {/* Censo de Edificaciones (CEED) */}
+        {/* <Grid
           container
           direction="column"
           key={4}
@@ -1545,7 +1985,7 @@ const Cardsmapas = () => {
               </Grid>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
         <Grid
           container
           direction="column"
@@ -1603,114 +2043,189 @@ const Cardsmapas = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <Typography
-              className={classes.Titlep}
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              Text in a modal
-            </Typography>
-            <Typography
-              className={classes.Textp}
-              id="modal-modal-description"
-              sx={{ mt: 2 }}
-            >
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-            <input
-              className={classes.botonmodal}
-              // onClick={}
-              type="file"
-              id="file"
-              name="avatar"
-              accept="xlsx/gpkg"
-            />
-            <input
-              className={classes.botonmodal1}
-              onClick={upload}
-              type="submit"
-              value="Cargar"
-            />
+          <Box sx={estilo5}>
+            <Grid direction="row" container justifyContent="center">
+              <Grid item xs={4} direction="column" container>
+                <CardMedia className={classes.mediamodal} image={choose} />
+              </Grid>
+              <Grid item xs={8} direction="column" container justifyContent="center" alignItems="center">
+                {/* <Typography
+                  className={classes.Titlep}
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2">
+                  Text in a modal
+                </Typography> */}
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-description"
+                  >
+                  En el siguiente boton, seleccione el archivo que desea cargar al observatorio inmobiliario nacional
+                </Typography>
+              </Grid>              
+              <input
+                className={classes.botonmodalinput}
+                // onClick={}
+                type="file"
+                id="file"
+                name="avatar"
+                accept="xlsx/gpkg"
+                onClick={traer}
+              />
+              <label for="file" id="nombre" className={classes.botonmodalcargar}>Seleccionar Archivo</label>
+              <span className={classes.borderspan} id="nombre1" ></span>
+              <Grid container direction="column" justifyContent="center" alignContent="center">
+              <Typography
+                  className={classes.Textpmodal1}
+                  id="modal-modal-descriptio"
+                  >
+                  ¿Desea continuar con la carga?
+                </Typography>
+              <Grid container direction="row">
+              <Grid justifyContent="center" alignContent="center" container item xs={6}>
+              <input
+                className={classes.botonmodal1}
+                onClick={upload}
+                type="submit"
+                value="Si"
+              />
+              </Grid>
+              <Grid justifyContent="center" alignContent="center" container item xs={6}>
+              <input
+                className={classes.botonmodal1}
+                onClick={cerrar}
+                type="submit"
+                value="No"
+              />
+              </Grid>
+              </Grid>
+              </Grid>
+            </Grid>
           </Box>
         </Modal>            
       </form>
-            {/* <Modal2 open={open1} Title="El cargue a sido ¡Exitoso!" textContainer="La información del excel a sido cargada de forma exitosa" >
-            </Modal2> */}
-
-            <Modal
+      <Modal
           open={open1}
           onClose={handleClose1}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <Typography
-              className={classes.Titlep}
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              Text in a modal
-            </Typography>
-            <Typography
-              className={classes.Textp}
-              id="modal-modal-description"
-              sx={{ mt: 2 }}
-            >
-              ligula.
-            </Typography>
-            <input
-              className={classes.botonmodal}
-              // onClick={}
-              type="file"
-              id="file"
-              name="avatar"
-              accept="xlsx/gpkg"
-            />
-            <input
-              className={classes.botonmodal1}
-              onClick={upload}
-              type="submit"
-              value="Cargar"
-            />
+          <Box sx={estilo5}>
+          <Grid direction="row" container>
+              <Grid item xs={8} direction="column" container justifyContent="center" alignItems="center">
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-description"
+                  >
+                  La carga fue exitosa
+                </Typography>
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-descripti"
+                  >
+                  ¡Gracias!
+                </Typography>
+              </Grid>                
+              <Grid item xs={4} direction="column" container>
+                <CardMedia className={classes.mediamodal} image={Powerful} />
+              </Grid>
+            </Grid>
           </Box>
-        </Modal> 
-
-        <Modal
+      </Modal> 
+      <Modal
           open={open2}
           onClose={handleClose2}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <Typography
-              className={classes.Titlep}
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-            >
-             Error!!
-            </Typography>
-            <Typography
-              className={classes.Textp}
-              id="modal-modal-description"
-              sx={{ mt: 2 }}
-            >
-              {respuesta}
-              {console.log(respuesta)}
-            </Typography>
+          <Box sx={estilo5}>
+          <Grid direction="row" container>
+              <Grid item xs={8} direction="column" container justifyContent="center" alignItems="center">
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-description"
+                  >
+                  {respuesta}
+                </Typography>
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-descripti"
+                  >
+                  Favor revisar el tipo de atributo diligenciado y vuelga a intentar
+                </Typography>
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-descripti"
+                  >
+                  ¡Gracias!
+                </Typography>
+              </Grid>                
+              <Grid item xs={4} direction="column" container>
+                <CardMedia className={classes.mediamodal} image={Broken} />
+              </Grid>
+            </Grid>
           </Box>
-        </Modal> 
-           
-        <Loader open={openLoading}></Loader>    
+      </Modal>    
+      <Modal
+          open={open3}
+          onClose={handleClose3}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={estilo5}>
+          <Grid direction="row" container>
+              <Grid item xs={8} direction="column" container justifyContent="center" alignItems="center">
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-description"
+                  >
+                  No tiene datos para mostrar
+                </Typography>
+                <Typography
+                  className={classes.Textpmodal}
+                  id="modal-modal-descripti"
+                  >
+                  ¡Gracias!
+                </Typography>
+              </Grid>                
+              <Grid item xs={4} direction="column" container>
+                <CardMedia className={classes.mediamodal} image={Powerful} />
+              </Grid>
+            </Grid>
+          </Box>
+      </Modal>         
+      <Loader open={openLoading}></Loader>    
     </Grid>
   );
+  function cerrar() {
+    setOpen(false)
+  }  
 };
+
+
+
+function traer(){   
+      var archivo = document.querySelector('#file');
+      if(archivo != null){
+        archivo.addEventListener('change',()=>{
+          document.querySelector('#nombre1').innerText = archivo.files[0].name;
+        });
+      }   
+}
 
 function customizeText(arg) {
   return `${arg.valueText} (${arg.percentText})`;
+}
+
+function renderGridCell(data){
+  return <a className="buttondownload" href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
+  download
+>Descargar</a>
+}
+
+function deleteinfo(data){
+  return <a className="buttondownload"
+>Eliminar</a>
 }
 
 function customizeTooltip(arg) {

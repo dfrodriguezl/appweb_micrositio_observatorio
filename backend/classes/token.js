@@ -17,7 +17,7 @@ class Token {
         }, seed, { expiresIn: '1h' });
     }
 
-   static async  comprobarToken(userToken){
+   static async comprobarToken(userToken){
         return new Promise( (resolve, reject ) => {
             jwt.verify(userToken, seed, ( err, decoded ) => {
                 if (err) {

@@ -172,6 +172,28 @@ const FormRegister = () => {
     const handleCloseUserValidation = () => setOpenValidation(false)
 
     const [openLoading,setLoading] = useState(false)
+    const [correo,setcorreo] = useState("")
+    const [leyendaCorreo,setleyendaCorreo] = useState("")
+    const [errorCorreo,seterrorCorreo] = useState(false)
+
+    const expresiones = {
+        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+        nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+        password: /^.{4,12}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+    }
+
+    const validacion = () =>{
+        let expresion = expresiones.correo
+        if(expresion){
+            if(expresion.test(form.correoElectronico)){
+                console.log("input correcto")
+            }else{
+                console.log("input incorrecto")
+            }
+        }
+    }
 
     const sendForm = () => {
       
@@ -186,7 +208,7 @@ const FormRegister = () => {
             alert("correo no coincide")
             return
         }
-        if(form.clave.length != 8){
+        if(form.clave.length < 8){
             alert("la contraseña debe tener 8 caracteres")
             return
         }
@@ -261,6 +283,8 @@ const FormRegister = () => {
                                 >
                                     <MenuItem value="20">Persona Natural</MenuItem>
                                     <MenuItem value="30">Persona Juridica</MenuItem>
+                                    <MenuItem value="30">Gestor Catastral</MenuItem>
+                                    <MenuItem value="30">Observatorio Inmobiliario</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
@@ -279,7 +303,7 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue} size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField item onKeyUp={validacion} onBlur={validacion} name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue} type="email" size="small" className={classes.itemTextField} id="outlined-basic" label=""/>
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >

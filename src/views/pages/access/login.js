@@ -65,6 +65,11 @@ const useStyle = makeStyles({
     image:{
         width:"100%"
     },
+
+    b1: {        
+        backgroundColor: "#141414",       
+    },
+
     boton: {
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "2vh",
@@ -112,9 +117,11 @@ const FormAccess = (props) => {
             showPassword: !form.showPassword,
         });
     };
+
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
     const handleChangeValue = (event) => {
         let name = event.target.name
         let value = event.target.value
@@ -126,7 +133,7 @@ const FormAccess = (props) => {
         setForm(newForm)
        // validateForm(newForm)
     }
-
+    
     const [openLoading,setLoading] = useState(false)
 
     const sendForm = () => {
@@ -227,7 +234,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Registrarse"  href="/Observatorio/register"/>
+                        <ButtonRedWine Values="5" Title="Registrarse" className={classes.b1} href="/Observatorio/register"/>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Typography className={classes.Textp} >
@@ -235,7 +242,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
+                        <ButtonRedWine Values="5" Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
                     </Grid>
 
                 </Grid>

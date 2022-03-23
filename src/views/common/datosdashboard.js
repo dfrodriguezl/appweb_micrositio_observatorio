@@ -1,6 +1,15 @@
 class Dash {
  
   static dashBoardCake(data){  
+    if (typeof data.cantidadph === "undefined") {
+      data.cantidadph = 0;
+    }
+    if (typeof data.cantidadnph === "undefined") {
+      data.cantidadnph = 0;
+    }
+    if (typeof data.cantidadrural === "undefined") {
+      data.cantidadrural = 0;
+    }
   return (    
     [
       {
@@ -19,7 +28,13 @@ class Dash {
   )
   }
 
-  static dashBoardCakePh(data){        
+  static dashBoardCakePh(data){     
+    if (typeof data.Venta === "undefined") {
+      data.Venta = 0;
+    }
+    if (typeof data.Arrendamiento === "undefined") {
+      data.Arrendamiento = 0;
+    }  
     return (    
       [
         {
@@ -33,7 +48,13 @@ class Dash {
       ]
     )
     }
-    static dashBoardCakeNph(data){      
+    static dashBoardCakeNph(data){  
+      if (typeof data.Venta === "undefined") {
+        data.Venta = 0;
+      }
+      if (typeof data.Arrendamiento === "undefined") {
+        data.Arrendamiento = 0;
+      }      
       return (    
         [
           {
@@ -48,7 +69,12 @@ class Dash {
       )
       }
       static dashBoardCakeRural(data){    
-       // console.log(data)    
+        if (typeof data.Venta === "undefined") {
+          data.Venta = 0;
+        }
+        if (typeof data.Arrendamiento === "undefined") {
+          data.Arrendamiento = 0;
+        }     
         return (    
           [
             {

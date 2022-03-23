@@ -12,7 +12,7 @@ class ValidService{
                         }else{
                             let position;
                             position=i+1;
-                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                             //console.log(valores[i])                         
                             break;
                         }
@@ -24,7 +24,7 @@ class ValidService{
                         }else{
                             let position;
                             position=i+1;
-                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                             //console.log(valores[i])                         
                             break;
                         }
@@ -36,7 +36,7 @@ class ValidService{
                                 }else{
                                     let position;
                                     position=i+1;
-                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                     //console.log(valores[i])                         
                                     break;
                                 }
@@ -48,7 +48,7 @@ class ValidService{
                                 }else{
                                     let position;
                                     position=i+1;
-                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                     //console.log(valores[i])                         
                                     break;
                                 }
@@ -60,7 +60,7 @@ class ValidService{
                                         }else{
                                             let position;
                                             position=i+1;
-                                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                             //console.log(valores[i])                         
                                             break;
                                         }
@@ -72,7 +72,7 @@ class ValidService{
                                         }else{
                                             let position;
                                             position=i+1;
-                                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                             //console.log(valores[i])                         
                                             break;
                                         }
@@ -84,8 +84,7 @@ class ValidService{
                                                 }else{
                                                     let position;
                                                     position=i+1;
-                                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
-                                                    //console.log(valores[i])                         
+                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna"+ position + " con el valor: " + valores[i]                     
                                                     break;
                                                 }
                                         }else{
@@ -96,7 +95,7 @@ class ValidService{
                                                 }else{
                                                     let position;
                                                     position=i+1;
-                                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                     //console.log(valores[i])                         
                                                     break;
                                                 }
@@ -108,19 +107,19 @@ class ValidService{
                                                     }else{
                                                         let position;
                                                         position=i+1;
-                                                        fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                         //console.log(valores[i])                         
                                                         break;
                                                     }
                                                 }else{
                                                     if(i==29){
                                                         //console.log(valores[i])                        
-                                                        if(typeof valores[i] === 'object' && valores[i] != null){                            
+                                                        if(valores[i] > 0 && valores[i] != null){                            
                                                             fail = "exito"                            
                                                         }else{
                                                             let position;
                                                             position=i+1;
-                                                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo fecha"   
+                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                             //console.log(valores[i])                         
                                                             break;
                                                         }
@@ -132,7 +131,7 @@ class ValidService{
                                                                 }else{
                                                                     let position;
                                                                     position=i+1;
-                                                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                                     //console.log(valores[i])                         
                                                                     break;
                                                                 }
@@ -144,7 +143,7 @@ class ValidService{
                                                                 }else{
                                                                     let position;
                                                                     position=i+1;
-                                                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                                     //console.log(valores[i])                         
                                                                     break;
                                                                 }
@@ -156,7 +155,7 @@ class ValidService{
                                                                         }else{
                                                                             let position;
                                                                             position=i+1;
-                                                                            fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                                                             //console.log(valores[i])                         
                                                                             break;
                                                                         }
@@ -174,11 +173,11 @@ class ValidService{
                     }
                 }
             }  
-            console.log("---------------------------------------------------")
             return fail;
     }
 
     static validNph(model) {
+        //console.log("validador", model)
         let valores = Object.values(model);
         let fail="exito";      
         //console.log(valores.length)  
@@ -190,7 +189,7 @@ class ValidService{
                         }else{
                             let position;
                             position=i+1;
-                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                             //console.log(valores[i])                         
                             break;
                         }
@@ -202,7 +201,7 @@ class ValidService{
                         }else{
                             let position;
                             position=i+1;
-                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                             //console.log(valores[i])                         
                             break;
                         }
@@ -214,7 +213,7 @@ class ValidService{
                                 }else{
                                     let position;
                                     position=i+1;
-                                    fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                     //console.log(valores[i])                         
                                     break;
                                 }
@@ -226,7 +225,7 @@ class ValidService{
                                 }else{
                                     let position;
                                     position=i+1;
-                                    fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                     //console.log(valores[i])                         
                                     break;
                                 }
@@ -238,7 +237,7 @@ class ValidService{
                                         }else{
                                             let position;
                                             position=i+1;
-                                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                             //console.log(valores[i])                         
                                             break;
                                         }
@@ -250,7 +249,7 @@ class ValidService{
                                         }else{
                                             let position;
                                             position=i+1;
-                                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                             //console.log(valores[i])                         
                                             break;
                                         }
@@ -262,19 +261,19 @@ class ValidService{
                                                 }else{
                                                     let position;
                                                     position=i+1;
-                                                    fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                                     //console.log(valores[i])                         
                                                     break;
                                                 }
                                         }else{
                                             if(i==23){
                                                 //console.log(valores[i])                        
-                                                if(typeof valores[i] === 'object' && valores[i] != null){                            
+                                                if(valores[i] > 0 && valores[i] != null){                            
                                                     fail = "exito"                            
                                                 }else{
                                                     let position;
                                                     position=i+1;
-                                                    fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo fecha"   
+                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                                     //console.log(valores[i])                         
                                                     break;
                                                 }
@@ -286,7 +285,7 @@ class ValidService{
                                                         }else{
                                                             let position;
                                                             position=i+1;
-                                                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                                             //console.log(valores[i])                         
                                                             break;
                                                         }
@@ -298,7 +297,7 @@ class ValidService{
                                                         }else{
                                                             let position;
                                                             position=i+1;
-                                                            fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                                             //console.log(valores[i])                         
                                                             break;
                                                         }
@@ -310,7 +309,7 @@ class ValidService{
                                                                 }else{
                                                                     let position;
                                                                     position=i+1;
-                                                                    fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]    
                                                                     //console.log(valores[i])                         
                                                                     break;
                                                                 }
@@ -341,7 +340,7 @@ class ValidService{
                     }else{
                         let position;
                         position=i+1;
-                        fail= "Error en la Hoja Rural, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                         //console.log(valores[i])                         
                         break;
                     }
@@ -353,7 +352,7 @@ class ValidService{
                     }else{
                         let position;
                         position=i+1;
-                        fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                         //console.log(valores[i])                         
                         break;
                     }
@@ -365,7 +364,7 @@ class ValidService{
                             }else{
                                 let position;
                                 position=i+1;
-                                fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                 //console.log(valores[i])                         
                                 break;
                             }
@@ -377,7 +376,7 @@ class ValidService{
                             }else{
                                 let position;
                                 position=i+1;
-                                fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                 //console.log(valores[i])                         
                                 break;
                             }
@@ -389,7 +388,7 @@ class ValidService{
                                     }else{
                                         let position;
                                         position=i+1;
-                                        fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                         //console.log(valores[i])                         
                                         break;
                                     }
@@ -401,7 +400,7 @@ class ValidService{
                                     }else{
                                         let position;
                                         position=i+1;
-                                        fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                         //console.log(valores[i])                         
                                         break;
                                     }
@@ -413,19 +412,19 @@ class ValidService{
                                             }else{
                                                 let position;
                                                 position=i+1;
-                                                fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                 //console.log(valores[i])                         
                                                 break;
                                             }
                                     }else{
                                         if(i==24){
                                             //console.log(valores[i])                        
-                                            if(typeof valores[i] === 'object' && valores[i] != null){                            
+                                            if(valores[i] > 0 && valores[i] != null){                            
                                                 fail = "exito"                            
                                             }else{
                                                 let position;
                                                 position=i+1;
-                                                fail= "Error en la Hoja Ph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo fecha"   
+                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                 //console.log(valores[i])                         
                                                 break;
                                             }
@@ -437,7 +436,7 @@ class ValidService{
                                                     }else{
                                                         let position;
                                                         position=i+1;
-                                                        fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                         //console.log(valores[i])                         
                                                         break;
                                                     }
@@ -449,7 +448,7 @@ class ValidService{
                                                     }else{
                                                         let position;
                                                         position=i+1;
-                                                        fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                         //console.log(valores[i])                         
                                                         break;
                                                     }
@@ -461,7 +460,7 @@ class ValidService{
                                                             }else{
                                                                 let position;
                                                                 position=i+1;
-                                                                fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo numerico"   
+                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                                 //console.log(valores[i])                         
                                                                 break;
                                                             }
@@ -473,7 +472,7 @@ class ValidService{
                                                             }else{
                                                                 let position;
                                                                 position=i+1;
-                                                                fail= "Error en la Hoja Nph, en la columna : "+ position + " con el valor: " + valores[i]+" no es de tipo texto"   
+                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
                                                                 //console.log(valores[i])                         
                                                                 break;
                                                             }

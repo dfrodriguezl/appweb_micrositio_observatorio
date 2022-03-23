@@ -1,8 +1,7 @@
 
 
-
 class TemplateLogin{
-
+    
 
     static  getTemplateLogin(id_user){
             return `
@@ -11,7 +10,7 @@ class TemplateLogin{
                     .container {
                         background-color: #f4f4f4;
                       
-                        padding:50px;
+                        padding:20px;
                     }
                     .im{
                         color: #4C4C4C !important;
@@ -23,6 +22,14 @@ class TemplateLogin{
                         font-size: calc(0.6em + 0.9vh);
                         text-align: start;
                         margin: 1em 0 0 0;
+                        display:flex;
+                        flex-direcction: row;
+                    }
+                    .izquierda{
+                        width:300%;
+                    }
+                    .derecha{
+                        flex:0 0 '35%';
                     }
                     .top{
                         height: 9vh;
@@ -34,6 +41,13 @@ class TemplateLogin{
                     .imagen{
                         float: right;
                         height: 7vh
+                    }
+                    .imagenwelcome{
+                        float: right;
+                        width: 80%
+                    }
+                    .imagenfooter{
+                        width: 94%
                     }
                     .logodane{
                        height: 7vh;
@@ -58,7 +72,7 @@ class TemplateLogin{
                     }
                     @media (max-width: 4000px) and (min-width: 769px) {
                         .container{
-                            width: 800px;
+                            width: 1315px;
                         }
                     }
                 </style>
@@ -67,28 +81,32 @@ class TemplateLogin{
                 <div class=\"container\">
                     <div class=\"top\">
                         <img class=\"logodane\" src="https://nowsoft.app/geoportal/descargas/oin/logo-observatorio.PNG"  />
-                        <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />
-                
+                        <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG"/>                
                      </div>
                     <div class=\"bottom\">
-                        <p class=\"textP\">
+                      <div class=\"izquierda\">
+                      <p class=\"textP\">
             
-                            Gracias por registrarse en el Observatorio Inmobiliario Nacional - OIN.<br><br>
+                      ¡Bienvenido al Observatorio Inmobiliario Nacional!, le informamos que su registro ha sido exitoso y se le ha otorgado el código de identificación: ${id_user}<br><br>
 
-                            Su codigo de registro es el siguiente ${id_user}, recuerde que este numero debe ser suministrado en la informacion que se suba a la paltaforma en el campo: codigo_observatorio.<br><br>
-
-                            Para ingresar a la plataforma favor dirigase al siguiente link.<br><br>
+                            Para ingresar a la plataforma favor dirigase al siguiente link<br><br>
             
                             https://nowsoft.app/Observatorio/login <br><br>
             
                             Cordialmente,<br><br>
             
                             Departamento Administrativo Nacional de Estadistica - DANE
-                        </p>
-            
+                        </p> 
+                      </div>   
+                      <div class=\"derecha\">
+                      <img class=\"imagenwelcome\" src="https://nowsoft.app/geoportal/descargas/oin/Welcome-bro.png" />
+                      </div>          
                     </div>
             
-                </div>
+                </div>                
+                <footer>
+                <img class=\"imagenfooter\" src="https://nowsoft.app/geoportal/descargas/oin/footer2.PNG" />
+                </footer>
                 </body>
         `
     }

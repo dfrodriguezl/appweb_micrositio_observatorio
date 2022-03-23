@@ -12,6 +12,7 @@ class Middleware {
                 next();
             })
             .catch( err => {
+                console.log("token",err)
                 res.json({
                     code:"UN001",
                     ok: false,

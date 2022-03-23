@@ -8,7 +8,7 @@ class EmailService {
       port: 465,
       secure : true,
       auth: {
-        user: "noreplytestsendemail@gmail.com",
+        user: "noreplytestsendemail@gmail.com",        
         pass: "dane2021+",
       },   
       tls: {

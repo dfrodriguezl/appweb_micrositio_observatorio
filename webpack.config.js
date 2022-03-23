@@ -8,7 +8,6 @@ const CompressionPlugin = require('compression-webpack-plugin');
 // Here you write different options and tell Webpack what to do
 module.exports = {
 
- 
 
   devtool: "source-map",
   // Path to your entry point. From this file Webpack will begin his work

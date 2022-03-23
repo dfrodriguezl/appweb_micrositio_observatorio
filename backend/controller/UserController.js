@@ -9,6 +9,7 @@ const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const ParserModel = require("../classes/parserModel");
 const SheetsController = require("./SheetsController");
+const xlsx = require('xlsx');
 class UserController {
 
   static async changePassord(req, res) {
@@ -279,7 +280,7 @@ class UserController {
         let selectphdestinacioneconomicaPh = await UserService.statisticsph_destinacion_economica(req.body.usuario.id);
         let selectphdestinacioneconomicaNph = await UserService.statisticsnph_destinacion_economica(req.body.usuario.id);
         let selectphdestinacioneconomicaRural = await UserService.statisticsrural_destinacion_economica(req.body.usuario.id);
-        if (selectph && selectnph && selectrural && selectphdestinacioneconomicaPh && selectphdestinacioneconomicaNph && selectphdestinacioneconomicaRural) {
+        if (selectph && selectnph && selectrural && selectphdestinacioneconomicaPh && selectphdestinacioneconomicaNph && selectphdestinacioneconomicaRural) {          
           response.code = "OK";
           response.message = "Estadisticas encontradas";   
           let arrayph = selectph.rows
@@ -395,102 +396,175 @@ class UserController {
     let ext = "xlsx";
     let log = "asd";
     let nombre = Date.now() + ".xlsx"
-    let stream = fs.createWriteStream("./public/" + nombre);       
+    //let stream = fs.createWriteStream("./public/" + nombre);       
     let response = {
       status: 200,
       data: {},
       message: "registro exitoso",
       code: "OK",
     };
-    stream.write(file.data, async (err) => { //excel      
-      try {        
-        xlsxFile("./public/" + nombre, { getSheets: true })//error pro
-          .then(async (sheets) => {
-            
-            for(let i = 0; i < sheets.length;i++){
-              
-              let rows = await  SheetsController.openSheetsFile(nombre,sheets[i].name)
-              
-              let newRows = rows.splice(2, rows.length);              
-                for (let j = 0; j < newRows.length; j++) {
-                  let dataToSend;        
-                  let valid;                                         
-                  switch (sheets[i].name) {                                         
-                    case "PH":                      
-                      dataToSend = ParserModel.transformToSheetsPH(                          
-                        newRows[j]
-                      ); //transforma en el objeto que se creo en el enviador                      
-                      valid = Validate.validPh(dataToSend);
-                      if(valid==="exito"){
-                        let phfound = await UserService.searchOfferPh(dataToSend,id_obsevatorio);     
-                        if(phfound){
-                          await UserService.updateOfferPh(dataToSend, id_obsevatorio)  //aqui iria para update                          
-                        }else{
-                          await UserService.uploadfileph(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
-                        }                        
-                      }else{                        
-                        response.code = valid;
-                        j = newRows.length;
-                        i = sheets.length            
-                      }
-                      break;
-                    case "NPH":                        
-                      dataToSend = ParserModel.transformToSheetsNPH(                          
-                        newRows[j]
-                      ); //transforma en el objeto que se creo en el enviador
-                      valid = Validate.validNph(dataToSend);
-                      if(valid==="exito"){
-                      let nphfound = await UserService.searchOfferNph(dataToSend, id_obsevatorio);
-                      if(nphfound){
-                        await UserService.updateOfferNph(dataToSend, id_obsevatorio)  //aqui iria para update                        
-                      }else{
-                        await UserService.uploadfilenph(dataToSend, id_obsevatorio)  //aqui iria parainsert                        
-                      }
-                     }else{
-                      response.code = valid;
-                      j = newRows.length;
-                      i = sheets.length  
-                     }                     
-                     break;
-                    case "RURAL":                        
-                      dataToSend = ParserModel.transformToSheetsRURAL(                          
-                        newRows[j]
-                      ); //transforma en el objeto que se creo en el enviador
-                      valid = Validate.validRural(dataToSend);
-                      if(valid==="exito"){
-                        let ruralfound = await UserService.searchOfferRural(dataToSend, id_obsevatorio);
-                        if(ruralfound){
-                          await UserService.updateOfferRural(dataToSend, id_obsevatorio)  //aqui iria para update
-                        }else{
-                          await UserService.uploadfilerural(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
-                        }
-                      }else{
-                        response.code = valid;
-                        j = newRows.length;
-                        i = sheets.length  
-                      }
-                      break;
-                  }
-                }   
-            }
-            util.saveData(response);
-            return util.sendResponse();
-          })
-          .catch((err) => {
-            console.log(err)
-            response.code = "ERROR";
-            response.message = "Ocurrio un error inesperado";
-            util.saveData(response);
-            return util.sendResponse();
-          });
-      } catch (error) {
-        console.log(error)
+    let wb= xlsx.read(file.data, {type: "buffer"})
+    //.then(async (wb) =>{
+    try {
+      for(let i = 0; i < wb.SheetNames.length; i++){
+        //console.log(wb.SheetNames[i])
+        let ws01 = wb.Sheets[wb.SheetNames[i]]
+        let data01 = xlsx.utils.sheet_to_json(ws01) 
+        let newRows = data01.splice(1, data01.length);       
+        for (let j = 0; j < newRows.length; j++){                     
+          let valid; 
+          switch (wb.SheetNames[i]) {                                         
+            case "PH":                                
+              valid = Validate.validPh(newRows[j]);              
+              if(valid==="exito"){                
+                let phfound = await UserService.searchOfferPh1(newRows[j],id_obsevatorio);           
+                if(phfound){
+                  await UserService.updateOfferPh1(newRows[j], id_obsevatorio)  //aqui iria para update                          
+                }else{
+                  await UserService.uploadfileph1(newRows[j], id_obsevatorio)  //aqui iria parainsert                          
+                }                        
+              }else{                        
+                response.code = valid;
+                j = newRows.length;
+                i = wb.SheetNames.length            
+              }
+              break;
+            case "NPH":  
+              valid = Validate.validNph(newRows[j]);
+              //console.log("Hola",newRows[j])
+              if(valid==="exito"){
+              let nphfound = await UserService.searchOfferNph1(newRows[j], id_obsevatorio);
+              if(nphfound){
+                await UserService.updateOfferNph1(newRows[j], id_obsevatorio)  //aqui iria para update                        
+              }else{
+                await UserService.uploadfilenph1(newRows[j], id_obsevatorio)  //aqui iria parainsert                        
+              }
+             }else{
+              response.code = valid;
+              j = newRows.length;
+              i = wb.SheetNames.length;  
+             }                     
+             break;
+             case "RURAL":                        
+              valid = Validate.validRural(newRows[j]);
+              //console.log("Hola",newRows[j])
+              if(valid==="exito"){
+                let ruralfound = await UserService.searchOfferRural1(newRows[j], id_obsevatorio);                
+                if(ruralfound){
+                  await UserService.updateOfferRural1(newRows[j], id_obsevatorio)  //aqui iria para update
+                }else{
+                  await UserService.uploadfilerural1(newRows[j], id_obsevatorio)  //aqui iria parainsert                          
+                }
+              }else{
+                response.code = valid;
+                j = newRows.length;
+                i = wb.SheetNames.length;  
+              }
+              break;
+          }
+        }    
+      }
+      util.saveData(response);
+      return util.sendResponse();
+    } catch (error) {
+      console.log(error)
         response.code = "ERROR";
         response.message = "Ocurrio un error inesperado";
         util.saveData(response);
         return util.sendResponse();
-      }  
-    });
+    }
+    //})    
+    
+    
+    // stream.write(file.data, async (err) => { //excel      
+    //   try {        
+    //     xlsxFile("./public/" + nombre, { getSheets: true })//error pro
+    //       .then(async (sheets) => {
+            
+    //         for(let i = 0; i < sheets.length;i++){
+              
+    //           let rows = await  SheetsController.openSheetsFile(nombre,sheets[i].name)
+              
+    //           let newRows = rows.splice(2, rows.length);              
+    //             for (let j = 0; j < newRows.length; j++) {
+    //               let dataToSend;        
+    //               let valid;                                         
+    //               switch (sheets[i].name) {                                         
+    //                 case "PH":                      
+    //                   dataToSend = ParserModel.transformToSheetsPH(                          
+    //                     newRows[j]
+    //                   ); //transforma en el objeto que se creo en el enviador                    
+    //                   valid = Validate.validPh(dataToSend);
+    //                   if(valid==="exito"){
+    //                     let phfound = await UserService.searchOfferPh(dataToSend,id_obsevatorio);     
+    //                     if(phfound){
+    //                       await UserService.updateOfferPh(dataToSend, id_obsevatorio)  //aqui iria para update                          
+    //                     }else{
+    //                       await UserService.uploadfileph(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
+    //                     }                        
+    //                   }else{                        
+    //                     response.code = valid;
+    //                     j = newRows.length;
+    //                     i = sheets.length            
+    //                   }
+    //                   break;
+    //                 case "NPH":                        
+    //                   dataToSend = ParserModel.transformToSheetsNPH(                          
+    //                     newRows[j]
+    //                   ); //transforma en el objeto que se creo en el enviador
+    //                   valid = Validate.validNph(dataToSend);
+    //                   if(valid==="exito"){
+    //                   let nphfound = await UserService.searchOfferNph(dataToSend, id_obsevatorio);
+    //                   if(nphfound){
+    //                     await UserService.updateOfferNph(dataToSend, id_obsevatorio)  //aqui iria para update                        
+    //                   }else{
+    //                     await UserService.uploadfilenph(dataToSend, id_obsevatorio)  //aqui iria parainsert                        
+    //                   }
+    //                  }else{
+    //                   response.code = valid;
+    //                   j = newRows.length;
+    //                   i = sheets.length  
+    //                  }                     
+    //                  break;
+    //                 case "RURAL":                        
+    //                   dataToSend = ParserModel.transformToSheetsRURAL(                          
+    //                     newRows[j]
+    //                   ); //transforma en el objeto que se creo en el enviador
+    //                   valid = Validate.validRural(dataToSend);
+    //                   if(valid==="exito"){
+    //                     let ruralfound = await UserService.searchOfferRural(dataToSend, id_obsevatorio);
+    //                     if(ruralfound){
+    //                       await UserService.updateOfferRural(dataToSend, id_obsevatorio)  //aqui iria para update
+    //                     }else{
+    //                       await UserService.uploadfilerural(dataToSend, id_obsevatorio)  //aqui iria parainsert                          
+    //                     }
+    //                   }else{
+    //                     response.code = valid;
+    //                     j = newRows.length;
+    //                     i = sheets.length  
+    //                   }
+    //                   break;
+    //               }
+    //             }   
+    //         }
+    //         util.saveData(response);
+    //         return util.sendResponse();
+    //       })
+    //       .catch((err) => {
+    //         console.log(err)
+    //         response.code = "ERROR";
+    //         response.message = "Ocurrio un error inesperado";
+    //         util.saveData(response);
+    //         return util.sendResponse();
+    //       });
+    //   } catch (error) {
+    //     console.log(error)
+    //     response.code = "ERROR";
+    //     response.message = "Ocurrio un error inesperado";
+    //     util.saveData(response);
+    //     return util.sendResponse();
+    //   }  
+    // });
   }
 
   static async testToken(req, res) {

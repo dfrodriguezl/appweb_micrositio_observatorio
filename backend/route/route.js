@@ -16,13 +16,14 @@ router.post('/user/forgetpassword',UserController.forgetPassword)
 router.post('/ceed',CeedController.createCeed)
 router.post('/user/resetpassword',Middleware.verificaToken,UserController.resetPassword)
 router.post('/user/changepassword',Middleware.verificaToken,UserController.changePassord)
-router.get('/PlataformaUsuario',Middleware.verificaToken,UserController.statistics)
+router.get('/PlataformaUsuario/statistics',Middleware.verificaToken,UserController.statistics)
 router.get('/PlataformaUsuario/graphis',Middleware.verificaToken,UserController.statistics_venta_arriendo)
 router.get('/PlataformaUsuario/location',Middleware.verificaToken,UserController.locationUser)
-router.post('/PlataformaUsuario',Middleware.verificaToken,UserController.upload)
+router.post('/PlataformaUsuario/upload',Middleware.verificaToken,UserController.upload)
+router.post('/PlataformaUsuario',Middleware.verificaToken)
 module.exports = router;
 
 
-
+//verificar rutas undifine token
 // const path = require("path");
 // const directory = path.join(__dirname, "./public/");

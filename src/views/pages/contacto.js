@@ -7,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import {Loader} from './loader/loader'
 import Modal from "Observatorio/pages/modal"
+import enviroment from '../../config/enviroment';
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -169,7 +170,7 @@ const Contacto = () => {
             tema:form.peticion
         }
           axios.post(
-           "http://localhost:3000/contact", 
+            `${enviroment.endpoint}/contact`, 
             newBody, 
             {
                 headers: { 
