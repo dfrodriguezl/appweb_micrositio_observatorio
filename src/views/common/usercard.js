@@ -457,7 +457,7 @@ botonmodalcargar: {
   },
 
   mediamodal: {
-    height: "16vh",
+    height: "22vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "90%",
     backgroundPosition: "center center",

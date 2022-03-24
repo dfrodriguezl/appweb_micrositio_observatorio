@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography, Button } from "@material-ui/core";
+import { Grid, makeStyles, Typography, Button} from "@material-ui/core";
 import React, {  useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-amico1.svg";
@@ -69,6 +69,37 @@ const useStyle = makeStyles({
     gridMain: {
         paddingBottom: "50px"
     },
+
+    labeltext1:{
+        display:"none"
+    },
+
+    labeltext2:{
+        display:"none"
+    },
+
+    labeltext3:{
+        display:"none"
+    },
+
+    labeltext4:{
+        display:"block",
+        color: "#821a3f",
+        fontWeight: "bold",
+    },
+
+    labeltext5:{
+        display:"block",
+        color: "#821a3f",
+        fontWeight: "bold",
+    },
+
+    labeltext6:{
+        display:"block",
+        color: "#821a3f",
+        fontWeight: "bold",
+    },
+
     boton: {
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "6vh",
@@ -101,6 +132,7 @@ const ImagenBottom = () => {
 
 const FormRegister = () => {
     const classes = useStyle();
+    
     const [form, setForm] = useState({
         tipoUsuario: 10,
         razonSocial: "",
@@ -172,9 +204,11 @@ const FormRegister = () => {
     const handleCloseUserValidation = () => setOpenValidation(false)
 
     const [openLoading,setLoading] = useState(false)
-    const [correo,setcorreo] = useState("")
-    const [leyendaCorreo,setleyendaCorreo] = useState("")
-    const [errorCorreo,seterrorCorreo] = useState(false)
+    const [errorcorreo,seterrorcorreo] = useState("true")
+    const [errornombre,seterrornombre] = useState("true")
+    const [errortelefono,seterrortelefono] = useState("true")
+    const [errorcorreo2,seterrorcorreo2] = useState("true")
+    const [errorpassword2,seterrorpassword2] = useState("true")
 
     const expresiones = {
         usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -182,21 +216,96 @@ const FormRegister = () => {
         password: /^.{4,12}$/, // 4 a 12 digitos.
         correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         telefono: /^\d{7,14}$/ // 7 a 14 numeros.
-    }
+    }   
 
-    const validacion = () =>{
-        let expresion = expresiones.correo
-        if(expresion){
-            if(expresion.test(form.correoElectronico)){
-                console.log("input correcto")
+    const validarcorreo2 = () =>{
+        if(form.confirmarCorreo.length > 0){
+            if(form.correoElectronico !== form.confirmarCorreo){
+                seterrorcorreo2("false") 
             }else{
-                console.log("input incorrecto")
+                seterrorcorreo2("true") 
             }
         }
     }
 
-    const sendForm = () => {
-      
+    const validarpassword2 = () =>{
+        if(form.confirmarClave.length){
+            if(form.clave !== form.confirmarClave){
+                seterrorpassword2("false") 
+            }else{
+                seterrorpassword2("true") 
+            }
+        }
+    }
+
+    const validacionnombre = () =>{
+        let expresion = expresiones
+        let expresionnombre = expresiones.nombre
+        if(expresion){
+            if(expresionnombre.test(form.razonSocial)){
+                seterrornombre("true")         
+            }else{
+                seterrornombre("false") 
+            }
+        }
+    }
+
+    const validacioncorreo = () =>{
+        let expresion = expresiones
+        let expresioncorreo = expresiones.correo
+        if(expresion){            
+            if(expresioncorreo.test(form.correoElectronico)){
+                seterrorcorreo("true")         
+            }else{
+                seterrorcorreo("false") 
+            }
+        }
+    }
+
+    const validaciontelefono = () =>{
+        let expresion = expresiones
+        let expresiontelefono = expresiones.telefono
+        if(expresion){
+            if(expresiontelefono.test(form.telefono)){
+                seterrortelefono("true")         
+            }else{
+                seterrortelefono("false") 
+            }
+        }
+    }
+
+    var leyendanombre = null;
+    var leyendacorreo = null;
+    var leyendacorreo2 = null;
+    var leyendapassword2 = null;
+    var leyendatelefono = null;
+    if(errornombre==="true"){
+        leyendanombre = classes.labeltext1;
+    }else{
+        leyendanombre = classes.labeltext4;
+    }
+    if(errorcorreo==="true"){
+        leyendacorreo = classes.labeltext2;
+    }else{
+        leyendacorreo = classes.labeltext5;
+    }
+    if(errortelefono==="true"){
+        leyendatelefono = classes.labeltext3;
+    }else{
+        leyendatelefono = classes.labeltext6;
+    }
+    if(errorcorreo2==="true"){
+        leyendacorreo2= classes.labeltext1;
+    }else{
+        leyendacorreo2 = classes.labeltext4;
+    }
+    if(errorpassword2==="true"){
+        leyendapassword2 = classes.labeltext1;
+    }else{
+        leyendapassword2 = classes.labeltext4;
+    }
+
+    const sendForm = () => {     
         
         console.log("enviando form")
        
@@ -295,7 +404,8 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12} >
-                        <TextField name="razonSocial" value={form.razonSocial} onChange={handleChangeValue} item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField name="razonSocial" value={form.razonSocial} onKeyUp={validacionnombre} onBlur={validacionnombre} onChange={handleChangeValue} item size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <p className={leyendanombre}>El nombre solo puede tener letras y espacios</p>
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -303,7 +413,8 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item onKeyUp={validacion} onBlur={validacion} name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue} type="email" size="small" className={classes.itemTextField} id="outlined-basic" label=""/>
+                        <TextField item onKeyUp={validacioncorreo} onBlur={validacioncorreo} name="correoElectronico" value={form.correoElectronico} onChange={handleChangeValue} type="email" size="small" className={classes.itemTextField} id="outlined-basic" label=""/>
+                        <p className={leyendacorreo}>La dirección de correo debe contener @correo.extensión</p>
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -311,7 +422,8 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item value={form.confirmarCorreo} name="confirmarCorreo" onChange={handleChangeValue} size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <TextField item value={form.confirmarCorreo} onKeyUp={validarcorreo2} onBlur={validarcorreo2}  name="confirmarCorreo" onChange={handleChangeValue} size="small" className={classes.itemTextField} id="outlined-basic" label="" />
+                        <p className={leyendacorreo2}>Los correos no coinciden</p>
                     </Grid>
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -325,7 +437,8 @@ const FormRegister = () => {
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <TextField item size="small" className={classes.itemTextField} id="outlined-basic" />
+                        <TextField item size="small" onKeyUp={validaciontelefono} onBlur={validaciontelefono} value={form.telefono} name="telefono" onChange={handleChangeValue} className={classes.itemTextField} id="outlined-basic" />
+                        <p className={leyendatelefono}>El telefono debe tener minimo 7 o maximo 10 digitos</p>
                     </Grid>
                     <Grid item container>
                         <Typography className={classes.Textp} >
@@ -357,6 +470,7 @@ const FormRegister = () => {
                                 }
                                 label="Password"
                             />
+                            <p className={leyendapassword2}>Las contraseñas no coinciden</p>
                         </FormControl>
 
                     </Grid>
@@ -373,7 +487,7 @@ const FormRegister = () => {
                                 type={form.showConfirmPassword ? 'text' : 'password'}
                                 value={form.confirmarClave}
                                 name="confirmarClave"
-
+                                onKeyUp={validarpassword2} onBlur={validarpassword2}
                                 onChange={handleChangeValue}
                                 endAdornment={
                                     <InputAdornment position="end">
@@ -389,6 +503,7 @@ const FormRegister = () => {
                                 }
                                 label="Password"
                             />
+                            <p className={leyendapassword2}>Las contraseñas no coinciden</p>
                         </FormControl>
                     </Grid>
 
