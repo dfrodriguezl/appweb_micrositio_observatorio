@@ -42,6 +42,7 @@ import Experimentalstatistics from "Observatorio/pages/experimental_statistics";
 import ForgetPassword from "../views/pages/forgetpassword";
 import RestoreAccount from "../views/pages/restore";
 import ChangePassword from "../views/pages/changepassword";
+import ChatIA from "../views/common/botchat"
 const useStyle = makeStyles({
   marginTop: {
     marginTop: "120px",
@@ -100,6 +101,7 @@ const Generalroutes = () => {
     <div>
       <Header />
       <Navbar isLogin={isLogin} setAuth={cerrarSesionActiva} />
+      <ChatIA/>
       <Grid container className={classes.marginTop}></Grid>
       <Switch>
         <Route

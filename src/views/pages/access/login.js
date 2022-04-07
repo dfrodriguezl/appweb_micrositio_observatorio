@@ -66,9 +66,7 @@ const useStyle = makeStyles({
         width:"100%"
     },
 
-    b1: {        
-        backgroundColor: "#141414",       
-    },
+    
 
     boton: {
         padding: "0.3em 1em 0.3em 1em",
@@ -234,7 +232,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Values="5" Title="Registrarse" className={classes.b1} href="/Observatorio/register"/>
+                        <ButtonRedWine Values="5" Title="Registrarse" href="/Observatorio/register"/>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Typography className={classes.Textp} >
@@ -242,7 +240,7 @@ const FormAccess = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Values="5" Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
+                        <ButtonRedWine Values="6" Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
                     </Grid>
 
                 </Grid>

@@ -90,7 +90,8 @@ const Cardsmapas = () => {
                   className={classes.media}
                   image={infomaps.image_card}                 
                 />
-                <CardContent className={classes.centerText, classes.contentcar}>
+                {/* , classes.contentcar */}
+                <CardContent className={classes.centerText}>
                   <Typography className={classes.Titleh3}>
                   {infomaps.title}  
                   </Typography>

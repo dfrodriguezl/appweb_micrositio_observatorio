@@ -10,6 +10,7 @@ const fs = require("fs");
 const ParserModel = require("../classes/parserModel");
 const SheetsController = require("./SheetsController");
 const xlsx = require('xlsx');
+const moment = require ('moment');
 class UserController {
 
   static async changePassord(req, res) {
@@ -253,7 +254,128 @@ class UserController {
           response.message =
             "Lo sentimos, ocurrio un problema en nuestro sistema";
         }
-        console.log(response.data)
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
+  static async filesregistrer(req, res) {
+    let util = new Util(res);
+    let body = req.body;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {           
+        let selectph = await UserService.fileregistrerph(req.body.usuario.id);
+        let selectnph = await UserService.fileregistrernph(req.body.usuario.id);
+        let selectrural = await UserService.fileregistrerrural(req.body.usuario.id);
+        if (selectph && selectnph && selectrural) {
+          let arrayph = selectph.rows
+          let arraynph = selectnph.rows
+          let arrayrural = selectrural.rows
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          response.data = {
+            fileph: arrayph,
+            filenph: arraynph,
+            filerural: arrayrural,
+          };
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
+  static async registrerdownload(req, res) {
+    let util = new Util(res);
+    let body = req.body;    
+    let fecha = new Date();
+    fecha.setTime(Date.parse(req.headers.data))
+    let newDate =  moment.utc(fecha).format('YYYY-MM-DD');
+    let id_obsevatorio = req.body.usuario.id;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {          
+        let selectph = await UserService.registrerph(id_obsevatorio, newDate);
+        let selectnph = await UserService.registrernph(id_obsevatorio, newDate);
+        let selectrural = await UserService.registrerrural(id_obsevatorio, newDate);        
+        if (selectph && selectnph && selectrural) {
+          let arrayph = selectph.rows
+          let arraynph = selectnph.rows
+          let arrayrural = selectrural.rows
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          response.data = {
+            fileph: arrayph,
+            filenph: arraynph,
+            filerural: arrayrural,
+          };
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
+  static async offerdata(req, res) {
+    let util = new Util(res);
+    let body = req.body;    
+    let id_obsevatorio = req.body.usuario.id;
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {          
+        let selectph = await UserService.offerdataph(id_obsevatorio);
+        let selectnph = await UserService.offerdatanph(id_obsevatorio);
+        let selectrural = await UserService.offerdatarural(id_obsevatorio);        
+        if (selectph && selectnph && selectrural) {
+          let arrayph = selectph.rows
+          let arraynph = selectnph.rows
+          let arrayrural = selectrural.rows
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          response.data = {
+            fileph: arrayph,
+            filenph: arraynph,
+            filerural: arrayrural,
+          };
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
     } catch (error) {
       console.log(error);
       response.code = "ERROR";
@@ -356,11 +478,14 @@ class UserController {
     };    
     try {           
         let selectph = await UserService.locationPh(req.body.usuario.id);
-        if (selectph) {
+        let selectnph = await UserService.locationNph(req.body.usuario.id);
+        let selectrural = await UserService.locationRural(req.body.usuario.id); 
+        if (selectph && selectnph && selectrural) {
           response.code = "OK";
           response.message = "Estadisticas encontradas";
           let arrayph = selectph.rows
-
+          let arraynph = selectnph.rows
+          let arrayrural = selectrural.rows
           // console.log(arrayph.length)
           // console.log("___________________")
           // console.log(arrayph)
@@ -372,6 +497,8 @@ class UserController {
 
           response.data = {
             locationph: arrayph,
+            locationnph: arraynph,
+            locationrural: arrayrural,
           };
 
         } else {
@@ -384,7 +511,7 @@ class UserController {
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
-    //console.log("prueba", response.data)
+    //console.log("prueba", response)
     util.saveData(response);
     return util.sendResponse();
   }
@@ -396,7 +523,8 @@ class UserController {
     let ext = "xlsx";
     let log = "asd";
     let nombre = Date.now() + ".xlsx"
-    //let stream = fs.createWriteStream("./public/" + nombre);       
+    //let stream = fs.createWriteStream("./public/" + nombre);    
+    
     let response = {
       status: 200,
       data: {},
@@ -419,9 +547,9 @@ class UserController {
               if(valid==="exito"){                
                 let phfound = await UserService.searchOfferPh1(newRows[j],id_obsevatorio);           
                 if(phfound){
-                  await UserService.updateOfferPh1(newRows[j], id_obsevatorio)  //aqui iria para update                          
+                  await UserService.updateOfferPh1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update                          
                 }else{
-                  await UserService.uploadfileph1(newRows[j], id_obsevatorio)  //aqui iria parainsert                          
+                  await UserService.uploadfileph1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                          
                 }                        
               }else{                        
                 response.code = valid;
@@ -435,9 +563,9 @@ class UserController {
               if(valid==="exito"){
               let nphfound = await UserService.searchOfferNph1(newRows[j], id_obsevatorio);
               if(nphfound){
-                await UserService.updateOfferNph1(newRows[j], id_obsevatorio)  //aqui iria para update                        
+                await UserService.updateOfferNph1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update                        
               }else{
-                await UserService.uploadfilenph1(newRows[j], id_obsevatorio)  //aqui iria parainsert                        
+                await UserService.uploadfilenph1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                        
               }
              }else{
               response.code = valid;
@@ -451,9 +579,9 @@ class UserController {
               if(valid==="exito"){
                 let ruralfound = await UserService.searchOfferRural1(newRows[j], id_obsevatorio);                
                 if(ruralfound){
-                  await UserService.updateOfferRural1(newRows[j], id_obsevatorio)  //aqui iria para update
+                  await UserService.updateOfferRural1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update
                 }else{
-                  await UserService.uploadfilerural1(newRows[j], id_obsevatorio)  //aqui iria parainsert                          
+                  await UserService.uploadfilerural1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                          
                 }
               }else{
                 response.code = valid;
@@ -565,6 +693,40 @@ class UserController {
     //     return util.sendResponse();
     //   }  
     // });
+  }
+
+  static async delet(req, res) {
+    let util = new Util(res);
+    let body = req.body;
+    let id_obsevatorio = req.body.usuario.id;
+    let matricula = req.body.datos
+    let tabla = req.body.table   
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {           
+      switch (tabla) {
+        case "Ph":
+          await UserService.deletPh(id_obsevatorio, matricula)  
+          break;
+        case "Nph":
+          await UserService.deletNph(id_obsevatorio, matricula)  
+          break;
+        case "Rural":
+          await UserService.deletRural(id_obsevatorio, matricula)  
+          break;
+      }      
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
+    //console.log("prueba", response)
+    util.saveData(response);
+    return util.sendResponse();
   }
 
   static async testToken(req, res) {

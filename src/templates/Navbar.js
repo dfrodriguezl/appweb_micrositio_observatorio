@@ -143,8 +143,8 @@ Textp: {
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "center",
-    margin: "1em 0 0 0",
-    marginTop:"30px !important"
+    margin: "1em 0 1em 0",
+    //marginTop:"30px !important"
 },
 Titlep: {
   color: Values.TextParagraph,
@@ -533,11 +533,11 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography className={classes.Titlep} id="modal-modal-title" variant="h6" component="h2">
+          {/* <Typography className={classes.Titlep} id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
-          </Typography>
+          </Typography> */}
           <Typography className={classes.Textp} id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            ¿Esta seguro que desea cerrar sesión?
           </Typography>
           <Button
                 className={classes.boton}
