@@ -1,43 +1,59 @@
 import React from "react";
 import Chatbot from "react-chatbot-kit";
+import styles from "./style/estiloschat.css";
 import {
-    Grid,
     makeStyles,
-    useMediaQuery,
-    Card,
-    CardContent,
-    CardMedia,
-    Typography,
-    Button,
-    Modal,
-    Box,
-    TextField,
     Fab,
   } from "@material-ui/core";
+  import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 
-//import config from "./configs/chatbotConfig";
-//import MessageParser from "./chatbot/MessageParser";
-//import ActionProvider from "./chatbot/ActionProvider";
+import Config from "./config";
+import MessageParser from "./MessageParser";
+import ActionProvider from "./ActionProvider";
+
 const useStyle = makeStyles({
     botchat:{
         position: "fixed",
-        top: "85%",
-        left: "93%",
-    }
+        top: "30%",
+        left: "83%",
+        display:"none"
+    },
+    botchat2:{
+      position: "fixed",
+      top: "85%",
+      left: "95%",      
+  },
+  chatactive:{
+    display:"block !important"
+  },
 })
+
 const Chat = () => {
 const classes = useStyle();
   return (
-    <div className={classes.botchat}>
-        <Fab color="primary" aria-label="add">
-            {/* <Chatbot
-            config={config}
-            messageParser={MessageParser}
-            actionProvider={ActionProvider}
-            /> */}
-      </Fab>      
+    <div id="chat" className={classes.botchat}>
+      <Chatbot config={Config} messageParser={MessageParser} actionProvider={ActionProvider}/>   
     </div>
   );
 }
 
-export default Chat;
+function estadochat() {
+  const classes = useStyle();
+  const estilo = classes.chatactive
+  var element = document.getElementById("chat")
+  element.classList.toggle(estilo)
+}
+
+const BotChat = () => {
+  const classes = useStyle();
+    return (
+      <div className={classes.botchat2}>  
+        <Chat/>
+        <Fab onClick={estadochat} color="primary" aria-label="like">
+          <HeadsetMicIcon fontSize="large"/>            
+        </Fab>
+      </div>
+    );
+  }
+
+export default BotChat;

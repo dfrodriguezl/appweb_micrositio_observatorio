@@ -599,7 +599,7 @@ const style3 = {
   p: 4,
 };
 
-const Cardsmapas = (props) => {
+const Cardsmapas = () => {
   const [statistics, setstatistics] = useState({});
   const [fileregistrerph, setfileregistrerph] = useState([]);
   const [fileregistrernph, setfileregistrernph] = useState([]);
@@ -629,7 +629,10 @@ const Cardsmapas = (props) => {
         },
       })
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status == 200) {          
+          if(response.data.data.cantidadnph == "0" && response.data.data.cantidadph == "0" && response.data.data.cantidadrural == "0"){
+            setOpen3(true);
+          }
           if (response.data.code == "OK") {
             setstatistics(response.data.data);
           } else {
@@ -678,6 +681,7 @@ const Cardsmapas = (props) => {
       })
       .then((response) => {
         if (response.status == 200) {
+          
           if (response.data.code == "OK") {
             setph_venta_arriendo(response.data.data.cantidadph_arrendo_ventaph);
             setnph_venta_arriendo(
@@ -833,16 +837,16 @@ const Cardsmapas = (props) => {
 
   switch (estadoofer) {
     case "Ph":
-      dataSourceRegistrer = datafileregistrer.fileregistrerrow(registreph);
+      dataSourceRegistrer = datafileregistrer.fileregistrerrowph(registreph);
       break;
     case "Nph":
-      dataSourceRegistrer = datafileregistrer.fileregistrerrow(registrenph);
+      dataSourceRegistrer = datafileregistrer.fileregistrerrownph(registrenph);
       break;
     case "Rural":
-      dataSourceRegistrer = datafileregistrer.fileregistrerrow(registrerural);
+      dataSourceRegistrer = datafileregistrer.fileregistrerrowrural(registrerural);
       break;
       default:
-        dataSourceRegistrer = datafileregistrer.fileregistrerrow(registreph);
+        dataSourceRegistrer = datafileregistrer.fileregistrerrowph(registreph);
   }
 
   switch (estadomap) {
@@ -2659,12 +2663,11 @@ const Cardsmapas = (props) => {
                     item
                     xs={6}
                   >
-                    {console.log("prueba1",excelnph)}
-                    {console.log("prueba2",excelrural)}
                     <ExcelFile 
                     element={
                     <button
-                    className={classes.botonmodal1}                    
+                    className={classes.botonmodal1} 
+                    onClick={cerrar1}                   
                     >Si</button>} filename="Excel Oferta">                      
                         <ExcelSheet data={excelph} name="PH">
                           <ExcelColumn label="ID_OFERTA_PH" value="id_oferta_ph"/>

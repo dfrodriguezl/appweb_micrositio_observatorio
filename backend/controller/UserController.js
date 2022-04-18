@@ -359,11 +359,20 @@ class UserController {
     try {          
         let selectph = await UserService.offerdataph(id_obsevatorio);
         let selectnph = await UserService.offerdatanph(id_obsevatorio);
-        let selectrural = await UserService.offerdatarural(id_obsevatorio);        
-        if (selectph && selectnph && selectrural) {
-          let arrayph = selectph.rows
-          let arraynph = selectnph.rows
-          let arrayrural = selectrural.rows
+        let selectrural = await UserService.offerdatarural(id_obsevatorio);     
+          let arrayph = [];
+          let arraynph = [];
+          let arrayrural = [];
+          if(selectph!=null){
+            arrayph = selectph.rows
+          } 
+          if(selectnph!=null){
+            arraynph = selectnph.rows
+          } 
+          if(selectrural!=null){
+            arrayrural = selectrural.rows
+          } 
+        if (arrayph && arraynph && arrayrural) {
           response.code = "OK";
           response.message = "Estadisticas encontradas";
           response.data = {
@@ -402,17 +411,47 @@ class UserController {
         let selectphdestinacioneconomicaPh = await UserService.statisticsph_destinacion_economica(req.body.usuario.id);
         let selectphdestinacioneconomicaNph = await UserService.statisticsnph_destinacion_economica(req.body.usuario.id);
         let selectphdestinacioneconomicaRural = await UserService.statisticsrural_destinacion_economica(req.body.usuario.id);
-        if (selectph && selectnph && selectrural && selectphdestinacioneconomicaPh && selectphdestinacioneconomicaNph && selectphdestinacioneconomicaRural) {          
+        let arrayph;
+        let arraynph;
+        let arrayrural;
+        let arrayphdestinacion;
+        let arraynphdestinacion;
+        let arrayruraldestinacion;
+
+        if(selectph!=null){
+          arrayph = selectph.rows
+        }else{
+          arrayph=[]
+        }
+        if(selectnph!=null){
+          arraynph = selectnph.rows
+        }else{
+          arraynph=[]
+        }
+        if(selectrural!=null){
+          arrayrural = selectrural.rows
+        }else{
+          arrayrural=[]
+        }
+        if(selectphdestinacioneconomicaPh!=null){
+          arrayphdestinacion = selectphdestinacioneconomicaPh.rows
+        }else{
+          arrayphdestinacion=[]
+        }
+        if(selectphdestinacioneconomicaNph!=null){
+          arraynphdestinacion = selectphdestinacioneconomicaNph.rows
+        }else{
+          arraynphdestinacion=[]
+        }
+        if(selectphdestinacioneconomicaRural!=null){
+          arrayruraldestinacion = selectphdestinacioneconomicaRural.rows
+        }else{
+          arrayruraldestinacion=[]
+        }        
+        if (arrayph && arraynph && arrayrural && arrayphdestinacion && arraynphdestinacion && arrayruraldestinacion) {       
           response.code = "OK";
-          response.message = "Estadisticas encontradas";   
-          let arrayph = selectph.rows
-          let arraynph = selectnph.rows
-          let arrayrural = selectrural.rows
-          let arrayphdestinacion=selectphdestinacioneconomicaPh.rows
-          let arraynphdestinacion=selectphdestinacioneconomicaNph.rows
-          let arrayruraldestinacion=selectphdestinacioneconomicaRural.rows         
-          // console.log("hola1", arraynphdestinacion)
-          // console.log("hola2", arrayruraldestinacion)
+          response.message = "Estadisticas encontradas";        
+          
             const totalph = arrayph.reduce((prev, curr)=>{              
               prev[curr['nombre_tipo_oferta']]=curr['venta_arriendo'];
               return prev
@@ -452,6 +491,7 @@ class UserController {
               cantidad_destinacion_economica_rural: totaldestinacionRural
             }; 
         } else {
+          console.log("verificando error") 
           response.code = "ERR001";
           response.message =
             "Lo sentimos, ocurrio un problema en nuestro sistema";
@@ -480,21 +520,21 @@ class UserController {
         let selectph = await UserService.locationPh(req.body.usuario.id);
         let selectnph = await UserService.locationNph(req.body.usuario.id);
         let selectrural = await UserService.locationRural(req.body.usuario.id); 
-        if (selectph && selectnph && selectrural) {
+        let arrayph = [];
+        let arraynph = [];
+        let arrayrural = [];
+        if(selectph!=null){
+          arrayph = selectph.rows
+        }
+        if(selectnph!=null){
+          arraynph = selectnph.rows
+        }
+        if(selectrural!=null){
+          arrayrural = selectrural.rows
+        }
+        if (arrayph && arraynph && arrayrural) {
           response.code = "OK";
           response.message = "Estadisticas encontradas";
-          let arrayph = selectph.rows
-          let arraynph = selectnph.rows
-          let arrayrural = selectrural.rows
-          // console.log(arrayph.length)
-          // console.log("___________________")
-          // console.log(arrayph)
-
-          // const totallocationph = arrayph.reduce((prev, curr)=>{              
-          //   prev[curr['nombre_destinacion_economica']]=curr['direccion'];
-          //   return prev
-          //  }, {}); 
-
           response.data = {
             locationph: arrayph,
             locationnph: arraynph,
@@ -502,6 +542,7 @@ class UserController {
           };
 
         } else {
+          console.log("error 1")
           response.code = "ERR001";
           response.message =
             "Lo sentimos, ocurrio un problema en nuestro sistema";
