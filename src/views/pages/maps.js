@@ -8,8 +8,6 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
     
-    
-    
     Titleh3:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,

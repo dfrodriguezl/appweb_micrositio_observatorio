@@ -25,7 +25,7 @@ boton: {
 
 boton1: {
     borderRadius: "2vh",
-    backgroundColor: "#B4094E",
+    backgroundColor: "#727070",
     color: Values.TextButton,
     fontFamily: Values.SourceWorksans,
     textTransform: "capitalize",
@@ -36,14 +36,14 @@ boton1: {
     borderRadius: "2vh",
     fontWeight: "bold",
     "&:hover":{
-        backgroundColor: Values.HoverButton,
+        backgroundColor: Values.Redwinecolor,
         border:"none",
     }
   },
 
   boton2: {
     borderRadius: "2vh",
-    backgroundColor: "#df396b",
+    backgroundColor: "#727070",
     color: Values.TextButton,
     fontFamily: Values.SourceWorksans,
     textTransform: "capitalize",
@@ -54,7 +54,7 @@ boton1: {
     borderRadius: "2vh",
     fontWeight: "bold",
     "&:hover":{
-        backgroundColor: Values.HoverButton,
+        backgroundColor: Values.Redwinecolor,
         border:"none",
     }
   },

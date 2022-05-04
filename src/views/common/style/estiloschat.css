@@ -48,11 +48,11 @@
     color: #fff;
     font-size: .9rem;
     font-weight: medium;
-    margin-left: auto;
-    padding: 10px;
+    margin-left: 0.1em;
+    padding: 6px;
     position: relative;
     text-align: left;
-    width: 184.5px;
+    width: auto;
 }
 
 .react-chatbot-kit-chat-bot-message-arrow {
@@ -81,14 +81,14 @@
 .react-chatbot-kit-chat-input {
     border: none;
     border-bottom-left-radius: 5px;
-    border-top: 1px solid #d8d8d8;
+    border: 1px solid #c1a8a8;
     font-size: .85rem;
     padding: 12.5px;
     width: 100%;
 }
 
 .react-chatbot-kit-chat-btn-send {
-    background-color: #2898ec;
+    background-color: #821a3f;
     border: none;
     border-bottom-right-radius: 5px;
     color: #fff;

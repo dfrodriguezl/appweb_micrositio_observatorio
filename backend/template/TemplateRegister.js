@@ -73,12 +73,12 @@ class TemplateRegister {
             <body>
                 <div class=\"container\">
                     <div class=\"top\">
-                    <img class=\"logodane\" src="https://nowsoft.app/geoportal/descargas/oin/logo-observatorio.PNG"  />
-                    <img class=\"imagen\" src="https://nowsoft.app/geoportal/descargas/oin/logo-dane.PNG" />              
+                    <img class=\"logodane\" src="https://nowsoft.app/colectora/externo/files_oin/logo-observatorio.PNG"  />
+                    <img class=\"imagen\" src="https://nowsoft.app/colectora/externo/files_oin/logo-dane.PNG" />              
                      </div>
                     <div class=\"bottom\">
                         <div>
-                        <img class=\"imagenwelcome\" src="https://nowsoft.app/geoportal/descargas/oin/Reset.png" />
+                        <img class=\"imagenwelcome\" src="https://nowsoft.app/colectora/externo/files_oin/Reset.png" />
                         </div>
                         <div class=\"izquierda\">
                         <p class=\"textP\">            
@@ -98,7 +98,7 @@ class TemplateRegister {
             
                 </div>
                 <footer>
-                <img class=\"imagenfooter\" src="https://nowsoft.app/geoportal/descargas/oin/footer2.PNG" />
+                <img class=\"imagenfooter\" src="https://nowsoft.app/colectora/externo/files_oin/footer2.PNG" />
                 </footer>
                 </body>
         `;

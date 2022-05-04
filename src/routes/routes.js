@@ -43,6 +43,8 @@ import ForgetPassword from "../views/pages/forgetpassword";
 import RestoreAccount from "../views/pages/restore";
 import ChangePassword from "../views/pages/changepassword";
 import ChatIA from "../views/common/botchat"
+import ladm from "Observatorio/pages/ladm";
+
 const useStyle = makeStyles({
   marginTop: {
     marginTop: "120px",
@@ -150,6 +152,7 @@ const Generalroutes = () => {
           component={Avaluos}
         />
         <Route exact path="/Observatorio/Tipologia" component={Tipologia} />
+        <Route exact path="/Observatorio/LADM" component={ladm} />
         <Route exact path="/Observatorio/Ceed" component={Ceed} />
         <Route
           exact

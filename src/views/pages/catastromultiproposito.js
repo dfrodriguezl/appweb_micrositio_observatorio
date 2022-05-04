@@ -21,7 +21,7 @@ const useStyle = makeStyles({
          
       },
       boton4: {
-        padding: "0.3em 1em 0.3em 1em",
+        padding: "0em 1em 0em 1em",
         borderRadius: "2vh",
         backgroundColor: Values.Redwinecolor,
         color: Values.TextButton,
@@ -128,6 +128,19 @@ const useStyle = makeStyles({
 
       margboton:{
         margin:"1em 0 0 0",
+        borderRadius: "2vh",
+        backgroundColor:"#ffffff",
+        fontFamily: Values.SourceRoboto,
+        color: "#4C4C4C",
+        transition:"all 0.8s ease-out",
+        margin: "2% 0 0 0",
+        width: "50%",
+        fontSize: "calc(1em + 0.3vh)",
+        borderRadius: "2vh",
+        fontWeight: "bold",
+        border:"none",
+        boxShadow: "3px 3px 10px #7b7676",
+        padding: "0.3em 1em 0.3em 1em",
       },
       circule:{
         margin: "0 0.5em 0 0vw",
@@ -172,7 +185,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,        
         margin:"1em 0 1em 0", 
-        paddingLeft:"1em"
+        paddingLeft:"2em"
       },
       num: {
         backgroundColor: "#4c4c4c",
@@ -196,20 +209,20 @@ const useStyle = makeStyles({
       },
       imagen_transfer:{    
         width: "100% !important",
-        height: "40vh",
+        height: "37vh",
         backgroundSize: "85%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Transfer})`,       
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
          
       },   
       imagen_transfer2:{     
         width: "100%",
-        height: "50vh",
+        height: "40vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Transfer})`,       
-        backgroundPosition: "center center",
+        backgroundPosition: "bottom",
         flexBasis: "100% !important",
         maxWidth: "100% !important",
      },
@@ -224,7 +237,7 @@ const useStyle = makeStyles({
     },   
     imagen_png2:{     
        width: "100%",
-       height: "105vh",
+       height: "113vh",
        backgroundSize: "100%",
        backgroundRepeat: "no-repeat",
        backgroundImage: `url(${Hong})`,       
@@ -240,7 +253,7 @@ const useStyle = makeStyles({
 },
    imagen_png3:{    
     width: "100% !important",
-    height: "95vh",
+    height: "100vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${ImgPng})`,       
@@ -259,8 +272,9 @@ const useStyle = makeStyles({
       color: Values.Redwinecolor,
       fontFamily: Values.SourceRoboto,
       fontWeight: "bold",
-      fontSize: Values.SizeSubtitle,      
+      fontSize: "calc(0.7em + 1vh)",      
       textAlign: "center",
+      padding: "0.4em 0 0em 0.5em",
      },
      circulemarg:{
        margin: "1vw 0 1vw 0",
@@ -407,9 +421,9 @@ const ComparationModels = () =>{
             <li className={classes.listyle}>Seguridad jurídica.</li>
             <li className={classes.listyle}>Habilitación de gestores catastrales.</li>
             <li className={classes.listyle}>Integración Catastro - Registro.</li>
-            <li className={classes.listyle}>Número único predial registral - NUPRE.</li>
+            <li className={classes.listyle}>Número Único Predial Registral - NUPRE.</li>
             <li className={classes.listyle}>Repositorio de datos maestros basados en LADM.</li>
-            <li className={classes.listyle}>Sistema de administración de Tierras - SAT.</li>
+            <li className={classes.listyle}>Sistema de Administración de Tierras - SAT.</li>
             <li className={classes.listyle}>Mercado formal de tierras.</li>
             <li className={classes.listyle}>Simplificación de trámites.</li>            
           </ol>
@@ -423,7 +437,7 @@ const ComparationModels = () =>{
       <Imagenpng />
       <Grid id="catastroTomaDeDecisiones" container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
-          Catastro Multipropósito para la Toma de Decisiones
+          Catastro Multipropósito para la toma de decisiones
         </h3>
       </Grid>
       <Grid container direction="row">
@@ -448,7 +462,7 @@ const ComparationModels = () =>{
               </Grid>
               <Grid  container item xs>
               <p className={classes.textStyle2}>
-                Planificación territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el territorio
+                Planificación territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el territorio.
               </p>
               </Grid>
             </Grid>
@@ -464,7 +478,7 @@ const ComparationModels = () =>{
               </Grid>
               <Grid container item xs>
               <p className={classes.textStyle2}>
-              Resiliencia: Superación ante la adversidad, reconstrucción del tejido social, activación económica
+              Resiliencia: Superación ante la adversidad, reconstrucción del tejido social, activación económica.
               </p>
               </Grid>
             </Grid>
@@ -512,11 +526,6 @@ const Catastro = () => {
         estilo4=classes.boton1;
       }
     }
-
-  
-  
-
-  
     return(
         <Grid container direction="column" className={estilo}>
             <Grid container justifyContent="center" alignItems="center">
@@ -525,18 +534,18 @@ const Catastro = () => {
             <Grid container direction="row">
                 <Grid item container xs >
                     <p className={classes.contentrulesp}>
-                    La política e implementación del catastro con enfoque multipropósito, es uno de los productos transformacionales de mayor prioridad para el gobierno nacional, el cual tiene como enfoque la conformación de un sistema:
+                    La política e implementación del catastro con enfoque multipropósito, es uno de los productos transformacionales de mayor prioridad para el Gobierno Nacional, el cual tiene como enfoque la conformación de un sistema:
                     </p>  
                     <ol className={classes.contentrulesp2}>
                       <li className={classes.listyle}>Integral.</li>
                       <li className={classes.listyle}>Completo.</li>
                       <li className={classes.listyle}>Actualizado.</li>
                       <li className={classes.listyle}>Confiable.</li>
-                      <li className={classes.listyle}>Digital e</li>
-                      <li className={classes.listyle}>Interoperable con otros sistemas de información</li>
+                      <li className={classes.listyle}>Digital.</li>
+                      <li className={classes.listyle}>Interoperable con otros sistemas de información.</li>
                     </ol>       
                     <p className={classes.contentrulesp}>
-                      Esta nueva política busca que el catastro trascienda  de una óptica meramente fiscal y sea considerado como un instrumento estratégico para el apoyo en la toma de decisiones en lo concerniente al ordenamiento territorial.
+                      Esta nueva política busca que el catastro trascienda  de una óptica meramente fiscal y sea considerado como un instrumento estratégico para el apoyo en la toma de decisiones en lo concerniente al Ordenamiento Territorial.
                     </p>       
                 </Grid>
                 <Imagen/> 
@@ -548,16 +557,16 @@ const Catastro = () => {
                 <ol className={classes.contentrulesp2}>
                     <li className={classes.listyle}>Seguridad jurídica: Integración con la información de registro Público.</li>
                     <li className={classes.listyle}>Eficiencia del mercado inmobiliario.</li> 
-                    <li className={classes.listyle}>Desarrollo territorial: Mejor asignación de recursos, identificación de necesidades de grupos poblacionales (educación, acceso a servicios públicos, infraestructura,  regularización de la propiedad, ordenamiento ambiental, social y territorial, entre otros).</li>
+                    <li className={classes.listyle}>Desarrollo territorial: Mejor asignación de recursos e identificación de necesidades de grupos poblacionales (educación, acceso a servicios públicos, infraestructura,  regularización de la propiedad, ordenamiento ambiental, social y territorial, entre otros).</li>
                 </ol>  
                 <p className={classes.contentrulesp}>
-                    <strong>El Departamento Administrativo Nacional de Estadística - DANE</strong>, viene trabajando en la política de Catastro Multipropósito y en las recomendaciones del Conpes 4007 de 2020, para el fortalecimiento del sistema de administración del territorio – SAT, el cual utiliza el catastro como herramienta  para el desarrollo sostenible del territorio incorporando las 4 funciones principales de la administración del territorio (tenencia, valor, uso y desarrollo), en lugar de gestionar estas funciones de forma separada, como sucede actualmente en Colombia. 
+                    <strong>El Departamento Administrativo Nacional de Estadística - DANE</strong>, viene trabajando en la política de Catastro Multipropósito y en las recomendaciones del CONPES 4007 de 2020, para el fortalecimiento del sistema de administración del territorio – SAT, el cual utiliza el catastro como herramienta  para el desarrollo sostenible del territorio incorporando las 4 funciones principales de la administración del territorio (tenencia, valor, uso y desarrollo), en lugar de gestionar estas funciones de forma separada, como sucede actualmente en Colombia. 
                 </p>  
                 <p className={classes.contentrulesp}>
                     Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
           </p>  
           
-          <button className={estilo4}>
+          {/* <button className={estilo4}>
         <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/Presentación_CM.pptx" download>
           <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
@@ -570,21 +579,15 @@ const Catastro = () => {
                                 </Grid>
             </Grid>
           </a>
-        </button>
-
-
-
-
-
-
+        </button> */}
                 <p className={classes.contentrulesp}>
-                  A continuación se anexa el Conpes 4007 de 2020, mediante el cual se dan las directrices para el fortalecimiento del sistema de administración del territorio:
+                  A continuación se anexa el CONPES 4007 de 2020, mediante el cual se dan las directrices para el fortalecimiento del sistema de administración del territorio:
                 </p>
-                <Grid container direction="row" className={classes.margboton}>
+                <Grid container direction="row" className={classes.margboton} justifyContent="center">
                   <Grid container item xs>
                   <p className={classes.texto1}>CONPES 4007 de 2020</p>
                   </Grid>
-                <Grid Grid container item xs={9}>
+                <Grid Grid container item xs={6} justifyContent="flex-end">
                 <Button className={classes.boton4} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
                   ver
                 </Button>

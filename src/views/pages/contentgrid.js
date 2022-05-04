@@ -1,14 +1,92 @@
 import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from "react";
-import bloques from "Observatorio/img/Building.svg";
+import bloques from "Observatorio/img/bloques2.jpg";
+//import bloques from "Observatorio/img/Building.svg";
 import frente from "Observatorio/img/city1.gif";
 import figure from "Observatorio/img/Career.svg";
+import QA from "Observatorio/img/QA.svg";
+import Conference from "Observatorio/img/Conference.svg";
+import audit from "Observatorio/img/audit.svg";
+import Binary from "Observatorio/img/Binary.svg";
 import lawyer from "Observatorio/img/Lawyer.svg";
 import Maintenance from "Observatorio/img/Maintenance.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
 
 const useStyle = makeStyles({
+
+  imagen_QA: {
+    width: "25%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${QA})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA2: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${QA})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_Conference: {
+    width: "25%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Conference})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_Conference2: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Conference})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_Audit: {
+    width: "26%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${audit})`,
+    backgroundPosition: "center",
+  },
+
+  imagen_Audit2: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${audit})`,
+    backgroundPosition: "center",
+  },
+
+  imagen_Binary: {
+    width: "25%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Binary})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_Binary2: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Binary})`,
+    backgroundPosition: "initial",
+  },
+
   puntos: {
     padding: "1.5vw 0 0px 7vh",
   },
@@ -20,11 +98,19 @@ const useStyle = makeStyles({
     padding: "2em 0em 0 6%",
   },
   marginbutton2: {
-    padding: "2em 0em 0 11%",
+    padding: "0em 0em 0 30%",
   },
 
   numpadding: {
-    paddingTop: "6%",
+    paddingTop: "0%",
+  },
+
+  numpadding2: {
+    paddingTop: "12%",
+  },
+
+  numpadding3: {
+    paddingTop: "4%",
   },
 
   numpaddingVentajas: {
@@ -123,6 +209,7 @@ const useStyle = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
     backgroundPosition: "initial",
+    borderRadius:"1%"
   },
 
   imagen_top2: {
@@ -134,6 +221,7 @@ const useStyle = makeStyles({
     backgroundPosition: "initial",
     flexBasis: "100% !important",
     maxWidth: "100% !important",
+    borderRadius:"1%"
   },
 
   imagen_top3: {
@@ -143,6 +231,7 @@ const useStyle = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
     backgroundPosition: "initial",
+    borderRadius:"1%"
   },
 
   Titleh3: {
@@ -158,7 +247,7 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    margin: "1em 0 0em 0",
+    margin: "1em 1em 0em 0",
     backgroundColor: Values.Colormid,
   },
 
@@ -215,7 +304,7 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "justify",
+    //textAlign: "justify",
     margin: "1em 0 0em 0",
   },
 
@@ -224,7 +313,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "justify",
-    margin: "2.4em 0 0em 0",
+    margin: "0.5em 0 0em 0",
     fontWeight: "bold",
   },
 
@@ -255,6 +344,21 @@ const useStyle = makeStyles({
   imagen_movil2: {
     backgroundImage: "none",
   },
+  boton_general: {
+    padding: "0.3em 1em 0.3em 1em",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    margin: "2% 0 0 0",
+    width: "100%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+  },
 });
 
 const Imagen = () => {
@@ -276,6 +380,94 @@ const Imagen = () => {
   }
   return (
     <Grid item container direction="column" xs={6} className={estilo}></Grid>
+  ); 
+};
+
+const ImagenQA = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_QA;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_QA2;
+      } else {
+        estilo = classes.imagen_QA2;
+      }
+    }
+  }
+  return (
+    <div className={estilo}></div>
+  ); 
+};
+
+const ImagenConference = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_Conference;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_Conference2;
+      } else {
+        estilo = classes.imagen_Conference2;
+      }
+    }
+  }
+  return (
+    <div className={estilo}></div>
+  ); 
+};
+
+const Imagenaudit = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_Audit;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_Audit2;
+      } else {
+        estilo = classes.imagen_Audit2;
+      }
+    }
+  }
+  return (
+    <div className={estilo}></div>
+  ); 
+};
+
+const ImagenBinary = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");  
+  
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_Binary;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_Binary2;
+      } else {
+        estilo = classes.imagen_Binary2;
+      }
+    }
+  }
+  return (
+    <div className={estilo}></div>
   ); 
 };
 
@@ -346,7 +538,7 @@ const Top_content = () => {
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
-          El Observatorio Inmobiliario Nacional es un Sistema de Información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
+          El Observatorio inmobiliario nacional es un sistema de información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
           </p>
           {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto
@@ -390,7 +582,7 @@ const Center_content = () => {
           alignItems="center"
           className={classes.numpadding}
         >
-          <h1 className={classes.num}>1</h1>
+          <ImagenQA/>
         </Grid>
         <Grid
           container
@@ -398,7 +590,7 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>Seguimiento y Disposición</h1>
+          <h1 className={classes.titleStyle2}>Seguimiento y disposición</h1>
           <p className={classes.textStyle}>
             Seguimiento y disposición en el tiempo de ofertas, transacciones, costos de construcción, entre otros.
           </p>
@@ -408,9 +600,9 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.numpadding}
+          className={classes.numpadding2}
         >
-          <h1 className={classes.num}>2</h1>
+          <ImagenConference/>
         </Grid>
         <Grid
           container
@@ -433,7 +625,7 @@ const Center_content = () => {
           alignItems="center"
           className={classes.numpadding}
         >
-          <h1 className={classes.num}>3</h1>
+          <Imagenaudit/>
         </Grid>
         <Grid
           container
@@ -451,9 +643,9 @@ const Center_content = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.numpadding}
+          className={classes.numpadding3}
         >
-          <h1 className={classes.num}>4</h1>
+          <ImagenBinary/>
         </Grid>
         <Grid
           item
@@ -504,39 +696,39 @@ const Bottom_content = () => {
               El Observatorio Inmobiliario Nacional tiene su fundamento normativo en:
             </p>
           </Grid>
-          <Grid container direction="column">
-              <Grid direction="row" item container xs>
-              <Grid container item xs={4}>
-                <p className={classes.contentrulesp2}>DECRETO 148 DE 2020</p>
+          <Grid container direction="column">            
+          <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
+                <Grid container item xs={6}>
+                <p className={classes.contentrulesp2}>Ley 1955 de 2019</p>
                 </Grid>
                 <Grid className={classes.marginbutton2}>
                   <ButtonRedWine
                     Title="Ver"
-                    href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20148%20DEL%2004%20DE%20FEBRERO%20DE%202020.pdf"
+                    href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970"
                     Values="1"
                   />
                 </Grid>
               </Grid>
-              <Grid direction="row" item container xs>
-                <Grid container item xs={4}>
-                <p className={classes.contentrulesp2}>LEY 1955 DE 2019</p>
+              <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
+              <Grid container item xs={6}>
+                <p className={classes.contentrulesp2}>Decreto 148 de 2020</p>
                 </Grid>
-                <Grid className={classes.marginbutton2}>
+                <Grid className={classes.marginbutton2} justifyContent="center">
                   <ButtonRedWine
                     Title="Ver"
-                    href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970"
+                    href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952"
                     Values="1"
                   />
                 </Grid>
               </Grid>
-              <Grid direction="row" item container xs>
-              <Grid container item xs={4}>
-                <p className={classes.contentrulesp2}>CONPES 3958 DE 2019</p>
+              <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
+              <Grid container item xs={6}>
+                <p className={classes.contentrulesp2}>CONPES 3958 de 2019</p>
                 </Grid>
                 <Grid className={classes.marginbutton2}>
                   <ButtonRedWine
                     Title="Ver"
-                    href="https://colaboracion.dnp.gov.co/CDT/Conpes/Económicos/3958.pdf"
+                    href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf"
                     Values="1"
                   />
                 </Grid>

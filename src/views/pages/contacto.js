@@ -84,10 +84,10 @@ const useStyle = makeStyles({
         marginTop:"100px !important"
     },
     boton: {
-        padding: "0.3em 1em 0.3em 1em",
+        padding: "0em 1em 0em 1em",
         borderRadius: "2vh",
         backgroundColor: Values.Redwinecolor,
-        color: Values.TextButton,
+        color: "white !important",
         fontFamily: Values.SourceRoboto,
         textTransform: "capitalize",
         transition: "all 0.8s ease-out",

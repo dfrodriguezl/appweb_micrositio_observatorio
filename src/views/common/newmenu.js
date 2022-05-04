@@ -1,13 +1,13 @@
 const menuDane = [
     [
         {
-          name:"¿Qué es un Observatorio?",
+          name:"¿Qué es un observatorio?",
           link:"/Observatorio/Acerca",
           icon:"",
           isMain:true
         },
         {
-            name:"Otros Observatorios Inmobiliarios",
+            name:"Otros observatorios inmobiliarios",
             link:"/Observatorio/Otrosobservatorios",
             icon:"",
             isMain:true
@@ -27,14 +27,14 @@ const menuDane = [
             icon:"",
             isMain:true
         },
+        // {
+        //     name:"Censo de edificaciones CEED",
+        //     link:"/Observatorio/Servicios/estadisticas/Ceed",
+        //     icon:"",
+        //     isMain:true
+        // },
         {
-            name:"Censo de Edificaciones CEED",
-            link:"/Observatorio/Servicios/estadisticas/Ceed",
-            icon:"",
-            isMain:true
-        },
-        {
-            name:"Plataforma Usuario",
+            name:"Plataforma usuario",
             link:"/Observatorio/PlataformaUsuario",
             icon:"",
             isMain:true,
@@ -69,8 +69,8 @@ const menuDane = [
             isMain:true
         },
         {
-            name:"Mercado Inmobiliario Bogotá",
-            link:"https://nowsoft.app/geoportal/geovisores/territorio/ofertas-mercado/",
+            name:"Mercado inmobiliario Bogotá",
+            link:"https://nowsoft.app/colectora/externo/visor/",
             icon:"",
             isMain:false
         },
@@ -78,32 +78,38 @@ const menuDane = [
     ],
     [
         {
-            name:"Catastro Multipropósito",
+            name:"Catastro multipropósito",
             link:"/Observatorio/Catastromultiproposito",
             icon:"",
             isMain:true
         },
         {
-            name:"Métodos para el Cálculo de Avalúos",
+            name:"Métodos para el cálculo de avalúos",
             link:"/Observatorio/Catastromultiproposito/Metodosavaluos",
             icon:"",
             isMain:true
         },
+        // {
+        //     name:"Tipologías constructivas",
+        //     link:"/Observatorio/tipologia",
+        //     icon:"",
+        //     isMain:true
+        // },
         {
-            name:"Tipologías Constructivas",
-            link:"/Observatorio/tipologia",
-            icon:"",
-            isMain:true
-        },
-        {
-            name:"Registro de Bienes Inmuebles",
+            name:"Registro de bienes inmuebles",
             link:"/Observatorio/Catastromultiproposito/RegistroInmuebles",
             icon:"",
             isMain:true
         },
         {
-            name:"Comité Técnico Asesor",
+            name:"Comité técnico asesor",
             link:"/Observatorio/Comitetecnico",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:"Modelo LADM observatorio",
+            link:"/Observatorio/LADM",
             icon:"",
             isMain:true
         }

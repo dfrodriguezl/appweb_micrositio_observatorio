@@ -5,12 +5,12 @@ import * as Values from "Observatorio/Variables/values";
 
 const useStyle = makeStyles({
   boton: {
-    padding: "0.3em 1em 0.3em 1em",
+    padding: "0em 1em 0em 1em",
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
     color: Values.TextButton,
     fontFamily: Values.SourceRoboto,
-    textTransform: "capitalize",
+    textTransform: "inherit",
     transition: "all 0.8s ease-out",
     cursor: "pointer",
     margin: "10% 0 4% 0",

@@ -8,6 +8,7 @@ import {
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Meeting from "Observatorio/img/Personalfiles.svg";
+import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
 
 const useStyle = makeStyles({
   margintop: {
@@ -28,6 +29,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     fontWeight:"normal",
+    textAlign:"center"
   },
   containercontent:{
     
@@ -101,17 +103,17 @@ const useStyle = makeStyles({
   },
   columnatabla:{
     borderBottom: "1px dotted",
+    textAlign:"center"
   },
   boton: {
-    padding: "0.1em 0.5em 0.1em 0.5em",
+    padding: "0em 0.5em 0em 0.5em",
     borderRadius: "2vh",
-    backgroundColor: Values.Redwinecolor,
-    
+    backgroundColor: Values.Redwinecolor,    
     textTransform: "capitalize",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
     width: "max-content",
-    fontSize: "calc(1em + 0.3vh)",
+    fontSize: "calc(0.8em + 0.3vh)",
     borderRadius: "2vh",
     // fontWeight: "bold",
     "&:hover":{
@@ -174,21 +176,26 @@ const Repository = () => {
       </Grid>
       <table className={classes.tabla}>
         <tr>
-          <th className={classes.containerbarra}>Nombre del archivo</th>
-          <th className={classes.containerbarra}>Descripción</th>
+          <th className={classes.containerbarra}>Documento</th>
+          <th className={classes.containerbarra}>Versión</th>
+          <th className={classes.containerbarra}>Formato</th>
+          <th className={classes.containerbarra}>Tamaño</th>
           <th className={classes.containerbarra}>Descargar</th>
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>TECNICAS VALUATORIAS.docx</th>
-          <th className={classes.containercontent}>Técnicas valuatorias en Colombia y el mundo</th>
+          <th className={classes.containercontent}>TECNICAS VALUATORIAS.pdf</th>
+          <th className={classes.containercontent}>V1</th>
+          <th className={classes.containercontent}>Pdf</th>
+          <th className={classes.containercontent}>472 KB</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/TECNICAS_VALUATORIAS.docx"
+                  href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
                   download
               >Descargar</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button></th>
         </tr>
-        <tr className={classes.columnatabla}>
+        {/* <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>TIPO CONSTRUCTIVAS.docx</th>
           <th className={classes.containercontent}>Tipologías constructivas habituales en Colombia</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
@@ -197,28 +204,34 @@ const Repository = () => {
                   download
               >Descargar</a>
             </Button></th>
-        </tr>
+        </tr> */}
         <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>EJEMPLO MERCADO.xlsx</th>
-          <th className={classes.containercontent}>Ejemplo de mercado según formato establecido</th>
+          <th className={classes.containercontent}>V1</th>
+          <th className={classes.containercontent}>Excel</th>
+          <th className={classes.containercontent}>31 KB</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/EJEMPLO_MERCADO.xlsx"
+                  href="https://nowsoft.app/colectora/externo/files_oin/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                   download
               >Descargar</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button></th>
         </tr>
         <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>FORMATO MERCADO.xlsx</th>
-          <th className={classes.containercontent}>Formato mercado para PH, NPH y predios rurales</th>
+          <th className={classes.containercontent}>V1</th>
+          <th className={classes.containercontent}>Excel</th>
+          <th className={classes.containercontent}>50 KB</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
+                  href="https://nowsoft.app/colectora/externo/files_oin/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                   download
               >Descargar</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button></th>
         </tr>
-        <tr className={classes.columnatabla}>
+        {/* <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>MANUAL GEOPACKAGE.pdf</th>
           <th className={classes.containercontent}>Manual cargue información Geopackage</th>
           <th className={classes.containercontent}><Button className={classes.boton}><a className={classes.alink}
@@ -238,7 +251,7 @@ const Repository = () => {
                   download
               >Descargar</a>
             </Button></th>
-        </tr>
+        </tr> */}
       </table>
     </Grid>
   );

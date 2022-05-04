@@ -576,15 +576,18 @@ class UserController {
     //.then(async (wb) =>{
     try {
       for(let i = 0; i < wb.SheetNames.length; i++){
-        //console.log(wb.SheetNames[i])
+        
         let ws01 = wb.Sheets[wb.SheetNames[i]]
         let data01 = xlsx.utils.sheet_to_json(ws01) 
-        let newRows = data01.splice(1, data01.length);       
+        let newRows = data01.splice(1, data01.length);  
+        let convert;     
         for (let j = 0; j < newRows.length; j++){                     
           let valid; 
           switch (wb.SheetNames[i]) {                                         
             case "PH":                                
-              valid = Validate.validPh(newRows[j]);              
+              valid = Validate.validPh(newRows[j]);               
+              // convert = ParserModel.transformToSheetsPH(newRows[j])
+              // console.log("prueba 2 ", convert)
               if(valid==="exito"){                
                 let phfound = await UserService.searchOfferPh1(newRows[j],id_obsevatorio);           
                 if(phfound){
@@ -742,6 +745,7 @@ class UserController {
     let id_obsevatorio = req.body.usuario.id;
     let matricula = req.body.datos
     let tabla = req.body.table   
+    let fecha = req.body.fecha 
     let response = {
       status: 200,
       data: {},
@@ -751,13 +755,13 @@ class UserController {
     try {           
       switch (tabla) {
         case "Ph":
-          await UserService.deletPh(id_obsevatorio, matricula)  
+          await UserService.deletPh(id_obsevatorio, matricula, fecha)  
           break;
         case "Nph":
-          await UserService.deletNph(id_obsevatorio, matricula)  
+          await UserService.deletNph(id_obsevatorio, matricula, fecha)  
           break;
         case "Rural":
-          await UserService.deletRural(id_obsevatorio, matricula)  
+          await UserService.deletRural(id_obsevatorio, matricula, fecha)  
           break;
       }      
     } catch (error) {

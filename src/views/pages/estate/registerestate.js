@@ -15,6 +15,10 @@ const useStyle = makeStyles({
     DataExtration: {
         maxWidth: 500
     },
+    listyle:{
+        paddingLeft:"0.6em",
+        paddingRight: "0.6em",
+      },
     marginBottom: {
         marginBottom: 50
     },
@@ -78,12 +82,27 @@ const useStyle = makeStyles({
         fontWeight: "bold"
     },
 
+    Textpj: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "start",
+        margin: "1em 0 0 1.8em",
+    },
+
     Textp: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",
         margin: "1em 0 0 0",
+    },
+
+    Textpv: {
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "start",
     },
 
     root: {
@@ -133,7 +152,7 @@ const SectionOne = () => {
 
             >
                 <Typography className={classes.Titleh3}  >
-                    <strong>Registro de Bienes inmuebles</strong>
+                    <strong>Registro de bienes inmuebles</strong>
                 </Typography>
                 <Typography className={classes.Textp}>
                     Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
@@ -146,13 +165,13 @@ const SectionOne = () => {
 
                 </Typography>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6}   >
+            <Grid item xs={10} sm={12} md={6} lg={6}   >
 
                 <img src={imageItem} />
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textp}>
-                De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la División de
-                Estadística y Proyecciones Económicas un registro administrativo es <i>“todo registro resultante de
+            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textpv}>
+                De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la división de
+                estadística y proyecciones económicas un registro administrativo es <i>“todo registro resultante de
                     necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
                     programas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su
                     utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones,
@@ -230,7 +249,7 @@ const SectionTwo = () => {
     return (
         <Grid container className={estilo} >
 
-            <Grid container item xs={12} sm={12} md={12} lg={12}>
+            <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
 
                 <Typography className={`${classes.Titleh3}`} >
                     Objetivo
@@ -248,11 +267,11 @@ const SectionTwo = () => {
                 <Typography className={classes.Textp} >
                     Caracterizar con fines estadísticos, los bienes inmuebles que conforman el territorio nacional a través de
                     la integración de información física, jurídica, económica y geográfica del predio que sirva como
-                    instrumento para la toma de decisiones en política pública
+                    instrumento para la toma de decisiones en política pública.
                 </Typography>
 
             </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12}>
+            <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
                 <Typography className={classes.Titleh3} >
                     Alcance de registro
                 </Typography>
@@ -268,12 +287,12 @@ const SectionTwo = () => {
                         Cobertura total de los predios en las áreas urbano y rural que incluyan situaciones como:
 
                     </Typography>
-                    <ol className={classes.Textp}>
-                        <li>Predios formalizados a través del registro en la<br></br> superintendencia de Notariado y Registro</li>
-                        <li>Predios sin formalizar</li>
-                        <li>Predios baldíos con y sin ocupación</li>
-                        <li>Predios que hagan parte de comunidades negras,<br></br> resguardos indígenas y raizales</li>
-                        <li>Predios de uso público</li>
+                    <ol className={classes.Textpj}>
+                        <li className={classes.listyle}>Predios formalizados a través del registro en la<br></br> superintendencia de Notariado y Registro</li>
+                        <li className={classes.listyle}>Predios sin formalizar</li>
+                        <li className={classes.listyle}>Predios baldíos con y sin ocupación</li>
+                        <li className={classes.listyle}>Predios que hagan parte de comunidades negras,<br></br> resguardos indígenas y raizales</li>
+                        <li className={classes.listyle}>Predios de uso público</li>
                     </ol>
 
                 </Grid>
@@ -293,9 +312,11 @@ const SectionThree = () => {
         <Grid container className={estilo}>
 
             <Grid container item xs={12} sm={12} className={classes.marginBottom}>
+                <Grid container justifyContent='center'>
                 <Typography className={`${classes.Titleh3} ${classes.textLeft}`} >
                     Usos
                 </Typography>
+                </Grid>
                 <Typography className={classes.Textp}>
                 Haciendo alusión a las metodologías de ANDERS WALLGREN, BRITT WALLGREN, 2007, las cuales
                 mencionan los registros de bienes inmuebles como instrumento para recopilar la información relacionada
@@ -305,19 +326,19 @@ const SectionThree = () => {
                 <Grid sm={8} className={classes.textLeft}>
                     <div className={classes.Textp}>
                         <ul>
-                            <li> Tenencia de la tierra.</li>
-                            <li>Suministro de marcos de muestreo para operaciones estadísticas como censo edificaciones y los
+                            <li className={classes.listyle}> Tenencia de la tierra.</li>
+                            <li className={classes.listyle}>Suministro de marcos de muestreo para operaciones estadísticas como censo de edificaciones y los
                                 marcos de construcción.</li>
-                            <li>Identificación de predios de patrimonio cultural (enfoque para economía naranja).
+                            <li className={classes.listyle}>Identificación de predios de patrimonio cultural (enfoque para economía naranja).
                                 Generación de estadísticas de áreas protegidas.</li>
-                            <li>Identificar fenómenos de conurbación, redensificación, sostenibilidad y habitabilidad.
+                            <li className={classes.listyle}>Identificar fenómenos de conurbación, redensificación, sostenibilidad y habitabilidad.
                                 Generación de indicadores para medición de consumo de suelo.</li>
-                            <li>Indices de precios de vivienda.</li>
-                            <li>Vulnerabilidad económica y sociodemográfica (Riesgos asociados).</li>
-                            <li>Estratificación.</li>
-                            <li>Aptitud de uso.</li>
-                            <li>Observatorio inmobiliario.</li>
-                            <li>Cobertura de servicios públicos</li>
+                            <li className={classes.listyle}>Índices de precios de vivienda.</li>
+                            <li className={classes.listyle}>Vulnerabilidad económica y sociodemográfica (riesgos asociados).</li>
+                            <li className={classes.listyle}>Estratificación.</li>
+                            <li className={classes.listyle}>Aptitud de uso.</li>
+                            <li className={classes.listyle}>Observatorio inmobiliario.</li>
+                            <li className={classes.listyle}>Cobertura de servicios públicos.</li>
                         </ul>
                     </div>
                 </Grid>
@@ -339,9 +360,9 @@ const SectionFour = () => {
     return (
         <Grid container className={estilo}>
 
-            <Grid container item xs={12} sm={12} >
+            <Grid container item xs={12} sm={12} justifyContent='center'>
                 <Typography className={classes.Titleh3}>
-                    Fuentes de Información
+                    Fuentes de información
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
@@ -356,27 +377,27 @@ const SectionFour = () => {
             <Grid container item xs={12} sm={12} justifyContent="center"  >
 
                 <ul className={classes.Textp}>
-                    <li>Registro Catastral del IGAC (Instituto Geográfico Agustín Codazzi).</li>
-                    <li>Registro Catastral de Bogotá.</li>
-                    <li>Registro Catastral de Cali.</li>
-                    <li>Registro Catastral de Medellín.</li>
-                    <li>Registro Catastral de Antioquia.</li>
-                    <li>Resguardos (territorios colectivos de comunidades indígenas).</li>
-                    <li>Territorios colectivos de comunidades Negras.</li>
-                    <li>Parques Nacionales Naturales de MinAmbiente (Ministerio de Ambiente y Desarrollo
+                    <li className={classes.listyle}>Registro catastral del IGAC (instituto geográfico agustín codazzi).</li>
+                    <li className={classes.listyle}>Registro catastral de Bogotá.</li>
+                    <li className={classes.listyle}>Registro catastral de Cali.</li>
+                    <li className={classes.listyle}>Registro catastral de Medellín.</li>
+                    <li className={classes.listyle}>Registro catastral de Antioquia.</li>
+                    <li className={classes.listyle}>Resguardos (territorios colectivos de comunidades indígenas).</li>
+                    <li className={classes.listyle}>Territorios colectivos de comunidades negras.</li>
+                    <li className={classes.listyle}>Parques nacionales naturales de MinAmbiente (ministerio de ambiente y desarrollo
                         Sostenible).</li>
-                    <li>Registro de propiedad inmueble de la SNR (Superintendencia de Notariado y Registro).</li>
-                    <li>Registro del Servicio público de Energía Eléctrica.</li>
-                    <li>Registro del Servicio público de Acueducto.</li>
-                    <li>Registro del Servicio público de Gas Natural.</li>
-                    <li>Registro de Servicio público de telecomunicaciones.</li>
-                    <li>Registro de Baldíos de la Nación.</li>
-                    <li>Supernotariado ( Bogotá y Distritos registrales)</li>
-                    <li>Subsidio de Vivienda VIS –VIP.</li>
-                    <li>Censo de Edificaciones del DANE.</li>
-                    <li>Censo agropecuario del DANE.</li>
-                    <li>Registro de predios de la Unidad de Restitución de Tierras.</li>
-                    <li>Registro de predios de la Agencia Nacional de Tierras.</li>
+                    <li className={classes.listyle}>Registro de propiedad inmueble de la SNR (superintendencia de notariado y registro).</li>
+                    <li className={classes.listyle}>Registro del servicio público de energía eléctrica.</li>
+                    <li className={classes.listyle}>Registro del servicio público de acueducto.</li>
+                    <li className={classes.listyle}>Registro del servicio público de gas natural.</li>
+                    <li className={classes.listyle}>Registro de servicio público de telecomunicaciones.</li>
+                    <li className={classes.listyle}>Registro de baldíos de la nación.</li>
+                    <li className={classes.listyle}>Supernotariado ( Bogotá y distritos registrales)</li>
+                    <li className={classes.listyle}>Subsidio de vivienda VIS –VIP.</li>
+                    <li className={classes.listyle}>Censo de edificaciones del DANE.</li>
+                    <li className={classes.listyle}>Censo agropecuario del DANE.</li>
+                    <li className={classes.listyle}>Registro de predios de la unidad de restitución de tierras.</li>
+                    <li className={classes.listyle}>Registro de predios de la agencia nacional de tierras.</li>
                 </ul>
             </Grid>
         </Grid>

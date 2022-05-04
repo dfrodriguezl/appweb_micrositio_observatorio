@@ -2,6 +2,7 @@ import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Meeting from "Observatorio/img/Statistics.svg";
+import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
 
 const useStyle = makeStyles({
   margintop:{
@@ -15,9 +16,10 @@ const useStyle = makeStyles({
     },
     columnatabla:{
       borderBottom: "1px dotted",
+      textAlign:"center"
     },
     boton: {
-      padding: "0.1em 0.5em 0.1em 0.5em",
+      padding: "0em 0.5em 0em 0.5em",
       borderRadius: "2vh",
       backgroundColor: Values.Redwinecolor,
       
@@ -25,7 +27,7 @@ const useStyle = makeStyles({
       transition:"all 0.8s ease-out",
       cursor: "pointer",
       width: "max-content",
-      fontSize: "calc(1em + 0.3vh)",
+      fontSize: "calc(0.8em + 0.2vh)",
       borderRadius: "2vh",
       // fontWeight: "bold",
       "&:hover":{
@@ -53,6 +55,7 @@ const useStyle = makeStyles({
       fontFamily: Values.SourceRoboto,
       fontSize: Values.SizeText,
       fontWeight:"normal",
+      textAlign:"center"
     },
     listyle:{
       paddingLeft:"0.6em"
@@ -157,28 +160,37 @@ const ExperimentalStadistics = () => {
       </Grid>
       <table className={classes.tabla}>
         <tr>
-          <th className={classes.containerbarra}>Nombre del archivo</th>
-          <th className={classes.containerbarra}>Descripción</th>
+          <th className={classes.containerbarra}>Documento</th>
+          <th className={classes.containerbarra}>Versión</th>
+          <th className={classes.containerbarra}>Formato</th>
+          <th className={classes.containerbarra}>Tamaño</th>
           <th className={classes.containerbarra}>Descargar</th>
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>DOC DIRECTIVO IND 2021 20211203.docx</th>
-          <th className={classes.containercontent}>Descripción de los indicadores obtenidos, variables utilizadas, diagrama procedimental y resultados, en base a la información recopilada del censo poblacional del DANE.</th>
+          <th className={classes.containercontent}>RESUMEN EJECUTIVO ESTADISTICAS EXPERIMENTALES</th>
+          <th className={classes.containercontent}>V1</th>
+          <th className={classes.containercontent}>Pdf</th>
+          <th className={classes.containercontent}>42.341 KB</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/DOC_DIRECTIVO_IND_2021_20211203.docx"
+                  href="https://nowsoft.app/colectora/externo/files_oin/DOC_DIRECTIVO_IND_2021_20211203.pdf"
                   download
               >Descargar</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button></th>
+
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>DOC TECN IND 20211203.docx</th>
-          <th className={classes.containercontent}>Descripción en detalle de los procesos realizados con la información del censo poblacional del DANE para la obtención de los indicadores</th>
+          <th className={classes.containercontent}>DOCUMENTO TÉCNICO ESTADISTICAS EXPERIMENTALES</th>
+          <th className={classes.containercontent}>V1</th>
+          <th className={classes.containercontent}>Pdf</th>
+          <th className={classes.containercontent}>64.292 KB</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/DOC_TECN_IND_20211203.docx"
+                  href="https://nowsoft.app/colectora/externo/files_oin/DOC_TECN_IND_20211203.pdf"
                   download
               >Descargar</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button></th>
         </tr>
       </table>

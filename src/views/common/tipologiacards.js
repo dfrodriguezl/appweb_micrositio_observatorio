@@ -91,7 +91,7 @@ const Cardstipologia = () => {
                   className={classes.media}
                   image={cardstipologia.image_card}                 
                 />
-                <CardContent className={classes.centerText, classes.contentcar}>
+                <CardContent className={classes.centerText}>
                   <Typography className={classes.Titleh3}>
                   {cardstipologia.title}  
                   </Typography>

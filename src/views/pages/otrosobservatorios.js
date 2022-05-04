@@ -2,6 +2,7 @@ import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/otroscards';
+import Cardsinternational from 'Observatorio/common/cardsinternational';
 import App from "Observatorio/img/App.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
@@ -31,7 +32,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "1em 0 0 0",
+        margin: "1em 0 0 1.2em",
         paddingLeft:"1em"
       },
 
@@ -117,6 +118,7 @@ const otrosobservatorios = () => {
         alignItems="center"  className={estilo}>
             <Topobservatorio/>
             <CardsMaps/>
+            <Cardsinternational/>
         </Grid>
     );
 }

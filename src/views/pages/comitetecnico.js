@@ -37,8 +37,8 @@ const useStyle = makeStyles({
       color: Values.Redwinecolor,
       fontFamily: Values.SourceRoboto,
       fontWeight: "bold",
-      fontSize: Values.SizeSubtitle,
-      padding: Values.PaddingTitleText,
+      fontSize: "calc(0.8em + 1vh)",
+      margin: "1% 0 0 0",
     },
     gridglobal:{
       padding: "0 10vw 3vw 10vw",
@@ -90,6 +90,26 @@ const useStyle = makeStyles({
        
        
     },       
+    botonver: {
+      padding: "0em 1em 0em 1em",
+      borderRadius: "2vh",
+      backgroundColor: Values.Redwinecolor,
+      color: Values.TextButton,
+      fontFamily: Values.SourceRoboto,
+      textTransform: "inherit",
+      transition: "all 0.8s ease-out",
+      cursor: "pointer",
+      margin: "2% 0 3% 100%",
+      width: "max-content",
+      fontSize: "calc(1em + 0.3vh)",
+      borderRadius: "2vh",
+      // fontWeight: "bold",
+      "&:hover": {
+        backgroundColor: Values.HoverButton,
+        border: "none",
+      },
+    },
+
     imagen_Judge2:{     
        width: "100%",
        height: "47vh",
@@ -121,6 +141,22 @@ const useStyle = makeStyles({
        flexBasis: "100% !important",
        maxWidth: "100% !important",
   },   
+  margboton:{
+    margin:"1em 0 0 0",
+    borderRadius: "2vh",
+    backgroundColor:"#ffffff",
+    fontFamily: Values.SourceRoboto,
+    color: "#4C4C4C",
+    transition:"all 0.8s ease-out",
+    margin: "2% 0 0 0",
+    width: "90%",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    border:"none",
+    boxShadow: "3px 3px 10px #7b7676",
+    padding: "0.3em 1em 0.3em 1em",
+  },
   excel: {
     height: "14vh",
     backgroundRepeat: "no-repeat",
@@ -272,7 +308,7 @@ const Comite = () => {
               <Imagen/> 
       </Grid>
       
-      <button className={estilo4}>
+      {/* <button className={estilo4}>
         <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/Presentación_ComiteTécnicoAsesor.pptx" download>
           <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
@@ -285,7 +321,7 @@ const Comite = () => {
                                 </Grid>
             </Grid>
           </a>
-        </button>
+        </button> */}
 
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
@@ -316,14 +352,12 @@ const Comite = () => {
               <p className={classes.contentrulesp}>
               La Instancia Técnica Asesora debatió la resolución 1149 de 2021, “Por la cual se actualiza la reglamentación técnica de la formación, actualización, conservación y difusión catastral con enfoque multipropósito”
               </p>        
-              <Grid container justifyContent="flex-start" alignItems="center">
-                  <h3 className={classes.titleStyle2}>RESOLUCIÓN 1149 DE 2021</h3>
-                  <Grid className={estilo2}>
-                  <ButtonRedWine
-                    Title="Ver"
-                    href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"
-                    Values="1"
-                  />
+              <Grid container justifyContent="flex-start" className={classes.margboton}>
+                  <h3 className={classes.titleStyle2}>Resolución 1149 de 2021</h3>
+                  <Grid item xs={6}>
+                  <Button className={classes.botonver}
+                    href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"                    
+                  >Ver</Button>
                 </Grid>
               </Grid>
               </Grid>

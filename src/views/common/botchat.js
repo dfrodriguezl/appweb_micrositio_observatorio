@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component, useState, useEffect } from "react";
 import Chatbot from "react-chatbot-kit";
 import styles from "./style/estiloschat.css";
+
 import {
     makeStyles,
     Fab,
@@ -12,48 +13,49 @@ import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";
 
 const useStyle = makeStyles({
-    botchat:{
-        position: "fixed",
-        top: "30%",
-        left: "83%",
-        display:"none"
-    },
+    
     botchat2:{
       position: "fixed",
       top: "85%",
       left: "95%",      
   },
   chatactive:{
-    display:"block !important"
+    display:"block !important",
+    position: "fixed",
+        top: "30%",
+        left: "83%",
+        zIndex: "101",
+  },
+  chatdisabled:{
+    display:"none !important"
   },
 })
 
-const Chat = () => {
-const classes = useStyle();
-  return (
-    <div id="chat" className={classes.botchat}>
-      <Chatbot config={Config} messageParser={MessageParser} actionProvider={ActionProvider}/>   
-    </div>
-  );
-}
-
-function estadochat() {
-  const classes = useStyle();
-  const estilo = classes.chatactive
-  var element = document.getElementById("chat")
-  element.classList.toggle(estilo)
-}
-
 const BotChat = () => {
   const classes = useStyle();
+  const [estadovisible, setestadovisible] = useState(false);
+  var estilo = null;
+  estadovisible?estilo= classes.chatactive:estilo=classes.chatdisabled;
+  
     return (
-      <div className={classes.botchat2}>  
-        <Chat/>
-        <Fab onClick={estadochat} color="primary" aria-label="like">
-          <HeadsetMicIcon fontSize="large"/>            
-        </Fab>
+      <div>  
+        <div id="chat" className={estilo}>
+          <Chatbot config={Config} messageParser={MessageParser} placeholderText='Escribe tu mensaje aquí' actionProvider={ActionProvider}/>   
+        </div>
+        <div className={classes.botchat2}>
+          <Fab onClick={estadochat} color="primary" aria-label="like">
+            <HeadsetMicIcon fontSize="large"/>            
+          </Fab>
+        </div>
       </div>
     );
+    function estadochat() {
+      if(estadovisible){
+        setestadovisible(false)
+      }else{
+        setestadovisible(true)
+      }
+    }
   }
 
 export default BotChat;

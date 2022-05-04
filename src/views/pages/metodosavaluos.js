@@ -2,7 +2,7 @@ import { Grid, makeStyles, useMediaQuery,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
-import word from "Observatorio/img/word.png";
+import word from "Observatorio/img/PDF1.png";
 import geograph from "Observatorio/img/geograph.png";
 
 const useStyle = makeStyles({
@@ -183,12 +183,12 @@ const avaluos = () => {
     <Grid container direction="column" className={estilo}>
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
-          Métodos para el Cálculo de Avalúos
+          Métodos para el cálculo de avalúos
         </h3>
       </Grid>
       <Grid container>
         <p className={classes.contentrulesp}>
-        Para la determinación del valor comercial de los inmuebles, se disponen de diferentes Métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
+        Para la determinación del valor comercial de los inmuebles, se disponen de diferentes métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
         </p>
       </Grid>
       <Grid container direction="row" className={classes.numpadding}>
@@ -211,7 +211,7 @@ const avaluos = () => {
             alignItems="center"
           >
             <h1 className={classes.titleStyle2}>
-              Método de Comparación o de Mercado
+              Método de comparación o de mercado
             </h1>
             <p className={classes.textStyle}>
               Corresponde al estudio de ofertas o transacciones recientes de
@@ -238,7 +238,7 @@ const avaluos = () => {
             alignItems="center"
           >
             <h1 className={classes.titleStyle2}>
-            Método de Capitalización de Rentas o Ingresos
+            Método de capitalización de rentas o ingresos
             </h1>
             <p className={classes.textStyle}>
             Es la determinación del valor comercial de un inmueble a partir del análisis de rentas o ingresos del mismo, puede ser del objeto de estudio o de bienes similares
@@ -264,7 +264,7 @@ const avaluos = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle3}>Método de Costo de Reposición</h1>
+          <h1 className={classes.titleStyle3}>Método de costo de reposición</h1>
           <p className={classes.textStyle2}>
           Consiste en establecer el valor comercial de una construcción a patir de la depreciación de una estimación del costo de sus materiales
           </p>
@@ -289,7 +289,7 @@ const avaluos = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <h1 className={classes.titleStyle2}>Método Residual</h1>
+            <h1 className={classes.titleStyle2}>Método residual</h1>
             <p className={classes.textStyle}>
               Consiste en establecer el valor comercial de un terreno, mediante
               la estimación del valor total de las ventas de un proyecto de
@@ -334,13 +334,13 @@ const avaluos = () => {
       >
         <Grid container>
           <p className={classes.contentrulesp2}>
-          En el siguiente enlace se podrá descargar un documento teórico respecto a las Técnicas Valúatorias mas conocidas y usadas para la determinación de avalúos
+          En el siguiente enlace se podrá descargar un documento teórico respecto a las técnicas valúatorias mas conocidas y usadas para la determinación de avalúos.
           </p>
         </Grid>
         
       </Grid>
       <button className={estilo4}>
-      <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/TECNICAS_VALUATORIAS.docx" download>
+      <a className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
                               <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={word} />

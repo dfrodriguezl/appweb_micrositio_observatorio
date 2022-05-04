@@ -70,7 +70,7 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "justify",
+    //textAlign: "justify",
     margin: "1em 0 0 0",
   },
   imagen_top: {
@@ -138,7 +138,7 @@ const useStyle = makeStyles({
     color: "#4C4C4C",
     transition:"all 0.8s ease-out",
     cursor: "pointer",
-    margin: "2% 0 0 0",
+    //margin: "2% 0 0 0",
     width: "30%",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
@@ -241,7 +241,7 @@ const About = () => {
     <Grid container direction="column" className={estilomovil}>
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
-          <h3 className={classes.titleStyle}>¿Qué es un Observatorio?</h3>
+          <h3 className={classes.titleStyle}>¿Qué es un observatorio?</h3>
         </Grid>
         <Grid
           item
@@ -260,7 +260,7 @@ const About = () => {
         <Imagen />
       </Grid>
 
-      <button className={estilo4}>
+      {/* <button className={estilo4}>
         <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/ObservatorioInmobiliario.pptx" download>
           <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
@@ -273,7 +273,7 @@ const About = () => {
                                 </Grid>
             </Grid>
           </a>
-        </button>
+        </button> */}
 
 
       <Grid container direction="row">
@@ -297,7 +297,7 @@ const About = () => {
               deberán contar con un Observatorio Inmobiliario Catastral
             </strong>{" "}
             donde se recopilará la información del mercado inmobiliario del área
-            geográfica a su cargo, proveniente de fuentes tales como afertas,
+            geográfica a su cargo, proveniente de fuentes tales como ofertas,
             transacciones, costos de construcción, entre otras, y{" "}
             <strong>
               el cual deberá estar articulado, para tal efecto, con el
@@ -313,7 +313,7 @@ const About = () => {
           </p>
         </Grid>
       </Grid>
-      <Grid container >
+      {/* <Grid container >
       <Grid
         container
         direction="column"
@@ -322,7 +322,7 @@ const About = () => {
         className={classes.containerTitle}
       >
         <h1 className={classes.titleStyle}>
-        Estructura Decreto 148
+        Estructura decreto 148
         </h1>
       </Grid>
       <Grid item container xs direction="column">
@@ -340,7 +340,7 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>1</h1>
-              <p className={estilo}>Disposiciones Generales del Servicio Público</p>
+              <p className={estilo}>Disposiciones generales del servicio público</p>
             </Grid>
           </Grid>
           <Grid item container direction="row" xs={6} className={classes.puntos}>
@@ -351,7 +351,7 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>2</h1>
-              <p className={estilo}>Procedimientos del Enfoque Multipropósito</p>
+              <p className={estilo}>Procedimientos del enfoque multipropósito</p>
             </Grid>
           </Grid>
           <Grid item container direction="row" xs={6} className={classes.puntos}>
@@ -362,7 +362,7 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>3</h1>
-              <p className={estilo}>Información Económica y Catastral</p>
+              <p className={estilo}>Información económica y catastral</p>
             </Grid>
           </Grid>
           <Grid item container direction="row" xs={6} className={classes.puntos}>
@@ -373,12 +373,12 @@ const About = () => {
               justifyContent="center"
             >
               <h1 className={classes.num}>4</h1>
-              <p className={estilo}>Inspección Vigilancia y Control</p>
+              <p className={estilo}>Inspección vigilancia y control</p>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Grid> */}
     </Grid>
   );
 };

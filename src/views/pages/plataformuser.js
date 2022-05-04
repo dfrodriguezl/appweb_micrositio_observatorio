@@ -16,7 +16,7 @@ const useStyle = makeStyles({
     color: Values.Redwinecolor,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeTitle,
-    padding: Values.PaddingTitleText,
+    padding: "1em 0 0.5em 0",
   },
 
   Textp: {
@@ -24,7 +24,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "start",
-    margin: "1em 0 0 0",
+    margin: "0em 0 1.5em 0",
   },
 });
 
@@ -32,25 +32,17 @@ const Topobservatorio = () => {
   const classes = useStyle();
   let name = localStorage.getItem("name");
   return (
-    <Grid container direccion="row">
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        direction="row"
-      >
-        <h1>Bienvenido</h1>
-      </Grid>
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        direction="row"
-      >
-        <p className={classes.Textp}>{name}</p>
-      </Grid>
+    <Grid container direccion="row">      
       <Grid container justifyContent="center" alignItems="center">
         <h3 className={classes.Titleh3}>Plataforma Usuario</h3>
+      </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        direction="row"
+      >
+        <p className={classes.Textp}>¡Bienvenido!, {name} a su plataforma, a continuación encontrará un resumen de la informacion suministrada</p>
       </Grid>
     </Grid>
   );

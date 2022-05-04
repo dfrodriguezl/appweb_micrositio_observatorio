@@ -89,7 +89,7 @@ const useStyle = makeStyles({
   itemTextField: {
     backgroundColor: "white",
     width: "20%",
-    margin: "0 0.5em 0.5em 0",
+    margin: "3em 0.5em 0.5em 0.5em",
   },
   tamaño: {
     width: "100%",
@@ -662,7 +662,7 @@ const Cardsmapas = () => {
             setfileregistrernph(response.data.data.filenph);
             setfileregistrerrural(response.data.data.filerural);
           } else {            
-            alert("ocurrio un problema Error!..1");
+            //alert("ocurrio un problema Error!..12");
           }
         } else {
           alert("ocurrio un problema externo");
@@ -804,8 +804,9 @@ const Cardsmapas = () => {
 
   const [estadomap, setestadomap] = useState("");
   const [estadomapdestino, setestadomapdestino] = useState("");
-  const [estadoofer, setestadoofer] = useState("");
+  const [estadoofer, setestadoofer] = useState("Ph");
   const [deletvalue, setdeletvalue] = useState();
+  const [deletvaluefecha, setdeletvaluefecha] = useState();
   const [estadom, setestadom] = useState(false);
   const [estadodestino, setestadestino] = useState(false);
   const [excelph, setexcelph] = useState([]);
@@ -828,6 +829,7 @@ const Cardsmapas = () => {
 
   const handleChangeValueDelet = (e) => {    
     setdeletvalue(e.row.values[2]);
+    setdeletvaluefecha(e.row.values[6]);
     setOpen5(true);
   };
 
@@ -1014,9 +1016,11 @@ const Cardsmapas = () => {
     let token = localStorage.getItem("token");
     let data = deletvalue;
     let tabla = estadoofer;
+    let fecha = deletvaluefecha;
     let body = {
       datos: data,
       table:tabla,
+      fecha:fecha,
     };
     setLoading(true);
     setOpen5(false);
@@ -1814,7 +1818,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/geoportal/descargas/oin/EJEMPLO_MERCADO.xlsx"
+                              href="https://nowsoft.app/colectora/externo/files_oin/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -1863,7 +1867,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
+                              href="https://nowsoft.app/colectora/externo/files_oin/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                               download
                             >
                               <Grid container direction="row">
@@ -1901,7 +1905,7 @@ const Cardsmapas = () => {
                             </a>
                           </button>
                         </Grid>
-                        <Grid
+                        {/* <Grid
                           className={classes.marginbutton2}
                           item
                           container
@@ -1997,7 +2001,7 @@ const Cardsmapas = () => {
                               </Grid>
                             </a>
                           </button>
-                        </Grid>
+                        </Grid> */}
                       </Grid>
                     </Grid>
                     <Grid container direction="column" item xs className={root}>
@@ -2049,7 +2053,7 @@ const Cardsmapas = () => {
                             </Grid>
                           </button>
                         </Grid>
-                        <Grid
+                        {/* <Grid
                           className={classes.marginbutton2}
                           item
                           container
@@ -2087,7 +2091,7 @@ const Cardsmapas = () => {
                               </Grid>
                             </Grid>
                           </button>
-                        </Grid>
+                        </Grid> */}
                       </Grid>
                     </Grid>
                   </Grid>
@@ -2178,12 +2182,102 @@ const Cardsmapas = () => {
                       </Column>
                     </DataGrid>
                   </Grid>
+                  <Box className={classes.itemTextField}>
+                        <FormControl fullWidth>
+                          <InputLabel id="demo-simple-select-label-">
+                            Tipo de Oferta
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            label="Age"
+                            onChange={handleChangeValue1}
+                            name="tipooferta"
+                            value={estadoofer}
+                          >
+                            {console.log("ver",estadoofer)}
+                            <MenuItem value="Ph">PH</MenuItem>
+                            <MenuItem value="Nph">NPH</MenuItem>
+                            <MenuItem value="Rural">RURAL</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Box>
+                      <Grid container direction="column" item xs>
+                    <DataGrid
+                      className={classes.datarepository}
+                      id="gridContainer"
+                      dataSource={dataSourceRegistrer}
+                      keyExpr="ID"
+                      allowColumnReordering={true}
+                      showBorders={true}
+                      showColumnLines={true}
+                      showRowLines={true}
+                      rowAlternationEnabled={false}
+                    >
+                      <Paging defaultPageSize={10} />
+                      <Column
+                        dataField="FirstName"
+                        caption="Predial Antiguo"
+                        alignment="center"
+                        width={245}
+                      />
+                      <Column
+                        dataField="Prefix"
+                        caption="Predial Nuevo"
+                        alignment="center"
+                        width={250}
+                      />
+                      <Column
+                        dataField="Matricula_inmobiliaria"
+                        caption="Matricula"
+                        alignment="center"
+                        width={240}
+                      />
+                      <Column
+                        dataField="Tipo_oferta"
+                        caption="Tipo oferta"
+                        alignment="center"
+                        width={100}
+                      />
+                      <Column
+                        dataField="Departamento"
+                        caption="Departamento"
+                        alignment="center"
+                        width={165}
+                      />
+                      <Column
+                        dataField="Municipio"
+                        caption="Municipio"
+                        width={170}
+                        dataType="date"
+                        alignment="center"
+                      />
+                      <Column
+                        dataField="BirthDate"
+                        caption="Fecha"
+                        width={130}
+                        dataType="date"
+                        alignment="center"
+                      />
+                      <Column type="buttons" dataField="Eliminar"
+                        caption="Eliminar"
+                        alignment="center"
+                        width={160}>
+                        <Button
+                        text="Eliminar"
+                        cssClass={classes.buttondownload}
+                        onClick={handleChangeValueDelet}
+                        value={dataSourceRegistrer.Matricula_inmobiliaria}
+                        />
+                      </Column>
+                    </DataGrid>
+                  </Grid>
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
         </Grid>
-        <Grid
+        {/* <Grid
           container
           direction="column"
           key={12}
@@ -2314,7 +2408,7 @@ const Cardsmapas = () => {
               </Grid>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
         {/* Censo de Edificaciones (CEED) */}
         {/* <Grid
           container

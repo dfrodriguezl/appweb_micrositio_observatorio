@@ -1008,14 +1008,14 @@ class UserService {
     });
   }
 
-  static async deletPh(id_observatorio,matricula) {
+  static async deletPh(id_observatorio,matricula,fecha) {
     pool.inicia();
     return new Promise((resolver, rechazar) => {
       pool
         .getConnection()
         .query(
-          "UPDATE private.offerph SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2",
-          [id_observatorio, matricula],
+          "UPDATE private.offerph SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2 and fecha=$3",
+          [id_observatorio, matricula, fecha],
           (error, result) => {
             console.log(error);
             if (error) {
@@ -1027,14 +1027,14 @@ class UserService {
     });
   }
 
-  static async deletNph(id_observatorio,matricula) {
+  static async deletNph(id_observatorio,matricula, fecha) {
     pool.inicia();
     return new Promise((resolver, rechazar) => {
       pool
         .getConnection()
         .query(
-          "UPDATE private.offernph SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2",
-          [id_observatorio, matricula],
+          "UPDATE private.offernph SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2 and fecha=$3",
+          [id_observatorio, matricula, fecha],
           (error, result) => {
             console.log(error);
             if (error) {
@@ -1046,14 +1046,14 @@ class UserService {
     });
   }
 
-  static async deletRural(id_observatorio,matricula) {
+  static async deletRural(id_observatorio,matricula, fecha) {
     pool.inicia();
     return new Promise((resolver, rechazar) => {
       pool
         .getConnection()
         .query(
-          "UPDATE private.offerrural SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2",
-          [id_observatorio, matricula],
+          "UPDATE private.offerrural SET estado_registro='Inactivo' WHERE codigo_observatorio=$1 and matricula_inmobiliaria=$2 and fecha=$3",
+          [id_observatorio, matricula, fecha],
           (error, result) => {
             console.log(error);
             if (error) {
