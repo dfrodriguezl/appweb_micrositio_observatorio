@@ -11,7 +11,7 @@ import { Grid } from '@material-ui/core';
 import { AiOutlineMenu,
          AiOutlineLeft, 
          AiOutlineRight, } from "react-icons/ai";
-import logoDane from "Observatorio/img/DANE__Geovisor__icon__logoDANE__01.svg";
+import logoDane from "Observatorio/img/DANE__Geovisor__icon__fontDecrease.svg";
 import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 
 
