@@ -42,6 +42,6 @@ app.listen(3000, function () {
   console.log(Date().toString());
 });
 
-app.get('/*', (req,res) =>{
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
-});
+// app.get('/*', (req,res) =>{
+//   res.sendFile(path.join(__dirname, "../dist/index.html"));
+// });
