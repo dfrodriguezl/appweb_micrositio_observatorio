@@ -9,6 +9,7 @@ import {
   Button,
   Typography,
   useMediaQuery,
+  Tooltip
 } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
@@ -164,9 +165,11 @@ const Cardsmapas = () => {
                   </CardContent>
                 </CardContent>
                 <CardActions className={classes.centerButton}>
-                  <Button className={classes.boton} href={cardsotros.link}>
-                    Visitar
-                  </Button>
+                    <Tooltip title={cardsotros.title} arrow>
+                      <Button target="_blank" className={classes.boton} href={cardsotros.link}>
+                        Visitar
+                      </Button>
+                   </Tooltip>
                 </CardActions>
               </Card>
             </Grid>

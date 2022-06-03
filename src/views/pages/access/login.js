@@ -1,5 +1,5 @@
-import { Grid, makeStyles, Typography,useMediaQuery } from "@material-ui/core";
-import React, { useState } from 'react';
+import { Grid, makeStyles, Typography,useMediaQuery,Tooltip,Button} from "@material-ui/core";
+import React, { useState, useRef } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-rafiki1.svg";
 import TextField from '@mui/material/TextField';
@@ -16,8 +16,25 @@ import axios from 'axios';
 import {Loader} from '../loader/loader'
 import { Redirect } from 'react-router';
 import enviroment from '../../../config/enviroment'
+import ReCAPTCHA from "react-google-recaptcha"
 const useStyle = makeStyles({
-
+  boton1: {
+    borderRadius: "2vh",
+    backgroundColor: "#727070",
+    color: Values.TextButton,
+    fontFamily: Values.SourceWorksans,
+    textTransform: "capitalize",
+    transition:"all 0.8s ease-out",
+    cursor: "pointer",
+    width: "max-content",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    fontWeight: "bold",
+    "&:hover":{
+        backgroundColor: Values.Redwinecolor,
+        border:"none",
+    }
+  },
     gridglobal: {
         padding: "0 10% 0 10%",
     },
@@ -66,7 +83,13 @@ const useStyle = makeStyles({
         width:"100%"
     },
 
-    
+    captcha1:{
+      display:"none"
+    },
+
+    captcha2:{
+      display:"grid"
+    },
 
     boton: {
         padding: "0.3em 1em 0.3em 1em",
@@ -101,7 +124,8 @@ const ImagenBottom = () => {
 
 const FormAccess = (props) => {
     const classes = useStyle();
-
+    const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
+    const [usuarioValido, cambiarUsuarioValido] = useState(true)
     const [form, setForm] = useState({
         user:"",
         clave: "",
@@ -134,8 +158,16 @@ const FormAccess = (props) => {
     
     const [openLoading,setLoading] = useState(false)
 
+    var estilocaptcha = null;
+
+    if(form.clave == "" || form.user == ""){
+      estilocaptcha=classes.captcha1
+    }else{
+      estilocaptcha=classes.captcha2
+    }
     const sendForm = () => {
       
+       if(captcha.current.getValue()){
         console.log("enviando form")
         let valor = sha256.hmac('prueba',form.clave)
         let body={
@@ -170,84 +202,131 @@ const FormAccess = (props) => {
          }  
          
      });
+       }else{
+        console.log("El usuario no a aceptado el captcha")
+       }
     }
+
+    const captcha = useRef(null);
+
+    const onChangecapchat = () => {
+        //console.log('Captcha value:', value);
+        if(captcha.current.getValue()){
+          cambiarUsuarioValido(false)
+        }
+
+    }
+
     return (
-        <Grid container direccion="row" >
-            <Grid container justifyContent="center"
-                alignItems="center">
-
-            </Grid>
-            <Grid item xs={12} sm={5} md={6} lg={6}>
-                <ImagenBottom />
-            </Grid>
-            <Grid item container xs={12} sm={7} md={6} lg={6} alignItems="center"  >
-                <Grid direction="row" spacing={2} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
-                        <Typography className={classes.Textp} >
-                            Usuario
-                        </Typography>
-                    </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
-                        <TextField name="user" item size="small" value={form.user} onChange={handleChangeValue} className={classes.itemTextField} id="outlined-basic"  />
-                    </Grid>
-
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
-                        <Typography className={classes.Textp} >
-                            Contraseña
-                        </Typography>
-                    </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
-                    <FormControl size="small" className={classes.itemTextField} variant="outlined">
-                            <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-password"
-                                type={form.showPassword ? 'text' : 'password'}
-                                value={form.clave}
-                                name="clave"
-
-                                onChange={handleChangeValue}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {form.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
-                                label="Password"
-                            />
-                        </FormControl>
-                    </Grid>
-                    <Grid item container justifyContent="center" alignItems="center">
-        
-                        <button onClick={sendForm} className={classes.boton}>Iniciar Sesión</button>
-                    </Grid>
-                    <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <Typography className={classes.Textp} >
-                            Si no esta registrado, por favor hágalo mediante el siguiente botón
-                        </Typography>
-                    </Grid>
-                    <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Values="5" Title="Registrarse" href="/Observatorio/register"/>
-                    </Grid>
-                    <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <Typography className={classes.Textp} >
-                        Si olvido su contraseña, oprima el siguiente botón y siga las instrucciones
-                        </Typography>
-                    </Grid>
-                    <Grid item container justifyContent="center" alignItems="center">
-                        <ButtonRedWine Values="6" Title="Olvido su contraseña"  href="/Observatorio/ForgetPassword"/>
-                    </Grid>
-
-                </Grid>
-            </Grid>
-            <Loader open={openLoading}></Loader>
-
+      <Grid container direccion="row">
+        <Grid container justifyContent="center" alignItems="center"></Grid>
+        <Grid item xs={12} sm={5} md={6} lg={6}>
+          <ImagenBottom />
         </Grid>
+        <Grid item container xs={12} sm={7} md={6} lg={6} alignItems="center">
+          <Grid
+            direction="row"
+            spacing={2}
+            item
+            container
+            className={classes.containerForm}
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            alignItems="center"
+          >
+            <Grid item lg={3} md={3} sm={3} xs={12}>
+              <Typography className={classes.Textp}>Usuario</Typography>
+            </Grid>
+            <Grid item lg={9} md={9} sm={9} xs={12}>
+              <TextField
+                name="user"
+                item
+                size="small"
+                value={form.user}
+                onChange={handleChangeValue}
+                className={classes.itemTextField}
+                id="outlined-basic"
+              />
+            </Grid>
+
+            <Grid item lg={3} md={3} sm={3} xs={12}>
+              <Typography className={classes.Textp}>Contraseña</Typography>
+            </Grid>
+            <Grid item lg={9} md={9} sm={9} xs={12}>
+              <FormControl
+                size="small"
+                className={classes.itemTextField}
+                variant="outlined"
+              >
+                <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={form.showPassword ? "text" : "password"}
+                  value={form.clave}
+                  name="clave"
+                  onChange={handleChangeValue}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {form.showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
+            </Grid>            
+            <Grid id="hola" className={estilocaptcha} container item justifyContent="center" alignItems="center">
+              <ReCAPTCHA 
+                ref={captcha}
+                sitekey={clavecapchat} 
+                theme="light" 
+                onChange={onChangecapchat} />
+            </Grid>
+            <Grid item container justifyContent="center" alignItems="center">
+              <Tooltip title="Acceder" arrow>
+              <button disabled={usuarioValido} onClick={sendForm} className={classes.boton}>
+                Iniciar Sesión
+              </button>
+              </Tooltip>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <Typography className={classes.Textp}>
+                Si no esta registrado, por favor hágalo mediante el siguiente
+                botón
+              </Typography>
+            </Grid>
+            <Grid item container justifyContent="center" alignItems="center">
+            <Tooltip title="Registrar" arrow>
+              <Button className={classes.boton1}
+                href="/Observatorio/register"
+              >Registrarse</Button>
+            </Tooltip>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <Typography className={classes.Textp}>
+                Si olvido su contraseña, oprima el siguiente botón y siga las
+                instrucciones
+              </Typography>
+            </Grid>
+            <Grid item container justifyContent="center" alignItems="center">
+            <Tooltip title="Olvido su contraseña" arrow>
+            <Button className={classes.boton1}
+                href="/Observatorio/ForgetPassword"
+              >Olvido su contraseña</Button>
+            </Tooltip>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Loader open={openLoading}></Loader>
+      </Grid>
     );
 }
 

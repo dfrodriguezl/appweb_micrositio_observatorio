@@ -42,8 +42,10 @@ import Experimentalstatistics from "Observatorio/pages/experimental_statistics";
 import ForgetPassword from "../views/pages/forgetpassword";
 import RestoreAccount from "../views/pages/restore";
 import ChangePassword from "../views/pages/changepassword";
-import ChatIA from "../views/common/botchat"
-import ladm from "Observatorio/pages/ladm";
+import ChatIA from "../views/common/botchat";
+import Accesibilidad from "../views/common/Accesibilidad";
+import Ladm from "Observatorio/pages/ladm";
+import Search from "Observatorio/common/search";
 
 const useStyle = makeStyles({
   marginTop: {
@@ -102,8 +104,9 @@ const Generalroutes = () => {
   return (
     <div>
       <Header />
-      <Navbar isLogin={isLogin} setAuth={cerrarSesionActiva} />
-      <ChatIA/>
+      {/* <Navbar isLogin={isLogin} setAuth={cerrarSesionActiva} /> */}
+      <Accesibilidad/>
+      <ChatIA/>      
       <Grid container className={classes.marginTop}></Grid>
       <Switch>
         <Route
@@ -152,7 +155,8 @@ const Generalroutes = () => {
           component={Avaluos}
         />
         <Route exact path="/Observatorio/Tipologia" component={Tipologia} />
-        <Route exact path="/Observatorio/LADM" component={ladm} />
+        <Route exact path="/Observatorio/LADM" component={Ladm} />
+        <Route exact path="/Observatorio/Busqueda" component={Search} />
         <Route exact path="/Observatorio/Ceed" component={Ceed} />
         <Route
           exact
@@ -172,7 +176,7 @@ const Generalroutes = () => {
             );
           }}
           
-        />
+        />isLogin
         <Route exact path="/Observatorio" component={ContentGrid} />
         <Route
           exact
@@ -186,9 +190,10 @@ const Generalroutes = () => {
             );
           }}
         />
+        {console.log("Recuperar",user,"-",isLogin)}
         <Route
           exact
-          path="/Observatorio/ChangePassword"
+          path="/Observatorio/ChangePassword"          
           render={() => {
             return user && isLogin ? (
               <ChangePassword></ChangePassword>

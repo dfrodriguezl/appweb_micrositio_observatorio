@@ -34,7 +34,7 @@ const Topobservatorio = () => {
   return (
     <Grid container direccion="row">      
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.Titleh3}>Plataforma Usuario</h3>
+        <h3 className={classes.Titleh3}>Plataforma usuario</h3>
       </Grid>
       <Grid
         container

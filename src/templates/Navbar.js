@@ -18,6 +18,7 @@ const useStyle = makeStyles({
     margin: "5px",
     padding: "5px",
     color: "inherit",
+    cursor: "pointer",
   },
   menuActive: {
     position: "relative",
@@ -44,7 +45,7 @@ const useStyle = makeStyles({
   liHover: {
     "&:hover": {
       color: "white",
-      cursor: "pointer",
+      cursor: "default",
       backgroundColor: "#821A3F",
     },
   },
@@ -193,12 +194,14 @@ const MenuA = Styled.a`
     text-decoration: none;
     margin: 5px;
     padding: 5px; 
-    color: inherit;            
+    color: inherit;  
+    cursor: default;          
 `;
 
 const MenuIL = Styled.li`
     float: left;  
-    color:#969393;
+    justify-content: center;
+    color:#4c4c4c;
     width:100%;
     @media (max-width: 1300px) and (min-width: 769px) {
        font-size:15px !important;
@@ -225,34 +228,37 @@ left:0px;
 `;
 
 const SubMenuA = Styled.a`
-   color: #969393;
+   color: #4c4c4c;
   padding: 10px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #727070;
+    color: #F3F3F3;
   }
 `;
 
 const SubMenuASub = Styled.a`
-   color: #969393;
+   color: #4c4c4c;
   padding: 10px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
   margin-left:30px;
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #727070;
+    color: #F3F3F3;
   }
 `;
 
 const DropDownLi = Styled(MenuIL)`
     /* display: inline-block;    */
     position:relative;
-    display: flex;
+    
     /* justify-content: center;
     align-items:center; */
+    display: block;
     &:hover ${DropDownContent} {
       display: block;
     },
@@ -354,7 +360,6 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     });
     result.push(
       <DropDownContent>
-        {console.log(subResult)}
         {subResult}
       </DropDownContent>
     );
@@ -366,11 +371,11 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
         <NavBarContenedor>
           <DropDownLi
             onMouseEnter={handleStatusFalseAll}
-            className={classes.liHover}
+            className={classes.liHover}            
           >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <MenuA href="/Observatorio/">Inicio </MenuA>
+              <NavLink className={classes.root} to="/Observatorio/">Inicio </NavLink>
             </UtilidadCentrarTexto>
           </DropDownLi>
 
@@ -385,7 +390,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <MenuA href="/Observatorio/">Observatorio </MenuA>
+                <MenuA>Observatorio</MenuA>
                 {result}
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -415,7 +420,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <MenuA href="/Observatorio/Catastromultiproposito">
+                <MenuA>
                   Catastro Multipropósito{" "}
                 </MenuA>
                 {result}
@@ -449,9 +454,9 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <NavLink to="/Observatorio/Mapas" className={classes.root}>
-                  Geovisores
-                </NavLink>
+                <MenuA>
+                  Geovisores{" "}
+                </MenuA>
                 {result}
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -483,9 +488,9 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <NavLink to="/Observatorio/Servicios" className={classes.root}>
-                  Servicios
-                </NavLink>
+                <MenuA>
+                  Servicios{" "}
+                </MenuA>
                 {result}
               </UtilidadCentrarTexto>
             </DropDownLi>

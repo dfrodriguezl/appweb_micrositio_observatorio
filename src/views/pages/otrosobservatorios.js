@@ -82,7 +82,7 @@ const Topobservatorio = () => {
         <Grid container direccion="row" >
           <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>Otros Observatorios Inmobiliarios</h3>
+          <h3 className={classes.Titleh3}>Otros observatorios inmobiliarios</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle} >              
                 <p className={classes.Textp}>

@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia, Tooltip } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Meeting from "Observatorio/img/Statistics.svg";
@@ -171,13 +171,17 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>V1</th>
           <th className={classes.containercontent}>Pdf</th>
           <th className={classes.containercontent}>42.341 KB</th>
-          <th className={classes.containercontent}><Button className={classes.boton}>
+          <th className={classes.containercontent}>
+          <Tooltip title="Descargar" arrow>
+            <Button className={classes.boton}>
           <a className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/DOC_DIRECTIVO_IND_2021_20211203.pdf"
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
-            </Button></th>
+            </Button>
+            </Tooltip>
+            </th>
 
         </tr>
         <tr className={classes.columnatabla}>
@@ -185,13 +189,17 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>V1</th>
           <th className={classes.containercontent}>Pdf</th>
           <th className={classes.containercontent}>64.292 KB</th>
-          <th className={classes.containercontent}><Button className={classes.boton}>
+          <th className={classes.containercontent}>
+          <Tooltip title="Descargar" arrow>
+          <Button className={classes.boton}>
           <a className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/DOC_TECN_IND_20211203.pdf"
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
-            </Button></th>
+            </Button>
+            </Tooltip>
+            </th>
         </tr>
       </table>
       </Grid>

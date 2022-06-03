@@ -25,6 +25,7 @@ router.get('/PlataformaUsuario/download',Middleware.verificaToken,UserController
 router.get('/PlataformaUsuario/offerdata',Middleware.verificaToken,UserController.offerdata)
 router.get('/PlataformaUsuario/fileregistrer',Middleware.verificaToken,UserController.filesregistrer)
 router.post('/PlataformaUsuario',Middleware.verificaToken)
+router.get('/Resultados',UserController.serach)
 module.exports = router;
 
 

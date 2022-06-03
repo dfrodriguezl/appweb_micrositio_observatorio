@@ -89,7 +89,7 @@ const useStyle = makeStyles({
   itemTextField: {
     backgroundColor: "white",
     width: "20%",
-    margin: "3em 0.5em 0.5em 0.5em",
+    margin: "0em 0.5em 0.5em 0.5em",
   },
   tamaño: {
     width: "100%",
@@ -198,6 +198,7 @@ const useStyle = makeStyles({
     width: "max-content",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
+    textDecoration:"none",
     border: "none",
     // fontWeight: "bold",
     "&:hover": {
@@ -723,7 +724,7 @@ const Cardsmapas = () => {
   const [registrerural, setregistrerural] = useState([]);
 
   const locationUser = () => {
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem("token");    
     axios
       .get(`${enviroment.endpoint}/PlataformaUsuario/location`, {
         headers: {
@@ -2112,7 +2113,7 @@ const Cardsmapas = () => {
                 <Grid item xs container direction="column">
                   <CardContent className={classes.centerText}>
                     <p className={classes.Titleh}>
-                      Repositorio Documental - Usuario
+                      Repositorio documental - Usuario
                     </p>
                     <Grid container direction={direccion} className={pading}>
                       <Grid item xs={numero} direction="column" container>
@@ -2502,12 +2503,12 @@ const Cardsmapas = () => {
                           <Typography className={classes.Textpass}>
                             Recuerde que debe tener por lo menos 8 caracteres
                           </Typography>
-                          <button
+                          <a
                             href="/Observatorio/ChangePassword"
                             className={classes.botonpass}
                           >
                             Cambiar Contraseña
-                          </button>
+                          </a>
                         </Grid>
                       </Grid>
                     </Grid>

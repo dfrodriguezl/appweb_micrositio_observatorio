@@ -201,8 +201,7 @@ class UserController {
     }
     try {
       let userFound = await UserService.login(body);
-
-      if (userFound) {
+      if (userFound) {     
         response.code = "OK";
         response.message = "Usuario encontrado";        
         const tokenUser = await Token.getJwtToken({
@@ -782,6 +781,38 @@ class UserController {
       message: "prueba exitosa",
       code: "OK",
     };
+    util.saveData(response);
+    return util.sendResponse();
+  }
+
+  static async serach(req, res) {
+    let util = new Util(res);
+    let body = req.headers.body; 
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };    
+    try {          
+        let selectph = await UserService.serachresult(body);      
+        if (selectph) {
+          let arrayph = selectph
+          response.code = "OK";
+          response.message = "Estadisticas encontradas";
+          response.data = {
+            fileph: arrayph,
+          };
+        } else {
+          response.code = "ERR001";
+          response.message =
+            "Lo sentimos, ocurrio un problema en nuestro sistema";
+        }
+    } catch (error) {
+      console.log(error);
+      response.code = "ERROR";
+      response.message = "Ocurrio un error en la actualizacion de datos";
+    }
     util.saveData(response);
     return util.sendResponse();
   }

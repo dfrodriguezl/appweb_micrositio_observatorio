@@ -1,5 +1,5 @@
-import { Grid, makeStyles, Typography, Button} from "@material-ui/core";
-import React, {  useState } from 'react';
+import { Grid, makeStyles, Typography, Button, Tooltip} from "@material-ui/core";
+import React, {  useState, useRef } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/Mobilelogin-amico1.svg";
 import TextField from '@mui/material/TextField';
@@ -17,9 +17,18 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import {Loader} from '../loader/loader'
 import enviroment from "../../../config/enviroment"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const sha256 = require('js-sha256');
 const useStyle = makeStyles({
+
+    captcha1:{
+        display:"none"
+      },
+  
+      captcha2:{
+        display:"grid"
+      },
 
     gridglobal: {
         padding: "0 10% 0 10%",
@@ -104,12 +113,12 @@ const useStyle = makeStyles({
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "6vh",
         backgroundColor: Values.Redwinecolor,
-        color: Values.TextButton,
+        color:"#F3F3F3 !important",
         fontFamily: Values.SourceRoboto,
         textTransform: "capitalize",
         transition: "all 0.8s ease-out",
         cursor: "pointer",
-        margin: "10% 0 4% 0",
+        margin: "4% 0 4% 0",
         width: "max-content",
         fontSize: "calc(1em + 0.3vh)",
         border: "none",
@@ -132,7 +141,17 @@ const ImagenBottom = () => {
 
 const FormRegister = () => {
     const classes = useStyle();
-    
+    const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
+    const [usuarioValido, cambiarUsuarioValido] = useState(false)
+    const [Valido, cambiarValido] = useState(true)
+    const captcha = useRef(null);
+
+    const onChangecapchat = () => {
+        if(captcha.current.getValue()){
+          cambiarUsuarioValido(true)
+        }
+
+    }
     const [form, setForm] = useState({
         tipoUsuario: 10,
         razonSocial: "",
@@ -149,6 +168,7 @@ const FormRegister = () => {
     const [openUserExits, setopenUserExits] = useState(false)
     const [openValidation, setOpenValidation] = useState(false)
     const [formComplete, setFormComplete] = useState(false);
+    
  
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -305,6 +325,14 @@ const FormRegister = () => {
         leyendapassword2 = classes.labeltext4;
     }
 
+    var estilocaptcha = null;
+
+    if(form.tipoUsuario == 10 && form.razonSocial == "" && form.correoElectronico == "" && form.telefono == "" && form.clave == "" && form.confirmarCorreo == "" && form.confirmarClave == "" && form.showPassword == false && form.showConfirmPassword == false){
+      estilocaptcha=classes.captcha1
+    }else{
+      estilocaptcha=classes.captcha2
+    }
+
     const sendForm = () => {     
         
         console.log("enviando form")
@@ -392,8 +420,8 @@ const FormRegister = () => {
                                 >
                                     <MenuItem value="20">Persona Natural</MenuItem>
                                     <MenuItem value="30">Persona Juridica</MenuItem>
-                                    <MenuItem value="30">Gestor Catastral</MenuItem>
-                                    <MenuItem value="30">Observatorio Inmobiliario</MenuItem>
+                                    <MenuItem value="40">Gestor Catastral</MenuItem>
+                                    <MenuItem value="50">Observatorio Inmobiliario</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
@@ -517,10 +545,17 @@ const FormRegister = () => {
                             * Campo obligatorio
                         </Typography>
                     </Grid>
+                    <Grid id="hola" className={estilocaptcha} container item justifyContent="center" alignItems="center">
+              <ReCAPTCHA 
+                ref={captcha}
+                sitekey={clavecapchat} 
+                theme="light" 
+                onChange={onChangecapchat} />
+            </Grid> 
                     <Grid item container >
-
+                    <Tooltip title="Enviar" arrow>
                         <Button  disabled={!formComplete} className={classes.boton} disableElevation onClick={sendForm} >Enviar</Button>
-
+                    </Tooltip>
                     </Grid>
 
                 </Grid>

@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery, Button ,CardMedia} from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia,Tooltip} from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
@@ -50,7 +50,7 @@ const useStyle = makeStyles({
          maxWidth: "100% !important",
       },
       boton: {
-        padding: "0.3em 1em 0.3em 1em",
+        padding: "0em 1em 0em 1em",
         borderRadius: "2vh",
         backgroundColor:"#ffffff",
         fontFamily: Values.SourceRoboto,
@@ -74,7 +74,7 @@ const useStyle = makeStyles({
       },
     
       boton1: {
-        padding: "0.3em 1em 0.3em 1em",
+        padding: "0em 1em 0em 1em",
         borderRadius: "2vh",
         backgroundColor:"#ffffff",
         fontFamily: Values.SourceRoboto,
@@ -380,13 +380,13 @@ const ComparationModels = () =>{
       id="comparacionModel"
     >
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.titleStyle}>Comparación Modelos Catastrales</h3>
+        <h3 className={classes.titleStyle}>Comparación modelos catastrales</h3>
       </Grid>
       <ImagenTransfer />
       <Grid container direction="row">
         <Grid container item xs>
           <Grid container justifyContent="center">
-            <p className={classes.texto}>Modelo Catastral Anterior</p>
+            <p className={classes.texto}>Modelo catastral anterior</p>
           </Grid>
           <ol className={classes.textStyle1}>
             <li className={classes.listyle}>Esquema anterior: IGAC - Descentralizados - Delegados.</li>
@@ -406,7 +406,7 @@ const ComparationModels = () =>{
         </Grid>
         <Grid container item xs>
           <Grid container justifyContent="center">
-            <p className={classes.texto}>Premisas Catastro Multipróposito</p>
+            <p className={classes.texto}>Premisas catastro multipróposito</p>
           </Grid>
           <ol className={classes.textStyle1}>
             <li className={classes.listyle}>Nuevo esquema de descentralización.</li>            
@@ -431,13 +431,13 @@ const ComparationModels = () =>{
       </Grid>
       <Grid id="catastroRegulacion" container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
-          Catastro para la Regularización de la Propiedad
+          Catastro para la regularización de la propiedad
         </h3>
       </Grid>
       <Imagenpng />
       <Grid id="catastroTomaDeDecisiones" container justifyContent="center" alignItems="center">
         <h3 className={classes.titleStyle}>
-          Catastro Multipropósito para la toma de decisiones
+          Catastro multipropósito para la toma de decisiones
         </h3>
       </Grid>
       <Grid container direction="row">
@@ -588,9 +588,11 @@ const Catastro = () => {
                   <p className={classes.texto1}>CONPES 4007 de 2020</p>
                   </Grid>
                 <Grid Grid container item xs={6} justifyContent="flex-end">
+                <Tooltip title="CONPES 4007 de 2020" arrow>
                 <Button className={classes.boton4} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
                   ver
                 </Button>
+                </Tooltip>
                 </Grid>
                 </Grid>
             </Grid>            

@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery} from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/Cards';

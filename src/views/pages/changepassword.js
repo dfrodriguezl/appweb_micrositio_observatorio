@@ -6,7 +6,7 @@ import axios from "axios";
 import { Loader } from "./loader/loader";
 import Modal from "Observatorio/pages/modal";
 const sha256 = require("js-sha256");
-
+import enviroment from "../../config/enviroment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
@@ -98,7 +98,7 @@ const ChangePassword = (props) => {
     setLoading(true);
     let token = localStorage.getItem("token")
     axios
-      .post("http://localhost:3000/user/changepassword", body, {
+      .post(`${enviroment.endpoint}/user/changepassword`, body, {
         headers: {
           "Content-Type": "application/json",
           token: token,

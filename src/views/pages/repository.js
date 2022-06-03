@@ -4,6 +4,7 @@ import {
   useMediaQuery,
   Button,
   Box,
+  Tooltip
 } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
@@ -152,7 +153,7 @@ const Repository = () => {
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
           <h3 className={classes.titleStyle}>
-            Repositorio Observatorio Inmobiliario Nacional
+            Repositorio observatorio inmobiliario nacional
           </h3>
         </Grid>
         <Grid
@@ -187,13 +188,17 @@ const Repository = () => {
           <th className={classes.containercontent}>V1</th>
           <th className={classes.containercontent}>Pdf</th>
           <th className={classes.containercontent}>472 KB</th>
-          <th className={classes.containercontent}><Button className={classes.boton}>
-          <a className={classes.alink}
+          <th className={classes.containercontent}>
+            <Tooltip title="Descargar" arrow>
+            <Button className={classes.boton}>
+              <a className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
-            </Button></th>
+            </Button>
+            </Tooltip>
+          </th>
         </tr>
         {/* <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>TIPO CONSTRUCTIVAS.docx</th>
@@ -210,26 +215,34 @@ const Repository = () => {
           <th className={classes.containercontent}>V1</th>
           <th className={classes.containercontent}>Excel</th>
           <th className={classes.containercontent}>31 KB</th>
-          <th className={classes.containercontent}><Button className={classes.boton}>
-          <a className={classes.alink}
+          <th className={classes.containercontent}>
+            <Tooltip title="Descargar" arrow>
+            <Button className={classes.boton}>
+              <a className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
-            </Button></th>
+            </Button>
+            </Tooltip>
+            </th>
         </tr>
         <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>FORMATO MERCADO.xlsx</th>
           <th className={classes.containercontent}>V1</th>
           <th className={classes.containercontent}>Excel</th>
           <th className={classes.containercontent}>50 KB</th>
-          <th className={classes.containercontent}><Button className={classes.boton}>
+          <th className={classes.containercontent}>
+          <Tooltip title="Descargar" arrow>
+          <Button className={classes.boton}>
           <a className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
-            </Button></th>
+            </Button>
+          </Tooltip>
+            </th>
         </tr>
         {/* <tr className={classes.columnatabla}>
           <th className={classes.containercontent}>MANUAL GEOPACKAGE.pdf</th>

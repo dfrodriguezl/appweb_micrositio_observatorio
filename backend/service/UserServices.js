@@ -274,7 +274,8 @@ class UserService {
       pool
         .getConnection()
         .query(
-          "select u.id ,u.name ,u.email  from private.user u where u.email = $1 and u.passwordUser = $2",
+          //"select u.id ,u.name ,u.email  from private.user u where u.email = $1 and u.passwordUser = $2",
+          "select id_out as id, nombre as name, email1 as email from login($1,$2)",
           [modelUser.email, modelUser.infokey],
           (error, result) => {
             console.log(error);
@@ -1060,6 +1061,31 @@ class UserService {
               rechazar(false);
             }
             resolver(true);
+          }
+        );
+    });
+  }
+
+  static async serachresult(obj) {
+    let palabra = `%${obj}%`
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          "SELECT s.titulo, s.descripcion, s.url FROM private.searchobservatory as s where s.titulo LIKE $1 or s.descripcion LIKE $1 ORDER BY s.id_search asc",
+          [palabra],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            console.log("result backend", result.rows.length)
+            if (result.rows.length > 0) {
+              resolver(result.rows);
+            } else {
+              resolver(null);
+            }
           }
         );
     });

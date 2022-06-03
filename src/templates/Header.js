@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useMediaQuery } from 'react';
-import { Grid } from '@material-ui/core';
+import axios from "axios";
+import { Button, Grid, InputAdornment } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+import enviroment from "../config/enviroment";
 import {
     makeStyles
 } from '@material-ui/core/styles';
@@ -10,7 +14,11 @@ import Navbar from './Navbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import {useTranslation} from "react-i18next";
 const useStyle = makeStyles({
+    search:{
+        margin: "1.5vh 0 0 0 !important",
+    },
     root: {
         height: '50px'
     },
@@ -19,7 +27,6 @@ const useStyle = makeStyles({
         Height: 47,
     },
     backgroundHeader: {
-
         borderBottom: "1px solid #EEE"
     },
     main: {
@@ -28,7 +35,20 @@ const useStyle = makeStyles({
         zIndex: 1000,
         top: 0,
         left: 0,
-    }
+    },
+    lenguaje: {
+        backgroundColor: "#821a3f",
+        height:"3vh",
+        margin:"3% 0px 3% 1.5%",
+        color:"white",
+        cursor: "pointer",
+        borderStyle: "hidden !important",
+        width: "2vw",
+        "&:hover": {
+            backgroundColor: "#3e071a",
+            border: "none",
+          },
+    },
 });
 
 const TextLogo = Styled.div`
@@ -100,21 +120,78 @@ margin-top:10px;
 const Header = () => {
     const classes = useStyle();
     const [sideBarOpen, setSideBarOpen] = useState(false)
+    const [t, i18n]= useTranslation("global");
+    const handlesearch = (e) =>{        
+        document.getElementById("search")
+        .addEventListener("keyup", function(e) {            
+            if (e.keyCode === 13) {               
+                if(e.target.value === ""){
+                    console.log("20/05/2023", "se debe mostrar un error por estar vacio");
+                }else{
+                    searchresult(e.target.value);
+                }
+            }
+        })     
+    }
+    const searchresult = (busqueda) => {
+        let bus = busqueda
+        axios
+          .get(`${enviroment.endpoint}/Resultados`, {
+            headers: {
+              "Content-Type": "application/json",
+              Body:bus,
+            },
+          })
+          .then((response) => {
+            if (response.status == 200) {          
+              
+               if (response.data.code == "OK") {
+
+                if(response.data.data.fileph){
+                    //localStorage.setItem("searchcobjetcant",response.data.data.fileph.length)
+                    localStorage.setItem("searchcobjet",JSON.stringify(response.data.data.fileph))
+                    window.location="/Observatorio/Busqueda"
+                 }else{
+
+                 }
+
+               } else {
+                //setOpen3(true)
+                console.log("20/05/2022",response.data.data.fileph);
+             }
+            } else {
+                console.log("ocurrio un problema externo");
+            }
+          });
+      };    
     function setOpenSideBar() {
         setSideBarOpen(!sideBarOpen)
     }
     return (
-
         <header>
-            <Grid container className={classes.main} >
+            <Grid container className={classes.main}>                 
                 <Grid container item className={classes.backgroundHeader}>
                     <Grid container item xs={3} sm={5} md={6} lg={6} direction="row">
                         <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
 
-                    </Grid>
-                    <Grid container item xs={9} sm={7} md={6} lg={6} justifyContent="flex-end" >
-
-                      
+                    </Grid>                        
+                    <Grid container item xs={9} sm={7} md={6} lg={6} justifyContent="flex-end" >  
+                    <TextField
+                        className={classes.search}
+                        id="search"
+                        label={t("headersearch.search")}
+                        onClick={handlesearch}
+                        variant="outlined"
+                        InputProps={{                            
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                <SearchIcon/>
+                                </InputAdornment>
+                            ),
+                        }}
+                        />  
+                        <button id='en' Active className={classes.lenguaje} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
+                        <button id='es' className={classes.lenguaje} onClick={()=> i18n.changeLanguage("es")}>ES</button>                                          
                         <a href="/Observatorio/">
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
@@ -137,7 +214,6 @@ const Header = () => {
                                     >
                                         <CloseIcon></CloseIcon>
                                     </IconButton>
-
                                     : <IconButton
                                         size="large"
                                         edge="center"
@@ -149,7 +225,6 @@ const Header = () => {
                                         <MenuIcon />
                                     </IconButton>
                             }
-
                         </ContainerIcon>
                     </Grid>
                 </Grid>

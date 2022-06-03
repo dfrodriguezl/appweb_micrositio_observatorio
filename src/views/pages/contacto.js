@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography,useMediaQuery,Button } from "@material-ui/core";
+import { Grid, makeStyles, Typography,useMediaQuery,Button, Tooltip } from "@material-ui/core";
 import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/App.svg";
@@ -108,7 +108,7 @@ const TopContacto = () => {
     const classes = useStyle();
     return (
         <Grid container direction="row" >
-            <Grid container >
+            <Grid container justifyContent="center">
                 <h3 className={classes.Titleh3}>Contactenos</h3>
             </Grid>
         </Grid>
@@ -284,12 +284,13 @@ const Contacto = () => {
                     <Grid container item   >
                         <Grid item lg={10} md={10} sm={10} xs={12} >
                         <Typography className={classes.Textp}>
-                                * Campos Obligatorios
+                                * Campos obligatorios
                             </Typography>
                         </Grid>
-                        <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">
-               
-                        <Button disabled={!formComplete} disableElevation className={classes.boton} onClick={sendForm} >Enviar</Button>
+                        <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">               
+                            <Tooltip title="Enviar" arrow>
+                                <Button disabled={!formComplete} disableElevation className={classes.boton} onClick={sendForm} >Enviar</Button>
+                            </Tooltip>
                         </Grid>
                     </Grid>
                 </Grid>

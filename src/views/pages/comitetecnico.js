@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,CardMedia,Tooltip} from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
@@ -291,7 +291,7 @@ const Comite = () => {
       <Grid container direction="column"  className={estilo}>
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Comité Técnico Asesor</h3>
+                  <h3 className={classes.titleStyle}>Comité técnico asesor</h3>
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
               <p className={classes.contentrulesp}>
@@ -325,7 +325,7 @@ const Comite = () => {
 
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Composición del Comité Técnico Asesor</h3>
+                  <h3 className={classes.titleStyle}>Composición del comité técnico asesor</h3>
               </Grid>
               <ImagenJudge/>   
               <Grid item container direction="column" xs className={classes.containerTitle}>
@@ -355,9 +355,10 @@ const Comite = () => {
               <Grid container justifyContent="flex-start" className={classes.margboton}>
                   <h3 className={classes.titleStyle2}>Resolución 1149 de 2021</h3>
                   <Grid item xs={6}>
+                  <Tooltip title="Resolución 1149 de 2021" arrow>
                   <Button className={classes.botonver}
                     href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"                    
-                  >Ver</Button>
+                  >Ver</Button></Tooltip>
                 </Grid>
               </Grid>
               </Grid>

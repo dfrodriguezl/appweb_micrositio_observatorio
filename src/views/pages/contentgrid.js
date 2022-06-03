@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery,Tooltip, Button } from "@material-ui/core";
 import React, { Component } from "react";
 import bloques from "Observatorio/img/bloques2.jpg";
 //import bloques from "Observatorio/img/Building.svg";
@@ -14,6 +14,26 @@ import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
 
 const useStyle = makeStyles({
+
+  boton: {
+    padding: "0em 1em 0em 1em",
+    borderRadius: "2vh",
+    backgroundColor: Values.Redwinecolor,
+    color: Values.TextButton,
+    fontFamily: Values.SourceRoboto,
+    textTransform: "inherit",
+    transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    margin: "10% 0 4% 0",
+    width: "max-content",
+    fontSize: "calc(1em + 0.3vh)",
+    borderRadius: "2vh",
+    // fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: Values.HoverButton,
+      border: "none",
+    },
+  },
 
   imagen_QA: {
     width: "25%",
@@ -538,7 +558,7 @@ const Top_content = () => {
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
-          El Observatorio inmobiliario nacional es un sistema de información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
+          Sistema de información que busca consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
           </p>
           {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto
@@ -548,7 +568,9 @@ const Top_content = () => {
           </p> */}
         </Grid>
         <Grid container>
-          <ButtonRedWine Title="Acerca de" href="/Observatorio/Acerca" />
+          <Tooltip title="Observatorio" arrow>
+            <Button className={classes.boton} href="/Observatorio/Acerca" >Acerca de</Button>
+          </Tooltip>
         </Grid>
       </Grid>
       <Imagen />
@@ -572,7 +594,7 @@ const Center_content = () => {
         alignItems="center"
         className={classes.containerTitle}
       >
-        <h1 className={classes.titleStyle}>Ventajas del Observatorio</h1>
+        <h1 className={classes.titleStyle}>Ventajas del observatorio</h1>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid
@@ -702,23 +724,19 @@ const Bottom_content = () => {
                 <p className={classes.contentrulesp2}>Ley 1955 de 2019</p>
                 </Grid>
                 <Grid className={classes.marginbutton2}>
-                  <ButtonRedWine
-                    Title="Ver"
-                    href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970"
-                    Values="1"
-                  />
+                <Tooltip title="Ley 1955 de 2019" arrow>
+                <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">Ver</Button>
+                </Tooltip>                  
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
               <Grid container item xs={6}>
                 <p className={classes.contentrulesp2}>Decreto 148 de 2020</p>
                 </Grid>
-                <Grid className={classes.marginbutton2} justifyContent="center">
-                  <ButtonRedWine
-                    Title="Ver"
-                    href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952"
-                    Values="1"
-                  />
+                <Grid className={classes.marginbutton2} justifyContent="center">                  
+                  <Tooltip title="Decreto 148 de 2020" arrow>
+                    <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">Ver</Button>
+                  </Tooltip> 
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
@@ -726,11 +744,9 @@ const Bottom_content = () => {
                 <p className={classes.contentrulesp2}>CONPES 3958 de 2019</p>
                 </Grid>
                 <Grid className={classes.marginbutton2}>
-                  <ButtonRedWine
-                    Title="Ver"
-                    href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf"
-                    Values="1"
-                  />
+                  <Tooltip title="CONPES 3958 de 2019" arrow>
+                    <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">Ver</Button>
+                  </Tooltip>
                 </Grid>
               </Grid>
           </Grid>
@@ -770,7 +786,7 @@ const Bottom_content_footer = () => {
         className={classes.containerTitle}
       >
         <h1 className={classes.titleStyle}>
-          Uso del Observatorio Inmobiliario Nacional
+          Uso del observatorio inmobiliario nacional
         </h1>
       </Grid>
       <Grid item container direction="column" xs className={estilo}>
@@ -808,7 +824,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Costos de Construcción</p>
+              <p className={classes.textStyle1}>Costos de construcción</p>
             </Grid>
             <Grid
               container

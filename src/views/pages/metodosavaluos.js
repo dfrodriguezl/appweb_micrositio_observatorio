@@ -1,4 +1,4 @@
-import { Grid, makeStyles, useMediaQuery,CardMedia } from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery,CardMedia,Tooltip } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
@@ -339,20 +339,22 @@ const avaluos = () => {
         </Grid>
         
       </Grid>
-      <button className={estilo4}>
-      <a className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
-                              <Grid container direction="row">
-                                <Grid item xs={4} direction="column" container  className={estilo3}>
-                                  <CardMedia className={estilo2} image={word} />
-                                </Grid>
-                                <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: TECNICAS VALUATORIAS</strong></p>
-                                  <p className={classes.contentrulesp3}>472 KB   |   01/09/2021</p>
-                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Técnica valuatorias en Colombia y el mundo</p>
-                                </Grid>
-                              </Grid>
-                              </a>
-                            </button>
+      <Tooltip title="Descripción: Técnica valuatorias en Colombia y el mundo" arrow>
+        <button className={estilo4}>
+          <a className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
+            <Grid container direction="row">
+              <Grid item xs={4} direction="column" container  className={estilo3}>
+                <CardMedia className={estilo2} image={word} />
+                  </Grid>
+                    <Grid item xs container direction="column" justifyContent="center">
+                      <p className={classes.contentrulesp3}><strong>Nombre: TECNICAS VALUATORIAS</strong></p>
+                      <p className={classes.contentrulesp3}>472 KB   |   01/09/2021</p>
+                      {/* <p className={classes.contentrulesp3}><strong>Descripción: </strong>Técnica valuatorias en Colombia y el mundo</p> */}
+                    </Grid>
+                  </Grid>
+          </a>
+        </button>
+      </Tooltip>      
     </Grid>
   );
 };

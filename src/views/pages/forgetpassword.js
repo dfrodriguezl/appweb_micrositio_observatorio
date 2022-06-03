@@ -1,5 +1,5 @@
 import React ,{useState}from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Tooltip } from "@material-ui/core";
 import Styled from "styled-components";
 import classStyle from "Observatorio/common/style/stylegeneric";
 import TextField from '@mui/material/TextField';
@@ -96,7 +96,9 @@ const sendEmail = () =>{
               id="outlined-basic"
             />
           </Grid>
+          <Tooltip title="Enviar" arrow>
           <button className={classes.boton} onClick={sendEmail} >Enviar</button>
+          </Tooltip>
         </Grid>
         <Loader open={openLoading}></Loader>
         <Modal open={open} handleClose={handleClose} Title="Envio de correo Exitoso" textContainer="Se ha enviado a su correo lo necesario para reestablecer contraseña" >

@@ -9,6 +9,7 @@ import {
     Button,
     Typography,
     useMediaQuery,
+    Tooltip
   } from "@material-ui/core";
   import React, { Component } from "react";
   import * as Values from "Observatorio/Variables/values";
@@ -16,7 +17,7 @@ import {
   
   const useStyle = makeStyles({
     boton: {
-      padding: "0.3em 1em 0.3em 1em",
+      padding: "0em 1em 0em 1em",
       borderRadius: "2vh",
       backgroundColor: Values.Redwinecolor,
       color: Values.TextButton,
@@ -34,6 +35,7 @@ import {
         border: "none",
       },
     },
+    
     centerButton: {
       justifyContent: "center",
       padding: "0 0 0 0 !important",
@@ -150,9 +152,11 @@ import {
                     </CardContent>
                   </CardContent>
                   <CardActions className={classes.centerButton}>
-                    <Button className={classes.boton} href={cardsotros.link}>
+                  <Tooltip title={cardsotros.title} arrow>
+                    <Button target="_blank" className={classes.boton} href={cardsotros.link}>
                       Visitar
                     </Button>
+                  </Tooltip>
                   </CardActions>
                 </Card>
               </Grid>

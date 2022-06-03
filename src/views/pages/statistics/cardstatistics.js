@@ -1,5 +1,5 @@
 
-import { Grid, makeStyles, CardActions, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Grid, makeStyles, CardActions, Card, CardContent, CardMedia, Typography, Tooltip, Button } from '@material-ui/core';
 import React from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/Delivery.svg";
@@ -132,6 +132,26 @@ const useStyle = makeStyles({
       flexBasis: "100% !important",
       maxWidth: "100% !important",
     },
+
+    boton: {
+      padding: "0em 1em 0em 1em",
+      borderRadius: "2vh",
+      backgroundColor: Values.Redwinecolor,
+      color: Values.TextButton,
+      fontFamily: Values.SourceRoboto,
+      textTransform: "inherit",
+      transition: "all 0.8s ease-out",
+      cursor: "pointer",
+      margin: "10% 0 4% 0",
+      width: "max-content",
+      fontSize: "calc(1em + 0.3vh)",
+      borderRadius: "2vh",
+      // fontWeight: "bold",
+      "&:hover": {
+        backgroundColor: Values.HoverButton,
+        border: "none",
+      },
+    },
   });
 const CardStatistics=()=>{
     let resultCards=[]
@@ -157,7 +177,7 @@ const CardStatistics=()=>{
                           image={infocard.image_card}
                           title={infocard.title}
                         />
-                        <CardContent className={classes.centerText, classes.contentcar}>
+                        <CardContent className={classes.centerText + classes.contentcar}>
                           <Typography className={classes.Textpcard}>
                             {infocard.title}
                           </Typography>
@@ -167,7 +187,9 @@ const CardStatistics=()=>{
                         </CardContent>
                       </CardContent>
                       <CardActions className={classes.centerButton}>
-                        <ButtonRedWine Title="Visitar" href={infocard.link} />
+                        <Tooltip title={infocard.title} arrow>                    
+                          <Button target="_blank" className={classes.boton} href={infocard.link}>Visitar</Button>
+                        </Tooltip>
                       </CardActions>
                     </Card>
                   </Grid>
