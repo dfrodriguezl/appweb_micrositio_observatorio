@@ -3,7 +3,7 @@
 Template for displaying web maps using vector tiles
 
 ![Screenshot](screenshot.JPG)
-
+![Screenshotmap](screenshotmap.JPG)
 
 ## Installation
 
