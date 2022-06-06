@@ -1,0 +1,34 @@
+{
+    "sourceType": "unambiguous",
+    "presets": [
+        "@babel/preset-env", 
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        ["module-resolver", {
+          "root": ["./src"],
+          "alias": {
+            "Observatorio/img": "./src/img",
+            "Observatorio/common":"./src/views/common",
+            "Observatorio/pages":"./src/views/pages",
+            "Observatorio/test": "./test",
+            "Observatorio/ui": "./src/visores/esmeralda/ui",
+            "Observatorio/underscore": "lodash",
+            "Observatorio/Variables": "./src/Variables",
+            "Observatorio/routes": "./src/routes",
+            "Observatorio/templates": "./src/templates",
+            "Observatorio/visores/esmeralda":"./src/visores/esmeralda",
+            "Observatorio/files":"./src/files"
+          }
+        }
+      ],["@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+
+    ]
+}
+
+
+  

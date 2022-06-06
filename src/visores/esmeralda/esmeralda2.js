@@ -1,0 +1,60 @@
+import React,{ useRef ,useEffect,forwardRef,useState} from 'react';
+import Drawer from './Drawer';
+import Map from './map';
+import mapboxgl from 'mapbox-gl';
+import DrawerRight from './ui/DrawerRight';
+import DrawerBottom from './ui/DrawerBottom';
+import {makeStyles} from "@material-ui/core";
+
+const useStyle = makeStyles({
+    
+    boton:{
+        display: "block",
+        position: "relative",
+        margin: "0px auto",
+        width: "50%",
+        height: "40px",
+        padding: "10px",
+        border: "none",
+        borderRadius: "3px",
+        fontSe: "12px",
+        textAlign: "center",
+        color: "#fff",
+        background: "#ee8a65",
+      },
+});
+
+
+
+const esmeralda2 = () => {
+    
+    const mapaData = useRef()
+    const [position, setPosition] = React.useState({
+        lng:-74.091,
+        lat:4.646,
+        zoom:11
+    });
+    const handlePosition = (value) =>{
+         let data={
+             lng:value.bbox[0],
+             lat:value.bbox[1],
+             zoom:11
+         }
+         mapaData.current.toFly(data)
+    }
+
+    const enabledLayer = (layer,isEnable) =>{
+        mapaData.current.enableLayer(layer,isEnable)
+    }
+
+      
+    return ( 
+        <div>
+            <Drawer setPosition ={handlePosition} enabledLayer={enabledLayer}/>
+            <Map ref={mapaData} position={position}  />
+            
+        </div>
+     );
+}
+ 
+export default esmeralda2;
