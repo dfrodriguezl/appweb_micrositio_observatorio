@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography,useMediaQuery,Tooltip,Button} from "@material-ui/core";
 import React, { useState, useRef } from 'react';
 import * as Values from 'Observatorio/Variables/values';
-import App from "Observatorio/img/Mobilelogin-rafiki1.svg";
+import App from "Observatorio/img/log.jpg";
 import TextField from '@mui/material/TextField';
 import ButtonRedWine from "Observatorio/common/buttonredwinestandar";
 import FormControl from '@mui/material/FormControl';
@@ -66,9 +66,10 @@ const useStyle = makeStyles({
 
     gridglobal: {
         padding: "0 10vw 0 10vw",
+        margin: "2.5vw 0 2vw 0"
     },
     imageRigth: {
-        width: 400
+        width: "80vh"
     },
     containerForm: {
         backgroundColor: "#f3f3f3",

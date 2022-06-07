@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Sale from "Observatorio/img/logo1.png";
+import Sale from "Observatorio/img/igac-logo.png";
 import Fill from "Observatorio/img/logo2.png";
 import Segment from "Observatorio/img/logo3.png";
 import Building_ from "Observatorio/img/logo4.png";
@@ -17,10 +17,11 @@ const cardotros = [
     },
     {
         "id":2,
-        "title":"Bogotá",
-        "description":"Observatorio tecnico catastral",
-        "image_card":Fill,
-        "link":"https://www.catastrobogota.gov.co/observatorio-catastral/observatorio-tecnico-catastral"
+        "title":"Santiago de Cali",
+        "description":"Observatorio inmobiliario catastral OIC",
+        "image_card":logo6,
+        "link":"https://www.cali.gov.co/catastro/publicaciones/147970/observatorio-inmobiliario/"
+
     },
     {
         "id":3,
@@ -45,10 +46,11 @@ const cardotros = [
     },
     {
         "id":6,
-        "title":"Santiago de Cali",
-        "description":"Observatorio inmobiliario catastral OIC",
-        "image_card":logo6,
-        "link":"https://www.cali.gov.co/catastro/publicaciones/147970/observatorio-inmobiliario/"
+        "title":"Bogotá",
+        "description":"Observatorio tecnico catastral",
+        "image_card":Fill,
+        "link":"https://www.catastrobogota.gov.co/observatorio-catastral/observatorio-tecnico-catastral"
+    
     },
     {
         "id":7,

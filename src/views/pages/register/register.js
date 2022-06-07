@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography, Button, Tooltip} from "@material-ui/core";
 import React, {  useState, useRef } from 'react';
 import * as Values from 'Observatorio/Variables/values';
-import App from "Observatorio/img/Mobilelogin-amico1.svg";
+import App from "Observatorio/img/regis.jpg";
 import TextField from '@mui/material/TextField';
 import Modal from "Observatorio/pages/modal"
 import Box from '@mui/material/Box';
@@ -59,11 +59,15 @@ const useStyle = makeStyles({
         backgroundPositionY: "20%",
     },
 
+    text:{
+        marginTop: "2vh",
+    },
+
     gridglobal: {
         padding: "0 10vw 0 10vw",
     },
     imageRigth: {
-        width: "100%",
+        width: "60vh",
         padding: "0px"
     },
     containerForm: {
@@ -135,7 +139,9 @@ const useStyle = makeStyles({
 const ImagenBottom = () => {
     const classes = useStyle();
     return (
-        <img className={classes.imageRigth} src={App}></img>
+        <Grid container justifyContent="center">
+            <img className={classes.imageRigth} src={App}></img>
+        </Grid>
     )
 }
 
@@ -391,14 +397,14 @@ const FormRegister = () => {
     }
     return (
         <Grid container direccion="row" className={classes.gridMain} >
-
-
-            <Grid item container xs={12} sm={6} md={6} lg={6} alignItems="center"  >
-                <Grid item container>
+                <Grid container justifyContent="center">
                     <Typography className={classes.Titleh3}>
                         <strong>Registro</strong>
                     </Typography>
                 </Grid>
+
+            <Grid item container xs={12} sm={6} md={6} lg={6}>
+                
                 <Grid direction="row" spacing={1} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
                     <Grid item container >
                         <Typography className={classes.Textp} >
@@ -561,10 +567,10 @@ const FormRegister = () => {
                 </Grid>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6} >                
+                <Grid item container>
                 <ImagenBottom />
-                <Grid item container  >
-                    <Typography>
+                    <Typography className={classes.text} justifyContent="center">
                         Una vez haya realizado el registro usted podra: cargar / suministrar y / o descargar  información / formularios, visualizar estadísticas y historico de la información suministrada como usuario.
                     </Typography>
                 </Grid>

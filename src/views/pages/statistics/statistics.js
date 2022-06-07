@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/Delivery.svg";
 
-import imageItem from "Observatorio/img/DANE_Estadisticas_imagen_principal.svg"
+import imageItem from "Observatorio/img/estadistica.jpg"
 import CardStatistics  from './cardstatistics';
 
 const useStyle = makeStyles({
@@ -45,7 +45,8 @@ const useStyle = makeStyles({
     color: Values.Redwinecolor,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeTitle, 
-    padding: Values.PaddingTitleText
+    padding: Values.PaddingTitleText,
+    
   },
 
 Textp:{
@@ -90,9 +91,9 @@ Textp:{
   },
 
   imagen_top: {
-    width: "100% !important",
-    width:400,
-    backgroundSize: "80%",
+    width:"59vh",
+    height:"41vh",
+    marginTop:"2%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${imageItem})`,
     backgroundPosition: "center",
@@ -107,7 +108,7 @@ Textp:{
 
   imagen_top2: {
     width: "100%",
-    height: "66vh",
+    height: "40vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${imageItem})`,
@@ -136,26 +137,27 @@ const Cardsservice = () => {
   return (
     <Grid container
     >
+      <Grid container justifyContent='center'>
+      <Typography className={classes.Titleh3}  >
+          <strong>Estadisticas</strong>
+        </Typography>
+      </Grid>
       <Grid container
         item
         direction="column"
-        justifyContent="center"
         xs={12}
         md={6}
         lg={6}
         className={classes.cardglobal}
-      >
-        <Typography className={classes.Titleh3}  >
-          <strong>Estadisticas</strong>
-        </Typography>
+      >        
         <Typography className={classes.Textp}>
         La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generará continuo conocimiento sobre las tendencias y dinámicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.
         </Typography>
       </Grid>
-      <Grid container item xs={12} sm={12} md={6} lg={6} className={classes.containerImg} >
+      <Grid container item xs={12} sm={12} md={6} lg={6} className={classes.containerImg} justifyContent="center" alignItems='center'>
         <img src={imageItem}  className={estilo}/>
       </Grid>
-      <Grid container xs={12} sm={12} md={12} lg={12}>
+      <Grid container justifyContent='center' xs={12} sm={12} md={12} lg={12}>
         <Typography className={classes.Titleh3}  >
           <strong>Construcción</strong>
         </Typography>

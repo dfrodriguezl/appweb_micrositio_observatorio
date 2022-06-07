@@ -2,9 +2,9 @@ import { Grid, makeStyles, useMediaQuery, Button ,CardMedia,Tooltip} from "@mate
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Small from "Observatorio/img/Small.svg";
-import Meeting from "Observatorio/img/Meeting.svg";
-import Remote from "Observatorio/img/Remote.svg";
-import Discussion from "Observatorio/img/Discussion.svg";
+import Meeting from "Observatorio/img/Meting.jpg";
+import Remote from "Observatorio/img/composicion.jpg";
+import Discussion from "Observatorio/img/logro.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 import word from "Observatorio/img/powerpoint.png";
@@ -64,7 +64,7 @@ const useStyle = makeStyles({
     imagen_top:{    
       width: "100% !important",
       height: "40vh",
-      backgroundSize: "106%",
+      backgroundSize: "55vh",
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${Meeting})`,       
       backgroundPosition: "center",
@@ -73,7 +73,7 @@ const useStyle = makeStyles({
     imagen_top2:{     
        width: "100%",
        height: "47vh",
-       backgroundSize: "100%",
+       backgroundSize: "55vh",
        backgroundRepeat: "no-repeat",
        backgroundImage: `url(${Meeting})`,       
        backgroundPosition: "center center",
@@ -83,10 +83,11 @@ const useStyle = makeStyles({
     imagen_Judge:{    
       width: "100% !important",
       height: "47vh",
-      backgroundSize: "106%",
+      backgroundSize: "47vh",
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${Remote})`,       
       backgroundPosition: "center",
+      margin: "0 2vh 0 0",
        
        
     },       
@@ -113,7 +114,7 @@ const useStyle = makeStyles({
     imagen_Judge2:{     
        width: "100%",
        height: "47vh",
-       backgroundSize: "100%",
+       backgroundSize: "55vh",
        backgroundRepeat: "no-repeat",
        backgroundImage: `url(${Remote})`,       
        backgroundPosition: "center center",
@@ -124,7 +125,7 @@ const useStyle = makeStyles({
     imagen_Discussion:{    
       width: "100% !important",
       height: "47vh",
-      backgroundSize: "106%",
+      backgroundSize: "57vh",
       backgroundRepeat: "no-repeat",
       backgroundImage: `url(${Discussion})`,       
       backgroundPosition: "center",
@@ -134,7 +135,7 @@ const useStyle = makeStyles({
     imagen_Discussion2:{     
        width: "100%",
        height: "47vh",
-       backgroundSize: "100%",
+       backgroundSize: "55vh",
        backgroundRepeat: "no-repeat",
        backgroundImage: `url(${Discussion})`,       
        backgroundPosition: "center center",
@@ -149,7 +150,7 @@ const useStyle = makeStyles({
     color: "#4C4C4C",
     transition:"all 0.8s ease-out",
     margin: "2% 0 0 0",
-    width: "90%",
+    width: "70vh",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
@@ -354,7 +355,7 @@ const Comite = () => {
               </p>        
               <Grid container justifyContent="flex-start" className={classes.margboton}>
                   <h3 className={classes.titleStyle2}>Resolución 1149 de 2021</h3>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                   <Tooltip title="Resolución 1149 de 2021" arrow>
                   <Button className={classes.botonver}
                     href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"                    

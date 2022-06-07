@@ -1,10 +1,10 @@
 import { Grid, makeStyles, useMediaQuery, Button ,CardMedia,Tooltip} from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
-import Small from "Observatorio/img/Small.svg";
-import Transfer from "Observatorio/img/Transfer.svg";
+import Small from "Observatorio/img/catastro.jpg";
+import Transfer from "Observatorio/img/transfer.jpg";
 import ImgPng from "Observatorio/img/Captura.svg";
-import Business from "Observatorio/img/Business.svg";
+import Business from "Observatorio/img/negocios.jpg";
 import Hong from "Observatorio/img/1Hong.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
@@ -14,7 +14,7 @@ const useStyle = makeStyles({
     imagen_top:{    
         width: "100% !important",
         height: "40vh",
-        backgroundSize: "85%",
+        backgroundSize: "58vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Small})`,       
         backgroundPosition: "center",
@@ -41,8 +41,8 @@ const useStyle = makeStyles({
     }, 
       imagen_top2:{     
          width: "100%",
-         height: "50vh",
-         backgroundSize: "100%",
+         height: "37vh",
+         backgroundSize: "57vh",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${Small})`,       
          backgroundPosition: "center center",
@@ -103,7 +103,7 @@ const useStyle = makeStyles({
       imagen_Business:{    
         width: "100% !important",
         height: "40vh",
-        backgroundSize: "85%",
+        backgroundSize: "50vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Business})`,       
         backgroundPosition: "center",
@@ -111,8 +111,8 @@ const useStyle = makeStyles({
       },    
       imagen_Business2:{     
          width: "100%",
-         height: "50vh",
-         backgroundSize: "100%",
+         height: "40vh",
+         backgroundSize: "57vh",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${Business})`,       
          backgroundPosition: "center center",
@@ -134,7 +134,7 @@ const useStyle = makeStyles({
         color: "#4C4C4C",
         transition:"all 0.8s ease-out",
         margin: "2% 0 0 0",
-        width: "50%",
+        width: "78vh",
         fontSize: "calc(1em + 0.3vh)",
         borderRadius: "2vh",
         fontWeight: "bold",
@@ -210,7 +210,8 @@ const useStyle = makeStyles({
       imagen_transfer:{    
         width: "100% !important",
         height: "37vh",
-        backgroundSize: "85%",
+        marginBottom: "3%",
+        backgroundSize: "55vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Transfer})`,       
         backgroundPosition: "bottom",
@@ -219,7 +220,8 @@ const useStyle = makeStyles({
       imagen_transfer2:{     
         width: "100%",
         height: "40vh",
-        backgroundSize: "100%",
+        marginBottom: "3%",
+        backgroundSize: "60vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Transfer})`,       
         backgroundPosition: "bottom",

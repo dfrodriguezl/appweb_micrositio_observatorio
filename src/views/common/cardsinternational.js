@@ -146,8 +146,13 @@ import {
                       image={cardsotros.image_card}
                     />
                     <CardContent className={classes.centerText}>
+                    <Typography className={classes.Titlehdes}>
+                      {cardsotros.title}
+                    </Typography>
+                  </CardContent>
+                    <CardContent className={classes.centerText}>
                       <Typography className={classes.Titleh3}>
-                        {cardsotros.title}
+                        {cardsotros.description}
                       </Typography>
                     </CardContent>
                   </CardContent>

@@ -49,7 +49,7 @@ const useStyle = makeStyles({
       },
 
       gridglobal:{
-        padding: "0 10% 0 10%",
+        padding: "5% 10% 0 10%",
       },
 
       cardglobal:{

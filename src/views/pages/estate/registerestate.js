@@ -3,14 +3,14 @@ import React from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import triangles from "Observatorio/img/paris.jpg";
 import Styled from "styled-components";
-import imageItem from "Observatorio/img/Dane_Inmuebles_image_01.svg"
-import Nature from "Observatorio/img/Nature-amico.svg"
+import imageItem from "Observatorio/img/inmueble.jpg"
+import Nature from "Observatorio/img/objetivo.jpg"
 import Justice from "Observatorio/img/Justice-rafiki.svg"
 import Finance from "Observatorio/img/Finance-rafiki.svg"
 import Addres from "Observatorio/img/Address-rafiki.svg"
-import DocumentBro from "Observatorio/img/Documents-bro.svg"
-import NewIdea from "Observatorio/img/New-idea-rafiki.svg"
-import DataExtration from "Observatorio/img/Data-extraction-pana.svg"
+import DocumentBro from "Observatorio/img/alcance.jpg"
+import NewIdea from "Observatorio/img/usos.jpg"
+import DataExtration from "Observatorio/img/fuentes.jpg"
 const useStyle = makeStyles({
     DataExtration: {
         maxWidth: 500
@@ -56,11 +56,11 @@ const useStyle = makeStyles({
     },
     imagen_top: {
         width: "100%",
-        height: "10vh",
+        height: "55vh",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${triangles})`,
-        backgroundSize: "cover",
+        backgroundSize: "50vh",
         backgroundPosition: "center center",
+        margin:"1.3vw 0 1.3vw 1.3vw",
 
     },
 
@@ -143,6 +143,11 @@ const SectionOne = () => {
     }
     return (
         <Grid container className={estilo}>
+            <Grid container justifyContent='center'>
+                <Typography className={classes.Titleh3}  >
+                    <strong>Registro de bienes inmuebles</strong>
+                </Typography>
+                </Grid>
             <Grid xs={12}
                 sm={12}
                 md={6}
@@ -150,10 +155,7 @@ const SectionOne = () => {
                 direction="column"
                 justifyContent="center"
 
-            >
-                <Typography className={classes.Titleh3}  >
-                    <strong>Registro de bienes inmuebles</strong>
-                </Typography>
+            >                
                 <Typography className={classes.Textp}>
                     Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
                     a través de encuestas por muestreo, que de acuerdo al DANE es <i>“método estadístico por el cual se
@@ -165,9 +167,8 @@ const SectionOne = () => {
 
                 </Typography>
             </Grid>
-            <Grid item xs={10} sm={12} md={6} lg={6}   >
-
-                <img src={imageItem} />
+            <Grid item xs={10} sm={12} md={6} lg={6}>
+                <img src={imageItem} className={classes.imagen_top}/>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textpv}>
                 De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la división de
@@ -193,10 +194,10 @@ const ContainerImage = Styled.div`
 const ImageItem = Styled.img`
 
     @media (max-width: 768px) {
-        max-width:50
+        max-width:50vh
       };
       @media (max-width: 4000px) and (min-width: 769px) {
-        width: 230px;
+        width: 50vh;
       };
 `;
 
@@ -204,8 +205,7 @@ const ImageSectionThree = Styled.img`
 
 @media (max-width: 4000px) and (min-width: 769px) {
     position:absolute;
-    width:350px;
-    right:200px;
+    width:33vh;
     z-index:-1;
     text-align:center;
   };
@@ -230,7 +230,7 @@ const ImageSectionFour = Styled.img`
 const ImageAlcance = Styled.img`
 
 @media (max-width: 4000px) and (min-width: 769px) {
-      width:400px;
+      width:60vh;
   };
   @media (max-width: 768px) {
     width:100%;
@@ -258,10 +258,6 @@ const SectionTwo = () => {
             </Grid>
             <ContainerImage >
                 <ImageItem src={Nature} ></ImageItem>
-                <ImageItem src={Justice}></ImageItem>
-                <ImageItem src={Finance}></ImageItem>
-                <ImageItem src={Addres}></ImageItem>
-
             </ContainerImage>
             <Grid container item xs={12} sm={12} md={12} lg={12} >
                 <Typography className={classes.Textp} >

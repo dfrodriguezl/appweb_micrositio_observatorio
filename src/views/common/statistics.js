@@ -1,9 +1,9 @@
-import Sale from "Observatorio/img/Sale.svg";
-import Fill from "Observatorio/img/Fill.svg";
-import Segment from "Observatorio/img/Segment.svg";
-import Building from "Observatorio/img/Building-amico.svg"
-import BuildingRafiki from "Observatorio/img/Building-rafiki.svg"
-import HouseSearch from "Observatorio/img/House-searching-cuate.svg"
+import Sale from "Observatorio/img/estadistica1.jpg";
+import Fill from "Observatorio/img/estadistica2.jpg";
+import Segment from "Observatorio/img/estadistica3.jpg";
+import Building from "Observatorio/img/estadistica4.jpg"
+import BuildingRafiki from "Observatorio/img/estadistica5.jpg"
+import HouseSearch from "Observatorio/img/estadistica6.jpg"
 const cardService= [
     [
         {
@@ -15,11 +15,11 @@ const cardService= [
         },
         {
             "id":2,
-            "title":"Estadísticas de Licencias de Construcción (ELIC)",
-            "description":"Tiene como objetivo conocer el potencial de la actividad edificadora del país, cuantificar el total de metros aprobados para construcción, por destino, según tipo de licencias, tipo de solicitud, clase de construcción y estrato socioeconómico. ",
-            "image_card":Fill,
-            "link":"https://www.dane.gov.co/index.php/estadisticas-por-tema/construccion/licencias-de-construccion"
-        },
+            "title":"Índice de Precios de la Vivienda Nueva (IPVN)",
+            "description":"Es un indicador que permite conocer la evolución de los precios de venta de la vivienda nueva en proceso de construcción y/o hasta la última unidad vendida. ",
+            "image_card":Building,
+            "link":"https://www.dane.gov.co/index.php/estadisticas-por-tema/construccion/indice-de-precios-de-vivienda-nueva-ipvn"
+        },        
         {
             "id":3,
             "title":"Financiación de Vivienda (FIV)",
@@ -38,10 +38,10 @@ const cardService= [
         },
         {
             "id":2,
-            "title":"Índice de Precios de la Vivienda Nueva (IPVN)",
-            "description":"Es un indicador que permite conocer la evolución de los precios de venta de la vivienda nueva en proceso de construcción y/o hasta la última unidad vendida. ",
-            "image_card":Building,
-            "link":"https://www.dane.gov.co/index.php/estadisticas-por-tema/construccion/indice-de-precios-de-vivienda-nueva-ipvn"
+            "title":"Estadísticas de Licencias de Construcción (ELIC)",
+            "description":"Tiene como objetivo conocer el potencial de la actividad edificadora del país, cuantificar el total de metros aprobados para construcción, por destino, según tipo de licencias, tipo de solicitud, clase de construcción y estrato socioeconómico. ",
+            "image_card":Fill,
+            "link":"https://www.dane.gov.co/index.php/estadisticas-por-tema/construccion/licencias-de-construccion"
         },
         {
             "id":3,

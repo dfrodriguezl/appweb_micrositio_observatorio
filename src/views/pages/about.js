@@ -1,8 +1,8 @@
 import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
-import House from "Observatorio/img/House.svg";
-import Judge from "Observatorio/img/Judge.svg";
+import House from "Observatorio/img/about.jpg";
+import Judge from "Observatorio/img/decretoabout.jpg";
 
 import word from "Observatorio/img/powerpoint.png";
 
@@ -75,8 +75,8 @@ const useStyle = makeStyles({
   },
   imagen_top: {
     width: "100% !important",
-    height: "40vh",
-    backgroundSize: "100%",
+    height: "28vw",
+    backgroundSize: "35vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${House})`,
     backgroundPosition: "center",
@@ -84,7 +84,8 @@ const useStyle = makeStyles({
   imagen_top2: {
     width: "100%",
     height: "47vh",
-    backgroundSize: "100%",
+    marginTop:"7%",
+    backgroundSize: "35vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${House})`,
     backgroundPosition: "center center",
@@ -93,8 +94,8 @@ const useStyle = makeStyles({
   },
   imagen_Judge: {
     width: "100% !important",
-    height: "47vh",
-    backgroundSize: "100%",
+    height: "27vw",
+    backgroundSize: "33vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Judge})`,
     backgroundPosition: "center",
@@ -102,7 +103,7 @@ const useStyle = makeStyles({
   imagen_Judge2: {
     width: "100%",
     height: "47vh",
-    backgroundSize: "100%",
+    backgroundSize: "35vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Judge})`,
     backgroundPosition: "center center",

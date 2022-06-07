@@ -92,7 +92,7 @@ padding:4%;
 position:fixed;
 z-index:1000;
 background-color:white;
-height:100%;
+height:80%;
 overflow-y: scroll;
 @media (max-width: 4000px) and (min-width: 769px) {
     display:none;

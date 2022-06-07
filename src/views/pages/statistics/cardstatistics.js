@@ -88,7 +88,9 @@ const useStyle = makeStyles({
     
   
     media: {
-      height: "28vh",
+      height: "24vh",
+      width:"100%",
+      backgroundSize:"36vh",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center center",
     },
@@ -101,7 +103,7 @@ const useStyle = makeStyles({
   
     cardglobal2: {
       //margin: "0% 0% 0% 0%",
-      padding: "0% 0% 0% 0%",
+      padding: "5% 0% 0% 0%",
       backgroundColor: "white",
     },
   

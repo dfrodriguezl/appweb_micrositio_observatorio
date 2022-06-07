@@ -1,15 +1,15 @@
 import { Grid, makeStyles, useMediaQuery,Tooltip, Button } from "@material-ui/core";
 import React, { Component } from "react";
-import bloques from "Observatorio/img/bloques2.jpg";
+import bloques from "Observatorio/img/img_top_home.jpg";
 //import bloques from "Observatorio/img/Building.svg";
 import frente from "Observatorio/img/city1.gif";
-import figure from "Observatorio/img/Career.svg";
-import QA from "Observatorio/img/QA.svg";
-import Conference from "Observatorio/img/Conference.svg";
-import audit from "Observatorio/img/audit.svg";
-import Binary from "Observatorio/img/Binary.svg";
-import lawyer from "Observatorio/img/Lawyer.svg";
-import Maintenance from "Observatorio/img/Maintenance.svg";
+import figure from "Observatorio/img/ventajasobservatorio.jpg";
+import QA from "Observatorio/img/relojventajas.jpg";
+import Conference from "Observatorio/img/integracion.jpg";
+import audit from "Observatorio/img/comunicacion.jpg";
+import Binary from "Observatorio/img/LADM1.jpg";
+import lawyer from "Observatorio/img/normatividad.jpg";
+import Maintenance from "Observatorio/img/usoobservatorio.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
 
@@ -54,7 +54,7 @@ const useStyle = makeStyles({
   },
 
   imagen_Conference: {
-    width: "25%",
+    width: "35%",
     height: "14vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
@@ -63,7 +63,7 @@ const useStyle = makeStyles({
   },
 
   imagen_Conference2: {
-    width: "45%",
+    width: "55%",
     height: "14vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
@@ -234,7 +234,7 @@ const useStyle = makeStyles({
 
   imagen_top2: {
     width: "100%",
-    height: "42vh",
+    height: "29vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
@@ -273,10 +273,19 @@ const useStyle = makeStyles({
 
   containerImg: {
     width: "100% !important",
-    height: "51vh",
+    height: "65vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${figure})`,
-    backgroundSize: "100% 100%",
+    backgroundSize: "51vh 100%",
+    backgroundPosition: "center center",
+  },
+
+  containerImg3: {
+    width: "100% !important",
+    height: "65vh",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${figure})`,
+    backgroundSize: "46vh 100%",
     backgroundPosition: "center center",
   },
 
@@ -338,19 +347,19 @@ const useStyle = makeStyles({
   },
 
   imagen_uso: {
-    backgroundSize: "50%",
+    backgroundSize: "36%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Maintenance})`,
-    backgroundPositionX: "81%",
+    backgroundPositionX: "93%",
     backgroundPositionY: "38%",
   },
 
   imagen_uso2: {
-    backgroundSize: "50%",
+    backgroundSize: "40%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Maintenance})`,
-    backgroundPositionX: "85%",
-    backgroundPositionY: "3.6vw !important",
+    backgroundPositionX: "100%",
+    backgroundPositionY: "15.6vw !important",
   },
 
   imagen_movil: {
@@ -365,7 +374,7 @@ const useStyle = makeStyles({
     backgroundImage: "none",
   },
   boton_general: {
-    padding: "0.3em 1em 0.3em 1em",
+    padding: "0.3em 0.2em 0.3em 1em",
     borderRadius: "2vh",
     backgroundColor:"#ffffff",
     fontFamily: Values.SourceRoboto,
@@ -521,11 +530,19 @@ const ImagenNormativa = () => {
 const ImagenCenter = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
+  const matches2 = useMediaQuery("(min-width:1295px)")
   var estilo = null;
   {
-    matches
-      ? (estilo = classes.containerImg)
-      : (estilo = classes.containerImg2);
+    console.log("ver",matches, " ", matches2)
+    if(matches){
+      estilo = classes.containerImg
+    }else{      
+      if(matches2){
+        estilo = classes.containerImg3
+      }else{
+        estilo = classes.containerImg2
+      }
+    }
   }
   return <Grid item container direction="column" xs className={estilo}></Grid>;
 };
@@ -558,7 +575,7 @@ const Top_content = () => {
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
-          Sistema de información que busca consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
+          El Observatorio Inmobiliario Nacional es un Sistema de Información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
           </p>
           {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto

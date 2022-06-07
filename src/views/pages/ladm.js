@@ -2,7 +2,7 @@ import { Grid, makeStyles, useMediaQuery, Button ,CardMedia} from "@material-ui/
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import uml from "Observatorio/img/uml.png";
-import modelo from "Observatorio/img/MODELO.jpg";
+import modelo from "Observatorio/img/LADM.jpg";
 
 const useStyle = makeStyles({
     imagen_top:{    
@@ -45,9 +45,9 @@ const useStyle = makeStyles({
       },
       imagen_topmodel:{    
         width: "100% !important",
-        height: "106vh",
+        height: "145vh",
         margin: "3em 0 0 0",
-        backgroundSize: "100%",
+        backgroundSize: "135vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${modelo})`,       
         backgroundPosition: "center",
@@ -55,7 +55,7 @@ const useStyle = makeStyles({
       },
       imagen_topmodel2:{     
         width: "100%",
-        height: "50vh",
+        height: "85vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${modelo})`,       

@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
-import Meeting from "Observatorio/img/Personalfiles.svg";
+import Meeting from "Observatorio/img/repos.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
 
 const useStyle = makeStyles({
@@ -82,15 +82,15 @@ const useStyle = makeStyles({
   imagen_top: {
     width: "100% !important",
     height: "25vh",
-    backgroundSize: "55%",
+    backgroundSize: "35vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Meeting})`,
     backgroundPosition: "center",
   },
   imagen_top2: {
     width: "100%",
-    height: "47vh",
-    backgroundSize: "100%",
+    height: "25vh",
+    backgroundSize: "34vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Meeting})`,
     backgroundPosition: "center center",

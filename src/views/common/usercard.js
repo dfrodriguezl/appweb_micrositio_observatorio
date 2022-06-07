@@ -34,18 +34,18 @@ import PieChart, {
 } from "devextreme-react/pie-chart";
 import React, { Component, useState, useEffect } from "react";
 import * as Values from "Observatorio/Variables/values";
-import Projections from "Observatorio/img/Projections.svg";
-import Data from "Observatorio/img/Data-rafiki.svg";
+import Projections from "Observatorio/img/user.jpg";
+import Data from "Observatorio/img/user2.jpg";
 import Excel from "Observatorio/img/Excel1.png";
 import Excel2 from "Observatorio/img/Excel2.png";
 import pdf from "Observatorio/img/PDF1.png";
 import geograph from "Observatorio/img/Address-pana1.png";
 import geograph2 from "Observatorio/img/Address-pana2.png";
-import forgot from "Observatorio/img/Forgot.svg";
+import forgot from "Observatorio/img/forgot.jpg";
 import choose from "Observatorio/img/Choose-rafiki.svg";
 import Broken from "Observatorio/img/Broken.svg";
 import Powerful from "Observatorio/img/Powerful.svg";
-import Personal from "Observatorio/img/Personal.svg";
+import Personal from "Observatorio/img/repo.jpg";
 const Dash = require("Observatorio/common/datosdashboard.js");
 const DashBar = require("Observatorio/common/dashboardbar.js");
 import { Loader } from "../pages/loader/loader";
@@ -468,8 +468,8 @@ const useStyle = makeStyles({
   media1: {
     height: "30vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "72%",
-    backgroundPosition: "right",
+    backgroundSize: "37vh",
+    backgroundPosition: "center",
   },
 
   media2: {
@@ -486,14 +486,14 @@ const useStyle = makeStyles({
   media3: {
     height: "47vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "45%",
+    backgroundSize: "65vh",
     backgroundPosition: "center",
   },
 
   media4: {
     height: "25vh",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "55%",
+    backgroundSize: "40vh",
     backgroundPosition: "center",
   },
 

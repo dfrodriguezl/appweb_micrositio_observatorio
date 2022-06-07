@@ -2,7 +2,7 @@ import { Grid, makeStyles, useMediaQuery} from "@material-ui/core";
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/Cards';
-import Paper from "Observatorio/img/Paper.svg";
+import Paper from "Observatorio/img/geovisor.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 
@@ -26,10 +26,10 @@ const useStyle = makeStyles({
       imagen_top:{    
         width: "100% !important",
         height: "45vh",
-        backgroundSize: "100%",
+        backgroundSize: "32vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Paper})`,       
-        backgroundPositionY: "-5vh",         
+        backgroundPosition: "center",         
    },
  
    gridglobal:{
@@ -41,8 +41,8 @@ const useStyle = makeStyles({
 
    imagen_top2:{     
          width: "100%",
-         height: "50vh",
-         backgroundSize: "100%",
+         height: "55vh",
+         backgroundSize: "32vh",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${Paper})`,       
          backgroundPosition: "center center",

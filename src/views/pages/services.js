@@ -1,7 +1,7 @@
 import { Grid, makeStyles, useMediaQuery ,Paper, CardActions, Card, CardContent, CardMedia, Button, Typography, Tooltip } from '@material-ui/core';
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
-import Delivery from "Observatorio/img/Delivery.svg";
+import Delivery from "Observatorio/img/servicios.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 import infocards from "Observatorio/common/cards_.js";
@@ -86,7 +86,7 @@ const useStyle = makeStyles({
     height: "24vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
-    backgroundSize: "80%",
+    backgroundSize: "30vh",
   },
 
   cardglobal: {
@@ -97,17 +97,17 @@ const useStyle = makeStyles({
 
   cardglobal2: {
     //margin: "0% 0% 0% 0%",
-    padding: "0% 0% 0% 0%",  
+    padding: "5% 0% 0% 0%",  
     backgroundColor: "white",
   },
 
   imagen_top:{    
     width: "100% !important",
-        height: "42vh",
-        backgroundSize: "80%",
+        height: "40vh",
+        backgroundSize: "53vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Delivery})`,       
-        backgroundPosition: "initial",  
+        backgroundPosition: "center",  
      
 },
 
@@ -117,8 +117,8 @@ contentcar:{
 
 imagen_top2:{     
      width: "100%",
-     height: "66vh",
-     backgroundSize: "100%",
+     height: "40vh",
+     backgroundSize: "50vh",
      backgroundRepeat: "no-repeat",
      backgroundImage: `url(${Delivery})`,       
      backgroundPosition: "center center",

@@ -18,14 +18,17 @@ const useStyle = makeStyles({
     
     botchat2:{
       position: "fixed",
-      top: "80%",
-      left: "90%",      
+      top: "88%",
+      left: "91.5%",      
       cursor:"pointer",
+  },  
+  imagen_chat: {
+    width: "17vh",
   },
   chatactive:{
     display:"block !important",
     position: "fixed",
-        top: "26%",
+        top: "23%",
         left: "83%",
         zIndex: "101",
   },
@@ -47,10 +50,10 @@ const BotChat = () => {
         </div>
         <div className={classes.botchat2}>
           <Tooltip title="Chat" arrow>
-          {/* <Fab onClick={estadochat} color="primary" aria-label="like"> */}
+          <Fab> 
             {/* <HeadsetMicIcon fontSize="large"/>             */}
-            <img src={accesoChat} onClick={estadochat}/>
-          {/* </Fab> */}
+            <img className={classes.imagen_chat} src={accesoChat} onClick={estadochat}/>
+           </Fab>
           </Tooltip>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Grid, makeStyles, Typography,useMediaQuery,Button, Tooltip } from "@mat
 import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/App.svg";
-import ContactImage from "Observatorio/img/contact.jpeg"
+import ContactImage from "Observatorio/img/contacto.jpg"
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import {Loader} from './loader/loader'
@@ -54,8 +54,8 @@ const useStyle = makeStyles({
         maxWidth: "100% !important",
     },
     ImageContact: {
-        width: 400,
-        height: 400
+        width: "69vh",
+        height: "49vh"
     },
     TextFieldStyle: {
         backgroundColor: "#F3F3F3",
