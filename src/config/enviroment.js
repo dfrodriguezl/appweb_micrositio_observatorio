@@ -4,4 +4,4 @@ const env = {
 };
 module.exports = env;
 
-//https://nowsoft.app/Observatorio  http://localhost:3000
+//https://nowsoft.app/Observatorio  http://localhost:3000 https://geoportal.dane.gov.co/observatorio/
