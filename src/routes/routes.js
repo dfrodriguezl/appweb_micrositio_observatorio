@@ -59,17 +59,17 @@ const RoutesMaps = () => {
       <Switch>
         <Route
           exact
-          path="/Observatorio/Visores/Esmeralda"
+          path="/observatorio/Visores/Esmeralda"
           component={esmeralda}
         />
         <Route
           exact
-          path="/Observatorio/Visores/Esmeralda2"
+          path="/observatorio/Visores/Esmeralda2"
           component={esmeralda2}
         />
-        <Route path="/Observatorio/404" component={Notfound} />
+        <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/Observatorio/404" />
+          <Redirect to="/observatorio/404" />
         </Route>
       </Switch>
     </div>
@@ -111,63 +111,63 @@ const Generalroutes = () => {
       <Switch>
         <Route
           exact
-          path="/Observatorio/restore/:auth/:autht/:authp"
+          path="/observatorio/restore/:auth/:autht/:authp"
           component={RestoreAccount}
         />
         <Route
           exact
-          path="/Observatorio/ForgetPassword"
+          path="/observatorio/ForgetPassword"
           component={ForgetPassword}
         />
-        <Route exact path="/Observatorio/Mapas" component={Maps} />
-        <Route exact path="/Observatorio/Repositorio" component={Repository} />
+        <Route exact path="/observatorio/Mapas" component={Maps} />
+        <Route exact path="/observatorio/Repositorio" component={Repository} />
         <Route
           exact
-          path="/Observatorio/Estadisticasexperimentales"
+          path="/observatorio/Estadisticasexperimentales"
           component={Experimentalstatistics}
         />
-        <Route exact path="/Observatorio/Acerca" component={About} />
-        <Route exact path="/Observatorio/Servicios" component={Service} />
+        <Route exact path="/observatorio/Acerca" component={About} />
+        <Route exact path="/observatorio/Servicios" component={Service} />
         <Route
           exact
-          path="/Observatorio/Servicios/estadisticas"
+          path="/observatorio/Servicios/estadisticas"
           component={statistics}
         />
         <Route
           exact
-          path="/Observatorio/Catastromultiproposito/RegistroInmuebles"
+          path="/observatorio/Catastromultiproposito/RegistroInmuebles"
           component={RegisterEstate}
         />
         <Route
           exact
-          path="/Observatorio/Catastromultiproposito"
+          path="/observatorio/Catastromultiproposito"
           component={Catastro}
         />
         <Route
           exact
-          path="/Observatorio/Otrosobservatorios"
+          path="/observatorio/Otrosobservatorios"
           component={Otros}
         />
-        <Route exact path="/Observatorio/Comitetecnico" component={Comite} />
+        <Route exact path="/observatorio/Comitetecnico" component={Comite} />
         <Route
           exact
-          path="/Observatorio/Catastromultiproposito/Metodosavaluos"
+          path="/observatorio/Catastromultiproposito/Metodosavaluos"
           component={Avaluos}
         />
-        <Route exact path="/Observatorio/Tipologia" component={Tipologia} />
-        <Route exact path="/Observatorio/LADM" component={Ladm} />
-        <Route exact path="/Observatorio/Busqueda" component={Search} />
-        <Route exact path="/Observatorio/Ceed" component={Ceed} />
+        <Route exact path="/observatorio/Tipologia" component={Tipologia} />
+        <Route exact path="/observatorio/LADM" component={Ladm} />
+        <Route exact path="/observatorio/Busqueda" component={Search} />
+        <Route exact path="/observatorio/Ceed" component={Ceed} />
         <Route
           exact
-          path="/Observatorio/Servicios/estadisticas/Ceed"
+          path="/observatorio/Servicios/estadisticas/Ceed"
           component={Ceed01}
         />
-        <Route exact path="/Observatorio/Contacto" component={Contacto} />
+        <Route exact path="/observatorio/Contacto" component={Contacto} />
         <Route
           isAuth={isLogin}          
           exact
-          path="/Observatorio/PlataformaUsuario"
+          path="/observatorio/PlataformaUsuario"
           render={() => {            
             return !isAuth ? (
               <Access  setAuth={redirectTo}></Access>
@@ -177,14 +177,14 @@ const Generalroutes = () => {
           }}
           
         />isLogin
-        <Route exact path="/Observatorio" component={ContentGrid} />
+        <Route exact path="/observatorio" component={ContentGrid} />
         <Route
           exact
-          path="/Observatorio/login"
+          path="/observatorio/login"
          
           render={() => {
             return user && isLogin ? (
-              <Redirect to="/Observatorio/PlataformaUsuario"></Redirect>
+              <Redirect to="/observatorio/PlataformaUsuario"></Redirect>
             ) : (
               <Access  setAuth={redirectTo}></Access>
             );
@@ -193,22 +193,22 @@ const Generalroutes = () => {
         {console.log("Recuperar",user,"-",isLogin)}
         <Route
           exact
-          path="/Observatorio/ChangePassword"          
+          path="/observatorio/ChangePassword"          
           render={() => {
             return user && isLogin ? (
               <ChangePassword></ChangePassword>
             ) : (
-              <Redirect to="/Observatorio/"></Redirect>
+              <Redirect to="/observatorio/"></Redirect>
             );
           }}
         />
-        <Route exact path="/Observatorio/register" component={Register} />
+        <Route exact path="/observatorio/register" component={Register} />
         <Route exact path="/">
-          <Redirect to="/Observatorio" />
+          <Redirect to="/observatorio" />
         </Route>
-        <Route path="/Observatorio/404" component={Notfound} />
+        <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/Observatorio/404" />
+          <Redirect to="/observatorio/404" />
         </Route>
       </Switch>
       <Footer />
@@ -222,12 +222,12 @@ const Routes = () => {
   return (
     <div>
       <Switch>
-        <Route path="/Observatorio/Visores" component={RoutesMaps} />
+        <Route path="/observatorio/Visores" component={RoutesMaps} />
         <Route path="/" component={Generalroutes} />
-        <Route path="/Observatorio" component={Generalroutes} />
-        <Route path="/Observatorio/404" component={Notfound} />
+        <Route path="/observatorio" component={Generalroutes} />
+        <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/Observatorio/404" />
+          <Redirect to="/observatorio/404" />
         </Route>
       </Switch>
     </div>

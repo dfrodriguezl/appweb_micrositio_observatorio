@@ -58,7 +58,8 @@ const useStyle = makeStyles({
         color:"white",
         cursor: "pointer",
         borderStyle: "hidden !important",
-        width: "3vh",
+        width: "2.5vh",
+        fontSize: "calc(0.2em + 0.9vh)",
         "&:hover": {
             backgroundColor: "#3e071a",
             border: "none",
@@ -104,23 +105,23 @@ margin-right:20px;
 const LogoObservatorio = Styled.img`
     height:11vh;
     width:7vh;
-    padding:0 0 0 0;
+    padding:0 0.8vh 0 0.8vh;
     @media (max-width: 698px){
         height:7vh;
-        width:5vh;
+        width:5.8vh;
         margin-top:2vh;
         margin-left:0px;
     }
 `
 
 const LogoDane = Styled.img`
-height:104px;
+height:11vh;
 width:12vh;
-padding:0 0 0 0;
+padding:0 0.6vh 0 0;
 margin-left:20px;
 
 @media (max-width: 698px){
-    height:69px;
+    height:9vh;
     width:7.5vh;
     margin-top:1vh;
     margin-left:5px;
