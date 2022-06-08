@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMediaQuery } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Button, Grid, InputAdornment } from '@material-ui/core';
 import TextField from '@mui/material/TextField';
@@ -7,6 +7,9 @@ import enviroment from "../config/enviroment";
 import {
     makeStyles
 } from '@material-ui/core/styles';
+import {
+    useMediaQuery,
+  } from "@material-ui/core";
 import logoDane from "Observatorio/img/logo-dane.svg";
 import logoObservatorio from "Observatorio/img/logo-observatorio.svg";
 import Styled from "styled-components";
@@ -15,12 +18,24 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {useTranslation} from "react-i18next";
+import styles from "../views/common/style/estilossearch.css";
 const useStyle = makeStyles({
     search:{
-        margin: "1.5vh 0 0 0 !important",
+        margin: "3.2vh 0 0 0 !important",
+    },
+    texto:{
+        display:"none"
+    },
+    texto1:{
+        display:"block"
     },
     root: {
         height: '50px'
+    },
+    bnt:{
+        fontSize:"0.875rem",
+        minWidth: "2vh",
+        padding: "4px 0px",
     },
     logo: {
         Width: 140,
@@ -39,11 +54,11 @@ const useStyle = makeStyles({
     lenguaje: {
         backgroundColor: "#821a3f",
         height:"3vh",
-        margin:"3% 0px 3% 1.5%",
+        margin:"4vh 0px 2.5vh 1vh",
         color:"white",
         cursor: "pointer",
         borderStyle: "hidden !important",
-        width: "2vw",
+        width: "3vh",
         "&:hover": {
             backgroundColor: "#3e071a",
             border: "none",
@@ -87,26 +102,27 @@ margin-right:20px;
 `
 
 const LogoObservatorio = Styled.img`
-    height:80px;
-    widht:120px;
-    padding:10px;
+    height:11vh;
+    width:7vh;
+    padding:0 0 0 0;
     @media (max-width: 698px){
-        height:60px;
-        margin-top:10px;
+        height:7vh;
+        width:5vh;
+        margin-top:2vh;
         margin-left:0px;
     }
 `
 
 const LogoDane = Styled.img`
-height:80px;
-widht:120px;
-padding:10px;
+height:104px;
+width:12vh;
+padding:0 0 0 0;
 margin-left:20px;
 
 @media (max-width: 698px){
-    height:50px;
-    widht:90px;
-    margin-top:15px;
+    height:69px;
+    width:7.5vh;
+    margin-top:1vh;
     margin-left:5px;
 }
 `
@@ -119,6 +135,25 @@ margin-top:10px;
 
 const Header = () => {
     const classes = useStyle();
+    const matches = useMediaQuery("(min-width:527px)");
+    const matches2 = useMediaQuery("(max-width:647px)")
+    var estilo = null;
+    var estilo2 = null;
+    var ubicacion = null;
+    var compon = null;
+    {
+    console.log("ver", matches2)
+    if(matches){
+      ubicacion = "flex-end"      
+    }     
+    if(matches2){
+        estilo2=classes.texto
+        estilo=classes.texto1
+    }else{
+        estilo=classes.texto
+        estilo2=classes.texto1
+    }
+  }
     const [sideBarOpen, setSideBarOpen] = useState(false)
     const [t, i18n]= useTranslation("global");
     const handlesearch = (e) =>{        
@@ -132,6 +167,14 @@ const Header = () => {
                 }
             }
         })     
+    }
+    const botonhandlesearch = () =>{              
+       let valor = document.getElementById("search").value      
+                if(valor === ""){
+                    console.log("20/05/2023", "se debe mostrar un error por estar vacio");
+                }else{
+                    searchresult(valor);
+                }    
     }
     const searchresult = (busqueda) => {
         let bus = busqueda
@@ -170,32 +213,35 @@ const Header = () => {
     return (
         <header>
             <Grid container className={classes.main}>                 
-                <Grid container item className={classes.backgroundHeader}>
-                    <Grid container item xs={3} sm={5} md={6} lg={6} direction="row">
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a>
-
-                    </Grid>                        
-                    <Grid container item xs={9} sm={7} md={6} lg={6} justifyContent="flex-end" >  
-                    <TextField
-                        className={classes.search}
-                        id="search"
-                        label={t("headersearch.search")}
-                        onClick={handlesearch}
-                        variant="outlined"
-                        InputProps={{                            
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                <SearchIcon/>
-                                </InputAdornment>
-                            ),
-                        }}
-                        />  
-                        <button id='en' Active className={classes.lenguaje} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
-                        <button id='es' className={classes.lenguaje} onClick={()=> i18n.changeLanguage("es")}>ES</button>                                          
-                        <a href="/Observatorio/">
+                <Grid container className={classes.backgroundHeader}>
+                    <Grid container item direction='row'>
+                        <Grid container item xs={2}>
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a> 
+                        </Grid> 
+                        <Grid container item xs={10} justifyContent={ubicacion}>                            
+                        <a href="/Observatorio/" className={estilo}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
-                        <TextLogo xs={12} sm={12} >
+                        <TextField
+                            className={classes.search}
+                            id="search"
+                            label={t("headersearch.search")}
+                            onClick={handlesearch}
+                            variant="outlined"
+                            InputProps={{                            
+                                endAdornment: (
+                                <InputAdornment position="end">
+                                <Button className={classes.bnt} onClick={botonhandlesearch}><SearchIcon/></Button>
+                                </InputAdornment>
+                            ),
+                            }}
+                        />
+                        <button id='en' Active className={classes.lenguaje} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
+                        <button id='es' className={classes.lenguaje} onClick={()=> i18n.changeLanguage("es")}>ES</button>
+                        <a href="/Observatorio/" className={estilo2}>
+                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
+                        </a>
+                        <TextLogo className={estilo2}>
                             <TextLogoTitle >
                                 Observatorio
                             </TextLogoTitle>
@@ -220,13 +266,13 @@ const Header = () => {
                                         color="inherit"
                                         aria-label="menu"
                                         onClick={setOpenSideBar}
-
                                     >
                                         <MenuIcon />
                                     </IconButton>
                             }
                         </ContainerIcon>
-                    </Grid>
+                        </Grid>                        
+                    </Grid>    
                 </Grid>
                 <Grid container item className={classes.backgroundHeader}>
                     <Navbar sideBarOpen={sideBarOpen}></Navbar>

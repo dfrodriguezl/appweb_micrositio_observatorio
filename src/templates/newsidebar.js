@@ -74,6 +74,7 @@ const useStyle = makeStyles({
         }
     }
 });
+
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -150,7 +151,6 @@ export default function CustomizedAccordions() {
         let title = "Observatorio"
         switch (i) {
             case 0:
-
                 break;
             case 1:
                 title = "Servicios"

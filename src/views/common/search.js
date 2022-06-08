@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import uml from "Observatorio/img/uml.png";
 import modelo from "Observatorio/img/MODELO.jpg";
+import enviroment from "../../config/enviroment";
 
 const useStyle = makeStyles({
   gridglobal: {
@@ -262,7 +263,7 @@ const Resulta = () => {
             {resultado1.map(function (resultado1) {              
             return (
                 <Grid container direction="row">           
-                      <a className={classes.textStyle} href={`http://localhost:9000/Observatorio${resultado1.url}`}>{`${resultado1.titulo}`}</a>                      
+                      <a className={classes.textStyle} href={`${enviroment.endpoint}${resultado1.url}`}>{`${resultado1.titulo}`}</a>                      
                       <p className={classes.textStyle1}>{resultado1.descripcion}</p>
                 </Grid>
             );

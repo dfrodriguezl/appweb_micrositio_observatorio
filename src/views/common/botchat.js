@@ -22,6 +22,10 @@ const useStyle = makeStyles({
       left: "91.5%",      
       cursor:"pointer",
   },  
+  unico:{
+    boxShadow: "1px -1px 0px -1px rgb(0 0 0 / 0%), 0px 6px 10px 0px rgb(0 0 0 / 0%), 0px 1px 18px 0px rgb(0 0 0 / 0%) !important",
+    backgroundColor: "#e0e0e000 !important"
+  },
   imagen_chat: {
     width: "17vh",
   },
@@ -50,7 +54,7 @@ const BotChat = () => {
         </div>
         <div className={classes.botchat2}>
           <Tooltip title="Chat" arrow>
-          <Fab> 
+          <Fab className={classes.unico}> 
             {/* <HeadsetMicIcon fontSize="large"/>             */}
             <img className={classes.imagen_chat} src={accesoChat} onClick={estadochat}/>
            </Fab>

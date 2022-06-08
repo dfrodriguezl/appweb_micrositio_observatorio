@@ -35,6 +35,10 @@ const useStyle = makeStyles({
     },
   },
 
+  cuadrobotones:{
+    margin:"0 0 2% 0",
+  },
+
   imagen_QA: {
     width: "25%",
     height: "14vh",
@@ -381,7 +385,7 @@ const useStyle = makeStyles({
     color: "#4C4C4C",
     transition:"all 0.8s ease-out",
     margin: "2% 0 0 0",
-    width: "100%",
+    width: "79vh",
     fontSize: "calc(1em + 0.3vh)",
     borderRadius: "2vh",
     fontWeight: "bold",
@@ -735,7 +739,7 @@ const Bottom_content = () => {
               El Observatorio Inmobiliario Nacional tiene su fundamento normativo en:
             </p>
           </Grid>
-          <Grid container direction="column">            
+          <Grid container direction="column" className={classes.cuadrobotones}>            
           <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
                 <Grid container item xs={6}>
                 <p className={classes.contentrulesp2}>Ley 1955 de 2019</p>

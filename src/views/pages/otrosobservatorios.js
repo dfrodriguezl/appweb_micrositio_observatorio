@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/otroscards';
 import Cardsinternational from 'Observatorio/common/cardsinternational';
-import App from "Observatorio/img/App.svg";
+import App from "Observatorio/img/bogot.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 
 const useStyle = makeStyles({
@@ -38,12 +38,12 @@ const useStyle = makeStyles({
 
       imagen_top:{    
         width: "100% !important",
-        height: "50vh",
-        backgroundSize: "70%",
+        height: "46vh",
+        backgroundSize: "52vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${App})`,       
-        backgroundPositionX: "left", 
-        backgroundPositionY: "25%",    
+        backgroundPosition: "center", 
+        margin:'0 0 0 2vh'  
    },
  
    gridglobal:{
@@ -55,8 +55,8 @@ const useStyle = makeStyles({
 
    imagen_top2:{     
          width: "100%",
-         height: "66vh",
-         backgroundSize: "100%",
+         height: "58vh",
+         backgroundSize: "68vh",
          backgroundRepeat: "no-repeat",
          backgroundImage: `url(${App})`,       
          backgroundPosition: "center center",
