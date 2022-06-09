@@ -2,13 +2,13 @@ const menuDane = [
     [
         {
           name:"¿Qué es un observatorio?",
-          link:"/Observatorio/Acerca",
+          link:"/observatorio/Acerca",
           icon:"",
           isMain:true
         },
         {
             name:"Otros observatorios inmobiliarios",
-            link:"/Observatorio/Otrosobservatorios",
+            link:"/observatorio/Otrosobservatorios",
             icon:"",
             isMain:true
         }
@@ -17,44 +17,44 @@ const menuDane = [
     [
         {
             name:"Servicios",
-            link:"/Observatorio/Servicios",
+            link:"/observatorio/Servicios",
             icon:"",
             isMain:true
         },
         {
             name:"Estadísticas",
-            link:"/Observatorio/Servicios/estadisticas",
+            link:"/observatorio/Servicios/estadisticas",
             icon:"",
             isMain:true
         },
         // {
         //     name:"Censo de edificaciones CEED",
-        //     link:"/Observatorio/Servicios/estadisticas/Ceed",
+        //     link:"/observatorio/Servicios/estadisticas/Ceed",
         //     icon:"",
         //     isMain:true
         // },
         {
             name:"Plataforma usuario",
-            link:"/Observatorio/PlataformaUsuario",
+            link:"/observatorio/PlataformaUsuario",
             icon:"",
             isMain:true,
             isProtected:true
         },
         {
             name:"Contáctenos",
-            link:"/Observatorio/Contacto",
+            link:"/observatorio/Contacto",
             icon:"",
             isMain:true
         },
         {
             name:"Repositorio",
-            link:"/Observatorio/Repositorio",
+            link:"/observatorio/Repositorio",
             icon:"",
             isMain:true
         },
         {
             name:"Estadísticas experimentales",
-            link:"/Observatorio/Estadisticasexperimentales",
+            link:"/observatorio/Estadisticasexperimentales",
             icon:"",
             isMain:true
         },
@@ -64,13 +64,13 @@ const menuDane = [
     [
         {
             name:"Visores",
-            link:"/Observatorio/Mapas",
+            link:"/observatorio/Mapas",
             icon:"",
             isMain:true
         },
         {
             name:"Mercado inmobiliario Bogotá",
-            link:"https://nowsoft.app/colectora/externo/visor/",
+            link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
             icon:"",
             isMain:false
         },
@@ -79,37 +79,37 @@ const menuDane = [
     [
         {
             name:"Catastro multipropósito",
-            link:"/Observatorio/Catastromultiproposito",
+            link:"/observatorio/Catastromultiproposito",
             icon:"",
             isMain:true
         },
         {
             name:"Métodos para el cálculo de avalúos",
-            link:"/Observatorio/Catastromultiproposito/Metodosavaluos",
+            link:"/observatorio/Catastromultiproposito/Metodosavaluos",
             icon:"",
             isMain:true
         },
         // {
         //     name:"Tipologías constructivas",
-        //     link:"/Observatorio/tipologia",
+        //     link:"/observatorio/tipologia",
         //     icon:"",
         //     isMain:true
         // },
         {
             name:"Registro de bienes inmuebles",
-            link:"/Observatorio/Catastromultiproposito/RegistroInmuebles",
+            link:"/observatorio/Catastromultiproposito/RegistroInmuebles",
             icon:"",
             isMain:true
         },
         {
             name:"Comité técnico asesor",
-            link:"/Observatorio/Comitetecnico",
+            link:"/observatorio/Comitetecnico",
             icon:"",
             isMain:true
         },
         {
             name:"Modelo LADM observatorio",
-            link:"/Observatorio/LADM",
+            link:"/observatorio/LADM",
             icon:"",
             isMain:true
         }

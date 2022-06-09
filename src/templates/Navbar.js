@@ -522,7 +522,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <Button
                 className={classes.boton}
                 disableElevation
-                href="/Observatorio/login"
+                href="/observatorio/login"
               >
                 Ingresar
               </Button>

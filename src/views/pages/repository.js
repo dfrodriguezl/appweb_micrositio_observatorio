@@ -191,7 +191,7 @@ const Repository = () => {
           <th className={classes.containercontent}>
             <Tooltip title="Descargar" arrow>
             <Button className={classes.boton}>
-              <a className={classes.alink}
+              <a target="_blank" className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
                   download
               >Descargar</a>

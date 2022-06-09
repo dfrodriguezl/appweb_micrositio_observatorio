@@ -174,7 +174,7 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>
           <Tooltip title="Descargar" arrow>
             <Button className={classes.boton}>
-          <a className={classes.alink}
+          <a target="_blank" className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/DOC_DIRECTIVO_IND_2021_20211203.pdf"
                   download
               >Descargar</a>
@@ -192,7 +192,7 @@ const ExperimentalStadistics = () => {
           <th className={classes.containercontent}>
           <Tooltip title="Descargar" arrow>
           <Button className={classes.boton}>
-          <a className={classes.alink}
+          <a target="_blank" className={classes.alink}
                   href="https://nowsoft.app/colectora/externo/files_oin/DOC_TECN_IND_20211203.pdf"
                   download
               >Descargar</a>

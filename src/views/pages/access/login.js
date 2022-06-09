@@ -78,7 +78,7 @@ const useStyle = makeStyles({
     },
     itemTextField: {
         backgroundColor: "white",
-        width:"100%"
+        width:"100% !important"
     },
     image:{
         width:"100%"
@@ -91,7 +91,10 @@ const useStyle = makeStyles({
     captcha2:{
       display:"grid"
     },
-
+    vista:{
+      width: "6vh !important",
+      marginLeft: "0px !important"
+    },
     boton: {
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "2vh",
@@ -247,7 +250,7 @@ const FormAccess = (props) => {
                 size="small"
                 value={form.user}
                 onChange={handleChangeValue}
-                className={classes.itemTextField}
+                className={classes.itemTextField}                
                 id="outlined-basic"
               />
             </Grid>
@@ -266,10 +269,11 @@ const FormAccess = (props) => {
                   id="outlined-adornment-password"
                   type={form.showPassword ? "text" : "password"}
                   value={form.clave}
-                  name="clave"
+                  name="clave"                  
                   onChange={handleChangeValue}
+                  className={classes.itemTextField}
                   endAdornment={
-                    <InputAdornment position="end">
+                    <InputAdornment position="end" id="contraseña" className={classes.vista}>
                       <IconButton
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
@@ -307,7 +311,7 @@ const FormAccess = (props) => {
             <Grid item container justifyContent="center" alignItems="center">
             <Tooltip title="Registrar" arrow>
               <Button className={classes.boton1}
-                href="/Observatorio/register"
+                href="/observatorio/register"
               >Registrarse</Button>
             </Tooltip>
             </Grid>
@@ -320,7 +324,7 @@ const FormAccess = (props) => {
             <Grid item container justifyContent="center" alignItems="center">
             <Tooltip title="Olvido su contraseña" arrow>
             <Button className={classes.boton1}
-                href="/Observatorio/ForgetPassword"
+                href="/observatorio/ForgetPassword"
               >Olvido su contraseña</Button>
             </Tooltip>
             </Grid>

@@ -590,7 +590,7 @@ const Top_content = () => {
         </Grid>
         <Grid container>
           <Tooltip title="Observatorio" arrow>
-            <Button className={classes.boton} href="/Observatorio/Acerca" >Acerca de</Button>
+            <Button className={classes.boton} href="/observatorio/Acerca" >Acerca de</Button>
           </Tooltip>
         </Grid>
       </Grid>

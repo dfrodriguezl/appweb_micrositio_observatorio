@@ -121,7 +121,7 @@ const Cardsmapas = () => {
               </CardContent>
               <CardActions className={classes.centerButton}>
               <Tooltip title={infomaps.title} arrow>
-              <Button target="_blank" className={classes.boton} href={infomaps.link}>Visitar</Button>
+              <Button className={classes.boton} href={infomaps.link}>Visitar</Button>
               </Tooltip>              
               </CardActions>
             </Card>

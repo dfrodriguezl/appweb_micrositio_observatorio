@@ -341,7 +341,7 @@ const avaluos = () => {
       </Grid>
       <Tooltip title="Descripción: Técnica valuatorias en Colombia y el mundo" arrow>
         <button className={estilo4}>
-          <a className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
+          <a target="_blank" className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
             <Grid container direction="row">
               <Grid item xs={4} direction="column" container  className={estilo3}>
                 <CardMedia className={estilo2} image={word} />

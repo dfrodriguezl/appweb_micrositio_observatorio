@@ -166,7 +166,7 @@ export default function CustomizedAccordions() {
         if (i == 0) {
             result[0] =
                 <Grid item container>
-                    <Button className={classes.boton} href="/Observatorio/login">Ingresar</Button>
+                    <Button className={classes.boton} href="/observatorio/login">Ingresar</Button>
                 </Grid>
 
 

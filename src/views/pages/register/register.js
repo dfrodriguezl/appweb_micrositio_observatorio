@@ -25,6 +25,10 @@ const useStyle = makeStyles({
     captcha1:{
         display:"none"
       },
+      vista:{
+        width: "6vh !important",
+        marginLeft: "0px !important"
+      },
   
       captcha2:{
         display:"grid"
@@ -488,10 +492,10 @@ const FormRegister = () => {
                                 type={form.showPassword ? 'text' : 'password'}
                                 value={form.clave}
                                 name="clave"
-
+                                className={classes.itemTextField}
                                 onChange={handleChangeValue}
                                 endAdornment={
-                                    <InputAdornment position="end">
+                                    <InputAdornment position="end" className={classes.vista}>
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             onClick={handleClickShowPassword}
@@ -523,8 +527,9 @@ const FormRegister = () => {
                                 name="confirmarClave"
                                 onKeyUp={validarpassword2} onBlur={validarpassword2}
                                 onChange={handleChangeValue}
+                                className={classes.itemTextField}
                                 endAdornment={
-                                    <InputAdornment position="end">
+                                    <InputAdornment position="end" className={classes.vista}>
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             onClick={handleClickShowConfirmPassword}
