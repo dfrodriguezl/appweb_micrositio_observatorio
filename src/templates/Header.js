@@ -21,7 +21,7 @@ import {useTranslation} from "react-i18next";
 import styles from "../views/common/style/estilossearch.css";
 const useStyle = makeStyles({
     search:{
-        margin: "3.2vh 0 0 0 !important",
+        top: "3vh !important",
     },
     texto:{
         display:"none"
@@ -220,7 +220,7 @@ const Header = () => {
                         <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a> 
                         </Grid> 
                         <Grid container item xs={10} justifyContent={ubicacion}>                            
-                        <a href="/Observatorio/" className={estilo}>
+                        <a href="/observatorio/" className={estilo}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
                         <TextField
@@ -228,7 +228,7 @@ const Header = () => {
                             id="search"
                             label={t("headersearch.search")}
                             onClick={handlesearch}
-                            variant="outlined"
+                            variant="outlined"                            
                             InputProps={{                            
                                 endAdornment: (
                                 <InputAdornment position="end">
@@ -239,7 +239,7 @@ const Header = () => {
                         />
                         <button id='en' Active className={classes.lenguaje} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
                         <button id='es' className={classes.lenguaje} onClick={()=> i18n.changeLanguage("es")}>ES</button>
-                        <a href="/Observatorio/" className={estilo2}>
+                        <a href="/observatorio/" className={estilo2}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
                         <TextLogo className={estilo2}>
