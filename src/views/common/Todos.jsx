@@ -40,16 +40,16 @@ const Todos = () => {
     return (
         <Grid>
             <Grid container direction="row">
-            <Button href="/Observatorio/Acerca" className={classes.botonchat}>¿Que es el OIN?</Button>
-            <Button href="/Observatorio/Catastromultiproposito/Metodosavaluos"  className={classes.botonchat}>Métodos de avalúos</Button>
-            <Button href="/Observatorio/Comitetecnico" className={classes.botonchat}>Comité Técnico Asesor</Button>
-            <Button href="/Observatorio/Servicios" className={classes.botonchat}>Servicios OIN</Button>
-            <Button href="/Observatorio/Servicios/estadisticas/Ceed" className={classes.botonchat}>CEED</Button>
-            <Button href="/Observatorio/Mapas" className={classes.botonchat}>Geovisor</Button>
-            <Button href="/Observatorio/Repositorio" className={classes.botonchat}>Repositorio</Button>
-            <Button href="/Observatorio/Estadisticasexperimentales" className={classes.botonchat}>Estadísticas experimentales</Button>
-            <Button href="/Observatorio/register" className={classes.botonchat}>Registro usuario</Button>
-            <Button href="/Observatorio/login" className={classes.botonchat}>Ingreso usuario</Button>
+            <Button href="/observatorio/Acerca" className={classes.botonchat}>¿Que es el OIN?</Button>
+            <Button href="/observatorio/Catastromultiproposito/Metodosavaluos"  className={classes.botonchat}>Métodos de avalúos</Button>
+            <Button href="/observatorio/Comitetecnico" className={classes.botonchat}>Comité Técnico Asesor</Button>
+            <Button href="/observatorio/Servicios" className={classes.botonchat}>Servicios OIN</Button>
+            <Button href="/observatorio/Servicios/estadisticas/Ceed" className={classes.botonchat}>CEED</Button>
+            <Button href="/observatorio/Mapas" className={classes.botonchat}>Geovisor</Button>
+            <Button href="/observatorio/Repositorio" className={classes.botonchat}>Repositorio</Button>
+            <Button href="/observatorio/Estadisticasexperimentales" className={classes.botonchat}>Estadísticas experimentales</Button>
+            <Button href="/observatorio/register" className={classes.botonchat}>Registro usuario</Button>
+            <Button href="/observatorio/login" className={classes.botonchat}>Ingreso usuario</Button>
             </Grid>
         </Grid>
     )    
