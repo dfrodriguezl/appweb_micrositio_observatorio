@@ -375,7 +375,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <NavLink className={classes.root} to="/Observatorio/">Inicio </NavLink>
+              <NavLink className={classes.root} to="/observatorio/">Inicio </NavLink>
             </UtilidadCentrarTexto>
           </DropDownLi>
 
@@ -404,7 +404,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <MenuA href="/Observatorio/Metodosavaluos">Observatorio </MenuA>
+                <MenuA href="/observatorio/Metodosavaluos">Observatorio </MenuA>
               </UtilidadCentrarTexto>
             </DropDownLi>
           )}
@@ -436,7 +436,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <MenuA href="/Observatorio/Catastromultiproposito">
+                <MenuA href="/observatorio/Catastromultiproposito">
                   Catastro Multipropósito{" "}
                 </MenuA>
               </UtilidadCentrarTexto>
@@ -470,7 +470,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <NavLink to="/Observatorio/Mapas" className={classes.root}>
+                <NavLink to="/observatorio/Mapas" className={classes.root}>
                   Geovisores
                 </NavLink>
               </UtilidadCentrarTexto>
@@ -504,7 +504,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <NavLink to="/Observatorio/Servicios" className={classes.root}>
+                <NavLink to="/observatorio/Servicios" className={classes.root}>
                   Servicios
                 </NavLink>
               </UtilidadCentrarTexto>
@@ -547,7 +547,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           <Button
                 className={classes.boton}
                 onClick={cerrarSesion}
-                href="/Observatorio/login"
+                href="/observatorio/login"
               >
                 Si
           </Button>
