@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Sale from "Observatorio/img/Logo-header-web-blanc.png";
-import Fill from "Observatorio/img/nn.png";
-import Segment from "Observatorio/img/inteobser.png";
-import Building_ from "Observatorio/img/logo4.png";
+import Fill from "Observatorio/img/nn1.png";
+import Segment from "Observatorio/img/inteobser1.png";
+import Building_ from "Observatorio/img/logo41.png";
 import Buildingamico from "Observatorio/img/logo5.png";
 import logo6 from "Observatorio/img/logo6.png";
 import logo7 from "Observatorio/img/logo7.png";

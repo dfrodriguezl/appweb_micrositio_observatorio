@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Sale from "Observatorio/img/igac-logo.png";
-import Fill from "Observatorio/img/logo2.png";
+import Fill from "Observatorio/img/logo21.png";
 import Segment from "Observatorio/img/logo3.png";
-import Building_ from "Observatorio/img/logo4.png";
+import Building_ from "Observatorio/img/logo41.png";
 import Buildingamico from "Observatorio/img/logo5.png";
 import logo6 from "Observatorio/img/logo6.png";
 import logo7 from "Observatorio/img/logo7.png";
