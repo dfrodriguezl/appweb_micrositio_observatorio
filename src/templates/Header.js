@@ -18,10 +18,15 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {useTranslation} from "react-i18next";
-import styles from "../views/common/style/estilossearch.css";
+//import styles from "../views/common/style/estilossearch.css";
 const useStyle = makeStyles({
     search:{
-        top: "3vh !important",
+        top: "2vh !important",
+        width:"43vw !important"
+    },
+    search2:{
+        top: "2vh !important",
+        width:"15vw !important"
     },
     texto:{
         display:"none"
@@ -140,6 +145,7 @@ const Header = () => {
     const matches2 = useMediaQuery("(max-width:647px)")
     var estilo = null;
     var estilo2 = null;
+    var estilo3 = null;
     var ubicacion = null;
     var compon = null;
     {
@@ -150,9 +156,11 @@ const Header = () => {
     if(matches2){
         estilo2=classes.texto
         estilo=classes.texto1
+        estilo3=classes.search
     }else{
         estilo=classes.texto
         estilo2=classes.texto1
+        estilo3=classes.search2
     }
   }
     const [sideBarOpen, setSideBarOpen] = useState(false)
@@ -224,7 +232,7 @@ const Header = () => {
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
                         <TextField
-                            className={classes.search}
+                            className={estilo3}
                             id="search"
                             label={t("headersearch.search")}
                             onClick={handlesearch}

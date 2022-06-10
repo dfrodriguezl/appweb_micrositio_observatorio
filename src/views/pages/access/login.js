@@ -17,6 +17,7 @@ import {Loader} from '../loader/loader'
 import { Redirect } from 'react-router';
 import enviroment from '../../../config/enviroment'
 import ReCAPTCHA from "react-google-recaptcha"
+import { useHistory } from "react-router-dom";
 const useStyle = makeStyles({
   boton1: {
     borderRadius: "2vh",
@@ -128,6 +129,7 @@ const ImagenBottom = () => {
 
 const FormAccess = (props) => {
     const classes = useStyle();
+    const history = useHistory();
     const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
     const [usuarioValido, cambiarUsuarioValido] = useState(true)
     const [form, setForm] = useState({
@@ -221,6 +223,16 @@ const FormAccess = (props) => {
 
     }
 
+    const rutaregistrar = (e) =>{
+      console.log("diego")
+      history.push('/observatorio/register')
+    }
+
+    const rutacontraseña = (e) =>{
+      console.log("diego")
+      history.push('/observatorio/ForgetPassword')
+    }
+
     return (
       <Grid container direccion="row">
         <Grid container justifyContent="center" alignItems="center"></Grid>
@@ -311,7 +323,8 @@ const FormAccess = (props) => {
             <Grid item container justifyContent="center" alignItems="center">
             <Tooltip title="Registrar" arrow>
               <Button className={classes.boton1}
-                href="/observatorio/register"
+                
+                onClick={rutaregistrar}
               >Registrarse</Button>
             </Tooltip>
             </Grid>
@@ -323,8 +336,8 @@ const FormAccess = (props) => {
             </Grid>
             <Grid item container justifyContent="center" alignItems="center">
             <Tooltip title="Olvido su contraseña" arrow>
-            <Button className={classes.boton1}
-                href="/observatorio/ForgetPassword"
+            <Button className={classes.boton1}                
+                onClick={rutacontraseña}
               >Olvido su contraseña</Button>
             </Tooltip>
             </Grid>

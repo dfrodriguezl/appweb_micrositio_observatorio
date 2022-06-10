@@ -12,6 +12,7 @@ import {
     Button,
   } from "@material-ui/core";
 import * as Values from "Observatorio/Variables/values";
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles({
     botonchat: {
@@ -36,20 +37,24 @@ const useStyle = makeStyles({
 })
 
 const Todos = () => {
-    const classes = useStyle();
+    const classes = useStyle();    
+    const history = useHistory();
+    function rutas(idd) {
+      history.push(idd.target.offsetParent.id)
+    }
     return (
         <Grid>
             <Grid container direction="row">
-            <Button href="/observatorio/Acerca" className={classes.botonchat}>¿Que es el OIN?</Button>
-            <Button href="/observatorio/Catastromultiproposito/Metodosavaluos"  className={classes.botonchat}>Métodos de avalúos</Button>
-            <Button href="/observatorio/Comitetecnico" className={classes.botonchat}>Comité Técnico Asesor</Button>
-            <Button href="/observatorio/Servicios" className={classes.botonchat}>Servicios OIN</Button>
-            <Button href="/observatorio/Servicios/estadisticas/Ceed" className={classes.botonchat}>CEED</Button>
-            <Button href="/observatorio/Mapas" className={classes.botonchat}>Geovisor</Button>
-            <Button href="/observatorio/Repositorio" className={classes.botonchat}>Repositorio</Button>
-            <Button href="/observatorio/Estadisticasexperimentales" className={classes.botonchat}>Estadísticas experimentales</Button>
-            <Button href="/observatorio/register" className={classes.botonchat}>Registro usuario</Button>
-            <Button href="/observatorio/login" className={classes.botonchat}>Ingreso usuario</Button>
+            <Button id={'/observatorio/Acerca'} onClick={rutas} className={classes.botonchat}>¿Que es el OIN?</Button>
+            <Button id='/observatorio/Catastromultiproposito/Metodosavaluos' onClick={rutas} className={classes.botonchat}>Métodos de avalúos</Button>
+            <Button id="/observatorio/Comitetecnico" onClick={rutas} className={classes.botonchat}>Comité Técnico Asesor</Button>
+            <Button id="/observatorio/Servicios" onClick={rutas} className={classes.botonchat}>Servicios OIN</Button>
+            <Button id="/observatorio/Servicios/estadisticas/Ceed" onClick={rutas} className={classes.botonchat}>CEED</Button>
+            <Button id="/observatorio/Mapas" onClick={rutas} className={classes.botonchat}>Geovisor</Button>
+            <Button id="/observatorio/Repositorio" onClick={rutas} className={classes.botonchat}>Repositorio</Button>
+            <Button id="/observatorio/Estadisticasexperimentales" onClick={rutas} className={classes.botonchat}>Estadísticas experimentales</Button>
+            <Button id="/observatorio/register" onClick={rutas} className={classes.botonchat}>Registro usuario</Button>
+            <Button id="/observatorio/login" onClick={rutas} className={classes.botonchat}>Ingreso usuario</Button>
             </Grid>
         </Grid>
     )    

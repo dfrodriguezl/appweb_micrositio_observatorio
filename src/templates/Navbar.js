@@ -8,6 +8,7 @@ import menuDane from "Observatorio/common/newmenu.js";
 import SideBarComponent from "./newsidebar.js";
 import * as Values from "Observatorio/Variables/values";
 import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 //
 
@@ -233,6 +234,7 @@ const SubMenuA = Styled.a`
   text-decoration: none;
   display: block;
   text-align: left;
+  cursor:pointer;
   &:hover {
     background-color: #727070;
     color: #F3F3F3;
@@ -246,6 +248,7 @@ const SubMenuASub = Styled.a`
   display: block;
   text-align: left;
   margin-left:30px;
+  cursor:pointer;
   &:hover {
     background-color: #727070;
     color: #F3F3F3;
@@ -271,9 +274,15 @@ const DropDownLi = Styled(MenuIL)`
 
 const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
+  const history = useHistory();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const rutabtnlogin = (e) =>{
+  history.push('/observatorio/login')
+  } 
+
   const [menuActive, setMenuActive] = useState({
     ActiveServicios: {
       id: 1,
@@ -323,37 +332,52 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     isOk = true;
   }
   console.log("is0k", isOk)
+
   const cerrarSesion = () => {
     localStorage.removeItem("token");
     setSession(false);
     isOk = false;
     props.setAuth(false);
+    
   };
+
+  function rutas(idd) {
+    console.log("rutas",idd.target.id)
+    if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
+      location.href ='https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/'
+    }else{
+      history.push(idd.target.id)
+    }
+  }
+
   useEffect(() => {
     
     
   }, [isSession, isLogin]);
+
   const [isSession, setSession] = useState(isOk);
+
   let result = [];
+
   if (position != null) {
     let subResult = [];
     menuDane[position].map((data) => {
       if (data.isProtected) {
         if (isOk) {
           if (data.isMain) {
-            subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>);
+            subResult.push(<SubMenuA id={data.link} onClick={rutas}>{data.name}</SubMenuA>);
           } else {
             subResult.push(
-              <SubMenuASub href={data.link}>{data.name}</SubMenuASub>
+              <SubMenuASub id={data.link} onClick={rutas}>{data.name}</SubMenuASub>
             );
           }
         }
       } else {
         if (data.isMain) {
-          subResult.push(<SubMenuA href={data.link}>{data.name}</SubMenuA>);
+          subResult.push(<SubMenuA id={data.link} onClick={rutas}>{data.name}</SubMenuA>);
         } else {
           subResult.push(
-            <SubMenuASub href={data.link}>{data.name}</SubMenuASub>
+            <SubMenuASub id={data.link} onClick={rutas}>{data.name}</SubMenuASub>
           );
         }
       }
@@ -404,7 +428,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <MenuA href="/observatorio/Metodosavaluos">Observatorio </MenuA>
+                <MenuA>Observatorio</MenuA>
               </UtilidadCentrarTexto>
             </DropDownLi>
           )}
@@ -522,7 +546,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <Button
                 className={classes.boton}
                 disableElevation
-                href="/observatorio/login"
+                onClick={rutabtnlogin}
               >
                 Ingresar
               </Button>

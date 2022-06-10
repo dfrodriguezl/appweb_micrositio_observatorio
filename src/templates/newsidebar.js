@@ -16,6 +16,7 @@ import {
     makeStyles
 } from '@material-ui/core/styles';
 import Divider from '@mui/material/Divider';
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles({
     Textp: {
@@ -25,17 +26,17 @@ const useStyle = makeStyles({
         textAlign: "left",
         margin: "1em 0 0 0",
         textDecoration: "none",
-        marginLeft: "3px",
+        marginLeft: "0px",
         width: "100%"
     },
     Textp02: {
         color: Values.TextParagraph,
         fontFamily: Values.SourceRoboto,
-        fontSize: "calc(0.3em + 1vh)",
+        fontSize: "calc(0.4em + 1vh)",
         textAlign: "start",
-        margin: "1em 0 0 0",
+        margin: "0.3em 0 0 0",
         textDecoration: "none",
-        marginLeft: "3px"
+        marginLeft: "0px"
     },
     TitleMenu: {
         padding: "5px"
@@ -49,6 +50,9 @@ const useStyle = makeStyles({
         width: "100%",
         marginTop: "2px",
         marginBottom: "2px"
+    },
+    ocultar:{
+        display:"none"
     },
     containerSection: {
         padding: "10px"
@@ -92,54 +96,87 @@ const ContainerMenu = Styled.div`
 padding:4%;
 position:fixed;
 z-index:1000;
-background-color:white;
-height:80%;
+background-color:#efe7e7;
+height:50%;
 overflow-y: scroll;
 @media (max-width: 4000px) and (min-width: 769px) {
     display:none;
  };
  overflow-y: auto;
 `;
+
 export default function CustomizedAccordions() {
     let subResult = []
     let result = []
+    var estilo = null
     let index = 0
     const classes = useStyle()
+    const history = useHistory();
+
+    function rutas(idd) {
+        console.log("alejo",idd.target.id)
+        if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
+          location.href ='https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/'
+        }else{
+          history.push(idd.target.id)
+          estilo=classes.ocultar
+        }
+      }
+
+      const rutalogin = (e) =>{
+        console.log("diego")
+        history.push('/observatorio/login')
+        estilo=classes.ocultar
+      }
+      
     for (var i = 0; i < menuDane.length; i++) {
         for (var j = 0; j < menuDane[i].length; j++) {
             if (i == 2) {
                 if (j == 0) {
-                    subResult.push(<Grid item xs={6} md={6}>
-                        <IconData sx={{ fontSize: 5, marginBottom: "2px" }}></IconData>
-                        <a className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                    subResult.push(<Grid id="primero" container item direccion='row'>
+                        <Grid container item direction='column' justifyContent='center'>
+                            <Grid item container xs={1} >
+                                <IconData sx={{ fontSize: 5, marginBottom: "2px" }}></IconData>
+                            </Grid>
+                            <Grid item container xs={11}>
+                                <a className={classes.Textp02} id={menuDane[i][j].link} onClick={rutas}>{menuDane[i][j].name}</a>
+                            </Grid>
+                        </Grid>
                     </Grid>)
                 } else {
-                    subResult.push(<Grid item xs={12} md={12}>
-                        <IconData sx={{ fontSize: 3, marginBottom: "2px", marginLeft: "10px" }}></IconData>
-                        <a className={classes.Textp02} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                    subResult.push(<Grid item id="tercero" container direction="row">
+                        <Grid container item direction='column' justifyContent='center'>
+                            <Grid item container xs={1} >                                
+                                <IconData sx={{ fontSize: 5, marginBottom: "2px", marginLeft: "10px" }}></IconData>
+                            </Grid>
+                            <Grid item container xs={11}>
+                            <a className={classes.Textp02} id={menuDane[i][j].link} onClick={rutas}>{menuDane[i][j].name}</a>
+                            </Grid>
+                        </Grid>                        
                     </Grid>)
                 }
             } else {
                 if (menuDane[i][j].isMain) {
-                    subResult.push(<Grid container direction="column" item xs={6} md={6}>
-                        <Grid item xs={1} >
+                    subResult.push(<Grid id="segundo" container direction="row" item>                        
+                        <Grid container item direction='column' justifyContent='center'>
+                        <Grid item container xs={1} >
                             <IconData sx={{ fontSize: 5, marginBottom: "2px", width: "10px" }}></IconData>
                         </Grid>
-                        <Grid item xs={11}>
+                        <Grid item container xs={11}>
                             <div className={classes.widthComplete}>
-                                <a className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                                <a className={classes.Textp} id={menuDane[i][j].link} onClick={rutas}>{menuDane[i][j].name}</a>
                             </div>
 
                         </Grid>
-
+                        </Grid>
                     </Grid>)
                 } else {
-                    subResult.push(<Grid container item xs={6} md={6}>
+                    subResult.push(<Grid container item xs={6}>
                         <Grid item xs={1}>
                             <IconData sx={{ fontSize: 5, marginBottom: "2px", width: "10px" }}></IconData>
                         </Grid>
                         <Grid item xs={11}>
-                            <a className={classes.Textp} href={menuDane[i][j].link}>{menuDane[i][j].name}</a>
+                            <a className={classes.Textp} id={menuDane[i][j].link} onClick={rutas}>{menuDane[i][j].name}</a>
                         </Grid>
                     </Grid>)
                 }
@@ -166,60 +203,54 @@ export default function CustomizedAccordions() {
         if (i == 0) {
             result[0] =
                 <Grid item container>
-                    <Button className={classes.boton} href="/observatorio/login">Ingresar</Button>
+                    <Button className={classes.boton} onClick={rutalogin}>Ingresar</Button>
                 </Grid>
-
-
             result[1] = <Grid item container direction="row" className={classes.containerSection}>
-
                 <Grid item className={classes.TitleMenu}>
                     <strong> {title}</strong>
                 </Grid>
                 <Grid item container >
                     {divider}
                 </Grid>
-                <Grid item container direction="row" xs={12} md={12}>
+                <Grid item container direction="row" xs={12}>
                     {subResult}
                 </Grid>
             </Grid>
         } else {
             if (i == 1) {
                 result[4] = <Grid item container direction="row" className={classes.containerSection}>
-
                     <Grid item className={classes.TitleMenu}>
                         <strong> {title}</strong>
                     </Grid>
                     <Grid item container >
                         {divider}
                     </Grid>
-                    <Grid item container direction="row" xs={12} md={12}>
+                    <Grid item container direction="row" xs={12}>
                         {subResult}
                     </Grid>
                 </Grid>;
 
             } else if (i == 2) {
                 result[3] = <Grid item container direction="row" className={classes.containerSection}>
-
                     <Grid item className={classes.TitleMenu}>
                         <strong> {title}</strong>
                     </Grid>
                     <Grid item container >
                         {divider}
                     </Grid>
-                    <Grid item container direction="row" xs={12} md={12}>
+                    <Grid item container direction="row" xs={12}>
                         {subResult}
                     </Grid>
                 </Grid>;
             } else {
                 result[2] = <Grid item container direction="row" className={classes.containerSection}>
-
                     <Grid item className={classes.TitleMenu}>
                         <strong> {title}</strong>
                     </Grid>
                     <Grid item container >
                         {divider}
                     </Grid>
-                    <Grid item container direction="row" xs={12} md={12}>
+                    <Grid item container direction="row" xs={12}>
                         {subResult}
                     </Grid>
                 </Grid>;
@@ -229,15 +260,11 @@ export default function CustomizedAccordions() {
 
         subResult = []
     }
-
-
     return (
         <ContainerMenu>
             <Grid container direction="row">
                 {result}
             </Grid>
         </ContainerMenu>
-
-
     );
 }

@@ -1,6 +1,6 @@
 'use strict';
 const env = {
-    endpoint:  "https://geoportal.dane.gov.co/observatorio",
+    endpoint:  "https://nowsoft.app/Observatorio",
 };
 module.exports = env;
 

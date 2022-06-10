@@ -2504,7 +2504,7 @@ const Cardsmapas = () => {
                             Recuerde que debe tener por lo menos 8 caracteres
                           </Typography>
                           <a
-                            href="/Observatorio/ChangePassword"
+                            href="/observatorio/ChangePassword"
                             className={classes.botonpass}
                           >
                             Cambiar Contraseña

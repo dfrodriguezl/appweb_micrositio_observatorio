@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "Observatorio/ui/theme";
 import Routes from 'Observatorio/routes/routes';
 import {
-    BrowserRouter as Router,
+    HashRouter,
     Switch,
     Route,
     useLocation
@@ -14,11 +14,11 @@ import {
 const App = () => {
     return(
         <ThemeProvider theme={theme}> 
-            <Router>
+            <HashRouter>
                 <div>
                     <Routes/> 
                 </div>
-            </Router>
+            </HashRouter>
         </ThemeProvider> 
         
     );

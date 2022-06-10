@@ -2,12 +2,14 @@ const menuDane = [
     [
         {
           name:"¿Qué es un observatorio?",
+          id:"1",
           link:"/observatorio/Acerca",
           icon:"",
           isMain:true
         },
         {
             name:"Otros observatorios inmobiliarios",
+            id:"2",
             link:"/observatorio/Otrosobservatorios",
             icon:"",
             isMain:true
@@ -17,12 +19,14 @@ const menuDane = [
     [
         {
             name:"Servicios",
+            id:"3",
             link:"/observatorio/Servicios",
             icon:"",
             isMain:true
         },
         {
             name:"Estadísticas",
+            id:"4",
             link:"/observatorio/Servicios/estadisticas",
             icon:"",
             isMain:true
@@ -35,6 +39,7 @@ const menuDane = [
         // },
         {
             name:"Plataforma usuario",
+            id:"5",
             link:"/observatorio/PlataformaUsuario",
             icon:"",
             isMain:true,
@@ -42,18 +47,21 @@ const menuDane = [
         },
         {
             name:"Contáctenos",
+            id:"6",
             link:"/observatorio/Contacto",
             icon:"",
             isMain:true
         },
         {
             name:"Repositorio",
+            id:"7",
             link:"/observatorio/Repositorio",
             icon:"",
             isMain:true
         },
         {
             name:"Estadísticas experimentales",
+            id:"8",
             link:"/observatorio/Estadisticasexperimentales",
             icon:"",
             isMain:true
@@ -64,12 +72,14 @@ const menuDane = [
     [
         {
             name:"Visores",
+            id:"9",
             link:"/observatorio/Mapas",
             icon:"",
             isMain:true
         },
         {
             name:"Mercado inmobiliario Bogotá",
+            id:"10",
             link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
             icon:"",
             isMain:false
@@ -79,12 +89,14 @@ const menuDane = [
     [
         {
             name:"Catastro multipropósito",
+            id:"11",
             link:"/observatorio/Catastromultiproposito",
             icon:"",
             isMain:true
         },
         {
             name:"Métodos para el cálculo de avalúos",
+            id:"12",
             link:"/observatorio/Catastromultiproposito/Metodosavaluos",
             icon:"",
             isMain:true
@@ -97,18 +109,21 @@ const menuDane = [
         // },
         {
             name:"Registro de bienes inmuebles",
+            id:"13",
             link:"/observatorio/Catastromultiproposito/RegistroInmuebles",
             icon:"",
             isMain:true
         },
         {
             name:"Comité técnico asesor",
+            id:"14",
             link:"/observatorio/Comitetecnico",
             icon:"",
             isMain:true
         },
         {
             name:"Modelo LADM observatorio",
+            id:"Ladm",
             link:"/observatorio/LADM",
             icon:"",
             isMain:true

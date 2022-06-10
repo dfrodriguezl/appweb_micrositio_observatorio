@@ -12,6 +12,7 @@ import lawyer from "Observatorio/img/normatividad.jpg";
 import Maintenance from "Observatorio/img/usoobservatorio.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles({
 
@@ -563,13 +564,20 @@ const ImagenBottom = () => {
   );
 };
 
-const Top_content = () => {
+
+
+const Top_content = () => {  
+  const history = useHistory();
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
     }
+  const rutabtn = (e) =>{
+      console.log("diego")
+      history.push('/observatorio/Acerca')
+  }
   return (
     <Grid container direction="row" className={estilo}>
       <ImagenMovil/>
@@ -590,7 +598,7 @@ const Top_content = () => {
         </Grid>
         <Grid container>
           <Tooltip title="Observatorio" arrow>
-            <Button className={classes.boton} href="/observatorio/Acerca" >Acerca de</Button>
+            <Button className={classes.boton} onClick={rutabtn} >Acerca de</Button>
           </Tooltip>
         </Grid>
       </Grid>
