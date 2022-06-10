@@ -134,7 +134,7 @@ const Map = forwardRef((props, ref) => {
       zoom: zoom,
 
       antialias: true,
-    });
+    },[]);
     // let isAtStart = true;
     // Navegacion ( +/- zoom )
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");

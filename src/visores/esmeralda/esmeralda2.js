@@ -1,4 +1,4 @@
-import React,{ useRef ,useEffect,forwardRef,useState} from 'react';
+import React,{ useRef ,useEffect,useState} from 'react';
 import Drawer from './Drawer';
 import Map from './map';
 import mapboxgl from 'mapbox-gl';

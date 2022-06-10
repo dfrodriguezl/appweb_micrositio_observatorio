@@ -43,7 +43,7 @@ import ForgetPassword from "../views/pages/forgetpassword";
 import RestoreAccount from "../views/pages/restore";
 import ChangePassword from "../views/pages/changepassword";
 import ChatIA from "../views/common/botchat";
-import Accesibilidad from "../views/common/Accesibilidad";
+import Accesibilidad from "../views/common/accesibilidad";
 import Ladm from "Observatorio/pages/ladm";
 import Search from "Observatorio/common/search";
 
@@ -99,7 +99,7 @@ const Generalroutes = () => {
 
   useEffect(() => {
       setAuth(isAuth)
-  }, isLogin);
+  }, [isLogin]);
 
   return (
     <div>

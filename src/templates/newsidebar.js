@@ -96,7 +96,7 @@ const ContainerMenu = Styled.div`
 padding:4%;
 position:fixed;
 z-index:1000;
-background-color:#efe7e7;
+background-color:#f4f4f4;
 height:50%;
 overflow-y: scroll;
 @media (max-width: 4000px) and (min-width: 769px) {

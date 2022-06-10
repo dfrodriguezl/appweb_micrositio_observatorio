@@ -19,7 +19,7 @@ const Map = () => {
       style: 'mapbox://styles/alejo1792/ckuh2bqhc030617ki7gkqg2rf',
       center: [lng, lat],
       zoom: zoom
-    });
+    },[]);
                
 
     // Navegacion ( +/- zoom )
