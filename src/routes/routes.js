@@ -6,11 +6,10 @@ import { makeStyles } from "@material-ui/core/styles";
 //Route
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   useLocation,
-  withRouter,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 
 //
@@ -47,16 +46,24 @@ import Accesibilidad from "../views/common/accesibilidad";
 import Ladm from "Observatorio/pages/ladm";
 import Search from "Observatorio/common/search";
 
+const withLocation = Component => props => {
+    const location = useLocation();
+  
+    return <Component {...props} location={location} />;
+  };
+
 const useStyle = makeStyles({
   marginTop: {
     marginTop: "120px",
   },
 });
 
+
+
 const RoutesMaps = () => {
   return (
     <div>
-      <Switch>
+      <Routes>
         <Route
           exact
           path="/observatorio/Visores/Esmeralda"
@@ -69,9 +76,9 @@ const RoutesMaps = () => {
         />
         <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/observatorio/404" />
+          <Navigate to="/observatorio/404" />
         </Route>
-      </Switch>
+      </Routes>
     </div>
   );
 };
@@ -108,7 +115,7 @@ const Generalroutes = () => {
       <Accesibilidad/>
       <ChatIA/>      
       <Grid container className={classes.marginTop}></Grid>
-      <Switch>
+      <Routes>
         <Route
           exact
           path="/observatorio/restore/:auth/:autht/:authp"
@@ -184,7 +191,7 @@ const Generalroutes = () => {
          
           render={() => {
             return user && isLogin ? (
-              <Redirect to="/observatorio/PlataformaUsuario"></Redirect>
+              <Navigate to="/observatorio/PlataformaUsuario"></Navigate>
             ) : (
               <Access  setAuth={redirectTo}></Access>
             );
@@ -198,40 +205,40 @@ const Generalroutes = () => {
             return user && isLogin ? (
               <ChangePassword></ChangePassword>
             ) : (
-              <Redirect to="/observatorio/"></Redirect>
+              <Navigate to="/observatorio/"></Navigate>
             );
           }}
         />
         <Route exact path="/observatorio/register" component={Register} />
         <Route exact path="/">
-          <Redirect to="/observatorio" />
+          <Navigate to="/observatorio" />
         </Route>
         <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/observatorio/404" />
+          <Navigate to="/observatorio/404" />
         </Route>
-      </Switch>
+      </Routes>
       <Footer />
     </div>
   );
 };
 
-const Routes = () => {
+const Rutas = () => {
   let location = useLocation();
   const classes = useStyle();
   return (
     <div>
-      <Switch>
+      <Routes>
         <Route path="/observatorio/Visores" component={RoutesMaps} />
         <Route path="/" component={Generalroutes} />
         <Route path="/observatorio" component={Generalroutes} />
         <Route path="/observatorio/404" component={Notfound} />
         <Route path="*">
-          <Redirect to="/observatorio/404" />
+          <Navigate to="/observatorio/404" />
         </Route>
-      </Switch>
+      </Routes>
     </div>
   );
 };
 
-export default withRouter(Routes);
+export default withRouter(Rutas);

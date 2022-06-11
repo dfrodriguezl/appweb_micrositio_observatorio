@@ -14,10 +14,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const sha256 = require('js-sha256');
 import axios from 'axios';
 import {Loader} from '../loader/loader'
-import { Redirect } from 'react-router';
+import {  Navigate } from 'react-router';
 import enviroment from '../../../config/enviroment'
 import ReCAPTCHA from "react-google-recaptcha"
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const useStyle = makeStyles({
   boton1: {
     borderRadius: "2vh",
@@ -129,7 +129,7 @@ const ImagenBottom = () => {
 
 const FormAccess = (props) => {
     const classes = useStyle();
-    const history = useHistory();
+    const history = useNavigate();
     const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
     const [usuarioValido, cambiarUsuarioValido] = useState(true)
     const [form, setForm] = useState({
@@ -355,7 +355,7 @@ const Access = (props) => {
     const classes = useStyle();
     const [login,setLogin] = useState(false)
     if(login){
-        return  <Redirect to="/Observatorio/PlataformaUsuario" />
+        return  <Navigate to="/Observatorio/PlataformaUsuario" />
     }else{
         return (
             <Grid container justifyContent="center"

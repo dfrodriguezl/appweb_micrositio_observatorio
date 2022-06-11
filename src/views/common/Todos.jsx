@@ -12,7 +12,7 @@ import {
     Button,
   } from "@material-ui/core";
 import * as Values from "Observatorio/Variables/values";
-import { useHistory } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const useStyle = makeStyles({
     botonchat: {
@@ -38,7 +38,7 @@ const useStyle = makeStyles({
 
 const Todos = () => {
     const classes = useStyle();    
-    const history = useHistory();
+    const history = useNavigate();
     function rutas(idd) {
       history.push(idd.target.offsetParent.id)
     }
