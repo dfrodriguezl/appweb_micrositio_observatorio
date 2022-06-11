@@ -10,6 +10,9 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Meeting from "Observatorio/img/repos.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
+import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+import ejemplomercado from "../../files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import formatomercado from "../../files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
 
 const useStyle = makeStyles({
   margintop: {
@@ -192,7 +195,7 @@ const Repository = () => {
             <Tooltip title="Descargar" arrow>
             <Button className={classes.boton}>
               <a target="_blank" className={classes.alink}
-                  href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+                  href={tecnicasvaluatorias}
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
@@ -219,7 +222,7 @@ const Repository = () => {
             <Tooltip title="Descargar" arrow>
             <Button className={classes.boton}>
               <a className={classes.alink}
-                  href="https://nowsoft.app/colectora/externo/files_oin/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+                  href={ejemplomercado}
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
@@ -236,7 +239,7 @@ const Repository = () => {
           <Tooltip title="Descargar" arrow>
           <Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/colectora/externo/files_oin/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+                  href={formatomercado}
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>

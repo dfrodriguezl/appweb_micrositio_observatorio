@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Meeting from "Observatorio/img/repo2.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
+import resumenejecutivo from "../../files/DOC_DIRECTIVO_IND_2021_20211203.pdf"
+import documentotecnico from "../../files/DOC_TECN_IND_20211203.pdf"
 
 const useStyle = makeStyles({
   margintop:{
@@ -175,7 +177,7 @@ const ExperimentalStadistics = () => {
           <Tooltip title="Descargar" arrow>
             <Button className={classes.boton}>
           <a target="_blank" className={classes.alink}
-                  href="https://nowsoft.app/colectora/externo/files_oin/DOC_DIRECTIVO_IND_2021_20211203.pdf"
+                  href={resumenejecutivo}
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
@@ -193,7 +195,7 @@ const ExperimentalStadistics = () => {
           <Tooltip title="Descargar" arrow>
           <Button className={classes.boton}>
           <a target="_blank" className={classes.alink}
-                  href="https://nowsoft.app/colectora/externo/files_oin/DOC_TECN_IND_20211203.pdf"
+                  href={documentotecnico}
                   download
               >Descargar</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>

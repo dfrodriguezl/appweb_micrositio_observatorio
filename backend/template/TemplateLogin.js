@@ -80,8 +80,8 @@ class TemplateLogin{
             <body>
                 <div class=\"container\">
                     <div class=\"top\">
-                        <img class=\"logodane\" src="https://nowsoft.app/colectora/externo/files_oin/logo-observatorio.PNG"  />
-                        <img class=\"imagen\" src="https://nowsoft.app/colectora/externo/files_oin/logo-dane.PNG"/>                
+                        <img class=\"logodane\" src="https://geoportal.dane.gov.co/observatorio/logo-observatorio.png"  />
+                        <img class=\"imagen\" src="https://geoportal.dane.gov.co/observatorio/logo-dane.png"/>                
                      </div>
                     <div class=\"bottom\">
                       <div class=\"izquierda\">
@@ -91,7 +91,7 @@ class TemplateLogin{
 
                             Para ingresar a la plataforma favor dirigase al siguiente link<br><br>
             
-                            https://nowsoft.app/Observatorio/login <br><br>
+                            https://geoportal.dane.gov.co/observatorio/login <br><br>
             
                             Cordialmente,<br><br>
             
@@ -99,13 +99,13 @@ class TemplateLogin{
                         </p> 
                       </div>   
                       <div class=\"derecha\">
-                      <img class=\"imagenwelcome\" src="https://nowsoft.app/colectora/externo/files_oin/Welcome-bro.png" />
+                      <img class=\"imagenwelcome\" src="https://geoportal.dane.gov.co/observatorio/Welcome-bro.png" />
                       </div>          
                     </div>
             
                 </div>                
                 <footer>
-                <img class=\"imagenfooter\" src="https://nowsoft.app/colectora/externo/files_oin/footer2.PNG" />
+                <img class=\"imagenfooter\" src="https://geoportal.dane.gov.co/observatorio/footer2.png" />
                 </footer>
                 </body>
         `

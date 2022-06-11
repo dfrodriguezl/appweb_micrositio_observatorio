@@ -114,7 +114,7 @@ class UserController {
         });
         let split = tokenUser.split(".");
         let contenidoTemplate = TemplateRegister.getTemplateRegister(
-          "https://nowsoft.app/Observatorio/restore/" +
+          "https://geoportal.dane.gov.co/observatorio/restore/" +
             split[0] +
             "/" +
             split[1] +

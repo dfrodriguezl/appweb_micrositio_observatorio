@@ -4,6 +4,7 @@ import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
 import word from "Observatorio/img/PDF1.png";
 import geograph from "Observatorio/img/geograph.png";
+import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
 
 const useStyle = makeStyles({
   gridglobal: {
@@ -341,7 +342,7 @@ const avaluos = () => {
       </Grid>
       <Tooltip title="Descripción: Técnica valuatorias en Colombia y el mundo" arrow>
         <button className={estilo4}>
-          <a target="_blank" className={classes.alink} href="https://nowsoft.app/colectora/externo/files_oin/Documento_Investistigacion_Tecnicas_Valuatorias.pdf" download>
+          <a target="_blank" className={classes.alink} href={tecnicasvaluatorias} download>
             <Grid container direction="row">
               <Grid item xs={4} direction="column" container  className={estilo3}>
                 <CardMedia className={estilo2} image={word} />

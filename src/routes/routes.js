@@ -9,7 +9,6 @@ import {
   Switch,
   Route,
   useLocation,
-  withRouter,
   Redirect,
 } from "react-router-dom";
 
@@ -234,4 +233,4 @@ const Routes = () => {
   );
 };
 
-export default withRouter(Routes);
+export default Routes;

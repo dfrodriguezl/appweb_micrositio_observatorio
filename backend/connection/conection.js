@@ -1,6 +1,8 @@
 const Pool = require('pg').Pool
 const Crypto = require('../crypto/Crypto')
-const connectionString = "U2FsdGVkX1/Dr/r0Q8Ee5f/poCoPZSYSCzR4FdzuuXKhNW23jxe88ModlydoFnUg0eB5fCNPk+hLwpQWlhvi1RWHzvGfdOsucYETVx3KiI/NxFFi/wKNkEFC30XdFyuTvYOgN8NYzLkLwOk1RwqhtvhCpK7qaiANo28W0YH1ltKHXKot1e49bz+Bog32U/2VeDLq6LdQ8+irynuYOszEeg=="
+const Crypto1 = require('../connection/encrypt-connection')
+//const connectionString = "U2FsdGVkX1/Dr/r0Q8Ee5f/poCoPZSYSCzR4FdzuuXKhNW23jxe88ModlydoFnUg0eB5fCNPk+hLwpQWlhvi1RWHzvGfdOsucYETVx3KiI/NxFFi/wKNkEFC30XdFyuTvYOgN8NYzLkLwOk1RwqhtvhCpK7qaiANo28W0YH1ltKHXKot1e49bz+Bog32U/2VeDLq6LdQ8+irynuYOszEeg=="
+const connectionString = Crypto1.cadena()
 const keyEncrypt ="ObservatorioInmobiliarioNacional2021xhladjljsljlejeieiwlwiwlqilwqijljwkcma"
 function conexion(){
     this.pool=null;
@@ -18,6 +20,7 @@ function conexion(){
            })
     }
     this.getConnection= function(){
+        console.log(this.pool)
         return this.pool
     } 
 }
