@@ -125,6 +125,9 @@ const useStyle = makeStyles({
   marginbutton2: {
     padding: "0em 0em 0 30%",
   },
+  marginbutton3: {
+    padding: "0em 0em 0 16vw",
+  },
 
   numpadding: {
     paddingTop: "0%",
@@ -296,19 +299,19 @@ const useStyle = makeStyles({
 
   containerImgNormativa: {
     width: "100% !important",
-    height: "44vh",
+    height: "43vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${lawyer})`,
-    backgroundSize: "80%",
+    backgroundSize: "90%",
     backgroundPosition: "center center",
   },
 
   containerImgNormativa2: {
     width: "100% !important",
-    height: "51vh",
+    height: "25vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${lawyer})`,
-    backgroundSize: "100% 100%",
+    backgroundSize: "100%",
     backgroundPosition: "center center",
     flexBasis: "100% !important",
     maxWidth: "100% !important",
@@ -360,10 +363,10 @@ const useStyle = makeStyles({
   },
 
   imagen_uso2: {
-    backgroundSize: "40%",
+    backgroundSize: "27%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Maintenance})`,
-    backgroundPositionX: "100%",
+    backgroundPositionX: "86%",
     backgroundPositionY: "15.6vw !important",
   },
 
@@ -720,8 +723,10 @@ const Bottom_content = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
+    var estilo2 = null;
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
+      matches?estilo2=classes.marginbutton2:estilo2=classes.marginbutton3
     }
   return (
     <Grid
@@ -731,7 +736,7 @@ const Bottom_content = () => {
       alignItems="center"
       className={(classes.marginbuttom, estilo)}
     >
-      <Grid container direction="row">
+      <Grid container direction="row" justifyContent="center">
         <Grid container justifyContent="center" alignItems="center">
           <h1 className={classes.contentrulesh1}>Normatividad</h1>
         </Grid>
@@ -752,7 +757,7 @@ const Bottom_content = () => {
                 <Grid container item xs={6}>
                 <p className={classes.contentrulesp2}>Ley 1955 de 2019</p>
                 </Grid>
-                <Grid className={classes.marginbutton2}>
+                <Grid className={estilo2}>
                 <Tooltip title="Ley 1955 de 2019" arrow>
                 <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">Ver</Button>
                 </Tooltip>                  
@@ -762,7 +767,7 @@ const Bottom_content = () => {
               <Grid container item xs={6}>
                 <p className={classes.contentrulesp2}>Decreto 148 de 2020</p>
                 </Grid>
-                <Grid className={classes.marginbutton2} justifyContent="center">                  
+                <Grid className={estilo2} justifyContent="center">                  
                   <Tooltip title="Decreto 148 de 2020" arrow>
                     <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">Ver</Button>
                   </Tooltip> 
@@ -772,7 +777,7 @@ const Bottom_content = () => {
               <Grid container item xs={6}>
                 <p className={classes.contentrulesp2}>CONPES 3958 de 2019</p>
                 </Grid>
-                <Grid className={classes.marginbutton2}>
+                <Grid className={estilo2}>
                   <Tooltip title="CONPES 3958 de 2019" arrow>
                     <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">Ver</Button>
                   </Tooltip>
