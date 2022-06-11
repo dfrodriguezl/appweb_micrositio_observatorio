@@ -9,6 +9,7 @@ function conexion(){
 
     this.inicia= function(){
         let resultDecryp = Crypto.decryp(connectionString,keyEncrypt)
+	    console.log(resultDecryp);
         let jsonResult = JSON.parse(resultDecryp)
         this.pool=new Pool({
             connectionLimit:100,

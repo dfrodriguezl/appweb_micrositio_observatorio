@@ -12,7 +12,7 @@ import lawyer from "Observatorio/img/normatividad.jpg";
 import Maintenance from "Observatorio/img/usoobservatorio.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
 const useStyle = makeStyles({
 
@@ -570,7 +570,7 @@ const ImagenBottom = () => {
 
 
 const Top_content = () => {  
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;

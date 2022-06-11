@@ -16,7 +16,7 @@ import {
     makeStyles
 } from '@material-ui/core/styles';
 import Divider from '@mui/material/Divider';
-import { useHistory } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const useStyle = makeStyles({
     Textp: {
@@ -111,7 +111,7 @@ export default function CustomizedAccordions() {
     var estilo = null
     let index = 0
     const classes = useStyle()
-    const history = useHistory();
+    const history = useNavigate();
 
     function rutas(idd) {
         console.log("alejo",idd.target.id)

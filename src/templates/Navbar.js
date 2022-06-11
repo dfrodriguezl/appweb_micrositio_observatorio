@@ -8,7 +8,7 @@ import menuDane from "Observatorio/common/newmenu.js";
 import SideBarComponent from "./newsidebar.js";
 import * as Values from "Observatorio/Variables/values";
 import { Button } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; 
 
 //
 
@@ -274,7 +274,7 @@ const DropDownLi = Styled(MenuIL)`
 
 const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
-  const history = useHistory();
+  const history = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
