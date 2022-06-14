@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
 import { Button, Grid, InputAdornment } from '@material-ui/core';
 import TextField from '@mui/material/TextField';
@@ -18,6 +18,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {useTranslation} from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import {AuthContext} from "../templates/useAuth"
 //import styles from "../views/common/style/estilossearch.css";
 const useStyle = makeStyles({
     search:{
@@ -140,6 +142,7 @@ margin-top:10px;
 `
 
 const Header = () => {
+    const history = useNavigate();
     const classes = useStyle();
     const matches = useMediaQuery("(min-width:527px)");
     const matches2 = useMediaQuery("(max-width:647px)")
@@ -202,7 +205,7 @@ const Header = () => {
                 if(response.data.data.fileph){
                     //localStorage.setItem("searchcobjetcant",response.data.data.fileph.length)
                     localStorage.setItem("searchcobjet",JSON.stringify(response.data.data.fileph))
-                    window.location="/Observatorio/Busqueda"
+                    history('/Observatorio/Busqueda')
                  }else{
 
                  }

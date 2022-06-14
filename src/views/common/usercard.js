@@ -33,6 +33,7 @@ import PieChart, {
   Title,
 } from "devextreme-react/pie-chart";
 import React, { Component, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as Values from "Observatorio/Variables/values";
 import Projections from "Observatorio/img/user.jpg";
 import Data from "Observatorio/img/user2.jpg";
@@ -601,6 +602,11 @@ const style3 = {
 };
 
 const Cardsmapas = () => {
+  const history = useNavigate();
+  const rutapasschange = (e) =>{
+    
+    history('/observatorio/ChangePassword')
+  }
   const [statistics, setstatistics] = useState({});
   const [fileregistrerph, setfileregistrerph] = useState([]);
   const [fileregistrernph, setfileregistrernph] = useState([]);
@@ -2504,7 +2510,7 @@ const Cardsmapas = () => {
                             Recuerde que debe tener por lo menos 8 caracteres
                           </Typography>
                           <a
-                            href="/observatorio/ChangePassword"
+                            onClick={rutapasschange}
                             className={classes.botonpass}
                           >
                             Cambiar Contraseña

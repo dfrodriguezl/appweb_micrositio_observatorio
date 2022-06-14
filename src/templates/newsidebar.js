@@ -118,14 +118,14 @@ export default function CustomizedAccordions() {
         if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
             window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
         }else{
-          history.push(idd.target.id)
+          history(idd.target.id)
           estilo=classes.ocultar
         }
       }
 
       const rutalogin = (e) =>{
         console.log("diego")
-        history.push('/observatorio/login')
+        history('/observatorio/login')
         estilo=classes.ocultar
       }
       

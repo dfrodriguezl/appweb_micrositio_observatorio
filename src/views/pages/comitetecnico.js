@@ -358,7 +358,7 @@ const Comite = () => {
                   <Grid item xs={4}>
                   <Tooltip title="Resolución 1149 de 2021" arrow>
                   <Button className={classes.botonver}
-                    href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"                    
+                    href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"  target="_blank"                  
                   >Ver</Button></Tooltip>
                 </Grid>
               </Grid>

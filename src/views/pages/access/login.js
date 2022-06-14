@@ -1,5 +1,5 @@
 import { Grid, makeStyles, Typography,useMediaQuery,Tooltip,Button} from "@material-ui/core";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import App from "Observatorio/img/log.jpg";
 import TextField from '@mui/material/TextField';
@@ -18,6 +18,7 @@ import {  Navigate } from 'react-router';
 import enviroment from '../../../config/enviroment'
 import ReCAPTCHA from "react-google-recaptcha"
 import { useNavigate } from "react-router-dom";
+import useAuth,{AuthContext} from "../../../templates/useAuth";
 const useStyle = makeStyles({
   boton1: {
     borderRadius: "2vh",
@@ -120,18 +121,21 @@ const useStyle = makeStyles({
 
 const ImagenBottom = () => {
     const classes = useStyle();
-    const matches = useMediaQuery('(max-width:769px)');
+    const matches = useMediaQuery('(max-width:1545px)');    
     let image = matches ? classes.image : classes.imageRigth
     return (
         <img className={image} src={App}></img>
     )
 }
 
+
+
 const FormAccess = (props) => {
     const classes = useStyle();
     const history = useNavigate();
     const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
     const [usuarioValido, cambiarUsuarioValido] = useState(true)
+    const  login  = useContext(AuthContext);
     const [form, setForm] = useState({
         user:"",
         clave: "",
@@ -171,6 +175,10 @@ const FormAccess = (props) => {
     }else{
       estilocaptcha=classes.captcha2
     }
+
+    const navigate = useNavigate()
+    
+    
     const sendForm = () => {
       
        if(captcha.current.getValue()){
@@ -189,14 +197,15 @@ const FormAccess = (props) => {
                      'Content-Type' : 'application/json' 
                  }
              }
-     ).then(response => { 
-         console.log(response)  
+     ).then(response => {  
          if(response.status == 200 ){
              if(response.data.code == "OK"){
                 localStorage.setItem("token",response.data.data.token)
                 localStorage.setItem("name",response.data.data.name)
                 localStorage.setItem("id",response.data.data.id)
-                props.setAuth(true)
+               // props.setAuth(true)
+                login.login()
+                history('/Observatorio/PlataformaUsuario')
              }else{
                  setLoading(false)
                  alert('Usuario o contraseña incorrecto')
@@ -225,12 +234,12 @@ const FormAccess = (props) => {
 
     const rutaregistrar = (e) =>{
       console.log("diego")
-      history.push('/observatorio/register')
+      history('/observatorio/register')
     }
 
     const rutacontraseña = (e) =>{
       console.log("diego")
-      history.push('/observatorio/ForgetPassword')
+      history('/observatorio/ForgetPassword')
     }
 
     return (
@@ -350,12 +359,12 @@ const FormAccess = (props) => {
 
 
 const Access = (props) => {
-
-    console.log(props)
+    console.log("maria",props.setAuth)
     const classes = useStyle();
-    const [login,setLogin] = useState(false)
-    if(login){
-        return  <Navigate to="/Observatorio/PlataformaUsuario" />
+    const  login  = useContext(AuthContext);
+    const navigate = useNavigate()  
+    if(login.isAuthenticated){        
+      return  <Navigate to="/observatorio/PlataformaUsuario"></Navigate>
     }else{
         return (
             <Grid container justifyContent="center"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Grid, Modal, Box, Typography } from "@material-ui/core/";
 import { AiFillHome, AiOutlineDown } from "react-icons/ai";
 import { BrowserRouter as Router, NavLink} from "react-router-dom";
@@ -9,6 +9,7 @@ import SideBarComponent from "./newsidebar.js";
 import * as Values from "Observatorio/Variables/values";
 import { Button } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom'; 
+import useAuth,{AuthContext} from "../templates/useAuth";
 
 //
 
@@ -274,13 +275,15 @@ const DropDownLi = Styled(MenuIL)`
 
 const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
+  const logout = useContext(AuthContext);
   const history = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const rutabtnlogin = (e) =>{
-  history.push('/observatorio/login')
+  const rutabtnlogin = () =>{
+  
+  history('/observatorio/login');
   } 
 
   const [menuActive, setMenuActive] = useState({
@@ -338,7 +341,8 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     setSession(false);
     isOk = false;
     props.setAuth(false);
-    
+    history('/observatorio/login')    
+    logout.logout()
   };
 
   function rutas(idd) {
@@ -346,7 +350,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
       window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
     }else{
-      history.push(idd.target.id)
+      history(idd.target.id)
     }
   }
 

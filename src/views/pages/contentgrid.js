@@ -577,9 +577,9 @@ const Top_content = () => {
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
     }
-  const rutabtn = (e) =>{
+  const rutabtn = () =>{
       console.log("diego")
-      history.push('/observatorio/Acerca')
+      history('/observatorio/Acerca')
   }
   return (
     <Grid container direction="row" className={estilo}>

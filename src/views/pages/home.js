@@ -4,23 +4,18 @@ import styles from '../../css/styles.css';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "Observatorio/ui/theme";
 import Routes from 'Observatorio/routes/routes';
-import {
-    HashRouter,
-    Switch,
-    Route,
-    useLocation
-  } from "react-router-dom";
+import {AuthProvider} from '../../templates/useAuth';
+
+
+  
 
 const App = () => {
     return(
         <ThemeProvider theme={theme}> 
-            <HashRouter>
-                <div>
-                    <Routes/> 
-                </div>
-            </HashRouter>
-        </ThemeProvider> 
-        
+                <AuthProvider>
+                    <Routes/>
+                </AuthProvider>
+        </ThemeProvider>         
     );
 }
 export default App;

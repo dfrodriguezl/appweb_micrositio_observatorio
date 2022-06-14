@@ -40,7 +40,7 @@ const Todos = () => {
     const classes = useStyle();    
     const history = useNavigate();
     function rutas(idd) {
-      history.push(idd.target.offsetParent.id)
+      history(idd.target.offsetParent.id)
     }
     return (
         <Grid>
