@@ -139,7 +139,7 @@ const Cardsservice = () => {
     >
       <Grid container justifyContent='center'>
       <Typography className={classes.Titleh3}  >
-          <strong>Estadisticas</strong>
+          <strong>Estadísticas</strong>
         </Typography>
       </Grid>
       <Grid container
