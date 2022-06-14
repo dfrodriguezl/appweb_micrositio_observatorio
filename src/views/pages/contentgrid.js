@@ -751,7 +751,7 @@ const Bottom_content = () => {
                 </Grid>
                 <Grid className={estilo2}>
                 <Tooltip title={t("home.ley")} arrow>
-                <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">Ver</Button>
+                <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">{t("home.ver")}</Button>
                 </Tooltip>                  
                 </Grid>
               </Grid>
@@ -761,7 +761,7 @@ const Bottom_content = () => {
                 </Grid>
                 <Grid className={estilo2} justifyContent="center">                  
                   <Tooltip title={t("home.decreto")} arrow>
-                    <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">Ver</Button>
+                    <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">{t("home.ver")}</Button>
                   </Tooltip> 
                 </Grid>
               </Grid>
@@ -771,7 +771,7 @@ const Bottom_content = () => {
                 </Grid>
                 <Grid className={estilo2}>
                   <Tooltip title={t("home.conpes")} arrow>
-                    <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">Ver</Button>
+                    <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">{t("home.ver")}</Button>
                   </Tooltip>
                 </Grid>
               </Grid>
