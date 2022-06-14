@@ -4,12 +4,13 @@ import { AiFillHome, AiOutlineDown } from "react-icons/ai";
 import { BrowserRouter as Router, NavLink} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Styled from "styled-components";
-import menuDane from "Observatorio/common/newmenu.js";
+//import menuDane from "Observatorio/common/newmenu.js";
 import SideBarComponent from "./newsidebar.js";
 import * as Values from "Observatorio/Variables/values";
 import { Button } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom'; 
 import useAuth,{AuthContext} from "../templates/useAuth";
+import {useTranslation} from "react-i18next";
 
 //
 
@@ -280,6 +281,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [t, i18n]= useTranslation("global");
 
   const rutabtnlogin = () =>{
   
@@ -353,6 +355,141 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
       history(idd.target.id)
     }
   }
+  
+  const menuDane =[   
+             
+    [
+        {
+          name:t("navbar.unobservatorio"),
+          id:"1",
+          link:"/observatorio/Acerca",
+          icon:"",
+          isMain:true
+        },
+        {
+            name:t("navbar.otro"),
+            id:"2",
+            link:"/observatorio/Otrosobservatorios",
+            icon:"",
+            isMain:true
+        }
+  
+    ],
+    [
+        {
+            name:t("navbar.servicios"),
+            id:"3",
+            link:"/observatorio/Servicios",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.estadisticas"),
+            id:"4",
+            link:"/observatorio/Servicios/estadisticas",
+            icon:"",
+            isMain:true
+        },
+        // {
+        //     name:"Censo de edificaciones CEED",
+        //     link:"/observatorio/Servicios/estadisticas/Ceed",
+        //     icon:"",
+        //     isMain:true
+        // },
+        {
+            name:t("navbar.plataforma"),
+            id:"5",
+            link:"/observatorio/PlataformaUsuario",
+            icon:"",
+            isMain:true,
+            isProtected:true
+        },
+        {
+            name:t("navbar.contacto"),
+            id:"6",
+            link:"/observatorio/Contacto",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.repositorio"),
+            id:"7",
+            link:"/observatorio/Repositorio",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.experimental"),
+            id:"8",
+            link:"/observatorio/Estadisticasexperimentales",
+            icon:"",
+            isMain:true
+        },
+
+
+    ],
+    [
+        {
+            name:t("navbar.visor"),
+            id:"9",
+            link:"/observatorio/Mapas",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.mercado"),
+            id:"10",
+            link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
+            icon:"",
+            isMain:false
+        },
+        
+    ],
+    [
+        {
+            name:t("navbar.catastro"),
+            id:"11",
+            link:"/observatorio/Catastromultiproposito",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.metodos"),
+            id:"12",
+            link:"/observatorio/Catastromultiproposito/Metodosavaluos",
+            icon:"",
+            isMain:true
+        },
+        // {
+        //     name:"Tipologías constructivas",
+        //     link:"/observatorio/tipologia",
+        //     icon:"",
+        //     isMain:true
+        // },
+        {
+            name:t("navbar.registro"),
+            id:"13",
+            link:"/observatorio/Catastromultiproposito/RegistroInmuebles",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.comite"),
+            id:"14",
+            link:"/observatorio/Comitetecnico",
+            icon:"",
+            isMain:true
+        },
+        {
+            name:t("navbar.modelo"),
+            id:"Ladm",
+            link:"/observatorio/LADM",
+            icon:"",
+            isMain:true
+        }
+
+    ]
+]
 
   useEffect(() => {
     
@@ -403,7 +540,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <NavLink className={classes.root} to="/observatorio/">Inicio </NavLink>
+              <NavLink className={classes.root} to="/observatorio/">{t("navbar.inicio")}</NavLink>
             </UtilidadCentrarTexto>
           </DropDownLi>
 
@@ -418,7 +555,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <MenuA>Observatorio</MenuA>
+                <MenuA>{t("navbar.observatorio")}</MenuA>
                 {result}
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -432,7 +569,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
-                <MenuA>Observatorio</MenuA>
+                <MenuA>{t("navbar.observatorio")}</MenuA>
               </UtilidadCentrarTexto>
             </DropDownLi>
           )}
@@ -449,7 +586,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
                 <MenuA>
-                  Catastro Multipropósito{" "}
+                  {t("navbar.catastro")}{" "}
                 </MenuA>
                 {result}
               </UtilidadCentrarTexto>
@@ -465,7 +602,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
                 <MenuA href="/observatorio/Catastromultiproposito">
-                  Catastro Multipropósito{" "}
+                {t("navbar.catastro")}{" "}
                 </MenuA>
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -483,7 +620,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
                 <MenuA>
-                  Geovisores{" "}
+                {t("navbar.geovisores")}{" "}
                 </MenuA>
                 {result}
               </UtilidadCentrarTexto>
@@ -499,7 +636,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
                 <NavLink to="/observatorio/Mapas" className={classes.root}>
-                  Geovisores
+                {t("navbar.geovisores")}
                 </NavLink>
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -517,7 +654,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
                 <MenuA>
-                  Servicios{" "}
+                {t("navbar.servicios")}{" "}
                 </MenuA>
                 {result}
               </UtilidadCentrarTexto>
@@ -533,7 +670,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               <UtilidadCentrarTexto>
                 <AiOutlineDown />
                 <NavLink to="/observatorio/Servicios" className={classes.root}>
-                  Servicios
+                {t("navbar.servicios")}
                 </NavLink>
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -552,7 +689,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
                 disableElevation
                 onClick={rutabtnlogin}
               >
-                Ingresar
+                {t("navbar.ingresar")}
               </Button>
             }
           </li>

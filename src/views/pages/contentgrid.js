@@ -13,6 +13,7 @@ import Maintenance from "Observatorio/img/usoobservatorio.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import * as Values from "Observatorio/Variables/values";
 import { useNavigate  } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const useStyle = makeStyles({
 
@@ -570,6 +571,7 @@ const ImagenBottom = () => {
 
 
 const Top_content = () => {  
+  const [t, i18n]= useTranslation("global");
   const history = useNavigate();
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
@@ -585,12 +587,12 @@ const Top_content = () => {
     <Grid container direction="row" className={estilo}>
       <ImagenMovil/>
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.Titleh3}>{Values.TitleHomeTop}</h3>
+        <h3 className={classes.Titleh3}>{t("home.titlehome")}</h3>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp}>
-          El Observatorio Inmobiliario Nacional es un Sistema de Información, que cuenta con un componente geográfico cuyo objetivo es consolidar los datos provenientes y recopilados por los gestores catastrales en relación al mercado inmobiliario, de fuentes como: ofertas, transacciones, costos de construcción, entre otras, para apoyar y facilitar la toma de decisiones relacionadas al Ordenamiento Territorial.
+          {t("home.description")}
           </p>
           {/* <p className={classes.Textp}>
             Este Sistema cumple con los estandares establecidos por el Instituto
@@ -600,8 +602,8 @@ const Top_content = () => {
           </p> */}
         </Grid>
         <Grid container>
-          <Tooltip title="Observatorio" arrow>
-            <Button className={classes.boton} onClick={rutabtn} >Acerca de</Button>
+          <Tooltip title={t("navbar.observatorio")} arrow>
+            <Button className={classes.boton} onClick={rutabtn} >{t("home.boton")}</Button>
           </Tooltip>
         </Grid>
       </Grid>
@@ -612,6 +614,7 @@ const Top_content = () => {
 
 const Center_content = () => {
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:431px)");
   var estilo = null;
   {
@@ -626,7 +629,7 @@ const Center_content = () => {
         alignItems="center"
         className={classes.containerTitle}
       >
-        <h1 className={classes.titleStyle}>Ventajas del observatorio</h1>
+        <h1 className={classes.titleStyle}>{t("home.ventajas")}</h1>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid
@@ -644,9 +647,9 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>Seguimiento y disposición</h1>
+          <h1 className={classes.titleStyle2}>{t("home.seguimiento")}</h1>
           <p className={classes.textStyle}>
-            Seguimiento y disposición en el tiempo de ofertas, transacciones, costos de construcción, entre otros.
+          {t("home.seguimiento2")}
           </p>
         </Grid>
         <Grid
@@ -664,10 +667,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>Integración</h1>
-          <p className={classes.textStyle}>
-            Integración con diversos Sistemas de Información de nivel público y privado.
-          </p>
+          <h1 className={classes.titleStyle2}>{t("home.integracion")}</h1>
+          <p className={classes.textStyle}>{t("home.integracion2")}</p>
         </Grid>
       </Grid>
       <ImagenCenter />
@@ -687,10 +688,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>Comunicación</h1>
-          <p className={classes.textStyle}>
-            Comunicación directa y en doble vía con los ciudadanos mediante la puesta en marcha de servicios digitales para asegurar una actualización permanente de la información predial.
-          </p>
+          <h1 className={classes.titleStyle2}>{t("home.comunicacion")}</h1>
+          <p className={classes.textStyle}>{t("home.comunicacion2")}</p>
         </Grid>
         <Grid
           container
@@ -710,9 +709,7 @@ const Center_content = () => {
           alignItems="center"
         >
           <h1 className={classes.titleStyle2}>LADM</h1>
-          <p className={classes.textStyle}>
-            Basado en el modelo estándar LADM - COL para la interoperabilidad de información del Catastro Multipropósito.
-          </p>
+          <p className={classes.textStyle}>{t("home.LADM2")}</p>
         </Grid>
       </Grid>
     </Grid>
@@ -721,6 +718,7 @@ const Center_content = () => {
 
 const Bottom_content = () => {
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     var estilo2 = null;
@@ -738,47 +736,41 @@ const Bottom_content = () => {
     >
       <Grid container direction="row" justifyContent="center">
         <Grid container justifyContent="center" alignItems="center">
-          <h1 className={classes.contentrulesh1}>Normatividad</h1>
+          <h1 className={classes.contentrulesh1}>{t("home.normatividad")}</h1>
         </Grid>
         <Grid item container direction="column" xs>
           <Grid container direction="column">
-            <p className={classes.contentrulesp}>
-              Para la disposición de información del mercado inmobiliario, se pone a disposición y funcionamiento el Observatorio Inmobiliario Nacional, que articula e integra diferentes fuentes de información en este campo.
-            </p>
-            <p className={classes.contentrulesp}>
-              Los observatorios inmobiliarios son una práctica ya implementada en Colombia por parte de algunos Catastros descentralizados, como mecanismos de visibilidad de información e insumo para la generación de conocimiento.
-            </p>
-            <p className={classes.contentrulesp}>              
-              El Observatorio Inmobiliario Nacional tiene su fundamento normativo en:
-            </p>
+            <p className={classes.contentrulesp}>{t("home.normatividad1")}</p>
+            <p className={classes.contentrulesp}>{t("home.normatividad2")}</p>
+            <p className={classes.contentrulesp}>{t("home.normatividad3")}</p>
           </Grid>
           <Grid container direction="column" className={classes.cuadrobotones}>            
           <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
                 <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>Ley 1955 de 2019</p>
+                <p className={classes.contentrulesp2}>{t("home.ley")}</p>
                 </Grid>
                 <Grid className={estilo2}>
-                <Tooltip title="Ley 1955 de 2019" arrow>
+                <Tooltip title={t("home.ley")} arrow>
                 <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">Ver</Button>
                 </Tooltip>                  
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
               <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>Decreto 148 de 2020</p>
+                <p className={classes.contentrulesp2}>{t("home.decreto")}</p>
                 </Grid>
                 <Grid className={estilo2} justifyContent="center">                  
-                  <Tooltip title="Decreto 148 de 2020" arrow>
+                  <Tooltip title={t("home.decreto")} arrow>
                     <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">Ver</Button>
                   </Tooltip> 
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
               <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>CONPES 3958 de 2019</p>
+                <p className={classes.contentrulesp2}>{t("home.conpes")}</p>
                 </Grid>
                 <Grid className={estilo2}>
-                  <Tooltip title="CONPES 3958 de 2019" arrow>
+                  <Tooltip title={t("home.conpes")} arrow>
                     <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">Ver</Button>
                   </Tooltip>
                 </Grid>
@@ -793,6 +785,7 @@ const Bottom_content = () => {
 
 const Bottom_content_footer = () => {
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:1281px)");
   const matches2 = useMediaQuery("(max-width:769px)");
   var estilo = null;
@@ -820,7 +813,7 @@ const Bottom_content_footer = () => {
         className={classes.containerTitle}
       >
         <h1 className={classes.titleStyle}>
-          Uso del observatorio inmobiliario nacional
+        {t("home.uso")}
         </h1>
       </Grid>
       <Grid item container direction="column" xs className={estilo}>
@@ -831,7 +824,7 @@ const Bottom_content_footer = () => {
           alignItems="center"
         >
           <h1 className={classes.num}>1</h1>
-          <p className={estilo2}>Seguimiento a la dinámica inmobiliaria</p>
+          <p className={estilo2}>{t("home.inmobiliaria")}</p>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -840,7 +833,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Ofertas</p>
+              <p className={classes.textStyle1}>{t("home.ofertas")}</p>
             </Grid>
             <Grid
               container
@@ -849,7 +842,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Transacciones</p>
+              <p className={classes.textStyle1}>{t("home.transacciones")}</p>
             </Grid>
             <Grid
               container
@@ -858,7 +851,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Costos de construcción</p>
+              <p className={classes.textStyle1}>{t("home.costos")}</p>
             </Grid>
             <Grid
               container
@@ -867,7 +860,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Avalúos</p>
+              <p className={classes.textStyle1}>{t("home.avaluos")}</p>
             </Grid>
             <Grid
               container
@@ -876,7 +869,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>Otros</p>
+              <p className={classes.textStyle1}>{t("home.otros")}</p>
             </Grid>
           </Grid>
         </Grid>
@@ -889,7 +882,7 @@ const Bottom_content_footer = () => {
         >
           <h1 className={classes.num}>2</h1>
           <p className={estilo2}>
-            Integración información estadística
+          {t("home.estadistica")}
           </p>
         </Grid>
         <Grid
@@ -900,7 +893,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>3</h1>
-          <p className={estilo2}>Publicidad de datos oficiales</p>
+          <p className={estilo2}>{t("home.publicidad")}</p>
         </Grid>
         <Grid
           container
@@ -910,7 +903,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={estilo2}>Fuente de investigaciones</p>
+          <p className={estilo2}>{t("home.fuente")}</p>
         </Grid>
       </Grid>
     </Grid>

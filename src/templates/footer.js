@@ -3,6 +3,7 @@ import {Grid, Box} from '@material-ui/core/';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlinePhone, AiOutlineClockCircle } from "react-icons/ai";
 import logoGobernment from "Observatorio/img/logoGovernment.png";
+import {useTranslation} from "react-i18next";
 
 import {
     makeStyles
@@ -51,6 +52,7 @@ const useStyle = makeStyles({
 
 const Footer = () =>{
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global");
     return(
         <ContenedorFooter>
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
@@ -63,11 +65,11 @@ const Footer = () =>{
                        <Box  item color="#B91450" fontSize ={30}><AiOutlinePhone/> </Box>
                         <ul  className={classes.ulItem}>
                               <li>
-                                  <b>CALL CENTER</b>
+                                  <b>{t("footer.call")}</b>
                               </li>
-                              <li><b>Conmutador:</b> <a className={classes.textDescription}>(571) 597 833 00 ó (571)5978398</a> </li>
+                              <li><b>{t("footer.conmutador")}</b> <a className={classes.textDescription}>(571) 597 833 00 ó (571)5978398</a> </li>
                               <li>
-                               <b>linea gratuita nacional</b><a className={classes.textDescription}> 01 8000 912 002</a>
+                               <b>{t("footer.linea")}</b><a className={classes.textDescription}> 01 8000 912 002</a>
                                </li> 
                         </ul>
                         
@@ -77,8 +79,8 @@ const Footer = () =>{
                 >
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
                          <ul item className={classes.ulItem}>
-                                <li><b>HORARIO DE ATENCIÓN</b></li>
-                                <li><b>Lunes a viernes</b> <a className={classes.textDescription}>8:00 - 17:00</a>
+                                <li><b>{t("footer.horario")}</b></li>
+                                <li><b>{t("footer.lunes")}</b> <a className={classes.textDescription}>8:00 - 17:00</a>
                                 </li>
                          </ul>  
                 </Grid>
@@ -91,19 +93,19 @@ const Footer = () =>{
   
                                  <ul className={classes.ulItem}>
                                       <li className={classes.liItem}>
-                                          <b>DIRECCIÓN</b>
+                                          <b>{t("footer.direccion")}</b>
                                       </li>
                                       <li className={classes.liItem}>
-                                      <b>Carrera 59 No. 26-70 Interior I - CAN</b>
+                                      <b>{t("footer.carrera")}</b>
                                       </li>
                                       <li className={classes.liItem}>
-                                      <b> Código postal:</b><a className={classes.textDescription}> 111321</a>
+                                      <b>{t("footer.codigo")}</b><a className={classes.textDescription}> 111321</a>
                                       </li>
                                       <li className={classes.liItem}>
-                                      <b>Apartado Aéreo:</b> <a className={classes.textDescription}> 80043</a>
+                                      <b>{t("footer.apartado")}</b> <a className={classes.textDescription}> 80043</a>
                                       </li>
                                       <li className={classes.liItem}>
-                                       <b>Bogotá D.C., Colombia - Suramérica</b>
+                                       <b>{t("footer.bogota")}</b>
                                       </li>
                                  </ul>                
                 </Grid>

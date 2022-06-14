@@ -167,7 +167,9 @@ const Header = () => {
     }
   }
     const [sideBarOpen, setSideBarOpen] = useState(false)
+    
     const [t, i18n]= useTranslation("global");
+
     const handlesearch = (e) =>{        
         document.getElementById("search")
         .addEventListener("keyup", function(e) {            
