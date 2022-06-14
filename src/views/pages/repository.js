@@ -168,7 +168,7 @@ const Repository = () => {
         >
           <p className={classes.contentrulesp}>
             El repositorio documental del observatorio inmobiliario nacional,
-            almacena todos los archivos de descarga (ultimas versiones) de la
+            almacena todos los archivos de descarga (últimas versiones) de la
             presente herramienta y los pone a disposición de los usuarios.
           </p>
           <p className={classes.contentrulesp}>
