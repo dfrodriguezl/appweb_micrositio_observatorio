@@ -208,7 +208,7 @@ const Repository = () => {
           <th className={classes.containercontent}>Tipologías constructivas habituales en Colombia</th>
           <th className={classes.containercontent}><Button className={classes.boton}>
           <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/TIPO_CONSTRUCTIVAS.docx"
+                  href=""
                   download
               >Descargar</a>
             </Button></th>
@@ -251,7 +251,7 @@ const Repository = () => {
           <th className={classes.containercontent}>MANUAL GEOPACKAGE.pdf</th>
           <th className={classes.containercontent}>Manual cargue información Geopackage</th>
           <th className={classes.containercontent}><Button className={classes.boton}><a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/INSTRUCTIVO_GEOPACKAGE.pdf"
+                  href=""
                   download
                   target="_blank"
               >Descargar</a>
@@ -263,7 +263,7 @@ const Repository = () => {
           <th className={classes.containercontent}>
             <Button className={classes.boton}>
               <a className={classes.alink}
-                  href="https://nowsoft.app/geoportal/descargas/oin/OFERTAS_OBSERVATORIO.gpkg"
+                  href=""
                   download
               >Descargar</a>
             </Button></th>

@@ -11,7 +11,7 @@ const CardServicios =[
         "title":"Ofertas de inmobiliarias",
         "image_card":Sale,
         "description":"Permite conocer el valor y ubicación de las diferentes Ofertas Inmobiliarias que existen en todo el Territorio Nacional..",
-        "link":"https://nowsoft.app/geoportal/geovisores/territorio/ofertas-mercado/"
+        "link":""
     },
     {
         "id":2,

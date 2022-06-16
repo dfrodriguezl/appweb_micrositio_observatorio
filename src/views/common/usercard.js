@@ -1824,7 +1824,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/colectora/externo/files_oin/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+                              href=""
                               download
                             >
                               <Grid container direction="row">
@@ -1873,7 +1873,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/colectora/externo/files_oin/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+                              href=""
                               download
                             >
                               <Grid container direction="row">
@@ -1922,7 +1922,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/geoportal/descargas/oin/INSTRUCTIVO_GEOPACKAGE.pdf"
+                              href=""
                               download
                               target="_blank"
                             >
@@ -1969,7 +1969,7 @@ const Cardsmapas = () => {
                           <button className={classes.boton}>
                             <a
                               className={classes.alink}
-                              href="https://nowsoft.app/geoportal/descargas/oin/OFERTAS_OBSERVATORIO.gpkg"
+                              href=""
                               download
                             >
                               <Grid container direction="row">
@@ -2984,7 +2984,7 @@ function customizeText(arg) {
 //   return (
 //     <a
 //       className="buttondownload"
-//       href="https://nowsoft.app/geoportal/descargas/oin/FORMATO_MERCADO.xlsx"
+//       href=""
 //       download
 //     >
 //       Descargar

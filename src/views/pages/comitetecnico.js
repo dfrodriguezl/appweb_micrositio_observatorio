@@ -310,7 +310,7 @@ const Comite = () => {
       </Grid>
       
       {/* <button className={estilo4}>
-        <a className={classes.alink} href="https://nowsoft.app/geoportal/descargas/oin/Presentación_ComiteTécnicoAsesor.pptx" download>
+        <a className={classes.alink} href="" download>
           <Grid container direction="row">
                                 <Grid item xs={4} direction="column" container  className={estilo3}>
                                   <CardMedia className={estilo2} image={word} />
