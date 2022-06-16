@@ -584,14 +584,14 @@ class UserController {
           let valid; 
           switch (wb.SheetNames[i]) {                                         
             case "PH":                                
-              valid = Validate.validPh(newRows[j]);               
-              // convert = ParserModel.transformToSheetsPH(newRows[j])
-              // console.log("prueba 2 ", convert)
+              valid = Validate.validPh(newRows[j]);     
               if(valid==="exito"){                
                 let phfound = await UserService.searchOfferPh1(newRows[j],id_obsevatorio);           
                 if(phfound){
+                  console.log("15/06/2022")
                   await UserService.updateOfferPh1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update                          
                 }else{
+                  console.log("16/06/2022")
                   await UserService.uploadfileph1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                          
                 }                        
               }else{                        

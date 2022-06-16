@@ -603,8 +603,7 @@ const style3 = {
 
 const Cardsmapas = () => {
   const history = useNavigate();
-  const rutapasschange = (e) =>{
-    
+  const rutapasschange = (e) =>{    
     history('/observatorio/ChangePassword')
   }
   const [statistics, setstatistics] = useState({});
