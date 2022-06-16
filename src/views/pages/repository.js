@@ -10,9 +10,9 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Meeting from "Observatorio/img/repos.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
-import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
-import ejemplomercado from "../../files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
-import formatomercado from "../../files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import tecnicasvaluatorias from "../../../backend/files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+import ejemplomercado from "../../../backend/files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import formatomercado from "../../../backend/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
 
 const useStyle = makeStyles({
   margintop: {

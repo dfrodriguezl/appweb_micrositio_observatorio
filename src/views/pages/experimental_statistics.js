@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Meeting from "Observatorio/img/repo2.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
-import resumenejecutivo from "../../files/DOC_DIRECTIVO_IND_2021_20211203.pdf"
-import documentotecnico from "../../files/DOC_TECN_IND_20211203.pdf"
+import resumenejecutivo from "../../../backend/files/DOC_DIRECTIVO_IND_2021_20211203.pdf"
+import documentotecnico from "../../../backend/files/DOC_TECN_IND_20211203.pdf"
 
 const useStyle = makeStyles({
   margintop:{

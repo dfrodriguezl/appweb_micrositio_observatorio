@@ -4,7 +4,7 @@ import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
 import word from "Observatorio/img/PDF1.png";
 import geograph from "Observatorio/img/geograph.png";
-import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+import tecnicasvaluatorias from "../../../backend/files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
 
 const useStyle = makeStyles({
   gridglobal: {
