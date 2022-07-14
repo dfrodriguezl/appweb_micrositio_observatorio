@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/servicios.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import {useTranslation} from "react-i18next";
 
 import infocards from "Observatorio/common/cards_.js";
 
@@ -138,18 +139,22 @@ const ImagenBottom = () => {
   )
 } 
 
+const ajustable = "ajustable"
+
 const Topservice = () => {
-    const classes = useStyle();    
+    const classes = useStyle();   
+    const [t, i18n]= useTranslation("global");  
     return (
         <Grid container direccion="row" >
           <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>Servicios</h3>
+          <h3 className={classes.Titleh3+" "+ajustable}>{t("services.service")}</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
-                <p className={classes.Textp}>El Observatorio Inmobiliario Nacional recopila y pública información acerca del mercado inmobiliario.</p>      
-                <p className={classes.Textp}>
-                  La información publicada está articulada con los demás observatorios a nivel nacional, tales como: Metropolitanos, regionales, municipales y distritales y busca disponer de la información acorde a estándares establecidos y de forma oficial, agregar valor mediante la consolidación de datos y aplicar nuevos métodos analíticos.</p> 
+                <p className={classes.Textp+" "+ajustable}>{t("services.service2")}</p>      
+                <p className={classes.Textp+" "+ajustable}>
+                {t("services.service3")}
+                </p> 
                 </Grid>
                 <ImagenBottom/> 
         </Grid>
@@ -158,6 +163,7 @@ const Topservice = () => {
 
 const Cardsservice = () => {
     const classes = useStyle();    
+    const [t, i18n]= useTranslation("global"); 
     return (
       <Grid container>
         <Grid
@@ -185,17 +191,17 @@ const Cardsservice = () => {
                     title={infocards.title}
                   />
                   <CardContent className={classes.centerText + classes.contentcar}>                      
-                    <Typography className={classes.Textpcard}>
+                    <Typography className={classes.Textpcard+" "+ajustable}>
                       {infocards.title}
                     </Typography>
-                    <Typography className={classes.Textpdes}>
+                    <Typography className={classes.Textpdes+" "+ajustable}>
                       {infocards.description}  
                     </Typography>
                   </CardContent>
                 </CardContent>
                 <CardActions className={classes.centerButton}>
                 <Tooltip title={infocards.title} arrow>                    
-                  <Button target="_blank" className={classes.boton} href={infocards.link}>Visitar</Button>
+                  <Button target="_blank" className={classes.boton+" "+ajustable} href={infocards.link}>{t("services.visit")}</Button>
                 </Tooltip>
                 </CardActions>
               </Card>
@@ -216,7 +222,7 @@ const ViewService = () => {
     }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={estilo}>
+        alignItems="center" id="target-two" className={estilo}>
             <Topservice/>
             <Cardsservice/>
         </Grid>

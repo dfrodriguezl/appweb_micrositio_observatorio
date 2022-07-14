@@ -28,13 +28,16 @@ const useStyle = makeStyles({
   },
 });
 
+const ajustable = "ajustable"
+
 const Topobservatorio = () => {
   const classes = useStyle();
   let name = localStorage.getItem("name");
+  
   return (
     <Grid container direccion="row">      
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.Titleh3}>Plataforma usuario</h3>
+        <h3 className={classes.Titleh3+" "+ajustable}>Plataforma usuario</h3>
       </Grid>
       <Grid
         container
@@ -42,7 +45,7 @@ const Topobservatorio = () => {
         alignItems="center"
         direction="row"
       >
-        <p className={classes.Textp}>¡Bienvenido!, {name} a su plataforma, a continuación encontrará un resumen de la informacion suministrada</p>
+        <p className={classes.Textp+" "+ajustable}>¡Bienvenido!, {name} a su plataforma, a continuación encontrará un resumen de la informacion suministrada</p>
       </Grid>
     </Grid>
   );
@@ -64,9 +67,10 @@ const otrosobservatorios = (props) => {
         justifyContent="center"
         alignItems="center"
         className={estilo}
+        id="target-two"
       >
         <Topobservatorio />
-        <Cardsformulario />
+        <Cardsformulario/>
       </Grid>
     );
   

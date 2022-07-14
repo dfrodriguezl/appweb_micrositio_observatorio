@@ -8,6 +8,7 @@ import axios from 'axios';
 import {Loader} from './loader/loader'
 import Modal from "Observatorio/pages/modal"
 import enviroment from '../../config/enviroment';
+import {useTranslation} from "react-i18next";
 const useStyle = makeStyles({
 
     gridglobal: {
@@ -104,20 +105,23 @@ const useStyle = makeStyles({
     }
 });
 
+const ajustable = "ajustable"
+
 const TopContacto = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global");
     return (
         <Grid container direction="row" >
             <Grid container justifyContent="center">
-                <h3 className={classes.Titleh3}>Contactenos</h3>
+                <h3 className={classes.Titleh3+" "+ajustable}>{t("contact.contact")}</h3>
             </Grid>
         </Grid>
     );
 }
 
-
 const Contacto = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global");
     const matches = useMediaQuery('(max-width:769px)');
     const [openLoading,setLoading] = useState(false)
     const [open, setOpen] = useState(false)
@@ -216,7 +220,7 @@ const Contacto = () => {
     }
     return (
         <Grid container justifyContent="center"
-            alignItems="center" className={estilo}>
+            alignItems="center" id="target-two" className={estilo}>
             <TopContacto />
             <Grid container spacing={2} direction="row">
 
@@ -226,8 +230,8 @@ const Contacto = () => {
                 <Grid item direction="column" xs={12} sm={12} md={6} lg={6} container spacing={1} >
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
-                            <Typography className={classes.Textp}>
-                                Nombre *
+                            <Typography className={classes.Textp+" "+ajustable}>
+                            {t("contact.contact2")}
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
@@ -236,8 +240,8 @@ const Contacto = () => {
                     </Grid>
                     <Grid item direction="row"  container>
                         <Grid item lg={5} md={5} sm={5} xs={12} >
-                            <Typography className={classes.Textp}>
-                                Celular/Teléfono
+                            <Typography className={classes.Textp+" "+ajustable}>
+                            {t("contact.contact3")}
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
@@ -256,8 +260,8 @@ const Contacto = () => {
                     </Grid> */}
                     <Grid item direction="row" container>
                         <Grid item lg={5} md={5} sm={5} xs={12}>
-                            <Typography className={classes.Textp}>
-                                Correo electrónico *
+                            <Typography className={classes.Textp+" "+ajustable}>
+                            {t("contact.contact4")}
                             </Typography>
                         </Grid>
                         <Grid item lg={4} md={4} sm={4} xs={12}>
@@ -266,8 +270,8 @@ const Contacto = () => {
                     </Grid>
 
                     <Grid item  container justifyContent="center">
-                            <Typography className={classes.Textp}>
-                                Petición / Queja / Reclamo y/o Sugerencia *
+                            <Typography className={classes.Textp+" "+ajustable}>
+                            {t("contact.contact5")}
                             </Typography>
                     </Grid>
                     <Grid container item>
@@ -283,13 +287,13 @@ const Contacto = () => {
                     </Grid>
                     <Grid container item   >
                         <Grid item lg={10} md={10} sm={10} xs={12} >
-                        <Typography className={classes.Textp}>
-                                * Campos obligatorios
+                        <Typography className={classes.Textp+" "+ajustable}>
+                        {t("contact.contact6")}
                             </Typography>
                         </Grid>
                         <Grid item container direction="row" lg={2} md={2} sm={2} xs={12} justifyContent="flex-end">               
-                            <Tooltip title="Enviar" arrow>
-                                <Button disabled={!formComplete} disableElevation className={classes.boton} onClick={sendForm} >Enviar</Button>
+                            <Tooltip title={t("contact.contact7")} arrow>
+                                <Button disabled={!formComplete} disableElevation className={classes.boton+" "+ajustable} onClick={sendForm} >{t("contact.contact7")}</Button>
                             </Tooltip>
                         </Grid>
                     </Grid>

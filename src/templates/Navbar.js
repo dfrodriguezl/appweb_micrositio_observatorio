@@ -198,7 +198,7 @@ const MenuA = Styled.a`
     margin: 5px;
     padding: 5px; 
     color: inherit;  
-    cursor: default;          
+    cursor: default;     
 `;
 
 const MenuIL = Styled.li`
@@ -336,7 +336,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   if (token) {
     isOk = true;
   }
-  console.log("is0k", isOk)
+  
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
@@ -529,9 +529,9 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
       </DropDownContent>
     );
   }
-  
+  const ajustable = "ajustable"
   return (
-    <Grid container onMouseLeave={handleStatusFalseAll}>
+    <Grid container id="target-two" onMouseLeave={handleStatusFalseAll}>
       <Grid container item xs={12} sm={12} className={classes.cardglobal}>
         <NavBarContenedor>
           <DropDownLi
@@ -540,7 +540,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           >
             <UtilidadCentrarTexto>
               <AiFillHome />
-              <NavLink className={classes.root} to="/observatorio/">{t("navbar.inicio")}</NavLink>
+              <NavLink className={classes.root+" "+ajustable} to="/observatorio/">{t("navbar.inicio")}</NavLink>
             </UtilidadCentrarTexto>
           </DropDownLi>
 
@@ -555,7 +555,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             >
               <UtilidadCentrarTexto>
                 <AiOutlineDown className={classes.rotate} />
-                <MenuA>{t("navbar.observatorio")}</MenuA>
+                <MenuA className={ajustable}>{t("navbar.observatorio")}</MenuA>
                 {result}
               </UtilidadCentrarTexto>
             </DropDownLi>
@@ -584,7 +584,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               className={classes.colorMenuActive}
             >
               <UtilidadCentrarTexto>
-                <AiOutlineDown className={classes.rotate} />
+                <AiOutlineDown className={classes.rotate+" "+ajustable} />
                 <MenuA>
                   {t("navbar.catastro")}{" "}
                 </MenuA>
@@ -679,13 +679,13 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           <li onMouseEnter={handleStatusFalseAll}>
             {isOk ? 
             <Button
-            className={classes.boton}
+            className={classes.boton+" "+ajustable}
             onClick={handleOpen}
           >
             Cerrar Sesión
           </Button>:
               <Button
-                className={classes.boton}
+                className={classes.boton+" "+ajustable}
                 disableElevation
                 onClick={rutabtnlogin}
               >
@@ -710,7 +710,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             ¿Esta seguro que desea cerrar sesión?
           </Typography>
           <Button
-                className={classes.boton}
+                className={classes.boton+" "+ajustable}
                 onClick={cerrarSesion}
                 href="/observatorio/login"
               >

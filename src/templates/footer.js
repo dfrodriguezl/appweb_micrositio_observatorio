@@ -52,9 +52,10 @@ const useStyle = makeStyles({
 
 const Footer = () =>{
     const classes = useStyle();
-    const [t, i18n]= useTranslation("global");
+    const [t, i18n]= useTranslation("global");    
+    const ajustable = "ajustable"
     return(
-        <ContenedorFooter>
+        <ContenedorFooter id="target-two">
             <H3>Departamento Administrativo Nacional de Estadistica DANE</H3>
             <Grid container  justifyContent="center">
                 {/* <span>Departamento Administrativo Nacional de Estadistica DANE</span> */}
@@ -63,7 +64,7 @@ const Footer = () =>{
                       >                    
                    
                        <Box  item color="#B91450" fontSize ={30}><AiOutlinePhone/> </Box>
-                        <ul  className={classes.ulItem}>
+                        <ul  className={classes.ulItem+" "+ajustable}>
                               <li>
                                   <b>{t("footer.call")}</b>
                               </li>
@@ -78,7 +79,7 @@ const Footer = () =>{
                  className={classes.containerItem}
                 >
                          <Box  item color="#B91450" fontSize = {30}><AiOutlineClockCircle/> </Box>     
-                         <ul item className={classes.ulItem}>
+                         <ul item className={classes.ulItem+" "+ajustable}>
                                 <li><b>{t("footer.horario")}</b></li>
                                 <li><b>{t("footer.lunes")}</b> <a className={classes.textDescription}>8:00 - 17:00</a>
                                 </li>
@@ -91,7 +92,7 @@ const Footer = () =>{
                      <Box  color="#B91450" fontSize = {30}><HiOutlineLocationMarker/> </Box>
                             
   
-                                 <ul className={classes.ulItem}>
+                                 <ul className={classes.ulItem+" "+ajustable}>
                                       <li className={classes.liItem}>
                                           <b>{t("footer.direccion")}</b>
                                       </li>
@@ -110,7 +111,7 @@ const Footer = () =>{
                                  </ul>                
                 </Grid>
                 <Grid  item container xs={12} sm={12} md={12} lg={2}  
-                 className={classes.containerItem} 
+                 className={classes.containerItem+" "+ajustable} 
                 justifyContent={'center'}>
                     <Box >
                         <a href="https://idm.presidencia.gov.co/presidencia">

@@ -2,6 +2,7 @@ import { Grid, makeStyles, useMediaQuery, Paper, CardActions, Card, CardContent,
 import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/Delivery.svg";
+import {useTranslation} from "react-i18next";
 
 import imageItem from "Observatorio/img/estadistica.jpg"
 import CardStatistics  from './cardstatistics';
@@ -131,15 +132,17 @@ const ImagenBottom = () => {
 
 const Cardsservice = () => {
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global"); 
   const matches = useMediaQuery('(min-width:769px)');
+  const ajustable = "ajustable"
   var estilo = null;
   {matches ? estilo=classes.imagen_top:estilo=classes.imagen_top2}   
   return (
     <Grid container
     >
       <Grid container justifyContent='center'>
-      <Typography className={classes.Titleh3}  >
-          <strong>Estadísticas</strong>
+      <Typography className={classes.Titleh3+" "+ajustable}  >
+          <strong>{t("statistics.statistics")}</strong>
         </Typography>
       </Grid>
       <Grid container
@@ -150,21 +153,21 @@ const Cardsservice = () => {
         lg={6}
         className={classes.cardglobal}
       >        
-        <Typography className={classes.Textp}>
-        La articulación de los Observatorios Inmobiliarios de los Gestores Catastrales en el Observatorio Inmobiliario Nacional, generará continuo conocimiento sobre las tendencias y dinámicas del mercado inmobiliario en el Territorio Nacional, el cual servira de base para la toma de decisiones.
+        <Typography className={classes.Textp+" "+ajustable}>
+        {t("statistics.statistics2")}
         </Typography>
       </Grid>
       <Grid container item xs={12} sm={12} md={6} lg={6} className={classes.containerImg} justifyContent="center" alignItems='center'>
         <img src={imageItem}  className={estilo}/>
       </Grid>
       <Grid container justifyContent='center' xs={12} sm={12} md={12} lg={12}>
-        <Typography className={classes.Titleh3}  >
-          <strong>Construcción</strong>
+        <Typography className={classes.Titleh3+" "+ajustable}  >
+          <strong>{t("statistics.building")}</strong>
         </Typography>
       </Grid>
       <Grid
         container
-        className={classes.gridglobal}
+        className={classes.gridglobal+" "+ajustable}
         alignItems="stretch"
       >
          <CardStatistics></CardStatistics>
@@ -182,7 +185,7 @@ const ViewService = () => {
     }
   return (
     <Grid container justifyContent="center"
-      alignItems="center" className={estilo}>
+      alignItems="center" id="target-two" className={estilo}>
       <Cardsservice />
     </Grid>
   );

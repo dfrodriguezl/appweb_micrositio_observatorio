@@ -5,6 +5,7 @@ import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/Delivery.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 import infocards from "Observatorio/common/statistics.js";
+import {useTranslation} from "react-i18next";
 
 const useStyle = makeStyles({
     marginTop: {
@@ -157,8 +158,9 @@ const useStyle = makeStyles({
   });
 const CardStatistics=()=>{
     let resultCards=[]
+    const ajustable = "ajustable"
     const classes = useStyle();
-          
+    const [t, i18n]= useTranslation("global"); 
         infocards.map((row)=>{
              row.map((infocard)=>{
                 resultCards.push(
@@ -180,17 +182,17 @@ const CardStatistics=()=>{
                           title={infocard.title}
                         />
                         <CardContent className={classes.centerText + classes.contentcar}>
-                          <Typography className={classes.Textpcard}>
+                          <Typography className={classes.Textpcard+" "+ajustable}>
                             {infocard.title}
                           </Typography>
-                          <Typography className={classes.Textpdes}>
+                          <Typography className={classes.Textpdes+" "+ajustable}>
                             {infocard.description}
                           </Typography>
                         </CardContent>
                       </CardContent>
                       <CardActions className={classes.centerButton}>
                         <Tooltip title={infocard.title} arrow>                    
-                          <Button target="_blank" className={classes.boton} href={infocard.link}>Visitar</Button>
+                          <Button target="_blank" className={classes.boton+" "+ajustable} href={infocard.link}>{t("statistics.visit")}</Button>
                         </Tooltip>
                       </CardActions>
                     </Card>

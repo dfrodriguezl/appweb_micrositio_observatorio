@@ -1,6 +1,6 @@
 'use strict';
 const env = {
-    endpoint:  "http://localhost:3000",
+    endpoint:  "https://geoportal.dane.gov.co/observatorio",
 };
 module.exports = env;
 

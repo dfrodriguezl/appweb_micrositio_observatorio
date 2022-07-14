@@ -9,7 +9,7 @@ class EmailService {
       secure : true,
       auth: {
         user: "noreplytestsendemail@gmail.com",        
-        pass: "dane2021+",
+        pass: "rbvqxbdczevzjmda",
       },   
       tls: {
         rejectUnauthorized: false

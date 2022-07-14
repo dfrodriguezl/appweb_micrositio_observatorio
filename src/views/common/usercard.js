@@ -1128,8 +1128,9 @@ const Cardsmapas = () => {
       }
     }
   }
+  const ajustable = "ajustable"
   return (
-    <Grid container>
+    <Grid container id="target-two">
       <Grid container>
         <Grid
           container
@@ -1148,7 +1149,7 @@ const Cardsmapas = () => {
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <p className={classes.Titleh3}>Estadísticas</p>
+                    <p className={classes.Titleh3+" "+ajustable}>Estadísticas</p>
                   </Grid>
                   <Grid
                     container
@@ -1170,7 +1171,7 @@ const Cardsmapas = () => {
                         className={classes.margincard1}
                         alignItems="center"
                       >
-                        <p className={classes.contentrulesp31}>Total Ofertas</p>
+                        <p className={classes.contentrulesp31+" "+ajustable}>Total Ofertas</p>
                       </Grid>
                       <Grid
                         container
@@ -1180,7 +1181,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>{suma}</p>
+                        <p className={classes.contentnum+" "+ajustable}>{suma}</p>
                       </Grid>
                     </Grid>
                     <Grid
@@ -1195,7 +1196,7 @@ const Cardsmapas = () => {
                         className={classes.margincard1}
                         alignItems="center"
                       >
-                        <p className={classes.contentrulesp2}>
+                        <p className={classes.contentrulesp2+" "+ajustable}>
                           Cantidad de ofertas PH
                         </p>
                       </Grid>
@@ -1207,7 +1208,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>
+                        <p className={classes.contentnum+" "+ajustable}>
                           {statistics.cantidadph}
                         </p>
                       </Grid>
@@ -1224,7 +1225,7 @@ const Cardsmapas = () => {
                         className={classes.margincard1}
                         alignItems="center"
                       >
-                        <p className={classes.contentrulesp2}>
+                        <p className={classes.contentrulesp2+" "+ajustable}>
                           Cantidad de ofertas NPH
                         </p>
                       </Grid>
@@ -1236,7 +1237,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>
+                        <p className={classes.contentnum+" "+ajustable}>
                           {statistics.cantidadnph}
                         </p>
                       </Grid>
@@ -1253,7 +1254,7 @@ const Cardsmapas = () => {
                         className={classes.margincard1}
                         alignItems="center"
                       >
-                        <p className={classes.contentrulesp2}>
+                        <p className={classes.contentrulesp2+" "+ajustable}>
                           Cantidad de ofertas Rurales
                         </p>
                       </Grid>
@@ -1265,7 +1266,7 @@ const Cardsmapas = () => {
                         alignItems="center"
                         className={classes.root3}
                       >
-                        <p className={classes.contentnum}>
+                        <p className={classes.contentnum+" "+ajustable}>
                           {statistics.cantidadrural}
                         </p>
                       </Grid>
@@ -1300,7 +1301,7 @@ const Cardsmapas = () => {
                             justifyContent="center"
                             alignItems="center"
                           >
-                            <p className={classes.Titleh}>
+                            <p className={classes.Titleh+" "+ajustable}>
                               Distribución por tipo de oferta
                             </p>
                           </Grid>
@@ -1311,6 +1312,7 @@ const Cardsmapas = () => {
                             direction="column"
                             justifyContent="center"
                             alignItems="center"
+                            className={ajustable}
                           >
                             <PieChart
                               id="pie"
@@ -1341,7 +1343,7 @@ const Cardsmapas = () => {
                             </PieChart>
                           </Grid>
                         </Grid>
-                        <Grid container item xs direction={title_}>
+                        <Grid container item xs direction={title_} className={ajustable}>
                           <Grid
                             container
                             item
@@ -1457,7 +1459,7 @@ const Cardsmapas = () => {
                         direction="column"
                         item
                         xs={12}
-                        className={classes.root5}
+                        className={classes.root5+" "+ajustable}
                       >
                         <p className={classes.Titleh}>
                           Distribución por destinación económica
@@ -1652,11 +1654,11 @@ const Cardsmapas = () => {
                 <Grid item xs container direction="column">
                   <CardContent className={classes.centerText}>
                     <Grid direction="row" container justifyContent="center">
-                      <p className={classes.Titleh4}>Visor</p>
+                      <p className={classes.Titleh4+" "+ajustable}>Visor</p>
                     </Grid>
 
                     <Grid>
-                      <Typography className={classes.Textp_1}>
+                      <Typography className={classes.Textp_1+" "+ajustable}>
                         En la siguiente herramienta se podrá visualizar la
                         ubicación geográfica de las ofertas, asi mismo, se
                         podrán realizar filtros por el tipo de ofertas y/o
@@ -1669,8 +1671,8 @@ const Cardsmapas = () => {
                       alignItems="center"
                       justifyContent="center"
                     >
-                      <p className={classes.Titleh11}>Total de Ofertas:</p>
-                      <p className={classes.Titleh12}>{suma}</p>
+                      <p className={classes.Titleh11+" "+ajustable}>Total de Ofertas:</p>
+                      <p className={classes.Titleh12+" "+ajustable}>{suma}</p>
                       <Box className={classes.itemTextField}>
                         <FormControl fullWidth>
                           <InputLabel id="demo-simple-select-label-">
@@ -1787,7 +1789,7 @@ const Cardsmapas = () => {
                         justifyContent="center"
                         alignItems="flex-start"
                       >
-                        <Typography className={classes.Textp1}>
+                        <Typography className={classes.Textp1+" "+ajustable}>
                           En esta sección podrá descargar el formato que
                           contiene la estructura de mercado para PH, NPH y
                           predios Rurales (el formato incluye especificaciones,
@@ -1795,7 +1797,7 @@ const Cardsmapas = () => {
                           hay lugar), ejemplo de diligenciamiento del respectivo
                           formato en base de datos y capas geográficas.
                         </Typography>
-                        <Typography className={classes.Textp}>
+                        <Typography className={classes.Textp+" "+ajustable}>
                           Asi mismo esta habilitada la carga de información por
                           cualquiera de los dos métodos utilizados
                         </Typography>
@@ -1804,7 +1806,7 @@ const Cardsmapas = () => {
                   </CardContent>
                   <Grid container direction="column" item xs>
                     <Grid container direction="column" item xs className={root}>
-                      <p className={classes.Titleh3}>Archivos para descarga</p>
+                      <p className={classes.Titleh3+" "+ajustable}>Archivos para descarga</p>
                       <Grid
                         direction="row"
                         item
@@ -1847,13 +1849,13 @@ const Cardsmapas = () => {
                                   direction="column"
                                   justifyContent="center"
                                 >
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     <strong>Nombre: EJEMPLO MERCADO</strong>
                                   </p>
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     36 KB | 02/12/2021
                                   </p>
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     <strong>Descripción: </strong>Ejemplo de
                                     mercado según formato establecido
                                   </p>
@@ -1896,13 +1898,13 @@ const Cardsmapas = () => {
                                   direction="column"
                                   justifyContent="center"
                                 >
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     <strong>Nombre: FORMATO MERCADO</strong>
                                   </p>
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     50 KB | 02/12/2021
                                   </p>
-                                  <p className={classes.contentrulesp3}>
+                                  <p className={classes.contentrulesp3+" "+ajustable}>
                                     <strong>Descripción: </strong>Formato
                                     mercado para PH, NPH y predios rurales
                                   </p>
@@ -2011,7 +2013,7 @@ const Cardsmapas = () => {
                       </Grid>
                     </Grid>
                     <Grid container direction="column" item xs className={root}>
-                      <p className={classes.Titleh3}>Links para carga</p>
+                      <p className={classes.Titleh3+" "+ajustable}>Links para carga</p>
                       <Grid
                         direction="row"
                         item
@@ -2049,10 +2051,10 @@ const Cardsmapas = () => {
                                 direction="column"
                                 justifyContent="center"
                               >
-                                <p className={classes.contentrulesp3}>
+                                <p className={classes.contentrulesp3+" "+ajustable}>
                                   <strong>CARGA MERCADO</strong>
                                 </p>
-                                <p className={classes.contentrulesp3}>
+                                <p className={classes.contentrulesp3+" "+ajustable}>
                                   Formato: Excel
                                 </p>
                               </Grid>
@@ -2114,7 +2116,7 @@ const Cardsmapas = () => {
         >
           <Card className={classes.root}>
             <CardContent className={classes.cardglobal2}>
-              <Grid container direction="row" item xs>
+              <Grid container className={ajustable} direction="row" item xs>
                 <Grid item xs container direction="column">
                   <CardContent className={classes.centerText}>
                     <p className={classes.Titleh}>
@@ -2132,12 +2134,12 @@ const Cardsmapas = () => {
                         justifyContent="center"
                         alignItems="flex-start"
                       >
-                        <Typography className={classes.Textp1}>
+                        <Typography className={classes.Textp1+" "+ajustable}>
                           En esta sección podrá visualizar los archivos cargados
                           al observatorio inmobiliario nacional, por fecha y
                           tipo.
                         </Typography>
-                        <Typography className={classes.Textp}>
+                        <Typography className={classes.Textp+" "+ajustable}>
                           Como usuario que provee la informacion por la cual se
                           alimenta el micrositio, ademas de cargar, podrá
                           descargar y eliminar archivos.
@@ -2499,7 +2501,7 @@ const Cardsmapas = () => {
                       >
                         <Grid
                           container
-                          className={classes.rootpassword}
+                          className={classes.rootpassword+" "+ajustable}
                           justifyContent="center"
                         >
                           <Typography className={classes.Textpass}>
@@ -2552,7 +2554,7 @@ const Cardsmapas = () => {
                   Text in a modal
                 </Typography> */}
                 <Typography
-                  className={classes.Textpmodal}
+                  className={classes.Textpmodal+" "+ajustable}
                   id="modal-modal-description"
                 >
                   En el siguiente boton, seleccione el archivo que desea cargar
@@ -2571,7 +2573,7 @@ const Cardsmapas = () => {
               <label
                 for="file"
                 id="nombre"
-                className={classes.botonmodalcargar}
+                className={classes.botonmodalcargar+" "+ajustable}
               >
                 Seleccionar Archivo
               </label>
@@ -2583,7 +2585,7 @@ const Cardsmapas = () => {
                 alignContent="center"
               >
                 <Typography
-                  className={classes.Textpmodal1}
+                  className={classes.Textpmodal1+" "+ajustable}
                   id="modal-modal-descriptio"
                 >
                   ¿Desea continuar con la carga?
@@ -2681,7 +2683,7 @@ const Cardsmapas = () => {
                 {respuesta}
               </Typography>
               <Typography
-                className={classes.Textpmodal}
+                className={classes.Textpmodal+" "+ajustable}
                 id="modal-modal-descripti"
               >
                 Favor revisar el tipo de atributo diligenciado y vuelga a
@@ -2717,7 +2719,7 @@ const Cardsmapas = () => {
               alignItems="center"
             >
               <Typography
-                className={classes.Textpmodal}
+                className={classes.Textpmodal+" "+ajustable}
                 id="modal-modal-description"
               >
                 No tiene datos para mostrar
@@ -2750,7 +2752,7 @@ const Cardsmapas = () => {
                 alignContent="center"
               >
                 <Typography
-                  className={classes.Textpmodal1}
+                  className={classes.Textpmodal1+" "+ajustable}
                   id="modal-modal-descriptio2"
                 >
                   ¿Desea continuar con la descarga?
@@ -2914,7 +2916,7 @@ const Cardsmapas = () => {
                 alignContent="center"
               >
                 <Typography
-                  className={classes.Textpmodal1}
+                  className={classes.Textpmodal1+" "+ajustable}
                   id="modal-modal-descriptio1"
                 >
                   ¿Desea continuar eliminando el registro?

@@ -1,9 +1,12 @@
-import { Grid, makeStyles, useMediaQuery, Button ,CardMedia} from "@material-ui/core";
+import { Grid, makeStyles, useMediaQuery, Button ,Tooltip} from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import uml from "Observatorio/img/uml.png";
 import modelo from "Observatorio/img/LADM.jpg";
-
+import {useTranslation} from "react-i18next";
+import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
+import rarmodelo from "../../files/MODELO.rar"
+import imagenmodelo from "../../files/LADM.jpg"
 const useStyle = makeStyles({
     imagen_top:{    
         width: "100% !important",
@@ -13,6 +16,11 @@ const useStyle = makeStyles({
         backgroundImage: `url(${uml})`,       
         backgroundPosition: "center",
          
+      },
+      alink: {
+        textDecoration: "none",
+        color: Values.TextButton,    
+        fontFamily: Values.SourceRoboto,
       },
       boton4: {
         padding: "0.3em 1em 0.3em 1em",
@@ -63,29 +71,25 @@ const useStyle = makeStyles({
         flexBasis: "100% !important",
         maxWidth: "100% !important",
      },
-      boton: {
-        padding: "0.3em 1em 0.3em 1em",
-        borderRadius: "2vh",
-        backgroundColor:"#ffffff",
-        fontFamily: Values.SourceRoboto,
-        textTransform: "capitalize",
-        color: "#4C4C4C",
-        transition:"all 0.8s ease-out",
-        cursor: "pointer",
-        margin: "2% 0 0 0",
-        width: "30%",
-        fontSize: "calc(1em + 0.3vh)",
-        borderRadius: "2vh",
-        fontWeight: "bold",
-        border:"none",
-        boxShadow: "3px 3px 10px #7b7676",
-        
-        "&:hover":{
-            // backgroundColor: Values.HoverButton,
-            border:"none",
-            color: Values.TextButton,
-        }
+     boton: {
+      padding: "0em 1em 0em 1em",
+      borderRadius: "2vh",
+      backgroundColor: Values.Redwinecolor,
+      color: Values.TextButton,
+      fontFamily: Values.SourceRoboto,
+      textTransform: "inherit",
+      transition: "all 0.8s ease-out",
+      cursor: "pointer",
+      margin: "1.5% 0 0 0",
+      width: "max-content",
+      fontSize: Values.SizetextcontentGrid,
+      borderRadius: "2vh",
+      // fontWeight: "bold",
+      "&:hover": {
+        backgroundColor: Values.HoverButton,
+        border: "none",
       },
+    },
     
       boton1: {
         padding: "0.3em 1em 0.3em 1em",
@@ -114,25 +118,6 @@ const useStyle = makeStyles({
         paddingLeft:"0.6em",
         paddingRight: "0.6em",
       },
-    //   imagen_Business:{    
-    //     width: "100% !important",
-    //     height: "40vh",
-    //     backgroundSize: "85%",
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundImage: `url(${Business})`,       
-    //     backgroundPosition: "center",
-         
-    //   },    
-    //   imagen_Business2:{     
-    //      width: "100%",
-    //      height: "50vh",
-    //      backgroundSize: "100%",
-    //      backgroundRepeat: "no-repeat",
-    //      backgroundImage: `url(${Business})`,       
-    //      backgroundPosition: "center center",
-    //      flexBasis: "100% !important",
-    //      maxWidth: "100% !important",
-    //   },
       gridglobal:{
         padding: "0 10vw 3vw 10vw",        
       },
@@ -208,59 +193,7 @@ const useStyle = makeStyles({
       margintopmovil: {
         padding: "0 5vw 3vw 5vw",
         backgroundColor: "#f4f4f4",
-      },
-    //   imagen_transfer:{    
-    //     width: "100% !important",
-    //     height: "37vh",
-    //     backgroundSize: "85%",
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundImage: `url(${Transfer})`,       
-    //     backgroundPosition: "bottom",
-         
-    //   },   
-    //   imagen_transfer2:{     
-    //     width: "100%",
-    //     height: "40vh",
-    //     backgroundSize: "100%",
-    //     backgroundRepeat: "no-repeat",
-    //     backgroundImage: `url(${Transfer})`,       
-    //     backgroundPosition: "bottom",
-    //     flexBasis: "100% !important",
-    //     maxWidth: "100% !important",
-    //  },
-
-//      imagen_png:{    
-//       width: "100% !important",
-//       height: "95vh",
-//       backgroundSize: "69%",
-//       backgroundRepeat: "no-repeat",
-//       backgroundImage: `url(${ImgPng})`,       
-//       backgroundPosition: "center",       
-//     },   
-//     imagen_png2:{     
-//        width: "100%",
-//        height: "113vh",
-//        backgroundSize: "100%",
-//        backgroundRepeat: "no-repeat",
-//        backgroundImage: `url(${Hong})`,       
-//        backgroundPositionY: "1vh",     
-//    },
-//    imagen_png4:{     
-//     width: "100%",
-//     height: "186vh",
-//     backgroundSize: "100%",
-//     backgroundRepeat: "no-repeat",
-//     backgroundImage: `url(${Hong})`,       
-//     backgroundPositionY: "1vh",     
-// },
-//    imagen_png3:{    
-//     width: "100% !important",
-//     height: "100vh",
-//     backgroundSize: "100%",
-//     backgroundRepeat: "no-repeat",
-//     backgroundImage: `url(${ImgPng})`,       
-//     backgroundPosition: "center",       
-//   },   
+      },  
      texto:{
       color: Values.Redwinecolor,
       fontFamily: Values.SourceRoboto,
@@ -280,26 +213,6 @@ const useStyle = makeStyles({
      circulemarg:{
        margin: "1vw 0 1vw 0",
     
-  },
-  excel: {
-    height: "14vh",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "80%",
-    width:"100%",
-  },
-  excel2: {
-    height: "10vh",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "28%",
-  },
-  alink:{
-    textDecoration:"none",
-  },
-  contentrulesp3: {
-    color: Values.TextParagraph,
-    fontFamily: Values.SourceRoboto,
-    fontSize: "calc(0.6em + 0.3vh)",
-    textAlign:"center",
   },
 })
 
@@ -328,6 +241,8 @@ const Imagenuml = () => {
 const Catastro = () => {
     const classes = useStyle();
     const matches = useMediaQuery("(min-width:769px)");
+    const [t, i18n]= useTranslation("global");
+    const ajustable = "ajustable"
     var estilo = null;
     {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
@@ -335,18 +250,18 @@ const Catastro = () => {
     return(
         <Grid container direction="column" className={estilo}>
             <Grid container justifyContent="center" alignItems="center">
-                    <h3 className={classes.titleStyle}>LADM</h3>
+                    <h3 className={classes.titleStyle+" "+ajustable}>LADM</h3>
             </Grid>
             <Grid container direction="row">
                 <Grid item container xs >
-                    <p className={classes.contentrulesp}>
-                        LADM es un modelo conceptual estructurado para brindar información de objetos territoriales de acuerdo con las relaciones establecidas dentro del mismo.
+                    <p className={classes.contentrulesp+" "+ajustable}>
+                        {t("ladm.ladm")}
                         <br></br>
                         <br></br>
-                        La Superintendencia de Notariado y Registro (SNR) y el Instituto Geográfico Agustín Codazzi (IGAC) con el apoyo del proyecto de Cooperación Suiza desarrollaron el modelo LADM_COL, para el Sistema de Administración de Tierras acorde a la norma ISO 19152:2012.
+                        {t("ladm.ladm2")}
                         <br></br>
                         <br></br>
-                        Por su parte el Departamento Administrativo Nacional de Estadística (DANE), creó un modelo basado en el modelo LADM_COL, para el suministro de información por parte de los Observatorios inmobiliarios y del Sistema Nacional de Información Catastral (SINIC), representado a continuación:
+                        {t("ladm.ladm3")}
                     </p>       
                 </Grid>
                 <Imagen/> 
@@ -356,6 +271,26 @@ const Catastro = () => {
                 </p>   */}
                 <Imagenuml/>
             </Grid>
+            <Grid container direction="column">
+            <Tooltip title={t("ladm.ladm4")} arrow>
+          <Button className={classes.boton+" "+ajustable}>
+          <a target="_blank" className={classes.alink}
+                  href={rarmodelo}
+                  download
+              >{t("ladm.ladm4")}</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
+            </Button>
+            </Tooltip>
+            <Tooltip title={t("ladm.ladm5")} arrow>
+          <Button className={classes.boton+" "+ajustable}>
+          <a target="_blank" className={classes.alink}
+                  href={imagenmodelo}
+                  download
+              >{t("ladm.ladm5")}</a>
+              <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
+            </Button>
+            </Tooltip>
+            </Grid>
         </Grid>  
     )
 }
@@ -364,7 +299,7 @@ const General = () => {
   const classes = useStyle();
    
   return(
-      <Grid container>
+      <Grid container id="target-two">
         <Catastro/>      
       </Grid>
   )

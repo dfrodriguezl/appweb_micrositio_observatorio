@@ -119,9 +119,10 @@ const ChangePassword = (props) => {
           alert("ocurrio un problema externo");
         }
       });
-  };
+  };  
+  const ajustable = "ajustable"
   return (
-    <Grid container justifyContent="center" alignContent="center">
+    <Grid container justifyContent="center" id="target-two" alignContent="center">
       <Grid
         item
         container
@@ -130,7 +131,7 @@ const ChangePassword = (props) => {
         md={12}
         sm={12}
         lg={6}
-        className={classes.containerForm}
+        className={classes.containerForm+" "+ajustable}
       >
         <Grid container item>
           <Grid item lg={6} md={6} sm={6} xs={12}>

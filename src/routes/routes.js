@@ -51,7 +51,7 @@ import useAuth,{AuthContext} from "../templates/useAuth";
 const useStyle = makeStyles({
   marginTop: {
     marginTop: "120px",
-  },
+  }
 });
 
 
@@ -126,7 +126,6 @@ const Generalroutes = () => {
   return (
     <div>
       <Header/>
-      {/* <Accesibilidad/> */}
       <ChatIA/>      
       <Grid container className={classes.marginTop}></Grid>
       <Routes>

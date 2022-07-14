@@ -19,6 +19,7 @@ import enviroment from '../../../config/enviroment'
 import ReCAPTCHA from "react-google-recaptcha"
 import { useNavigate } from "react-router-dom";
 import useAuth,{AuthContext} from "../../../templates/useAuth";
+import {useTranslation} from "react-i18next";
 const useStyle = makeStyles({
   boton1: {
     borderRadius: "2vh",
@@ -133,6 +134,7 @@ const ImagenBottom = () => {
 const FormAccess = (props) => {
     const classes = useStyle();
     const history = useNavigate();
+    const [t, i18n]= useTranslation("global");
     const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
     const [usuarioValido, cambiarUsuarioValido] = useState(true)
     const  login  = useContext(AuthContext);
@@ -262,7 +264,7 @@ const FormAccess = (props) => {
             alignItems="center"
           >
             <Grid item lg={3} md={3} sm={3} xs={12}>
-              <Typography className={classes.Textp}>Usuario</Typography>
+              <Typography className={classes.Textp}>{t("login.login")}</Typography>
             </Grid>
             <Grid item lg={9} md={9} sm={9} xs={12}>
               <TextField
@@ -277,7 +279,7 @@ const FormAccess = (props) => {
             </Grid>
 
             <Grid item lg={3} md={3} sm={3} xs={12}>
-              <Typography className={classes.Textp}>Contraseña</Typography>
+              <Typography className={classes.Textp}>{t("login.login2")}</Typography>
             </Grid>
             <Grid item lg={9} md={9} sm={9} xs={12}>
               <FormControl
@@ -317,37 +319,35 @@ const FormAccess = (props) => {
                 onChange={onChangecapchat} />
             </Grid>
             <Grid item container justifyContent="center" alignItems="center">
-              <Tooltip title="Acceder" arrow>
+              <Tooltip title={t("login.login3")} arrow>
               <button disabled={usuarioValido} onClick={sendForm} className={classes.boton}>
-                Iniciar Sesión
+              {t("login.login3")}
               </button>
               </Tooltip>
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Typography className={classes.Textp}>
-                Si no esta registrado, por favor hágalo mediante el siguiente
-                botón
+              {t("login.login4")}
               </Typography>
             </Grid>
             <Grid item container justifyContent="center" alignItems="center">
-            <Tooltip title="Registrar" arrow>
+            <Tooltip title={t("login.login5")} arrow>
               <Button className={classes.boton1}
                 
                 onClick={rutaregistrar}
-              >Registrarse</Button>
+              >{t("login.login5")}</Button>
             </Tooltip>
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Typography className={classes.Textp}>
-                Si olvido su contraseña, oprima el siguiente botón y siga las
-                instrucciones
+              {t("login.login6")}
               </Typography>
             </Grid>
             <Grid item container justifyContent="center" alignItems="center">
-            <Tooltip title="Olvido su contraseña" arrow>
+            <Tooltip title={t("login.login7")} arrow>
             <Button className={classes.boton1}                
                 onClick={rutacontraseña}
-              >Olvido su contraseña</Button>
+              >{t("login.login7")}</Button>
             </Tooltip>
             </Grid>
           </Grid>

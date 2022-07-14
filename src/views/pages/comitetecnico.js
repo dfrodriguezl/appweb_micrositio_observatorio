@@ -6,6 +6,7 @@ import Meeting from "Observatorio/img/Meting.jpg";
 import Remote from "Observatorio/img/composicion.jpg";
 import Discussion from "Observatorio/img/logro.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import {useTranslation} from "react-i18next";
 
 import word from "Observatorio/img/powerpoint.png";
 
@@ -261,6 +262,8 @@ const ImagenJudge = () => {
 
 const Comite = () => {
   const classes = useStyle();
+  const ajustable = "ajustable"
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     var estilo2 = null;
@@ -289,21 +292,21 @@ const Comite = () => {
   
   
   return(      
-      <Grid container direction="column"  className={estilo}>
+      <Grid container direction="column" id="target-two" className={estilo}>
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Comité técnico asesor</h3>
+                  <h3 className={classes.titleStyle+" "+ajustable}>{t("technical.technical")}</h3>
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
-              <p className={classes.contentrulesp}>
-              Acorde al Decreto 148 de 2020, el Comité Técnico Asesor es la instancia técnica asesora, que tiene por objetivo garantizar la idoneidad de las propuestas de regulación de la gestión catastral, presentadas por el Instituto Geográfico Agustín Codazzi - IGAC, entre sus funciones estan:
+              <p className={classes.contentrulesp+" "+ajustable}>
+              {t("technical.technical2")}
               </p>        
               <ol className={classes.contentrulesp2}>
-                    <li className={classes.listyle}>Velar por la idoneidad de las propuestas presentadas por el IGAC</li>
-                    <li className={classes.listyle}>Recomendar el ajuste de las propuestas presentadas por el IGAC</li>
-                    <li className={classes.listyle}>Emitir conceptos a favor o en contra acerca de las propuestas presentadas por el IGAC</li>
-                    <li className={classes.listyle}>Dar concepto sobre el uso de insumos cartográficos que estén pro fuera del rango de temporalidad y especificaciones técnicas.</li>
-                    <li className={classes.listyle}>Las demás establecidas en el Comité</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.technical3")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.technical4")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.technical5")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.technical6")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.technical7")}</li>
               </ol>        
               </Grid>
               <Imagen/> 
@@ -326,40 +329,40 @@ const Comite = () => {
 
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Composición del comité técnico asesor</h3>
+                  <h3 className={classes.titleStyle+" "+ajustable}>{t("technical.composition")}</h3>
               </Grid>
               <ImagenJudge/>   
               <Grid item container direction="column" xs className={classes.containerTitle}>
-              <p className={classes.contentrulesp}>
-                    El Comité Técnico Asesor está compuesto por:
+              <p className={classes.contentrulesp+" "+ajustable}>
+              {t("technical.composition2")}
                     </p>  
                     <ol className={classes.contentrulesp2}>
-                    <li className={classes.listyle}>Director/a del Departamento Administrativo Nacional de Estadística - DANE, quien presidirá dicho comité.</li>
-                    <li className={classes.listyle}>Director/a Técnico/a de Registro o Superintendente delegado de tierras de la Superintendencia de Notariado y Registro - SNR o su delegado/a de nivel Asesor.</li> 
-                    <li className={classes.listyle}>Director/a Técnico/a de Geoestadística del  DANE o su delegado/a de nivel Asesor, tiene como labor exclusiva la Secretaría Técnica del Comité y la disposición de los medios logísticos y operativos.</li>
-                    <li className={classes.listyle}>Dos expertos/as internacionales</li>                      
-                    <li className={classes.listyle}>Dos expertos/as nacionales</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.composition3")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.composition4")}</li> 
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.composition5")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.composition6")}</li>                      
+                    <li className={classes.listyle+" "+ajustable}>{t("technical.composition7")}</li>
                     </ol>  
-                    <p className={classes.contentrulesp}>
-                    Para la selección de los expertos nacionales e internacionales, el DANE definirá los criterios de selección que considere propicios para el desenvolvimiento de sus labores dentro del comité.
+                    <p className={classes.contentrulesp+" "+ajustable}>
+                    {t("technical.composition8")}
                     </p>         
               </Grid>           
           </Grid>
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Logros</h3>
+                  <h3 className={classes.titleStyle+" "+ajustable}>{t("technical.achievements")}</h3>
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
-              <p className={classes.contentrulesp}>
-              La Instancia Técnica Asesora debatió la resolución 1149 de 2021, “Por la cual se actualiza la reglamentación técnica de la formación, actualización, conservación y difusión catastral con enfoque multipropósito”
+              <p className={classes.contentrulesp+" "+ajustable}>
+              {t("technical.achievements2")}
               </p>        
               <Grid container justifyContent="flex-start" className={classes.margboton}>
-                  <h3 className={classes.titleStyle2}>Resolución 1149 de 2021</h3>
+                  <h3 className={classes.titleStyle2+" "+ajustable}>{t("technical.resolution")}</h3>
                   <Grid item xs={4}>
-                  <Tooltip title="Resolución 1149 de 2021" arrow>
-                  <Button className={classes.botonver}
+                  <Tooltip title={t("technical.resolution")} arrow>
+                  <Button className={classes.botonver+" "+ajustable}
                     href="https://igac.gov.co/es/contenido/resolucion-1149-de-2021"  target="_blank"                  
-                  >Ver</Button></Tooltip>
+                  >{t("technical.view")}</Button></Tooltip>
                 </Grid>
               </Grid>
               </Grid>

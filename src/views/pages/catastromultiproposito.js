@@ -7,6 +7,7 @@ import ImgPng from "Observatorio/img/Captura.svg";
 import Business from "Observatorio/img/negocios.jpg";
 import Hong from "Observatorio/img/1Hong.svg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import {useTranslation} from "react-i18next";
 
 import word from "Observatorio/img/powerpoint.png";
 
@@ -366,8 +367,12 @@ const Imagen = () => {
   ) 
   } 
 
+  
+const ajustable = "ajustable"
+
 const ComparationModels = () =>{
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -382,75 +387,71 @@ const ComparationModels = () =>{
       id="comparacionModel"
     >
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.titleStyle}>Comparación modelos catastrales</h3>
+        <h3 className={classes.titleStyle+" "+ajustable}>{t("cadastre.comparison")}</h3>
       </Grid>
       <ImagenTransfer />
       <Grid container direction="row">
         <Grid container item xs>
           <Grid container justifyContent="center">
-            <p className={classes.texto}>Modelo catastral anterior</p>
+            <p className={classes.texto+" "+ajustable}>{t("cadastre.comparison2")}</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Esquema anterior: IGAC - Descentralizados - Delegados.</li>
-            <li className={classes.listyle}>Disminución del presupuesto a entidades centralizadas.</li>
-            <li className={classes.listyle}>Asimetría de información.</li>            
-            <li className={classes.listyle}>Rezago en la actualización de la base gravable.</li>            
-            <li className={classes.listyle}>Disminución en la frecuencia de actualización de Catastros.</li>            
-            <li className={classes.listyle}>Percepción negativa por parte de las entidades de orden nacional respecto de la actual estrategia catastral, en especial sobre el rol del IGAC.</li>            
-            <li className={classes.listyle}>Aproximaciones insostenibles del Multipróposito.</li>            
-            <li className={classes.listyle}>Desarticulación con SNR.</li>            
-            <li className={classes.listyle}>Baja calidad servicio al ciudadano.</li>            
-            <li className={classes.listyle}>Baja capacidad técnica.</li>            
-            <li className={classes.listyle}>Desarticulación con catastros.</li>            
-            <li className={classes.listyle}>Sin registro de la informalidad.</li>            
-            <li className={classes.listyle}>Metodología de alto costo.</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison3")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison4")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison5")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison6")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison7")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison8")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison9")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison10")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison11")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison12")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison13")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison14")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison15")}</li>            
           </ol>
         </Grid>
         <Grid container item xs>
           <Grid container justifyContent="center">
-            <p className={classes.texto}>Premisas catastro multipróposito</p>
+            <p className={classes.texto+" "+ajustable}>{t("cadastre.comparison16")}</p>
           </Grid>
           <ol className={classes.textStyle1}>
-            <li className={classes.listyle}>Nuevo esquema de descentralización.</li>            
-            <li className={classes.listyle}>Estructura funcional y operativa colaborativa.</li>            
-            <li className={classes.listyle}>Modelo de operación más eficiente.</li>
-            <li className={classes.listyle}>Acciones transformacionales.</li>
-            <li className={classes.listyle}>Ajustes normativos.</li>
-            <li className={classes.listyle}>Cambio de modelo de Operación.</li>
-            <li className={classes.listyle}>Apertura metodológica y tecnológica.</li>
-            <li className={classes.listyle}>Simplificación en los procesos.</li>
-            <li className={classes.listyle}>Esquemas sostenibles.</li>
-            <li className={classes.listyle}>Seguridad jurídica.</li>
-            <li className={classes.listyle}>Habilitación de gestores catastrales.</li>
-            <li className={classes.listyle}>Integración Catastro - Registro.</li>
-            <li className={classes.listyle}>Número Único Predial Registral - NUPRE.</li>
-            <li className={classes.listyle}>Repositorio de datos maestros basados en LADM.</li>
-            <li className={classes.listyle}>Sistema de Administración de Tierras - SAT.</li>
-            <li className={classes.listyle}>Mercado formal de tierras.</li>
-            <li className={classes.listyle}>Simplificación de trámites.</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison17")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison18")}</li>            
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison19")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison20")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison21")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison22")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison23")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison24")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison25")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison26")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison27")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison28")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison29")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison30")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison31")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison32")}</li>
+            <li className={classes.listyle+" "+ajustable}>{t("cadastre.comparison33")}</li>            
           </ol>
         </Grid>
       </Grid>
       <Grid id="catastroRegulacion" container justifyContent="center" alignItems="center">
-        <h3 className={classes.titleStyle}>
-          Catastro para la regularización de la propiedad
+        <h3 className={classes.titleStyle+" "+ajustable}>
+        {t("cadastre.property")}
         </h3>
       </Grid>
       <Imagenpng />
       <Grid id="catastroTomaDeDecisiones" container justifyContent="center" alignItems="center">
-        <h3 className={classes.titleStyle}>
-          Catastro multipropósito para la toma de decisiones
+        <h3 className={classes.titleStyle+" "+ajustable}>
+        {t("cadastre.multipurpose")}
         </h3>
       </Grid>
       <Grid container direction="row">
         <ImagenBusiness />
           <Grid item container xs>
-            <p className={classes.contentrulesp}>
-              La implementación de la Política de Catastro Multipropósito
-              permitirá obtener una línea base de información estratégica del
-              territorio, fundamental para la toma de decisiones y el diseño de
-              políticas públicas rápidas y efectivas para la reconstrucción del
-              tejido social y económico del país.
+            <p className={classes.contentrulesp+" "+ajustable}>
+            {t("cadastre.multipurpose2")}
             </p>
             <Grid
               container
@@ -463,9 +464,8 @@ const ComparationModels = () =>{
               <h1 className={classes.num}>1</h1>
               </Grid>
               <Grid  container item xs>
-              <p className={classes.textStyle2}>
-                Planificación territorial: Base fundamental para la formulación de cualquier política y toma de decisiones en el territorio.
-              </p>
+              <p className={classes.textStyle2+" "+ajustable}>
+              {t("cadastre.multipurpose3")}</p>
               </Grid>
             </Grid>
             <Grid
@@ -479,9 +479,8 @@ const ComparationModels = () =>{
               <h1 className={classes.num}>2</h1>
               </Grid>
               <Grid container item xs>
-              <p className={classes.textStyle2}>
-              Resiliencia: Superación ante la adversidad, reconstrucción del tejido social, activación económica.
-              </p>
+              <p className={classes.textStyle2+" "+ajustable}>
+              {t("cadastre.multipurpose4")}</p>
               </Grid>
             </Grid>
             <Grid
@@ -495,9 +494,8 @@ const ComparationModels = () =>{
               <h1 className={classes.num}>3</h1>
               </Grid>
               <Grid container item xs>
-              <p className={classes.textStyle2}>
-              Situaciones de emergencia: Formulación de políticas públicas rápidas y efectivas para mitigar el riesgo ante contingencias.
-              </p>
+              <p className={classes.textStyle2+" "+ajustable}>
+              {t("cadastre.multipurpose5")}</p>
               </Grid>
             </Grid>
           </Grid>
@@ -509,6 +507,7 @@ const ComparationModels = () =>{
 
 const Catastro = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global");
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -531,42 +530,40 @@ const Catastro = () => {
     return(
         <Grid container direction="column" className={estilo}>
             <Grid container justifyContent="center" alignItems="center">
-                    <h3 className={classes.titleStyle}>Catastro Multipropósito</h3>
+                    <h3 className={classes.titleStyle+" "+ajustable}>{t("cadastre.cadastre")}</h3>
             </Grid>
             <Grid container direction="row">
                 <Grid item container xs >
-                    <p className={classes.contentrulesp}>
-                    La política e implementación del catastro con enfoque multipropósito, es uno de los productos transformacionales de mayor prioridad para el Gobierno Nacional, el cual tiene como enfoque la conformación de un sistema:
+                    <p className={classes.contentrulesp+" "+ajustable}>
+                    {t("cadastre.cadastre2")}
                     </p>  
                     <ol className={classes.contentrulesp2}>
-                      <li className={classes.listyle}>Integral.</li>
-                      <li className={classes.listyle}>Completo.</li>
-                      <li className={classes.listyle}>Actualizado.</li>
-                      <li className={classes.listyle}>Confiable.</li>
-                      <li className={classes.listyle}>Digital.</li>
-                      <li className={classes.listyle}>Interoperable con otros sistemas de información.</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre3")}</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre4")}</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre5")}</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre6")}</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre7")}</li>
+                      <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre8")}</li>
                     </ol>       
-                    <p className={classes.contentrulesp}>
-                      Esta nueva política busca que el catastro trascienda  de una óptica meramente fiscal y sea considerado como un instrumento estratégico para el apoyo en la toma de decisiones en lo concerniente al Ordenamiento Territorial.
+                    <p className={classes.contentrulesp+" "+ajustable}>
+                    {t("cadastre.cadastre9")}
                     </p>       
                 </Grid>
                 <Imagen/> 
             </Grid>
             <Grid container>
-                <p className={classes.contentrulesp}>
-                  Con la implementación del catastro multipropósito, se contribuirá con:
+                <p className={classes.contentrulesp+" "+ajustable}>
+                {t("cadastre.cadastre10")}
                 </p>  
                 <ol className={classes.contentrulesp2}>
-                    <li className={classes.listyle}>Seguridad jurídica: Integración con la información de registro Público.</li>
-                    <li className={classes.listyle}>Eficiencia del mercado inmobiliario.</li> 
-                    <li className={classes.listyle}>Desarrollo territorial: Mejor asignación de recursos e identificación de necesidades de grupos poblacionales (educación, acceso a servicios públicos, infraestructura,  regularización de la propiedad, ordenamiento ambiental, social y territorial, entre otros).</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre11")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre12")}</li> 
+                    <li className={classes.listyle+" "+ajustable}>{t("cadastre.cadastre13")}</li>
                 </ol>  
-                <p className={classes.contentrulesp}>
-                    <strong>El Departamento Administrativo Nacional de Estadística - DANE</strong>, viene trabajando en la política de Catastro Multipropósito y en las recomendaciones del CONPES 4007 de 2020, para el fortalecimiento del sistema de administración del territorio – SAT, el cual utiliza el catastro como herramienta  para el desarrollo sostenible del territorio incorporando las 4 funciones principales de la administración del territorio (tenencia, valor, uso y desarrollo), en lugar de gestionar estas funciones de forma separada, como sucede actualmente en Colombia. 
-                </p>  
-                <p className={classes.contentrulesp}>
-                    Lo anterior contribuirá a que las decisiones sobre el territorio sean informadas y consecuentes con los derechos, restricciones y responsabilidades sobre el mismo, con un enfoque de desarrollo sostenible y tomando en consideración las particularidades y diversidad del territorio colombiano, y por otra, que los servicios relativos al territorio sean eficientes, eficaces y accesibles.
-          </p>  
+                <p className={classes.contentrulesp+" "+ajustable}>
+                    <strong>{t("cadastre.cadastre14")}</strong>{t("cadastre.cadastre15")}</p>  
+                <p className={classes.contentrulesp+" "+ajustable}>
+                {t("cadastre.cadastre16")}</p>  
           
           {/* <button className={estilo4}>
         <a className={classes.alink} href="" download>
@@ -582,17 +579,16 @@ const Catastro = () => {
             </Grid>
           </a>
         </button> */}
-                <p className={classes.contentrulesp}>
-                  A continuación se anexa el CONPES 4007 de 2020, mediante el cual se dan las directrices para el fortalecimiento del sistema de administración del territorio:
-                </p>
+                <p className={classes.contentrulesp+" "+ajustable}>
+                {t("cadastre.cadastre17")}</p>
                 <Grid container direction="row" className={classes.margboton} justifyContent="center">
                   <Grid container item xs>
-                  <p className={classes.texto1}>CONPES 4007 de 2020</p>
+                  <p className={classes.texto1+" "+ajustable}>{t("cadastre.conpes")}</p>
                   </Grid>
                 <Grid Grid container item xs={6} justifyContent="flex-end">
-                <Tooltip title="CONPES 4007 de 2020" arrow>
-                <Button className={classes.boton4} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
-                  ver
+                <Tooltip title={t("cadastre.conpes")} arrow>
+                <Button className={classes.boton4+" "+ajustable} href="https://colaboracion.dnp.gov.co/CDT/Conpes/Econ%C3%B3micos/4007.pdf" target="_blank">                              
+                {t("cadastre.see")}
                 </Button>
                 </Tooltip>
                 </Grid>
@@ -606,7 +602,7 @@ const General = () => {
   const classes = useStyle();
    
   return(
-      <Grid container>
+      <Grid container id="target-two">
         <Catastro/>
         <ComparationModels/>        
       </Grid>

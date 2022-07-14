@@ -1,5 +1,5 @@
 import { Grid, makeStyles, useMediaQuery,Tooltip, Button } from "@material-ui/core";
-import React, { Component } from "react";
+import React, { Component} from "react";
 import bloques from "Observatorio/img/img_top_home.jpg";
 //import bloques from "Observatorio/img/Building.svg";
 import frente from "Observatorio/img/city1.gif";
@@ -28,7 +28,7 @@ const useStyle = makeStyles({
     cursor: "pointer",
     margin: "10% 0 4% 0",
     width: "max-content",
-    fontSize: "calc(1em + 0.3vh)",
+    fontSize: Values.SizetextcontentGrid,
     borderRadius: "2vh",
     // fontWeight: "bold",
     "&:hover": {
@@ -391,7 +391,7 @@ const useStyle = makeStyles({
     transition:"all 0.8s ease-out",
     margin: "2% 0 0 0",
     width: "79vh",
-    fontSize: "calc(1em + 0.3vh)",
+    fontSize: Values.SizetextcontentGrid,
     borderRadius: "2vh",
     fontWeight: "bold",
     border:"none",
@@ -568,7 +568,7 @@ const ImagenBottom = () => {
   );
 };
 
-
+const ajustable = "ajustable"
 
 const Top_content = () => {  
   const [t, i18n]= useTranslation("global");
@@ -580,18 +580,17 @@ const Top_content = () => {
       matches?estilo=classes.gridglobal:estilo=classes.gridglobalmovil
     }
   const rutabtn = () =>{
-      console.log("diego")
       history('/observatorio/Acerca')
   }
   return (
-    <Grid container direction="row" className={estilo}>
-      <ImagenMovil/>
+    <Grid container direction="row"  className={estilo}>
+      <ImagenMovil/>  
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.Titleh3}>{t("home.titlehome")}</h3>
+        <h3 className={classes.Titleh3+" "+ajustable}>{t("home.titlehome")}</h3>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid>
-          <p className={classes.Textp}>
+          <p className={classes.Textp+" "+ajustable}>
           {t("home.description")}
           </p>
           {/* <p className={classes.Textp}>
@@ -603,7 +602,7 @@ const Top_content = () => {
         </Grid>
         <Grid container>
           <Tooltip title={t("navbar.observatorio")} arrow>
-            <Button className={classes.boton} onClick={rutabtn} >{t("home.boton")}</Button>
+            <Button className={classes.boton+" "+ajustable} onClick={rutabtn} >{t("home.boton")}</Button>
           </Tooltip>
         </Grid>
       </Grid>
@@ -629,7 +628,7 @@ const Center_content = () => {
         alignItems="center"
         className={classes.containerTitle}
       >
-        <h1 className={classes.titleStyle}>{t("home.ventajas")}</h1>
+        <h1 className={classes.titleStyle+" "+ajustable}>{t("home.ventajas")}</h1>
       </Grid>
       <Grid item container direction="column" xs>
         <Grid
@@ -647,8 +646,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>{t("home.seguimiento")}</h1>
-          <p className={classes.textStyle}>
+          <h1 className={classes.titleStyle2 +" "+ajustable}>{t("home.seguimiento")}</h1>
+          <p className={classes.textStyle+" "+ajustable}>
           {t("home.seguimiento2")}
           </p>
         </Grid>
@@ -667,8 +666,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>{t("home.integracion")}</h1>
-          <p className={classes.textStyle}>{t("home.integracion2")}</p>
+          <h1 className={classes.titleStyle2+" "+ajustable}>{t("home.integracion")}</h1>
+          <p className={classes.textStyle+" "+ajustable}>{t("home.integracion2")}</p>
         </Grid>
       </Grid>
       <ImagenCenter />
@@ -688,8 +687,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>{t("home.comunicacion")}</h1>
-          <p className={classes.textStyle}>{t("home.comunicacion2")}</p>
+          <h1 className={classes.titleStyle2+" "+ajustable}>{t("home.comunicacion")}</h1>
+          <p className={classes.textStyle+" "+ajustable}>{t("home.comunicacion2")}</p>
         </Grid>
         <Grid
           container
@@ -708,8 +707,8 @@ const Center_content = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle2}>LADM</h1>
-          <p className={classes.textStyle}>{t("home.LADM2")}</p>
+          <h1 className={classes.titleStyle2+" "+ajustable}>LADM</h1>
+          <p className={classes.textStyle+" "+ajustable}>{t("home.LADM2")}</p>
         </Grid>
       </Grid>
     </Grid>
@@ -736,42 +735,42 @@ const Bottom_content = () => {
     >
       <Grid container direction="row" justifyContent="center">
         <Grid container justifyContent="center" alignItems="center">
-          <h1 className={classes.contentrulesh1}>{t("home.normatividad")}</h1>
+          <h1 className={classes.contentrulesh1+" "+ajustable}>{t("home.normatividad")}</h1>
         </Grid>
         <Grid item container direction="column" xs>
           <Grid container direction="column">
-            <p className={classes.contentrulesp}>{t("home.normatividad1")}</p>
-            <p className={classes.contentrulesp}>{t("home.normatividad2")}</p>
-            <p className={classes.contentrulesp}>{t("home.normatividad3")}</p>
+            <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad1")}</p>
+            <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad2")}</p>
+            <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad3")}</p>
           </Grid>
           <Grid container direction="column" className={classes.cuadrobotones}>            
           <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
                 <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>{t("home.ley")}</p>
+                <p className={classes.contentrulesp2+" "+ajustable}>{t("home.ley")}</p>
                 </Grid>
                 <Grid className={estilo2}>
                 <Tooltip title={t("home.ley")} arrow>
-                <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">{t("home.ver")}</Button>
+                <Button className={classes.boton+" "+ajustable} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=93970" target="_blank">{t("home.ver")}</Button>
                 </Tooltip>                  
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
               <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>{t("home.decreto")}</p>
+                <p className={classes.contentrulesp2+" "+ajustable}>{t("home.decreto")}</p>
                 </Grid>
                 <Grid className={estilo2} justifyContent="center">                  
                   <Tooltip title={t("home.decreto")} arrow>
-                    <Button className={classes.boton} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">{t("home.ver")}</Button>
+                    <Button className={classes.boton+" "+ajustable} href="https://funcionpublica.gov.co/eva/gestornormativo/norma.php?i=105952" target="_blank">{t("home.ver")}</Button>
                   </Tooltip> 
                 </Grid>
               </Grid>
               <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
               <Grid container item xs={6}>
-                <p className={classes.contentrulesp2}>{t("home.conpes")}</p>
+                <p className={classes.contentrulesp2+" "+ajustable}>{t("home.conpes")}</p>
                 </Grid>
                 <Grid className={estilo2}>
                   <Tooltip title={t("home.conpes")} arrow>
-                    <Button className={classes.boton} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">{t("home.ver")}</Button>
+                    <Button className={classes.boton+" "+ajustable} href="https://www.igac.gov.co/sites/igac.gov.co/files/normograma/conpes_3958_de_2019.pdf" target="_blank">{t("home.ver")}</Button>
                   </Tooltip>
                 </Grid>
               </Grid>
@@ -812,7 +811,7 @@ const Bottom_content_footer = () => {
         alignItems="center"
         className={classes.containerTitle}
       >
-        <h1 className={classes.titleStyle}>
+        <h1 className={classes.titleStyle+" "+ajustable}>
         {t("home.uso")}
         </h1>
       </Grid>
@@ -824,7 +823,7 @@ const Bottom_content_footer = () => {
           alignItems="center"
         >
           <h1 className={classes.num}>1</h1>
-          <p className={estilo2}>{t("home.inmobiliaria")}</p>
+          <p className={estilo2+" "+ajustable}>{t("home.inmobiliaria")}</p>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -833,7 +832,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>{t("home.ofertas")}</p>
+              <p className={classes.textStyle1+" "+ajustable}>{t("home.ofertas")}</p>
             </Grid>
             <Grid
               container
@@ -842,7 +841,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>{t("home.transacciones")}</p>
+              <p className={classes.textStyle1+" "+ajustable}>{t("home.transacciones")}</p>
             </Grid>
             <Grid
               container
@@ -851,7 +850,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>{t("home.costos")}</p>
+              <p className={classes.textStyle1+" "+ajustable}>{t("home.costos")}</p>
             </Grid>
             <Grid
               container
@@ -860,7 +859,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>{t("home.avaluos")}</p>
+              <p className={classes.textStyle1+" "+ajustable}>{t("home.avaluos")}</p>
             </Grid>
             <Grid
               container
@@ -869,7 +868,7 @@ const Bottom_content_footer = () => {
               alignItems="center"
             >
               <h1 className={classes.num1}></h1>
-              <p className={classes.textStyle1}>{t("home.otros")}</p>
+              <p className={classes.textStyle1+" "+ajustable}>{t("home.otros")}</p>
             </Grid>
           </Grid>
         </Grid>
@@ -881,7 +880,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>2</h1>
-          <p className={estilo2}>
+          <p className={estilo2+" "+ajustable}>
           {t("home.estadistica")}
           </p>
         </Grid>
@@ -893,7 +892,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>3</h1>
-          <p className={estilo2}>{t("home.publicidad")}</p>
+          <p className={estilo2+" "+ajustable}>{t("home.publicidad")}</p>
         </Grid>
         <Grid
           container
@@ -903,7 +902,7 @@ const Bottom_content_footer = () => {
           className={classes.numpaddingVentajas}
         >
           <h1 className={classes.num}>4</h1>
-          <p className={estilo2}>{t("home.fuente")}</p>
+          <p className={estilo2+" "+ajustable}>{t("home.fuente")}</p>
         </Grid>
       </Grid>
     </Grid>
@@ -913,7 +912,7 @@ const Bottom_content_footer = () => {
 const ContentGrid = () => {
   const classes = useStyle();
   return (
-    <Grid container>
+    <Grid container id="target-two">      
       <Top_content />
       <Center_content />
       <Bottom_content />

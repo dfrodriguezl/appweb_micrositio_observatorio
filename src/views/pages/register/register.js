@@ -18,6 +18,7 @@ import axios from 'axios';
 import {Loader} from '../loader/loader'
 import enviroment from "../../../config/enviroment"
 import ReCAPTCHA from "react-google-recaptcha"
+import {useTranslation} from "react-i18next";
 
 const sha256 = require('js-sha256');
 const useStyle = makeStyles({
@@ -150,10 +151,12 @@ const ImagenBottom = () => {
 }
 
 const FormRegister = () => {
-    const classes = useStyle();
+    const classes = useStyle();    
+    const ajustable = "ajustable"
     const clavecapchat = "6LfqtdgfAAAAAPCjDx9BmyhQfhzm0u4raPPXJUZ1"
     const [usuarioValido, cambiarUsuarioValido] = useState(false)
     const [Valido, cambiarValido] = useState(true)
+    const [t, i18n]= useTranslation("global");
     const captcha = useRef(null);
 
     const onChangecapchat = () => {
@@ -402,8 +405,8 @@ const FormRegister = () => {
     return (
         <Grid container direccion="row" className={classes.gridMain} >
                 <Grid container justifyContent="center">
-                    <Typography className={classes.Titleh3}>
-                        <strong>Registro</strong>
+                    <Typography className={classes.Titleh3+" "+ajustable}>
+                        <strong>{t("registration.registration12")}</strong>
                     </Typography>
                 </Grid>
 
@@ -411,8 +414,8 @@ const FormRegister = () => {
                 
                 <Grid direction="row" spacing={1} item container className={classes.containerForm} xs={12} sm={12} md={12} lg={12} alignItems="center">
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            Tipo de Usuario *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -437,8 +440,8 @@ const FormRegister = () => {
                         </Box>
                     </Grid>
                     <Grid item container>
-                        <Typography className={classes.Textp} >
-                            Nombre o Razon social *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration2")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12} >
@@ -446,8 +449,8 @@ const FormRegister = () => {
                         <p className={leyendanombre}>El nombre solo puede tener letras y espacios</p>
                     </Grid>
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            Correo electrónico *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration3")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -455,8 +458,8 @@ const FormRegister = () => {
                         <p className={leyendacorreo}>La dirección de correo debe contener @correo.extensión</p>
                     </Grid>
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            Confirmar Correo electrónico *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration4")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -464,14 +467,14 @@ const FormRegister = () => {
                         <p className={leyendacorreo2}>Los correos no coinciden</p>
                     </Grid>
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            El Correo electrónico suministrado corresponderá al usuario de ingreso a la plataforma
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration5")}
                         </Typography>
                     </Grid>
 
                     <Grid item container>
-                        <Typography className={classes.Textp} >
-                            Teléfono
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration6")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -479,8 +482,8 @@ const FormRegister = () => {
                         <p className={leyendatelefono}>El telefono debe tener minimo 7 o maximo 10 digitos</p>
                     </Grid>
                     <Grid item container>
-                        <Typography className={classes.Textp} >
-                            Clave *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration7")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -508,13 +511,13 @@ const FormRegister = () => {
                                 }
                                 label="Password"
                             />
-                            <p className={leyendapassword2}>Las contraseñas no coinciden</p>
+                            <p className={leyendapassword2+" "+ajustable}>Las contraseñas no coinciden</p>
                         </FormControl>
 
                     </Grid>
                     <Grid item container>
-                        <Typography className={classes.Textp} >
-                            Confirmar clave *
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration8")}
                         </Typography>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -542,18 +545,18 @@ const FormRegister = () => {
                                 }
                                 label="Password"
                             />
-                            <p className={leyendapassword2}>Las contraseñas no coinciden</p>
+                            <p className={leyendapassword2+" "+ajustable}>Las contraseñas no coinciden</p>
                         </FormControl>
                     </Grid>
 
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            La clave debe ser por lo menos de 8 caracteres
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration9")}
                         </Typography>
                     </Grid>
                     <Grid item container >
-                        <Typography className={classes.Textp} >
-                            * Campo obligatorio
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registration.registration10")}
                         </Typography>
                     </Grid>
                     <Grid id="hola" className={estilocaptcha} container item justifyContent="center" alignItems="center">
@@ -564,8 +567,8 @@ const FormRegister = () => {
                 onChange={onChangecapchat} />
             </Grid> 
                     <Grid item container >
-                    <Tooltip title="Enviar" arrow>
-                        <Button  disabled={!formComplete} className={classes.boton} disableElevation onClick={sendForm} >Enviar</Button>
+                    <Tooltip title={t("registration.registration11")} arrow>
+                        <Button  disabled={!formComplete} className={classes.boton+" "+ajustable} disableElevation onClick={sendForm} >{t("registration.registration11")}</Button>
                     </Tooltip>
                     </Grid>
 
@@ -575,7 +578,7 @@ const FormRegister = () => {
             <Grid item xs={12} sm={6} md={6} lg={6} >                
                 <Grid item container>
                 <ImagenBottom />
-                    <Typography className={classes.text} justifyContent="center">
+                    <Typography className={classes.text+" "+ajustable} justifyContent="center">
                         Una vez haya realizado el registro usted podra: cargar / suministrar y / o descargar  información / formularios, visualizar estadísticas y historico de la información suministrada como usuario.
                     </Typography>
                 </Grid>
@@ -599,7 +602,7 @@ const Register = () => {
     const classes = useStyle();
     return (
         <Grid container justifyContent="center" spacing={3}
-            alignItems="center" className={classes.gridglobal}>
+            alignItems="center" id="target-two" className={classes.gridglobal}>
             <FormRegister />
         </Grid>
     );

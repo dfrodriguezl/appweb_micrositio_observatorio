@@ -11,6 +11,7 @@ import Addres from "Observatorio/img/Address-rafiki.svg"
 import DocumentBro from "Observatorio/img/alcance.jpg"
 import NewIdea from "Observatorio/img/usos.jpg"
 import DataExtration from "Observatorio/img/fuentes.jpg"
+import {useTranslation} from "react-i18next";
 const useStyle = makeStyles({
     DataExtration: {
         maxWidth: 500
@@ -132,10 +133,11 @@ const useStyle = makeStyles({
     }
 });
 
-
+const ajustable = "ajustable"
 
 const SectionOne = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global"); 
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -144,8 +146,8 @@ const SectionOne = () => {
     return (
         <Grid container className={estilo}>
             <Grid container justifyContent='center'>
-                <Typography className={classes.Titleh3}  >
-                    <strong>Registro de bienes inmuebles</strong>
+                <Typography className={classes.Titleh3+" "+ajustable}  >
+                    <strong>{t("registry.registry")}</strong>
                 </Typography>
                 </Grid>
             <Grid xs={12}
@@ -156,28 +158,15 @@ const SectionOne = () => {
                 justifyContent="center"
 
             >                
-                <Typography className={classes.Textp}>
-                    Para la producción de estadística oficial se realiza de manera tradicional el levantamiento de información
-                    a través de encuestas por muestreo, que de acuerdo al DANE es <i>“método estadístico por el cual se
-                    investiga y analiza un fenómeno, mediante la selección de una muestra”.</i> Sin embargo, acorde a las
-                    recomendaciones internacionales, convendría usar más los registros administrativos, debido a las
-                    ventajas de cobertura temática y geográfica, además de constituirse como una fuente de información
-                    que, considerando la periodicidad de su actualización y constituyéndose en fuentes para derivar
-                    información estadística.
-
+                <Typography className={classes.Textp+" "+ajustable}>
+                {t("registry.registry2")}<i>{t("registry.registry3")}</i>{t("registry.registry4")}
                 </Typography>
             </Grid>
             <Grid item xs={10} sm={12} md={6} lg={6}>
                 <img src={imageItem} className={classes.imagen_top}/>
             </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textpv}>
-                De acuerdo a la CEPAL (Comisión Económica para América Latina y el Caribe), de la división de
-                estadística y proyecciones económicas un registro administrativo es <i>“todo registro resultante de
-                    necesidades fiscales, tributarias u otras, creado con la finalidad de viabilizar la administración de los
-                    programas de gobierno o para fiscalizar el cumplimento de obligaciones legales de la sociedad. Para su
-                    utilización con fines estadísticos es preciso evaluar su base conceptual y metodológica, clasificaciones,
-                    cobertura alcanzada, variables investigadas, calidad de las respuestas, procesamiento de los datos y
-                    frecuencia de disponibilidad de ellos.”</i> CEPAL (2003).
+            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textpv+" "+ajustable}>
+            {t("registry.registry5")}<i>{t("registry.registry6")}</i>{t("registry.registry7")}.
             </Grid>
         </Grid>
 
@@ -242,6 +231,7 @@ const ImageAlcance = Styled.img`
 const SectionTwo = () => {
     const classes = useStyle();
     const matches = useMediaQuery("(min-width:769px)");
+    const [t, i18n]= useTranslation("global"); 
     var estilo = null;
     {
         matches ? estilo = classes.sectionPar : estilo = classes.sectionParmovil
@@ -251,8 +241,8 @@ const SectionTwo = () => {
 
             <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
 
-                <Typography className={`${classes.Titleh3}`} >
-                    Objetivo
+                <Typography className={classes.Titleh3+" "+ajustable} >
+                {t("registry.objective")}
                 </Typography>
 
             </Grid>
@@ -260,16 +250,14 @@ const SectionTwo = () => {
                 <ImageItem src={Nature} ></ImageItem>
             </ContainerImage>
             <Grid container item xs={12} sm={12} md={12} lg={12} >
-                <Typography className={classes.Textp} >
-                    Caracterizar con fines estadísticos, los bienes inmuebles que conforman el territorio nacional a través de
-                    la integración de información física, jurídica, económica y geográfica del predio que sirva como
-                    instrumento para la toma de decisiones en política pública.
+                <Typography className={classes.Textp+" "+ajustable} >
+                {t("registry.objective2")}
                 </Typography>
 
             </Grid>
             <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-                <Typography className={classes.Titleh3} >
-                    Alcance de registro
+                <Typography className={classes.Titleh3+" "+ajustable} >
+                {t("registry.scope")}
                 </Typography>
             </Grid>
 
@@ -279,16 +267,15 @@ const SectionTwo = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={6} lg={6} className={classes.containerAlcance}>
-                    <Typography className={classes.Textp}>
-                        Cobertura total de los predios en las áreas urbano y rural que incluyan situaciones como:
-
-                    </Typography>
+                    <Typography className={classes.Textp+" "+ajustable}>
+                    {t("registry.scope2")}
+                     </Typography>
                     <ol className={classes.Textpj}>
-                        <li className={classes.listyle}>Predios formalizados a través del registro en la<br></br> superintendencia de Notariado y Registro</li>
-                        <li className={classes.listyle}>Predios sin formalizar</li>
-                        <li className={classes.listyle}>Predios baldíos con y sin ocupación</li>
-                        <li className={classes.listyle}>Predios que hagan parte de comunidades negras,<br></br> resguardos indígenas y raizales</li>
-                        <li className={classes.listyle}>Predios de uso público</li>
+                        <li className={classes.listyle+" "+ajustable}>{t("registry.scope3")}</li>
+                        <li className={classes.listyle+" "+ajustable}>{t("registry.scope4")}</li>
+                        <li className={classes.listyle+" "+ajustable}>{t("registry.scope5")}</li>
+                        <li className={classes.listyle+" "+ajustable}>{t("registry.scope6")}</li>
+                        <li className={classes.listyle+" "+ajustable}>{t("registry.scope7")}</li>
                     </ol>
 
                 </Grid>
@@ -299,6 +286,7 @@ const SectionTwo = () => {
 
 const SectionThree = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global"); 
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -309,32 +297,26 @@ const SectionThree = () => {
 
             <Grid container item xs={12} sm={12} className={classes.marginBottom}>
                 <Grid container justifyContent='center'>
-                <Typography className={`${classes.Titleh3} ${classes.textLeft}`} >
-                    Usos
+                <Typography className={`${classes.Titleh3} ${classes.textLeft}+" "+ajustable`} >
+                {t("registry.Uses")}
                 </Typography>
                 </Grid>
-                <Typography className={classes.Textp}>
-                Haciendo alusión a las metodologías de ANDERS WALLGREN, BRITT WALLGREN, 2007, las cuales
-                mencionan los registros de bienes inmuebles como instrumento para recopilar la información relacionada
-                a la localización o ubicación de los registros de población y registros empresariales, se toma en
-                consideración los diferentes resultados y usos requeridos, los cuales se listan a continuación:         
+                <Typography className={classes.Textp+" "+ajustable}>
+                {t("registry.Uses2")}
                 </Typography>
                 <Grid sm={8} className={classes.textLeft}>
                     <div className={classes.Textp}>
                         <ul>
-                            <li className={classes.listyle}> Tenencia de la tierra.</li>
-                            <li className={classes.listyle}>Suministro de marcos de muestreo para operaciones estadísticas como censo de edificaciones y los
-                                marcos de construcción.</li>
-                            <li className={classes.listyle}>Identificación de predios de patrimonio cultural (enfoque para economía naranja).
-                                Generación de estadísticas de áreas protegidas.</li>
-                            <li className={classes.listyle}>Identificar fenómenos de conurbación, redensificación, sostenibilidad y habitabilidad.
-                                Generación de indicadores para medición de consumo de suelo.</li>
-                            <li className={classes.listyle}>Índices de precios de vivienda.</li>
-                            <li className={classes.listyle}>Vulnerabilidad económica y sociodemográfica (riesgos asociados).</li>
-                            <li className={classes.listyle}>Estratificación.</li>
-                            <li className={classes.listyle}>Aptitud de uso.</li>
-                            <li className={classes.listyle}>Observatorio inmobiliario.</li>
-                            <li className={classes.listyle}>Cobertura de servicios públicos.</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses3")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses4")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses5")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses6")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses7")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses8")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses9")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses10")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses11")}</li>
+                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses12")}</li>
                         </ul>
                     </div>
                 </Grid>
@@ -348,6 +330,7 @@ const SectionThree = () => {
 
 const SectionFour = () => {
     const classes = useStyle();
+    const [t, i18n]= useTranslation("global"); 
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -357,43 +340,41 @@ const SectionFour = () => {
         <Grid container className={estilo}>
 
             <Grid container item xs={12} sm={12} justifyContent='center'>
-                <Typography className={classes.Titleh3}>
-                    Fuentes de información
+                <Typography className={classes.Titleh3+" "+ajustable}>
+                {t("registry.sources")}
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
                 <ImageSectionFour src={DataExtration}></ImageSectionFour>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center"  >
-                <Typography className={classes.Textp}>
-                    De acuerdo a los posibles canales para el levantamiento de la información, las principales fuentes para
-                    conformar el registro de bienes inmuebles son los siguientes:
+                <Typography className={classes.Textp+" "+ajustable}>
+                {t("registry.sources2")}
                 </Typography>
             </Grid>
             <Grid container item xs={12} sm={12} justifyContent="center"  >
 
                 <ul className={classes.Textp}>
-                    <li className={classes.listyle}>Registro catastral del IGAC (instituto geográfico agustín codazzi).</li>
-                    <li className={classes.listyle}>Registro catastral de Bogotá.</li>
-                    <li className={classes.listyle}>Registro catastral de Cali.</li>
-                    <li className={classes.listyle}>Registro catastral de Medellín.</li>
-                    <li className={classes.listyle}>Registro catastral de Antioquia.</li>
-                    <li className={classes.listyle}>Resguardos (territorios colectivos de comunidades indígenas).</li>
-                    <li className={classes.listyle}>Territorios colectivos de comunidades negras.</li>
-                    <li className={classes.listyle}>Parques nacionales naturales de MinAmbiente (ministerio de ambiente y desarrollo
-                        Sostenible).</li>
-                    <li className={classes.listyle}>Registro de propiedad inmueble de la SNR (superintendencia de notariado y registro).</li>
-                    <li className={classes.listyle}>Registro del servicio público de energía eléctrica.</li>
-                    <li className={classes.listyle}>Registro del servicio público de acueducto.</li>
-                    <li className={classes.listyle}>Registro del servicio público de gas natural.</li>
-                    <li className={classes.listyle}>Registro de servicio público de telecomunicaciones.</li>
-                    <li className={classes.listyle}>Registro de baldíos de la nación.</li>
-                    <li className={classes.listyle}>Supernotariado ( Bogotá y distritos registrales)</li>
-                    <li className={classes.listyle}>Subsidio de vivienda VIS –VIP.</li>
-                    <li className={classes.listyle}>Censo de edificaciones del DANE.</li>
-                    <li className={classes.listyle}>Censo agropecuario del DANE.</li>
-                    <li className={classes.listyle}>Registro de predios de la unidad de restitución de tierras.</li>
-                    <li className={classes.listyle}>Registro de predios de la agencia nacional de tierras.</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources3")}.</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources4")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources5")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources6")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources7")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources8")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources9")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources10")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources11")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources12")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources13")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources14")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources15")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources16")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources17")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources18")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources19")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources20")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources21")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources22")}</li>
                 </ul>
             </Grid>
         </Grid>
@@ -403,7 +384,7 @@ const SectionFour = () => {
 const Cardsservice = () => {
     const classes = useStyle();
     return (
-        <Grid container >
+        <Grid container id="target-two">
             <SectionOne ></SectionOne>
             <SectionTwo></SectionTwo>
             <SectionThree></SectionThree>

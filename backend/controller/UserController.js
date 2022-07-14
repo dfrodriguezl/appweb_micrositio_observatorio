@@ -574,27 +574,24 @@ class UserController {
     let wb= xlsx.read(file.data, {type: "buffer"})
     //.then(async (wb) =>{
     try {
-      for(let i = 0; i < wb.SheetNames.length; i++){
-        
+      for(let i = 0; i < wb.SheetNames.length; i++){        
         let ws01 = wb.Sheets[wb.SheetNames[i]]
         let data01 = xlsx.utils.sheet_to_json(ws01) 
         let newRows = data01.splice(1, data01.length);  
-        let convert;     
+        let convert;           
         for (let j = 0; j < newRows.length; j++){                     
           let valid; 
           switch (wb.SheetNames[i]) {                                         
             case "PH":                                
               valid = Validate.validPh(newRows[j]);     
-              if(valid==="exito"){                
+              if(valid==="exito"){              
                 let phfound = await UserService.searchOfferPh1(newRows[j],id_obsevatorio);           
                 if(phfound){
-                  console.log("15/06/2022")
                   await UserService.updateOfferPh1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update                          
                 }else{
-                  console.log("16/06/2022")
                   await UserService.uploadfileph1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                          
                 }                        
-              }else{                        
+              }else{                          
                 response.code = valid;
                 j = newRows.length;
                 i = wb.SheetNames.length            
@@ -602,15 +599,14 @@ class UserController {
               break;
             case "NPH":  
               valid = Validate.validNph(newRows[j]);
-              //console.log("Hola",newRows[j])
-              if(valid==="exito"){
+              if(valid==="exito"){    
               let nphfound = await UserService.searchOfferNph1(newRows[j], id_obsevatorio);
               if(nphfound){
                 await UserService.updateOfferNph1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update                        
               }else{
                 await UserService.uploadfilenph1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                        
               }
-             }else{
+             }else{  
               response.code = valid;
               j = newRows.length;
               i = wb.SheetNames.length;  
@@ -618,15 +614,14 @@ class UserController {
              break;
              case "RURAL":                        
               valid = Validate.validRural(newRows[j]);
-              //console.log("Hola",newRows[j])
-              if(valid==="exito"){
+              if(valid==="exito"){    
                 let ruralfound = await UserService.searchOfferRural1(newRows[j], id_obsevatorio);                
                 if(ruralfound){
                   await UserService.updateOfferRural1(newRows[j], id_obsevatorio, file.name)  //aqui iria para update
                 }else{
                   await UserService.uploadfilerural1(newRows[j], id_obsevatorio, file.name)  //aqui iria parainsert                          
                 }
-              }else{
+              }else{ 
                 response.code = valid;
                 j = newRows.length;
                 i = wb.SheetNames.length;  

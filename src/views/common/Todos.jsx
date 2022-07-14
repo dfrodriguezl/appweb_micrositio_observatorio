@@ -49,7 +49,7 @@ const Todos = () => {
             <Button id='/observatorio/Catastromultiproposito/Metodosavaluos' onClick={rutas} className={classes.botonchat}>Métodos de avalúos</Button>
             <Button id="/observatorio/Comitetecnico" onClick={rutas} className={classes.botonchat}>Comité Técnico Asesor</Button>
             <Button id="/observatorio/Servicios" onClick={rutas} className={classes.botonchat}>Servicios OIN</Button>
-            <Button id="/observatorio/Servicios/estadisticas/Ceed" onClick={rutas} className={classes.botonchat}>CEED</Button>
+            {/* <Button id="/observatorio/Servicios/estadisticas/Ceed" onClick={rutas} className={classes.botonchat}>CEED</Button> */}
             <Button id="/observatorio/Mapas" onClick={rutas} className={classes.botonchat}>Geovisor</Button>
             <Button id="/observatorio/Repositorio" onClick={rutas} className={classes.botonchat}>Repositorio</Button>
             <Button id="/observatorio/Estadisticasexperimentales" onClick={rutas} className={classes.botonchat}>Estadísticas experimentales</Button>

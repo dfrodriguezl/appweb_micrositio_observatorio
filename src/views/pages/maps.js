@@ -4,6 +4,7 @@ import * as Values from 'Observatorio/Variables/values';
 import CardsMaps from 'Observatorio/common/Cards';
 import Paper from "Observatorio/img/geovisor.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import {useTranslation} from "react-i18next";
 
 
 const useStyle = makeStyles({
@@ -11,7 +12,7 @@ const useStyle = makeStyles({
     Titleh3:{
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
-        fontSize: Values.SizeSubtitle,
+        fontSize: Values.SizeTitle,
         padding: Values.PaddingTitleText,  
       },
     
@@ -63,21 +64,20 @@ const ImagenBottom = () => {
   } 
 
 const Topmaps = () => {
-    const classes = useStyle();    
+    const classes = useStyle();  
+    const [t, i18n]= useTranslation("global");  
+    const ajustable = "ajustable"
     return (
         <Grid container direccion="row" >
           <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>{Values.TitleGeovisores}</h3>
+          <h3 className={classes.Titleh3+" "+ajustable}>{t("geovisors.geovisor")}</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle}>
                 
-                <p className={classes.Textp}>
-                  Un geovisor o visor geográfico, corresponde a una herramienta en línea que permite la consulta de información a través de una interfaz geográfica, mediante la cual se puede reunir, gestionar y/o analizar datos. 
-                </p>     
-                <p className={classes.Textp}>
-                  La ventaja de los Geovisores radica en el análisis de la ubicación espacial y la visualizacion de información la cual se realiza por capas mediante la utilización de mapas
-                  </p>  
+                <p className={classes.Textp+" "+ajustable}>
+                {t("geovisors.geovisor2")}</p>     
+                <p className={classes.Textp+" "+ajustable}>{t("geovisors.geovisor3")}</p>  
                 </Grid>
                 <ImagenBottom/> 
         </Grid>
@@ -94,7 +94,7 @@ const maps = () => {
     }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={estilo}>
+        alignItems="center" id="target-two" className={estilo}>
             <Topmaps/>
             <CardsMaps/>
         </Grid>

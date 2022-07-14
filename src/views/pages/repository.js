@@ -10,9 +10,10 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import Meeting from "Observatorio/img/repos.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
-import tecnicasvaluatorias from "../../../backend/files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
-import ejemplomercado from "../../../backend/files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
-import formatomercado from "../../../backend/files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+import ejemplomercado from "../../files/EJEMPLO_FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import formatomercado from "../../files/FORMATO_MERCADO_OBSERVATORIO_INMOBILIARIO_NACIONAL.xlsx"
+import {useTranslation} from "react-i18next";
 
 const useStyle = makeStyles({
   margintop: {
@@ -140,8 +141,10 @@ const Imagen = () => {
 };
 
 const Repository = () => {
+  const [t, i18n]= useTranslation("global");
   const classes = useStyle();
-  const matches = useMediaQuery("(min-width:769px)");
+  const matches = useMediaQuery("(min-width:769px)");  
+  const ajustable = "ajustable"
   var estilo = null;
   {
     if (matches) {
@@ -152,11 +155,11 @@ const Repository = () => {
   }
 
   return (
-    <Grid container direction="column" className={estilo}>
+    <Grid container direction="column" id="target-two" className={estilo}>
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
-          <h3 className={classes.titleStyle}>
-            Repositorio observatorio inmobiliario nacional
+          <h3 className={classes.titleStyle+" "+ajustable}>
+          {t("repository.repository")}
           </h3>
         </Grid>
         <Grid
@@ -166,38 +169,35 @@ const Repository = () => {
           xs
           className={classes.containerTitle}
         >
-          <p className={classes.contentrulesp}>
-            El repositorio documental del observatorio inmobiliario nacional,
-            almacena todos los archivos de descarga (últimas versiones) de la
-            presente herramienta y los pone a disposición de los usuarios.
+          <p className={classes.contentrulesp+" "+ajustable}>
+          {t("repository.repository2")}
           </p>
-          <p className={classes.contentrulesp}>
-            A continuación se listan los archivos, a los cuales se puede acceder
-            mediante descarga:
+          <p className={classes.contentrulesp+" "+ajustable}>
+          {t("repository.repository3")}
           </p>
         </Grid>
         <Imagen />
       </Grid>
       <table className={classes.tabla}>
         <tr>
-          <th className={classes.containerbarra}>Documento</th>
-          <th className={classes.containerbarra}>Versión</th>
-          <th className={classes.containerbarra}>Formato</th>
-          <th className={classes.containerbarra}>Tamaño</th>
-          <th className={classes.containerbarra}>Descargar</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("repository.repository4")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("repository.repository5")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("repository.repository6")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("repository.repository7")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("repository.repository8")}</th>
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>TECNICAS VALUATORIAS.pdf</th>
-          <th className={classes.containercontent}>V1</th>
-          <th className={classes.containercontent}>Pdf</th>
-          <th className={classes.containercontent}>472 KB</th>
+          <th className={classes.containercontent+" "+ajustable}>TECNICAS VALUATORIAS.pdf</th>
+          <th className={classes.containercontent+" "+ajustable}>V1</th>
+          <th className={classes.containercontent+" "+ajustable}>Pdf</th>
+          <th className={classes.containercontent+" "+ajustable}>472 KB</th>
           <th className={classes.containercontent}>
-            <Tooltip title="Descargar" arrow>
-            <Button className={classes.boton}>
+            <Tooltip title={t("repository.repository8")} arrow>
+            <Button className={classes.boton+" "+ajustable}>
               <a target="_blank" className={classes.alink}
                   href={tecnicasvaluatorias}
                   download
-              >Descargar</a>
+              >{t("repository.repository8")}</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button>
             </Tooltip>
@@ -214,34 +214,34 @@ const Repository = () => {
             </Button></th>
         </tr> */}
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>EJEMPLO MERCADO.xlsx</th>
-          <th className={classes.containercontent}>V1</th>
-          <th className={classes.containercontent}>Excel</th>
-          <th className={classes.containercontent}>31 KB</th>
+          <th className={classes.containercontent+" "+ajustable}>EJEMPLO MERCADO.xlsx</th>
+          <th className={classes.containercontent+" "+ajustable}>V1</th>
+          <th className={classes.containercontent+" "+ajustable}>Excel</th>
+          <th className={classes.containercontent+" "+ajustable}>31 KB</th>
           <th className={classes.containercontent}>
-            <Tooltip title="Descargar" arrow>
-            <Button className={classes.boton}>
+            <Tooltip title={t("repository.repository8")} arrow>
+            <Button className={classes.boton+" "+ajustable}>
               <a className={classes.alink}
                   href={ejemplomercado}
                   download
-              >Descargar</a>
+              >{t("repository.repository8")}</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button>
             </Tooltip>
             </th>
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>FORMATO MERCADO.xlsx</th>
-          <th className={classes.containercontent}>V1</th>
-          <th className={classes.containercontent}>Excel</th>
-          <th className={classes.containercontent}>50 KB</th>
+          <th className={classes.containercontent+" "+ajustable}>FORMATO MERCADO.xlsx</th>
+          <th className={classes.containercontent+" "+ajustable}>V1</th>
+          <th className={classes.containercontent+" "+ajustable}>Excel</th>
+          <th className={classes.containercontent+" "+ajustable}>50 KB</th>
           <th className={classes.containercontent}>
-          <Tooltip title="Descargar" arrow>
-          <Button className={classes.boton}>
+          <Tooltip title={t("repository.repository8")} arrow>
+          <Button className={classes.boton+" "+ajustable}>
           <a className={classes.alink}
                   href={formatomercado}
                   download
-              >Descargar</a>
+              >{t("repository.repository8")}</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button>
           </Tooltip>

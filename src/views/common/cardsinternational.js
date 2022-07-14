@@ -13,7 +13,11 @@ import {
   } from "@material-ui/core";
   import React, { Component } from "react";
   import * as Values from "Observatorio/Variables/values";
-  import cardsotros from "Observatorio/common/cardsinternacional";
+  //import cardsotros from "Observatorio/common/cardsinternacional";
+  import {useTranslation} from "react-i18next";
+  import Sale from "Observatorio/img/Logo-header-web-blanc.png";
+  import Fill from "Observatorio/img/nn1.png";
+  import Segment from "Observatorio/img/inteobser1.png";
   
   const useStyle = makeStyles({
     boton: {
@@ -112,6 +116,32 @@ import {
   const Cardsmapasinternational = () => {
     const classes = useStyle();
     const matches2 = useMediaQuery("(min-width:1701px)");
+    const [t, i18n]= useTranslation("global");
+    const ajustable = "ajustable"
+    const cardsotros = [
+      {
+          "id":1,
+          "title":t("Other.International2"),
+          "description":t("Other.International3"),
+          "image_card":Sale,
+          "link":"https://www.cba.gov.ar/el-observatorio-del-mercado-inmobiliario-renueva-su-web/"
+      },
+      {
+          "id":2,
+          "title":t("Other.International4"),
+          "description":t("Other.International5"),
+          "image_card":Fill,
+          "link":"https://www.etxebide.euskadi.eus/web01-a1etxebi/es"
+      },
+      {
+          "id":3,
+          "title":t("Other.International6"),
+          "description":t("Other.International7"),
+          "image_card":Segment,
+          "link":"https://www.etxebide.euskadi.eus/x39-ovhome/es/"
+      },
+  
+  ]
     var estilo = null;
     {
       if (matches2) {
@@ -125,7 +155,7 @@ import {
       
         <Grid container className={classes.gridglobal}>
             <Grid container direction="column">
-            <h3 className={classes.TitlehPrincipal}>Observatorios internacionales</h3>
+            <h3 className={classes.TitlehPrincipal+" "+ajustable}>{t("Other.International")}</h3>
             </Grid>
           {cardsotros.map(function (cardsotros) {
             return (
@@ -146,20 +176,20 @@ import {
                       image={cardsotros.image_card}
                     />
                     <CardContent className={classes.centerText}>
-                    <Typography className={classes.Titlehdes}>
+                    <Typography className={classes.Titlehdes+" "+ajustable}>
                       {cardsotros.title}
                     </Typography>
                   </CardContent>
                     <CardContent className={classes.centerText}>
-                      <Typography className={classes.Titleh3}>
+                      <Typography className={classes.Titleh3+" "+ajustable}>
                         {cardsotros.description}
                       </Typography>
                     </CardContent>
                   </CardContent>
                   <CardActions className={classes.centerButton}>
                   <Tooltip title={cardsotros.title} arrow>
-                    <Button target="_blank" className={classes.boton} href={cardsotros.link}>
-                      Visitar
+                    <Button target="_blank" className={classes.boton+" "+ajustable} href={cardsotros.link}>
+                    {t("Other.Visit")}
                     </Button>
                   </Tooltip>
                   </CardActions>

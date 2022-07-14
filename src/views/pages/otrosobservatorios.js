@@ -5,6 +5,7 @@ import CardsMaps from 'Observatorio/common/otroscards';
 import Cardsinternational from 'Observatorio/common/cardsinternational';
 import App from "Observatorio/img/bogot.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import {useTranslation} from "react-i18next";
 
 const useStyle = makeStyles({
   listyle:{
@@ -76,28 +77,31 @@ const ImagenBottom = () => {
     )
   } 
 
+const ajustable = "ajustable"
+
 const Topobservatorio = () => {
+  const [t, i18n]= useTranslation("global");
     const classes = useStyle();    
     return (
         <Grid container direccion="row" >
           <Grid container justifyContent="center"
           alignItems="center">
-          <h3 className={classes.Titleh3}>Otros observatorios inmobiliarios</h3>
+          <h3 className={classes.Titleh3+" "+ajustable}>{t("Other.Other")}</h3>
                 </Grid>
                 <Grid item container direction="column" xs className={classes.containerTitle} >              
-                <p className={classes.Textp}>
-                    Existen varios Observatorios Inmobiliarios que recopilan la información del mercado inmobiliario, sus usos más relevantes son:                    
+                <p className={classes.Textp+" "+ajustable}>
+                {t("Other.Other2")}
                 </p> 
                 <ol className={classes.Textp2}>
-                    <li className={classes.listyle}>Cálculo de avalúos</li>
-                    <li className={classes.listyle}>Registro de ofertas tanto públicas como privadas</li>
-                    <li className={classes.listyle}>Seguimiento y análisis a las dinámicas inmobiliarias</li>
-                    <li className={classes.listyle}>Integración con información estadística</li>
-                    <li className={classes.listyle}>Publicación de datos oficiales</li>
-                    <li className={classes.listyle}>Fuente de investigaciones científicas</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other3")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other4")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other5")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other6")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other7")}</li>
+                    <li className={classes.listyle+" "+ajustable}>{t("Other.Other8")}</li>
                 </ol>    
-                <p className={classes.Textp}>
-                    Los mismos deben estar articulados con el Observatorio Nacional del Departamento Administrativo Nacional de Estadística (DANE).
+                <p className={classes.Textp+" "+ajustable}>
+                {t("Other.Other9")}
                 </p> 
             </Grid>
                 <ImagenBottom/> 
@@ -107,6 +111,7 @@ const Topobservatorio = () => {
 
 
 const otrosobservatorios = () => {
+  const [t, i18n]= useTranslation("global");
     const classes = useStyle(); 
     const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
@@ -115,7 +120,7 @@ const otrosobservatorios = () => {
     }
     return (
         <Grid container justifyContent="center"
-        alignItems="center"  className={estilo}>
+        alignItems="center" id="target-two" className={estilo}>
             <Topobservatorio/>
             <CardsMaps/>
             <Cardsinternational/>

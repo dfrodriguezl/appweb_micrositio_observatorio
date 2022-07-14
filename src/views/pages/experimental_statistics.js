@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import * as Values from 'Observatorio/Variables/values';
 import Meeting from "Observatorio/img/repo2.jpg";
 import DownloadForOfflineRoundedIcon from '@mui/icons-material/DownloadForOfflineRounded';
-import resumenejecutivo from "../../../backend/files/DOC_DIRECTIVO_IND_2021_20211203.pdf"
-import documentotecnico from "../../../backend/files/DOC_TECN_IND_20211203.pdf"
+import resumenejecutivo from "../../files/DOC_DIRECTIVO_IND_2021_20211203.pdf"
+import documentotecnico from "../../files/DOC_TECN_IND_20211203.pdf"
+import {useTranslation} from "react-i18next";
 
 const useStyle = makeStyles({
   margintop:{
@@ -136,6 +137,8 @@ const Imagen = () => {
 
 const ExperimentalStadistics = () => {
   const classes = useStyle();
+  const ajustable = "ajustable"
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:769px)");
     var estilo = null;
     {
@@ -147,39 +150,39 @@ const ExperimentalStadistics = () => {
     } 
   
   return(      
-      <Grid container direction="column"  className={estilo}>
+      <Grid container direction="column" id="target-two" className={estilo}>
           <Grid container direction="row">
               <Grid container justifyContent="center" alignItems="center">
-                  <h3 className={classes.titleStyle}>Estadísticas experimentales</h3>
+                  <h3 className={classes.titleStyle+" "+ajustable}>{t("experimental.experimental")}</h3>
               </Grid>              
               <Imagen/> 
               <Grid item container direction="column" xs className={classes.containerTitle}>
-              <p className={classes.contentrulesp}>
-              Los documentos de estadísticas experimentales, hacen referencia a los procedimientos y análisis de las variables estadísticas del geoportal del Departamento Administrativo Nacional de Estadística - DANE, condensados en indicadores cuyo resultado se puede apreciar en el visor dispuesto en la presente herramienta 
+              <p className={classes.contentrulesp+" "+ajustable}>
+              {t("experimental.experimental2")}
               </p> 
               </Grid>
               
       </Grid>
       <table className={classes.tabla}>
         <tr>
-          <th className={classes.containerbarra}>Documento</th>
-          <th className={classes.containerbarra}>Versión</th>
-          <th className={classes.containerbarra}>Formato</th>
-          <th className={classes.containerbarra}>Tamaño</th>
-          <th className={classes.containerbarra}>Descargar</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("experimental.experimental3")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("experimental.experimental4")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("experimental.experimental5")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("experimental.experimental6")}</th>
+          <th className={classes.containerbarra+" "+ajustable}>{t("experimental.experimental7")}</th>
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>RESUMEN EJECUTIVO ESTADISTICAS EXPERIMENTALES</th>
-          <th className={classes.containercontent}>V1</th>
-          <th className={classes.containercontent}>Pdf</th>
-          <th className={classes.containercontent}>42.341 KB</th>
+          <th className={classes.containercontent+" "+ajustable}>RESUMEN EJECUTIVO ESTADISTICAS EXPERIMENTALES</th>
+          <th className={classes.containercontent+" "+ajustable}>V1</th>
+          <th className={classes.containercontent+" "+ajustable}>Pdf</th>
+          <th className={classes.containercontent+" "+ajustable}>42.34 MB</th>
           <th className={classes.containercontent}>
-          <Tooltip title="Descargar" arrow>
-            <Button className={classes.boton}>
+          <Tooltip title={t("experimental.experimental7")} arrow>
+            <Button className={classes.boton+" "+ajustable}>
           <a target="_blank" className={classes.alink}
                   href={resumenejecutivo}
                   download
-              >Descargar</a>
+              >{t("experimental.experimental7")}</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button>
             </Tooltip>
@@ -187,17 +190,17 @@ const ExperimentalStadistics = () => {
 
         </tr>
         <tr className={classes.columnatabla}>
-          <th className={classes.containercontent}>DOCUMENTO TÉCNICO ESTADISTICAS EXPERIMENTALES</th>
-          <th className={classes.containercontent}>V1</th>
-          <th className={classes.containercontent}>Pdf</th>
-          <th className={classes.containercontent}>64.292 KB</th>
-          <th className={classes.containercontent}>
-          <Tooltip title="Descargar" arrow>
-          <Button className={classes.boton}>
+          <th className={classes.containercontent+" "+ajustable}>DOCUMENTO TÉCNICO ESTADISTICAS EXPERIMENTALES</th>
+          <th className={classes.containercontent+" "+ajustable}>V1</th>
+          <th className={classes.containercontent+" "+ajustable}>Pdf</th>
+          <th className={classes.containercontent+" "+ajustable}>64.29 MB</th>
+          <th className={classes.containercontent+" "+ajustable}>
+          <Tooltip title={t("experimental.experimental7")} arrow>
+          <Button className={classes.boton+" "+ajustable}>
           <a target="_blank" className={classes.alink}
                   href={documentotecnico}
                   download
-              >Descargar</a>
+              >{t("experimental.experimental7")}</a>
               <DownloadForOfflineRoundedIcon style={{ fill: 'white' }}/>
             </Button>
             </Tooltip>

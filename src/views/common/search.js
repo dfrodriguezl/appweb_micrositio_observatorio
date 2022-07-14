@@ -248,6 +248,8 @@ const useStyle = makeStyles({
   
 })
 
+const ajustable = "ajustable"
+
 const Resulta = () => {       
     const resultado = localStorage.getItem("searchcobjet");
     const resultado1 = JSON.parse(resultado)
@@ -263,8 +265,8 @@ const Resulta = () => {
             {resultado1.map(function (resultado1) {              
             return (
                 <Grid container direction="row">           
-                      <a className={classes.textStyle} href={`${enviroment.endpoint}${resultado1.url}`}>{`${resultado1.titulo}`}</a>                      
-                      <p className={classes.textStyle1}>{resultado1.descripcion}</p>
+                      <a className={classes.textStyle+" "+ajustable} href={`${enviroment.endpoint}${resultado1.url}`}>{`${resultado1.titulo}`}</a>                      
+                      <p className={classes.textStyle1+" "+ajustable}>{resultado1.descripcion}</p>
                 </Grid>
             );
           })}
@@ -282,7 +284,7 @@ const Busqueda = () => {
     return(
         <Grid container direction="column" className={estilo}>
             <Grid container justifyContent="center" alignItems="center">
-                    <h3 className={classes.titleStyle}>Resultado de la busqueda</h3>
+                    <h3 className={classes.titleStyle+" "+ajustable}>Resultado de la busqueda</h3>
             </Grid>            
         </Grid>  
     )
@@ -292,7 +294,7 @@ const GeneralBusqueda = () => {
   const classes = useStyle();
    
   return(
-      <Grid container>
+      <Grid container id="target-two">
         <Busqueda/>  
         <Resulta/>    
       </Grid>

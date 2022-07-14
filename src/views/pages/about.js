@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
 import House from "Observatorio/img/about.jpg";
 import Judge from "Observatorio/img/decretoabout.jpg";
-
+import {useTranslation} from "react-i18next";
 import word from "Observatorio/img/powerpoint.png";
 
 const useStyle = makeStyles({
@@ -206,9 +206,12 @@ const ImagenJudge = () => {
   );
 };
 
+const ajustable = "ajustable"
+
 const About = () => {
   const classes = useStyle();
   const matches = useMediaQuery("(min-width:769px)");
+  const [t, i18n]= useTranslation("global");
   var estilo = null;
   var estilomovil = null;
   var direccion = null;
@@ -239,10 +242,10 @@ const About = () => {
   }
 
   return (
-    <Grid container direction="column" className={estilomovil}>
+    <Grid container direction="column" id="target-two" className={estilomovil}>
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
-          <h3 className={classes.titleStyle}>¿Qué es un observatorio?</h3>
+          <h3 className={classes.titleStyle +" "+ajustable}>{t("about.observatorio")}</h3>
         </Grid>
         <Grid
           item
@@ -251,11 +254,11 @@ const About = () => {
           xs
           className={classes.containerTitle}
         >
-          <p className={classes.contentrulesp}>
-            Existen varios tipos de observatorios, sin embargo, se entiende por observatorio, un instrumento que recopila, analiza e interpreta información relevante de un tema previamente establecido, con el fin de generar conocimiento, para el posterior monitoreo y soporte al proceso de toma decisiones. 
+          <p className={classes.contentrulesp+" "+ajustable}>
+          {t("about.observatorio2")}
           </p>
-          <p className={classes.contentrulesp}>
-            Todo observatorio debe tener como objetivos la compilación e integración de información, la elaboración de estadísticas globales y específicas, la formulación de análisis y proyecciones y la alimentación periódica de indicadores.
+          <p className={classes.contentrulesp+" "+ajustable}>
+          {t("about.observatorio3")}
           </p>
         </Grid>
         <Imagen />
@@ -279,7 +282,7 @@ const About = () => {
 
       <Grid container direction="row">
         <Grid container justifyContent="center" alignItems="center">
-          <h3 className={classes.titleStyle2}>Decreto 148 de 2020</h3>
+          <h3 className={classes.titleStyle2+" "+ajustable}>{t("about.decreto")}</h3>
         </Grid>
         <ImagenJudge />
         <Grid
@@ -289,28 +292,15 @@ const About = () => {
           xs
           className={classes.containerTitle}
         >
-          <p className={classes.contentrulesp}>
+          <p className={classes.contentrulesp+" "+ajustable}>
             <strong>
-              Artículo 2.2.2.6.1. Observatorio Inmobiliario Catastral.
+            {t("about.decreto2")}
             </strong>{" "}
-            Todos los Gestores Catastrales{" "}
+            {t("about.decreto3")}{" "}
             <strong>
-              deberán contar con un Observatorio Inmobiliario Catastral
+            {t("about.decreto4")}
             </strong>{" "}
-            donde se recopilará la información del mercado inmobiliario del área
-            geográfica a su cargo, proveniente de fuentes tales como ofertas,
-            transacciones, costos de construcción, entre otras, y{" "}
-            <strong>
-              el cual deberá estar articulado, para tal efecto, con el
-              Observatorio Nacional del Departamento Nacional de Estadística
-              (DANE).
-            </strong>{" "}
-            Todo avalúo comercial deberá estar sustentado en información
-            registrada en el observatorio inmobiliario catastral, para lo cual
-            se deberá garantizar que cualquier tipo de información utilizada en
-            el avalúo sea registrada en el observatorio. Lo anterior, sin
-            perjuicio de las normas relacionadas con la protección de datos
-            personales
+            {t("about.decreto5")}
           </p>
         </Grid>
       </Grid>

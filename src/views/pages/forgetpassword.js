@@ -7,6 +7,7 @@ import axios from 'axios';
 import {Loader} from './loader/loader'
 import Modal from "Observatorio/pages/modal"
 import enviroment from "../../config/enviroment"
+import {useTranslation} from "react-i18next";
 const ContainerForm = Styled.div`    
 
     display: flex;
@@ -27,6 +28,8 @@ const ContainerForm = Styled.div`
 
 const ForgetPassword = () => {
   const classes = classStyle();
+  const ajustable = "ajustable"
+  const [t, i18n]= useTranslation("global");
   const [form,setForm] = useState({
       email:""
   })
@@ -80,10 +83,10 @@ const sendEmail = () =>{
  });
 }
   return (
-    <Grid container justifyContent="center" alignContent="center">
+    <Grid container justifyContent="center" id="target-two" alignContent="center">
         <Grid item container  spacing={2} xs={12} md={6} sm={6} lg={6} className={classes.containerForm}>
           <Grid item container justifyContent="center" alignContent="center">
-               <Typography className={classes.Textp}>   Diligencie y envie su usuario, revise su correo y siga las instrucciones</Typography>
+               <Typography className={classes.Textp+" "+ajustable}>{t("forgetPassword.forgetPassword")}</Typography>
            </Grid>
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <TextField
@@ -96,8 +99,8 @@ const sendEmail = () =>{
               id="outlined-basic"
             />
           </Grid>
-          <Tooltip title="Enviar" arrow>
-          <button className={classes.boton} onClick={sendEmail} >Enviar</button>
+          <Tooltip title={t("forgetPassword.forgetPassword2")} arrow>
+          <button className={classes.boton+" "+ajustable} onClick={sendEmail} >{t("forgetPassword.forgetPassword2")}</button>
           </Tooltip>
         </Grid>
         <Loader open={openLoading}></Loader>

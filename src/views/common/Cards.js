@@ -83,7 +83,8 @@ const useStyle = makeStyles({
 });
 
 const Cardsmapas = () => {
-    const classes = useStyle();
+    const classes = useStyle();  
+    const ajustable = "ajustable"
     return (
       
       <Grid container>
@@ -111,17 +112,17 @@ const Cardsmapas = () => {
                 />
                 {/* , classes.contentcar */}
                 <CardContent className={classes.centerText}>
-                  <Typography className={classes.Titleh3}>
+                  <Typography className={classes.Titleh3+" "+ajustable}>
                   {infomaps.title}  
                   </Typography>
-                  <Typography className={classes.Textp}>
+                  <Typography className={classes.Textp+" "+ajustable}>
                   {infomaps.description}  
                   </Typography>
                 </CardContent>
               </CardContent>
               <CardActions className={classes.centerButton}>
               <Tooltip title={infomaps.title} arrow>
-              <Button target="_blank" className={classes.boton} href={infomaps.link}>Visitar</Button>
+              <Button target="_blank" className={classes.boton+" "+ajustable} href={infomaps.link}>Visitar</Button>
               </Tooltip>              
               </CardActions>
             </Card>

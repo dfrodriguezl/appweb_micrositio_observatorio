@@ -21,7 +21,7 @@ function conexion(){
            })
     }
     this.getConnection= function(){
-        console.log(this.pool)
+        //console.log(this.pool)
         return this.pool
     } 
 }

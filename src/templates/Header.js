@@ -19,6 +19,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import {useTranslation} from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import FontSizeChanger from 'react-font-size-changer';
+import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
+import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
+import TonalityIcon from "@mui/icons-material/Tonality";
 import {AuthContext} from "../templates/useAuth"
 //import styles from "../views/common/style/estilossearch.css";
 const useStyle = makeStyles({
@@ -66,6 +70,22 @@ const useStyle = makeStyles({
         cursor: "pointer",
         borderStyle: "hidden !important",
         width: "2.5vh",
+        fontSize: "calc(0.2em + 0.9vh)",
+        borderRadius:"5px",
+        "&:hover": {
+            backgroundColor: "#3e071a",
+            border: "none",
+          },
+    },
+    fontSize: {
+        backgroundColor: "#821a3f",
+        height:"3vh",
+        margin:"4vh 0px 2.5vh 1vh",
+        color:"white",
+        cursor: "pointer",
+        borderStyle: "hidden !important",
+        width: "2.5vh",
+        borderRadius:"5px",
         fontSize: "calc(0.2em + 0.9vh)",
         "&:hover": {
             backgroundColor: "#3e071a",
@@ -141,6 +161,19 @@ margin-top:10px;
  }
 `
 
+var color = 0
+function handleClick() {  
+    if(color==0){
+    let grishtml=document.getElementsByTagName("html")[0]
+    grishtml.style.filter=`grayscale(1)`
+    color=1
+    }else{
+    let grishtml=document.getElementsByTagName("html")[0]
+    grishtml.style.filter=`grayscale(0)`
+    color=0
+    }
+}
+
 const Header = () => {
     const history = useNavigate();
     const classes = useStyle();
@@ -168,6 +201,8 @@ const Header = () => {
   }
     const [sideBarOpen, setSideBarOpen] = useState(false)
     
+    const ajustable = "ajustable"
+
     const [t, i18n]= useTranslation("global");
 
     const handlesearch = (e) =>{        
@@ -226,18 +261,18 @@ const Header = () => {
     }
     return (
         <header>
-            <Grid container className={classes.main}>                 
+            <Grid id="target-two" container className={classes.main}>                 
                 <Grid container className={classes.backgroundHeader}>
                     <Grid container item direction='row'>
                         <Grid container item xs={2}>
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo} src={logoDane} /></a> 
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src={logoDane} /></a> 
                         </Grid> 
                         <Grid container item xs={10} justifyContent={ubicacion}>                            
-                        <a href="/observatorio/" className={estilo}>
+                        <a href="/observatorio/" className={estilo+" "+ajustable}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
                         <TextField
-                            className={estilo3}
+                            className={estilo3+" "+ajustable}
                             id="search"
                             label={t("headersearch.search")}
                             onClick={handlesearch}
@@ -250,12 +285,35 @@ const Header = () => {
                             ),
                             }}
                         />
-                        <button id='en' Active className={classes.lenguaje} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
-                        <button id='es' className={classes.lenguaje} onClick={()=> i18n.changeLanguage("es")}>ES</button>
-                        <a href="/observatorio/" className={estilo2}>
+                        <button id='en' Active className={classes.lenguaje+" "+ajustable} onClick={()=> i18n.changeLanguage("en")}>EN</button>   
+                        <button id='es' className={classes.lenguaje+" "+ajustable} onClick={()=> i18n.changeLanguage("es")}>ES</button>
+                        <FontSizeChanger
+                            targets={["#target-two .ajustable"]}
+                            options={{
+                                stepSize: 0.5,
+                                range: 100,
+                            }}
+                            customButtons={{
+                            up: <TextIncreaseIcon name="search-plus" />,
+                            down: <TextDecreaseIcon name="search-minus" />,
+                            style: {
+                            backgroundColor: "#821a3f",
+                            height:"3vh",
+                            color: "white",
+                            width: "2.5vh",
+                            WebkitBoxSizing: "border-box",
+                            WebkitBorderRadius: '5px',
+                            margin:"4vh 0px 2.5vh 1vh",
+                            cursor: "pointer",
+                            },
+                            buttonsMargin: "0px"
+                            }}
+                        />
+                        <button className={classes.fontSize+" "+ajustable} onClick={handleClick}><TonalityIcon/></button>
+                        <a href="/observatorio/" className={estilo2+" "+ajustable}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
-                        <TextLogo className={estilo2}>
+                        <TextLogo className={estilo2+" "+ajustable}>
                             <TextLogoTitle >
                                 Observatorio
                             </TextLogoTitle>
@@ -288,7 +346,7 @@ const Header = () => {
                         </Grid>                        
                     </Grid>    
                 </Grid>
-                <Grid container item className={classes.backgroundHeader}>
+                <Grid container item className={classes.backgroundHeader+" "+ajustable}>
                     <Navbar sideBarOpen={sideBarOpen}></Navbar>
                 </Grid>
             </Grid>

@@ -4,7 +4,8 @@ import * as Values from "Observatorio/Variables/values";
 import Small from "Observatorio/img/Small.svg";
 import word from "Observatorio/img/PDF1.png";
 import geograph from "Observatorio/img/geograph.png";
-import tecnicasvaluatorias from "../../../backend/files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
+import {useTranslation} from "react-i18next";
+import tecnicasvaluatorias from "../../files/Documento_Investistigacion_Tecnicas_Valuatorias.pdf"
 
 const useStyle = makeStyles({
   gridglobal: {
@@ -160,9 +161,11 @@ const useStyle = makeStyles({
 }
 });
 
+const ajustable = "ajustable"
 
 const avaluos = () => {
   const classes = useStyle();
+  const [t, i18n]= useTranslation("global");
   const matches = useMediaQuery("(min-width:769px)");
   var estilo = null;
   var estilo3 = null;
@@ -181,15 +184,15 @@ const avaluos = () => {
     }
   }
   return (
-    <Grid container direction="column" className={estilo}>
+    <Grid container direction="column" id="target-two" className={estilo}>
       <Grid container justifyContent="center" alignItems="center">
-        <h3 className={classes.titleStyle}>
-          Métodos para el cálculo de avalúos
+        <h3 className={classes.titleStyle+" "+ajustable}>
+        {t("methods.methods")}
         </h3>
       </Grid>
       <Grid container>
-        <p className={classes.contentrulesp}>
-        Para la determinación del valor comercial de los inmuebles, se disponen de diferentes métodos que proveen valores aproximados por los cuales se  pueden realizar transacciones, entre los mas comunes se encuentran:
+        <p className={classes.contentrulesp+" "+ajustable}>
+        {t("methods.methods2")}
         </p>
       </Grid>
       <Grid container direction="row" className={classes.numpadding}>
@@ -211,12 +214,11 @@ const avaluos = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <h1 className={classes.titleStyle2}>
-              Método de comparación o de mercado
+            <h1 className={classes.titleStyle2+" "+ajustable}>
+            {t("methods.methods3")}
             </h1>
-            <p className={classes.textStyle}>
-              Corresponde al estudio de ofertas o transacciones recientes de
-              bienes similares o comparables al objeto de avalúo
+            <p className={classes.textStyle+" "+ajustable}>
+            {t("methods.methods4")}
             </p>
           </Grid>
         </Grid>
@@ -238,11 +240,11 @@ const avaluos = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <h1 className={classes.titleStyle2}>
-            Método de capitalización de rentas o ingresos
+            <h1 className={classes.titleStyle2+" "+ajustable}>
+            {t("methods.methods5")}
             </h1>
-            <p className={classes.textStyle}>
-            Es la determinación del valor comercial de un inmueble a partir del análisis de rentas o ingresos del mismo, puede ser del objeto de estudio o de bienes similares
+            <p className={classes.textStyle+" "+ajustable}>
+            {t("methods.methods6")}
             </p>
           </Grid>
         </Grid>
@@ -265,9 +267,9 @@ const avaluos = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className={classes.titleStyle3}>Método de costo de reposición</h1>
-          <p className={classes.textStyle2}>
-          Consiste en establecer el valor comercial de una construcción a patir de la depreciación de una estimación del costo de sus materiales
+          <h1 className={classes.titleStyle3+" "+ajustable}>{t("methods.methods7")}</h1>
+          <p className={classes.textStyle2+" "+ajustable}>
+          {t("methods.methods8")}
           </p>
         </Grid>
       </Grid>
@@ -290,12 +292,9 @@ const avaluos = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <h1 className={classes.titleStyle2}>Método residual</h1>
-            <p className={classes.textStyle}>
-              Consiste en establecer el valor comercial de un terreno, mediante
-              la estimación del valor total de las ventas de un proyecto de
-              construcción, acorde a la normatividad urbanística vigente y de
-              conformidad con el mercado del bien final vendible.
+            <h1 className={classes.titleStyle2+" "+ajustable}>{t("methods.methods9")}</h1>
+            <p className={classes.textStyle+" "+ajustable}>
+            {t("methods.methods10")}
             </p>
           </Grid>
         </Grid>
@@ -317,10 +316,10 @@ const avaluos = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <h1 className={classes.titleStyle2}>Otros</h1>
-            <p className={classes.textStyle}>
-                        Otros métodos estadísticos para el cálculo de avalúos comerciales.
-                        </p>
+            <h1 className={classes.titleStyle2+" "+ajustable}>{t("methods.methods11")}</h1>
+            <p className={classes.textStyle+" "+ajustable}>
+            {t("methods.methods12")}
+            </p>
           </Grid>
         </Grid>
       </Grid>
@@ -334,14 +333,14 @@ const avaluos = () => {
         className={classes.numpadding}
       >
         <Grid container>
-          <p className={classes.contentrulesp2}>
-          En el siguiente enlace se podrá descargar un documento teórico respecto a las técnicas valúatorias mas conocidas y usadas para la determinación de avalúos.
+          <p className={classes.contentrulesp2+" "+ajustable}>
+          {t("methods.methods13")}
           </p>
         </Grid>
         
       </Grid>
       <Tooltip title="Descripción: Técnica valuatorias en Colombia y el mundo" arrow>
-        <button className={estilo4}>
+        <button className={estilo4+" "+ajustable}>
           <a target="_blank" className={classes.alink} href={tecnicasvaluatorias} download>
             <Grid container direction="row">
               <Grid item xs={4} direction="column" container  className={estilo3}>
