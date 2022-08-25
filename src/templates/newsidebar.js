@@ -148,12 +148,12 @@ export default function CustomizedAccordions() {
                 icon:"",
                 isMain:true
             },
-            // {
-            //     name:"Censo de edificaciones CEED",
-            //     link:"/observatorio/Servicios/estadisticas/Ceed",
-            //     icon:"",
-            //     isMain:true
-            // },
+            {
+                name:"Censo de edificaciones CEED",
+                link:"/observatorio/Servicios/estadisticas/Ceed",
+                icon:"",
+                isMain:true
+            },
             {
                 name:t("navbar.plataforma"),
                 id:"5",
@@ -194,13 +194,13 @@ export default function CustomizedAccordions() {
                 icon:"",
                 isMain:true
             },
-            {
-                name:t("navbar.mercado"),
-                id:"10",
-                link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
-                icon:"",
-                isMain:false
-            },
+            // {
+            //     name:t("navbar.mercado"),
+            //     id:"10",
+            //     link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
+            //     icon:"",
+            //     isMain:false
+            // },
             
         ],
         [

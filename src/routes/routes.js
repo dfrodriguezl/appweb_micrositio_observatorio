@@ -151,9 +151,11 @@ const Generalroutes = () => {
         <Route path="/observatorio/Contacto" element={<Contacto/>} />
         <Route path="/" element={<ContentGrid/>} />  
         <Route path="/observatorio" element={<ContentGrid/>} />  
-      <Route path="/observatorio/PlataformaUsuario"  element={<ProtectedRoute><Plataform/></ProtectedRoute>}/>
-      <Route path="/observatorio/login" element={<Access />}/>
+        <Route path="/observatorio/PlataformaUsuario"  element={<ProtectedRoute><Plataform/></ProtectedRoute>}/>
+        <Route path="/observatorio/login" element={<Access />}/>
         <Route path="/observatorio/ChangePassword"  element={<ProtectedRoute><ChangePassword/></ProtectedRoute>}/>
+        <Route path="/observatorio/404" element={<Notfound/>} />  
+        <Route path="*" element={<Notfound/>}/>
       </Routes>      
       <Footer />
     </div>

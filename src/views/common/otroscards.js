@@ -166,7 +166,7 @@ const Cardsmapas = () => {
         "title":t("Other.National11"),
         "description":t("Other.National10"),
         "image_card":Buildingamico,
-        "link":"https://catastro.fusagasuga.gov.co/observatorio-inmobiliario/"
+        "link":"https://catastro.alcaldiafusagasuga.gov.co/observatorio-inmobiliario/"
     },
     {
         "id":6,

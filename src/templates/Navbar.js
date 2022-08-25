@@ -278,6 +278,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   const classes = useStyle();
   const logout = useContext(AuthContext);
   const history = useNavigate();
+  let id = localStorage.getItem("id")
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -390,12 +391,12 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             icon:"",
             isMain:true
         },
-        // {
-        //     name:"Censo de edificaciones CEED",
-        //     link:"/observatorio/Servicios/estadisticas/Ceed",
-        //     icon:"",
-        //     isMain:true
-        // },
+        {
+            name:"Censo de edificaciones CEED",
+            link:"/observatorio/Servicios/estadisticas/Ceed",
+            icon:"",
+            isMain:true
+        },
         {
             name:t("navbar.plataforma"),
             id:"5",
@@ -436,13 +437,13 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             icon:"",
             isMain:true
         },
-        {
-            name:t("navbar.mercado"),
-            id:"10",
-            link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
-            icon:"",
-            isMain:false
-        },
+        // {
+        //     name:t("navbar.mercado"),
+        //     id:"10",
+        //     link:`http://localhost:3001?id=${id}&token=${token}`,
+        //     icon:"",
+        //     isMain:false
+        // },
         
     ],
     [

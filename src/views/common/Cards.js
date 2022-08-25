@@ -85,6 +85,14 @@ const useStyle = makeStyles({
 const Cardsmapas = () => {
     const classes = useStyle();  
     const ajustable = "ajustable"
+
+    const SendData = (e) => {
+      const direccion = document.getElementById("visor").value   
+      let token = localStorage.getItem("token")
+      let id = localStorage.getItem("id")
+      window.observatorio1 = window.open(`https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/?id=${id}&token=${token}`,'_blank')
+    }
+    
     return (
       
       <Grid container>
@@ -122,8 +130,8 @@ const Cardsmapas = () => {
               </CardContent>
               <CardActions className={classes.centerButton}>
               <Tooltip title={infomaps.title} arrow>
-              <Button target="_blank" className={classes.boton+" "+ajustable} href={infomaps.link}>Visitar</Button>
-              </Tooltip>              
+              <Button target="_blank" className={classes.boton+" "+ajustable} onClick={SendData} id="visor" value={infomaps.link}>Visitar</Button>              
+              </Tooltip>            
               </CardActions>
             </Card>
           </Grid>

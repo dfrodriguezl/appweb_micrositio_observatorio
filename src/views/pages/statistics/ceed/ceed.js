@@ -2,19 +2,21 @@ import { Grid, makeStyles, useMediaQuery, Typography } from "@material-ui/core";
 import React, { useState } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 
-import ImageCeed from "Observatorio/img/Ceed01.jpeg"
+import ImageCeed from "Observatorio/img/pexels-nadiia-yahaha-12288463 1m.png"
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import AmicoImage from "Observatorio/img/amico.png"
+import AmicoImage from "Observatorio/img/pexels-andrea-piacquadio-3760067 1 (3).png"
 import axios from 'axios';
 import {Loader} from '../../loader/loader'
 import Modal from "Observatorio/pages/modal"
 import enviroment from "../../../../config/enviroment"
 const useStyle = makeStyles({
+
+    cuadro:{marginRight:"39px"},
 
     gridglobalmovil: {
         padding: "0 5vw 0 5vw"
@@ -25,7 +27,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeTitle, 
         padding: Values.PaddingTitleText,
-        fontWeight:"bold"
+        fontWeight:"bold",
       },
 
     Textp:{
@@ -33,7 +35,7 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",  
-        margin: "1em 0 0 0",
+        //margin: "1em 0 0 0",
       },
     Titleh3Main: {
         color: Values.Redwinecolor,
@@ -50,10 +52,10 @@ const useStyle = makeStyles({
     },
     imagen_top: {
         width: "100% !important",
-        height: "65vh",
+        height: "30vh",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${ImageCeed})`,
+        //backgroundImage: `url(${ImageCeed})`,
         backgroundPositionX: "left",
         backgroundPositionY: "20%",
     },
@@ -68,14 +70,19 @@ const useStyle = makeStyles({
         width: "100%",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${ImageCeed})`,
+        //backgroundImage: `url(${ImageCeed})`,
         backgroundPosition: "center center",
         flexBasis: "100% !important",
         maxWidth: "100% !important",
     },
     imageAmico: {
+        right: "9%",
+        width: "38%",
+        top: "126%",
         position: "absolute",
-        right: 80
+    },
+    imageAmico2: {
+        display:"none"
     },
     imageTop: {
         width: "100%",
@@ -95,6 +102,7 @@ const useStyle = makeStyles({
     boton: {
         padding: "0.3em 1em 0.3em 1em",
         borderRadius: "2vh",
+        border:"none",
         backgroundColor: Values.Redwinecolor,
         color: Values.TextButton,
         fontFamily: Values.SourceRoboto,
@@ -105,6 +113,7 @@ const useStyle = makeStyles({
         fontSize: "calc(1em + 0.3vh)",
         borderRadius: "2vh",
         fontWeight: "bold",
+        marginBottom:"41px",
         "&:hover": {
             backgroundColor: Values.HoverButton,
             border: "none",
@@ -115,10 +124,19 @@ const useStyle = makeStyles({
 const ImagenBottom = () => {
     const classes = useStyle();
     const matches = useMediaQuery('(max-width:769px)');
-    let image = matches ? classes.imageTop : classes.imageTop02
+    let image = matches ? classes.imagen_top: classes.imagen_top2
     return (
         <img src={ImageCeed} className={image} />
 
+    )
+}
+
+const ImagenBottom2 = () => {
+    const classes = useStyle();
+    const matches = useMediaQuery('(max-width:769px)');
+    let image = matches ? classes.imageAmico2: classes.imageAmico
+    return (
+        <img src={AmicoImage} className={image}></img>
     )
 }
 
@@ -127,11 +145,11 @@ const TopCeed = () => {
     
     return (
         <Grid container direccion="row" >
-            <Grid item xs={12} sm={6} md={6} lg={6}>
-                <Grid container
-                >
+            <Grid container justifyContent="center">
                     <h3 className={classes.Titleh3}>Censo de Edificaciones (CEED)</h3>
                 </Grid>
+            <Grid item xs={12} sm={6} md={6} lg={6}>
+                
                 <Grid item container direction="column" xs className={classes.containerTitle}>
                     <p className={classes.Textp}>
                         El Censo de Edificaciones (CEED), realizado por el Departamento Nacional de Estadistica - DANE,  busca determinar el estado de la actividad edificadora, caracterizándola por los estados de obra (en proceso, paralizada y
@@ -216,8 +234,7 @@ const Form = () => {
     const [openLoading,setLoading] = useState(false)
     return (
         <Grid container direction="column" spacing={2}>
-            <Grid container item
-            >
+            <Grid container item justifyContent="center">
                 <h3 className={classes.Titleh3}>Solicitud de Información</h3>
             </Grid>
             <Grid container item xs={12} sm={12} md={12} lg={12}>
@@ -255,7 +272,7 @@ const Form = () => {
                 </Grid>
             </Grid>
             <Grid container item>
-                <img src={AmicoImage} className={classes.imageAmico}></img>
+                <ImagenBottom2/>
             </Grid>
             <Grid container item direction="row">
                 <Grid item lg={3} md={3} sm={12} xs={12}>
@@ -305,7 +322,7 @@ const Form = () => {
                 </Grid>
                 <Grid item lg={9} md={9} sm={12} xs={12}>
                     <Grid container item direction="row">
-                        <Grid item lg={3} md={3} sm={6} xs={6}>
+                        <Grid className={classes.cuadro} item lg={2} md={3} sm={6} xs={6}>
                             <Typography className={classes.Textp}>
                                 de:
                             </Typography>
@@ -317,7 +334,7 @@ const Form = () => {
                         </Grid>
                     </Grid>
                     <Grid container item direction="row" spacing={2}>
-                        <Grid item lg={3} md={3} sm={6} xs={6}>
+                        <Grid className={classes.cuadro} item lg={2} md={3} sm={6} xs={6}>
                             <Box sx={{ minWidth: 120 }}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">1996</InputLabel>
@@ -398,7 +415,6 @@ const Form = () => {
         </Grid>
     )
 }
-
 
 const Ceed = () => {
     const classes = useStyle();
