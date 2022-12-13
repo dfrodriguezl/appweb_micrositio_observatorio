@@ -383,7 +383,7 @@ const FormRegister = () => {
              if(response.data.code == "OK"){
                 setLoading(false)
                 setOpen(true)
-                window.location="/Observatorio/login"
+                window.setTimeout(window.location="/observatorio/",25000)
              }else{
                  if(response.data.code == "US001"){
                     setLoading(false)

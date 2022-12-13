@@ -8,6 +8,10 @@
     line-height: inherit;
 }
 
+.MuiCheckbox-colorPrimary.Mui-checked {
+  color: #a1ab9a;
+}
+
 .dx-datagrid-headers{
   border-left: 0;
     margin: 1em 0 0 0;

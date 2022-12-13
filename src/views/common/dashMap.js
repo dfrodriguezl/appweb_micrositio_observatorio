@@ -1,7 +1,7 @@
 class MapDash {
-  static markersDataPh(data){      
+  static markersDataPh(data){    
+    
     let location = [];    
-    console.log("verificar1", typeof data)
     if(typeof data.length === "undefined" ){
       location[0] =
       {

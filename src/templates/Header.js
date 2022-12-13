@@ -218,7 +218,7 @@ const Header = () => {
         })     
     }
     const botonhandlesearch = () =>{              
-       let valor = document.getElementById("search").value      
+       let valor = document.getElementById("search").value   
                 if(valor === ""){
                     console.log("20/05/2023", "se debe mostrar un error por estar vacio");
                 }else{
@@ -242,7 +242,7 @@ const Header = () => {
                 if(response.data.data.fileph){
                     //localStorage.setItem("searchcobjetcant",response.data.data.fileph.length)
                     localStorage.setItem("searchcobjet",JSON.stringify(response.data.data.fileph))
-                    history('/Observatorio/Busqueda')
+                    history('/observatorio/Busqueda')
                  }else{
 
                  }

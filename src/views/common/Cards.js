@@ -90,7 +90,9 @@ const Cardsmapas = () => {
       const direccion = document.getElementById("visor").value   
       let token = localStorage.getItem("token")
       let id = localStorage.getItem("id")
-      window.observatorio1 = window.open(`https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/?id=${id}&token=${token}`,'_blank')
+      let rol = localStorage.getItem("rol")
+      //window.observatorio1 = window.open(`http://localhost:3001/?id=${id}&token=${token}&rol=${rol}`,'_blank')
+      window.observatorio1 = window.open(`https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/?id=${id}&token=${token}&rol=${rol}`,'_blank')
     }
     
     return (

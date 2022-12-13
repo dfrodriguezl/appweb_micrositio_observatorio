@@ -57,9 +57,9 @@ class MapFile{
        }
     }
     return location;
-   }
+  }
 
-   static fileregistrerrownph (data){
+  static fileregistrerrownph (data){
     let location=[]; 
     console.log("arreglo", data)
     //let arraynew = [].concat(dataph, datanph, datarural);
@@ -89,9 +89,9 @@ class MapFile{
        }
     }
     return location;
-   }
+  }
 
-   static fileregistrerrowrural (data){
+  static fileregistrerrowrural (data){
     let location=[]; 
     console.log("arreglo", data)
     //let arraynew = [].concat(dataph, datanph, datarural);
@@ -121,7 +121,7 @@ class MapFile{
        }
     }
     return location;
-   }
+  }
 }
 
 module.exports = MapFile

@@ -571,7 +571,7 @@ export default function PersistentDrawerLeft(props) {
         <TabPanel value={values} index={3}>
           <Typography align='left' variant="body1" className={classes.Textp} color="initial">Envíe su consulta por correo electrónico o tramite su petición, queja, reclamo, sugerencia o denuncia en el formulario DANE. </Typography>
           <Grid container justifyContent='center' item xs={12} sm={12}>
-            <Buttonredwine Title="Ir" href="/Observatorio/Contacto"></Buttonredwine>
+            <Buttonredwine Title="Ir" href="/observatorio/Contacto"></Buttonredwine>
           </Grid>
 
         </TabPanel>

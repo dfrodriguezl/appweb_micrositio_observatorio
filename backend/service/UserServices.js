@@ -181,7 +181,7 @@ class UserService {
       const r = pool
         .getConnection()
         .query(
-          "INSERT INTO private.user (id,name, email,phone,passwordUser) VALUES (default,$1, $2,$3,$4) RETURNING id",
+          "INSERT INTO private.user (id,name, email,phone,passwordUser,id_user) VALUES (default,$1, $2,$3,$4,'2') RETURNING id",
           [modelUser.name, modelUser.email, modelUser.phone, modelUser.infokey],
           (error, result) => {
             console.log(error);
@@ -274,8 +274,8 @@ class UserService {
       pool
         .getConnection()
         .query(
-          //"select u.id ,u.name ,u.email  from private.user u where u.email = $1 and u.passwordUser = $2",
-          "select id_out as id, nombre as name, email1 as email from login($1,$2)",
+          "select u.id ,u.name ,u.email, u.id_user from private.user u where u.email = $1 and u.passwordUser = $2",
+          //"select id_out as id, nombre as name, email1 as email from login($1,$2)",
           [modelUser.email, modelUser.infokey],
           (error, result) => {
             console.log(error);
@@ -577,8 +577,6 @@ class UserService {
     });
   }
 
-
-
   static async searchOfferPh1(file, id_obsevatorio) {
     //console.log("Busqueda",file)
     pool.inicia();
@@ -793,8 +791,6 @@ class UserService {
     });
   }
 
-
-
   static async fileregistrerph(obj) {
     pool.inicia();
     return new Promise((resolver, rechazar) => {
@@ -803,6 +799,143 @@ class UserService {
         .query(
           "SELECT fecha, archivo FROM private.offerph ph where ph.codigo_observatorio=$1 group by ph.fecha, ph.archivo order by fecha",
           [obj],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+          }
+        );
+    });
+  }
+
+  static async filebigsearch(data) {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'SELECT fecha_publicacion, departamento, municipio, direccion_inmueble, descripcion, precio, latitud, longitud, area_total, estrato, titulo, habitaciones, "baños", area_construida, barrio, "antigüedad", garages, no_piso, sitio_web, fecha_scraping, zona, contacto, valor_admin, direccion_inmobiliaria, subtitulo, detalles_inmuebles, url FROM public."BD_WSC" where municipio like $3 limit $1 offset $2',[data.limit, data.offset,data.busqueda],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+            //console.log("ay", result)
+          }
+        );
+    });
+  }
+
+  static async allcountfilebigsearch(data) {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'select count(*) from public."BD_WSC" where municipio like $1',[data.busqueda],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+          }
+        );
+    });
+  }
+
+  static async filebig(data) {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'SELECT fecha_publicacion, departamento, municipio, direccion_inmueble, descripcion, precio, latitud, longitud, area_total, estrato, titulo, habitaciones, "baños", area_construida, barrio, "antigüedad", garages, no_piso, sitio_web, fecha_scraping, zona, contacto, valor_admin, direccion_inmobiliaria, subtitulo, detalles_inmuebles, url FROM public."BD_WSC" Order by departamento, municipio limit $1 offset $2',[data.limit, data.offset],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+            //console.log("ay", result)
+          }
+        );
+    });
+  }
+
+  static async filebigexcelmercado() {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'SELECT fecha_publicacion, departamento, municipio, direccion_inmueble, descripcion, precio, latitud, longitud, area_total, estrato, titulo, habitaciones, "baños", area_construida, barrio, "antigüedad", garages, no_piso, sitio_web, fecha_scraping, zona, contacto, valor_admin, direccion_inmobiliaria, subtitulo, detalles_inmuebles, url FROM public."BD_WSC" Order by departamento, municipio limit 5000',
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+            console.log("alejandro22", result.rows)
+          }
+        );
+    });
+  }
+
+  static async filebigexcelmercadosearch(data) {
+    pool.inicia();
+    console.log("alejandro", data)
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'SELECT fecha_publicacion, departamento, municipio, direccion_inmueble, descripcion, precio, latitud, longitud, area_total, estrato, titulo, habitaciones, "baños", area_construida, barrio, "antigüedad", garages, no_piso, sitio_web, fecha_scraping, zona, contacto, valor_admin, direccion_inmobiliaria, subtitulo, detalles_inmuebles, url FROM public."BD_WSC" where municipio like $1 Order by departamento, municipio limit 5000',[data],
+           (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
+            if (result.rows.length > 0) {
+              resolver(result);
+            } else {
+              resolver(null);
+            }
+            console.log("alejandro2", result.rows)
+          }
+        );
+    });
+  }
+
+  static async allcountfilebig() {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          'SELECT count(*) FROM public."BD_WSC"',
           (error, result) => {
             
             if (error) {
@@ -865,7 +998,6 @@ class UserService {
         );
     });
   }
-
 
   static async registrerph(obj, fecha) {
     pool.inicia();
@@ -1080,7 +1212,53 @@ class UserService {
             if (error) {
               rechazar(null);
             }
-            console.log("result backend", result.rows.length)
+            if (result.rows.length > 0) {
+              resolver(result.rows);
+            } else {
+              resolver(null);
+            }
+          }
+        );
+    });
+  }
+
+  static async userdownloadceed(data) {
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      const r = pool
+        .getConnection()
+        .query(
+          "INSERT INTO private.user_ceed_download(id_user_ceed, nombre, cargo, dependencia, fecha_inicio, fecha_fin, motivo) VALUES (default, $1, $2, $3, $4, $5, $6);",
+          [data.nombre, data.cargo, data.dependencia, data.fecha_inicio, data.fecha_fin, data.motivo],
+          (error, result) => {
+            console.log(error);
+            if (error) {
+            rechazar(false);
+            }
+            if (result) {
+              console.log("success10", result)
+              resolver(result.rowCount);
+            } else {
+              resolver(null);
+            }
+          }
+        );
+    });
+  }
+
+  static async selectfechasceed(data) {    
+    pool.inicia();
+    return new Promise((resolver, rechazar) => {
+      pool
+        .getConnection()
+        .query(
+          "SELECT id_ceed_down, fecha, url FROM private.ceeddownload1 WHERE fecha BETWEEN $1 AND $2;",
+          [data.fecha_inicio, data.fecha_fin],
+          (error, result) => {
+            
+            if (error) {
+              rechazar(null);
+            }
             if (result.rows.length > 0) {
               resolver(result.rows);
             } else {

@@ -341,6 +341,9 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
 
   const cerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("id");
+    localStorage.removeItem("rol");
     setSession(false);
     isOk = false;
     props.setAuth(false);
@@ -713,7 +716,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           <Button
                 className={classes.boton+" "+ajustable}
                 onClick={cerrarSesion}
-                href="/observatorio/login"
+                href="/observatorio/"
               >
                 Si
           </Button>

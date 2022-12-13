@@ -250,7 +250,7 @@ export default function CustomizedAccordions() {
     ]
 
     function rutas(idd) {
-        console.log("alejo",idd.target.id)
+        //console.log("alejo",idd.target.id)
         if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
             window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
         }else{
@@ -260,7 +260,7 @@ export default function CustomizedAccordions() {
       }
 
       const rutalogin = (e) =>{
-        console.log("diego")
+        //console.log("diego")
         history('/observatorio/login')
         estilo=classes.ocultar
       }

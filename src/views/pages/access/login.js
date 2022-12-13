@@ -205,9 +205,11 @@ const FormAccess = (props) => {
                 localStorage.setItem("token",response.data.data.token)
                 localStorage.setItem("name",response.data.data.name)
                 localStorage.setItem("id",response.data.data.id)
+                localStorage.setItem("rol",response.data.data.rol)
+                
                // props.setAuth(true)
                 login.login()
-                history('/Observatorio/PlataformaUsuario')
+                history('/observatorio/PlataformaUsuario')
              }else{
                  setLoading(false)
                  alert('Usuario o contraseña incorrecto')
@@ -235,12 +237,12 @@ const FormAccess = (props) => {
     }
 
     const rutaregistrar = (e) =>{
-      console.log("diego")
+      
       history('/observatorio/register')
     }
 
     const rutacontraseña = (e) =>{
-      console.log("diego")
+      
       history('/observatorio/ForgetPassword')
     }
 
@@ -359,7 +361,7 @@ const FormAccess = (props) => {
 
 
 const Access = (props) => {
-    console.log("maria",props.setAuth)
+    //console.log("maria",props.setAuth)
     const classes = useStyle();
     const  login  = useContext(AuthContext);
     const navigate = useNavigate()  

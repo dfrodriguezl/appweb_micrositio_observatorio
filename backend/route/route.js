@@ -24,6 +24,11 @@ router.post('/PlataformaUsuario/upload',Middleware.verificaToken,UserController.
 router.get('/PlataformaUsuario/download',Middleware.verificaToken,UserController.registrerdownload)
 router.get('/PlataformaUsuario/offerdata',Middleware.verificaToken,UserController.offerdata)
 router.get('/PlataformaUsuario/fileregistrer',Middleware.verificaToken,UserController.filesregistrer)
+router.get('/PlataformaUsuario/filebigexcel',Middleware.verificaToken,UserController.filebigexcel)
+router.get('/PlataformaUsuario/filebigexcelsearch',Middleware.verificaToken,UserController.filebigexcelsearch)
+router.get('/PlataformaUsuario/filebig',Middleware.verificaToken,UserController.filebig)
+router.post('/PlataformaUsuario/ceeddownload',Middleware.verificaToken,UserController.userdownloadceed)
+router.get('/PlataformaUsuario/filebigsearch',Middleware.verificaToken,UserController.filebigsearch)
 router.post('/PlataformaUsuario',Middleware.verificaToken)
 router.get('/Resultados',UserController.serach)
 module.exports = router;

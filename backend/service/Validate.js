@@ -131,7 +131,7 @@ class ValidService{
                                             if(valores[5]==0){
                                                if(i==14){
                                                 let conDecimal = valores[i].toFixed(3); 
-                                                if(parseFloat(conDecimal)>0){
+                                                if(parseFloat(conDecimal)>=0){
                                                     fail = "exito" 
                                                 }else{
                                                     let position;
@@ -140,7 +140,8 @@ class ValidService{
                                                     break; 
                                                 }
                                                }else{
-                                                if(parseInt(valores[i])>0 && valores[i] != null){
+                                                console.log("prueba4", valores[i])
+                                                if(parseInt(valores[i])>=0 && valores[i] != null){
                                                     fail = "exito" 
                                                 }else{
                                                     let position;
@@ -293,7 +294,7 @@ class ValidService{
                                                                                                 if(i==34){
                                                                                                     if(valores[5]==0){
                                                                                                         //let conDecimal = valores[i].toFixed(2); 
-                                                                                                        if(parseFloat(valores[i])>0){
+                                                                                                        if(parseFloat(valores[i])>=0){
                                                                                                             fail = "exito"
                                                                                                         }else{
                                                                                                             let position;
@@ -506,7 +507,7 @@ class ValidService{
                                         }else{
                                             if(i==13){
                                                 if(valores[5]==0){
-                                                    if(parseFloat(valores[i]) > 0 && valores[i] != null){
+                                                    if(parseFloat(valores[i]) >= 0 && valores[i] != null){
                                                         fail = "exito"  
                                                     }else{
                                                         let position;
@@ -825,7 +826,7 @@ class ValidService{
                                     }else{
                                         if(i==14){
                                             if(valores[5]==0){
-                                                if(parseFloat(valores[i]) > 0 && valores[i] != null){                            
+                                                if(parseFloat(valores[i]) >= 0 && valores[i] != null){                            
                                                     fail = "exito"                            
                                                 }else{
                                                     let position;
