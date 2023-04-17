@@ -20,7 +20,7 @@ import Statistics from "Observatorio/pages/statistics/statistics";
 import RegisterEstate from "Observatorio/pages/estate/registerestate";
 import About from "Observatorio/pages/about";
 import Catastro from "Observatorio/pages/catastromultiproposito";
-import Otros from "Observatorio/pages/otrosObservatorios";
+import Otros from "Observatorio/pages/otrosobservatorios";
 import Comite from "Observatorio/pages/comitetecnico";
 import Avaluos from "Observatorio/pages/metodosavaluos";
 import Tipologia from "Observatorio/pages/tipologia";
