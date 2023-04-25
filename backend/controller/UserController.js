@@ -230,8 +230,15 @@ class UserController {
   }
 
   static async prueba(req, res) {
-    
-    return console.log("Servicios funcionando");
+    let util = new Util(res);
+    let response = {
+      status: 200,
+      data: {},
+      message: "Email Enviado Exitosamente",
+      code: "OK",
+    };
+    util.saveData(response);
+    return util.sendResponse();
   }
 
   static async statistics(req, res) {
