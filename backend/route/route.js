@@ -10,6 +10,7 @@ const Crypto = require('../crypto/Crypto')
 const keyEncrypt ="ObservatorioInmobiliarioNacional2021xhladjljsljlejeieiwlwiwlqilwqijljwkcma"
 router.post('/users',  UserController.createUser);
 router.post('/login', UserController.login)
+router.get('/prueba', UserController.prueba)
 router.get('/user',Middleware.verificaToken, UserController.testToken)
 router.post('/contact',ContactController.sendMessage)
 router.post('/user/forgetpassword',UserController.forgetPassword)

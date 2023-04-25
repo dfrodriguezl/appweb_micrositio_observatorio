@@ -229,6 +229,11 @@ class UserController {
     return util.sendResponse();
   }
 
+  static async prueba(req, res) {
+    
+    return console.log("Servicios funcionando");
+  }
+
   static async statistics(req, res) {
     let util = new Util(res);
     let body = req.body;
