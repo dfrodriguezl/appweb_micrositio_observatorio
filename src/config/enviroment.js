@@ -1,6 +1,6 @@
 'use strict';
 const env = {
-    endpoint:  "http://10.168.54.68/observatorio/api/",
+    endpoint:  "https://geoportal.dane.gov.co/api/observatorio",
 };
 module.exports = env;
 
