@@ -1267,7 +1267,7 @@ const Cardsmapas = () => {
   // let dataSourceFilerural = datafileregistrer.fileregistrer(fileregistrerrural); //UNIR LOS 3 ARREGLOS EN UNO SOLO, POR SI ALGUNO DE ELLOS NO TIENE INFORMACION SALDRA ALGUNO DE LOS 3
 
   let dataSourceBig = databigsource.fileregistrerbig(filebig);
-  console.log("verificar alejo", dataSourceBig)
+  
   const [estadomap, setestadomap] = useState("");
   const [estadomapdestino, setestadomapdestino] = useState("");
   const [estadoofer, setestadoofer] = useState("Ph");
