@@ -953,12 +953,11 @@ const Cardsmapas = () => {
 
    const handlemodaldownloadexcel = () =>{
     let valor = document.getElementById("search1").value;
-    console.log("variable", valor)
+    
     if(valor == ""){
       setfiltro("")
       loadFileBigexcel();
-    }else{
-      console.log("variable2")
+    }else{      
       setfiltro("con referencia a la busqueda: "+valor)
       loadFileBigexcelsearch(valor);
     }

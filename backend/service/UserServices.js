@@ -1106,8 +1106,7 @@ class UserService {
             if (error) {
               rechazar(null);
             }
-            if (result.rows.length > 0) {
-              
+            if (result.rows.length > 0) {              
               resolver(result);
             } else {
               resolver(null);
@@ -1252,7 +1251,8 @@ class UserService {
       pool
         .getConnection()
         .query(
-          "SELECT id_ceed_down, fecha, url FROM private.ceeddownload1 WHERE fecha BETWEEN $1 AND $2;",
+          //"SELECT id_ceed_down, fecha, url FROM private.ceeddownload1 WHERE fecha BETWEEN $1 AND $2;",
+          'SELECT censo_anio, censo_trim, cod_dpto, c_mpio, clase, set_r, sec_r, c_pob, set_u, sec_u, manz, numero_obr, area_total FROM ceed."series" where censo_anio BETWEEN $1 AND $2;',
           [data.fecha_inicio, data.fecha_fin],
           (error, result) => {
             
@@ -1260,7 +1260,7 @@ class UserService {
               rechazar(null);
             }
             if (result.rows.length > 0) {
-              resolver(result.rows);
+              resolver(result);
             } else {
               resolver(null);
             }

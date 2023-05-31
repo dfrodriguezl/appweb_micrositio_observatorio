@@ -1,6 +1,5 @@
 class MapFileBig {
   static fileregistrerbig(data) {
-    console.log("pauAlejo", data);
     let location = [];
     if (typeof data.length === "undefined") {
       location[0] = {

@@ -1066,7 +1066,7 @@ class UserController {
       message: "registro exitoso",
       code: "OK",
     };
-    console.log("bodyalejo", body);
+    // console.log("bodyalejo", body);
     // if (!body || typeof body !== "object") {
     //   util.saveData(response);
     //   return util.sendResponse();

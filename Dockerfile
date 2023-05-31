@@ -2,12 +2,30 @@ FROM node:12
 
 ENV TZ="America/Bogota"
 
-WORKDIR /src
+COPY package.json /datos/apps/containers/appweb_microsito_observatorio
+
+COPY webpack-back.config.js /datos/apps/containers/appweb_microsito_observatorio
+
+COPY backend /datos/apps/containers/appweb_microsito_observatorio
+
+WORKDIR /datos/apps/containers/appweb_microsito_observatorio 
 
 RUN npm install pm2 -g
 
-COPY dist dist
-COPY backend backend
-COPY ecosystem.config.js ecosystem.config.js
+RUN npm install
 
-CMD ["pm2-runtime", "ecosystem.config.js" ,"--json"]
+RUN npm run build_back
+
+RUN adduser observatorio && CHOWN -R observatorio /datos/apps/containers/appweb_microsito_observatorio
+
+USER observatorio
+
+CMD ["pm2-runtime", "backend/server.bundle.js", "--json"]
+
+
+
+
+
+
+
+
