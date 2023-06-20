@@ -104,11 +104,15 @@ font-weight: bold;
 color: #821A3F;
 margin-top: 25px;
 
-@media (max-width: 4000px) and (min-width: 769px) {
+@media (max-width: 4000px) {
     font-size:25px !important;
-    margin-top: 15px;
+    margin-top: 25px;
  }
  @media (max-width: 768px) {
+    font-size:18px !important;
+ }
+
+ @media (max-width: 1006px) {
     font-size:18px !important;
  }
 
@@ -118,10 +122,10 @@ font-size:20px;
 color: #4C4C4C;
 margin-right:20px;
 
-@media (max-width: 4000px) and (min-width: 769px) {
-    font-size:20px !important;
+@media (max-width: 4000px){
+    font-size:15px !important;
  }
- @media (max-width: 768px) {
+ @media (max-width: 1006px) {
     font-size:13px !important;
     margin-right:0px;
 
@@ -143,13 +147,19 @@ const LogoObservatorio = Styled.img`
 
 const LogoDane = Styled.img`
 height:11vh;
-width:12vh;
+width:21vh;
 padding:0 0.6vh 0 0;
 margin-left:20px;
 
 @media (max-width: 698px){
     height:9vh;
     width:7.5vh;
+    margin-top:1vh;
+    margin-left:5px;
+}
+@media (max-width: 912px){
+    height:9vh;
+    width:20vh;
     margin-top:1vh;
     margin-left:5px;
 }
@@ -179,24 +189,46 @@ const Header = () => {
     const classes = useStyle();
     const matches = useMediaQuery("(min-width:527px)");
     const matches2 = useMediaQuery("(max-width:647px)")
+    const matches3 = useMediaQuery("(max-width:1402px)")
+    const matches4 = useMediaQuery("(max-width:1006px)")
     var estilo = null;
     var estilo2 = null;
     var estilo3 = null;
     var ubicacion = null;
+    var iconosizquierda = null;
+    var iconosderecha = null;
+    var iconoscentro = null;
     var compon = null;
     {
-    console.log("ver", matches2)
+    console.log("ver1", matches3)
     if(matches){
-      ubicacion = "flex-end"      
-    }     
+      ubicacion = "flex-end"  
+      console.log("pp1")    
+      iconosizquierda = 4;
+      iconosderecha = 4;
+      iconoscentro = 4;
+    }
+    if(matches3){
+        iconosizquierda = 3;
+        iconosderecha = 5;
+        iconoscentro = 4;
+    }  
+    if(matches4){
+        iconosizquierda = 3;
+        iconosderecha = 5;
+        iconoscentro = 4;
+    }  
     if(matches2){
         estilo2=classes.texto
         estilo=classes.texto1
         estilo3=classes.search
+        iconosizquierda = 2;
+        iconosderecha = 6;  
+        iconoscentro = 4;
     }else{
         estilo=classes.texto
         estilo2=classes.texto1
-        estilo3=classes.search2
+        estilo3=classes.search2  
     }
   }
     const [sideBarOpen, setSideBarOpen] = useState(false)
@@ -263,11 +295,11 @@ const Header = () => {
         <header>
             <Grid id="target-two" container className={classes.main}>                 
                 <Grid container className={classes.backgroundHeader}>
-                    <Grid container item direction='row'>
-                        <Grid container item xs={2}>
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src={logoDane} /></a> 
-                        </Grid> 
-                        <Grid container item xs={10} justifyContent={ubicacion}>                            
+                    <Grid container item direction='row'> 
+                        <Grid container item xs={iconosizquierda}>
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src='https://www.dane.gov.co/files/images/nuevaImg/Logo_potencia_de_la_vida.svg' /></a>
+                        </Grid>
+                        <Grid container item xs={iconoscentro} justifyContent="center">                            
                         <a href="/observatorio/" className={estilo+" "+ajustable}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
@@ -310,15 +342,6 @@ const Header = () => {
                             }}
                         />
                         <button className={classes.fontSize+" "+ajustable} onClick={handleClick}><TonalityIcon/></button>
-                        <a href="/observatorio/" className={estilo2+" "+ajustable}>
-                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
-                        </a>
-                        <TextLogo className={estilo2+" "+ajustable}>
-                            <TextLogoTitle >
-                                Observatorio
-                            </TextLogoTitle>
-                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
-                        </TextLogo>
                         <ContainerIcon item justifyContent="center">
                             {
                                 sideBarOpen ?
@@ -343,7 +366,17 @@ const Header = () => {
                                     </IconButton>
                             }
                         </ContainerIcon>
-                        </Grid>                        
+                        </Grid>                            
+                        <Grid container item xs={iconosderecha} justifyContent='flex-end'>
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src='https://www.dane.gov.co/files/images/nuevaImg/logo_DANE-70.svg' /></a>
+                        <a href="/observatorio/" className={estilo2+" "+ajustable}>
+                            <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
+                        </a>
+                        <TextLogo className={estilo2+" "+ajustable}>
+                            <TextLogoTitle>Observatorio</TextLogoTitle>
+                            <TextSubTitle className={classes.subtitleObservatorio} >Inmobiliario Nacional</TextSubTitle>
+                        </TextLogo> 
+                        </Grid>                    
                     </Grid>    
                 </Grid>
                 <Grid container item className={classes.backgroundHeader+" "+ajustable}>
