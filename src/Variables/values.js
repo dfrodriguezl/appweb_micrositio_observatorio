@@ -24,11 +24,11 @@ export const SourceRoboto = "Roboto"
 export const SourceWorksans = "Work sans"
 
 //Size Text
-export const SizeTitle = "calc(1em + 1.6vh)"
-export const SizeSubtitle = "calc(1em + 1vh)"
-export const SizeText = "calc(0.6em + 0.9vh)"
+export const SizeTitle = "calc(0.7em + 1.6vh)"
+export const SizeSubtitle = "calc(0.7em + 1vh)"
+export const SizeText = "calc(0.5em + 0.9vh)"
 export const SizeAuxiliary= "calc(0.7em + 0.5vh)"
 export const SizetextcontentGrid = "calc(1em + 0.3vh)"
 
 //padding
-export const PaddingTitleText="1.5em 0 1.5em 0"
+export const PaddingTitleText="1.5em 0 0.5em 0"

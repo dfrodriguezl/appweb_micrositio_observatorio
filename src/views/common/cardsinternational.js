@@ -21,18 +21,17 @@ import {
   
   const useStyle = makeStyles({
     boton: {
-      padding: "0em 1em 0em 1em",
-      borderRadius: "2vh",
-      backgroundColor: Values.Redwinecolor,
+      padding: "4px 30px",
+      backgroundColor: "#B91450",
       color: Values.TextButton,
       fontFamily: Values.SourceRoboto,
       textTransform: "inherit",
-      transition: "all 0.8s ease-out",
+      //transition: "all 0.8s ease-out",
       cursor: "pointer",
-      margin: "0 0 7% 0",
+      margin: "0% 0 7% 0",
       width: "max-content",
-      fontSize: "calc(1em + 0.3vh)",
-      borderRadius: "2vh",
+      fontSize: "0.8em",
+      borderRadius: "1em",
       // fontWeight: "bold",
       "&:hover": {
         backgroundColor: Values.HoverButton,
@@ -71,7 +70,7 @@ import {
     },
   
     root: {
-      width: "40vh",
+      width: "35vh",
       borderRadius: "1em",
       boxShadow: "3px 3px 10px #7b7676",
     },
@@ -84,26 +83,26 @@ import {
     },
 
     TitlehPrincipal: {
-        color: Values.Redwinecolor,
-        fontFamily: Values.SourceWorksans,
-        fontWeight: "bold",
-        fontSize: "calc(1.2em + 0.9vh)",
-        textAlign: "center",
-        margin: "2% 0 2% 0",
+      color: Values.Redwinecolor,
+      fontFamily: "roboto",
+      fontWeight: "bold",
+      fontSize: "calc(0.7em + 1.6vh)",
+      //textAlign: "center",
+      margin: "2% 0 2% 0",
       },
   
+
     gridglobal: {
-      padding: "0 10% 0 10%",
+      padding: "0 5vw 0 5vw",
       width: "100%",
-      padding: "1em",
-      boxShadow: "3px 3px 10px #7b7676",
-      marginTop: "1vw",
-      borderRadius: "1em",
-      backgroundColor: "#ffffff"
+      //boxShadow: "3px 3px 10px #7b7676",
+      marginTop: "2vw",
+      //borderRadius: "1em",
+      backgroundColor: "#ffffff",
     },
   
     cardglobal: {
-      padding: "0% 0% 5% 0%",
+      padding: "0% 0% 3% 0%",
       backgroundColor: "white",
     },
   
@@ -145,7 +144,7 @@ import {
     var estilo = null;
     {
       if (matches2) {
-        estilo = 4;
+        estilo = 3;
       } else {
         estilo = true;
       }
@@ -153,7 +152,7 @@ import {
     return (
       <Grid container>
       
-        <Grid container className={classes.gridglobal}>
+        <Grid container className={classes.gridglobal} justifyContent="center">
             <Grid container direction="column">
             <h3 className={classes.TitlehPrincipal+" "+ajustable}>{t("Other.International")}</h3>
             </Grid>

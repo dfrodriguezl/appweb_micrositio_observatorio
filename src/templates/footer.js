@@ -110,7 +110,7 @@ const Footer = () =>{
                                       </li>
                                  </ul>                
                 </Grid>
-                <Grid  item container xs={12} sm={12} md={12} lg={2}  
+                {/* <Grid  item container xs={12} sm={12} md={12} lg={2}  
                  className={classes.containerItem+" "+ajustable} 
                 justifyContent={'center'}>
                     <Box >
@@ -119,7 +119,7 @@ const Footer = () =>{
                         </a>
                         
                     </Box>
-                </Grid>
+                </Grid> */}
             </Grid>
         </ContenedorFooter>
     );

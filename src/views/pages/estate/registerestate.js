@@ -3,8 +3,10 @@ import React from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import triangles from "Observatorio/img/paris.jpg";
 import Styled from "styled-components";
-import imageItem from "Observatorio/img/inmueble.jpg"
-import Nature from "Observatorio/img/objetivo.jpg"
+import imageItem from "Observatorio/img/04_catastro_multiproposito_registro_bienes.jpg"
+import Nature from "Observatorio/img/catastro_multiproposito_04_registro_bienes_oibjetivo.png"
+import Natureuso from "Observatorio/img/catastro_multiproposito_04_registro_bienes_usos.png"
+import Naturefuentes from "Observatorio/img/catastro_multiproposito_04_registro_bienes_fuentes.png"
 import Justice from "Observatorio/img/Justice-rafiki.svg"
 import Finance from "Observatorio/img/Finance-rafiki.svg"
 import Addres from "Observatorio/img/Address-rafiki.svg"
@@ -16,9 +18,19 @@ const useStyle = makeStyles({
     DataExtration: {
         maxWidth: 500
     },
+    ol1:{
+        paddingLeft: "1vw",
+        listStyleType: "disclosure-closed",
+    },
     listyle:{
-        paddingLeft:"0.6em",
-        paddingRight: "0.6em",
+        paddingLeft:"0.6vw",
+        paddingRight: "0.6vw",
+        paddingBottom: "1vw"
+      },
+      listyle1:{
+        paddingRight: "0.6vw",
+        paddingBottom: "1vw",
+        listStyle:"none"
       },
     marginBottom: {
         marginBottom: 50
@@ -34,20 +46,23 @@ const useStyle = makeStyles({
     },
     sectionPar: {
         backgroundColor: "#F4F4F4",
-        padding: "0 10vw 2vw 10vw",
+        padding: "0 5vw 2vw 5vw",
     },
     sectionParmovil: {
         backgroundColor: "#F4F4F4",
         padding: "0 5vw 2vw 5vw",
     },
     textLeft: {
-        marginLeft: 30
+        marginLeft: 0
     },
     imageRight: {
         height: 600
     },
+    imagsectionthree:{
+        paddingTop: "2vw"
+    },
     gridglobal: {
-        padding: "0 10vw 2vw 10vw",
+        padding: "0 5vw 2vw 5vw",
     },
     gridglobalmovil: {
         padding: "0 5vw 2vw 5vw",
@@ -57,11 +72,11 @@ const useStyle = makeStyles({
     },
     imagen_top: {
         width: "100%",
-        height: "55vh",
+        height: "40vh",
         backgroundRepeat: "no-repeat",
         backgroundSize: "50vh",
         backgroundPosition: "center center",
-        margin:"1.3vw 0 1.3vw 1.3vw",
+        margin:"2vw 0 0vw 1.5vw",
 
     },
 
@@ -88,7 +103,9 @@ const useStyle = makeStyles({
         fontFamily: Values.SourceRoboto,
         fontSize: Values.SizeText,
         textAlign: "start",
-        margin: "1em 0 0 1.8em",
+        margin: "1vw 0 0 0vw",
+    paddingLeft: "1vw",
+    listStyleType:"disclosure-closed",
     },
 
     Textp: {
@@ -130,6 +147,9 @@ const useStyle = makeStyles({
     },
     containerAlcance:{
         padding:"40px"
+    },
+    sectiontwostyle:{
+        padding:"0 0 0 1vw"
     }
 });
 
@@ -145,28 +165,30 @@ const SectionOne = () => {
     }
     return (
         <Grid container className={estilo}>
-            <Grid container justifyContent='center'>
+            {/* <Grid container>
                 <Typography className={classes.Titleh3+" "+ajustable}  >
                     <strong>{t("registry.registry")}</strong>
                 </Typography>
-                </Grid>
+                </Grid> */}
             <Grid xs={12}
                 sm={12}
                 md={6}
-                lg={6}
+                lg={7}
                 direction="column"
                 justifyContent="center"
 
-            >                
+            >   <Typography className={classes.Titleh3+" "+ajustable}  >
+                    <strong>{t("registry.registry")}</strong>
+                </Typography>       
                 <Typography className={classes.Textp+" "+ajustable}>
-                {t("registry.registry2")}<i>{t("registry.registry3")}</i>{t("registry.registry4")}
+                {t("registry.registry2")}{t("registry.registry3")}{t("registry.registry4")}
+                </Typography>
+                <Typography className={classes.Textp+" "+ajustable} >
+                {t("registry.registry5")}{t("registry.registry6")}{t("registry.registry7")}.
                 </Typography>
             </Grid>
-            <Grid item xs={10} sm={12} md={6} lg={6}>
+            <Grid item xs={10} sm={12} md={6} lg={5}>
                 <img src={imageItem} className={classes.imagen_top}/>
-            </Grid>
-            <Grid item xs={12} sm={12} md={12} lg={12} className={classes.Textpv+" "+ajustable}>
-            {t("registry.registry5")}<i>{t("registry.registry6")}</i>{t("registry.registry7")}.
             </Grid>
         </Grid>
 
@@ -183,10 +205,10 @@ const ContainerImage = Styled.div`
 const ImageItem = Styled.img`
 
     @media (max-width: 768px) {
-        max-width:50vh
+        max-width:30%
       };
       @media (max-width: 4000px) and (min-width: 769px) {
-        width: 50vh;
+        width: 6vw;
       };
 `;
 
@@ -238,35 +260,35 @@ const SectionTwo = () => {
     }
     return (
         <Grid container className={estilo} >
-
-            <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-
-                <Typography className={classes.Titleh3+" "+ajustable} >
-                {t("registry.objective")}
-                </Typography>
-
-            </Grid>
-            <ContainerImage >
+            
+            {/* <ContainerImage >
                 <ImageItem src={Nature} ></ImageItem>
-            </ContainerImage>
-            <Grid container item xs={12} sm={12} md={12} lg={12} >
-                <Typography className={classes.Textp+" "+ajustable} >
-                {t("registry.objective2")}
-                </Typography>
-
-            </Grid>
-            <Grid container item xs={12} sm={12} md={12} lg={12} justifyContent="center">
-                <Typography className={classes.Titleh3+" "+ajustable} >
-                {t("registry.scope")}
-                </Typography>
-            </Grid>
-
-            <Grid container item xs={12} sm={12} direction="row" >
-                <Grid item xs={12} sm={12} md={5} lg={5}>
-                    <ImageAlcance src={DocumentBro}  ></ImageAlcance>
+            </ContainerImage> */}
+            <Grid container item xs={12} sm={12} md={6} lg={6} direction="column">
+                <Grid container direction='row'>
+                    <Grid container xs={4} justifyContent='center' alignItems='center'>
+                        <ImageItem src={Nature} ></ImageItem>
+                    </Grid>
+                    <Grid container xs={8} direction='column'>
+                        <Typography className={classes.Titleh3+" "+ajustable} >
+                            {t("registry.objective")}
+                        </Typography>
+                        <Typography className={classes.Textp+" "+ajustable} >
+                        {t("registry.objective2")}
+                    </Typography>
+                    </Grid>
                 </Grid>
-
-                <Grid item xs={12} sm={12} md={6} lg={6} className={classes.containerAlcance}>
+            </Grid>
+            <Grid container item xs={12} sm={12} md={6} lg={6} direction="column">
+                {/* <Grid item xs={12} sm={12} md={5} lg={5}>
+                    <ImageAlcance src={DocumentBro}  ></ImageAlcance>
+                </Grid> */}                
+                <Grid container >
+                    <Typography className={classes.Titleh3+" "+ajustable} >
+                    {t("registry.scope")}
+                    </Typography>
+                </Grid>
+                <Grid container className={classes.sectiontwostyle}>
                     <Typography className={classes.Textp+" "+ajustable}>
                     {t("registry.scope2")}
                      </Typography>
@@ -294,35 +316,34 @@ const SectionThree = () => {
     }
     return (
         <Grid container className={estilo}>
-
-            <Grid container item xs={12} sm={12} className={classes.marginBottom}>
-                <Grid container justifyContent='center'>
-                <Typography className={`${classes.Titleh3} ${classes.textLeft}+" "+ajustable`} >
-                {t("registry.Uses")}
-                </Typography>
-                </Grid>
-                <Typography className={classes.Textp+" "+ajustable}>
-                {t("registry.Uses2")}
-                </Typography>
-                <Grid sm={8} className={classes.textLeft}>
-                    <div className={classes.Textp}>
-                        <ul>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses3")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses4")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses5")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses6")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses7")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses8")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses9")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses10")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses11")}</li>
-                            <li className={classes.listyle+" "+ajustable}>{t("registry.Uses12")}</li>
-                        </ul>
-                    </div>
-                </Grid>
-                <Grid sm={12} xs={12} md={3} lg={3}>
-                    <ImageSectionThree src={NewIdea}></ImageSectionThree>
-                </Grid>
+            <Grid container direction='row'>
+                    <Grid container xs={2} justifyContent='center' className={classes.imagsectionthree} alignItems='flex-start'>
+                        <ImageItem src={Natureuso}></ImageItem>
+                    </Grid>
+                    <Grid container xs={10} direction='column'>
+                        <Typography className={`${classes.Titleh3} ${classes.textLeft}+" "+ajustable`} >
+                            {t("registry.Uses")}
+                        </Typography>
+                        <Typography className={classes.Textp+" "+ajustable}>
+                            {t("registry.Uses2")}
+                        </Typography>
+                        <Grid sm={8} className={classes.textLeft}>
+                            <div className={classes.Textp}>
+                                <ol className={classes.ol1}>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses3")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses4")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses5")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses6")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses7")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses8")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses9")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses10")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses11")}</li>
+                                    <li className={classes.listyle+" "+ajustable}>{t("registry.Uses12")}</li>
+                                </ol>
+                            </div>
+                        </Grid>
+                    </Grid>
             </Grid>
         </Grid>
     )
@@ -338,44 +359,48 @@ const SectionFour = () => {
     }
     return (
         <Grid container className={estilo}>
-
-            <Grid container item xs={12} sm={12} justifyContent='center'>
-                <Typography className={classes.Titleh3+" "+ajustable}>
-                {t("registry.sources")}
-                </Typography>
-            </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center" className={classes.cardglobal} >
-                <ImageSectionFour src={DataExtration}></ImageSectionFour>
-            </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center"  >
-                <Typography className={classes.Textp+" "+ajustable}>
-                {t("registry.sources2")}
-                </Typography>
-            </Grid>
-            <Grid container item xs={12} sm={12} justifyContent="center"  >
-
-                <ul className={classes.Textp}>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources3")}.</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources4")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources5")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources6")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources7")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources8")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources9")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources10")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources11")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources12")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources13")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources14")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources15")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources16")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources17")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources18")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources19")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources20")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources21")}</li>
-                    <li className={classes.listyle+" "+ajustable}>{t("registry.sources22")}</li>
-                </ul>
+            <Grid container direction='row'>
+                    <Grid container xs={2} justifyContent='center' className={classes.imagsectionthree} alignItems='flex-start'>
+                        <ImageItem src={Naturefuentes}></ImageItem>
+                    </Grid>
+                    <Grid container xs={10} direction='column'>
+                        <Typography className={classes.Titleh3+" "+ajustable}>
+                            {t("registry.sources")}
+                        </Typography>
+                        <Typography className={classes.Textp+" "+ajustable}>
+                            {t("registry.sources2")}
+                        </Typography>
+                        <Grid container direction='row'>
+                            <Grid sm={6} className={classes.textLeft}>
+                                <ul className={classes.Textp}>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources3")}.</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources4")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources5")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources6")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources7")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources8")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources9")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources10")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources11")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources12")}</li>
+                                </ul>
+                            </Grid>
+                            <Grid sm={6} className={classes.textLeft}>
+                                <ul className={classes.Textp}>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources13")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources14")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources15")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources16")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources17")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources18")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources19")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources20")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources21")}</li>
+                                    <li className={classes.listyle1+" "+ajustable}>{t("registry.sources22")}</li>
+                                </ul>
+                            </Grid>
+                        </Grid>
+                    </Grid>
             </Grid>
         </Grid>
     )
@@ -396,9 +421,9 @@ const Cardsservice = () => {
 const ViewService = () => {
 
     return (
-        <Grid>
+        
             <Cardsservice />
-        </Grid>
+        
     );
 }
 

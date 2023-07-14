@@ -50,7 +50,7 @@ import useAuth,{AuthContext} from "../templates/useAuth";
 
 const useStyle = makeStyles({
   marginTop: {
-    marginTop: "120px",
+    marginTop: "20vh",
   }
 });
 
@@ -126,7 +126,7 @@ const Generalroutes = () => {
   return (
     <div>
       <Header/>
-      <ChatIA/>      
+      {/* <ChatIA/>       */}
       <Grid container className={classes.marginTop}></Grid>
       <Routes>
         <Route path="/observatorio/restore/:auth/:autht/:authp" element={<RestoreAccount/>}/>
@@ -147,7 +147,7 @@ const Generalroutes = () => {
         <Route path="/observatorio/LADM" element={<Ladm/>} />
         <Route path="/observatorio/Busqueda" element={<Search/>} />
         <Route path="/observatorio/Ceed" element={<Ceed/>} />
-        <Route path="/observatorio/Servicios/estadisticas/Ceed" element={<Ceed01/>}/>
+        {/* <Route path="/observatorio/Servicios/estadisticas/Ceed" element={<Ceed01/>}/> */}
         <Route path="/observatorio/Contacto" element={<Contacto/>} />
         <Route path="/" element={<ContentGrid/>} />  
         <Route path="/observatorio" element={<ContentGrid/>} />  

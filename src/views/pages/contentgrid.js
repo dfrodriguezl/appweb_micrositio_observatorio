@@ -1,13 +1,13 @@
 import { Grid, makeStyles, useMediaQuery,Tooltip, Button } from "@material-ui/core";
 import React, { Component} from "react";
-import bloques from "Observatorio/img/img_top_home.jpg";
-//import bloques from "Observatorio/img/Building.svg";
+//import bloques from "Observatorio/img/img_top_home.jpg";
+import bloques from "Observatorio/img/01_home_observatorio.webp";
 import frente from "Observatorio/img/city1.gif";
 import figure from "Observatorio/img/ventajasobservatorio.jpg";
-import QA from "Observatorio/img/relojventajas.jpg";
-import Conference from "Observatorio/img/integracion.jpg";
-import audit from "Observatorio/img/comunicacion.jpg";
-import Binary from "Observatorio/img/LADM1.jpg";
+import QA from "Observatorio/img/home_01_ventajasobs_seguimientoydisposicion.png";
+import Conference from "Observatorio/img/home_02_ventajasobs_integracion.png";
+import audit from "Observatorio/img/home_03_ventajasobs_comunicacion.png";
+import Binary from "Observatorio/img/home_04_ventajasobs_LADM.png";
 import lawyer from "Observatorio/img/normatividad.jpg";
 import Maintenance from "Observatorio/img/usoobservatorio.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
@@ -18,18 +18,17 @@ import {useTranslation} from "react-i18next";
 const useStyle = makeStyles({
 
   boton: {
-    padding: "0em 1em 0em 1em",
-    borderRadius: "2vh",
-    backgroundColor: Values.Redwinecolor,
+    padding: "4px 30px",
+    backgroundColor: "#B91450",
     color: Values.TextButton,
     fontFamily: Values.SourceRoboto,
     textTransform: "inherit",
-    transition: "all 0.8s ease-out",
+    //transition: "all 0.8s ease-out",
     cursor: "pointer",
-    margin: "10% 0 4% 0",
+    //margin: "10% 0 4% 0",
     width: "max-content",
-    fontSize: Values.SizetextcontentGrid,
-    borderRadius: "2vh",
+    fontSize: "0.8em",
+    borderRadius: "1em",
     // fontWeight: "bold",
     "&:hover": {
       backgroundColor: Values.HoverButton,
@@ -42,8 +41,8 @@ const useStyle = makeStyles({
   },
 
   imagen_QA: {
-    width: "25%",
-    height: "14vh",
+    width: "60%",
+    height: "10vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${QA})`,
@@ -60,8 +59,8 @@ const useStyle = makeStyles({
   },
 
   imagen_Conference: {
-    width: "35%",
-    height: "14vh",
+    width: "60%",
+    height: "10vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Conference})`,
@@ -78,8 +77,8 @@ const useStyle = makeStyles({
   },
 
   imagen_Audit: {
-    width: "26%",
-    height: "14vh",
+    width: "52%",
+    height: "9vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${audit})`,
@@ -96,8 +95,8 @@ const useStyle = makeStyles({
   },
 
   imagen_Binary: {
-    width: "25%",
-    height: "14vh",
+    width: "45%",
+    height: "10vh",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${Binary})`,
@@ -114,7 +113,7 @@ const useStyle = makeStyles({
   },
 
   puntos: {
-    padding: "1.5vw 0 0px 7vh",
+    padding: "0vw 0 0px 8vh",
   },
 
   marginbutton: {
@@ -135,28 +134,29 @@ const useStyle = makeStyles({
   },
 
   numpadding2: {
-    paddingTop: "12%",
+    paddingTop: "0%",
   },
 
   numpadding3: {
-    paddingTop: "4%",
+    paddingTop: "0%",
   },
 
   numpaddingVentajas: {
-    padding: "5% 0% 0% 0%",
+    padding: "0% 0% 10% 0%",
   },
 
   num: {
-    backgroundColor: "#4c4c4c",
+    backgroundColor: "#821a3f",
     borderRadius: "50%",
     textAlign: "center",
     color: Values.TextButton,
     fontFamily: Values.SourceWorksans,
     fontWeight: "bold",
-    fontSize: Values.SizeSubtitle,
+    fontSize: "calc(1.5em + 1.5vh)",
     width: "3.5rem",
     height: "3.5rem",
-    padding: "1vh 2vh",
+    padding: "0vh 0vh",
+    margin: "0 0.3em 0 0vw",
   },
 
   num1: {
@@ -167,7 +167,11 @@ const useStyle = makeStyles({
   },
 
   gridglobal: {
-    padding: "0 10vw 3vw 10vw",
+    padding: "15px 5vw 3vw 5vw",
+  },
+
+  buttonsnormativa:{
+    paddingLeft: "3vw"
   },
 
   gridglobalmovil: {
@@ -180,7 +184,7 @@ const useStyle = makeStyles({
   },
 
   margintop: {
-    padding: "0 10vw 3vw 10vw",
+    padding: "0 5vw 3vw 5vw",
     backgroundColor: "#f4f4f4",
   },
 
@@ -193,8 +197,9 @@ const useStyle = makeStyles({
     color: Values.TextParagraph,
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
-    textAlign: "center",
-    padding: "0 1vw 0 1vw",
+    //textAlign: "center",
+    //padding: "0 1vw 0 1vw",    
+    //paddingLeft:"1vw"
   },
 
   textStyle1: {
@@ -219,7 +224,7 @@ const useStyle = makeStyles({
     fontWeight: "bold",
     fontSize: Values.SizeTitle,
     padding: Values.PaddingTitleText,
-    textAlign: "center",
+    //textAlign: "center",
   },
 
   titleStyle2: {
@@ -232,13 +237,14 @@ const useStyle = makeStyles({
   },
 
   imagen_top: {
-    width: "100% !important",
-    height: "50vh",
-    backgroundSize: "100%",
+    //width: "100% !important",
+    height: "37vh",
+    backgroundSize: "80%",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${bloques})`,
-    backgroundPosition: "initial",
-    borderRadius:"1%"
+    backgroundPosition: "right",
+    //borderRadius:"1%",
+    marginTop: "6vh"
   },
 
   imagen_top2: {
@@ -351,7 +357,7 @@ const useStyle = makeStyles({
     fontFamily: Values.SourceRoboto,
     fontSize: Values.SizeText,
     textAlign: "justify",
-    margin: "0.5em 0 0em 0",
+    margin: "0.3em 0 0em 0",
     fontWeight: "bold",
   },
 
@@ -585,26 +591,20 @@ const Top_content = () => {
   return (
     <Grid container direction="row"  className={estilo}>
       <ImagenMovil/>  
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid item container direction="column" xs justifyContent="center" alignItems="center">
+      <Grid container alignItems="center">
         <h3 className={classes.Titleh3+" "+ajustable}>{t("home.titlehome")}</h3>
       </Grid>
-      <Grid item container direction="column" xs>
         <Grid>
           <p className={classes.Textp+" "+ajustable}>
           {t("home.description")}
           </p>
-          {/* <p className={classes.Textp}>
-            Este Sistema cumple con los estandares establecidos por el Instituto
-            Geográfico Agustín Codazzi - IGAC, que es la maxima autoridad
-            catastral en la Nación y cuya información esta a disposición del
-            público.
-          </p> */}
         </Grid>
-        <Grid container>
+        {/* <Grid container>
           <Tooltip title={t("navbar.observatorio")} arrow>
             <Button className={classes.boton+" "+ajustable} onClick={rutabtn} >{t("home.boton")}</Button>
           </Tooltip>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Imagen />
     </Grid>
@@ -624,91 +624,105 @@ const Center_content = () => {
       <Grid
         container
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
         className={classes.containerTitle}
       >
         <h1 className={classes.titleStyle+" "+ajustable}>{t("home.ventajas")}</h1>
       </Grid>
-      <Grid item container direction="column" xs>
+      <Grid item container direction="row" xs>
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
           className={classes.numpadding}
+          xs={2}
         >
           <ImagenQA/>
         </Grid>
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
+          xs={4}
         >
-          <h1 className={classes.titleStyle2 +" "+ajustable}>{t("home.seguimiento")}</h1>
-          <p className={classes.textStyle+" "+ajustable}>
-          {t("home.seguimiento2")}
-          </p>
+          <Grid container>
+            <h1 className={classes.titleStyle2 +" "+ajustable}>{t("home.seguimiento")}</h1>
+          </Grid>
+          <Grid container>
+            <p className={classes.textStyle+" "+ajustable}>{t("home.seguimiento2")}</p>
+          </Grid>
         </Grid>
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
           className={classes.numpadding2}
+          xs={2}
         >
           <ImagenConference/>
         </Grid>
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
+          xs={4}
         >
-          <h1 className={classes.titleStyle2+" "+ajustable}>{t("home.integracion")}</h1>
-          <p className={classes.textStyle+" "+ajustable}>{t("home.integracion2")}</p>
+          <Grid container>
+            <h1 className={classes.titleStyle2+" "+ajustable}>{t("home.integracion")}</h1>
+          </Grid>
+          <Grid container>
+            <p className={classes.textStyle+" "+ajustable}>{t("home.integracion2")}</p>            
+          </Grid>
         </Grid>
       </Grid>
-      <ImagenCenter />
-      <Grid item container direction="column" xs>
+      {/* <ImagenCenter /> */}
+      <Grid item container direction="row" xs>
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
           className={classes.numpadding}
+          xs={3}
         >
           <Imagenaudit/>
-        </Grid>
+        </Grid>        
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
+          xs={3}
         >
+          <Grid container>
           <h1 className={classes.titleStyle2+" "+ajustable}>{t("home.comunicacion")}</h1>
+          </Grid>
+          <Grid container>
           <p className={classes.textStyle+" "+ajustable}>{t("home.comunicacion2")}</p>
+          </Grid>
         </Grid>
+        
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
           className={classes.numpadding3}
+          xs={3}
         >
           <ImagenBinary/>
         </Grid>
         <Grid
           item
-          xs
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
+          xs={3}
         >
+          <Grid container>
           <h1 className={classes.titleStyle2+" "+ajustable}>LADM</h1>
+          </Grid>
+          <Grid container>
           <p className={classes.textStyle+" "+ajustable}>{t("home.LADM2")}</p>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
@@ -734,16 +748,18 @@ const Bottom_content = () => {
       className={(classes.marginbuttom, estilo)}
     >
       <Grid container direction="row" justifyContent="center">
-        <Grid container justifyContent="center" alignItems="center">
+        <Grid container>
           <h1 className={classes.contentrulesh1+" "+ajustable}>{t("home.normatividad")}</h1>
         </Grid>
         <Grid item container direction="column" xs>
-          <Grid container direction="column">
+          <Grid container direction="column" justifyContent="initial" alignItems="center">
             <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad1")}</p>
             <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad2")}</p>
-            <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad3")}</p>
-          </Grid>
-          <Grid container direction="column" className={classes.cuadrobotones}>            
+          </Grid>          
+        </Grid>
+        <Grid item container direction="column" xs={6} className={classes.buttonsnormativa}>          
+          <p className={classes.contentrulesp+" "+ajustable}>{t("home.normatividad3")}</p>          
+        <Grid container direction="column" className={classes.cuadrobotones}>            
           <Grid direction="row" item container xs className={classes.boton_general} justifyContent="center">
                 <Grid container item xs={6}>
                 <p className={classes.contentrulesp2+" "+ajustable}>{t("home.ley")}</p>
@@ -776,7 +792,6 @@ const Bottom_content = () => {
               </Grid>
           </Grid>
         </Grid>
-        <ImagenNormativa />
       </Grid>
     </Grid>
   );
@@ -807,23 +822,26 @@ const Bottom_content_footer = () => {
       <Grid
         container
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
         className={classes.containerTitle}
       >
         <h1 className={classes.titleStyle+" "+ajustable}>
         {t("home.uso")}
         </h1>
       </Grid>
-      <Grid item container direction="column" xs className={estilo}>
+      <Grid item container direction="row" xs>
         <Grid
           container
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
+          direction="column"
+          xs={3}
+          // justifyContent="flex-start"
+          // alignItems="center"
         >
-          <h1 className={classes.num}>1</h1>
-          <p className={estilo2+" "+ajustable}>{t("home.inmobiliaria")}</p>
+          <Grid container justifyContent="flex-start" alignItems="center">
+            <h1 className={classes.num}>1</h1>
+            <p className={estilo2+" "+ajustable}>{t("home.inmobiliaria")}</p>
+          </Grid>
           <Grid item container direction="column" xs className={classes.puntos}>
             <Grid
               container
@@ -875,17 +893,17 @@ const Bottom_content_footer = () => {
         <Grid
           container
           direction="row"
-          justifyContent="flex-start"
+          //justifyContent="flex-start"
+          xs={3}
           alignItems="center"
           className={classes.numpaddingVentajas}
-        >
+        >         
           <h1 className={classes.num}>2</h1>
-          <p className={estilo2+" "+ajustable}>
-          {t("home.estadistica")}
-          </p>
+          <p className={estilo2+" "+ajustable}>{t("home.estadistica")}</p>
         </Grid>
         <Grid
           container
+          xs={3}
           direction="row"
           justifyContent="flex-start"
           alignItems="center"
@@ -896,6 +914,7 @@ const Bottom_content_footer = () => {
         </Grid>
         <Grid
           container
+          xs={3}
           direction="row"
           justifyContent="flex-start"
           alignItems="center"

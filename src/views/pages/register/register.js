@@ -35,10 +35,6 @@ const useStyle = makeStyles({
         display:"grid"
       },
 
-    gridglobal: {
-        padding: "0 10% 0 10%",
-    },
-
     Titleh3: {
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
@@ -69,7 +65,7 @@ const useStyle = makeStyles({
     },
 
     gridglobal: {
-        padding: "0 10vw 0 10vw",
+        padding: "0 5vw 0 5vw",
     },
     imageRigth: {
         width: "60vh",
