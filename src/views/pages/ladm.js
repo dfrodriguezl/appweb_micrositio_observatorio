@@ -93,6 +93,7 @@ const useStyle = makeStyles({
     borderRadius:" 2vh",
     fontWeight: "bold",
     backgroundColor: "#ffffff",
+    textTransform: "capitalize",
     
     "&:hover": {
       backgroundColor: Values.HoverButton,

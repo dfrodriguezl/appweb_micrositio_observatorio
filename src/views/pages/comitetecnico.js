@@ -306,7 +306,7 @@ const Logros = () => {
               </Grid>
               <Grid item container direction="column" xs className={classes.containerTitle}>
                 <p className={classes.contentrulesp+" "+ajustable}>
-                  {t("technical.achievements2")}
+                  {t("technical.achievements2")}<i>{t("technical.achievementscursiva")}</i>
                 </p>        
                 <Grid container className={classes.margboton}>
                   <h3 className={classes.titleStyle2+" "+ajustable}>{t("technical.resolution")}</h3>

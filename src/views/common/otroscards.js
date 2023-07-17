@@ -16,13 +16,13 @@ import * as Values from "Observatorio/Variables/values";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
 //import cardsotros from "Observatorio/common/cardsotros";
 import { useTranslation } from "react-i18next";
-import Sale from "Observatorio/img/igac-logo.png";
-import Fill from "Observatorio/img/logo21.png";
+import Sale from "Observatorio/img/ICDE.webp";
+import Fill from "Observatorio/img/observatorio_tecnico_catastral.webp";
 import Segment from "Observatorio/img/logo3.png";
-import Building_ from "Observatorio/img/logo41.png";
+import Building_ from "Observatorio/img/logobarranquilla.svg";
 import Buildingamico from "Observatorio/img/logo5.png";
 import logo6 from "Observatorio/img/logo6.png";
-import logo7 from "Observatorio/img/logo7.png";
+import logo7 from "Observatorio/img/inmobiliario_armenia.png";
 
 const useStyle = makeStyles({
   boton: {
@@ -131,10 +131,10 @@ const Cardsmapas = () => {
   const cardsotros = [
     {
       id: 1,
-      title: t("Other.National3"),
+      title: t("Other.National7"),
       description: t("Other.National2"),
       image_card: Sale,
-      link: "https://www.icde.gov.co/datos-y-recursos/datos-y-recursos-de-informacion/datos/observatorio/observatorio-inmobiliario",
+      link: "https://www.icde.gov.co/visor-icde",
     },
     {
       id: 2,
@@ -155,7 +155,7 @@ const Cardsmapas = () => {
       title: t("Other.National9"),
       description: t("Other.National8"),
       image_card: Building_,
-      link: "http://catastro.barranquilla.gov.co:7000/Observatorio/index.html",
+      link: "https://catastro.barranquilla.gov.co:7000/Observatorio/",
     },
     {
       id: 5,
@@ -176,7 +176,7 @@ const Cardsmapas = () => {
       title: t("Other.National15"),
       description: t("Other.National14"),
       image_card: logo7,
-      link: "https://oiarmenia.org/obs/",
+      link: "https://observatorioarmenia.org/site/",
     },
   ];
   var estilo = null;

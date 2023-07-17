@@ -212,7 +212,7 @@ const useStyle = makeStyles({
     listStyleType: "disclosure-closed",
   },
   num: {
-    backgroundColor: "#4c4c4c",
+    backgroundColor: "#bd0b4e",
     borderRadius: "50%",
     textAlign: "center",
     color: Values.TextButton,
@@ -838,7 +838,7 @@ const Catastro = () => {
             alignItems="center"
           >
             <p className={classes.textStyle + " " + ajustable}>
-              {"1. " + t("cadastre.cadastre11")}
+              <strong>{t("cadastre.cadastreseguridad")}</strong>{t("cadastre.cadastre11")}
             </p>
           </Grid>
         </Grid>
@@ -850,7 +850,7 @@ const Catastro = () => {
             alignItems="center"
           >
             <p className={classes.textStyle + " " + ajustable}>
-              {"1.2. " + t("cadastre.cadastre12")}
+              {t("cadastre.cadastre12")}
             </p>
           </Grid>
         </Grid>
@@ -862,10 +862,10 @@ const Catastro = () => {
             justifyContent="center"
           >
             <p className={classes.textStyle + " " + ajustable}>
-              {"1.3. " + t("cadastre.cadastre13")}
+            <strong>{t("cadastre.cadastredesarrollo")}</strong>{t("cadastre.cadastre13")}
             </p>
             <p className={classes.textStyle + " " + ajustable}>
-              {"2. " + t("cadastre.cadestreadicional")}
+              {t("cadastre.cadestreadicional")}
             </p>
           </Grid>
         </Grid>
