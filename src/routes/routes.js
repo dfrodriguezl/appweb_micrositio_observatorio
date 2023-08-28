@@ -76,7 +76,7 @@ const RoutesMaps = () => {
 const ProtectedRoute = ({children}) => {
   const  login  = useContext(AuthContext)
   
-  console.log("protected platafroma", login.isAuthenticated)
+ // console.log("protected platafroma", login.isAuthenticated)
     if(!login.isAuthenticated){
       return <Navigate to='/observatorio/login'/>
   }
@@ -86,7 +86,7 @@ const ProtectedRoute = ({children}) => {
 const ProtectedRoutecha = ({children}) => {
   const  login  = useContext(AuthContext)
   
-  console.log("protected platafroma", login.isAuthenticated)
+ // console.log("protected platafroma", login.isAuthenticated)
     if(!login.isAuthenticated){
       return <Navigate to='/observatorio/login'/>
   }
@@ -107,7 +107,7 @@ const Generalroutes = () => {
 
   var [isLogin, setAuth] = useState(isAuth);*/
   const  isLogin  = useContext(AuthContext);
-  console.log(isLogin)
+ // console.log(isLogin)
 
   const redirectTo = (value) => {
    

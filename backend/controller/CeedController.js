@@ -10,7 +10,7 @@ class CeedController{
           message: "registro exitoso",
           code: "OK",
         };
-        console.log(body);
+       // console.log(body);
         if (!body || typeof body !== "object") {
           util.saveData(response);
           return util.sendResponse();
@@ -22,7 +22,7 @@ class CeedController{
             response.message = "Ocurrio un error en el registro de datos";
           }
         } catch (error) {
-          console.log(error);
+         // console.log(error);
           response.code = "ERROR";
           response.message = "Ocurrio un error en el registro de datos";
         }

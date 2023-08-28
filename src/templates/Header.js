@@ -282,7 +282,7 @@ const Header = () => {
         
     if(matches){
       ubicacion = "flex-end"  
-      console.log("pp1")    
+     // console.log("pp1")    
       iconosizquierda = 4;
       iconosderecha = 4;
       iconoscentro = 4;
@@ -349,7 +349,7 @@ const Header = () => {
         .addEventListener("keyup", function(e) {            
             if (e.keyCode === 13) {               
                 if(e.target.value === ""){
-                    console.log("20/05/2023", "se debe mostrar un error por estar vacio");
+                   // console.log("20/05/2023", "se debe mostrar un error por estar vacio");
                 }else{
                     searchresult(e.target.value);
                 }
@@ -359,7 +359,7 @@ const Header = () => {
     const botonhandlesearch = () =>{              
        let valor = document.getElementById("search").value   
                 if(valor === ""){
-                    console.log("20/05/2023", "se debe mostrar un error por estar vacio");
+                   // console.log("20/05/2023", "se debe mostrar un error por estar vacio");
                 }else{
                     searchresult(valor);
                 }    
@@ -388,10 +388,10 @@ const Header = () => {
 
                } else {
                 //setOpen3(true)
-                console.log("20/05/2022",response.data.data.fileph);
+               // console.log("20/05/2022",response.data.data.fileph);
              }
             } else {
-                console.log("ocurrio un problema externo");
+               // console.log("ocurrio un problema externo");
             }
           });
       };    

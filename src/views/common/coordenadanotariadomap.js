@@ -1,6 +1,6 @@
 class MapDashNotariado {
     static markersDataNotariado(data){ 
-      console.log("ARREGLO1", data) 
+     // console.log("ARREGLO1", data) 
       let j=0;
       let location = [];    
       if(data.length <= 0 ){
@@ -24,7 +24,7 @@ class MapDashNotariado {
              j++;       
          }
       }   
-      console.log("arreglo12", location) 
+     // console.log("arreglo12", location) 
       return location;
     }
   

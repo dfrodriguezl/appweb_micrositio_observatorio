@@ -198,7 +198,7 @@ const FormRegister = () => {
     const handleChangeValue = (event) => {
         let name = event.target.name
         let value = event.target.value
-        console.log({value});
+       // console.log({value});
         let newForm = {
             ...form,
             [name]: value
@@ -344,7 +344,7 @@ const FormRegister = () => {
 
     const sendForm = () => {     
         
-        console.log("enviando form")
+       // console.log("enviando form")
        
         if(form.clave != form.confirmarClave){
             alert("Contraseña no coincides")

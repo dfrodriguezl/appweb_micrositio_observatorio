@@ -184,7 +184,7 @@ const FormAccess = (props) => {
     const sendForm = () => {
       
        if(captcha.current.getValue()){
-        console.log("enviando form")
+       // console.log("enviando form")
         let valor = sha256.hmac('prueba',form.clave)
         let body={
             email: form.user,
@@ -222,7 +222,7 @@ const FormAccess = (props) => {
          
      });
        }else{
-        console.log("El usuario no a aceptado el captcha")
+       // console.log("El usuario no a aceptado el captcha")
        }
     }
 

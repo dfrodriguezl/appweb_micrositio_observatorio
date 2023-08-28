@@ -140,7 +140,7 @@ class ValidService{
                                                     break; 
                                                 }
                                                }else{
-                                                console.log("prueba4", valores[i])
+                                               // console.log("prueba4", valores[i])
                                                 if(parseInt(valores[i])>=0 && valores[i] != null){
                                                     fail = "exito" 
                                                 }else{

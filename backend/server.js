@@ -39,7 +39,7 @@ app.use("",routes)
 
 //backend en el puerto 3000
 app.listen(3000, function () {
-  console.log(Date().toString());
+ // console.log(Date().toString());
 });
 
 // app.get('/*', (req,res) =>{

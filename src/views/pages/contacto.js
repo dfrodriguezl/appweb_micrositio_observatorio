@@ -208,8 +208,8 @@ const Contacto = () => {
     /*
     axios.post(`/users`,{ formTemp })
     .then(res => {
-      console.log(res);
-      console.log(res.data);
+     // console.log(res);
+     // console.log(res.data);
     })*/
     }
     let image = matches ? classes.ImageContact02 : classes.ImageContact

@@ -362,7 +362,7 @@ export default function PersistentDrawerLeft(props) {
       enabledLayer(stylejson.layers[3],event.target.checked)
     }
     if(event.target.name == "capa02"){
-      console.log("asd")
+     // console.log("asd")
       enabledLayer(stylejson.layers[4],event.target.checked)
     }
     if(event.target.name == "capa03"){

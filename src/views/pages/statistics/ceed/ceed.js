@@ -193,7 +193,7 @@ const Form = () => {
     const handleClose = () => setOpen(false)
     const sendForm = () => {
       
-        console.log("enviando form")
+       // console.log("enviando form")
        setLoading(true)
         axios.post(
             `${enviroment.endpoint}/ceed`, 
@@ -204,7 +204,7 @@ const Form = () => {
                  }
              }
      ).then(response => { 
-         console.log(response)  
+        // console.log(response)  
          
          if(response.status == 200 ){
              if(response.data.code == "OK"){

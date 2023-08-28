@@ -66,7 +66,7 @@ const RestoreAccount = (props) => {
   };
 
   const sendEmail = () => {
-    console.log("enviando form");
+   // console.log("enviando form");
     let valor = sha256.hmac("prueba", form.clave);
     let body = {
       infokey: valor,
@@ -80,7 +80,7 @@ const RestoreAccount = (props) => {
         },
       })
       .then((response) => {
-        console.log(response);
+       // console.log(response);
         if (response.status == 200) {
           if (response.data.code == "OK") {
             setLoading(false);

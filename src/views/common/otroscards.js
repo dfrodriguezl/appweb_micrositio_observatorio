@@ -178,6 +178,13 @@ const Cardsmapas = () => {
       image_card: logo7,
       link: "https://observatorioarmenia.org/site/",
     },
+    {
+      id: 8,
+      title: t("Other.National9"),
+      description: t("Other.National8"),
+      image_card: "https://www.ambq.gov.co/wp-content/themes/ambq/images/area-metropolitana-de-barranquilla.png",
+      link: "https://www.ambq.gov.co/gestion-catastral/observatorio-inmobiliario/",
+    },
   ];
   var estilo = null;
   {

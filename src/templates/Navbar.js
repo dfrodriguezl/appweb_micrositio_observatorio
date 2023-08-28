@@ -116,6 +116,25 @@ const useStyle = makeStyles({
       border: "none",
     },
   },
+  botonlogin: {
+    borderRadius: "2vh",
+    backgroundColor: "rgb(250, 250, 250)",
+    color: "rgb(76, 76, 76)",
+    fontFamily: 'Roboto',
+    textTransform: "capitalize",
+    //transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop: "0.8px",
+    width: "max-content",
+    fontSize: "calc(0.8em + 0.3vh)",
+    borderRadius: "0vh",
+    //fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "#821a3f",
+      border: "none",
+      color:"rgb(255 255 255)"
+    },
+  },
   boton1: {
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
@@ -380,7 +399,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     setajustableinicio("--active")
   }
   function rutas(idd) {
-    console.log("rutas",idd.target.id)
+   // console.log("rutas",idd.target.id)
     if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
       window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
     }else{
@@ -457,7 +476,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             link:"/observatorio/Estadisticasexperimentales",
             icon:"",
             isMain:true
-        },
+        }
 
 
     ],
@@ -712,13 +731,13 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
           <li onMouseEnter={handleStatusFalseAll}>
             {isOk ? 
             <Button
-            className={classes.boton+" "+ajustable}
+            className={classes.botonlogin+" "+ajustable}
             onClick={handleOpen}
           >
             Cerrar Sesión
           </Button>:
               <Button
-                className={classes.boton+" "+ajustable}
+                className={classes.botonlogin+" "+ajustable}
                 disableElevation
                 onClick={rutabtnlogin}
               >

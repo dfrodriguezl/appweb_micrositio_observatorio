@@ -51,7 +51,7 @@ class Dash {
   }
 
   static dashBoardCakeNph(data){  
-    console.log("uno validamos la data nph", data)
+   // console.log("uno validamos la data nph", data)
       if (typeof data.Venta === "undefined") {
         data.Venta = 0;
       }
@@ -73,7 +73,7 @@ class Dash {
   }
 
   static dashBoardCakeRural(data){    
-    console.log("uno validamos la data rural", data)
+   // console.log("uno validamos la data rural", data)
         if (typeof data.Venta === "undefined") {
           data.Venta = 0;
         }

@@ -195,14 +195,14 @@ const Map = forwardRef((props, ref) => {
         legend.appendChild(item);
       });
       stylejson.layers.forEach(function (element) {
-        console.log({ element });
+       // console.log({ element });
         if (map.getLayer(element.id)) {
           map.setLayoutProperty(element.id, "visibility", "none");
         }
-        console.log(element.legend);
+       // console.log(element.legend);
       });
       map.on("click", (event) => {
-        console.log("doy click");
+       // console.log("doy click");
         const states = map.queryRenderedFeatures(event.point, {
           layers: [capaSeleccionada.id],
         });
@@ -229,8 +229,8 @@ const Map = forwardRef((props, ref) => {
               return;
             }
             const feature = states[0];
-            console.log(feature)
-            console.log(feature.geometry.coordinates[0][0])
+           // console.log(feature)
+           // console.log(feature.geometry.coordinates[0][0])
 
             let valueToShow = ``
             if(feature.properties.Densidad_h || feature.properties.Densidad_h == 0 ){

@@ -548,7 +548,7 @@ const ImagenCenter = () => {
   const matches2 = useMediaQuery("(min-width:1295px)")
   var estilo = null;
   {
-    console.log("ver",matches, " ", matches2)
+   // console.log("ver",matches, " ", matches2)
     if(matches){
       estilo = classes.containerImg
     }else{      
@@ -804,7 +804,7 @@ const Bottom_content_footer = () => {
   const matches2 = useMediaQuery("(max-width:769px)");
   var estilo = null;
   var estilo2 = null;
-  console.log({ matches2 });
+ // console.log({ matches2 });
   if (matches) {
     estilo = classes.imagen_uso;
     estilo2 = classes.textStyle;

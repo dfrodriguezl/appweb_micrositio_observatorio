@@ -12,20 +12,20 @@ const InitializateState={
     isAuthentication:isAuth
 }
 export const AuthProvider = ({children}) => {
-    console.log(children)
+   // console.log(children)
     const [isAuthenticated, setIsAuthenticated] = useState(InitializateState.isAuthentication);
 
-    console.log("prueba auth", isAuthenticated)
+   // console.log("prueba auth", isAuthenticated)
 
     const login = () => {
         setIsAuthenticated(true)
-        console.log("prueba authlogin", isAuthenticated)
+       // console.log("prueba authlogin", isAuthenticated)
     }
 
     const logout = () => {
-        console.log("hola")
+       // console.log("hola")
         setIsAuthenticated(false)
-        console.log("prueba authlogout", isAuthenticated)
+       // console.log("prueba authlogout", isAuthenticated)
     }
 
     return(
