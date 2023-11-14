@@ -157,7 +157,7 @@ const Repository = () => {
   return (
     <Grid container direction="column" id="target-two" className={estilo}>
       <Grid container direction="row">
-        <Grid container justifyContent="center" alignItems="center">
+        <Grid container alignItems="center">
           <h3 className={classes.titleStyle+" "+ajustable}>
           {t("repository.repository")}
           </h3>
@@ -170,13 +170,10 @@ const Repository = () => {
           className={classes.containerTitle}
         >
           <p className={classes.contentrulesp+" "+ajustable}>
-          {t("repository.repository2")}
-          </p>
-          <p className={classes.contentrulesp+" "+ajustable}>
-          {t("repository.repository3")}
+          {t("repository.repository2")} {t("repository.repository3")}
           </p>
         </Grid>
-        <Imagen />
+        {/* <Imagen /> */}
       </Grid>
       <table className={classes.tabla}>
         <tr>

@@ -4091,7 +4091,8 @@ const Cardsmapas = () => {
                       </button>
                     }
                     filename="Excel Mercado Inmobiliario"
-                  >                    
+                  >     
+                  {console.log("probando execl", excelnotariado)}               
                     <ExcelSheet data={excelnotariado} name="excel mercador">
                           <ExcelColumn
                             label="Fecha Publicación"

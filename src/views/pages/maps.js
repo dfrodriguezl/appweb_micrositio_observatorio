@@ -24,6 +24,14 @@ const useStyle = makeStyles({
         margin: "2% 0 0 0",
       },
 
+      Textp1:{
+        color: Values.TextParagraph,
+        fontFamily: Values.SourceRoboto,
+        fontSize: Values.SizeText,
+        textAlign: "start",  
+        margin: "0.2% 0 0 0",
+      },
+
       imagen_top:{    
         width: "100% !important",
         height: "45vh",
@@ -77,9 +85,9 @@ const Topmaps = () => {
                 
                 <p className={classes.Textp+" "+ajustable}>
                 {t("geovisors.geovisor2")}</p>     
-                <p className={classes.Textp+" "+ajustable}>{t("geovisors.geovisor3")}</p>  
+                <p className={classes.Textp1+" "+ajustable}>{t("geovisors.geovisor3")}</p>  
                 </Grid>
-                <ImagenBottom/> 
+                {/* <ImagenBottom/>  */}
         </Grid>
     );
 }

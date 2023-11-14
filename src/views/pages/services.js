@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import * as Values from 'Observatorio/Variables/values';
 import Delivery from "Observatorio/img/servicios.jpg";
 import ButtonRedWine from "Observatorio/common/buttonredwine";
+import Ofertas from "Observatorio/img/servicios_05_ofertas.png";
+import Boletin from "Observatorio/img/servicios_06_boletines.png";
+import Estadistica from "Observatorio/img/servicios_06_estadisticas.png";
 import {useTranslation} from "react-i18next";
 
 import infocards from "Observatorio/common/cards_.js";
@@ -18,15 +21,70 @@ const useStyle = makeStyles({
     textTransform: "inherit",
     transition: "all 0.8s ease-out",
     cursor: "pointer",
-    margin: "10% 0 4% 0",
+    margin: "4% 0 4% 0",
     width: "max-content",
-    fontSize: "calc(1em + 0.3vh)",
+    fontSize: "calc(0.8em + 0.3vh)",
     borderRadius: "2vh",
     // fontWeight: "bold",
     "&:hover": {
       backgroundColor: Values.HoverButton,
       border: "none",
     },
+  },
+  
+
+  imagen_QA: {
+    width: "14%",
+    height: "12vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Ofertas})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA2: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Ofertas})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA3: {
+    width: "14%",
+    height: "12vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Boletin})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA4: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Boletin})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA5: {
+    width: "14%",
+    height: "12vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Estadistica})`,
+    backgroundPosition: "initial",
+  },
+
+  imagen_QA6: {
+    width: "45%",
+    height: "14vh",
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${Estadistica})`,
+    backgroundPosition: "initial",
   },
     gridglobal:{
         padding: "0% 10% 2vw 10%",
@@ -105,7 +163,7 @@ const useStyle = makeStyles({
   imagen_top:{    
     width: "100% !important",
         height: "40vh",
-        backgroundSize: "53vh",
+        backgroundSize: "43vh",
         backgroundRepeat: "no-repeat",
         backgroundImage: `url(${Delivery})`,       
         backgroundPosition: "center",  
@@ -126,6 +184,26 @@ imagen_top2:{
      flexBasis: "100% !important",
      maxWidth: "100% !important",
 },
+textStyle: {
+  color: Values.TextParagraph,
+  fontFamily: Values.SourceRoboto,
+  fontSize: Values.SizeText,
+  //textAlign: "center",
+  //padding: "0 1vw 0 1vw",  
+  paddingLeft: "1vw",
+},
+
+textStyletext: {
+  color: Values.TextParagraph,
+  fontFamily: Values.SourceRoboto,
+  fontSize: Values.SizeText,
+  //textAlign: "center",
+  //padding: "0 1vw 0 1vw",
+  padding: "1vw 0vw 0vw 1vw",
+},
+marginP:{
+  marginTop: "2%"
+}
 });
 
 const ImagenBottom = () => {
@@ -139,6 +217,66 @@ const ImagenBottom = () => {
   )
 } 
 
+const ImagenQA = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");
+
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_QA;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_QA2;
+      } else {
+        estilo = classes.imagen_QA2;
+      }
+    }
+  }
+  return <div className={estilo}></div>;
+};
+
+const ImagenQA2 = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");
+
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_QA3;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_QA4;
+      } else {
+        estilo = classes.imagen_QA4;
+      }
+    }
+  }
+  return <div className={estilo}></div>;
+};
+
+const ImagenQA3 = () => {
+  const classes = useStyle();
+  const matches = useMediaQuery("(max-width:660px)");
+  const matches2 = useMediaQuery("(min-width:1281px)");
+
+  var estilo = null;
+  {
+    if (matches2) {
+      estilo = classes.imagen_QA5;
+    } else {
+      if (matches) {
+        estilo = classes.imagen_QA6;
+      } else {
+        estilo = classes.imagen_QA6;
+      }
+    }
+  }
+  return <div className={estilo}></div>;
+};
+
 const ajustable = "ajustable"
 
 const Topservice = () => {
@@ -146,11 +284,12 @@ const Topservice = () => {
     const [t, i18n]= useTranslation("global");  
     return (
         <Grid container direccion="row" >
-          <Grid container justifyContent="center"
+          {/* <Grid container justifyContent="start"
           alignItems="center">
-          <h3 className={classes.Titleh3+" "+ajustable}>{t("services.service")}</h3>
-                </Grid>
-                <Grid item container direction="column" xs className={classes.containerTitle}>
+              
+          </Grid> */}
+                <Grid item container direction="column" xs className={classes.containerTitle} justifyContent="start">
+                <h3 className={classes.Titleh3+" "+ajustable}>{t("services.service")}</h3>
                 <p className={classes.Textp+" "+ajustable}>{t("services.service2")}</p>      
                 <p className={classes.Textp+" "+ajustable}>
                 {t("services.service3")}
@@ -165,12 +304,56 @@ const Cardsservice = () => {
     const classes = useStyle();    
     const [t, i18n]= useTranslation("global"); 
     return (
-      <Grid container>
-        <Grid
-          container
-          className={classes.gridglobal}
-        >
-          {infocards.map(function(infocards) {
+      <Grid container className={classes.marginP}>
+          <Grid container xs={4}>
+            <ImagenQA />
+            <Grid
+              xs={10}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <p className={classes.textStyle + " " + ajustable}>
+                <strong>{t("services.service4")}</strong>
+              </p>
+              <p className={classes.textStyletext + " " + ajustable}>
+                {t("services.service5")}
+              </p>
+            </Grid>
+          </Grid>
+          <Grid container xs={4}>
+            <ImagenQA2 />
+            <Grid
+              xs={10}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <p className={classes.textStyle + " " + ajustable}>
+                <strong>{t("services.service6")}</strong>
+              </p>
+              <p className={classes.textStyletext + " " + ajustable}>
+                {t("services.service7")}
+              </p>
+            </Grid>
+          </Grid>
+          <Grid container xs={4}>
+            <ImagenQA3 />
+            <Grid
+              xs={10}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <p className={classes.textStyle + " " + ajustable}>
+                <strong>{t("services.service8")}</strong>
+              </p>
+              <p className={classes.textStyletext + " " + ajustable}>
+                {t("services.service9")}
+              </p>
+              <Tooltip title={t("services.service8")} arrow>                    
+                  <Button target="_blank" className={classes.boton+" "+ajustable} href="https://www.dane.gov.co/index.php/estadisticas-por-tema">{t("services.visit")}</Button>
+              </Tooltip>
+            </Grid>
+          </Grid>
+          {/* {infocards.map(function(infocards) {
             
             return(
               <Grid
@@ -207,8 +390,7 @@ const Cardsservice = () => {
               </Card>
             </Grid>
             )
-          })}
-        </Grid>
+          })} */}
       </Grid>
     );
 }

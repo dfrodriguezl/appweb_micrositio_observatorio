@@ -484,7 +484,7 @@ const Header = () => {
                                     </li>
                                 </ul> 
                                 </Grid>    
-                                <Grid container xs={7} justifyContent='flex-end'>
+                                <Grid container xs={10} justifyContent='start'>
                                 <p className={classes.Header__dateText} id="fecha">{dia+", "+d.getDate()+" de "+mes+ " de " + d.getFullYear()}</p>
                                 </Grid> 
                             </Grid>                             
