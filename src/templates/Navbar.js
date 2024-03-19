@@ -323,6 +323,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   const logout = useContext(AuthContext);
   const history = useNavigate();
   let id = localStorage.getItem("id")
+  let rol = localStorage.getItem("rol")
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -331,6 +332,10 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   const rutabtnlogin = () =>{
   
   history('/observatorio/login');
+  }
+  const rutaregistrar = (e) =>{
+      
+    history('/observatorio/register')
   } 
 
   const [menuActive, setMenuActive] = useState({
@@ -727,6 +732,19 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
               </UtilidadCentrarTexto>
             </DropDownLi>
           )}
+
+          {rol === '1' && (
+            <li onMouseEnter={handleStatusFalseAll}>
+              <Button
+                className={`${classes.botonlogin} ${ajustable}`}
+                disableElevation
+                onClick={rutaregistrar}
+              >
+                {t("navbar.unirse")}
+              </Button>
+            </li>
+          )}
+
 
           <li onMouseEnter={handleStatusFalseAll}>
             {isOk ? 
