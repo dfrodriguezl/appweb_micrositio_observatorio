@@ -80,7 +80,7 @@
                 isMain:true
             },
             {
-                name:"Mercado inmobiliario Bogotá",
+                name:"Geovisor de análisis inmobiliario",
                 id:"10",
                 link:"https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/",
                 icon:"",

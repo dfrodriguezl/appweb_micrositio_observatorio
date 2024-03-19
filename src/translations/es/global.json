@@ -283,10 +283,8 @@
         "login":"Usuario",
         "login2":"Contraseña",
         "login3":"Iniciar Sesión",
-        "login4":"Si no esta registrado, por favor hágalo mediante el siguiente botón",
-        "login5":"Registrarse",
-        "login6":"Si olvido su contraseña, oprima el siguiente botón y siga las instrucciones",
-        "login7":"Olvido Su Contraseña"
+        "login4":"Si olvido su contraseña, oprima el siguiente botón y siga las instrucciones",
+        "login5":"Olvido Su Contraseña"
     },
     "registration":{
         "registration":"Tipo de Usuario *",
@@ -338,6 +336,7 @@
         "catastro":"Catastro Multipropósito",
         "geovisores":"Geovisores",
         "servicios":"Servicios",
+        "unirse":"Registro usuarios",
         "ingresar":"Usuarios",
         "unobservatorio":"¿Qué es un observatorio?",
         "otro":"Otros observatorios inmobiliarios",

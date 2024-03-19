@@ -283,10 +283,8 @@
         "login":"User",
         "login2":"Password",
         "login3":"Sign in",
-        "login4":"If you are not registered, please do so by using the following button",
-        "login5":"Register",
-        "login6":"If I forget your password, press the following button and follow the instructions",
-        "login7":"Forgot Your Password"
+        "login4":"If I forget your password, press the following button and follow the instructions",
+        "login5":"Forgot Your Password"
     },
     "registration":{
         "registration":"User Type *",
