@@ -282,9 +282,7 @@
     "login":{
         "login":"Usuario",
         "login2":"Contraseña",
-        "login3":"Iniciar Sesión",
-        "login4":"Si olvido su contraseña, oprima el siguiente botón y siga las instrucciones",
-        "login5":"Olvido Su Contraseña"
+        "login3":"Iniciar Sesión"
     },
     "registration":{
         "registration":"Tipo de Usuario *",

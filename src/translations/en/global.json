@@ -282,9 +282,7 @@
     "login":{
         "login":"User",
         "login2":"Password",
-        "login3":"Sign in",
-        "login4":"If I forget your password, press the following button and follow the instructions",
-        "login5":"Forgot Your Password"
+        "login3":"Sign in"
     },
     "registration":{
         "registration":"User Type *",

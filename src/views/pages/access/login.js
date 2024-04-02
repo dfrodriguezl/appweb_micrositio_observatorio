@@ -327,18 +327,6 @@ const FormAccess = (props) => {
               </button>
               </Tooltip>
             </Grid>
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-              <Typography className={classes.Textp}>
-              {t("login.login4")}
-              </Typography>
-            </Grid>
-            <Grid item container justifyContent="center" alignItems="center">
-            <Tooltip title={t("login.login5")} arrow>
-            <Button className={classes.boton1}                
-                onClick={rutacontraseña}
-              >{t("login.login5")}</Button>
-            </Tooltip>
-            </Grid>
           </Grid>
         </Grid>
         <Loader open={openLoading}></Loader>

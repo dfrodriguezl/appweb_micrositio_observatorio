@@ -130,7 +130,6 @@ const Generalroutes = () => {
       <Grid container className={classes.marginTop}></Grid>
       <Routes>
         <Route path="/observatorio/restore/:auth/:autht/:authp" element={<RestoreAccount/>}/>
-        <Route path="/observatorio/ForgetPassword" element={<ForgetPassword/>}/>
         <Route path="/observatorio/Mapas" element={<Maps/>}/>
         <Route path="/observatorio/register" element={<Register/>}/>
         <Route path="/observatorio/Repositorio" element={<Repository/>}/>
