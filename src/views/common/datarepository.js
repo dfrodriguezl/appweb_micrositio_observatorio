@@ -29,7 +29,7 @@ class MapFile{
 
   static fileregistrerrowph (data){
     let location=[]; 
-    console.log("arreglo", data)
+   // console.log("arreglo", data)
     //let arraynew = [].concat(dataph, datanph, datarural);
     if(typeof data.length === "undefined" ){
       location[0] =
@@ -61,7 +61,7 @@ class MapFile{
 
   static fileregistrerrownph (data){
     let location=[]; 
-    console.log("arreglo", data)
+   // console.log("arreglo", data)
     //let arraynew = [].concat(dataph, datanph, datarural);
     if(typeof data.length === "undefined" ){
       location[0] =
@@ -93,7 +93,7 @@ class MapFile{
 
   static fileregistrerrowrural (data){
     let location=[]; 
-    console.log("arreglo", data)
+   // console.log("arreglo", data)
     //let arraynew = [].concat(dataph, datanph, datarural);
     if(typeof data.length === "undefined" ){
       location[0] =

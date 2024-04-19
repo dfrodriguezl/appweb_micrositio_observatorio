@@ -1,7 +1,7 @@
 import { Grid, makeStyles, useMediaQuery, Button ,CardMedia } from "@material-ui/core";
 import React, { Component } from "react";
 import * as Values from "Observatorio/Variables/values";
-import House from "Observatorio/img/about.jpg";
+import House from "Observatorio/img/02_observatorio_que_observatorio.webp";
 import Judge from "Observatorio/img/decretoabout.jpg";
 import {useTranslation} from "react-i18next";
 import word from "Observatorio/img/powerpoint.png";
@@ -34,7 +34,7 @@ const useStyle = makeStyles({
     textAlign: "center",
   },
   gridglobal: {
-    padding: "0 10vw 3vw 10vw",
+    padding: "0 5vw 3vw 5vw",
   },
   gridglobalmovil: {
     padding: "0 5vw 3vw 5vw",
@@ -75,17 +75,17 @@ const useStyle = makeStyles({
   },
   imagen_top: {
     width: "100% !important",
-    height: "28vw",
-    backgroundSize: "35vh",
+    height: "30vw",
+    backgroundSize: "76vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${House})`,
-    backgroundPosition: "center",
+    backgroundPosition: "right",
   },
   imagen_top2: {
     width: "100%",
     height: "47vh",
     marginTop:"7%",
-    backgroundSize: "35vh",
+    backgroundSize: "70vh",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${House})`,
     backgroundPosition: "center center",
@@ -188,7 +188,7 @@ const Imagen = () => {
     matches ? (estilo = classes.imagen_top) : (estilo = classes.imagen_top2);
   }
   return (
-    <Grid item container direction="column" xs={4} className={estilo}></Grid>
+    <Grid item container direction="column" xs={6} className={estilo}></Grid>
   );
 };
 
@@ -242,9 +242,9 @@ const About = () => {
   }
 
   return (
-    <Grid container direction="column" id="target-two" className={estilomovil}>
-      <Grid container direction="row">
-        <Grid container justifyContent="center" alignItems="center">
+    <Grid container direction="row" id="target-two" className={estilomovil}>
+      <Grid container direction="row" xs={6}>
+        <Grid container>
           <h3 className={classes.titleStyle +" "+ajustable}>{t("about.observatorio")}</h3>
         </Grid>
         <Grid
@@ -261,30 +261,9 @@ const About = () => {
           {t("about.observatorio3")}
           </p>
         </Grid>
-        <Imagen />
-      </Grid>
-
-      {/* <button className={estilo4}>
-        <a className={classes.alink} href="" download>
-          <Grid container direction="row">
-                                <Grid item xs={4} direction="column" container  className={estilo3}>
-                                  <CardMedia className={estilo2} image={word} />
-                                </Grid>
-                                <Grid item xs container direction="column" justifyContent="center">
-                                  <p className={classes.contentrulesp3}><strong>Nombre: Observatorio Inmobiliario</strong></p>
-                                  <p className={classes.contentrulesp3}>7.248 KB   |   01/08/2021</p>
-                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Presentación Observatorio Inmobiliario Nacional</p>
-                                </Grid>
-            </Grid>
-          </a>
-        </button> */}
-
-
-      <Grid container direction="row">
-        <Grid container justifyContent="center" alignItems="center">
+        <Grid container>
           <h3 className={classes.titleStyle2+" "+ajustable}>{t("about.decreto")}</h3>
         </Grid>
-        <ImagenJudge />
         <Grid
           item
           container
@@ -303,7 +282,48 @@ const About = () => {
             {t("about.decreto5")}
           </p>
         </Grid>
-      </Grid>
+      </Grid>       
+      <Imagen/>
+      {/* <button className={estilo4}>
+        <a className={classes.alink} href="" download>
+          <Grid container direction="row">
+                                <Grid item xs={4} direction="column" container  className={estilo3}>
+                                  <CardMedia className={estilo2} image={word} />
+                                </Grid>
+                                <Grid item xs container direction="column" justifyContent="center">
+                                  <p className={classes.contentrulesp3}><strong>Nombre: Observatorio Inmobiliario</strong></p>
+                                  <p className={classes.contentrulesp3}>7.248 KB   |   01/08/2021</p>
+                                  <p className={classes.contentrulesp3}><strong>Descripción: </strong>Presentación Observatorio Inmobiliario Nacional</p>
+                                </Grid>
+            </Grid>
+          </a>
+        </button> */}
+
+
+      {/* <Grid container direction="row">
+        <Grid container>
+          <h3 className={classes.titleStyle2+" "+ajustable}>{t("about.decreto")}</h3>
+        </Grid>
+        {/* <ImagenJudge /> */}
+        {/*<Grid
+          item
+          container
+          direction="column"
+          xs
+          className={classes.containerTitle}
+        >
+          <p className={classes.contentrulesp+" "+ajustable}>
+            <strong>
+            {t("about.decreto2")}
+            </strong>{" "}
+            {t("about.decreto3")}{" "}
+            <strong>
+            {t("about.decreto4")}
+            </strong>{" "}
+            {t("about.decreto5")}
+          </p>
+        </Grid>
+      </Grid> */}
       {/* <Grid container >
       <Grid
         container

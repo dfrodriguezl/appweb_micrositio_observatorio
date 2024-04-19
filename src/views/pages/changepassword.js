@@ -68,7 +68,7 @@ const ChangePassword = (props) => {
   };
 
   const sendEmail = () => {
-    console.log("enviando form");
+   // console.log("enviando form");
     if(!form.newclave || form.newclave == ""){
       alert('completa el formulario')
       return
@@ -105,7 +105,7 @@ const ChangePassword = (props) => {
         },
       })
       .then((response) => {
-        console.log(response);
+       // console.log(response);
         if (response.status == 200) {
           if (response.data.code == "OK") {
             setLoading(false);

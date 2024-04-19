@@ -890,7 +890,7 @@ const Cardsmapas = () => {
               response.data.data.cantidad_destinacion_economica_rural
             );
           } else {
-            console.log("ocurrio un problema Error!..2");
+           // console.log("ocurrio un problema Error!..2");
           }
         } else {
           alert("ocurrio un problema externo");
@@ -913,26 +913,21 @@ const Cardsmapas = () => {
   const onSelectAllClick = (event) => {
     if (event.target.checked == true) {
       let coordenadas = event.target.value.split(",");
-      console.log("verificando descripcion", coordenadas)
+     // console.log("verificando descripcion", coordenadas)
       coordenada.push(coordenadas[0], coordenadas[1], coordenadas[2]);
       setCoordenada(Object.values(coordenada));
     } else {
       let filternotariado = event.target.value.split(",");
-      console.log("borrar la coordenada del array", coordenada);
+     // console.log("borrar la coordenada del array", coordenada);
       const borrarlat = filternotariado[0] + "";
       const borrarlong = filternotariado[1] + "";
       const descripcionborrar = filternotariado[2] + "";
-      console.log(
-        "borrar la coordenada del array",
-        typeof borrarlat,
-        typeof borrarlong,
-        typeof descripcionborrar
-      );
+     // console.log("borrar la coordenada del array",typeof borrarlat,typeof borrarlong,typeof descripcionborrar);
       let coordenadaborrada = coordenada.filter(
         (item) => item !== filternotariado[0] && item !== filternotariado[1] && item !== filternotariado[2]
       );
       setCoordenada(Object.values(coordenadaborrada));
-      console.log("borrar la coordenada del array1", coordenadaborrada);
+     // console.log("borrar la coordenada del array1", coordenadaborrada);
     }
     //setChecked();
   };
@@ -940,10 +935,10 @@ const Cardsmapas = () => {
   dataLocationNotariado = MapNotariado.markersDataNotariado(coordenada);
   const botonhandlesearch1 = () => {
     let valor = document.getElementById("search1").value;
-    console.log("camila verificar", document.getElementById("search1"), valor);
+   // console.log("camila verificar", document.getElementById("search1"), valor);
     if (valor === "") {
       //loadFileBig(page)
-      console.log("20/05/2023", "se debe mostrar un error por estar vacio1");
+     // console.log("20/05/2023", "se debe mostrar un error por estar vacio1");
     } else {
       //document.getElementsByClassName("notariadocheck").checked
       loadFileBigsearch(page, valor);
@@ -953,12 +948,11 @@ const Cardsmapas = () => {
 
    const handlemodaldownloadexcel = () =>{
     let valor = document.getElementById("search1").value;
-    console.log("variable", valor)
+    
     if(valor == ""){
       setfiltro("")
       loadFileBigexcel();
-    }else{
-      console.log("variable2")
+    }else{      
       setfiltro("con referencia a la busqueda: "+valor)
       loadFileBigexcelsearch(valor);
     }
@@ -1041,7 +1035,7 @@ const Cardsmapas = () => {
       .then((response) => {
         if (response.status == 200) {
           if (response.data.code == "OK") {
-            console.log("prueba10", )
+           // console.log("prueba10", )
             typeof response.data.data.filebigdataexcel == "number"
               ? setexcelnotariado(Dashexcelnotariado.dashBoardExcelnNotariado)
               : setexcelnotariado(response.data.data.filebigdataexcel);
@@ -1059,8 +1053,8 @@ const Cardsmapas = () => {
   const loadFileBigexcelsearch = (busqueda) => {
     let token = localStorage.getItem("token");
     let valor = document.getElementById("search1").value;
-    console.log("variable3", busqueda)
-    console.log("variable30", valor)
+   // console.log("variable3", busqueda)
+   // console.log("variable30", valor)
     setLoading(true);
     axios
       .get(
@@ -1075,7 +1069,7 @@ const Cardsmapas = () => {
       .then((response) => {
         if (response.status == 200) {
           if (response.data.code == "OK") {
-            console.log("prueba10", response.data.data.filebigdataexcelsearch)
+           // console.log("prueba10", response.data.data.filebigdataexcelsearch)
             typeof response.data.data.filebigdataexcelsearch == "number"
               ? setexcelnotariado(Dashexcelnotariado.dashBoardExcelnNotariado)
               : setexcelnotariado(response.data.data.filebigdataexcelsearch);
@@ -1124,9 +1118,9 @@ const Cardsmapas = () => {
       })
       .then((response) => {
         if (response.status == 200) {
-          console.log("24/10/2022", response.data.data);
+         // console.log("24/10/2022", response.data.data);
           if (response.data.code == "OK") {
-            console.log("24/10/2023", response.data.data.locationph);
+           // console.log("24/10/2023", response.data.data.locationph);
             setlocationph(response.data.data.locationph);
             setlocationnph(response.data.data.locationnph);
             setlocationrural(response.data.data.locationrural);
@@ -1172,7 +1166,7 @@ const Cardsmapas = () => {
             setregistrenph(response.data.data.filenph);
             setregistrerural(response.data.data.filerural);
           } else {
-            console.log("sin descargar");
+           // console.log("sin descargar");
           }
         } else {
           setLoading(false);
@@ -1245,7 +1239,7 @@ const Cardsmapas = () => {
     rol == 1?loadFileBig(page):null;
   }, []);
 
-  console.log("allceed", allceed)
+ // console.log("allceed", allceed)
 
   let dataSourceGeneral = Dash.dashBoardCake(statistics);
   let dataSourcePh = Dash.dashBoardCakePh(ph_venta_arriendo);
@@ -1552,7 +1546,7 @@ const Cardsmapas = () => {
             setOpen4(true);
           } else {
             setLoading(false);
-            console.log("sin descargar");
+           // console.log("sin descargar");
           }
         } else {
           setLoading(false);
@@ -1615,11 +1609,11 @@ const Cardsmapas = () => {
   var gridstyl = null;
   {
     if (rol <= 1) {
-      console.log("rol1", rol);
+     // console.log("rol1", rol);
       gridstyl = classes.gridstyle;
     } else {
       gridstyl = classes.gridstyle2;
-      console.log("rol2", rol);
+     // console.log("rol2", rol);
     }
     if (matches2) {
       estilo = classes.media;
@@ -2219,7 +2213,7 @@ const Cardsmapas = () => {
                 <Grid item xs container direction="column">
                   <CardContent className={classes.centerText}>
                     <Grid direction="row" container justifyContent="center">
-                      <p className={classes.Titleh4 + " " + ajustable}>Visor</p>
+                      <p className={classes.Titleh4 + " " + ajustable}>Visor Geográfico</p>
                     </Grid>
                     <Grid>
                       <Typography className={classes.Textp_1 + " " + ajustable}>
@@ -4097,7 +4091,8 @@ const Cardsmapas = () => {
                       </button>
                     }
                     filename="Excel Mercado Inmobiliario"
-                  >                    
+                  >     
+                  {console.log("probando execl", excelnotariado)}               
                     <ExcelSheet data={excelnotariado} name="excel mercador">
                           <ExcelColumn
                             label="Fecha Publicación"

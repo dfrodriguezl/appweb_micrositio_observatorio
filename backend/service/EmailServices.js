@@ -17,7 +17,7 @@ class EmailService {
     });
 
     transporter.verify().then(()=>{
-      console.log('ready for send emails');
+     // console.log('ready for send emails');
     })
 
     // Definimos el email noreplytestsendemail@gmail.com dane2021+
@@ -30,10 +30,10 @@ class EmailService {
     // Enviamos el email
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        console.log("Ocurrio un problema "+error)
+       // console.log("Ocurrio un problema "+error)
         return false
       } else {
-          console.log("Email Enviado")
+         // console.log("Email Enviado")
           return true
       }
     });

@@ -48,7 +48,7 @@ const ForgetPassword = () => {
    // validateForm(newForm)
 }
 const sendEmail = () =>{
-    console.log("enviando form")
+   // console.log("enviando form")
     let body = {
         email:form.email
     }

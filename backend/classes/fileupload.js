@@ -7,7 +7,7 @@ class FileUpload {
     static async uploadFiles(req,res,fs){
         for (var x = 0; x < files.length; x++) {
             //copiamos el archivo a la carpeta definitiva de fotos
-            console.log(files[x]);
+           // console.log(files[x]);
             ext = files[x].originalname.split(".").pop();
 
             fs.createReadStream('./uploads/' + files[x].filename).pipe(fs.createWriteStream('./public/categorias/' + files[x].originalname));

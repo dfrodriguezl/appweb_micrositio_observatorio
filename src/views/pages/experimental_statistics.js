@@ -152,10 +152,10 @@ const ExperimentalStadistics = () => {
   return(      
       <Grid container direction="column" id="target-two" className={estilo}>
           <Grid container direction="row">
-              <Grid container justifyContent="center" alignItems="center">
+              <Grid container alignItems="center">
                   <h3 className={classes.titleStyle+" "+ajustable}>{t("experimental.experimental")}</h3>
               </Grid>              
-              <Imagen/> 
+              {/* <Imagen/>  */}
               <Grid item container direction="column" xs className={classes.containerTitle}>
               <p className={classes.contentrulesp+" "+ajustable}>
               {t("experimental.experimental2")}

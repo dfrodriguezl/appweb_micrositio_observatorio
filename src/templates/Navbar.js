@@ -116,6 +116,25 @@ const useStyle = makeStyles({
       border: "none",
     },
   },
+  botonlogin: {
+    borderRadius: "2vh",
+    backgroundColor: "rgb(250, 250, 250)",
+    color: "rgb(76, 76, 76)",
+    fontFamily: 'Roboto',
+    textTransform: "capitalize",
+    //transition: "all 0.8s ease-out",
+    cursor: "pointer",
+    marginTop: "0.8px",
+    width: "max-content",
+    fontSize: "calc(0.8em + 0.3vh)",
+    borderRadius: "0vh",
+    //fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "#821a3f",
+      border: "none",
+      color:"rgb(255 255 255)"
+    },
+  },
   boton1: {
     borderRadius: "2vh",
     backgroundColor: Values.Redwinecolor,
@@ -157,6 +176,19 @@ Titlep: {
   textAlign: "center",
   margin: "1em 0 0 0",
   marginTop:"13px !important"
+},
+
+UtilidadCentrarTexto:{
+    position:"relative",
+    display: "flex",
+    justifyContent: "center",
+    alignItems:"center",
+    cursor:"pointer",
+    "&.--active": {
+      background:'#BD0B4E',
+      color:"white",
+      height:"40px"
+    },
 }
 });
 
@@ -197,15 +229,25 @@ const MenuA = Styled.a`
     text-decoration: none;
     margin: 5px;
     padding: 5px; 
-    color: inherit;  
-    cursor: default;     
+    color: inherit;
+    cursor:pointer;  
+    &:hover {
+      background-color: #821a3f;
+      color: #F3F3F3;
+    }
 `;
 
 const MenuIL = Styled.li`
     float: left;  
     justify-content: center;
     color:#4c4c4c;
+    background:#FAFAFA;
+    border-right:1px solid #E6E6E6;
     width:100%;
+    &:hover {
+      background-color: #821a3f;
+      color: #F3F3F3;
+    }
     @media (max-width: 1300px) and (min-width: 769px) {
        font-size:15px !important;
     }
@@ -216,13 +258,14 @@ const UtilidadCentrarTexto = Styled.div`
     display: flex;
     justify-content: center;
     align-items:center;
+    cursor:pointer;}
 `;
-
+//menu desplegable
 const DropDownContent = Styled.div`
 display: none;
 position: absolute;
 background-color: #F2F2F2;
-width: 300px;
+width: 17vw;
 font-size:calc(0.5em + 1vh);
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 z-index: 1;
@@ -264,6 +307,7 @@ const DropDownLi = Styled(MenuIL)`
     /* justify-content: center;
     align-items:center; */
     display: block;
+    cursor:pointer;
     &:hover ${DropDownContent} {
       display: block;
     },
@@ -279,14 +323,19 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   const logout = useContext(AuthContext);
   const history = useNavigate();
   let id = localStorage.getItem("id")
+  let rol = localStorage.getItem("rol")
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [t, i18n]= useTranslation("global");
-
+  const [ajustableinicio, setajustableinicio] = useState("--active")
   const rutabtnlogin = () =>{
   
   history('/observatorio/login');
+  }
+  const rutaregistrar = (e) =>{
+      
+    history('/observatorio/register')
   } 
 
   const [menuActive, setMenuActive] = useState({
@@ -351,11 +400,15 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
     logout.logout()
   };
 
+  function cambioainicio(){
+    setajustableinicio("--active")
+  }
   function rutas(idd) {
-    console.log("rutas",idd.target.id)
+   // console.log("rutas",idd.target.id)
     if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
       window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
     }else{
+      setajustableinicio("")
       history(idd.target.id)
     }
   }
@@ -394,12 +447,12 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             icon:"",
             isMain:true
         },
-        {
-            name:"Censo de edificaciones CEED",
-            link:"/observatorio/Servicios/estadisticas/Ceed",
-            icon:"",
-            isMain:true
-        },
+        // {
+        //     name:"Censo de edificaciones CEED",
+        //     link:"/observatorio/Servicios/estadisticas/Ceed",
+        //     icon:"",
+        //     isMain:true
+        // },
         {
             name:t("navbar.plataforma"),
             id:"5",
@@ -428,7 +481,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             link:"/observatorio/Estadisticasexperimentales",
             icon:"",
             isMain:true
-        },
+        }
 
 
     ],
@@ -542,10 +595,10 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             onMouseEnter={handleStatusFalseAll}
             className={classes.liHover}            
           >
-            <UtilidadCentrarTexto>
+            <div className={classes.UtilidadCentrarTexto+" "+ajustableinicio}>
               <AiFillHome />
-              <NavLink className={classes.root+" "+ajustable} to="/observatorio/">{t("navbar.inicio")}</NavLink>
-            </UtilidadCentrarTexto>
+              <NavLink onClick={cambioainicio} className={classes.root+" "+ajustable} to="/observatorio/">{t("navbar.inicio")}</NavLink>
+            </div>
           </DropDownLi>
 
           {menuActive.ActiveInvestigacion.value ? (
@@ -680,16 +733,29 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
             </DropDownLi>
           )}
 
+          {rol === '1' && (
+            <li onMouseEnter={handleStatusFalseAll}>
+              <Button
+                className={`${classes.botonlogin} ${ajustable}`}
+                disableElevation
+                onClick={rutaregistrar}
+              >
+                {t("navbar.unirse")}
+              </Button>
+            </li>
+          )}
+
+
           <li onMouseEnter={handleStatusFalseAll}>
             {isOk ? 
             <Button
-            className={classes.boton+" "+ajustable}
+            className={classes.botonlogin+" "+ajustable}
             onClick={handleOpen}
           >
             Cerrar Sesión
           </Button>:
               <Button
-                className={classes.boton+" "+ajustable}
+                className={classes.botonlogin+" "+ajustable}
                 disableElevation
                 onClick={rutabtnlogin}
               >

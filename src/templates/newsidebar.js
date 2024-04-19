@@ -148,12 +148,12 @@ export default function CustomizedAccordions() {
                 icon:"",
                 isMain:true
             },
-            {
-                name:"Censo de edificaciones CEED",
-                link:"/observatorio/Servicios/estadisticas/Ceed",
-                icon:"",
-                isMain:true
-            },
+            // {
+            //     name:"Censo de edificaciones CEED",
+            //     link:"/observatorio/Servicios/estadisticas/Ceed",
+            //     icon:"",
+            //     isMain:true
+            // },
             {
                 name:t("navbar.plataforma"),
                 id:"5",

@@ -23,7 +23,7 @@ itemRedWine: {
 
 const ItemRedWine = (props) => {    
     const classes = useStyle();
-    console.log(props)
+   // console.log(props)
     return(
         <div className={classes.itemRedWine} disableElevation target="_blank">{props.Text}</div>
     )

@@ -52,7 +52,7 @@ export default class FileSystem {
 
         const pathUser = path.resolve(  __dirname, '../uploads/', userId );
         const pathUserTemp = pathUser + '/temp';
-        // console.log(pathUser);
+        //// console.log(pathUser);
 
         const existe = fs.existsSync( pathUser );
 

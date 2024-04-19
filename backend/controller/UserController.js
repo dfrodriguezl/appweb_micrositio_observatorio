@@ -49,7 +49,7 @@ class UserController {
         response.message = "La contraseña no coincide con la contraseña actual";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -59,7 +59,7 @@ class UserController {
 
   static async resetPassword(req, res) {
     let util = new Util(res);
-    console.log(req.body);
+   // console.log(req.body);
     let body = req.body;
     let response = {
       status: 200,
@@ -83,7 +83,7 @@ class UserController {
           "Lo sentimos, ese correo no esta registrado en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -92,6 +92,7 @@ class UserController {
   }
 
   static async forgetPassword(req, res) {
+   // console.log("probandocorreo")
     let util = new Util(res);
     let body = req.body;
     let response = {
@@ -105,8 +106,10 @@ class UserController {
       return util.sendResponse();
     }
     try {
+     // console.log("probandocorreo5", body)
       let userFound = await UserService.searchUserEmail(body);
-
+     // console.log("probandocorreo1", userFound)
+     // console.log("probandocorreo2", contenidoTemplate)
       if (userFound) {
         const tokenUser = await Token.generateJwtToken({
           id: userFound.id,
@@ -133,7 +136,7 @@ class UserController {
           "Lo sentimos, ese correo no esta registrado en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en el registro de datos";
     }
@@ -150,13 +153,15 @@ class UserController {
       message: "registro exitoso",
       code: "OK",
     };
-    console.log(body);
+   // console.log(body);
     if (!body || typeof body !== "object") {
       util.saveData(response);
       return util.sendResponse();
     }
     try {
       let userFound = await UserService.searchUserEmail(body);
+     // console.log("probandocorreo3", userFound)
+       // console.log("probandocorreo4", contenidoTemplate)
       if (userFound) {
         response.code = "US001";
         response.message = "Ocurrio un error en el registro de datos";
@@ -164,7 +169,7 @@ class UserController {
         let success = await UserService.createUser(body);
         if (success) {
           const id = success.id;
-          console.log(id);
+         // console.log(id);
           let contenidoTemplateLogin = TemplateLogin.getTemplateLogin(id);
           await EmailService.sendEmail({
             email: body.email,
@@ -177,7 +182,7 @@ class UserController {
         }
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en el registro de datos";
     }
@@ -221,7 +226,7 @@ class UserController {
         response.message = "Usuario o contraseña incorrectos";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error inesperado";
     }
@@ -268,7 +273,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -318,7 +323,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -362,7 +367,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }    
@@ -393,7 +398,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }    
@@ -405,7 +410,7 @@ class UserController {
   static async filebigexcelsearch(req, res) {
     let util = new Util(res);
     const busqueda = req.query.busqueda;
-    console.log("variablealejo", busqueda)
+   // console.log("variablealejo", busqueda)
     const datamercadoexcelsearch = await UserService.filebigexcelmercadosearch(busqueda);    
     let response = {
       status: 200,
@@ -427,7 +432,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }    
@@ -471,7 +476,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }    
@@ -526,7 +531,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -575,7 +580,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -705,13 +710,13 @@ class UserController {
           cantidad_destinacion_economica_rural: totaldestinacionRural,
         };
       } else {
-        console.log("verificando error");
+       // console.log("verificando error");
         response.code = "ERR001";
         response.message =
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -754,13 +759,13 @@ class UserController {
           locationrural: arrayrural,
         };
       } else {
-        console.log("error 1");
+       // console.log("error 1");
         response.code = "ERR001";
         response.message =
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -879,7 +884,7 @@ class UserController {
       util.saveData(response);
       return util.sendResponse();
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error inesperado";
       util.saveData(response);
@@ -962,14 +967,14 @@ class UserController {
     //         return util.sendResponse();
     //       })
     //       .catch((err) => {
-    //         console.log(err)
+    //        // console.log(err)
     //         response.code = "ERROR";
     //         response.message = "Ocurrio un error inesperado";
     //         util.saveData(response);
     //         return util.sendResponse();
     //       });
     //   } catch (error) {
-    //     console.log(error)
+    //    // console.log(error)
     //     response.code = "ERROR";
     //     response.message = "Ocurrio un error inesperado";
     //     util.saveData(response);
@@ -1004,7 +1009,7 @@ class UserController {
           break;
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -1049,7 +1054,7 @@ class UserController {
           "Lo sentimos, ocurrio un problema en nuestro sistema";
       }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en la actualizacion de datos";
     }
@@ -1066,7 +1071,7 @@ class UserController {
       message: "registro exitoso",
       code: "OK",
     };
-    console.log("bodyalejo", body);
+    //// console.log("bodyalejo", body);
     // if (!body || typeof body !== "object") {
     //   util.saveData(response);
     //   return util.sendResponse();
@@ -1075,7 +1080,7 @@ class UserController {
         let success = await UserService.userdownloadceed(body);
         let selectceed = await UserService.selectfechasceed(body)
         if (success && selectceed) {
-          console.log("success2", success, selectceed)
+         // console.log("success2", success, selectceed)
           response.code = "OK";
           response.message = "Estadisticas encontradas";
           response.data = selectceed;
@@ -1084,7 +1089,7 @@ class UserController {
           response.message = "Ocurrio un error en el registro de datos";
         }
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       response.code = "ERROR";
       response.message = "Ocurrio un error en el registro de datos";
     }

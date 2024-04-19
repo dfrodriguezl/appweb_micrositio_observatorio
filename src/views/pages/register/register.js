@@ -35,10 +35,6 @@ const useStyle = makeStyles({
         display:"grid"
       },
 
-    gridglobal: {
-        padding: "0 10% 0 10%",
-    },
-
     Titleh3: {
         color: Values.Redwinecolor,
         fontFamily: Values.SourceRoboto,
@@ -69,7 +65,7 @@ const useStyle = makeStyles({
     },
 
     gridglobal: {
-        padding: "0 10vw 0 10vw",
+        padding: "0 5vw 0 5vw",
     },
     imageRigth: {
         width: "60vh",
@@ -202,7 +198,7 @@ const FormRegister = () => {
     const handleChangeValue = (event) => {
         let name = event.target.name
         let value = event.target.value
-        console.log({value});
+       // console.log({value});
         let newForm = {
             ...form,
             [name]: value
@@ -348,7 +344,7 @@ const FormRegister = () => {
 
     const sendForm = () => {     
         
-        console.log("enviando form")
+       // console.log("enviando form")
        
         if(form.clave != form.confirmarClave){
             alert("Contraseña no coincides")

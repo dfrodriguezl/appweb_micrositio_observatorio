@@ -121,7 +121,7 @@ const ImagenBottom = () => {
   const classes = useStyle();
   const matches = useMediaQuery('(max-width:769px)');
   let estilo = matches ? classes.imageMobile : classes.imageRigth
-  console.log(estilo)
+ // console.log(estilo)
 
   return (
     <img className={estilo} src={App}></img>

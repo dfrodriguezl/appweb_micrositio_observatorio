@@ -39,13 +39,17 @@ class ValidService{
                                 } 
                             }else{
                                 if(i==3){
-                                    if(valores[i].length==12){
-                                        fail = "exito" 
+                                    if(valores[i] != null){
+                                        if(valores[i].length==12 || valores[i].toLowerCase == 'vacio'){
+                                            fail = "exito" 
+                                        }else{
+                                            let position;
+                                            position=i+1;
+                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
+                                            break;
+                                        }
                                     }else{
-                                        let position;
-                                        position=i+1;
-                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                        break;
+                                        fail="exito"
                                     } 
                                 }
                             }
@@ -75,7 +79,7 @@ class ValidService{
                             }
                         }else{
                             if(i==9){
-                                if(parseInt(valores[i])>=0){
+                                if((parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6) || valores[i].toLowerCase()=='vacio'){
                                     fail = "exito" 
                                 }else{
                                     let position;
@@ -85,12 +89,12 @@ class ValidService{
                                 }
                             }else{
                                 if(i==10){                  
-                                    if(typeof valores[i] === 'string' && valores[i] != null){                            
+                                    if(typeof valores[i] === 'string'){                            
                                         fail = "exito"                            
                                     }else{
                                         let position;
                                         position=i+1;
-                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
+                                        fail= "Hubo 1 problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
                                         //console.log(valores[i])                         
                                         break;
                                     }
@@ -140,7 +144,7 @@ class ValidService{
                                                     break; 
                                                 }
                                                }else{
-                                                console.log("prueba4", valores[i])
+                                               // console.log("prueba4", valores[i])
                                                 if(parseInt(valores[i])>=0 && valores[i] != null){
                                                     fail = "exito" 
                                                 }else{
@@ -172,7 +176,7 @@ class ValidService{
                                                 }
                                             }else{
                                                 if(i==18){
-                                                    if(parseInt(valores[i])>0 && valores[i] != null){
+                                                    if(parseInt(valores[i])>=0 && valores[i] != null){
                                                         fail = "exito" 
                                                     }else{
                                                         let position;
@@ -192,7 +196,7 @@ class ValidService{
                                                         }
                                                     }else{
                                                         if(i==20){
-                                                            if(parseInt(valores[i])>0 && valores[i] != null){
+                                                            if(parseInt(valores[i])>=0 && valores[i] != null){
                                                                 fail = "exito" 
                                                             }else{
                                                                 let position;
@@ -242,7 +246,7 @@ class ValidService{
                                                                             }
                                                                         }else{
                                                                             if(i==29){
-                                                                                if(parseInt(valores[i])>=0 && valores[i] != null){
+                                                                                if(parseInt(valores[i])>=0 && parseInt(valores[i])<=3  && valores[i] != null){
                                                                                     fail = "exito" 
                                                                                 }else{
                                                                                     let position;
@@ -272,7 +276,7 @@ class ValidService{
                                                                                         }           
                                                                                     }else{
                                                                                         if(i==32){
-                                                                                            if(parseInt(valores[i])>=0 && valores[i] != null){
+                                                                                            if(valores[i] != null){
                                                                                                 fail = "exito"
                                                                                             }else{
                                                                                                 let position;
@@ -333,13 +337,14 @@ class ValidService{
                                                                                                                 break; 
                                                                                                             } 
                                                                                                         }else{
-                                                                                                            if(i>=37 && i<=38){
-                                                                                                                if(parseInt(valores[i])>=0){
+                                                                                                            if(i>=37 && i<=38 ){
+                                                                                                                if(valores[i] != null || parseInt(valores[i])>=0 ){
                                                                                                                     fail = "exito"
                                                                                                                 }else{
                                                                                                                     let position;
                                                                                                                     position=i+1;
                                                                                                                     fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
+                                                                                                                    console.log(valores[i])
                                                                                                                     break; 
                                                                                                                 } 
                                                                                                             }
@@ -454,7 +459,7 @@ class ValidService{
                                 }
                             }else{
                                 if(i==10){
-                                    if(typeof valores[i] === 'string' && valores[i] != null){                            
+                                    if(typeof valores[i] === 'string' ){                            
                                         fail = "exito"                            
                                     }else{
                                         let position;
@@ -558,7 +563,7 @@ class ValidService{
                                                         }
                                                     }else{
                                                         if(i>=16 && i<=19){
-                                                            if(parseInt(valores[i]) > 0 && valores[i] != null){
+                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){
                                                                 fail = "exito"  
                                                             }else{
                                                                 let position;
@@ -763,7 +768,7 @@ class ValidService{
                         }
                     }else{
                         if(i==9){                       
-                                if(parseInt(valores[i]) > 0 && valores[i] != null){                            
+                                if(parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6 && valores[i] != null){                            
                                     fail = "exito"                            
                                 }else{
                                     let position;
@@ -773,12 +778,13 @@ class ValidService{
                                 }
                         }else{
                             if(i>=10 && i<=11){
-                                if(typeof valores[i] === 'string' && valores[i] != null){                            
+                                if(typeof valores[i] == 'string' ){                            
                                     fail = "exito"                            
                                 }else{
                                     let position;
                                     position=i+1;
                                     fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
+                                    console.log(valores[i])
                                     break;
                                 }
                             }else{
@@ -937,7 +943,7 @@ class ValidService{
                                                                             }
                                                                         }else{
                                                                             if(i>=25 && i<=27){
-                                                                                if(parseInt(valores[i]) > 0 && valores[i] != null){                            
+                                                                                if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
                                                                                     fail = "exito"                            
                                                                                 }else{
                                                                                     let position;

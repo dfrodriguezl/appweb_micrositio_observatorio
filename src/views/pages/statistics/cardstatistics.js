@@ -82,7 +82,7 @@ const useStyle = makeStyles({
     },
   
     root: {
-      width: "40vh",
+      width: "22em",
       borderRadius: "1em",
       boxShadow: "3px 3px 10px #7b7676",
     },
@@ -98,7 +98,7 @@ const useStyle = makeStyles({
   
     cardglobal: {
       //margin: "0% 0% 0% 0%",
-      padding: "0% 0% 5% 0%",
+      padding: "0% 0% 2% 0%",
       backgroundColor: "white",
     },
   

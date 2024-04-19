@@ -45,7 +45,7 @@ const Formulario = ({ opciones, setOpciones, municipios }) => {
         localStorage.setItem("cod_dpto", opciones[0].cod_dpto)
     }
     let cod_municipio = localStorage.getItem("cod_municipio")
-    console.log(cod_municipio)
+   // console.log(cod_municipio)
     if (!cod_municipio) {
         municipios.map((data) => {
             if (data.cod_dpto == cod_dpto) {
@@ -70,8 +70,8 @@ const Formulario = ({ opciones, setOpciones, municipios }) => {
         setDepartamento(event.target.value)
         municipios.map((data) => {
             if (data.cod_dpto == event.target.value) {
-                console.log("encontrado")
-                console.log(data.cod_mpio)
+               // console.log("encontrado")
+               // console.log(data.cod_mpio)
                 localStorage.removeItem("cod_municipio");
                 localStorage.setItem("cod_municipio", event.target.value)
                 setMunicipio(data.cod_mpio)
