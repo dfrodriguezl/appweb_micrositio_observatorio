@@ -88,8 +88,8 @@ import databigsource from "./databig.js";
 import ExportExcel from "react-export-excel-fixed-xlsx";
 
 const ExcelFile = ExportExcel.ExcelFile;
-const ExcelSheet = ExportExcel.ExcelSheet;
-const ExcelColumn = ExportExcel.ExcelColumn;
+const ExcelSheet = ExportExcel.ExcelFile.ExcelSheet;
+const ExcelColumn = ExportExcel.ExcelFile.ExcelColumn;
 const markerUrl =
   "https://js.devexpress.com/Demos/RealtorApp/images/map-marker.png";
 
