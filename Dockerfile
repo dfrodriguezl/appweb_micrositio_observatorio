@@ -4,7 +4,7 @@ ENV TZ="America/Bogota"
 
 COPY package.json /datos/apps/containers/appweb_micrositio_observatorio/
 COPY webpack-back.config.js /datos/apps/containers/appweb_micrositio_observatorio/
-COPY backend /datos/apps/containers/appweb_micrositio_observatorio/
+COPY backend /datos/apps/containers/appweb_micrositio_observatorio/backend/
 WORKDIR /datos/apps/containers/appweb_micrositio_observatorio
 
 RUN npm install pm2 -g
