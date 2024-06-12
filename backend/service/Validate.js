@@ -603,7 +603,7 @@ class ValidService{
                                                                         }
                                                                     }else{
                                                                         if(i>=23 && i<=24){
-                                                                            if(parseInt(valores[i]) > 0 && valores[i] != null){
+                                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){
                                                                                 fail = "exito"  
                                                                             }else{
                                                                                 let position;
@@ -623,7 +623,7 @@ class ValidService{
                                                                                 }
                                                                             }else{
                                                                                 if(i==26){
-                                                                                    if(parseInt(valores[i])>= 0 && valores[i] != null){
+                                                                                    if(valores[i] != null){
                                                                                         fail = "exito"  
                                                                                     }else{
                                                                                         let position;
