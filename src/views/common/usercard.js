@@ -3638,7 +3638,7 @@ const Cardsmapas = () => {
                 className={classes.Textpmodal + " " + ajustable}
                 id="modal-modal-descripti"
               >
-                Favor revisar el tipo de atributo diligenciado y vuelga a
+                Favor revisar el tipo de atributo diligenciado y vuelva a
                 intentar
               </Typography>
               <Typography
