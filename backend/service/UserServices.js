@@ -23,14 +23,14 @@ class UserService {
   }
 
   static async searchUserEmail(model) {
-   // console.log("probandocorreo6", model.email)
+    // console.log("probandocorreo6", model.email)
     pool.inicia();
 
     return new Promise((resolver, rechazar) => {
       pool
         .getConnection()
         .query(
-          "select u.id, u.name, u.email from private.user as u where u.email = '$1'",
+          "select u.id, u.name, u.email from private.user as u where u.email = $1",
           [model.email],
           (error, result) => {
            // console.log(error);

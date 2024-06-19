@@ -79,7 +79,7 @@ class ValidService{
                             }
                         }else{
                             if(i==9){
-                                if((parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6) || valores[i].toLowerCase()=='vacio'){
+                                if((parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6)){
                                     fail = "exito" 
                                 }else{
                                     let position;
