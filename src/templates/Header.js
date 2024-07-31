@@ -427,7 +427,7 @@ const Header = () => {
                     </Grid>
                     <Grid container item direction='row' className={classes.header__logos}> 
                         <Grid container item xs={iconosizquierda}>
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src='https://www.dane.gov.co/files/images/nuevaImg/Logo_potencia_de_la_vida.svg' /></a>
+                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src='https://www.dane.gov.co/files/images/nuevaImg/logo_DANE-70.svg' /></a>
                         </Grid>
                         <Grid container item xs={iconoscentro} justifyContent="center">
                             <Grid container xs={5} justifyContent='center'>
@@ -490,7 +490,7 @@ const Header = () => {
                             </Grid>                             
                         </Grid>                            
                         <Grid container item xs={iconosderecha} justifyContent='flex-end'>
-                        <a href="https://www.dane.gov.co/"> <LogoDane className={classes.logo+" "+ajustable} src='https://www.dane.gov.co/files/images/nuevaImg/logo_DANE-70.svg' /></a>                                                    
+                                                                            
                         <a href="/observatorio/" className={estilo+" "+ajustable}>
                             <LogoObservatorio className={classes.logoObservatorio} src={logoObservatorio} />
                         </a>
