@@ -405,8 +405,8 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
   }
   function rutas(idd) {
    // console.log("rutas",idd.target.id)
-    if(idd.target.id == "https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/"){
-      window.open('https://geoportal.dane.gov.co/geovisores/territorio/observatorio_inmobiliario/', '_blank')
+    if(idd.target.id == "https://www.dane.gov.co/index.php/estadisticas-por-tema/informacion-regional/catastro-multiproposito"){
+      window.open('https://www.dane.gov.co/index.php/estadisticas-por-tema/informacion-regional/catastro-multiproposito', '_blank')
     }else{
       setajustableinicio("")
       history(idd.target.id)
@@ -506,7 +506,7 @@ const Navbar = ({ sideBarOpen, isLogin }) => {
         {
             name:t("navbar.catastro"),
             id:"11",
-            link:"/observatorio/Catastromultiproposito",
+            link:"https://www.dane.gov.co/index.php/estadisticas-por-tema/informacion-regional/catastro-multiproposito",
             icon:"",
             isMain:true
         },
