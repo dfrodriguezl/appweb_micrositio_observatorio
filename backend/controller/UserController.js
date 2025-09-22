@@ -838,13 +838,13 @@ class UserController {
                     newRows[j],
                     id_obsevatorio,
                     file.name
-                  ); //aqui iria para update
+                  ); //para update
                 } else {
                   await UserService.uploadfilenph1(
                     newRows[j],
                     id_obsevatorio,
                     file.name
-                  ); //aqui iria parainsert
+                  ); //para insert
                 }
               } else {
                 response.code = valid;

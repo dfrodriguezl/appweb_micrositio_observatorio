@@ -2464,7 +2464,7 @@ const Cardsmapas = () => {
                                       classes.contentrulesp3 + " " + ajustable
                                     }
                                   >
-                                    36 KB | 02/12/2021
+                                    36 KB | 01/09/2025
                                   </p>
                                   <p
                                     className={
@@ -2525,7 +2525,7 @@ const Cardsmapas = () => {
                                       classes.contentrulesp3 + " " + ajustable
                                     }
                                   >
-                                    50 KB | 02/12/2021
+                                    50 KB | 01/09/2025
                                   </p>
                                   <p
                                     className={
@@ -2898,7 +2898,7 @@ const Cardsmapas = () => {
                         dataField="Municipio"
                         caption="Municipio"
                         width={170}
-                        dataType="date"
+                        
                         alignment="center"
                       />
                       <Column
@@ -3251,7 +3251,7 @@ const Cardsmapas = () => {
                       </Typography>
                       <Typography className={classes.Textp1 + " " + ajustable}>
                         "EL DANE deberá suministrar al Gestor Catastral el
-                        Cesnso de Edificaciones CEED a nivel de manzana. Lo
+                        Censo de Edificaciones CEED a nivel de manzana. Lo
                         anterior en el marco de la reserva estadística contenida
                         en el artículo 5° de la Ley 79 de 1993"
                       </Typography>
@@ -3788,7 +3788,7 @@ const Cardsmapas = () => {
                       <ExcelColumn label="No_GARAJES" value="no_garajes" />
                       <ExcelColumn label="No_DEPOSITOS" value="no_depositos" />
                       <ExcelColumn
-                        label="VR_TOTAL_TERRAZA_BALCON_O_PATIO"
+                        label="VR_TOTAL_TERRAZA_BALCON_PATIO"
                         value="vr_total_terraza"
                       />
                       <ExcelColumn label="VALOR_GARAJES" value="vr_garajes" />
@@ -3834,6 +3834,7 @@ const Cardsmapas = () => {
                         value="tipo_tipologia"
                       />
                     </ExcelSheet>
+                    
                     <ExcelSheet data={excelnph} name="NPH">
                       <ExcelColumn
                         label="ID_OFERTA_NPH"
@@ -3851,15 +3852,34 @@ const Cardsmapas = () => {
                         label="MATRICULA_INMOBILIARIA"
                         value="matricula_inmobiliaria"
                       />
-                      <ExcelColumn label="TIPO_OFERTA" value="tipo_oferta" />
-                      <ExcelColumn label="DEPARTAMENTO" value="departamento" />
-                      <ExcelColumn label="MUNICIPIO" value="municipio" />
+                      <ExcelColumn
+                        label="CODIGO_HOMOLOGADO"
+                        value="codigo_homologado"
+                      />
+                      <ExcelColumn label="TIPO_OFERTA" 
+                      value="tipo_oferta" 
+                      />
+
+                      <ExcelColumn 
+                      label="DEPARTAMENTO" 
+                      value="departamento" 
+                      />
+                      <ExcelColumn 
+                      label="MUNICIPIO" 
+                      value="municipio" 
+                      />
                       <ExcelColumn
                         label="NOMBRE_BARRIO"
                         value="nombre_barrio"
                       />
-                      <ExcelColumn label="ESTRATO" value="estrato" />
-                      <ExcelColumn label="DIRECCION" value="direccion" />
+                      <ExcelColumn 
+                      label="ESTRATO" 
+                      value="estrato" 
+                      />
+                      <ExcelColumn 
+                      label="DIRECCION" 
+                      value="direccion" 
+                      />
                       <ExcelColumn
                         label="VALOR_ARRIENDO"
                         value="valor_arriendo"
@@ -3880,9 +3900,12 @@ const Cardsmapas = () => {
                         label="ANIO_CONSTRUCCION"
                         value="anio_construccion"
                       />
-                      <ExcelColumn label="AREA_TERRENO" value="area_terreno" />
+                      <ExcelColumn 
+                      label="AREA_TERRENO_M2" 
+                      value="area_terreno" 
+                      />
                       <ExcelColumn
-                        label="AREA_CONSTRUCCION"
+                        label="AREA_CONSTRUCCION_M2"
                         value="area_construccion"
                       />
                       <ExcelColumn
@@ -3897,11 +3920,20 @@ const Cardsmapas = () => {
                         label="OBSERVACIONES"
                         value="observaciones"
                       />
-                      <ExcelColumn label="LATITUD" value="latitud" />
-                      <ExcelColumn label="LONGITUD" value="longitud" />
-                      <ExcelColumn label="CONSERVACION" value="conservacion" />
+                      <ExcelColumn 
+                      label="LATITUD" 
+                      value="latitud" 
+                      />
+                      <ExcelColumn 
+                      label="LONGITUD" 
+                      value="longitud" 
+                      />
+                      <ExcelColumn 
+                      label="CONSERVACION" 
+                      value="conservacion" 
+                      />
                       <ExcelColumn
-                        label="FECHA_APERTURA_OFERTA"
+                        label="FECHA_CAPTURA_OFERTA"
                         value="fecha_captura_oferta"
                       />
                       <ExcelColumn
@@ -3924,13 +3956,20 @@ const Cardsmapas = () => {
                         label="DESTINACION_ECONOMICA"
                         value="destinacion_economica"
                       />
-                      <ExcelColumn label="DERECHO_TIPO" value="derecho_tipo" />
+                      <ExcelColumn 
+                      label="DERECHO_TIPO" 
+                      value="derecho_tipo" 
+                      />
                       <ExcelColumn
                         label="TIPO_TIPOLOGIA"
                         value="tipo_tipologia"
                       />
                     </ExcelSheet>
-                    <ExcelSheet data={excelrural} name="RURAL">
+
+                    <ExcelSheet 
+                    data={excelrural} 
+                    name="RURAL"
+                    >
                       <ExcelColumn
                         label="ID_OFERTA_RURAL"
                         value="id_oferta_rural"

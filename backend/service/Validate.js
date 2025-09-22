@@ -1,1031 +1,454 @@
 class ValidService{
 
     static validPh(model) {
+  let fail = "exito";
 
-        let valores = Object.values(model);
-        let fail="exito";    
-        let contfail = 0;             
-            for (let i = 0; i < valores.length; i++) { 
-                if(i > 0 && i <= 4 ){
-                     if(valores[i] == "Vacio" || valores[i] == "vacio"){
-                        contfail++
-                        if(contfail < 4){
-                            fail = "exito" 
-                        }else{
-                            let position;
-                            position=i+1;
-                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " El codigo Homologado se convierte en obligatorio"                          
-                            break;
-                        }
-                     }else{
-                        if(i == 1){
-                            if(valores[i].length==20){
-                                fail = "exito" 
-                            }else{
-                                let position;
-                                position=i+1;
-                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                break;
-                            } 
-                        }else{
-                            if(i == 2){
-                                if(valores[i].length==30){
-                                    fail = "exito" 
-                                }else{
-                                    let position;
-                                    position=i+1;
-                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                    break;
-                                } 
-                            }else{
-                                if(i==3){
-                                    if(valores[i] != null){
-                                        if(valores[i].length==12 || valores[i].toLowerCase == 'vacio'){
-                                            fail = "exito" 
-                                        }else{
-                                            let position;
-                                            position=i+1;
-                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                            break;
-                                        }
-                                    }else{
-                                        fail="exito"
-                                    } 
-                                }
-                            }
-                        }
-                     }
-                }else{
-                    if(i>=5 && i<=7){                      
-                        if(parseInt(valores[i]) >= 0 && valores[i] != null){     
-                            fail = "exito"                  
-                        }else{
-                            let position;
-                            position=i+1;
-                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                                                   
-                            break;
-                        }
-                    }else{
-                        if(i==8){
-                            //console.log(valores[i])                        
-                            if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                fail = "exito"                            
-                            }else{
-                                let position;
-                                position=i+1;
-                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
-                                //console.log(valores[i])                         
-                                break;
-                            }
-                        }else{
-                            if(i==9){
-                                if((parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6)){
-                                    fail = "exito" 
-                                }else{
-                                    let position;
-                                        position=i+1;
-                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
-                                        break;
-                                }
-                            }else{
-                                if(i==10){                  
-                                    if(typeof valores[i] === 'string'){                            
-                                        fail = "exito"                            
-                                    }else{
-                                        let position;
-                                        position=i+1;
-                                        fail= "Hubo 1 problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
-                                        //console.log(valores[i])                         
-                                        break;
-                                    }
-                                }else{
-                                    if(i==11){
-                                        if(valores[5]==1){
-                                            if(parseInt(valores[i])>0){
-                                                fail = "exito" 
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                break;
-                                            }
-                                        }else{
-                                            if(parseInt(valores[i])==0){
-                                                fail = "exito" 
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                break;
-                                        }
-                                    }                            
-                                }else{
-                                    if(i==12){
-                                        if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                            fail = "exito"                            
-                                        }else{
-                                            let position;
-                                            position=i+1;
-                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]    
-                                            //console.log(valores[i])                         
-                                            break;
-                                        }
-                                    }else{
-                                        if(i>=13 && i<=15){
-                                            if(valores[5]==0){
-                                               if(i==14){
-                                                let conDecimal = valores[i].toFixed(3); 
-                                                if(parseFloat(conDecimal)>=0){
-                                                    fail = "exito" 
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                         
-                                                    break; 
-                                                }
-                                               }else{
-                                               // console.log("prueba4", valores[i])
-                                                if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                    fail = "exito" 
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                         
-                                                    break;
-                                                }  
-                                               }                                          
-                                            }else{
-                                                if(parseInt(valores[i])==0){
-                                                    fail = "exito" 
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            if(i>=16 && i<=17){
-                                                if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                    fail = "exito" 
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                    break; 
-                                                }
-                                            }else{
-                                                if(i==18){
-                                                    if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                        fail = "exito" 
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                        break; 
-                                                    }
-                                                }else{
-                                                    if(i==19){
-                                                        if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                            fail = "exito" 
-                                                        }else{
-                                                            let position;
-                                                            position=i+1;
-                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                            break; 
-                                                        }
-                                                    }else{
-                                                        if(i==20){
-                                                            if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                                fail = "exito" 
-                                                            }else{
-                                                                let position;
-                                                                position=i+1;
-                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                break; 
-                                                            }
-                                                        }else{
-                                                            if(i>=21 && i<=25){
-                                                                if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                                    fail = "exito" 
-                                                                }else{
-                                                                    let position;
-                                                                    position=i+1;
-                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                    break; 
-                                                                }
-                                                            }else{
-                                                                if(i==26){
-                                                                    if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                                                        fail = "exito"                            
-                                                                    }else{
-                                                                        let position;
-                                                                        position=i+1;
-                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                        break;  
-                                                                    }
-                                                                }else{
-                                                                    if(i==27){
-                                                                        if(parseInt(valores[i])>0 && valores[i] != null){
-                                                                            fail = "exito" 
-                                                                        }else{
-                                                                            let position;
-                                                                            position=i+1;
-                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                            break; 
-                                                                        }
-                                                                    }else{
-                                                                        if(i==28){
-                                                                            if(parseInt(valores[i])> -100 && valores[i] != null){
-                                                                                fail = "exito" 
-                                                                            }else{
-                                                                                let position;
-                                                                                position=i+1;
-                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                break; 
-                                                                            }
-                                                                        }else{
-                                                                            if(i==29){
-                                                                                if(parseInt(valores[i])>=0 && parseInt(valores[i])<=3  && valores[i] != null){
-                                                                                    fail = "exito" 
-                                                                                }else{
-                                                                                    let position;
-                                                                                    position=i+1;
-                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                    break; 
-                                                                                }
-                                                                            }else{
-                                                                                if(i==30){
-                                                                                    if(valores[i]>0 && valores[i] != null){
-                                                                                        fail = "exito" 
-                                                                                    }else{
-                                                                                        let position;
-                                                                                        position=i+1;
-                                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                        break; 
-                                                                                    }                                                                                
-                                                                                }else{
-                                                                                    if(i==31){
-                                                                                        if(parseInt(valores[i])>=0 && valores[i] != null){
-                                                                                            fail = "exito" 
-                                                                                        }else{
-                                                                                            let position;
-                                                                                            position=i+1;
-                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                            break; 
-                                                                                        }           
-                                                                                    }else{
-                                                                                        if(i==32){
-                                                                                            if(valores[i] != null){
-                                                                                                fail = "exito"
-                                                                                            }else{
-                                                                                                let position;
-                                                                                                position=i+1;
-                                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                break; 
-                                                                                            }
-                                                                                        }else{
-                                                                                            if(i==33){
-                                                                                                if(typeof valores[i] === 'string' && valores[i] != null){
-                                                                                                    fail = "exito"
-                                                                                                }else{
-                                                                                                    let position;
-                                                                                                    position=i+1;
-                                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                    break; 
-                                                                                                }
-                                                                                            }else{
-                                                                                                if(i==34){
-                                                                                                    if(valores[5]==0){
-                                                                                                        //let conDecimal = valores[i].toFixed(2); 
-                                                                                                        if(parseFloat(valores[i])>=0){
-                                                                                                            fail = "exito"
-                                                                                                        }else{
-                                                                                                            let position;
-                                                                                                            position=i+1;
-                                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                            break; 
-                                                                                                        }
-                                                                                                    }else{
-                                                                                                        if(parseInt(valores[i])==0){
-                                                                                                            fail = "exito"
-                                                                                                        }else{
-                                                                                                            let position;
-                                                                                                            position=i+1;
-                                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                            break; 
-                                                                                                        }
-                                                                                                    }
-                                                                                                }else{
-                                                                                                    if(i==35){
-                                                                                                        if(parseInt(valores[i])>=0){
-                                                                                                            fail = "exito"
-                                                                                                        }else{
-                                                                                                            let position;
-                                                                                                            position=i+1;
-                                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                            break; 
-                                                                                                        }
-                                                                                                    }else{
-                                                                                                        if(i==36){
-                                                                                                            if(parseInt(valores[i])>0){
-                                                                                                                fail = "exito"
-                                                                                                            }else{
-                                                                                                                let position;
-                                                                                                                position=i+1;
-                                                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                                break; 
-                                                                                                            } 
-                                                                                                        }else{
-                                                                                                            if(i>=37 && i<=38 ){
-                                                                                                                if(valores[i] != null || parseInt(valores[i])>=0 ){
-                                                                                                                    fail = "exito"
-                                                                                                                }else{
-                                                                                                                    let position;
-                                                                                                                    position=i+1;
-                                                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja PH y en la columna "+ position + " con el valor: " + valores[i]                           
-                                                                                                                    console.log(valores[i])
-                                                                                                                    break; 
-                                                                                                                } 
-                                                                                                            }
-                                                                                                        }
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }                     
-                            }
-                        }
-                    }                         
-                
-                }  
-            }
-        }
+  // Helper: valida numérico >= 0
+  const checkNumber = (val, campo) => {
+    if (val == null || val === "" || isNaN(Number(val)) || Number(val) < 0) {
+      fail = `Hubo un problema con la carga del archivo, se detectó un error en la hoja PH, campo [${campo}] con valor: ${val}`;
+      return false;
+    }
+    return true;
+  };
+
+  // Función genérica para verificar vacío
+  const isEmpty = (val) => {
+    return val === null || val === undefined || String(val).trim() === "";
+  };
+
+  // Definir banderas de identificadores principales
+  const noPredialAntiguo = isEmpty(model.NUMERO_PREDIAL_ANTIGUO);
+  const noPredialNuevo   = isEmpty(model.NUMERO_PREDIAL_NUEVO);
+  const noMatricula      = isEmpty(model.MATRICULA_INMOBILIARIA);
+
+  // Validar identificadores principales (si vienen vacíos -> error inmediato)
+  if (noPredialAntiguo) {
+    return "El campo PH NUMERO_PREDIAL_ANTIGUO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noPredialNuevo) {
+    return "El campo PH NUMERO_PREDIAL_NUEVO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noMatricula) {
+    return "El campo PH MATRICULA_INMOBILIARIA está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  // Si TODOS están vacíos => exigir CODIGO_HOMOLOGADO
+  if (noPredialAntiguo && noPredialNuevo && noMatricula) {
+    if (isEmpty(model.CODIGO_HOMOLOGADO)) {
+      return "Hubo un problema con la carga: el campo PH CODIGO_HOMOLOGADO es obligatorio cuando no se diligencian los identificadores principales (Predial antiguo, Predial nuevo o Matrícula inmobiliaria).";
+    }
+  }
+
+  // Reglas adicionales de longitud
+if (
+  model.NUMERO_PREDIAL_ANTIGUO &&
+  !noPredialAntiguo &&
+  model.NUMERO_PREDIAL_ANTIGUO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_ANTIGUO.length !== 20
+) {
+  fail = `Error en el campo PH NUMERO_PREDIAL_ANTIGUO: longitud inválida (${model.NUMERO_PREDIAL_ANTIGUO})`;
+  return fail;
+}
+
+if (
+  model.NUMERO_PREDIAL_NUEVO &&
+  !noPredialNuevo &&
+  model.NUMERO_PREDIAL_NUEVO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_NUEVO.length !== 30
+) {
+  fail = `Error en el campo PH NUMERO_PREDIAL_NUEVO: longitud inválida (${model.NUMERO_PREDIAL_NUEVO})`;
+  return fail;
+}
+
+if (
+  model.MATRICULA_INMOBILIARIA &&
+  !noMatricula &&
+  model.MATRICULA_INMOBILIARIA.toLowerCase() !== "vacio" &&
+  model.MATRICULA_INMOBILIARIA.length !== 12
+) {
+  fail = `Error en el campo PH MATRICULA_INMOBILIARIA: longitud inválida (${model.MATRICULA_INMOBILIARIA})`;
+  return fail;
+}
+
+
+// Validar MUNICIPIO
+if (model.MUNICIPIO !== null && model.MUNICIPIO !== undefined) {
+  const raw = String(model.MUNICIPIO);           // preserva exactamente lo que entró
+  const trimmed = raw.trim();                    // versión limpia (quita espacios ASCII)
+  const unicodeEdgeSpace = /(^[\s\u00A0\u200B\uFEFF])|([\s\u00A0\u200B\uFEFF]$)/; 
+  // detecta espacios al inicio o final, incluyendo NBSP, ZWSP y BOM
+
+  // 1) Rechazar si hay espacios al inicio o final (incluidos unicode)
+  if (raw !== trimmed || unicodeEdgeSpace.test(raw)) {
+    fail = `Error en el campo PH MUNICIPIO: contiene espacios al inicio o al final ("${raw}")`;
+    return fail;
+  }
+
+  // 2) Ahora validar que tenga exactamente 5 dígitos (sin espacios)
+  if (!/^\d{5}$/.test(trimmed)) {
+    fail = `Error en el campo PH MUNICIPIO: debe tener exactamente 5 dígitos (${trimmed})`;
+    return fail;
+  }
+
+}
+// Validar DEPARTAMENTO
+if (model.DEPARTAMENTO !== null && model.DEPARTAMENTO !== undefined) {
+  const raw = String(model.DEPARTAMENTO);           // preserva exactamente lo que entró
+  const trimmed = raw.trim();                    // versión limpia (quita espacios ASCII)
+  const unicodeEdgeSpace = /(^[\s\u00A0\u200B\uFEFF])|([\s\u00A0\u200B\uFEFF]$)/; 
+  // detecta espacios al inicio o final, incluyendo NBSP, ZWSP y BOM
+
+  // 1) Rechazar si hay espacios al inicio o final (incluidos unicode)
+  if (raw !== trimmed || unicodeEdgeSpace.test(raw)) {
+    fail = `Error en el campo PH DEPARTAMENTO: contiene espacios al inicio o al final ("${raw}")`;
+    return fail;
+  }
+
+  // 2) Ahora validar que tenga exactamente 2 dígitos (sin espacios)
+  if (!/^\d{2}$/.test(trimmed)) {
+    fail = `Error en el campo PH DEPARTAMENTO: debe tener exactamente 2 dígitos (${trimmed})`;
+    return fail;
+  }
+
+}
+
+    // Validaciones numéricas directas
+    if (!checkNumber(model.VALOR_ARRIENDO, "VALOR_ARRIENDO")) return fail;
+    if (!checkNumber(model.VALOR_ADMINISTRACION, "VALOR_ADMINISTRACION")) return fail;
+    if (!checkNumber(model.VALOR_OFERTA_VENTA, "VALOR_OFERTA_VENTA")) return fail;
+    if (!checkNumber(model.PORCENTAJE_DE_NEGOCIACION, "PORCENTAJE_DE_NEGOCIACION")) return fail;    
+    if (!checkNumber(model.VALOR_OFERTA_NEGOCIADO, "VALOR_OFERTA_NEGOCIADO")) return fail;
+    if (!checkNumber(model.ANIO_CONSTRUCCION, "AÑO_CONSTRUCCION")) return fail;
+    if (!checkNumber(model.ALTURA_EDIFICIO, "ALTURA_EDIFICIO")) return fail;
+    if (!checkNumber(model.No_PISO, "No_PISO")) return fail;    
+    if (!checkNumber(model.AREA_CONSTRUIDA_m2, "AREA_CONSTRUIDA")) return fail;
+    if (!checkNumber(model.AREA_PRIVADA_m2, "AREA_PRIVADA")) return fail;
+    if (!checkNumber(model.No_GARAJES, "No_GARAJES")) return fail;
+    if (!checkNumber(model.No_DEPOSITOS, "NO_DEPOSITOS")) return fail;
+    if (!checkNumber(model.VR_TOTAL_TERRAZA_BALCON_PATIO, "VR_TOTAL_TERRAZA_BALCON_PATIO")) return fail;
+    if (!checkNumber(model.VALOR_GARAJES, "VALOR_GARAJES")) return fail;
+    if (!checkNumber(model.VALOR_DEPOSITOS, "VALOR_DEPOSITOS")) return fail;
+    if (!checkNumber(model.LATITUD, "LATITUD")) return fail;
+    
+
+    // Ejemplo adicional: estrato (solo 0–6)
+    if (isNaN(Number(model.ESTRATO)) || Number(model.ESTRATO) < 0 || Number(model.ESTRATO) > 6) {
+        fail = `Error en el campo PH ESTRATO: valor inválido (${model.ESTRATO})`;
         return fail;
     }
+     // Ejemplo adicional: TIPO_TIPOLOGIA (solo 0–24)
+    if (isNaN(Number(model.TIPO_TIPOLOGIA)) || Number(model.TIPO_TIPOLOGIA) < 0 || Number(model.TIPO_TIPOLOGIA) > 24) {
+        fail = `Error en el campo PH TIPO_TIPOLOGIA: valor inválido (${model.TIPO_TIPOLOGIA})`;
+        return fail;
+    }
+     // Ejemplo adicional: DESTINACION_ECONOMICA (solo 0–26)
+    if (isNaN(Number(model.DESTINACION_ECONOMICA)) || Number(model.DESTINACION_ECONOMICA) < 0 || Number(model.DESTINACION_ECONOMICA) > 26) {
+        fail = `Error en el campo PH DESTINACION_ECONOMICA: valor inválido (${model.DESTINACION_ECONOMICA})`;
+        return fail;
+    }
+    // Ejemplo adicional: DERECHO_TIPO (solo 0–3)
+    if (isNaN(Number(model.DERECHO_TIPO)) || Number(model.DERECHO_TIPO) < 0 || Number(model.DERECHO_TIPO) > 2) {
+        fail = `Error en el campo PH DERECHO_TIPO: valor inválido (${model.DERECHO_TIPO})`;
+        return fail;
+    }
+      // Ejemplo adicional: TIPO_OFERTA (solo 0–1)
+    if (isNaN(Number(model.TIPO_OFERTA)) || Number(model.TIPO_OFERTA) < 0 || Number(model.TIPO_OFERTA) > 1) {
+        fail = `Error en el campo PH TIPO_OFERTA: valor inválido (${model.TIPO_OFERTA})`;
+        return fail;
+    }
+    // Validar LATITUD
+if (isNaN(Number(model.LATITUD))) {
+  fail = `Error en el campo PH LATITUD: no es un número válido (${model.LATITUD})`;
+  return fail;
+}
+const lat = Number(model.LATITUD.toString().replace(",", "."));
+if (lat < -5 || lat > 15) {
+  fail = `Error en el campo PH LATITUD: fuera de rango permitido (-5 a 15) (${lat})`;
+  return fail;
+}
+
+// Validar LONGITUD
+if (isNaN(Number(model.LONGITUD))) {
+  fail = `Error en el campo PH LONGITUD: no es un número válido (${model.LONGITUD})`;
+  return fail;
+}
+const lon = Number(model.LONGITUD.toString().replace(",", "."));
+if (lon < -80 || lon > -65) {
+  fail = `Error en el campo PH LONGITUD: fuera de rango permitido (-80 a -65) (${lon})`;
+  return fail;
+}
+
+    // Ejemplo adicional: CONSERVACION (solo 0–3)
+    if (isNaN(Number(model.CONSERVACION)) || Number(model.CONSERVACION) < 0 || Number(model.CONSERVACION) > 3) {
+        fail = `Error en el campo PH CONSERVACION: valor inválido (${model.CONSERVACION})`;
+        return fail;
+    }
+    // Ejemplo adicional: TIEMPO_OFERTA_MERCADO (entre 0-99)
+    if (isNaN(Number(model.TIEMPO_OFERTA_MERCADO)) || Number(model.TIEMPO_OFERTA_MERCADO) < 0 || Number(model.TIEMPO_OFERTA_MERCADO) > 99) {
+        fail = `Error en el campo PH TIEMPO_OFERTA_MERCADO: valor inválido (${model.TIEMPO_OFERTA_MERCADO})`;
+        return fail;
+    } 
+    return fail;
+}
 
     static validNph(model) {
-        let valores = Object.values(model);
-        let fail="exito";   
-        let contfail = 0;       
-            for (let i = 0; i < valores.length; i++) {                 
-                if(i > 0 && i <= 4 ){
-                    if(valores[i] == "Vacio" || valores[i] == "vacio"){
-                       contfail++
-                       if(contfail < 4){
-                           fail = "exito" 
-                       }else{
-                           let position;
-                           position=i+1;
-                           fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " El codigo Homologado se convierte en obligatorio"                          
-                           break;
-                       }
-                    }else{
-                       if(i == 1){
-                           if(valores[i].length==20){
-                               fail = "exito" 
-                           }else{
-                               let position;
-                               position=i+1;
-                               fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                               break;
-                           } 
-                       }else{
-                           if(i == 2){
-                               if(valores[i].length==30){
-                                   fail = "exito" 
-                               }else{
-                                   let position;
-                                   position=i+1;
-                                   fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                   break;
-                               } 
-                           }else{
-                               if(i==3){
-                                   if(valores[i].length==12){
-                                       fail = "exito" 
-                                   }else{
-                                       let position;
-                                       position=i+1;
-                                       fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                       break;
-                                   } 
-                               }
-                           }
-                       }
-                    }
-               }else{
-                    if(i>=5 && i<=7){
-                        if(parseInt(valores[i]) >= 0 && valores[i] != null){
-                            fail = "exito"  
-                        }else{
-                            let position;
-                            position=i+1;
-                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                            break;
-                        }
-                    }else{
-                        if(i==8){                      
-                            if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                fail = "exito"                            
-                            }else{
-                                let position;
-                                position=i+1;
-                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]                         
-                                break;
-                            }
-                        }else{
-                            if(i==9){
-                                if(parseInt(valores[i]) >= 0 && valores[i] != null){
-                                    fail = "exito"  
-                                }else{
-                                    let position;
-                                    position=i+1;
-                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                    break;
-                                }
-                            }else{
-                                if(i==10){
-                                    if(typeof valores[i] === 'string' ){                            
-                                        fail = "exito"                            
-                                    }else{
-                                        let position;
-                                        position=i+1;
-                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i]                         
-                                        break;
-                                    }
-                                }else{
-                                    if(i==11){
-                                        if(valores[5]==1){
-                                            if(parseInt(valores[i]) > 0 && valores[i] != null){
-                                                fail = "exito"  
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                break;
-                                            }
-                                        }else{
-                                            if(parseInt(valores[i])==0){
-                                                fail = "exito"   
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                break;
-                                            }
-                                        }
-                                    }else{
-                                        if(i==12){
-                                            if(valores[5]==0){
-                                                if(parseInt(valores[i]) > 0 && valores[i] != null){
-                                                    fail = "exito"  
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                    break;
-                                                }
-                                            }else{
-                                                if(parseInt(valores[i])==0){
-                                                    fail = "exito"   
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            if(i==13){
-                                                if(valores[5]==0){
-                                                    if(parseFloat(valores[i]) >= 0 && valores[i] != null){
-                                                        fail = "exito"  
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                        break;
-                                                    }
-                                                }else{
-                                                    if(parseFloat(valores[i])==0){
-                                                        fail = "exito"   
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                        break;
-                                                    }
-                                                }
-                                            }else{
-                                                if(i==14){
-                                                    if(valores[5]==0){
-                                                        if(parseInt(valores[i]) > 0 && valores[i] != null){
-                                                            fail = "exito"  
-                                                        }else{
-                                                            let position;
-                                                            position=i+1;
-                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                            break;
-                                                        }
-                                                    }else{
-                                                        if(parseInt(valores[i])==0){
-                                                            fail = "exito"   
-                                                        }else{
-                                                            let position;
-                                                            position=i+1;
-                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                            break;
-                                                        }
-                                                    }
-                                                }else{
-                                                    if(i==15){
-                                                        if(parseInt(valores[i]) >= 0 && valores[i] != null){
-                                                            fail = "exito"  
-                                                        }else{
-                                                            let position;
-                                                            position=i+1;
-                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                            break;
-                                                        }
-                                                    }else{
-                                                        if(i>=16 && i<=19){
-                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){
-                                                                fail = "exito"  
-                                                            }else{
-                                                                let position;
-                                                                position=i+1;
-                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                break;
-                                                            }
-                                                        }else{
-                                                            if(i==20){
-                                                                if(typeof valores[i] === 'string' && valores[i] != null){
-                                                                    fail = "exito" 
-                                                                }else{
-                                                                    let position;
-                                                                    position=i+1;
-                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                    break;
-                                                                }
-                                                            }else{
-                                                                if(i==21){
-                                                                    if(parseFloat(valores[i]) > 0 && valores[i] != null){
-                                                                        fail = "exito"  
-                                                                    }else{
-                                                                        let position;
-                                                                        position=i+1;
-                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                        break;
-                                                                    }
-                                                                }else{
-                                                                    if(i==22){
-                                                                        if(parseFloat(valores[i]) > -100 && valores[i] != null){
-                                                                            fail = "exito"  
-                                                                        }else{
-                                                                            let position;
-                                                                            position=i+1;
-                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                            break;
-                                                                        }
-                                                                    }else{
-                                                                        if(i>=23 && i<=24){
-                                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){
-                                                                                fail = "exito"  
-                                                                            }else{
-                                                                                let position;
-                                                                                position=i+1;
-                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                break;
-                                                                            }
-                                                                        }else{
-                                                                            if(i==25){
-                                                                                if(parseInt(valores[i])>= 0 && valores[i] != null){
-                                                                                    fail = "exito"  
-                                                                                }else{
-                                                                                    let position;
-                                                                                    position=i+1;
-                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                    break;
-                                                                                }
-                                                                            }else{
-                                                                                if(i==26){
-                                                                                    if(valores[i] != null){
-                                                                                        fail = "exito"  
-                                                                                    }else{
-                                                                                        let position;
-                                                                                        position=i+1;
-                                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                        break;
-                                                                                    }
-                                                                                }else{
-                                                                                    if(i==27){
-                                                                                        if(typeof valores[i] === 'string' && valores[i] != null){
-                                                                                            fail = "exito" 
-                                                                                        }else{
-                                                                                            let position;
-                                                                                            position=i+1;
-                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                            break;
-                                                                                        }
-                                                                                    }else{
-                                                                                    if(i==28){
-                                                                                        if(parseInt(valores[i])>= 0 && valores[i] != null){
-                                                                                            fail = "exito"  
-                                                                                        }else{
-                                                                                            let position;
-                                                                                            position=i+1;
-                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                            break;
-                                                                                        }
-                                                                                    }else{
-                                                                                        if(i==29){
-                                                                                            if(parseInt(valores[i])>= 0 && valores[i] != null){
-                                                                                                fail = "exito"  
-                                                                                            }else{
-                                                                                                let position;
-                                                                                                position=i+1;
-                                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                                break;
-                                                                                            }
-                                                                                        }else{
-                                                                                            if(i>=30 && i<=31){
-                                                                                                if(parseInt(valores[i])>= 0 && valores[i] != null){
-                                                                                                    fail = "exito"  
-                                                                                                }else{
-                                                                                                    let position;
-                                                                                                    position=i+1;
-                                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja NPH y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                                                                                    break;
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-               }
-            }
-            return fail;
-    }
+  let fail = "exito";
 
-    static validRural(model) {
-        let valores = Object.values(model);  
-        let contfail = 0;  
-        let fail="exito";        
-        for (let i = 0; i < valores.length; i++) { 
-            if(i > 0 && i <= 4 ){
-                if(valores[i] == "Vacio" || valores[i] == "vacio"){
-                   contfail++
-                   if(contfail < 4){
-                       fail = "exito" 
-                   }else{
-                       let position;
-                       position=i+1;
-                       fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i] + " El codigo Homologado se convierte en obligatorio"                          
-                       break;
-                   }
-                }else{
-                   if(i == 1){
-                       if(valores[i].length==20){
-                           fail = "exito" 
-                       }else{
-                           let position;
-                           position=i+1;
-                           fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                           break;
-                       } 
-                   }else{
-                       if(i == 2){
-                           if(valores[i].length==30){
-                               fail = "exito" 
-                           }else{
-                               let position;
-                               position=i+1;
-                               fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                               break;
-                           } 
-                       }else{
-                           if(i==3){
-                               if(valores[i].length==12){
-                                   fail = "exito" 
-                               }else{
-                                   let position;
-                                   position=i+1;
-                                   fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i] + " Cantidad de caracteres"                          
-                                   break;
-                               } 
-                           }
-                       }
-                   }
-                }
-           }else{
-                if(i>=5 && i<=7){
-                    if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                        fail = "exito"                            
-                    }else{
-                        let position;
-                        position=i+1;
-                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]                        
-                        break;
-                    }
-                }else{
-                    if(i==8){
-                        if(typeof valores[i] === 'string' && valores[i] != null){                            
-                            fail = "exito"                            
-                        }else{
-                            let position;
-                            position=i+1;
-                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                            break;
-                        }
-                    }else{
-                        if(i==9){                       
-                                if(parseInt(valores[i]) >= 0 && parseInt(valores[i]) <= 6 && valores[i] != null){                            
-                                    fail = "exito"                            
-                                }else{
-                                    let position;
-                                    position=i+1;
-                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                    break;
-                                }
-                        }else{
-                            if(i>=10 && i<=11){
-                                if(typeof valores[i] == 'string' ){                            
-                                    fail = "exito"                            
-                                }else{
-                                    let position;
-                                    position=i+1;
-                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                    console.log(valores[i])
-                                    break;
-                                }
-                            }else{
-                                if(i==12){
-                                    if(valores[5]==1){
-                                        if(parseInt(valores[i]) > 0 && valores[i] != null){                            
-                                            fail = "exito"                            
-                                        }else{
-                                            let position;
-                                            position=i+1;
-                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                            break;
-                                        }
-                                    }else{
-                                        if(parseInt(valores[i]) == 0 && valores[i] != null){                            
-                                            fail = "exito"                            
-                                        }else{
-                                            let position;
-                                            position=i+1;
-                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                            break;
-                                        }
-                                    }
-                                }else{
-                                    if(i==13){
-                                        if(valores[5]==0){
-                                            if(parseInt(valores[i]) > 0 && valores[i] != null){                            
-                                                fail = "exito"                            
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                break;
-                                            }
-                                        }else{
-                                            if(parseInt(valores[i]) == 0 && valores[i] != null){                            
-                                                fail = "exito"                            
-                                            }else{
-                                                let position;
-                                                position=i+1;
-                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                break;
-                                            }
-                                        }
-                                    }else{
-                                        if(i==14){
-                                            if(valores[5]==0){
-                                                if(parseFloat(valores[i]) >= 0 && valores[i] != null){                            
-                                                    fail = "exito"                            
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                    break;
-                                                }
-                                            }else{
-                                                if(parseInt(valores[i]) == 0 && valores[i] != null){                            
-                                                    fail = "exito"                            
-                                                }else{
-                                                    let position;
-                                                    position=i+1;
-                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                    break;
-                                                }
-                                            }
-                                        }else{
-                                            if(i==15){
-                                                if(valores[5]==0){
-                                                    if(parseInt(valores[i]) > 0 && valores[i] != null){                            
-                                                        fail = "exito"                            
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                        break;
-                                                    }
-                                                }else{
-                                                    if(parseInt(valores[i]) == 0 && valores[i] != null){                            
-                                                        fail = "exito"                            
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                        break;
-                                                    }
-                                                }
-                                            }else{
-                                                if(i==16){
-                                                    if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                        fail = "exito"                            
-                                                    }else{
-                                                        let position;
-                                                        position=i+1;
-                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                        break;
-                                                    }
-                                                }else{
-                                                    if(i==17){
-                                                        if(parseFloat(valores[i]) >= 0 && valores[i] != null){                            
-                                                            fail = "exito"                            
-                                                        }else{
-                                                            let position;
-                                                            position=i+1;
-                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                            break;
-                                                        }
-                                                    }else{
-                                                        if(i>=18 && i<=20){
-                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                fail = "exito"                            
-                                                            }else{
-                                                                let position;
-                                                                position=i+1;
-                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                break;
-                                                            }
-                                                        }else{
-                                                            if(i==21){
-                                                                if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                                                    fail = "exito"                            
-                                                                }else{
-                                                                    let position;
-                                                                    position=i+1;
-                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                    break;
-                                                                }
-                                                            }else{
-                                                                if(i==22){
-                                                                    if(parseInt(valores[i]) > 0 && valores[i] != null){                            
-                                                                        fail = "exito"                            
-                                                                    }else{
-                                                                        let position;
-                                                                        position=i+1;
-                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                        break;
-                                                                    }
-                                                                }else{
-                                                                    if(i==23){
-                                                                        if(parseFloat(valores[i]) > -100 && valores[i] != null){                            
-                                                                            fail = "exito"                            
-                                                                        }else{
-                                                                            let position;
-                                                                            position=i+1;
-                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                            break;
-                                                                        }
-                                                                    }else{
-                                                                        if(i==24){
-                                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                                fail = "exito"                            
-                                                                            }else{
-                                                                                let position;
-                                                                                position=i+1;
-                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                break;
-                                                                            }
-                                                                        }else{
-                                                                            if(i>=25 && i<=27){
-                                                                                if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                                    fail = "exito"                            
-                                                                                }else{
-                                                                                    let position;
-                                                                                    position=i+1;
-                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                    break;
-                                                                                }
-                                                                            }else{
-                                                                                if(i==28){
-                                                                                    if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                                                                        fail = "exito"                            
-                                                                                    }else{
-                                                                                        let position;
-                                                                                        position=i+1;
-                                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                        break;
-                                                                                    }
-                                                                                }else{
-                                                                                    if(i==29){
-                                                                                        if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                                            fail = "exito"                            
-                                                                                        }else{
-                                                                                            let position;
-                                                                                            position=i+1;
-                                                                                            fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                            break;
-                                                                                        }
-                                                                                    }else{
-                                                                                        if(i==30){
-                                                                                            if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                                                fail = "exito"                            
-                                                                                            }else{
-                                                                                                let position;
-                                                                                                position=i+1;
-                                                                                                fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                                break;
-                                                                                            }
-                                                                                        }else{
-                                                                                            if(i>=31 && i<=32){
-                                                                                                if(parseInt(valores[i]) >= 0 && valores[i] != null){                            
-                                                                                                    fail = "exito"                            
-                                                                                                }else{
-                                                                                                    let position;
-                                                                                                    position=i+1;
-                                                                                                    fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                                    break;
-                                                                                                }
-                                                                                            }else{
-                                                                                                if(i>=33 && i<=34){
-                                                                                                    if(typeof valores[i] === 'string' && valores[i] != null){                            
-                                                                                                        fail = "exito"                            
-                                                                                                    }else{
-                                                                                                        let position;
-                                                                                                        position=i+1;
-                                                                                                        fail= "Hubo un problema con la carga del archivo, se detecto un error en la hoja RURAL y en la columna "+ position + " con el valor: " + valores[i]    
-                                                                                                        break;
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    } 
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-           }
-        }
-        return fail;        
+    // Helper: valida numérico >= 0
+  const checkNumber = (val, campo) => {
+    if (val == null || val === "" || isNaN(Number(val)) || Number(val) < 0) {
+      fail = `Hubo un problema con la carga del archivo, se detectó un error en la hoja NPH, campo [${campo}] con valor: ${val}`;
+      return false;
     }
+    return true;
+  };
+
+  // Función genérica para verificar vacío
+  const isEmpty = (val) => {
+    return val === null || val === undefined || String(val).trim() === "";
+  };
+
+  // Definir banderas de identificadores principales
+  const noPredialAntiguo = isEmpty(model.NUMERO_PREDIAL_ANTIGUO);
+  const noPredialNuevo   = isEmpty(model.NUMERO_PREDIAL_NUEVO);
+  const noMatricula      = isEmpty(model.MATRICULA_INMOBILIARIA);
+
+  // Validar identificadores principales (si vienen vacíos -> error inmediato)
+  if (noPredialAntiguo) {
+    return "El campo campo NPH NUMERO_PREDIAL_ANTIGUO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noPredialNuevo) {
+    return "El campo campo NPH NUMERO_PREDIAL_NUEVO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noMatricula) {
+    return "El campo campo NPH MATRICULA_INMOBILIARIA está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  // Si TODOS están vacíos => exigir CODIGO_HOMOLOGADO
+  if (noPredialAntiguo && noPredialNuevo && noMatricula) {
+    if (isEmpty(model.CODIGO_HOMOLOGADO)) {
+      return "Hubo un problema con la carga: el campo campo NPH CODIGO_HOMOLOGADO es obligatorio cuando no se diligencian los identificadores principales (Predial antiguo, Predial nuevo o Matrícula inmobiliaria).";
+    }
+  }
+
+  // Reglas adicionales de longitud
+if (
+  model.NUMERO_PREDIAL_ANTIGUO &&
+  !noPredialAntiguo &&
+  model.NUMERO_PREDIAL_ANTIGUO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_ANTIGUO.length !== 20
+) {
+  fail = `Error en campo NPH NUMERO_PREDIAL_ANTIGUO: longitud inválida (${model.NUMERO_PREDIAL_ANTIGUO})`;
+  return fail;
+}
+
+if (
+  model.NUMERO_PREDIAL_NUEVO &&
+  !noPredialNuevo &&
+  model.NUMERO_PREDIAL_NUEVO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_NUEVO.length !== 30
+) {
+  fail = `Error en campo NPH NUMERO_PREDIAL_NUEVO: longitud inválida (${model.NUMERO_PREDIAL_NUEVO})`;
+  return fail;
+}
+
+if (
+  model.MATRICULA_INMOBILIARIA &&
+  !noMatricula &&
+  model.MATRICULA_INMOBILIARIA.toLowerCase() !== "vacio" &&
+  model.MATRICULA_INMOBILIARIA.length !== 12
+) {
+  fail = `Error en campo NPH MATRICULA_INMOBILIARIA: longitud inválida (${model.MATRICULA_INMOBILIARIA})`;
+  return fail;
+}
+
+  // --- Campos básicos ---
+  if (!/^\d{2}$/.test(String(model.DEPARTAMENTO).trim())) {
+    return `Error en campo NPH DEPARTAMENTO: debe tener exactamente 2 dígitos (${model.DEPARTAMENTO})`;
+  }
+  if (!/^\d{5}$/.test(String(model.MUNICIPIO).trim())) {
+    return `Error en campo NPH MUNICIPIO: debe tener exactamente 5 dígitos (${model.MUNICIPIO})`;
+  }
+
+  // --- Numéricos obligatorios ---
+  if (!checkNumber(model.VALOR_ARRIENDO, "VALOR_ARRIENDO")) return fail;
+  if (!checkNumber(model.VALOR_OFERTA_VENTA, "VALOR_OFERTA_VENTA")) return fail;
+  if (!checkNumber(model.PORCENTAJE_NEGOCIACION, "PORCENTAJE_NEGOCIACION")) return fail;
+  if (!checkNumber(model.VALOR_OFERTA_NEGOCIADO, "VALOR_OFERTA_NEGOCIADO")) return fail;
+  if (!checkNumber(model.ANIO_CONSTRUCCION, "ANIO_CONSTRUCCION")) return fail;
+  if (!checkNumber(model.AREA_TERRENO_M2, "AREA_TERRENO_M2")) return fail;
+  if (!checkNumber(model.AREA_CONSTRUCCION_M2, "AREA_CONSTRUCCION")) return fail;
+  if (!checkNumber(model.VR_M2_CONST, "VR_M2_CONSTRUCCION")) return fail;
+  if (!checkNumber(model.VR_M2_TERRENO, "VR_M2_TERRENO")) return fail;
+  if (!checkNumber(model.TIEMPO_OFERTA_MERCADO, "TIEMPO_OFERTA_MERCADO")) return fail;
+  if (!checkNumber(model.AVALUO_CATASTRAL, "AVALUO_CATASTRAL")) return fail;
+
+  // --- Catálogos ---
+  if (model.ESTRATO < 0 || model.ESTRATO > 6) return `Error en campo NPH ESTRATO: valor inválido (${model.ESTRATO})`;
+  if (model.TIPO_OFERTA < 0 || model.TIPO_OFERTA > 1) return `Error en campo NPH TIPO_OFERTA: valor inválido (${model.TIPO_OFERTA})`;
+  if (model.DESTINACION_ECONOMICA < 0 || model.DESTINACION_ECONOMICA > 26) return `Error en campo NPH DESTINACION_ECONOMICA: valor inválido (${model.DESTINACION_ECONOMICA})`;
+  if (model.DERECHO_TIPO < 0 || model.DERECHO_TIPO > 2) return `Error en campo NPH DERECHO_TIPO: valor inválido (${model.DERECHO_TIPO})`;
+  if (model.TIPO_TIPOLOGIA < 0 || model.TIPO_TIPOLOGIA > 24) return `Error en campo NPH TIPO_TIPOLOGIA: valor inválido (${model.TIPO_TIPOLOGIA})`;
+  if (model.CONSERVACION < 0 || model.CONSERVACION > 3) return `Error en campo NPH CONSERVACION: valor inválido (${model.CONSERVACION})`;
+
+  // --- Georreferenciación ---
+  const lat = Number(String(model.LATITUD).replace(",", "."));
+  const lon = Number(String(model.LONGITUD).replace(",", "."));
+  if (isNaN(lat) || lat < -5 || lat > 15) return `Error en campo NPH LATITUD: fuera de rango permitido (-5 a 15) (${model.LATITUD})`;
+  if (isNaN(lon) || lon < -80 || lon > -65) return `Error en campo NPH LONGITUD: fuera de rango permitido (-80 a -65) (${model.LONGITUD})`;
+
+  return fail;
+}
+// Validador Ofertas Rurales - actualizado 20-09-2025
+
+static validRural(model) {
+  let fail = "exito";
+
+    // Helper: valida numérico >= 0
+  const checkNumber = (val, campo) => {
+    if (val == null || val === "" || isNaN(Number(val)) || Number(val) < 0) {
+      fail = `Hubo un problema con la carga del archivo, se detectó un error en la hoja NPH, campo [${campo}] con valor: ${val}`;
+      return false;
+    }
+    return true;
+  };
+
+  // Función genérica para verificar vacío
+  const isEmpty = (val) => {
+    return val === null || val === undefined || String(val).trim() === "";
+  };
+
+  // Definir banderas de identificadores principales
+  const noPredialAntiguo = isEmpty(model.NUMERO_PREDIAL_ANTIGUO);
+  const noPredialNuevo   = isEmpty(model.NUMERO_PREDIAL_NUEVO);
+  const noMatricula      = isEmpty(model.MATRICULA_INMOBILIARIA);
+
+  // Validar identificadores principales (si vienen vacíos -> error inmediato)
+  if (noPredialAntiguo) {
+    return "El campo campo RURAL NUMERO_PREDIAL_ANTIGUO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noPredialNuevo) {
+    return "El campo campo RURAL NUMERO_PREDIAL_NUEVO está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  if (noMatricula) {
+    return "El campo campo RURAL MATRICULA_INMOBILIARIA está vacío y es obligatorio su diligenciamiento.";
+  }
+
+  // Si TODOS están vacíos => exigir CODIGO_HOMOLOGADO
+  if (noPredialAntiguo && noPredialNuevo && noMatricula) {
+    if (isEmpty(model.CODIGO_HOMOLOGADO)) {
+      return "Hubo un problema con la carga: el campo campo RURAL CODIGO_HOMOLOGADO es obligatorio cuando no se diligencian los identificadores principales (Predial antiguo, Predial nuevo o Matrícula inmobiliaria).";
+    }
+  }
+
+  // Reglas adicionales de longitud
+if (
+  model.NUMERO_PREDIAL_ANTIGUO &&
+  !noPredialAntiguo &&
+  model.NUMERO_PREDIAL_ANTIGUO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_ANTIGUO.length !== 20
+) {
+  fail = `Error en campo RURAL NUMERO_PREDIAL_ANTIGUO: longitud inválida (${model.NUMERO_PREDIAL_ANTIGUO})`;
+  return fail;
+}
+
+if (
+  model.NUMERO_PREDIAL_NUEVO &&
+  !noPredialNuevo &&
+  model.NUMERO_PREDIAL_NUEVO.toLowerCase() !== "vacio" &&
+  model.NUMERO_PREDIAL_NUEVO.length !== 30
+) {
+  fail = `Error en campo RURAL NUMERO_PREDIAL_NUEVO: longitud inválida (${model.NUMERO_PREDIAL_NUEVO})`;
+  return fail;
+}
+
+if (
+  model.MATRICULA_INMOBILIARIA &&
+  !noMatricula &&
+  model.MATRICULA_INMOBILIARIA.toLowerCase() !== "vacio" &&
+  model.MATRICULA_INMOBILIARIA.length !== 12
+) {
+  fail = `Error en campo RURAL MATRICULA_INMOBILIARIA: longitud inválida (${model.MATRICULA_INMOBILIARIA})`;
+  return fail;
+}
+// Validar MUNICIPIO
+if (model.MUNICIPIO !== null && model.MUNICIPIO !== undefined) {
+  const raw = String(model.MUNICIPIO);           // preserva exactamente lo que entró
+  const trimmed = raw.trim();                    // versión limpia (quita espacios ASCII)
+  const unicodeEdgeSpace = /(^[\s\u00A0\u200B\uFEFF])|([\s\u00A0\u200B\uFEFF]$)/; 
+  // detecta espacios al inicio o final, incluyendo NBSP, ZWSP y BOM
+
+  // 1) Rechazar si hay espacios al inicio o final (incluidos unicode)
+  if (raw !== trimmed || unicodeEdgeSpace.test(raw)) {
+    fail = `Error en el campo RURAL MUNICIPIO: contiene espacios al inicio o al final ("${raw}")`;
+    return fail;
+  }
+
+  // 2) Ahora validar que tenga exactamente 5 dígitos (sin espacios)
+  if (!/^\d{5}$/.test(trimmed)) {
+    fail = `Error en el campo RURAL MUNICIPIO: debe tener exactamente 5 dígitos (${trimmed})`;
+    return fail;
+  }
+
+}
+// Validar DEPARTAMENTO
+if (model.DEPARTAMENTO !== null && model.DEPARTAMENTO !== undefined) {
+  const raw = String(model.DEPARTAMENTO);           // preserva exactamente lo que entró
+  const trimmed = raw.trim();                    // versión limpia (quita espacios ASCII)
+  const unicodeEdgeSpace = /(^[\s\u00A0\u200B\uFEFF])|([\s\u00A0\u200B\uFEFF]$)/; 
+  // detecta espacios al inicio o final, incluyendo NBSP, ZWSP y BOM
+
+  // 1) Rechazar si hay espacios al inicio o final (incluidos unicode)
+  if (raw !== trimmed || unicodeEdgeSpace.test(raw)) {
+    fail = `Error en el campo RURAL DEPARTAMENTO: contiene espacios al inicio o al final ("${raw}")`;
+    return fail;
+  }
+
+  // 2) Ahora validar que tenga exactamente 2 dígitos (sin espacios)
+  if (!/^\d{2}$/.test(trimmed)) {
+    fail = `Error en el campo RURAL DEPARTAMENTO: debe tener exactamente 2 dígitos (${trimmed})`;
+    return fail;
+  }
+
+}
+// --- Numéricos obligatorios ---
+  if (!checkNumber(model.VALOR_ARRIENDO, "VALOR_ARRIENDO")) return fail;
+  if (!checkNumber(model.VALOR_OFERTA_VENTA, "VALOR_OFERTA_VENTA")) return fail;
+  if (!checkNumber(model.PORCENTAJE_NEGOCIACION, "PORCENTAJE_NEGOCIACION")) return fail;
+  if (!checkNumber(model.VALOR_OFERTA_NEGOCIADO, "VALOR_OFERTA_NEGOCIADO")) return fail;
+  if (!checkNumber(model.ANIO_CONSTRUCCION, "ANIO_CONSTRUCCION")) return fail;
+  if (!checkNumber(model.AREA_TERRENO, "AREA_TERRENO")) return fail;
+  if (!checkNumber(model.AREA_CONSTRUCCION, "AREA_CONSTRUCCION")) return fail;
+  if (!checkNumber(model.VR_M2_CONST, "VR_M2_CONST")) return fail;
+  if (!checkNumber(model.VR_Ha_TERRENO, "VR_M2_TERRENO")) return fail;
+  if (!checkNumber(model.TIEMPO_OFERTA_MERCADO, "TIEMPO_OFERTA_MERCADO")) return fail;
+  if (!checkNumber(model.AVALUO_CATASTRAL, "AVALUO_CATASTRAL")) return fail;
+
+// --- Catálogos ---
+  if (model.ESTRATO < 0 || model.ESTRATO > 6) return `Error en campo NPH ESTRATO: valor inválido (${model.ESTRATO})`;
+  if (model.TIPO_OFERTA < 0 || model.TIPO_OFERTA > 1) return `Error en campo NPH TIPO_OFERTA: valor inválido (${model.TIPO_OFERTA})`;
+  if (model.DESTINACION_ECONOMICA < 0 || model.DESTINACION_ECONOMICA > 26) return `Error en campo NPH DESTINACION_ECONOMICA: valor inválido (${model.DESTINACION_ECONOMICA})`;
+  if (model.DERECHO_TIPO < 0 || model.DERECHO_TIPO > 2) return `Error en campo NPH DERECHO_TIPO: valor inválido (${model.DERECHO_TIPO})`;
+  if (model.TIPO_TIPOLOGIA < 0 || model.TIPO_TIPOLOGIA > 24) return `Error en campo NPH TIPO_TIPOLOGIA: valor inválido (${model.TIPO_TIPOLOGIA})`;
+  if (model.CONSERVACION < 0 || model.CONSERVACION > 3) return `Error en campo NPH CONSERVACION: valor inválido (${model.CONSERVACION})`;
+
+  // --- Georreferenciación ---
+  const lat = Number(String(model.LATITUD).replace(",", "."));
+  const lon = Number(String(model.LONGITUD).replace(",", "."));
+  if (isNaN(lat) || lat < -5 || lat > 15) return `Error en campo NPH LATITUD: fuera de rango permitido (-5 a 15) (${model.LATITUD})`;
+  if (isNaN(lon) || lon < -80 || lon > -65) return `Error en campo NPH LONGITUD: fuera de rango permitido (-80 a -65) (${model.LONGITUD})`;
+
+
+return fail;
+}
+    
 }
 
 module.exports = ValidService;
