@@ -26,13 +26,11 @@ module.exports = {
   },
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
-  
-  // cambiar la linea publicPath '/' por '/observatorio/' al pasar a produccion
+  // cambiar la linea publicPath por /observatorio/ al pasar a produccion
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     publicPath: '/observatorio/'
-    
   },
 
   module: {

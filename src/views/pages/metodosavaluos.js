@@ -498,7 +498,7 @@ const avaluos = () => {
           justifyContent="center"
         >
           <Grid container item xs justifyContent="initial" alignItems="center">
-            <p className={classes.contentrulesp3}><strong>Técnicas Valuatorias 472 KB   |   01/09/2025</strong></p>
+            <p className={classes.contentrulesp3}><strong>Técnicas Valuatorias 472 KB   |   01/09/2021</strong></p>
           </Grid>
           <Grid Grid container item xs={4} justifyContent="flex-end">
             <Tooltip title="Descripción: Técnica valuatorias en Colombia y el mundo" arrow>
